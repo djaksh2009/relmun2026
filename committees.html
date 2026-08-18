@@ -10,87 +10,152 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Committees | RELMUN '26</title>
+  <meta
+    name="description"
+    content="RELMUN '26 committees — UNSC, UNHRC and UNODC."
+  >
 
-  <link rel="stylesheet" href="style.css">
+  <title>
+    Committees | RELMUN '26
+  </title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="favicon.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
 </head>
 
 
 <body>
 
-  <nav>
+  <div class="grain"></div>
 
-    <div class="logo">
-      <a href="index.html">
-        RELMUN <span>’26</span>
+
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+
+    <a
+      class="brand"
+      href="index.html"
+    >
+
+      <img
+        src="assets/relmun-logo.png"
+        alt="RELMUN 2026 logo"
+      >
+
+    </a>
+
+
+    <button
+      class="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+
+      <span></span>
+      <span></span>
+
+    </button>
+
+
+    <nav class="nav-links">
+
+      <a href="index.html#about">
+        ABOUT
       </a>
-    </div>
 
-    <ul>
-      <li>
-        <a href="index.html#about">ABOUT</a>
-      </li>
+      <a
+        href="committees.html"
+        class="active"
+      >
+        COMMITTEES
+      </a>
 
-      <li>
-        <a href="committees.html">COMMITTEES</a>
-      </li>
+      <a href="index.html#conference">
+        CONFERENCE
+      </a>
 
-      <li>
-        <a href="index.html#conference">CONFERENCE</a>
-      </li>
+      <a href="index.html#team">
+        TEAM
+      </a>
 
-      <li>
-        <a href="index.html#delegates">DELEGATES</a>
-      </li>
+      <a href="index.html#eb">
+        EB
+      </a>
 
-      <li>
-        <a href="index.html#register">REGISTER</a>
-      </li>
-    </ul>
+      <button class="nav-register js-register">
+        REGISTER
+      </button>
 
-  </nav>
+    </nav>
+
+  </header>
 
 
-  <main>
 
-    <section class="committee-page-header">
+  <main class="committees-page">
 
-      <div class="section-label">
+
+    <!-- PAGE HERO -->
+
+    <section class="page-hero">
+
+      <div class="section-index">
         02 / COMMITTEES
       </div>
 
       <h1>
-        ENTER THE<br>
-        <em>DEBATE.</em>
+        CHOOSE YOUR<br>
+        <em>ARENA.</em>
       </h1>
 
       <p>
-        Select a committee to explore its mandate,
-        agenda, Executive Board and preparation materials.
+        Three committees. Different mandates. One conference.
       </p>
 
     </section>
 
 
-    <section class="committee-selection">
+
+    <!-- COMMITTEES -->
+
+    <section class="all-committees">
 
 
-      <article
-        class="committee-selection-card"
-        onclick="window.location.href='committee.html?committee=unsc'"
+      <!-- UNSC -->
+
+      <a
+        class="committee-card large-card"
+        href="committee.html?committee=unsc"
       >
 
-        <div class="committee-top">
-          <span>01</span>
-          <span>UNSC</span>
+        <div class="card-top">
+
+          <span>
+            01 / UNSC
+          </span>
+
+          <span>
+            ↗
+          </span>
+
         </div>
 
-        <div class="committee-content">
 
-          <div class="committee-org">
+        <div class="card-content">
+
+          <small>
             UNITED NATIONS
-          </div>
+          </small>
 
           <h2>
             SECURITY<br>
@@ -105,24 +170,46 @@
 
         </div>
 
-      </article>
 
+        <div class="card-footer">
 
-      <article
-        class="committee-selection-card"
-        onclick="window.location.href='committee.html?committee=unhrc'"
-      >
+          VIEW MORE
 
-        <div class="committee-top">
-          <span>02</span>
-          <span>UNHRC</span>
+          <span>
+            →
+          </span>
+
         </div>
 
-        <div class="committee-content">
+      </a>
 
-          <div class="committee-org">
+
+
+      <!-- UNHRC -->
+
+      <a
+        class="committee-card large-card"
+        href="committee.html?committee=unhrc"
+      >
+
+        <div class="card-top">
+
+          <span>
+            02 / UNHRC
+          </span>
+
+          <span>
+            ↗
+          </span>
+
+        </div>
+
+
+        <div class="card-content">
+
+          <small>
             UNITED NATIONS
-          </div>
+          </small>
 
           <h2>
             HUMAN RIGHTS<br>
@@ -130,47 +217,77 @@
           </h2>
 
           <p>
-            International human rights,
-            cooperation and policy-focused
-            multilateral debate.
+            International human rights, cooperation
+            and policy-focused multilateral debate.
           </p>
 
         </div>
 
-      </article>
 
+        <div class="card-footer">
 
-      <article
-        class="committee-selection-card"
-        onclick="window.location.href='committee.html?committee=unodc'"
-      >
+          VIEW MORE
 
-        <div class="committee-top">
-          <span>03</span>
-          <span>UNODC</span>
+          <span>
+            →
+          </span>
+
         </div>
 
-        <div class="committee-content">
+      </a>
 
-          <div class="committee-org">
+
+
+      <!-- UNODC -->
+
+      <a
+        class="committee-card large-card"
+        href="committee.html?committee=unodc"
+      >
+
+        <div class="card-top">
+
+          <span>
+            03 / UNODC
+          </span>
+
+          <span>
+            ↗
+          </span>
+
+        </div>
+
+
+        <div class="card-content">
+
+          <small>
             UNITED NATIONS
-          </div>
+          </small>
 
           <h2>
             OFFICE ON<br>
-            DRUGS<br>
-            AND CRIME
+            DRUGS AND CRIME
           </h2>
 
           <p>
-            International cooperation against
-            drugs, organised crime and related
-            challenges.
+            International cooperation against drugs,
+            organised crime and related challenges.
           </p>
 
         </div>
 
-      </article>
+
+        <div class="card-footer">
+
+          VIEW MORE
+
+          <span>
+            →
+          </span>
+
+        </div>
+
+      </a>
 
 
     </section>
@@ -178,24 +295,132 @@
   </main>
 
 
+
+  <!-- FOOTER -->
+
   <footer>
 
-    <div class="footer-brand">
-      RELMUN ’26
+    <div class="footer-logo">
+
+      <img
+        src="assets/relmun-logo.png"
+        alt="RELMUN 2026"
+      >
+
     </div>
 
-    <p>
-      Relations · Engagement · Leadership
-    </p>
 
-    <p>
-      © 2026 RELMUN. All rights reserved.
-    </p>
+    <div class="footer-middle">
+
+      <strong>
+        RELMUN '26
+      </strong>
+
+      <span>
+        Relations · Engagement · Leadership
+      </span>
+
+    </div>
+
+
+    <div class="footer-right">
+
+      <span>
+        26–27 DECEMBER 2026
+      </span>
+
+      <span>
+        © 2026 RELMUN
+      </span>
+
+    </div>
 
   </footer>
+
+
+
+  <!-- REGISTRATION MODAL -->
+
+  <div
+    class="modal"
+    id="registrationModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-backdrop js-close-modal"></div>
+
+
+    <div class="modal-box">
+
+      <button class="modal-close js-close-modal">
+        ×
+      </button>
+
+
+      <p class="eyebrow">
+        DELEGATE REGISTRATION
+      </p>
+
+
+      <h2>
+        CHOOSE YOUR<br>
+        <em>PLATFORM.</em>
+      </h2>
+
+
+      <p>
+        Select where you'd like to register for RELMUN '26.
+      </p>
+
+
+      <div class="modal-options">
+
+        <a
+          href="https://mymun.com/conferences/relmun-2026"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <span>01</span>
+
+          <strong>
+            MyMUN
+          </strong>
+
+          <small>
+            REGISTER VIA MYMUN ↗
+          </small>
+
+        </a>
+
+
+        <a
+          href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <span>02</span>
+
+          <strong>
+            Gavelling
+          </strong>
+
+          <small>
+            REGISTER VIA GAVELLING ↗
+          </small>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
 
 
   <script src="script.js"></script>
 
 </body>
+
 </html>
