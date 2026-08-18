@@ -5,86 +5,6 @@
 
 
 /* =========================================================
-   HOMEPAGE REGISTRATION
-   ========================================================= */
-
-const homeRegisterButton =
-  document.getElementById("homeRegisterButton");
-
-const bottomRegisterButton =
-  document.getElementById("bottomRegisterButton");
-
-const homeRegistrationModal =
-  document.getElementById("homeRegistrationModal");
-
-const homeRegistrationClose =
-  document.getElementById("homeRegistrationClose");
-
-const homeRegistrationOverlay =
-  document.getElementById("homeRegistrationOverlay");
-
-
-function openHomeRegistration() {
-
-  if (!homeRegistrationModal) return;
-
-  homeRegistrationModal.classList.add("open");
-
-  document.body.style.overflow = "hidden";
-}
-
-
-function closeHomeRegistration() {
-
-  if (!homeRegistrationModal) return;
-
-  homeRegistrationModal.classList.remove("open");
-
-  document.body.style.overflow = "";
-}
-
-
-if (homeRegisterButton) {
-
-  homeRegisterButton.addEventListener(
-    "click",
-    openHomeRegistration
-  );
-
-}
-
-
-if (bottomRegisterButton) {
-
-  bottomRegisterButton.addEventListener(
-    "click",
-    openHomeRegistration
-  );
-
-}
-
-
-if (homeRegistrationClose) {
-
-  homeRegistrationClose.addEventListener(
-    "click",
-    closeHomeRegistration
-  );
-
-}
-
-
-if (homeRegistrationOverlay) {
-
-  homeRegistrationOverlay.addEventListener(
-    "click",
-    closeHomeRegistration
-  );
-
-}
-
-
-/* =========================================================
    COMMITTEE DATA
    ========================================================= */
 
@@ -104,9 +24,6 @@ const committees = {
       "The UNSC agenda will be announced once the committee's academic material has been finalised.",
 
     agendaOne:
-      "Agenda To Be Announced",
-
-    agendaTwo:
       "Agenda To Be Announced"
 
   },
@@ -126,9 +43,6 @@ const committees = {
       "The UNHRC agenda will be announced once the committee's academic material has been finalised.",
 
     agendaOne:
-      "Agenda To Be Announced",
-
-    agendaTwo:
       "Agenda To Be Announced"
 
   },
@@ -148,9 +62,6 @@ const committees = {
       "The UNODC agenda will be announced once the committee's academic material has been finalised.",
 
     agendaOne:
-      "Agenda To Be Announced",
-
-    agendaTwo:
       "Agenda To Be Announced"
 
   }
@@ -159,7 +70,7 @@ const committees = {
 
 
 /* =========================================================
-   COMMITTEE DETAIL PAGE
+   GET COMMITTEE FROM URL
    ========================================================= */
 
 const params =
@@ -168,10 +79,13 @@ const params =
 const selectedCommittee =
   params.get("committee");
 
-
 const committeeData =
   committees[selectedCommittee];
 
+
+/* =========================================================
+   LOAD COMMITTEE INFORMATION
+   ========================================================= */
 
 if (committeeData) {
 
@@ -193,80 +107,54 @@ if (committeeData) {
   const agendaOne =
     document.getElementById("agendaOne");
 
-  const agendaTwo =
-    document.getElementById("agendaTwo");
-
   const modalCommittee =
     document.getElementById("modalCommittee");
 
 
   if (committeeCode) {
-
     committeeCode.textContent =
       committeeData.code;
-
   }
 
 
   if (committeeTitle) {
-
     committeeTitle.innerHTML =
       committeeData.title;
-
   }
 
 
   if (committeeDescription) {
-
     committeeDescription.textContent =
       committeeData.description;
-
   }
 
 
   if (committeeMeta) {
-
     committeeMeta.textContent =
       committeeData.code;
-
   }
 
 
   if (agendaDescription) {
-
     agendaDescription.textContent =
       committeeData.agendaDescription;
-
   }
 
 
   if (agendaOne) {
-
     agendaOne.textContent =
       committeeData.agendaOne;
-
-  }
-
-
-  if (agendaTwo) {
-
-    agendaTwo.textContent =
-      committeeData.agendaTwo;
-
   }
 
 
   if (modalCommittee) {
-
     modalCommittee.textContent =
       committeeData.code;
-
   }
 
 
   document.title =
-    committeeData.code +
-    " | RELMUN '26";
+    committeeData.code + " | RELMUN '26";
 
 }
 
@@ -368,6 +256,32 @@ if (detailRegistrationOverlay) {
 
 
 /* =========================================================
+   NAV REGISTER BUTTON
+   ========================================================= */
+
+const detailNavRegister =
+  document.getElementById(
+    "detailNavRegister"
+  );
+
+
+if (detailNavRegister) {
+
+  detailNavRegister.addEventListener(
+    "click",
+    function(event) {
+
+      event.preventDefault();
+
+      openDetailRegistration();
+
+    }
+  );
+
+}
+
+
+/* =========================================================
    ESCAPE KEY
    ========================================================= */
 
@@ -375,23 +289,7 @@ document.addEventListener(
   "keydown",
   function(event) {
 
-    if (event.key !== "Escape") return;
-
-
-    if (
-      homeRegistrationModal &&
-      homeRegistrationModal.classList.contains("open")
-    ) {
-
-      closeHomeRegistration();
-
-    }
-
-
-    if (
-      detailRegistrationModal &&
-      detailRegistrationModal.classList.contains("open")
-    ) {
+    if (event.key === "Escape") {
 
       closeDetailRegistration();
 
