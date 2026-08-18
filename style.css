@@ -1426,3 +1426,510 @@ body > footer nav a:hover {
   }
 
 }
+/* =========================================================
+   COMMITTEES PAGE
+   ========================================================= */
+
+.committee-page-header {
+  max-width: 1400px;
+  margin: auto;
+  padding: 110px 5vw 60px;
+}
+
+.committee-page-header h1 {
+  margin-top: 30px;
+
+  font-size: clamp(4rem, 9vw, 9rem);
+  line-height: 0.85;
+  letter-spacing: -0.07em;
+
+  font-weight: 900;
+}
+
+.committee-page-header h1 em {
+  font-style: italic;
+}
+
+.committee-page-header > p {
+  max-width: 850px;
+
+  margin-top: 30px;
+
+  color: var(--muted);
+
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   THREE COMMITTEE CARDS
+========================= */
+
+.committee-selection {
+  max-width: 1400px;
+  margin: auto;
+
+  padding: 20px 5vw 130px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 28px;
+}
+
+
+.committee-selection-card {
+  min-height: 680px;
+
+  padding: 42px;
+
+  border: 1px solid var(--line);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 38, 75, 0.35),
+      rgba(5, 11, 24, 0.8)
+    );
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.committee-selection-card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--gold);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* TOP */
+
+.committee-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: var(--gold);
+
+  font-size: 0.72rem;
+  font-weight: 900;
+
+  letter-spacing: 0.17em;
+}
+
+
+/* CONTENT */
+
+.committee-content {
+  margin-top: auto;
+}
+
+.committee-org {
+  margin-bottom: 18px;
+
+  color: var(--white);
+
+  font-size: 0.68rem;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+
+.committee-content h2 {
+  font-size: clamp(2.3rem, 3.3vw, 3.8rem);
+
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+
+.committee-content p {
+  max-width: 430px;
+
+  margin-top: 25px;
+
+  color: var(--muted);
+
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   CARD BUTTONS
+========================= */
+
+.committee-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 45px;
+}
+
+
+.committee-view,
+.committee-register {
+  min-height: 48px;
+
+  padding: 0 20px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 3px;
+
+  font-family: inherit;
+
+  font-size: 0.66rem;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* VIEW MORE */
+
+.committee-view {
+  border: 1px solid var(--gold);
+
+  background: transparent;
+
+  color: var(--white);
+}
+
+
+.committee-view:hover {
+  background: var(--gold);
+
+  color: var(--navy);
+
+  transform: translateY(-2px);
+}
+
+
+/* REGISTER */
+
+.committee-register {
+  border: 1px solid var(--gold);
+
+  background: var(--gold);
+
+  color: var(--navy);
+
+  box-shadow:
+    0 7px 20px rgba(201, 166, 83, 0.18);
+}
+
+
+.committee-register:hover {
+  background: var(--gold-light);
+
+  border-color: var(--gold-light);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 28px rgba(201, 166, 83, 0.3);
+}
+
+
+/* =========================
+   REGISTRATION MODAL
+========================= */
+
+.registration-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+
+.registration-modal.open {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+.registration-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.8);
+
+  backdrop-filter: blur(8px);
+}
+
+
+.registration-box {
+  width: min(700px, 100%);
+
+  position: relative;
+  z-index: 2;
+
+  padding: 50px;
+
+  border: 1px solid
+    rgba(201, 166, 83, 0.45);
+
+  background:
+    linear-gradient(
+      145deg,
+      #0d1930,
+      #060c19
+    );
+
+  box-shadow:
+    0 30px 100px
+    rgba(0, 0, 0, 0.6);
+}
+
+
+.registration-close {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid
+    rgba(255,255,255,0.15);
+
+  background: transparent;
+
+  color: var(--white);
+
+  font-size: 1.7rem;
+
+  cursor: pointer;
+}
+
+
+.registration-close:hover {
+  color: var(--gold);
+
+  border-color: var(--gold);
+}
+
+
+.registration-box h2 {
+  margin-top: 22px;
+
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+
+  line-height: 0.9;
+
+  letter-spacing: -0.05em;
+}
+
+
+.registration-box h2 em {
+  color: var(--gold);
+
+  font-style: italic;
+}
+
+
+.registration-description {
+  margin-top: 20px;
+
+  color: var(--muted);
+}
+
+
+/* MODAL OPTIONS */
+
+.registration-options {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 15px;
+
+  margin-top: 35px;
+}
+
+
+.registration-option {
+  display: block;
+
+  padding: 28px;
+
+  border: 1px solid
+    rgba(201, 166, 83, 0.35);
+
+  background: #0b1629;
+
+  color: var(--white);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.registration-option:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--gold);
+
+  background: #101d34;
+}
+
+
+.registration-option small {
+  display: block;
+
+  color: var(--gold);
+
+  font-size: 0.6rem;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+
+.registration-option strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 1.6rem;
+}
+
+
+.registration-option span {
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--muted);
+
+  font-size: 0.72rem;
+}
+
+
+.registration-note {
+  margin-top: 25px;
+
+  color: #68758a;
+
+  font-size: 0.7rem;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  .committee-selection {
+    grid-template-columns: 1fr;
+  }
+
+  .committee-selection-card {
+    min-height: 520px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .committee-page-header {
+    padding:
+      80px 20px 40px;
+  }
+
+  .committee-selection {
+    padding:
+      20px 20px 80px;
+  }
+
+  .committee-selection-card {
+    padding: 30px;
+
+    min-height: 500px;
+  }
+
+  .committee-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .committee-view,
+  .committee-register {
+    width: 100%;
+  }
+
+  .registration-box {
+    padding: 35px 25px;
+  }
+
+  .registration-options {
+    grid-template-columns: 1fr;
+  }
+
+}
