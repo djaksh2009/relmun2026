@@ -588,3 +588,56 @@ document.addEventListener("keydown", (event) => {
 </body>
 
 </html>
+
+<script>
+const homeRegisterButton =
+  document.getElementById("homeRegisterButton");
+
+const homeRegistrationModal =
+  document.getElementById("homeRegistrationModal");
+
+const homeRegistrationClose =
+  document.getElementById("homeRegistrationClose");
+
+const homeRegistrationOverlay =
+  document.getElementById("homeRegistrationOverlay");
+
+
+homeRegisterButton.addEventListener("click", function () {
+
+  homeRegistrationModal.classList.add("open");
+
+  document.body.style.overflow = "hidden";
+
+});
+
+
+function closeHomeRegistration() {
+
+  homeRegistrationModal.classList.remove("open");
+
+  document.body.style.overflow = "";
+
+}
+
+
+homeRegistrationClose.addEventListener(
+  "click",
+  closeHomeRegistration
+);
+
+
+homeRegistrationOverlay.addEventListener(
+  "click",
+  closeHomeRegistration
+);
+
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+    closeHomeRegistration();
+  }
+
+});
+</script>
