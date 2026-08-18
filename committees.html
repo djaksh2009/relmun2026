@@ -7,10 +7,10 @@
 
   <meta
     name="description"
-    content="RELMUN ’26 — Explore the committees of the conference."
+    content="RELMUN '26 — Committees"
   >
 
-  <title>Committees | RELMUN ’26</title>
+  <title>Committees | RELMUN '26</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,368 +18,247 @@
 <body>
 
   <!-- =========================
-       HEADER
+       NAVIGATION
   ========================== -->
 
-  <header>
+  <nav>
 
-    <a class="logo" href="index.html">
-      RELMUN <b>’26</b>
-    </a>
-
-    <button
-      id="menu"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-    <nav id="nav">
-
-      <a href="index.html#about">About</a>
-
-      <a href="committees.html">Committees</a>
-
-      <a href="eb.html">Executive Board</a>
-
-      <a href="index.html#schedule">Schedule</a>
-
-      <a href="index.html#delegates">Delegates</a>
-
-      <a
-        class="navbtn"
-        href="index.html#register"
-      >
-        Register
+    <div class="logo">
+      <a href="index.html">
+        RELMUN <span>’26</span>
       </a>
+    </div>
 
-    </nav>
+    <ul>
 
-  </header>
+      <li>
+        <a href="index.html#about">ABOUT</a>
+      </li>
 
+      <li>
+        <a href="committees.html">COMMITTEES</a>
+      </li>
 
-  <!-- =========================
-       MAIN
-  ========================== -->
+      <li>
+        <a href="index.html#conference">CONFERENCE</a>
+      </li>
+
+      <li>
+        <a href="index.html#delegates">DELEGATES</a>
+      </li>
+
+      <li>
+        <a href="index.html#register">REGISTER</a>
+      </li>
+
+    </ul>
+
+  </nav>
+
 
   <main>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-    <!-- HERO -->
+    <section class="committee-page-header">
 
-    <section class="hero inner-hero">
-
-      <div class="rings"></div>
-
-      <div class="grid"></div>
-
-      <div class="heroText">
-
-        <p class="gold">
-          RELMUN ’26 · COMMITTEES
-        </p>
-
-        <h1>
-          CHOOSE<br>
-          <i>YOUR ARENA.</i>
-        </h1>
-
-        <p class="lead">
-          Three committees. Different mandates. One conference.
-        </p>
-
-        <div class="meta">
-
-          <span>
-            <b>03</b> COMMITTEES
-          </span>
-
-          <span>
-            <b>26–27</b> DECEMBER
-          </span>
-
-          <span>
-            <b>ONLINE</b> CONFERENCE
-          </span>
-
-        </div>
-
+      <div class="section-label">
+        02 / COMMITTEES
       </div>
+
+      <h1>
+        ENTER THE<br>
+        <em>DEBATE.</em>
+      </h1>
+
+      <p>
+        Select a committee to explore its mandate,
+        agenda, Executive Board and preparation materials.
+      </p>
 
     </section>
 
 
     <!-- =========================
-         COMMITTEE SELECTION
+         COMMITTEES
     ========================== -->
 
-    <section class="section dark">
+    <section class="committee-selection">
 
-      <div class="heading">
+      <!-- UNSC -->
 
-        <div>
+      <article class="committee-selection-card">
 
-          <p class="eyebrow">
-            01 — COMMITTEES
-          </p>
+        <div class="committee-top">
+
+          <span>
+            01
+          </span>
+
+          <span>
+            UNSC
+          </span>
+
+        </div>
+
+        <div class="committee-content">
+
+          <div class="committee-org">
+            UNITED NATIONS
+          </div>
 
           <h2>
-            ENTER THE<br>
-            <em>DEBATE.</em>
+            SECURITY<br>
+            COUNCIL
           </h2>
+
+          <p>
+            International peace and security,
+            diplomacy, negotiation and high-level
+            decision-making.
+          </p>
 
         </div>
 
-        <p>
-          Select a committee to explore its mandate,
-          agenda, Executive Board and preparation materials.
-        </p>
+        <div class="committee-actions">
 
-      </div>
+          <a
+            href="committee.html?committee=unsc"
+            class="committee-view"
+          >
+            VIEW MORE
+          </a>
+
+          <button
+            class="committee-register"
+            type="button"
+            data-committee="UNSC"
+          >
+            REGISTER NOW
+          </button>
+
+        </div>
+
+      </article>
 
 
-      <div class="committee-selection">
+      <!-- UNHRC -->
 
+      <article class="committee-selection-card">
 
-        <!-- =====================
-             UNSC
-        ====================== -->
+        <div class="committee-top">
 
-        <article class="committee-select-card">
+          <span>
+            02
+          </span>
 
-          <div class="committee-select-top">
+          <span>
+            UNHRC
+          </span>
 
-            <span>01</span>
+        </div>
 
-            <small>UNSC</small>
+        <div class="committee-content">
 
+          <div class="committee-org">
+            UNITED NATIONS
           </div>
 
+          <h2>
+            HUMAN RIGHTS<br>
+            COUNCIL
+          </h2>
 
-          <div class="committee-select-body">
+          <p>
+            International human rights, cooperation
+            and policy-focused multilateral debate.
+          </p>
 
-            <p class="committee-code">
-              UNITED NATIONS
-            </p>
+        </div>
 
-            <h3>
-              Security<br>
-              Council
-            </h3>
+        <div class="committee-actions">
 
-            <p class="committee-select-description">
-              International peace and security,
-              diplomacy, negotiation and high-level
-              decision-making.
-            </p>
+          <a
+            href="committee.html?committee=unhrc"
+            class="committee-view"
+          >
+            VIEW MORE
+          </a>
 
+          <button
+            class="committee-register"
+            type="button"
+            data-committee="UNHRC"
+          >
+            REGISTER NOW
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- UNODC -->
+
+      <article class="committee-selection-card">
+
+        <div class="committee-top">
+
+          <span>
+            03
+          </span>
+
+          <span>
+            UNODC
+          </span>
+
+        </div>
+
+        <div class="committee-content">
+
+          <div class="committee-org">
+            UNITED NATIONS
           </div>
 
-
-          <div class="committee-actions">
-
-            <a
-              class="committee-view"
-              href="committee.html?committee=unsc"
-            >
-              View More
-            </a>
-
-            <button
-              class="committee-register"
-              type="button"
-              data-committee="UNSC"
-            >
-              Register Now
-            </button>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- =====================
-             UNHRC
-        ====================== -->
-
-        <article class="committee-select-card">
-
-          <div class="committee-select-top">
-
-            <span>02</span>
-
-            <small>UNHRC</small>
-
-          </div>
-
-
-          <div class="committee-select-body">
-
-            <p class="committee-code">
-              UNITED NATIONS
-            </p>
-
-            <h3>
-              Human Rights<br>
-              Council
-            </h3>
-
-            <p class="committee-select-description">
-              International human rights,
-              cooperation and policy-focused
-              multilateral debate.
-            </p>
-
-          </div>
-
-
-          <div class="committee-actions">
-
-            <a
-              class="committee-view"
-              href="committee.html?committee=unhrc"
-            >
-              View More
-            </a>
-
-            <button
-              class="committee-register"
-              type="button"
-              data-committee="UNHRC"
-            >
-              Register Now
-            </button>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- =====================
-             UNODC
-        ====================== -->
-
-        <article class="committee-select-card">
-
-          <div class="committee-select-top">
-
-            <span>03</span>
-
-            <small>UNODC</small>
-
-          </div>
-
-
-          <div class="committee-select-body">
-
-            <p class="committee-code">
-              UNITED NATIONS
-            </p>
-
-            <h3>
-              Office on Drugs<br>
-              and Crime
-            </h3>
-
-            <p class="committee-select-description">
-              International cooperation against
-              drugs, organised crime and
-              related challenges.
-            </p>
-
-          </div>
-
-
-          <div class="committee-actions">
-
-            <a
-              class="committee-view"
-              href="committee.html?committee=unodc"
-            >
-              View More
-            </a>
-
-            <button
-              class="committee-register"
-              type="button"
-              data-committee="UNODC"
-            >
-              Register Now
-            </button>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         REGISTRATION INFO
-    ========================== -->
-
-    <section class="mini">
-
-      <div>
-
-        <p class="eyebrow">
-          REGISTRATION
-        </p>
-
-        <h2>
-          TWO<br>
-          <em>PLATFORMS.</em>
-        </h2>
-
-      </div>
-
-      <p>
-        When registration is open, delegates will be able
-        to choose their preferred registration platform
-        between MyMUN and Gavelling.
-      </p>
-
-    </section>
-
-
-
-    <!-- =========================
-         CTA
-    ========================== -->
-
-    <section class="register">
-
-      <p class="eyebrow">
-        RELMUN ’26
-      </p>
-
-      <h2>
-        FIND YOUR<br>
-        <em>COMMITTEE.</em>
-      </h2>
-
-      <p>
-        Explore each committee before making your
-        registration choice.
-      </p>
-
-      <a
-        class="btn goldbtn"
-        href="index.html#register"
-      >
-        Conference Information
-      </a>
+          <h2>
+            OFFICE ON<br>
+            DRUGS<br>
+            AND CRIME
+          </h2>
+
+          <p>
+            International cooperation against drugs,
+            organised crime and related challenges.
+          </p>
+
+        </div>
+
+        <div class="committee-actions">
+
+          <a
+            href="committee.html?committee=unodc"
+            class="committee-view"
+          >
+            VIEW MORE
+          </a>
+
+          <button
+            class="committee-register"
+            type="button"
+            data-committee="UNODC"
+          >
+            REGISTER NOW
+          </button>
+
+        </div>
+
+      </article>
 
     </section>
 
   </main>
-
 
 
   <!-- =========================
@@ -389,38 +268,33 @@
   <div
     id="registrationModal"
     class="registration-modal"
-    aria-hidden="true"
   >
 
     <div
       class="registration-overlay"
-      data-close-registration
+      id="closeModalOverlay"
     ></div>
 
 
-    <div
-      class="registration-box"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="registrationTitle"
-    >
+    <div class="registration-box">
 
       <button
         class="registration-close"
+        id="closeModal"
         type="button"
-        aria-label="Close registration"
-        data-close-registration
       >
         ×
       </button>
 
-
-      <p class="eyebrow">
+      <div class="eyebrow">
         REGISTRATION
-      </p>
+      </div>
 
-      <h2 id="registrationTitle">
-        Register for <em id="selectedCommittee">RELMUN</em>
+      <h2>
+        REGISTER FOR<br>
+        <em id="modalCommittee">
+          RELMUN
+        </em>
       </h2>
 
       <p class="registration-description">
@@ -430,76 +304,61 @@
 
       <div class="registration-options">
 
-
-        <!-- MyMUN -->
-
         <a
-          id="mymunLink"
-          class="registration-option"
           href="#"
+          class="registration-option"
+          id="mymunButton"
           target="_blank"
           rel="noopener noreferrer"
         >
 
-          <div>
+          <small>
+            PLATFORM 01
+          </small>
 
-            <small>
-              PLATFORM 01
-            </small>
+          <strong>
+            MyMUN
+          </strong>
 
-            <strong>
-              MyMUN
-            </strong>
-
-            <span>
-              Register through MyMUN →
-            </span>
-
-          </div>
+          <span>
+            Register through MyMUN →
+          </span>
 
         </a>
 
 
-        <!-- Gavelling -->
-
         <a
-          id="gavellingLink"
-          class="registration-option"
           href="#"
+          class="registration-option"
+          id="gavellingButton"
           target="_blank"
           rel="noopener noreferrer"
         >
 
-          <div>
+          <small>
+            PLATFORM 02
+          </small>
 
-            <small>
-              PLATFORM 02
-            </small>
+          <strong>
+            Gavelling
+          </strong>
 
-            <strong>
-              Gavelling
-            </strong>
-
-            <span>
-              Register through Gavelling →
-            </span>
-
-          </div>
+          <span>
+            Register through Gavelling →
+          </span>
 
         </a>
 
       </div>
 
-
       <p class="registration-note">
-        Registration links will become active once
-        the official registration platforms are open.
+        Official registration links will be added once
+        registration opens.
       </p>
 
     </div>
 
   </div>
-
 
 
   <!-- =========================
@@ -508,55 +367,100 @@
 
   <footer>
 
-    <div>
-
-      <a
-        class="logo"
-        href="index.html"
-      >
-        RELMUN <b>’26</b>
-      </a>
-
-      <small>
-        RELATIONS · ENGAGEMENT · LEADERSHIP
-      </small>
-
+    <div class="footer-brand">
+      RELMUN ’26
     </div>
 
+    <p>
+      Relations · Engagement · Leadership
+    </p>
 
-    <nav>
-
-      <a href="index.html#about">
-        About
-      </a>
-
-      <a href="committees.html">
-        Committees
-      </a>
-
-      <a href="eb.html">
-        EB
-      </a>
-
-      <a href="index.html#schedule">
-        Schedule
-      </a>
-
-      <a href="index.html#delegates">
-        Delegates
-      </a>
-
-    </nav>
-
-
-    <small>
-      26–27 DECEMBER 2026 · ONLINE · IST
-    </small>
+    <p>
+      © 2026 RELMUN. All rights reserved.
+    </p>
 
   </footer>
 
 
-  <script src="script.js"></script>
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const modal =
+      document.getElementById("registrationModal");
+
+    const modalCommittee =
+      document.getElementById("modalCommittee");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const closeModalOverlay =
+      document.getElementById("closeModalOverlay");
+
+
+    const registrationButtons =
+      document.querySelectorAll(
+        ".committee-register"
+      );
+
+
+    registrationButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const committee =
+          button.dataset.committee;
+
+        modalCommittee.textContent =
+          committee;
+
+        modal.classList.add("open");
+
+        document.body.style.overflow =
+          "hidden";
+
+      });
+
+    });
+
+
+    function closeRegistration() {
+
+      modal.classList.remove("open");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      closeRegistration
+    );
+
+
+    closeModalOverlay.addEventListener(
+      "click",
+      closeRegistration
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+          closeRegistration();
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 
