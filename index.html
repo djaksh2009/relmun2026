@@ -14,7 +14,136 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+<!-- REGISTRATION PLATFORM MODAL -->
 
+<div id="homeRegistrationModal" class="registration-modal">
+
+  <div
+    class="registration-overlay"
+    id="homeRegistrationOverlay"
+  ></div>
+
+  <div class="registration-box">
+
+    <button
+      class="registration-close"
+      id="homeRegistrationClose"
+      type="button"
+    >
+      ×
+    </button>
+
+    <div class="eyebrow">
+      REGISTRATION
+    </div>
+
+    <h2>
+      CHOOSE YOUR<br>
+      <em>PLATFORM.</em>
+    </h2>
+
+    <p class="registration-description">
+      Choose your preferred registration platform for RELMUN ’26.
+    </p>
+
+    <div class="registration-options">
+
+      <a
+        href="#"
+        class="registration-option"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <small>PLATFORM 01</small>
+
+        <strong>MyMUN</strong>
+
+        <span>
+          Register through MyMUN →
+        </span>
+      </a>
+
+
+      <a
+        href="#"
+        class="registration-option"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <small>PLATFORM 02</small>
+
+        <strong>Gavelling</strong>
+
+        <span>
+          Register through Gavelling →
+        </span>
+      </a>
+
+    </div>
+
+    <p class="registration-note">
+      Select your preferred platform to continue.
+    </p>
+
+  </div>
+
+</div>
+
+
+<script>
+
+const homeRegisterButton =
+  document.getElementById("homeRegisterButton");
+
+const homeRegistrationModal =
+  document.getElementById("homeRegistrationModal");
+
+const homeRegistrationClose =
+  document.getElementById("homeRegistrationClose");
+
+const homeRegistrationOverlay =
+  document.getElementById("homeRegistrationOverlay");
+
+
+homeRegisterButton.addEventListener("click", () => {
+
+  homeRegistrationModal.classList.add("open");
+
+  document.body.style.overflow = "hidden";
+
+});
+
+
+function closeHomeRegistration() {
+
+  homeRegistrationModal.classList.remove("open");
+
+  document.body.style.overflow = "";
+
+}
+
+
+homeRegistrationClose.addEventListener(
+  "click",
+  closeHomeRegistration
+);
+
+
+homeRegistrationOverlay.addEventListener(
+  "click",
+  closeHomeRegistration
+);
+
+
+document.addEventListener("keydown", (event) => {
+
+  if (event.key === "Escape") {
+    closeHomeRegistration();
+  }
+
+});
+
+</script>
 <body>
 
   <!-- =========================
@@ -99,12 +228,13 @@
 
         <div class="buttons">
 
-          <a
-            href="#register"
-            class="button primary"
-          >
-            REGISTER NOW
-          </a>
+          <button
+  class="button primary"
+  id="homeRegisterButton"
+  type="button"
+>
+  REGISTER NOW
+</button>
 
           <a
             href="committees.html"
