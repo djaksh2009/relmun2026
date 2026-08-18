@@ -5,192 +5,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="RELMUN '26 — Relations · Engagement · Leadership"
-  >
+  <meta name="description" content="RELMUN '26 — Relations · Engagement · Leadership">
 
-  <title>RELMUN '26 | Relations · Engagement · Leadership</title>
+  <title>RELMUN '26</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
-<!-- REGISTRATION PLATFORM MODAL -->
 
-<div id="homeRegistrationModal" class="registration-modal">
-
-  <div
-    class="registration-overlay"
-    id="homeRegistrationOverlay"
-  ></div>
-
-  <div class="registration-box">
-
-    <button
-      class="registration-close"
-      id="homeRegistrationClose"
-      type="button"
-    >
-      ×
-    </button>
-
-    <div class="eyebrow">
-      REGISTRATION
-    </div>
-
-    <h2>
-      CHOOSE YOUR<br>
-      <em>PLATFORM.</em>
-    </h2>
-
-    <p class="registration-description">
-      Choose your preferred registration platform for RELMUN ’26.
-    </p>
-
-    <div class="registration-options">
-
-      <a
-        href="#"
-        class="registration-option"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <small>PLATFORM 01</small>
-
-        <strong>MyMUN</strong>
-
-        <span>
-          Register through MyMUN →
-        </span>
-      </a>
-
-
-      <a
-        href="#"
-        class="registration-option"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <small>PLATFORM 02</small>
-
-        <strong>Gavelling</strong>
-
-        <span>
-          Register through Gavelling →
-        </span>
-      </a>
-
-    </div>
-
-    <p class="registration-note">
-      Select your preferred platform to continue.
-    </p>
-
-  </div>
-
-</div>
-
-
-<script>
-
-const homeRegisterButton =
-  document.getElementById("homeRegisterButton");
-
-const homeRegistrationModal =
-  document.getElementById("homeRegistrationModal");
-
-const homeRegistrationClose =
-  document.getElementById("homeRegistrationClose");
-
-const homeRegistrationOverlay =
-  document.getElementById("homeRegistrationOverlay");
-
-
-homeRegisterButton.addEventListener("click", () => {
-
-  homeRegistrationModal.classList.add("open");
-
-  document.body.style.overflow = "hidden";
-
-});
-
-
-function closeHomeRegistration() {
-
-  homeRegistrationModal.classList.remove("open");
-
-  document.body.style.overflow = "";
-
-}
-
-
-homeRegistrationClose.addEventListener(
-  "click",
-  closeHomeRegistration
-);
-
-
-homeRegistrationOverlay.addEventListener(
-  "click",
-  closeHomeRegistration
-);
-
-
-document.addEventListener("keydown", (event) => {
-
-  if (event.key === "Escape") {
-    closeHomeRegistration();
-  }
-
-});
-
-</script>
 <body>
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
+  <!-- NAVIGATION -->
 
   <nav>
-
     <div class="logo">
-      <a href="index.html">
-        RELMUN <span>’26</span>
-      </a>
+      <a href="index.html">RELMUN <span>’26</span></a>
     </div>
 
     <ul>
-
-      <li>
-        <a href="#about">ABOUT</a>
-      </li>
-
-      <li>
-        <a href="committees.html">COMMITTEES</a>
-      </li>
-
-      <li>
-        <a href="#conference">CONFERENCE</a>
-      </li>
-
-      <li>
-        <a href="#delegates">DELEGATES</a>
-      </li>
-
-      <li>
-        <a href="#register">REGISTER</a>
-      </li>
-
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#committees">COMMITTEES</a></li>
+      <li><a href="#conference">CONFERENCE</a></li>
+      <li><a href="#delegates">DELEGATES</a></li>
+      <li><a href="#register">REGISTER</a></li>
     </ul>
-
   </nav>
 
 
+  <!-- HERO -->
+
   <main>
-
-
-    <!-- =========================
-         HERO
-    ========================== -->
 
     <section class="hero">
 
@@ -211,33 +54,25 @@ document.addEventListener("keydown", (event) => {
         </p>
 
         <div class="hero-meta">
-
-          <span>
-            26–27 DECEMBER 2026
-          </span>
-
-          <span>
-            ONLINE CONFERENCE
-          </span>
-
-          <span>
-            ALL TIMES IST
-          </span>
-
+          <span>26–27 DECEMBER 2026</span>
+          <span>ONLINE CONFERENCE</span>
+          <span>ALL TIMES IST</span>
         </div>
 
         <div class="buttons">
 
+          <!-- THIS IS NOW A BUTTON, NOT A LINK -->
+
           <button
-  class="button primary"
-  id="homeRegisterButton"
-  type="button"
->
-  REGISTER NOW
-</button>
+            class="button primary"
+            id="homeRegisterButton"
+            type="button"
+          >
+            REGISTER NOW
+          </button>
 
           <a
-            href="committees.html"
+            href="#committees"
             class="button secondary"
           >
             EXPLORE COMMITTEES
@@ -250,9 +85,7 @@ document.addEventListener("keydown", (event) => {
     </section>
 
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
+    <!-- ABOUT -->
 
     <section id="about" class="about">
 
@@ -274,9 +107,7 @@ document.addEventListener("keydown", (event) => {
     </section>
 
 
-    <!-- =========================
-         COMMITTEES
-    ========================== -->
+    <!-- COMMITTEES -->
 
     <section id="committees">
 
@@ -299,62 +130,83 @@ document.addEventListener("keydown", (event) => {
 
         <!-- UNSC -->
 
-        <article class="committee" onclick="window.location.href='committee.html?committee=unsc'">
+        <article
+          class="committee"
+          onclick="window.location.href='committee.html?committee=unsc'"
+        >
 
           <div class="committee-number">
             01 / UNSC
           </div>
 
-          <h3>
-            United Nations<br>
-            Security Council
-          </h3>
+          <div class="committee-card-content">
 
-          <p>
-            High-level international security and diplomacy.
-          </p>
+            <h3>
+              United Nations<br>
+              Security Council
+            </h3>
+
+            <p>
+              High-level international security and diplomacy.
+            </p>
+
+          </div>
 
         </article>
 
 
         <!-- UNHRC -->
 
-        <article class="committee" onclick="window.location.href='committee.html?committee=unhrc'">
+        <article
+          class="committee"
+          onclick="window.location.href='committee.html?committee=unhrc'"
+        >
 
           <div class="committee-number">
             02 / UNHRC
           </div>
 
-          <h3>
-            United Nations<br>
-            Human Rights Council
-          </h3>
+          <div class="committee-card-content">
 
-          <p>
-            Debate contemporary human rights challenges
-            and international responses.
-          </p>
+            <h3>
+              United Nations<br>
+              Human Rights Council
+            </h3>
+
+            <p>
+              Debate contemporary human rights challenges
+              and international responses.
+            </p>
+
+          </div>
 
         </article>
 
 
         <!-- UNODC -->
 
-        <article class="committee" onclick="window.location.href='committee.html?committee=unodc'">
+        <article
+          class="committee"
+          onclick="window.location.href='committee.html?committee=unodc'"
+        >
 
           <div class="committee-number">
             03 / UNODC
           </div>
 
-          <h3>
-            United Nations Office<br>
-            on Drugs and Crime
-          </h3>
+          <div class="committee-card-content">
 
-          <p>
-            International cooperation against organised crime
-            and illicit activities.
-          </p>
+            <h3>
+              United Nations Office<br>
+              on Drugs and Crime
+            </h3>
+
+            <p>
+              International cooperation against organised crime
+              and illicit activities.
+            </p>
+
+          </div>
 
         </article>
 
@@ -363,14 +215,9 @@ document.addEventListener("keydown", (event) => {
     </section>
 
 
-    <!-- =========================
-         CONFERENCE
-    ========================== -->
+    <!-- CONFERENCE -->
 
-    <section
-      id="conference"
-      class="about"
-    >
+    <section id="conference" class="about">
 
       <div class="section-label">
         03 / CONFERENCE
@@ -384,60 +231,36 @@ document.addEventListener("keydown", (event) => {
 
       <div class="info-grid">
 
-
         <div class="info-card">
-
-          <h3>
-            Opening Ceremony
-          </h3>
-
+          <h3>Opening Ceremony</h3>
           <p>
             Begin the conference with the official opening
             of RELMUN ’26.
           </p>
-
         </div>
 
-
         <div class="info-card">
-
-          <h3>
-            Committee Sessions
-          </h3>
-
+          <h3>Committee Sessions</h3>
           <p>
             Formal debate, moderated caucuses,
             negotiation and drafting.
           </p>
-
         </div>
 
-
         <div class="info-card">
-
-          <h3>
-            Drafting & Voting
-          </h3>
-
+          <h3>Drafting & Voting</h3>
           <p>
-            Develop solutions collaboratively
-            and put them to a vote.
+            Develop solutions collaboratively and put
+            them to a vote.
           </p>
-
         </div>
 
-
         <div class="info-card">
-
-          <h3>
-            Closing Ceremony
-          </h3>
-
+          <h3>Closing Ceremony</h3>
           <p>
             Conclude the conference and recognise
             outstanding delegates.
           </p>
-
         </div>
 
       </div>
@@ -445,9 +268,7 @@ document.addEventListener("keydown", (event) => {
     </section>
 
 
-    <!-- =========================
-         DELEGATES
-    ========================== -->
+    <!-- DELEGATES -->
 
     <section id="delegates">
 
@@ -463,31 +284,15 @@ document.addEventListener("keydown", (event) => {
 
       <div class="info-grid">
 
-
         <div class="info-card">
 
-          <h3>
-            Before RELMUN
-          </h3>
+          <h3>Before RELMUN</h3>
 
           <ul>
-
-            <li>
-              Read your background guide.
-            </li>
-
-            <li>
-              Research your country.
-            </li>
-
-            <li>
-              Research both agenda topics.
-            </li>
-
-            <li>
-              Prepare your opening speech.
-            </li>
-
+            <li>Read your background guide.</li>
+            <li>Research your country.</li>
+            <li>Research both agenda topics.</li>
+            <li>Prepare your opening speech.</li>
           </ul>
 
         </div>
@@ -495,28 +300,13 @@ document.addEventListener("keydown", (event) => {
 
         <div class="info-card">
 
-          <h3>
-            During Committee
-          </h3>
+          <h3>During Committee</h3>
 
           <ul>
-
-            <li>
-              Know your procedure.
-            </li>
-
-            <li>
-              Speak with purpose.
-            </li>
-
-            <li>
-              Listen and negotiate.
-            </li>
-
-            <li>
-              Build meaningful blocs.
-            </li>
-
+            <li>Know your procedure.</li>
+            <li>Speak with purpose.</li>
+            <li>Listen and negotiate.</li>
+            <li>Build meaningful blocs.</li>
           </ul>
 
         </div>
@@ -526,14 +316,9 @@ document.addEventListener("keydown", (event) => {
     </section>
 
 
-    <!-- =========================
-         REGISTRATION
-    ========================== -->
+    <!-- REGISTER -->
 
-    <section
-      id="register"
-      class="cta"
-    >
+    <section id="register" class="cta">
 
       <div class="section-label">
         05 / REGISTRATION
@@ -545,17 +330,19 @@ document.addEventListener("keydown", (event) => {
       </h2>
 
       <p class="section-text">
-        Registration information will be announced soon.
+        Choose your preferred registration platform
+        to register for RELMUN ’26.
       </p>
 
       <div class="buttons">
 
-        <a
-          href="committees.html"
+        <button
           class="button primary"
+          id="bottomRegisterButton"
+          type="button"
         >
-          CHOOSE YOUR COMMITTEE
-        </a>
+          REGISTER NOW
+        </button>
 
       </div>
 
@@ -564,9 +351,94 @@ document.addEventListener("keydown", (event) => {
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- REGISTRATION MODAL -->
+
+  <div
+    id="homeRegistrationModal"
+    class="registration-modal"
+  >
+
+    <div
+      class="registration-overlay"
+      id="homeRegistrationOverlay"
+    ></div>
+
+
+    <div class="registration-box">
+
+      <button
+        class="registration-close"
+        id="homeRegistrationClose"
+        type="button"
+      >
+        ×
+      </button>
+
+
+      <div class="eyebrow">
+        REGISTRATION
+      </div>
+
+
+      <h2>
+        CHOOSE YOUR<br>
+        <em>PLATFORM.</em>
+      </h2>
+
+
+      <p class="registration-description">
+        Choose your preferred registration platform
+        for RELMUN ’26.
+      </p>
+
+
+      <div class="registration-options">
+
+        <a
+          href="#"
+          class="registration-option"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <small>PLATFORM 01</small>
+
+          <strong>MyMUN</strong>
+
+          <span>
+            Register through MyMUN →
+          </span>
+        </a>
+
+
+        <a
+          href="#"
+          class="registration-option"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <small>PLATFORM 02</small>
+
+          <strong>Gavelling</strong>
+
+          <span>
+            Register through Gavelling →
+          </span>
+        </a>
+
+      </div>
+
+
+      <p class="registration-note">
+        Official registration links will be added once
+        registration opens.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
 
   <footer>
 
@@ -585,59 +457,7 @@ document.addEventListener("keydown", (event) => {
   </footer>
 
 
+  <script src="script.js"></script>
+
 </body>
-
 </html>
-
-<script>
-const homeRegisterButton =
-  document.getElementById("homeRegisterButton");
-
-const homeRegistrationModal =
-  document.getElementById("homeRegistrationModal");
-
-const homeRegistrationClose =
-  document.getElementById("homeRegistrationClose");
-
-const homeRegistrationOverlay =
-  document.getElementById("homeRegistrationOverlay");
-
-
-homeRegisterButton.addEventListener("click", function () {
-
-  homeRegistrationModal.classList.add("open");
-
-  document.body.style.overflow = "hidden";
-
-});
-
-
-function closeHomeRegistration() {
-
-  homeRegistrationModal.classList.remove("open");
-
-  document.body.style.overflow = "";
-
-}
-
-
-homeRegistrationClose.addEventListener(
-  "click",
-  closeHomeRegistration
-);
-
-
-homeRegistrationOverlay.addEventListener(
-  "click",
-  closeHomeRegistration
-);
-
-
-document.addEventListener("keydown", function(event) {
-
-  if (event.key === "Escape") {
-    closeHomeRegistration();
-  }
-
-});
-</script>
