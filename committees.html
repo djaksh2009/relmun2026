@@ -2,24 +2,22 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
-    name="description"
-    content="RELMUN '26 — Committees"
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
   >
 
   <title>Committees | RELMUN '26</title>
 
   <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
+<body>
 
   <nav>
 
@@ -30,7 +28,6 @@
     </div>
 
     <ul>
-
       <li>
         <a href="index.html#about">ABOUT</a>
       </li>
@@ -50,17 +47,12 @@
       <li>
         <a href="index.html#register">REGISTER</a>
       </li>
-
     </ul>
 
   </nav>
 
 
   <main>
-
-    <!-- =========================
-         HEADER
-    ========================== -->
 
     <section class="committee-page-header">
 
@@ -81,26 +73,17 @@
     </section>
 
 
-    <!-- =========================
-         COMMITTEES
-    ========================== -->
-
     <section class="committee-selection">
 
-      <!-- UNSC -->
 
-      <article class="committee-selection-card">
+      <article
+        class="committee-selection-card"
+        onclick="window.location.href='committee.html?committee=unsc'"
+      >
 
         <div class="committee-top">
-
-          <span>
-            01
-          </span>
-
-          <span>
-            UNSC
-          </span>
-
+          <span>01</span>
+          <span>UNSC</span>
         </div>
 
         <div class="committee-content">
@@ -122,42 +105,17 @@
 
         </div>
 
-        <div class="committee-actions">
-
-          <a
-            href="committee.html?committee=unsc"
-            class="committee-view"
-          >
-            VIEW MORE
-          </a>
-
-          <button
-            class="committee-register"
-            type="button"
-            data-committee="UNSC"
-          >
-            REGISTER NOW
-          </button>
-
-        </div>
-
       </article>
 
 
-      <!-- UNHRC -->
-
-      <article class="committee-selection-card">
+      <article
+        class="committee-selection-card"
+        onclick="window.location.href='committee.html?committee=unhrc'"
+      >
 
         <div class="committee-top">
-
-          <span>
-            02
-          </span>
-
-          <span>
-            UNHRC
-          </span>
-
+          <span>02</span>
+          <span>UNHRC</span>
         </div>
 
         <div class="committee-content">
@@ -172,48 +130,24 @@
           </h2>
 
           <p>
-            International human rights, cooperation
-            and policy-focused multilateral debate.
+            International human rights,
+            cooperation and policy-focused
+            multilateral debate.
           </p>
-
-        </div>
-
-        <div class="committee-actions">
-
-          <a
-            href="committee.html?committee=unhrc"
-            class="committee-view"
-          >
-            VIEW MORE
-          </a>
-
-          <button
-            class="committee-register"
-            type="button"
-            data-committee="UNHRC"
-          >
-            REGISTER NOW
-          </button>
 
         </div>
 
       </article>
 
 
-      <!-- UNODC -->
-
-      <article class="committee-selection-card">
+      <article
+        class="committee-selection-card"
+        onclick="window.location.href='committee.html?committee=unodc'"
+      >
 
         <div class="committee-top">
-
-          <span>
-            03
-          </span>
-
-          <span>
-            UNODC
-          </span>
-
+          <span>03</span>
+          <span>UNODC</span>
         </div>
 
         <div class="committee-content">
@@ -229,141 +163,20 @@
           </h2>
 
           <p>
-            International cooperation against drugs,
-            organised crime and related challenges.
+            International cooperation against
+            drugs, organised crime and related
+            challenges.
           </p>
-
-        </div>
-
-        <div class="committee-actions">
-
-          <a
-            href="committee.html?committee=unodc"
-            class="committee-view"
-          >
-            VIEW MORE
-          </a>
-
-          <button
-            class="committee-register"
-            type="button"
-            data-committee="UNODC"
-          >
-            REGISTER NOW
-          </button>
 
         </div>
 
       </article>
 
+
     </section>
 
   </main>
 
-
-  <!-- =========================
-       REGISTRATION MODAL
-  ========================== -->
-
-  <div
-    id="registrationModal"
-    class="registration-modal"
-  >
-
-    <div
-      class="registration-overlay"
-      id="closeModalOverlay"
-    ></div>
-
-
-    <div class="registration-box">
-
-      <button
-        class="registration-close"
-        id="closeModal"
-        type="button"
-      >
-        ×
-      </button>
-
-      <div class="eyebrow">
-        REGISTRATION
-      </div>
-
-      <h2>
-        REGISTER FOR<br>
-        <em id="modalCommittee">
-          RELMUN
-        </em>
-      </h2>
-
-      <p class="registration-description">
-        Choose your preferred registration platform.
-      </p>
-
-
-      <div class="registration-options">
-
-        <a
-          href="#"
-          class="registration-option"
-          id="mymunButton"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <small>
-            PLATFORM 01
-          </small>
-
-          <strong>
-            MyMUN
-          </strong>
-
-          <span>
-            Register through MyMUN →
-          </span>
-
-        </a>
-
-
-        <a
-          href="#"
-          class="registration-option"
-          id="gavellingButton"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <small>
-            PLATFORM 02
-          </small>
-
-          <strong>
-            Gavelling
-          </strong>
-
-          <span>
-            Register through Gavelling →
-          </span>
-
-        </a>
-
-      </div>
-
-      <p class="registration-note">
-        Official registration links will be added once
-        registration opens.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
 
   <footer>
 
@@ -382,86 +195,7 @@
   </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-
-  <script>
-
-    const modal =
-      document.getElementById("registrationModal");
-
-    const modalCommittee =
-      document.getElementById("modalCommittee");
-
-    const closeModal =
-      document.getElementById("closeModal");
-
-    const closeModalOverlay =
-      document.getElementById("closeModalOverlay");
-
-
-    const registrationButtons =
-      document.querySelectorAll(
-        ".committee-register"
-      );
-
-
-    registrationButtons.forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        const committee =
-          button.dataset.committee;
-
-        modalCommittee.textContent =
-          committee;
-
-        modal.classList.add("open");
-
-        document.body.style.overflow =
-          "hidden";
-
-      });
-
-    });
-
-
-    function closeRegistration() {
-
-      modal.classList.remove("open");
-
-      document.body.style.overflow =
-        "";
-
-    }
-
-
-    closeModal.addEventListener(
-      "click",
-      closeRegistration
-    );
-
-
-    closeModalOverlay.addEventListener(
-      "click",
-      closeRegistration
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (event.key === "Escape") {
-          closeRegistration();
-        }
-
-      }
-    );
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
-
 </html>
