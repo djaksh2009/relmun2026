@@ -1,32 +1,1164 @@
 /* =========================================================
-   FINAL INTERACTION FIXES
+   RELMUN '26 — GLOBAL STYLES
    ========================================================= */
 
-.committee {
-  cursor: pointer;
+:root {
+  --navy: #050b18;
+  --navy-light: #091329;
+  --navy-card: #0a1427;
+
+  --gold: #d1aa4f;
+  --gold-light: #e0bd69;
+
+  --white: #f4f2ed;
+  --muted: #9aa8bd;
+  --line: rgba(209, 170, 79, 0.28);
+
+  --max-width: 1450px;
 }
 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background: var(--navy);
+  color: var(--white);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 82px;
+
+  padding: 0 5vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 1000;
+
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+
+  background: rgba(5, 11, 24, 0.82);
+
+  backdrop-filter: blur(15px);
+}
+
+
+.logo a {
+  color: var(--white);
+
+  text-decoration: none;
+
+  font-size: 1.25rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+}
+
+
+.logo span {
+  color: var(--gold);
+}
+
+
+nav ul {
+  list-style: none;
+
+  display: flex;
+
+  gap: 34px;
+}
+
+
+nav li a {
+  color: #c5cedb;
+
+  text-decoration: none;
+
+  font-size: 0.7rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+
+  transition: color 0.2s ease;
+}
+
+
+nav li a:hover {
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   GLOBAL DECORATIVE BACKGROUND
+   ========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: -2;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 0%,
+      transparent 70%
+    );
+}
+
+
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 700px;
+  height: 700px;
+
+  right: -300px;
+  top: -250px;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  border: 1px solid rgba(209,170,79,0.08);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 90px rgba(209,170,79,0.025),
+    0 0 0 180px rgba(209,170,79,0.018),
+    0 0 0 270px rgba(209,170,79,0.012);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding:
+    150px 5vw
+    100px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(19,42,78,0.45),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(209,170,79,0.06),
+      transparent 30%
+    );
+}
+
+
+/* giant decorative circle */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 850px;
+  height: 850px;
+
+  right: -330px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(209,170,79,0.14);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 70px rgba(209,170,79,0.025),
+    0 0 0 140px rgba(209,170,79,0.018),
+    0 0 0 210px rgba(209,170,79,0.012);
+
+  pointer-events: none;
+}
+
+
+/* orbital diagonal */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 1100px;
+  height: 1100px;
+
+  right: -450px;
+  top: -80px;
+
+  border: 1px solid rgba(255,255,255,0.055);
+
+  border-radius: 50%;
+
+  transform: rotate(-28deg) scaleY(0.35);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(900px, 100%);
+}
+
+
+/* small gold line */
+
+.hero-content::before {
+  content: "";
+
+  position: absolute;
+
+  left: -55px;
+  top: 8px;
+
+  width: 32px;
+  height: 2px;
+
+  background: var(--gold);
+}
+
+
+.eyebrow {
+  color: var(--gold);
+
+  font-size: 0.75rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 35px;
+}
+
+
+.hero h1 {
+  position: relative;
+
+  font-size: clamp(6rem, 15vw, 15rem);
+
+  line-height: 0.76;
+
+  letter-spacing: -0.075em;
+
+  font-weight: 900;
+
+  margin-bottom: 65px;
+}
+
+
+.hero h1::after {
+  content: "RELMUN";
+
+  position: absolute;
+
+  left: 8px;
+  top: 18px;
+
+  z-index: -1;
+
+  color: transparent;
+
+  -webkit-text-stroke:
+    1px rgba(209,170,79,0.10);
+
+  transform: translate(18px, 18px);
+}
+
+
+.hero h1 span {
+  display: block;
+
+  color: var(--gold);
+
+  font-size: 0.72em;
+
+  margin-left: 3px;
+
+  margin-top: 22px;
+}
+
+
+.hero-subtitle {
+  max-width: 850px;
+
+  color: var(--muted);
+
+  font-size: clamp(1rem, 2vw, 1.45rem);
+
+  line-height: 1.7;
+
+  margin-bottom: 45px;
+}
+
+
+.hero-meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0;
+
+  margin-bottom: 40px;
+}
+
+
+.hero-meta span {
+  font-size: 0.72rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+
+  padding: 0 25px;
+
+  border-right: 1px solid var(--line);
+}
+
+
+.hero-meta span:first-child {
+  padding-left: 0;
+}
+
+
+.hero-meta span:last-child {
+  border-right: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 16px;
+}
+
+
+.button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 58px;
+
+  padding: 0 35px;
+
+  border-radius: 3px;
+
+  font-family: inherit;
+
+  font-size: 0.72rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.button.primary {
+  border: 1px solid var(--gold);
+
+  background: var(--gold);
+
+  color: #07101f;
+
+  box-shadow:
+    0 10px 35px rgba(209,170,79,0.12);
+}
+
+
+.button.primary:hover {
+  background: var(--gold-light);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 40px rgba(209,170,79,0.22);
+}
+
+
+.button.secondary {
+  border: 1px solid rgba(209,170,79,0.35);
+
+  background: rgba(8,18,35,0.55);
+
+  color: var(--white);
+}
+
+
+.button.secondary:hover {
+  border-color: var(--gold);
+
+  background: rgba(209,170,79,0.08);
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+section {
+  position: relative;
+
+  padding: 140px 5vw;
+}
+
+
+.about {
+  border-top: 1px solid rgba(209,170,79,0.16);
+}
+
+
+.section-label {
+  color: var(--gold);
+
+  font-size: 0.72rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.24em;
+
+  margin-bottom: 45px;
+}
+
+
+.section-title {
+  font-size: clamp(3.5rem, 8vw, 8rem);
+
+  line-height: 0.9;
+
+  letter-spacing: -0.06em;
+
+  font-weight: 900;
+
+  margin-bottom: 45px;
+}
+
+
+.section-text {
+  max-width: 800px;
+
+  color: var(--muted);
+
+  font-size: 1.15rem;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   COMMITTEE GRID
+   ========================================================= */
+
+.committee-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 28px;
+
+  margin-top: 75px;
+}
+
+
+.committee {
+  position: relative;
+
+  min-height: 520px;
+
+  padding: 38px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  border: 1px solid rgba(209,170,79,0.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13,28,53,0.95),
+      rgba(5,12,25,0.98)
+    );
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.committee::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -110px;
+  bottom: -110px;
+
+  border: 1px solid rgba(209,170,79,0.13);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 45px rgba(209,170,79,0.025),
+    0 0 0 90px rgba(209,170,79,0.015);
+}
+
+
+.committee::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+
 .committee:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+
   border-color: var(--gold);
 }
 
 
-/* Homepage register button */
-
-#homeRegisterButton,
-#bottomRegisterButton,
-#detailRegisterButton,
-#detailRegisterButtonBottom {
-  font-family: inherit;
-  cursor: pointer;
+.committee:hover::after {
+  opacity: 1;
 }
 
 
-/* Registration modal */
+.committee-number {
+  position: relative;
+
+  z-index: 2;
+
+  color: var(--gold);
+
+  font-size: 0.72rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.committee-card-content {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.committee h3 {
+  font-size: clamp(2rem, 3.5vw, 3.7rem);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 28px;
+}
+
+
+.committee p {
+  max-width: 430px;
+
+  color: var(--muted);
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   INFO GRID
+   ========================================================= */
+
+.info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 20px;
+
+  margin-top: 60px;
+}
+
+
+.info-card {
+  padding: 38px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13,27,50,0.65),
+      rgba(7,14,27,0.9)
+    );
+}
+
+
+.info-card h3 {
+  color: var(--gold);
+
+  font-size: 1.2rem;
+
+  margin-bottom: 15px;
+}
+
+
+.info-card p,
+.info-card li {
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+
+.info-card ul {
+  padding-left: 20px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta,
+.register {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  border-top: 1px solid rgba(209,170,79,0.18);
+
+  background:
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(209,170,79,0.08),
+      transparent 35%
+    );
+}
+
+
+.cta .section-title,
+.register h2 {
+  font-size: clamp(4rem, 9vw, 9rem);
+}
+
+
+.cta .buttons {
+  margin-top: 35px;
+}
+
+
+/* =========================================================
+   COMMITTEE DETAIL PAGE
+   ========================================================= */
+
+.inner-hero {
+  min-height: 90vh;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding:
+    180px 5vw
+    100px;
+
+  background:
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(24,49,87,0.42),
+      transparent 38%
+    );
+}
+
+
+.inner-hero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -250px;
+  top: 180px;
+
+  width: 650px;
+  height: 650px;
+
+  border: 1px solid rgba(209,170,79,0.13);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 70px rgba(209,170,79,0.025),
+    0 0 0 140px rgba(209,170,79,0.015);
+}
+
+
+.heroText {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1100px;
+}
+
+
+.inner-hero h1 {
+  font-size: clamp(4rem, 9vw, 10rem);
+
+  line-height: 0.86;
+
+  letter-spacing: -0.065em;
+
+  margin-bottom: 45px;
+}
+
+
+.lead {
+  max-width: 850px;
+
+  color: var(--muted);
+
+  font-size: 1.25rem;
+
+  line-height: 1.7;
+
+  margin-bottom: 40px;
+}
+
+
+.meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0;
+
+  margin-bottom: 40px;
+}
+
+
+.meta span {
+  color: var(--muted);
+
+  padding:
+    0 25px;
+
+  border-right: 1px solid var(--line);
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.08em;
+}
+
+
+.meta span:first-child {
+  padding-left: 0;
+}
+
+
+.meta span:last-child {
+  border-right: none;
+}
+
+
+.meta b {
+  color: var(--white);
+}
+
+
+/* =========================================================
+   AGENDA
+   ========================================================= */
+
+.heading {
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 0.8fr)
+    minmax(300px, 1fr);
+
+  gap: 70px;
+
+  align-items: end;
+
+  margin-bottom: 75px;
+}
+
+
+.heading h2 {
+  font-size: clamp(4rem, 8vw, 8rem);
+
+  line-height: 0.85;
+
+  letter-spacing: -0.06em;
+}
+
+
+.heading h2 em {
+  color: var(--gold);
+
+  font-style: italic;
+}
+
+
+.heading p {
+  color: var(--muted);
+
+  font-size: 1.1rem;
+
+  line-height: 1.7;
+}
+
+
+.agenda-container {
+  border-top: 1px solid var(--line);
+}
+
+
+.agenda-item {
+  display: grid;
+
+  grid-template-columns: 220px 1fr;
+
+  gap: 40px;
+
+  align-items: center;
+
+  padding: 65px 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+
+.agenda-item span {
+  color: var(--gold);
+
+  font-size: 0.75rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.agenda-item h3 {
+  font-size: clamp(2rem, 5vw, 5rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+
+/* =========================================================
+   BACKGROUND GUIDE
+   ========================================================= */
+
+.section.dark {
+  background:
+    linear-gradient(
+      135deg,
+      #071126,
+      #040a16
+    );
+
+  border-top:
+    1px solid rgba(209,170,79,0.15);
+
+  border-bottom:
+    1px solid rgba(209,170,79,0.15);
+}
+
+
+.resource-download {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  padding: 45px 0;
+
+  border-top: 1px solid var(--line);
+
+  border-bottom: 1px solid var(--line);
+}
+
+
+.resource-download small {
+  color: var(--gold);
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.resource-download h3 {
+  font-size: 2.5rem;
+
+  margin: 15px 0;
+}
+
+
+.resource-download p {
+  max-width: 850px;
+
+  color: var(--muted);
+
+  line-height: 1.6;
+}
+
+
+.coming-soon-badge {
+  flex-shrink: 0;
+
+  padding: 12px 18px;
+
+  border: 1px solid rgba(209,170,79,0.4);
+
+  color: var(--gold);
+
+  font-size: 0.65rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   EXECUTIVE BOARD
+   ========================================================= */
+
+.committee-eb-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 35px;
+}
+
+
+.committee-eb-member {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+
+.eb-member-photo {
+  height: 450px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #637087;
+
+  letter-spacing: 0.2em;
+
+  font-size: 0.75rem;
+
+  background:
+    linear-gradient(
+      145deg,
+      #102244,
+      #071124
+    );
+
+  border:
+    1px solid rgba(209,170,79,0.12);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+.eb-member-photo::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(209,170,79,0.12);
+
+  border-radius: 50%;
+}
+
+
+.eb-member-info small {
+  color: var(--gold);
+
+  font-size: 0.65rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.eb-member-info h3 {
+  font-size: 2rem;
+
+  margin: 10px 0;
+}
+
+
+.eb-member-info p {
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   REGISTRATION MODAL
+   ========================================================= */
 
 .registration-modal {
   position: fixed;
+
   inset: 0;
 
   z-index: 9999;
@@ -34,11 +1166,13 @@
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   padding: 20px;
 
   opacity: 0;
+
   visibility: hidden;
 
   transition:
@@ -46,40 +1180,49 @@
     visibility 0.25s ease;
 }
 
+
 .registration-modal.open {
   opacity: 1;
+
   visibility: visible;
 }
 
+
 .registration-overlay {
   position: absolute;
+
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.82);
+  background:
+    rgba(1,5,12,0.86);
 
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
+
 
 .registration-box {
   width: min(700px, 100%);
 
   position: relative;
+
   z-index: 2;
 
-  padding: 50px;
-
-  border: 1px solid rgba(201, 166, 83, 0.45);
+  padding: 55px;
 
   background:
     linear-gradient(
       145deg,
-      #0d1930,
-      #060c19
+      #0d1a32,
+      #060c18
     );
 
+  border:
+    1px solid rgba(209,170,79,0.45);
+
   box-shadow:
-    0 30px 100px rgba(0, 0, 0, 0.6);
+    0 30px 100px rgba(0,0,0,0.7);
 }
+
 
 .registration-close {
   position: absolute;
@@ -90,9 +1233,10 @@
   width: 42px;
   height: 42px;
 
-  border: 1px solid rgba(255,255,255,0.15);
-
   background: transparent;
+
+  border:
+    1px solid rgba(255,255,255,0.15);
 
   color: var(--white);
 
@@ -101,10 +1245,13 @@
   cursor: pointer;
 }
 
+
 .registration-close:hover {
   color: var(--gold);
+
   border-color: var(--gold);
 }
+
 
 .registration-box h2 {
   margin-top: 20px;
@@ -112,42 +1259,52 @@
   font-size: clamp(2.5rem, 6vw, 5rem);
 
   line-height: 0.9;
+
   letter-spacing: -0.05em;
 }
 
+
 .registration-box h2 em {
   color: var(--gold);
+
   font-style: italic;
 }
 
+
 .registration-description {
+  color: var(--muted);
+
   margin-top: 20px;
 
-  color: var(--muted);
+  line-height: 1.6;
 }
+
 
 .registration-options {
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:
+    repeat(2, 1fr);
 
   gap: 15px;
 
   margin-top: 35px;
 }
 
+
 .registration-option {
   display: block;
 
   padding: 28px;
 
-  border: 1px solid rgba(201, 166, 83, 0.35);
-
-  background: #0b1629;
-
   color: var(--white);
 
   text-decoration: none;
+
+  background: #0b1629;
+
+  border:
+    1px solid rgba(209,170,79,0.35);
 
   transition:
     transform 0.2s ease,
@@ -155,13 +1312,15 @@
     background 0.2s ease;
 }
 
+
 .registration-option:hover {
   transform: translateY(-4px);
 
   border-color: var(--gold);
 
-  background: #101d34;
+  background: #101e37;
 }
+
 
 .registration-option small {
   display: block;
@@ -169,10 +1328,12 @@
   color: var(--gold);
 
   font-size: 0.6rem;
+
   font-weight: 900;
 
   letter-spacing: 0.15em;
 }
+
 
 .registration-option strong {
   display: block;
@@ -181,6 +1342,7 @@
 
   font-size: 1.6rem;
 }
+
 
 .registration-option span {
   display: block;
@@ -192,6 +1354,7 @@
   font-size: 0.72rem;
 }
 
+
 .registration-note {
   margin-top: 25px;
 
@@ -201,16 +1364,191 @@
 }
 
 
-/* Mobile */
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  padding: 70px 5vw;
+
+  border-top:
+    1px solid rgba(255,255,255,0.07);
+
+  color: var(--muted);
+}
+
+
+.footer-brand {
+  color: var(--white);
+
+  font-size: 1.4rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+
+  margin-bottom: 15px;
+}
+
+
+footer p {
+  margin-top: 8px;
+
+  font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  nav {
+    height: 70px;
+  }
+
+
+  nav ul {
+    display: none;
+  }
+
+
+  .hero {
+    padding:
+      130px 7vw
+      80px;
+  }
+
+
+  .hero::before,
+  .hero::after {
+    opacity: 0.5;
+  }
+
+
+  .hero h1 {
+    font-size: clamp(
+      5rem,
+      20vw,
+      10rem
+    );
+  }
+
+
+  .committee-grid,
+  .committee-eb-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .committee {
+    min-height: 470px;
+  }
+
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .heading {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+
+  .agenda-item {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+
+  .inner-hero {
+    padding:
+      140px 7vw
+      80px;
+  }
+
+
+  .meta {
+    gap: 15px;
+  }
+
+
+  .meta span {
+    padding:
+      0 15px;
+  }
+
+
+  .committee-eb-member {
+    max-width: 600px;
+  }
+
+}
+
 
 @media (max-width: 600px) {
 
-  .registration-box {
-    padding: 35px 25px;
+  section {
+    padding:
+      100px 6vw;
   }
+
+
+  .hero h1 {
+    font-size: 5rem;
+  }
+
+
+  .hero-meta {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+
+  .hero-meta span {
+    padding: 0;
+
+    border: none;
+  }
+
+
+  .buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .button {
+    width: 100%;
+  }
+
+
+  .registration-box {
+    padding: 40px 25px;
+  }
+
 
   .registration-options {
     grid-template-columns: 1fr;
+  }
+
+
+  .resource-download {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .inner-hero h1 {
+    font-size: 4rem;
   }
 
 }
