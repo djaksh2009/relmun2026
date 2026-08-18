@@ -2,109 +2,146 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
-    name="description"
-    content="RELMUN ’26 — Committee Information"
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Committee | RELMUN ’26</title>
+  <title>Committee | RELMUN '26</title>
 
   <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
 
-  <header>
+  <nav>
 
-    <a class="logo" href="index.html">
-      RELMUN <b>’26</b>
-    </a>
+    <div class="logo">
 
-    <button
-      id="menu"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-    <nav id="nav">
-
-      <a href="index.html#about">About</a>
-
-      <a href="committees.html">Committees</a>
-
-      <a href="eb.html">Executive Board</a>
-
-      <a href="index.html#conference">Conference</a>
-
-      <a href="index.html#delegates">Delegates</a>
-
-      <a
-        class="navbtn"
-        href="committees.html"
-      >
-        Register
+      <a href="index.html">
+        RELMUN <span>’26</span>
       </a>
 
-    </nav>
+    </div>
 
-  </header>
+
+    <ul>
+
+      <li>
+        <a href="index.html#about">
+          ABOUT
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html#committees">
+          COMMITTEES
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html#conference">
+          CONFERENCE
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html#delegates">
+          DELEGATES
+        </a>
+      </li>
+
+      <li>
+        <a href="#" id="detailNavRegister">
+          REGISTER
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
 
 
   <main>
 
 
-    <!-- =========================
-         COMMITTEE HERO
-    ========================== -->
+    <!-- COMMITTEE HERO -->
 
-    <section class="hero inner-hero committee-detail-hero">
-
-      <div class="rings"></div>
-
-      <div class="grid"></div>
+    <section class="inner-hero">
 
       <div class="heroText">
 
-        <p
-          class="gold"
+        <div
+          class="eyebrow"
           id="committeeCode"
         >
-          RELMUN ’26 · COMMITTEE
-        </p>
+          UNSC
+        </div>
 
-        <h1 id="committeeName">
-          LOADING...
+
+        <h1 id="committeeTitle">
+          UNITED NATIONS<br>
+          SECURITY COUNCIL
         </h1>
+
 
         <p
           class="lead"
-          id="committeeShortDescription"
+          id="committeeDescription"
         >
-          Loading committee information...
+          International peace and security,
+          diplomacy and high-level decision-making.
         </p>
+
 
         <div class="meta">
 
           <span>
-            <b>26–27</b> DECEMBER 2026
+            COMMITTEE:
+            <b id="committeeMeta">
+              UNSC
+            </b>
           </span>
 
           <span>
-            <b>ONLINE</b> CONFERENCE
+            FORMAT:
+            <b>
+              ONLINE
+            </b>
           </span>
 
           <span>
-            <b>IST</b> TIMEZONE
+            DATE:
+            <b>
+              26–27 DECEMBER 2026
+            </b>
           </span>
+
+        </div>
+
+
+        <div class="buttons">
+
+          <button
+            class="button primary"
+            id="detailRegisterButton"
+            type="button"
+          >
+            REGISTER NOW
+          </button>
+
+          <a
+            href="#agenda"
+            class="button secondary"
+          >
+            VIEW AGENDA
+          </a>
 
         </div>
 
@@ -113,101 +150,83 @@
     </section>
 
 
-    <!-- =========================
-         MANDATE
-    ========================== -->
+    <!-- AGENDA -->
 
-    <section class="section">
+    <section
+      class="section"
+      id="agenda"
+    >
+
+      <div class="section-label">
+        01 / AGENDA
+      </div>
+
 
       <div class="heading">
 
-        <div>
+        <h2>
+          THE<br>
+          <em>AGENDA.</em>
+        </h2>
 
-          <p class="eyebrow">
-            01 — COMMITTEE
-          </p>
-
-          <h2>
-            THE<br>
-            <em>MANDATE.</em>
-          </h2>
-
-        </div>
-
-        <p id="committeeDescription">
-          Committee description will appear here.
+        <p id="agendaDescription">
+          Committee agenda will be announced soon.
         </p>
 
       </div>
 
+
+      <div class="agenda-container">
+
+        <div class="agenda-item">
+
+          <span>
+            AGENDA 01
+          </span>
+
+          <h3 id="agendaOne">
+            To Be Announced
+          </h3>
+
+        </div>
+
+
+        <div class="agenda-item">
+
+          <span>
+            AGENDA 02
+          </span>
+
+          <h3 id="agendaTwo">
+            To Be Announced
+          </h3>
+
+        </div>
+
+      </div>
+
     </section>
 
 
-    <!-- =========================
-         AGENDA
-    ========================== -->
+    <!-- BACKGROUND GUIDE -->
 
     <section class="section dark">
 
-      <div class="heading">
-
-        <div>
-
-          <p class="eyebrow">
-            02 — AGENDA
-          </p>
-
-          <h2>
-            THE<br>
-            <em>AGENDA.</em>
-          </h2>
-
-        </div>
-
-        <p>
-          The issues delegates will be expected to
-          research, debate and negotiate during committee.
-        </p>
-
+      <div class="section-label">
+        03 / PREPARATION
       </div>
 
 
-      <div
-        class="agenda-container"
-        id="agendaContainer"
-      >
-
-        <!-- Agenda items inserted by JavaScript -->
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         BACKGROUND GUIDE
-    ========================== -->
-
-    <section class="section">
-
       <div class="heading">
 
-        <div>
-
-          <p class="eyebrow">
-            03 — PREPARATION
-          </p>
-
-          <h2>
-            BACKGROUND<br>
-            <em>GUIDE.</em>
-          </h2>
-
-        </div>
+        <h2>
+          BACKGROUND<br>
+          <em>GUIDE.</em>
+        </h2>
 
         <p>
-          The official committee Background Guide will
-          be available here once it has been finalised.
+          Read the official committee Background Guide
+          before preparing your position and entering committee.
         </p>
 
       </div>
@@ -222,16 +241,17 @@
           </small>
 
           <h3>
-            COMING SOON
+            BACKGROUND GUIDE
           </h3>
 
-          <p id="backgroundGuideText">
-            The official Background Guide for this
-            committee will be published soon. Delegates
-            will be notified when it becomes available.
+          <p>
+            The official Background Guide will be
+            published once the committee's academic
+            material has been finalised.
           </p>
 
         </div>
+
 
         <span class="coming-soon-badge">
           COMING SOON
@@ -242,26 +262,21 @@
     </section>
 
 
-    <!-- =========================
-         EXECUTIVE BOARD
-    ========================== -->
+    <!-- EXECUTIVE BOARD -->
 
-    <section class="section dark">
+    <section class="section">
+
+      <div class="section-label">
+        04 / EXECUTIVE BOARD
+      </div>
+
 
       <div class="heading">
 
-        <div>
-
-          <p class="eyebrow">
-            04 — EXECUTIVE BOARD
-          </p>
-
-          <h2>
-            THE<br>
-            <em>DAIS.</em>
-          </h2>
-
-        </div>
+        <h2>
+          THE<br>
+          <em>DAIS.</em>
+        </h2>
 
         <p>
           Meet the Executive Board responsible for
@@ -271,44 +286,122 @@
       </div>
 
 
-      <div
-        class="committee-eb-grid"
-        id="committeeEB"
-      >
+      <div class="committee-eb-grid">
 
-        <!-- EB members inserted by JavaScript -->
+
+        <!-- CHAIR -->
+
+        <div class="committee-eb-member">
+
+          <div class="eb-member-photo">
+            PHOTO
+          </div>
+
+          <div class="eb-member-info">
+
+            <small>
+              CHAIR
+            </small>
+
+            <h3>
+              To Be Announced
+            </h3>
+
+            <p>
+              Executive Board profile coming soon.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- VICE CHAIR -->
+
+        <div class="committee-eb-member">
+
+          <div class="eb-member-photo">
+            PHOTO
+          </div>
+
+          <div class="eb-member-info">
+
+            <small>
+              VICE CHAIR
+            </small>
+
+            <h3>
+              To Be Announced
+            </h3>
+
+            <p>
+              Executive Board profile coming soon.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- MODERATOR -->
+
+        <div class="committee-eb-member">
+
+          <div class="eb-member-photo">
+            PHOTO
+          </div>
+
+          <div class="eb-member-info">
+
+            <small>
+              MODERATOR
+            </small>
+
+            <h3>
+              To Be Announced
+            </h3>
+
+            <p>
+              Executive Board profile coming soon.
+            </p>
+
+          </div>
+
+        </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- =========================
-         REGISTER
-    ========================== -->
+    <!-- REGISTER -->
 
     <section class="register">
 
-      <p class="eyebrow">
+      <div class="section-label">
         READY?
-      </p>
+      </div>
+
 
       <h2>
         ENTER THE<br>
         <em>COMMITTEE.</em>
       </h2>
 
+
       <p>
         Choose your preferred registration platform
         to register for this committee.
       </p>
 
+
       <button
-        id="detailRegisterButton"
-        class="btn goldbtn"
+        class="button primary"
+        id="detailRegisterButtonBottom"
         type="button"
       >
-        Register Now
+        REGISTER NOW
       </button>
 
     </section>
@@ -316,46 +409,40 @@
   </main>
 
 
-  <!-- =========================
-       REGISTRATION MODAL
-  ========================== -->
+  <!-- REGISTRATION MODAL -->
 
   <div
-    id="registrationModal"
+    id="detailRegistrationModal"
     class="registration-modal"
-    aria-hidden="true"
   >
 
     <div
       class="registration-overlay"
-      data-close-registration
+      id="detailRegistrationOverlay"
     ></div>
 
 
-    <div
-      class="registration-box"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="registrationTitle"
-    >
+    <div class="registration-box">
 
       <button
         class="registration-close"
+        id="detailRegistrationClose"
         type="button"
-        aria-label="Close registration"
-        data-close-registration
       >
         ×
       </button>
 
 
-      <p class="eyebrow">
+      <div class="eyebrow">
         REGISTRATION
-      </p>
+      </div>
 
 
-      <h2 id="registrationTitle">
-        Register for <em id="selectedCommittee">RELMUN</em>
+      <h2>
+        REGISTER FOR<br>
+        <em id="modalCommittee">
+          UNSC
+        </em>
       </h2>
 
 
@@ -366,61 +453,46 @@
 
       <div class="registration-options">
 
-
-        <!-- MyMUN -->
-
         <a
-          id="mymunLink"
-          class="registration-option"
           href="#"
+          class="registration-option"
           target="_blank"
           rel="noopener noreferrer"
         >
 
-          <div>
+          <small>
+            PLATFORM 01
+          </small>
 
-            <small>
-              PLATFORM 01
-            </small>
+          <strong>
+            MyMUN
+          </strong>
 
-            <strong>
-              MyMUN
-            </strong>
-
-            <span>
-              Register through MyMUN →
-            </span>
-
-          </div>
+          <span>
+            Register through MyMUN →
+          </span>
 
         </a>
 
 
-        <!-- Gavelling -->
-
         <a
-          id="gavellingLink"
-          class="registration-option"
           href="#"
+          class="registration-option"
           target="_blank"
           rel="noopener noreferrer"
         >
 
-          <div>
+          <small>
+            PLATFORM 02
+          </small>
 
-            <small>
-              PLATFORM 02
-            </small>
+          <strong>
+            Gavelling
+          </strong>
 
-            <strong>
-              Gavelling
-            </strong>
-
-            <span>
-              Register through Gavelling →
-            </span>
-
-          </div>
+          <span>
+            Register through Gavelling →
+          </span>
 
         </a>
 
@@ -428,8 +500,8 @@
 
 
       <p class="registration-note">
-        Registration links will become active once
-        the official registration platforms are open.
+        Official registration links will be added
+        once registration opens.
       </p>
 
     </div>
@@ -437,491 +509,24 @@
   </div>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
   <footer>
 
-    <div>
-
-      <a
-        class="logo"
-        href="index.html"
-      >
-        RELMUN <b>’26</b>
-      </a>
-
-      <small>
-        RELATIONS · ENGAGEMENT · LEADERSHIP
-      </small>
-
+    <div class="footer-brand">
+      RELMUN ’26
     </div>
 
+    <p>
+      Relations · Engagement · Leadership
+    </p>
 
-    <nav>
-
-      <a href="index.html#about">
-        About
-      </a>
-
-      <a href="committees.html">
-        Committees
-      </a>
-
-      <a href="eb.html">
-        EB
-      </a>
-
-      <a href="index.html#conference">
-        Conference
-      </a>
-
-      <a href="index.html#delegates">
-        Delegates
-      </a>
-
-    </nav>
-
-
-    <small>
-      26–27 DECEMBER 2026 · ONLINE · IST
-    </small>
+    <p>
+      © 2026 RELMUN. All rights reserved.
+    </p>
 
   </footer>
 
 
   <script src="script.js"></script>
 
-
-  <!-- =========================
-       COMMITTEE DATA + LOGIC
-  ========================== -->
-
-  <script>
-
-    const committees = {
-
-      /* =========================
-         UNSC
-      ========================== */
-
-      unsc: {
-
-        code: "UNSC",
-
-        name: "SECURITY<br>COUNCIL",
-
-        shortDescription:
-          "The United Nations Security Council addresses matters concerning international peace and security, diplomacy and collective decision-making.",
-
-        description:
-          "The United Nations Security Council is the principal United Nations body responsible for matters concerning international peace and security. Delegates will be expected to represent their assigned country's interests while negotiating with other members to develop practical solutions.",
-
-        agendas: [
-          "Agenda to be announced."
-        ],
-
-        backgroundGuide:
-          "The official UNSC Background Guide will be published soon. Delegates will be notified once it becomes available.",
-
-        eb: [
-
-          {
-            role: "CHAIR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          },
-
-          {
-            role: "VICE CHAIR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          },
-
-          {
-            role: "MODERATOR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          }
-
-        ],
-
-        mymun: "#",
-
-        gavelling: "#"
-
-      },
-
-
-      /* =========================
-         UNHRC
-      ========================== */
-
-      unhrc: {
-
-        code: "UNHRC",
-
-        name: "HUMAN RIGHTS<br>COUNCIL",
-
-        shortDescription:
-          "The United Nations Human Rights Council provides a forum for international human rights debate, cooperation and policy.",
-
-        description:
-          "The United Nations Human Rights Council focuses on the promotion and protection of human rights around the world. Delegates will be expected to balance their country's position with international concerns while negotiating constructive solutions.",
-
-        agendas: [
-          "Agenda to be announced."
-        ],
-
-        backgroundGuide:
-          "The official UNHRC Background Guide will be published soon. Delegates will be notified once it becomes available.",
-
-        eb: [
-
-          {
-            role: "CHAIR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          },
-
-          {
-            role: "VICE CHAIR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          },
-
-          {
-            role: "MODERATOR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          }
-
-        ],
-
-        mymun: "#",
-
-        gavelling: "#"
-
-      },
-
-
-      /* =========================
-         UNODC
-      ========================== */
-
-      unodc: {
-
-        code: "UNODC",
-
-        name: "OFFICE ON<br>DRUGS AND CRIME",
-
-        shortDescription:
-          "The United Nations Office on Drugs and Crime focuses on international cooperation against drugs, organised crime and related challenges.",
-
-        description:
-          "The United Nations Office on Drugs and Crime works on international cooperation concerning drugs, organised crime and related transnational challenges. Delegates will be expected to negotiate solutions while representing their assigned country's interests.",
-
-        agendas: [
-          "Agenda to be announced."
-        ],
-
-        backgroundGuide:
-          "The official UNODC Background Guide will be published soon. Delegates will be notified once it becomes available.",
-
-        eb: [
-
-          {
-            role: "CHAIR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          },
-
-          {
-            role: "VICE CHAIR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          },
-
-          {
-            role: "MODERATOR",
-            name: "To Be Announced",
-            bio: "Executive Board profile coming soon."
-          }
-
-        ],
-
-        mymun: "#",
-
-        gavelling: "#"
-
-      }
-
-    };
-
-
-    /* =========================
-       GET COMMITTEE
-    ========================== */
-
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
-
-    const committeeKey =
-      params.get("committee") || "unsc";
-
-    const committee =
-      committees[committeeKey] ||
-      committees.unsc;
-
-
-    /* =========================
-       HERO
-    ========================== */
-
-    document.getElementById(
-      "committeeCode"
-    ).textContent =
-      `RELMUN ’26 · ${committee.code}`;
-
-
-    document.getElementById(
-      "committeeName"
-    ).innerHTML =
-      committee.name;
-
-
-    document.getElementById(
-      "committeeShortDescription"
-    ).textContent =
-      committee.shortDescription;
-
-
-    /* =========================
-       MANDATE
-    ========================== */
-
-    document.getElementById(
-      "committeeDescription"
-    ).textContent =
-      committee.description;
-
-
-    /* =========================
-       AGENDA
-    ========================== */
-
-    const agendaContainer =
-      document.getElementById(
-        "agendaContainer"
-      );
-
-
-    committee.agendas.forEach(
-      (agenda, index) => {
-
-        const item =
-          document.createElement("div");
-
-        item.className =
-          "agenda-item";
-
-        item.innerHTML = `
-          <span>
-            AGENDA ${String(index + 1).padStart(2, "0")}
-          </span>
-
-          <h3>
-            ${agenda}
-          </h3>
-        `;
-
-        agendaContainer.appendChild(item);
-
-      }
-    );
-
-
-    /* =========================
-       BACKGROUND GUIDE
-    ========================== */
-
-    document.getElementById(
-      "backgroundGuideText"
-    ).textContent =
-      committee.backgroundGuide;
-
-
-    /* =========================
-       EXECUTIVE BOARD
-    ========================== */
-
-    const ebContainer =
-      document.getElementById(
-        "committeeEB"
-      );
-
-
-    committee.eb.forEach(
-      member => {
-
-        const card =
-          document.createElement("article");
-
-        card.className =
-          "committee-eb-member";
-
-        card.innerHTML = `
-
-          <div class="eb-member-photo">
-            <span>PHOTO</span>
-          </div>
-
-          <div class="eb-member-info">
-
-            <small>
-              ${member.role}
-            </small>
-
-            <h3>
-              ${member.name}
-            </h3>
-
-            <p>
-              ${member.bio}
-            </p>
-
-          </div>
-
-        `;
-
-        ebContainer.appendChild(card);
-
-      }
-    );
-
-
-    /* =========================
-       REGISTRATION
-    ========================== */
-
-    const modal =
-      document.getElementById(
-        "registrationModal"
-      );
-
-    const registerButton =
-      document.getElementById(
-        "detailRegisterButton"
-      );
-
-    const selectedCommittee =
-      document.getElementById(
-        "selectedCommittee"
-      );
-
-    const mymunLink =
-      document.getElementById(
-        "mymunLink"
-      );
-
-    const gavellingLink =
-      document.getElementById(
-        "gavellingLink"
-      );
-
-
-    selectedCommittee.textContent =
-      committee.code;
-
-
-    mymunLink.href =
-      committee.mymun;
-
-
-    gavellingLink.href =
-      committee.gavelling;
-
-
-    /* =========================
-       OPEN MODAL
-    ========================== */
-
-    registerButton.addEventListener(
-      "click",
-      () => {
-
-        modal.classList.add("open");
-
-        modal.setAttribute(
-          "aria-hidden",
-          "false"
-        );
-
-      }
-    );
-
-
-    /* =========================
-       CLOSE MODAL
-    ========================== */
-
-    document
-      .querySelectorAll(
-        "[data-close-registration]"
-      )
-      .forEach(element => {
-
-        element.addEventListener(
-          "click",
-          () => {
-
-            modal.classList.remove(
-              "open"
-            );
-
-            modal.setAttribute(
-              "aria-hidden",
-              "true"
-            );
-
-          }
-        );
-
-      });
-
-
-    /* =========================
-       ESC KEY
-    ========================== */
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-          event.key === "Escape" &&
-          modal.classList.contains("open")
-        ) {
-
-          modal.classList.remove(
-            "open"
-          );
-
-          modal.setAttribute(
-            "aria-hidden",
-            "true"
-          );
-
-        }
-
-      }
-    );
-
-  </script>
-
 </body>
-
 </html>
