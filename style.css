@@ -1933,3 +1933,13 @@ body > footer nav a:hover {
   }
 
 }
+/* Clickable committee cards */
+
+.committee {
+  cursor: pointer;
+}
+
+.committee:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
