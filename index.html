@@ -1,81 +1,859 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="RELMUN '26 — Relations · Engagement · Leadership">
+  <meta name="description" content="RELMUN '26 — Relations, Engagement & Leadership Model United Nations. 26–27 December 2026, online via Google Meet.">
 
-  <title>RELMUN '26</title>
+  <title>RELMUN '26 | Relations · Engagement · Leadership</title>
 
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+  <div class="grain"></div>
 
-  <nav>
-    <div class="logo">
-      <a href="index.html">RELMUN <span>’26</span></a>
-    </div>
-
-    <ul>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#committees">COMMITTEES</a></li>
-      <li><a href="#conference">CONFERENCE</a></li>
-      <li><a href="#delegates">DELEGATES</a></li>
-      <li><a href="#register">REGISTER</a></li>
-    </ul>
-  </nav>
+  <div class="gold-orb orb-one"></div>
+  <div class="gold-orb orb-two"></div>
 
 
-  <!-- HERO -->
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+
+    <a class="brand" href="index.html">
+      <img src="assets/relmun-logo.png" alt="RELMUN 2026 logo">
+    </a>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links">
+
+      <a href="#about">ABOUT</a>
+
+      <a href="committees.html">COMMITTEES</a>
+
+      <a href="#conference">CONFERENCE</a>
+
+      <a href="#team">TEAM</a>
+
+      <a href="#eb">EB</a>
+
+      <button class="nav-register js-register">
+        REGISTER
+      </button>
+
+    </nav>
+
+  </header>
+
 
   <main>
 
+
+    <!-- HERO -->
+
     <section class="hero">
 
-      <div class="hero-content">
+      <div class="hero-lines"></div>
 
-        <div class="eyebrow">
-          Relations · Engagement · Leadership
-        </div>
+      <div class="hero-copy">
 
-        <h1>
-          RELMUN<br>
-          <span>’26</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          A new generation of Model United Nations.
-          Debate, negotiate, collaborate and lead.
+        <p class="eyebrow">
+          RELATIONS · ENGAGEMENT · LEADERSHIP
         </p>
 
+        <h1>
+          RELMUN <span>'26</span>
+        </h1>
+
+        <p class="hero-lead">
+          A new generation of Model United Nations.<br>
+          Debate. Negotiate. Collaborate. Lead.
+        </p>
+
+
         <div class="hero-meta">
-          <span>26–27 DECEMBER 2026</span>
-          <span>ONLINE CONFERENCE</span>
-          <span>ALL TIMES IST</span>
+
+          <div>
+            <small>DATES</small>
+            <strong>26–27 DECEMBER 2026</strong>
+          </div>
+
+          <div>
+            <small>FORMAT</small>
+            <strong>ONLINE · GOOGLE MEET</strong>
+          </div>
+
+          <div>
+            <small>TIMEZONE</small>
+            <strong>ALL TIMES IST</strong>
+          </div>
+
         </div>
 
-        <div class="buttons">
 
-          <!-- THIS IS NOW A BUTTON, NOT A LINK -->
+        <div class="hero-actions">
 
-          <button
-            class="button primary"
-            id="homeRegisterButton"
-            type="button"
-          >
-            REGISTER NOW
+          <button class="btn btn-gold js-register">
+            REGISTER NOW <span>↗</span>
           </button>
 
+          <a class="btn btn-outline" href="committees.html">
+            EXPLORE COMMITTEES <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-mark">
+
+        <div class="compass">✦</div>
+
+        <span>R·E·L</span>
+        <span>M·U·N</span>
+
+        <span class="mark-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <div class="scroll-note">
+        SCROLL TO ENTER <span>↓</span>
+      </div>
+
+    </section>
+
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="section about-section">
+
+      <div class="section-index">
+        01 / ABOUT
+      </div>
+
+      <div class="split-heading">
+
+        <h2>
+          WHERE<br>
+          <em>DIPLOMACY</em><br>
+          BEGINS.
+        </h2>
+
+        <div>
+
+          <p class="large-copy">
+            RELMUN '26 is a two-day online Model United Nations conference
+            built around relations, engagement and leadership.
+          </p>
+
+          <p class="muted-copy">
+            Delegates will step into the role of international representatives,
+            research complex issues, negotiate with fellow delegates and work
+            towards practical multilateral solutions.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="principles">
+
+        <article>
+          <span>01</span>
+
+          <h3>RELATIONS</h3>
+
+          <p>
+            Build alliances. Understand perspectives.
+            Negotiate with purpose.
+          </p>
+        </article>
+
+
+        <article>
+          <span>02</span>
+
+          <h3>ENGAGEMENT</h3>
+
+          <p>
+            Enter the room prepared to speak, listen,
+            question and contribute.
+          </p>
+        </article>
+
+
+        <article>
+          <span>03</span>
+
+          <h3>LEADERSHIP</h3>
+
+          <p>
+            Turn research and diplomacy into meaningful
+            decisions.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- COMMITTEES -->
+
+    <section id="committees" class="section committees-preview">
+
+      <div class="section-index">
+        02 / COMMITTEES
+      </div>
+
+
+      <div class="heading-row">
+
+        <h2>
+          CHOOSE YOUR<br>
+          <em>ARENA.</em>
+        </h2>
+
+        <p>
+          Three committees. Different mandates. One conference.
+        </p>
+
+      </div>
+
+
+      <div class="committee-grid">
+
+
+        <a
+          class="committee-card"
+          href="committee.html?committee=unsc"
+        >
+
+          <div class="card-top">
+            <span>01 / UNSC</span>
+            <span>→</span>
+          </div>
+
+
+          <div class="card-content">
+
+            <small>
+              UNITED NATIONS
+            </small>
+
+            <h3>
+              SECURITY<br>
+              COUNCIL
+            </h3>
+
+            <p>
+              International peace and security, diplomacy,
+              negotiation and high-level decision-making.
+            </p>
+
+          </div>
+
+
+          <div class="card-footer">
+            VIEW COMMITTEE
+            <span>↗</span>
+          </div>
+
+        </a>
+
+
+
+        <a
+          class="committee-card"
+          href="committee.html?committee=unhrc"
+        >
+
+          <div class="card-top">
+            <span>02 / UNHRC</span>
+            <span>→</span>
+          </div>
+
+
+          <div class="card-content">
+
+            <small>
+              UNITED NATIONS
+            </small>
+
+            <h3>
+              HUMAN RIGHTS<br>
+              COUNCIL
+            </h3>
+
+            <p>
+              International human rights, cooperation and
+              policy-focused multilateral debate.
+            </p>
+
+          </div>
+
+
+          <div class="card-footer">
+            VIEW COMMITTEE
+            <span>↗</span>
+          </div>
+
+        </a>
+
+
+
+        <a
+          class="committee-card"
+          href="committee.html?committee=unodc"
+        >
+
+          <div class="card-top">
+            <span>03 / UNODC</span>
+            <span>→</span>
+          </div>
+
+
+          <div class="card-content">
+
+            <small>
+              UNITED NATIONS
+            </small>
+
+            <h3>
+              OFFICE ON<br>
+              DRUGS AND CRIME
+            </h3>
+
+            <p>
+              International cooperation against drugs,
+              organised crime and related challenges.
+            </p>
+
+          </div>
+
+
+          <div class="card-footer">
+            VIEW COMMITTEE
+            <span>↗</span>
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <a
+        class="text-link"
+        href="committees.html"
+      >
+        VIEW ALL THREE COMMITTEES →
+      </a>
+
+    </section>
+
+
+
+    <!-- CONFERENCE -->
+
+    <section id="conference" class="section conference-section">
+
+      <div class="section-index">
+        03 / CONFERENCE
+      </div>
+
+
+      <div class="split-heading">
+
+        <h2>
+          TWO DAYS.<br>
+          <em>ONE ROOM.</em><br>
+          ENDLESS IDEAS.
+        </h2>
+
+        <p class="large-copy">
+          Everything you need for a focused, competitive and engaging
+          MUN experience — online.
+        </p>
+
+      </div>
+
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+
+          <span>01</span>
+
+          <div>
+
+            <small>
+              DAY ONE
+            </small>
+
+            <h3>
+              OPEN · DEBATE · NEGOTIATE
+            </h3>
+
+            <p>
+              Opening ceremony, committee sessions,
+              moderated debate and bloc-building.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <span>02</span>
+
+          <div>
+
+            <small>
+              DAY TWO
+            </small>
+
+            <h3>
+              DRAFT · VOTE · RECOGNISE
+            </h3>
+
+            <p>
+              Resolution drafting, final debate,
+              voting and closing recognition.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="conference-stats">
+
+        <div>
+          <strong>26–27</strong>
+          <span>DECEMBER 2026</span>
+        </div>
+
+        <div>
+          <strong>ONLINE</strong>
+          <span>GOOGLE MEET</span>
+        </div>
+
+        <div>
+          <strong>IST</strong>
+          <span>ALL TIMES</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- DELEGATES -->
+
+    <section id="delegates" class="section delegates-section">
+
+      <div class="section-index">
+        04 / DELEGATES
+      </div>
+
+
+      <div class="heading-row">
+
+        <h2>
+          COME<br>
+          <em>PREPARED.</em>
+        </h2>
+
+        <p>
+          Your committee experience starts before
+          the first moderated caucus.
+        </p>
+
+      </div>
+
+
+      <div class="prep-grid">
+
+        <article>
+
+          <span>01</span>
+
+          <h3>RESEARCH</h3>
+
+          <p>
+            Understand your country's position,
+            the committee mandate and the issue.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>02</span>
+
+          <h3>PREPARE</h3>
+
+          <p>
+            Read your background guide and prepare
+            a clear opening statement.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>03</span>
+
+          <h3>ENGAGE</h3>
+
+          <p>
+            Listen, negotiate, form blocs and
+            contribute constructively throughout committee.
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <div class="notice">
+        BACKGROUND GUIDES ·
+        <strong>COMING SOON</strong>
+      </div>
+
+    </section>
+
+
+
+    <!-- ORGANISING COMMITTEE -->
+
+    <section id="team" class="section team-section">
+
+      <div class="section-index">
+        05 / ORGANISING COMMITTEE
+      </div>
+
+
+      <div class="heading-row">
+
+        <h2>
+          THE<br>
+          <em>TEAM.</em>
+        </h2>
+
+        <p>
+          The people building RELMUN '26 behind the scenes.
+        </p>
+
+      </div>
+
+
+      <div class="team-grid">
+
+
+        <article class="person-card featured">
+
+          <div class="person-number">
+            01
+          </div>
+
+          <div class="avatar">
+            AK
+          </div>
+
+          <small>
+            SECRETARY-GENERAL
+          </small>
+
+          <h3>
+            AKSHITH KABILAN
+          </h3>
+
+        </article>
+
+
+
+        <article class="person-card">
+
+          <div class="person-number">
+            02
+          </div>
+
+          <div class="avatar">
+            LV
+          </div>
+
+          <small>
+            DIRECTOR-GENERAL
+          </small>
+
+          <h3>
+            LAASYA VIKRAM
+          </h3>
+
+        </article>
+
+
+
+        <article class="person-card">
+
+          <div class="person-number">
+            03
+          </div>
+
+          <div class="avatar">
+            AR
+          </div>
+
+          <small>
+            HEAD OF ADMINISTRATION & OUTREACH
+          </small>
+
+          <h3>
+            ABIMAYUR R
+          </h3>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- EXECUTIVE BOARD -->
+
+    <section id="eb" class="section eb-section">
+
+      <div class="section-index">
+        06 / EXECUTIVE BOARD
+      </div>
+
+
+      <div class="split-heading">
+
+        <h2>
+          THE<br>
+          <em>CHAIRS.</em>
+        </h2>
+
+        <div>
+
+          <p class="large-copy">
+            Meet the Executive Board responsible for guiding debate
+            and maintaining committee procedure.
+          </p>
+
+          <p class="muted-copy">
+            Committee-specific EB profiles will be announced soon.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="eb-grid">
+
+
+        <article>
+
+          <span>UNSC</span>
+
+          <h3>
+            CHAIR · TBA
+          </h3>
+
+          <p>
+            VICE CHAIR · TBA<br>
+            MODERATOR · TBA
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>UNHRC</span>
+
+          <h3>
+            CHAIR · TBA
+          </h3>
+
+          <p>
+            VICE CHAIR · TBA<br>
+            MODERATOR · TBA
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>UNODC</span>
+
+          <h3>
+            CHAIR · TBA
+          </h3>
+
+          <p>
+            VICE CHAIR · TBA<br>
+            MODERATOR · TBA
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <div class="eb-apply">
+
+        <div>
+
+          <small>
+            INTERESTED IN JOINING THE BOARD?
+          </small>
+
+          <h3>
+            APPLY FOR EB.
+          </h3>
+
+        </div>
+
+        <a
+          class="btn btn-gold"
+          href="https://forms.gle/hxntNpnzrA8QHhCP8"
+          target="_blank"
+          rel="noopener"
+        >
+          EB REGISTRATION <span>↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- REGISTRATION -->
+
+    <section class="section final-cta">
+
+      <div class="cta-decoration">
+        ✦
+      </div>
+
+      <div class="section-index">
+        07 / REGISTRATION
+      </div>
+
+      <h2>
+        YOUR SEAT<br>
+        <em>AWAITS.</em>
+      </h2>
+
+      <p>
+        Choose your committee and register through
+        your preferred platform.
+      </p>
+
+      <button class="btn btn-gold big js-register">
+        REGISTER NOW <span>↗</span>
+      </button>
+
+    </section>
+
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact-section">
+
+      <div class="contact-inner">
+
+        <div>
+
+          <div class="section-index">
+            08 / CONTACT
+          </div>
+
+          <h2>
+            LET'S<br>
+            <em>TALK.</em>
+          </h2>
+
+        </div>
+
+
+        <div class="contact-links">
+
+          <a href="mailto:akshithkabilan@gmail.com">
+
+            <small>
+              EMAIL
+            </small>
+
+            <strong>
+              akshithkabilan@gmail.com
+            </strong>
+
+          </a>
+
+
           <a
-            href="#committees"
-            class="button secondary"
+            href="https://instagram.com/relmun.official"
+            target="_blank"
+            rel="noopener"
           >
-            EXPLORE COMMITTEES
+
+            <small>
+              INSTAGRAM
+            </small>
+
+            <strong>
+              @relmun.official
+            </strong>
+
+          </a>
+
+
+          <a
+            href="https://wa.me/919843451257"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <small>
+              WHATSAPP
+            </small>
+
+            <strong>
+              +91 9843451257
+            </strong>
+
           </a>
 
         </div>
@@ -84,300 +862,77 @@
 
     </section>
 
-
-    <!-- ABOUT -->
-
-    <section id="about" class="about">
-
-      <div class="section-label">
-        01 / ABOUT
-      </div>
-
-      <h2 class="section-title">
-        The conference<br>
-        at a glance.
-      </h2>
-
-      <p class="section-text">
-        RELMUN ’26 is an online Model United Nations conference
-        focused on diplomacy, debate, negotiation, collaboration
-        and leadership.
-      </p>
-
-    </section>
-
-
-    <!-- COMMITTEES -->
-
-    <section id="committees">
-
-      <div class="section-label">
-        02 / COMMITTEES
-      </div>
-
-      <h2 class="section-title">
-        Choose your<br>
-        arena.
-      </h2>
-
-      <p class="section-text">
-        Three committees. Different mandates. One conference.
-      </p>
-
-
-      <div class="committee-grid">
-
-
-        <!-- UNSC -->
-
-        <article
-          class="committee"
-          onclick="window.location.href='committee.html?committee=unsc'"
-        >
-
-          <div class="committee-number">
-            01 / UNSC
-          </div>
-
-          <div class="committee-card-content">
-
-            <h3>
-              United Nations<br>
-              Security Council
-            </h3>
-
-            <p>
-              High-level international security and diplomacy.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- UNHRC -->
-
-        <article
-          class="committee"
-          onclick="window.location.href='committee.html?committee=unhrc'"
-        >
-
-          <div class="committee-number">
-            02 / UNHRC
-          </div>
-
-          <div class="committee-card-content">
-
-            <h3>
-              United Nations<br>
-              Human Rights Council
-            </h3>
-
-            <p>
-              Debate contemporary human rights challenges
-              and international responses.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- UNODC -->
-
-        <article
-          class="committee"
-          onclick="window.location.href='committee.html?committee=unodc'"
-        >
-
-          <div class="committee-number">
-            03 / UNODC
-          </div>
-
-          <div class="committee-card-content">
-
-            <h3>
-              United Nations Office<br>
-              on Drugs and Crime
-            </h3>
-
-            <p>
-              International cooperation against organised crime
-              and illicit activities.
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONFERENCE -->
-
-    <section id="conference" class="about">
-
-      <div class="section-label">
-        03 / CONFERENCE
-      </div>
-
-      <h2 class="section-title">
-        What to<br>
-        expect.
-      </h2>
-
-
-      <div class="info-grid">
-
-        <div class="info-card">
-          <h3>Opening Ceremony</h3>
-          <p>
-            Begin the conference with the official opening
-            of RELMUN ’26.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <h3>Committee Sessions</h3>
-          <p>
-            Formal debate, moderated caucuses,
-            negotiation and drafting.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <h3>Drafting & Voting</h3>
-          <p>
-            Develop solutions collaboratively and put
-            them to a vote.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <h3>Closing Ceremony</h3>
-          <p>
-            Conclude the conference and recognise
-            outstanding delegates.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DELEGATES -->
-
-    <section id="delegates">
-
-      <div class="section-label">
-        04 / DELEGATES
-      </div>
-
-      <h2 class="section-title">
-        Come<br>
-        prepared.
-      </h2>
-
-
-      <div class="info-grid">
-
-        <div class="info-card">
-
-          <h3>Before RELMUN</h3>
-
-          <ul>
-            <li>Read your background guide.</li>
-            <li>Research your country.</li>
-            <li>Research both agenda topics.</li>
-            <li>Prepare your opening speech.</li>
-          </ul>
-
-        </div>
-
-
-        <div class="info-card">
-
-          <h3>During Committee</h3>
-
-          <ul>
-            <li>Know your procedure.</li>
-            <li>Speak with purpose.</li>
-            <li>Listen and negotiate.</li>
-            <li>Build meaningful blocs.</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- REGISTER -->
-
-    <section id="register" class="cta">
-
-      <div class="section-label">
-        05 / REGISTRATION
-      </div>
-
-      <h2 class="section-title">
-        Your seat<br>
-        awaits.
-      </h2>
-
-      <p class="section-text">
-        Choose your preferred registration platform
-        to register for RELMUN ’26.
-      </p>
-
-      <div class="buttons">
-
-        <button
-          class="button primary"
-          id="bottomRegisterButton"
-          type="button"
-        >
-          REGISTER NOW
-        </button>
-
-      </div>
-
-    </section>
-
   </main>
+
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-logo">
+
+      <img
+        src="assets/relmun-logo.png"
+        alt="RELMUN 2026"
+      >
+
+    </div>
+
+
+    <div class="footer-middle">
+
+      <strong>
+        RELMUN '26
+      </strong>
+
+      <span>
+        Relations · Engagement · Leadership
+      </span>
+
+    </div>
+
+
+    <div class="footer-right">
+
+      <span>
+        26–27 DECEMBER 2026
+      </span>
+
+      <span>
+        © 2026 RELMUN
+      </span>
+
+    </div>
+
+  </footer>
+
 
 
   <!-- REGISTRATION MODAL -->
 
   <div
-    id="homeRegistrationModal"
-    class="registration-modal"
+    class="modal"
+    id="registrationModal"
+    aria-hidden="true"
   >
 
-    <div
-      class="registration-overlay"
-      id="homeRegistrationOverlay"
-    ></div>
+    <div class="modal-backdrop js-close-modal"></div>
 
 
-    <div class="registration-box">
+    <div class="modal-box">
 
       <button
-        class="registration-close"
-        id="homeRegistrationClose"
-        type="button"
+        class="modal-close js-close-modal"
+        aria-label="Close"
       >
         ×
       </button>
 
 
-      <div class="eyebrow">
-        REGISTRATION
-      </div>
+      <p class="eyebrow">
+        DELEGATE REGISTRATION
+      </p>
 
 
       <h2>
@@ -386,75 +941,58 @@
       </h2>
 
 
-      <p class="registration-description">
-        Choose your preferred registration platform
-        for RELMUN ’26.
+      <p>
+        Select where you'd like to register for RELMUN '26.
       </p>
 
 
-      <div class="registration-options">
+      <div class="modal-options">
+
 
         <a
-          href="#"
-          class="registration-option"
+          href="https://mymun.com/conferences/relmun-2026"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
-          <small>PLATFORM 01</small>
 
-          <strong>MyMUN</strong>
+          <span>01</span>
 
-          <span>
-            Register through MyMUN →
-          </span>
+          <strong>
+            MyMUN
+          </strong>
+
+          <small>
+            REGISTER VIA MYMUN ↗
+          </small>
+
         </a>
 
 
         <a
-          href="#"
-          class="registration-option"
+          href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
-          <small>PLATFORM 02</small>
 
-          <strong>Gavelling</strong>
+          <span>02</span>
 
-          <span>
-            Register through Gavelling →
-          </span>
+          <strong>
+            Gavelling
+          </strong>
+
+          <small>
+            REGISTER VIA GAVELLING ↗
+          </small>
+
         </a>
+
 
       </div>
-
-
-      <p class="registration-note">
-        Official registration links will be added once
-        registration opens.
-      </p>
 
     </div>
 
   </div>
 
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-brand">
-      RELMUN ’26
-    </div>
-
-    <p>
-      Relations · Engagement · Leadership
-    </p>
-
-    <p>
-      © 2026 RELMUN. All rights reserved.
-    </p>
-
-  </footer>
 
 
   <script src="script.js"></script>
