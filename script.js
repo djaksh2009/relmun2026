@@ -1,299 +1,434 @@
-/* =========================================================
-   RELMUN '26
-   MAIN JAVASCRIPT
-   ========================================================= */
-
-
-/* =========================================================
-   COMMITTEE DATA
-   ========================================================= */
-
-const committees = {
+const committeeData = {
 
   unsc: {
-
     code: "UNSC",
+    number: "01",
 
     title:
       "UNITED NATIONS<br>SECURITY COUNCIL",
 
     description:
-      "International peace and security, diplomacy, negotiation and high-level decision-making.",
+      "The Security Council is the United Nations' principal body for addressing international peace and security. Delegates will engage in high-level diplomacy, negotiation and decision-making.",
 
-    agendaDescription:
-      "The UNSC agenda will be announced once the committee's academic material has been finalised.",
-
-    agendaOne:
-      "Agenda To Be Announced"
-
+    agenda:
+      "TO BE ANNOUNCED"
   },
 
 
   unhrc: {
-
     code: "UNHRC",
+    number: "02",
 
     title:
       "UNITED NATIONS<br>HUMAN RIGHTS COUNCIL",
 
     description:
-      "International human rights, cooperation and policy-focused multilateral debate.",
+      "The Human Rights Council addresses international human rights situations and promotes cooperation, dialogue and policy-focused multilateral action.",
 
-    agendaDescription:
-      "The UNHRC agenda will be announced once the committee's academic material has been finalised.",
-
-    agendaOne:
-      "Agenda To Be Announced"
-
+    agenda:
+      "TO BE ANNOUNCED"
   },
 
 
   unodc: {
-
     code: "UNODC",
+    number: "03",
 
     title:
       "UNITED NATIONS OFFICE<br>ON DRUGS AND CRIME",
 
     description:
-      "International cooperation against drugs, organised crime and related challenges.",
+      "The United Nations Office on Drugs and Crime works around international cooperation against drugs, organised crime, corruption and related transnational challenges.",
 
-    agendaDescription:
-      "The UNODC agenda will be announced once the committee's academic material has been finalised.",
-
-    agendaOne:
-      "Agenda To Be Announced"
-
+    agenda:
+      "TO BE ANNOUNCED"
   }
 
 };
 
 
-/* =========================================================
-   GET COMMITTEE FROM URL
-   ========================================================= */
 
-const params =
-  new URLSearchParams(window.location.search);
+function renderCommitteePage() {
 
-const selectedCommittee =
-  params.get("committee");
+  const target =
+    document.getElementById("committeePage");
 
-const committeeData =
-  committees[selectedCommittee];
+  if (!target) return;
 
 
-/* =========================================================
-   LOAD COMMITTEE INFORMATION
-   ========================================================= */
-
-if (committeeData) {
-
-  const committeeCode =
-    document.getElementById("committeeCode");
-
-  const committeeTitle =
-    document.getElementById("committeeTitle");
-
-  const committeeDescription =
-    document.getElementById("committeeDescription");
-
-  const committeeMeta =
-    document.getElementById("committeeMeta");
-
-  const agendaDescription =
-    document.getElementById("agendaDescription");
-
-  const agendaOne =
-    document.getElementById("agendaOne");
-
-  const modalCommittee =
-    document.getElementById("modalCommittee");
+  const params =
+    new URLSearchParams(window.location.search);
 
 
-  if (committeeCode) {
-    committeeCode.textContent =
-      committeeData.code;
-  }
+  const key =
+    params.get("committee") || "unsc";
 
 
-  if (committeeTitle) {
-    committeeTitle.innerHTML =
-      committeeData.title;
-  }
-
-
-  if (committeeDescription) {
-    committeeDescription.textContent =
-      committeeData.description;
-  }
-
-
-  if (committeeMeta) {
-    committeeMeta.textContent =
-      committeeData.code;
-  }
-
-
-  if (agendaDescription) {
-    agendaDescription.textContent =
-      committeeData.agendaDescription;
-  }
-
-
-  if (agendaOne) {
-    agendaOne.textContent =
-      committeeData.agendaOne;
-  }
-
-
-  if (modalCommittee) {
-    modalCommittee.textContent =
-      committeeData.code;
-  }
+  const data =
+    committeeData[key] || committeeData.unsc;
 
 
   document.title =
-    committeeData.code + " | RELMUN '26";
+    `${data.code} | RELMUN '26`;
+
+
+  target.innerHTML = `
+
+    <section class="committee-detail-hero">
+
+      <div class="detail-number">
+        ${data.number}
+      </div>
+
+
+      <div class="section-index">
+        COMMITTEE / ${data.code}
+      </div>
+
+
+      <h1>
+        ${data.title}
+      </h1>
+
+
+      <p>
+        ${data.description}
+      </p>
+
+
+      <div class="detail-meta">
+
+        <span>
+          COMMITTEE:
+          <strong>${data.code}</strong>
+        </span>
+
+        <span>
+          FORMAT:
+          <strong>ONLINE</strong>
+        </span>
+
+        <span>
+          DATE:
+          <strong>26–27 DECEMBER 2026</strong>
+        </span>
+
+      </div>
+
+
+      <div class="hero-actions">
+
+        <button class="btn btn-gold js-register">
+          REGISTER NOW <span>↗</span>
+        </button>
+
+
+        <a
+          class="btn btn-outline"
+          href="committees.html"
+        >
+          ALL COMMITTEES <span>→</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="detail-section">
+
+      <div class="section-index">
+        01 / AGENDA
+      </div>
+
+
+      <div class="agenda-row">
+
+        <span>
+          AGENDA 01
+        </span>
+
+        <h2>
+          ${data.agenda}
+        </h2>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="detail-section">
+
+      <div class="section-index">
+        02 / BACKGROUND GUIDE
+      </div>
+
+
+      <div class="guide-row">
+
+        <div>
+
+          <small>
+            OFFICIAL DOCUMENT
+          </small>
+
+          <h2>
+            BACKGROUND GUIDE
+          </h2>
+
+          <p>
+            The official ${data.code} Background Guide
+            will be published once the committee's academic
+            material has been finalised.
+          </p>
+
+        </div>
+
+
+        <span class="coming">
+          COMING SOON
+        </span>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="detail-section">
+
+      <div class="section-index">
+        03 / EXECUTIVE BOARD
+      </div>
+
+
+      <div class="detail-eb">
+
+
+        <div class="eb-role">
+
+          <small>
+            CHAIR
+          </small>
+
+          <strong>
+            TO BE ANNOUNCED
+          </strong>
+
+        </div>
+
+
+        <div class="eb-role">
+
+          <small>
+            VICE CHAIR
+          </small>
+
+          <strong>
+            TO BE ANNOUNCED
+          </strong>
+
+        </div>
+
+
+        <div class="eb-role">
+
+          <small>
+            MODERATOR
+          </small>
+
+          <strong>
+            TO BE ANNOUNCED
+          </strong>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <section class="detail-cta">
+
+      <p class="eyebrow">
+        READY?
+      </p>
+
+
+      <h2>
+        ENTER THE<br>
+        <em>COMMITTEE.</em>
+      </h2>
+
+
+      <p>
+        Choose your preferred registration platform
+        to register for ${data.code}.
+      </p>
+
+
+      <button class="btn btn-gold big js-register">
+        REGISTER NOW <span>↗</span>
+      </button>
+
+    </section>
+
+  `;
+
+
+  bindRegistration();
 
 }
 
 
-/* =========================================================
-   COMMITTEE REGISTRATION MODAL
-   ========================================================= */
 
-const detailRegisterButton =
-  document.getElementById(
-    "detailRegisterButton"
-  );
+function bindRegistration() {
 
+  const modal =
+    document.getElementById("registrationModal");
 
-const detailRegisterButtonBottom =
-  document.getElementById(
-    "detailRegisterButtonBottom"
-  );
+  if (!modal) return;
 
 
-const detailRegistrationModal =
-  document.getElementById(
-    "detailRegistrationModal"
-  );
+  document
+    .querySelectorAll(".js-register")
+    .forEach(button => {
+
+      button.onclick = () => {
+
+        modal.classList.add("open");
+
+        modal.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.classList.add(
+          "modal-open"
+        );
+
+      };
+
+    });
 
 
-const detailRegistrationClose =
-  document.getElementById(
-    "detailRegistrationClose"
-  );
+  document
+    .querySelectorAll(".js-close-modal")
+    .forEach(button => {
 
+      button.onclick = () => {
 
-const detailRegistrationOverlay =
-  document.getElementById(
-    "detailRegistrationOverlay"
-  );
+        modal.classList.remove("open");
 
+        modal.setAttribute(
+          "aria-hidden",
+          "true"
+        );
 
-function openDetailRegistration() {
+        document.body.classList.remove(
+          "modal-open"
+        );
 
-  if (!detailRegistrationModal) return;
+      };
 
-  detailRegistrationModal.classList.add("open");
-
-  document.body.style.overflow = "hidden";
+    });
 
 }
 
 
-function closeDetailRegistration() {
 
-  if (!detailRegistrationModal) return;
+function setupMenu() {
 
-  detailRegistrationModal.classList.remove("open");
+  const toggle =
+    document.querySelector(".menu-toggle");
 
-  document.body.style.overflow = "";
+  const nav =
+    document.querySelector(".nav-links");
 
-}
+
+  if (!toggle || !nav) return;
 
 
-if (detailRegisterButton) {
-
-  detailRegisterButton.addEventListener(
+  toggle.addEventListener(
     "click",
-    openDetailRegistration
-  );
+    () => {
 
-}
-
-
-if (detailRegisterButtonBottom) {
-
-  detailRegisterButtonBottom.addEventListener(
-    "click",
-    openDetailRegistration
-  );
-
-}
+      const open =
+        nav.classList.toggle("open");
 
 
-if (detailRegistrationClose) {
-
-  detailRegistrationClose.addEventListener(
-    "click",
-    closeDetailRegistration
-  );
-
-}
-
-
-if (detailRegistrationOverlay) {
-
-  detailRegistrationOverlay.addEventListener(
-    "click",
-    closeDetailRegistration
-  );
-
-}
-
-
-/* =========================================================
-   NAV REGISTER BUTTON
-   ========================================================= */
-
-const detailNavRegister =
-  document.getElementById(
-    "detailNavRegister"
-  );
-
-
-if (detailNavRegister) {
-
-  detailNavRegister.addEventListener(
-    "click",
-    function(event) {
-
-      event.preventDefault();
-
-      openDetailRegistration();
+      toggle.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
 
     }
   );
 
+
+  nav
+    .querySelectorAll("a")
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          nav.classList.remove("open");
+
+        }
+      );
+
+    });
+
 }
 
 
-/* =========================================================
-   ESCAPE KEY
-   ========================================================= */
 
 document.addEventListener(
-  "keydown",
-  function(event) {
+  "DOMContentLoaded",
+  () => {
 
-    if (event.key === "Escape") {
+    renderCommitteePage();
 
-      closeDetailRegistration();
+    bindRegistration();
 
-    }
+    setupMenu();
+
+
+    document.addEventListener(
+      "keydown",
+      e => {
+
+        if (e.key === "Escape") {
+
+          document
+            .querySelectorAll(".modal.open")
+            .forEach(modal => {
+
+              modal.classList.remove(
+                "open"
+              );
+
+              modal.setAttribute(
+                "aria-hidden",
+                "true"
+              );
+
+              document.body.classList.remove(
+                "modal-open"
+              );
+
+            });
+
+        }
+
+      }
+    );
 
   }
 );
