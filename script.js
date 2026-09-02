@@ -42,6 +42,36 @@ const committeeData = {
 
     agenda:
       "TO BE ANNOUNCED"
+  },
+
+
+  aippm: {
+    code: "AIPPM",
+    number: "04",
+
+    title:
+      "ALL INDIA<br>POLITICAL PARTIES MEET",
+
+    description:
+      "AIPPM brings together representatives of India's political parties to engage in parliamentary debate, political negotiation and deliberation on matters of national importance.",
+
+    agenda:
+      "TO BE ANNOUNCED"
+  },
+
+
+  ipla: {
+    code: "IPLA",
+    number: "05",
+
+    title:
+      "INDIAN PREMIER<br>LEAGUE AUCTION",
+
+    description:
+      "The Indian Premier League Auction places participants in a high-pressure auction environment involving strategic bidding, team management, financial decisions and competition.",
+
+    agenda:
+      "TO BE ANNOUNCED"
   }
 
 };
