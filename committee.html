@@ -1,72 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <title>Committee | RELMUN '26</title>
 
-  <title>
-    Committee | RELMUN '26
-  </title>
-
-  <link
-    rel="icon"
-    type="image/svg+xml"
-    href="favicon.svg"
-  >
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
 
-  <div class="grain"></div>
+  <header class="site-header">
 
-
-  <!-- NAVBAR -->
-
-  <header class="navbar">
-
-    <a
-      class="brand"
-      href="index.html"
-    >
-
-      <img
-        src="relmun-logo.png"
-        alt="RELMUN 2026 logo"
-      >
-
+    <a href="index.html" class="site-logo">
+      <img src="relmun-logo.png" alt="RELMUN '26">
     </a>
-
-
-    <button
-      class="menu-toggle"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-
-      <span></span>
-      <span></span>
-
-    </button>
-
 
     <nav class="nav-links">
 
-      <a href="index.html#about">
-        ABOUT
-      </a>
+      <a href="index.html#about">ABOUT</a>
 
       <a href="committees.html">
         COMMITTEES
@@ -84,66 +39,30 @@
         EB
       </a>
 
-      <button class="nav-register js-register">
+      <a href="#" class="nav-register js-register">
         REGISTER
-      </button>
+      </a>
 
     </nav>
+
+    <button
+      class="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
 
   </header>
 
 
-
-  <!-- JAVASCRIPT WILL INSERT THE CORRECT COMMITTEE -->
-
+  <!-- IMPORTANT:
+       script.js ONLY renders the committee here -->
   <main id="committeePage"></main>
 
 
+  <div id="relmun-chatbot"></div>
 
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-logo">
-
-      <img
-        src="assets/relmun-logo.png"
-        alt="RELMUN 2026"
-      >
-
-    </div>
-
-
-    <div class="footer-middle">
-
-      <strong>
-        RELMUN '26
-      </strong>
-
-      <span>
-        Relations · Engagement · Leadership
-      </span>
-
-    </div>
-
-
-    <div class="footer-right">
-
-      <span>
-        26–27 DECEMBER 2026
-      </span>
-
-      <span>
-        © 2026 RELMUN
-      </span>
-
-    </div>
-
-  </footer>
-
-
-
-  <!-- REGISTRATION MODAL -->
 
   <div
     class="modal"
@@ -151,71 +70,29 @@
     aria-hidden="true"
   >
 
-    <div class="modal-backdrop js-close-modal"></div>
+    <div class="modal-inner">
 
-
-    <div class="modal-box">
-
-      <button class="modal-close js-close-modal">
+      <button
+        class="js-close-modal modal-close"
+      >
         ×
       </button>
 
-
-      <p class="eyebrow">
-        DELEGATE REGISTRATION
-      </p>
-
+      <span class="eyebrow">
+        RELMUN '26
+      </span>
 
       <h2>
-        CHOOSE YOUR<br>
-        <em>PLATFORM.</em>
+        DELEGATE<br>
+        <em>REGISTRATION.</em>
       </h2>
 
-
       <p>
-        Select where you'd like to register for RELMUN '26.
+        Delegate registrations are coming soon.
       </p>
 
-
-      <div class="modal-options">
-
-        <a
-          href="https://mymun.com/conferences/relmun-2026"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <span>01</span>
-
-          <strong>
-            MyMUN
-          </strong>
-
-          <small>
-            REGISTER VIA MYMUN ↗
-          </small>
-
-        </a>
-
-
-        <a
-          href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <span>02</span>
-
-          <strong>
-            Gavelling
-          </strong>
-
-          <small>
-            REGISTER VIA GAVELLING ↗
-          </small>
-
-        </a>
-
+      <div class="coming">
+        COMING SOON
       </div>
 
     </div>
@@ -224,7 +101,7 @@
 
 
   <script src="script.js"></script>
+  <script src="chatbot.js"></script>
 
 </body>
-
 </html>
