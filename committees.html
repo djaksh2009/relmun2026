@@ -10,46 +10,27 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <meta
-    name="description"
-    content="Explore the six committees of RELMUN '26."
-  >
+  <title>Committees | RELMUN '26</title>
 
-  <title>
-    Committees | RELMUN '26
-  </title>
-
-  <link
-    rel="icon"
-    type="image/svg+xml"
-    href="favicon.svg"
-  >
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 
 <body>
 
-  <div class="grain"></div>
 
+  <!-- ================= HEADER ================= -->
 
-  <!-- NAVBAR -->
+  <header class="site-header">
 
-  <header class="navbar">
+    <a href="index.html" class="site-logo-link">
 
-    <a
-      class="brand"
-      href="index.html"
-    >
-
+      <!-- CHANGE THIS PATH ONLY IF YOUR LOGO IS STORED ELSEWHERE -->
       <img
-        src="relmun-logo.png"
-        alt="RELMUN 2026 logo"
+        src="assets/logo.png"
+        alt="RELMUN '26"
+        class="site-logo"
       >
 
     </a>
@@ -57,13 +38,10 @@
 
     <button
       class="menu-toggle"
-      aria-label="Open menu"
       aria-expanded="false"
+      aria-label="Open navigation"
     >
-
-      <span></span>
-      <span></span>
-
+      ☰
     </button>
 
 
@@ -89,9 +67,12 @@
         EB
       </a>
 
-      <button class="nav-register js-register">
+      <a
+        href="#"
+        class="nav-register js-register"
+      >
         REGISTER
-      </button>
+      </a>
 
     </nav>
 
@@ -99,426 +80,287 @@
 
 
 
-  <!-- HERO -->
+  <!-- ================= MAIN ================= -->
 
   <main>
 
-    <section class="hero">
 
-      <div class="hero-meta">
-
-        <span>
-          RELMUN '26
-        </span>
-
-        <span>
-          06 COMMITTEES
-        </span>
-
-      </div>
-
-
-      <div class="hero-title">
-
-        <span class="hero-line">
-          THE
-        </span>
-
-        <span class="hero-line hero-line-offset">
-          ARENAS
-        </span>
-
-        <span class="hero-year">
-          '26
-        </span>
-
-      </div>
-
-
-      <div class="hero-bottom">
-
-        <p>
-          SIX COMMITTEES · ONE CONFERENCE
-        </p>
-
-        <a
-          href="#committee-list"
-          class="scroll-link"
-        >
-          EXPLORE COMMITTEES ↓
-        </a>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- COMMITTEES -->
+    <!-- =================================================
+         ALL COMMITTEES PAGE
+         ================================================= -->
 
     <section
-      id="committee-list"
-      class="section committees-section"
+      id="committeesPage"
+      class="committees-page"
     >
 
-      <div class="section-index">
-        01 / COMMITTEES
-      </div>
+      <div class="committees-intro">
 
+        <div class="section-index">
+          01 / COMMITTEES
+        </div>
 
-      <div class="committees-header">
-
-        <h2>
-          CHOOSE YOUR<br>
+        <h1>
+          CHOOSE YOUR
           <em>ARENA.</em>
-        </h2>
-
-        <p>
-          Six committees. Different mandates. One conference.
-        </p>
+        </h1>
 
       </div>
 
 
+      <div
+        class="committee-list"
+        id="committeeList"
+      >
 
-      <div class="committee-grid">
+        <!-- UNSC -->
 
+        <article class="committee-card">
 
-        <!-- ================= UNSC ================= -->
-
-        <a
-          class="committee-card"
-          href="./committee.html?committee=unsc"
-        >
-
-          <div class="card-top">
-
-            <span>
-              01 / UNSC
-            </span>
-
-            <span>
-              →
-            </span>
-
+          <div class="committee-card-number">
+            01
           </div>
 
+          <div class="committee-card-content">
 
-          <div class="card-content">
+            <div class="committee-code">
+              UNSC →
+            </div>
 
             <small>
               UNITED NATIONS
             </small>
 
-            <h3>
+            <h2>
               SECURITY<br>
               COUNCIL
-            </h3>
+            </h2>
 
             <p>
               International peace and security,
-              diplomacy, negotiation and
-              high-level decision-making.
+              diplomacy, negotiation and high-level
+              decision-making.
             </p>
 
-          </div>
-
-
-          <div class="card-footer">
-
-            <span>
-              VIEW COMMITTEE
-            </span>
-
-            <span>
-              ↗
-            </span>
+            <a
+              href="committees.html?committee=unsc"
+              class="committee-link"
+            >
+              VIEW COMMITTEE ↗
+            </a>
 
           </div>
 
-        </a>
+        </article>
 
 
 
-        <!-- ================= UNHRC ================= -->
+        <!-- UNHRC -->
 
-        <a
-          class="committee-card"
-          href="./committee.html?committee=unhrc"
-        >
+        <article class="committee-card">
 
-          <div class="card-top">
-
-            <span>
-              02 / UNHRC
-            </span>
-
-            <span>
-              →
-            </span>
-
+          <div class="committee-card-number">
+            02
           </div>
 
+          <div class="committee-card-content">
 
-          <div class="card-content">
+            <div class="committee-code">
+              UNHRC →
+            </div>
 
             <small>
               UNITED NATIONS
             </small>
 
-            <h3>
+            <h2>
               HUMAN RIGHTS<br>
               COUNCIL
-            </h3>
+            </h2>
 
             <p>
-              International human rights,
-              cooperation and policy-focused
-              multilateral debate.
+              Human rights, international cooperation,
+              dialogue and multilateral action.
             </p>
 
-          </div>
-
-
-          <div class="card-footer">
-
-            <span>
-              VIEW COMMITTEE
-            </span>
-
-            <span>
-              ↗
-            </span>
+            <a
+              href="committees.html?committee=unhrc"
+              class="committee-link"
+            >
+              VIEW COMMITTEE ↗
+            </a>
 
           </div>
 
-        </a>
+        </article>
 
 
 
-        <!-- ================= UNODC ================= -->
+        <!-- UNODC -->
 
-        <a
-          class="committee-card"
-          href="./committee.html?committee=unodc"
-        >
+        <article class="committee-card">
 
-          <div class="card-top">
-
-            <span>
-              03 / UNODC
-            </span>
-
-            <span>
-              →
-            </span>
-
+          <div class="committee-card-number">
+            03
           </div>
 
+          <div class="committee-card-content">
 
-          <div class="card-content">
+            <div class="committee-code">
+              UNODC →
+            </div>
 
             <small>
               UNITED NATIONS
             </small>
 
-            <h3>
-              OFFICE ON<br>
-              DRUGS AND CRIME
-            </h3>
+            <h2>
+              DRUGS &<br>
+              CRIME
+            </h2>
 
             <p>
-              International cooperation against
-              drugs, organised crime and
-              related transnational challenges.
+              International cooperation against drugs,
+              organised crime, corruption and
+              transnational challenges.
             </p>
 
-          </div>
-
-
-          <div class="card-footer">
-
-            <span>
-              VIEW COMMITTEE
-            </span>
-
-            <span>
-              ↗
-            </span>
+            <a
+              href="committees.html?committee=unodc"
+              class="committee-link"
+            >
+              VIEW COMMITTEE ↗
+            </a>
 
           </div>
 
-        </a>
+        </article>
 
 
 
-        <!-- ================= AIPPM ================= -->
+        <!-- AIPPM -->
 
-        <a
-          class="committee-card"
-          href="./committee.html?committee=aippm"
-        >
+        <article class="committee-card">
 
-          <div class="card-top">
-
-            <span>
-              04 / AIPPM
-            </span>
-
-            <span>
-              →
-            </span>
-
+          <div class="committee-card-number">
+            04
           </div>
 
+          <div class="committee-card-content">
 
-          <div class="card-content">
+            <div class="committee-code">
+              AIPPM →
+            </div>
 
             <small>
-              INDIAN PARLIAMENT
+              INDIAN PARLIAMENTARY
             </small>
 
-            <h3>
+            <h2>
               ALL INDIA<br>
-              POLITICAL PARTIES<br>
-              MEET
-            </h3>
+              POLITICAL PARTIES MEET
+            </h2>
 
             <p>
-              Parliamentary debate, political
-              negotiation and deliberation
-              on matters of national importance.
+              Parliamentary debate, political negotiation
+              and deliberation on matters of national
+              importance.
             </p>
 
-          </div>
-
-
-          <div class="card-footer">
-
-            <span>
-              VIEW COMMITTEE
-            </span>
-
-            <span>
-              ↗
-            </span>
+            <a
+              href="committees.html?committee=aippm"
+              class="committee-link"
+            >
+              VIEW COMMITTEE ↗
+            </a>
 
           </div>
 
-        </a>
+        </article>
 
 
 
-        <!-- ================= IPLA ================= -->
+        <!-- IPLA -->
 
-        <a
-          class="committee-card"
-          href="./committee.html?committee=ipla"
-        >
+        <article class="committee-card">
 
-          <div class="card-top">
-
-            <span>
-              05 / IPLA
-            </span>
-
-            <span>
-              →
-            </span>
-
+          <div class="committee-card-number">
+            05
           </div>
 
+          <div class="committee-card-content">
 
-          <div class="card-content">
+            <div class="committee-code">
+              IPLA →
+            </div>
 
             <small>
               INDIAN PREMIER LEAGUE
             </small>
 
-            <h3>
-              INDIAN PREMIER<br>
-              LEAGUE AUCTION
-            </h3>
+            <h2>
+              IPL<br>
+              AUCTION
+            </h2>
 
             <p>
-              Strategic bidding, team management
-              and high-pressure decision-making
-              in the IPL auction room.
+              Strategic bidding, team management,
+              financial decisions and high-pressure
+              competition.
             </p>
 
-          </div>
-
-
-          <div class="card-footer">
-
-            <span>
-              VIEW COMMITTEE
-            </span>
-
-            <span>
-              ↗
-            </span>
+            <a
+              href="committees.html?committee=ipla"
+              class="committee-link"
+            >
+              VIEW COMMITTEE ↗
+            </a>
 
           </div>
 
-        </a>
+        </article>
 
 
 
-        <!-- ================= UNW ================= -->
+        <!-- UNW -->
 
-        <a
-          class="committee-card"
-          href="./committee.html?committee=unw"
-        >
+        <article class="committee-card">
 
-          <div class="card-top">
-
-            <span>
-              06 / UNW
-            </span>
-
-            <span>
-              →
-            </span>
-
+          <div class="committee-card-number">
+            06
           </div>
 
+          <div class="committee-card-content">
 
-          <div class="card-content">
+            <div class="committee-code">
+              UNW →
+            </div>
 
             <small>
               UNITED NATIONS
             </small>
 
-            <h3>
+            <h2>
               UN<br>
               WOMEN
-            </h3>
+            </h2>
 
             <p>
-              Advancing gender equality and
-              the empowerment of women through
-              international cooperation.
+              Gender equality, empowerment and
+              international cooperation through
+              multilateral action.
             </p>
 
-          </div>
-
-
-          <div class="card-footer">
-
-            <span>
-              VIEW COMMITTEE
-            </span>
-
-            <span>
-              ↗
-            </span>
+            <a
+              href="committees.html?committee=unw"
+              class="committee-link"
+            >
+              VIEW COMMITTEE ↗
+            </a>
 
           </div>
 
-        </a>
-
+        </article>
 
       </div>
 
@@ -526,86 +368,22 @@
 
 
 
-    <!-- CTA -->
+    <!-- =================================================
+         INDIVIDUAL COMMITTEE DETAIL
+         JS FILLS THIS WHEN ?committee=... EXISTS
+         ================================================= -->
 
-    <section class="section register-section">
+    <section
+      id="committeePage"
+      style="display:none;"
+    ></section>
 
-      <div class="section-index">
-        02 / REGISTRATION
-      </div>
-
-
-      <div class="register-content">
-
-        <h2>
-          READY TO<br>
-          <em>ENGAGE?</em>
-        </h2>
-
-
-        <p>
-          Delegate registrations are coming soon.
-        </p>
-
-
-        <button
-          class="primary-button js-register"
-        >
-          DELEGATE REGISTRATIONS COMING SOON →
-        </button>
-
-      </div>
-
-    </section>
 
   </main>
 
 
 
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-logo">
-
-      <img
-        src="relmun-logo.png"
-        alt="RELMUN 2026 logo"
-      >
-
-    </div>
-
-
-    <div class="footer-middle">
-
-      <strong>
-        RELMUN '26
-      </strong>
-
-      <span>
-        Relations · Engagement · Leadership
-      </span>
-
-    </div>
-
-
-    <div class="footer-right">
-
-      <span>
-        26–27 DECEMBER 2026
-      </span>
-
-      <span>
-        © 2026 RELMUN
-      </span>
-
-    </div>
-
-  </footer>
-
-
-
-  <!-- REGISTRATION MODAL -->
+  <!-- ================= REGISTRATION MODAL ================= -->
 
   <div
     class="modal"
@@ -613,58 +391,32 @@
     aria-hidden="true"
   >
 
-    <div
-      class="modal-backdrop js-close-modal"
-    ></div>
-
-
-    <div class="modal-box">
+    <div class="modal-inner">
 
       <button
-        class="modal-close js-close-modal"
+        class="js-close-modal modal-close"
         aria-label="Close"
       >
         ×
       </button>
 
-
-      <p class="eyebrow">
-        DELEGATE REGISTRATION
-      </p>
-
+      <div class="section-index">
+        REGISTRATION
+      </div>
 
       <h2>
-        REGISTRATION<br>
-        <em>COMING SOON.</em>
+        DELEGATE<br>
+        <em>REGISTRATIONS.</em>
       </h2>
-
 
       <p>
         Delegate registrations for RELMUN '26
-        have not opened yet. Stay tuned for
-        the official announcement.
+        are coming soon.
       </p>
 
-
-      <div class="modal-options">
-
-        <div>
-
-          <span>
-            01
-          </span>
-
-          <strong>
-            DELEGATE REGISTRATION
-          </strong>
-
-          <small>
-            COMING SOON
-          </small>
-
-        </div>
-
-      </div>
+      <span class="coming">
+        COMING SOON
+      </span>
 
     </div>
 
@@ -672,12 +424,10 @@
 
 
 
-  <!-- CHATBOT -->
-
-  <div id="relmun-chatbot"></div>
-
+  <!-- ================= SCRIPTS ================= -->
 
   <script src="script.js"></script>
+
   <script src="chatbot.js"></script>
 
 
