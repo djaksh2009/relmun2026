@@ -1,267 +1,36 @@
-/* =========================================
-   RELMUN '26 CHATBOT
-   ========================================= */
+/* =========================================================
+   RELMUN '26 — AI CHATBOT
+   Frontend
+   ========================================================= */
 
-const relmunBot = {
+(function () {
 
-  responses: {
+  "use strict";
 
-    hello:
-      "Hey! 👋 I'm the RELMUN '26 assistant. Ask me anything about the conference, committees, registration, or the Executive Board.",
 
-    relmun:
-      "RELMUN '26 — Relations, Engagement & Leadership Model United Nations — is an online MUN conference taking place on 26–27 December 2026.",
+  /* -------------------------------------------------------
+     CHATBOT HTML
+     ------------------------------------------------------- */
 
-    date:
-      "RELMUN '26 will take place on 26–27 December 2026.",
+  const chatbot = document.getElementById("relmun-chatbot");
 
-    format:
-      "RELMUN '26 is a fully online conference.",
+  if (!chatbot) return;
 
-    registration:
-      "Delegate registration opens on 1 October 2026. You can register through MyMUN or Gavelling.",
 
-    cost:
-      "RELMUN '26 is completely free to register for and participate in.",
-
-    committees:
-      "RELMUN '26 currently has six committees: UNSC, UNHRC, UNODC, AIPPM, IPLA and UN Women.",
-
-    unsc:
-      "UNSC — United Nations Security Council. Delegates will engage in diplomacy, negotiation and decision-making on matters concerning international peace and security.",
-
-    unhrc:
-      "UNHRC — United Nations Human Rights Council. The committee focuses on international human rights, cooperation and multilateral action.",
-
-    unodc:
-      "UNODC — United Nations Office on Drugs and Crime. The committee focuses on international cooperation against drugs, organised crime, corruption and related transnational challenges.",
-
-    aippm:
-      "AIPPM — All India Political Parties Meet. Delegates participate in parliamentary debate, political negotiation and deliberation on matters of national importance.",
-
-    ipla:
-      "IPLA — Indian Premier League Auction. Participants take part in strategic bidding, team management, financial decisions and competition in an IPL auction environment.",
-
-    unw:
-      "UNW — UN Women. The committee focuses on advancing gender equality and the empowerment of women and girls through international cooperation, policy development and multilateral action.",
-
-    eb:
-      "The Executive Board consists of the chairs, vice chairs and moderators responsible for guiding the committees. EB applications may be announced separately by the organising team.",
-
-    certificates:
-      "Certificates will be provided to participants.",
-
-    online:
-      "Yes. RELMUN '26 is entirely online.",
-
-    mymun:
-      "You can register through MyMUN once delegate registrations open on 1 October 2026.",
-
-    gavelling:
-      "You can also register through Gavelling once delegate registrations open on 1 October 2026.",
-
-    help:
-      "You can ask me about registration, dates, committees, UNW, UNSC, UNHRC, UNODC, AIPPM, IPLA, certificates, or the conference format."
-
-  },
-
-
-  findAnswer(message) {
-
-    const text =
-      message
-        .toLowerCase()
-        .trim();
-
-
-    if (
-      text.includes("hello") ||
-      text.includes("hi") ||
-      text.includes("hey")
-    ) {
-      return this.responses.hello;
-    }
-
-
-    if (
-      text.includes("what is relmun") ||
-      text.includes("about relmun") ||
-      text.includes("relmun")
-    ) {
-      return this.responses.relmun;
-    }
-
-
-    if (
-      text.includes("when") &&
-      (
-        text.includes("date") ||
-        text.includes("conference") ||
-        text.includes("happen") ||
-        text.includes("held")
-      )
-    ) {
-      return this.responses.date;
-    }
-
-
-    if (
-      text.includes("online") ||
-      text.includes("offline") ||
-      text.includes("format")
-    ) {
-      return this.responses.format;
-    }
-
-
-    if (
-      text.includes("register") ||
-      text.includes("registration") ||
-      text.includes("how do i join") ||
-      text.includes("how to join")
-    ) {
-      return this.responses.registration;
-    }
-
-
-    if (
-      text.includes("free") ||
-      text.includes("cost") ||
-      text.includes("fee") ||
-      text.includes("price")
-    ) {
-      return this.responses.cost;
-    }
-
-
-    if (
-      text.includes("committee") ||
-      text.includes("committees")
-    ) {
-      return this.responses.committees;
-    }
-
-
-    if (
-      text.includes("unsc") ||
-      text.includes("security council")
-    ) {
-      return this.responses.unsc;
-    }
-
-
-    if (
-      text.includes("unhrc") ||
-      text.includes("human rights council")
-    ) {
-      return this.responses.unhrc;
-    }
-
-
-    if (
-      text.includes("unodc") ||
-      text.includes("drugs and crime")
-    ) {
-      return this.responses.unodc;
-    }
-
-
-    if (
-      text.includes("aippm") ||
-      text.includes("political parties")
-    ) {
-      return this.responses.aippm;
-    }
-
-
-    if (
-      text.includes("ipla") ||
-      text.includes("ipl auction") ||
-      text.includes("ipl auction")
-    ) {
-      return this.responses.ipla;
-    }
-
-
-    if (
-      text.includes("unw") ||
-      text.includes("un women")
-    ) {
-      return this.responses.unw;
-    }
-
-
-    if (
-      text.includes("eb") ||
-      text.includes("executive board") ||
-      text.includes("chair") ||
-      text.includes("vice chair")
-    ) {
-      return this.responses.eb;
-    }
-
-
-    if (
-      text.includes("certificate") ||
-      text.includes("certificates")
-    ) {
-      return this.responses.certificates;
-    }
-
-
-    if (
-      text.includes("mymun")
-    ) {
-      return this.responses.mymun;
-    }
-
-
-    if (
-      text.includes("gavelling")
-    ) {
-      return this.responses.gavelling;
-    }
-
-
-    if (
-      text.includes("help") ||
-      text.includes("what can you do")
-    ) {
-      return this.responses.help;
-    }
-
-
-    return (
-      "I'm not sure about that yet. Try asking me about RELMUN, registration, committees, UNW, UNSC, UNHRC, UNODC, AIPPM, IPLA, the EB, dates, or certificates."
-    );
-
-  }
-
-};
-
-
-
-/* =========================================
-   CHATBOT UI
-   ========================================= */
-
-function createRelmunChatbot() {
-
-  const container =
-    document.getElementById("relmun-chatbot");
-
-  if (!container) return;
-
-
-  container.innerHTML = `
+  chatbot.innerHTML = `
 
     <button
       class="relmun-chat-button"
       id="relmunChatButton"
-      aria-label="Open RELMUN chatbot"
+      aria-label="Open RELMUN AI"
     >
+
       <span class="chat-icon">✦</span>
-      <span>ASK RELMUN</span>
+
+      <span class="chat-button-text">
+        RELMUN AI
+      </span>
+
     </button>
 
 
@@ -273,20 +42,29 @@ function createRelmunChatbot() {
 
       <div class="relmun-chat-header">
 
-        <div>
+        <div class="relmun-chat-brand">
 
-          <small>
-            RELMUN '26
-          </small>
+          <div class="relmun-ai-mark">
+            ✦
+          </div>
 
-          <strong>
-            RELMUN ASSISTANT
-          </strong>
+          <div>
+
+            <strong>
+              RELMUN AI
+            </strong>
+
+            <small>
+              YOUR CONFERENCE ASSISTANT
+            </small>
+
+          </div>
 
         </div>
 
 
         <button
+          class="relmun-chat-close"
           id="relmunChatClose"
           aria-label="Close chatbot"
         >
@@ -303,33 +81,42 @@ function createRelmunChatbot() {
 
         <div class="relmun-message bot">
 
-          <span class="message-label">
+          <div class="message-label">
             RELMUN AI
-          </span>
+          </div>
 
-          <p>
-            Hey! 👋 I'm the RELMUN '26 assistant.
+          <div class="message-bubble">
+
+            Hey! 👋<br><br>
+
+            I'm the RELMUN '26 assistant.
             Ask me anything about the conference,
-            committees or registration.
-          </p>
+            committees, dates, registration,
+            Executive Board or the organising team.
+
+          </div>
 
         </div>
 
       </div>
 
 
-      <div class="relmun-chat-suggestions">
+      <div class="relmun-quick-actions">
 
-        <button data-question="When is RELMUN?">
-          DATE
+        <button data-question="What is RELMUN?">
+          What is RELMUN?
         </button>
 
-        <button data-question="How do I register?">
-          REGISTER
+        <button data-question="What committees are available?">
+          Committees
         </button>
 
-        <button data-question="What committees are there?">
-          COMMITTEES
+        <button data-question="Who is in the organising team?">
+          Organising Team
+        </button>
+
+        <button data-question="When is RELMUN 2026?">
+          Conference Date
         </button>
 
       </div>
@@ -343,44 +130,42 @@ function createRelmunChatbot() {
         <input
           type="text"
           id="relmunChatInput"
-          placeholder="Ask RELMUN..."
+          placeholder="Ask RELMUN AI..."
           autocomplete="off"
+          maxlength="500"
         >
 
         <button
           type="submit"
           aria-label="Send message"
         >
-          →
+          ↑
         </button>
 
       </form>
+
+
+      <div class="relmun-chat-footer">
+        RELATIONS · ENGAGEMENT · LEADERSHIP
+      </div>
 
     </div>
 
   `;
 
 
-  setupRelmunChatbot();
+  /* -------------------------------------------------------
+     ELEMENTS
+     ------------------------------------------------------- */
 
-}
-
-
-
-/* =========================================
-   CHATBOT FUNCTIONALITY
-   ========================================= */
-
-function setupRelmunChatbot() {
-
-  const button =
+  const openButton =
     document.getElementById("relmunChatButton");
 
-  const windowBox =
-    document.getElementById("relmunChatWindow");
-
-  const close =
+  const closeButton =
     document.getElementById("relmunChatClose");
+
+  const chatWindow =
+    document.getElementById("relmunChatWindow");
 
   const form =
     document.getElementById("relmunChatForm");
@@ -391,53 +176,287 @@ function setupRelmunChatbot() {
   const messages =
     document.getElementById("relmunChatMessages");
 
+  const quickActions =
+    document.querySelectorAll(
+      ".relmun-quick-actions button"
+    );
 
-  if (
-    !button ||
-    !windowBox ||
-    !close ||
-    !form ||
-    !input ||
-    !messages
-  ) {
-    return;
+
+  /* -------------------------------------------------------
+     OPEN CHAT
+     ------------------------------------------------------- */
+
+  function openChat() {
+
+    chatWindow.classList.add("open");
+
+    chatWindow.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    setTimeout(() => {
+
+      input.focus();
+
+    }, 250);
+
   }
 
 
-  button.addEventListener(
+  /* -------------------------------------------------------
+     CLOSE CHAT
+     ------------------------------------------------------- */
+
+  function closeChat() {
+
+    chatWindow.classList.remove("open");
+
+    chatWindow.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+  }
+
+
+  openButton.addEventListener(
     "click",
-    () => {
-
-      windowBox.classList.add("open");
-
-      windowBox.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-      setTimeout(
-        () => input.focus(),
-        150
-      );
-
-    }
+    openChat
   );
 
 
-  close.addEventListener(
+  closeButton.addEventListener(
     "click",
-    () => {
+    closeChat
+  );
 
-      windowBox.classList.remove("open");
 
-      windowBox.setAttribute(
-        "aria-hidden",
-        "true"
+  /* -------------------------------------------------------
+     ADD MESSAGE
+     ------------------------------------------------------- */
+
+  function addMessage(
+    text,
+    type = "bot"
+  ) {
+
+    const message =
+      document.createElement("div");
+
+    message.className =
+      `relmun-message ${type}`;
+
+
+    const label =
+      type === "user"
+        ? "YOU"
+        : "RELMUN AI";
+
+
+    message.innerHTML = `
+
+      <div class="message-label">
+        ${label}
+      </div>
+
+      <div class="message-bubble">
+        ${formatMessage(text)}
+      </div>
+
+    `;
+
+
+    messages.appendChild(message);
+
+    scrollToBottom();
+
+  }
+
+
+  /* -------------------------------------------------------
+     FORMAT MESSAGE
+     ------------------------------------------------------- */
+
+  function formatMessage(text) {
+
+    if (!text) return "";
+
+
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\n/g, "<br>");
+
+  }
+
+
+  /* -------------------------------------------------------
+     TYPING INDICATOR
+     ------------------------------------------------------- */
+
+  function showTyping() {
+
+    const typing =
+      document.createElement("div");
+
+
+    typing.className =
+      "relmun-message bot";
+
+    typing.id =
+      "relmunTyping";
+
+
+    typing.innerHTML = `
+
+      <div class="message-label">
+        RELMUN AI
+      </div>
+
+      <div class="message-bubble typing">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </div>
+
+    `;
+
+
+    messages.appendChild(typing);
+
+    scrollToBottom();
+
+  }
+
+
+  /* -------------------------------------------------------
+     REMOVE TYPING
+     ------------------------------------------------------- */
+
+  function removeTyping() {
+
+    const typing =
+      document.getElementById(
+        "relmunTyping"
+      );
+
+
+    if (typing) {
+
+      typing.remove();
+
+    }
+
+  }
+
+
+  /* -------------------------------------------------------
+     SCROLL
+     ------------------------------------------------------- */
+
+  function scrollToBottom() {
+
+    messages.scrollTop =
+      messages.scrollHeight;
+
+  }
+
+
+  /* -------------------------------------------------------
+     SEND TO BACKEND
+     ------------------------------------------------------- */
+
+  async function askAI(question) {
+
+    showTyping();
+
+
+    try {
+
+      const response =
+        await fetch(
+          "/api/chat",
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify({
+                message: question
+              })
+
+          }
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          "API request failed"
+        );
+
+      }
+
+
+      const data =
+        await response.json();
+
+
+      removeTyping();
+
+
+      if (
+        data &&
+        data.reply
+      ) {
+
+        addMessage(
+          data.reply,
+          "bot"
+        );
+
+      } else {
+
+        addMessage(
+          "I couldn't process that right now. Please try again.",
+          "bot"
+        );
+
+      }
+
+
+    } catch (error) {
+
+      console.error(
+        "RELMUN AI:",
+        error
+      );
+
+
+      removeTyping();
+
+
+      addMessage(
+        "I'm having trouble connecting right now. Please try again in a moment.",
+        "bot"
       );
 
     }
-  );
 
+  }
+
+
+  /* -------------------------------------------------------
+     FORM SUBMIT
+     ------------------------------------------------------- */
 
   form.addEventListener(
     "submit",
@@ -453,7 +472,7 @@ function setupRelmunChatbot() {
       if (!question) return;
 
 
-      addChatMessage(
+      addMessage(
         question,
         "user"
       );
@@ -462,253 +481,63 @@ function setupRelmunChatbot() {
       input.value = "";
 
 
-      const typing =
-        addTypingMessage();
+      askAI(question);
+
+    }
+  );
 
 
-      setTimeout(
+  /* -------------------------------------------------------
+     QUICK QUESTIONS
+     ------------------------------------------------------- */
+
+  quickActions.forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
         () => {
 
-          typing.remove();
+          const question =
+            button.dataset.question;
 
 
-          const answer =
-            relmunBot.findAnswer(question);
+          if (!question) return;
 
 
-          addChatMessage(
-            answer,
-            "bot"
+          addMessage(
+            question,
+            "user"
           );
 
-        },
-        500
+
+          askAI(question);
+
+        }
       );
 
     }
   );
 
 
-  document
-    .querySelectorAll(
-      ".relmun-chat-suggestions button"
-    )
-    .forEach(suggestion => {
-
-      suggestion.addEventListener(
-        "click",
-        () => {
-
-          const question =
-            suggestion.dataset.question;
-
-
-          addChatMessage(
-            question,
-            "user"
-          );
-
-
-          const typing =
-            addTypingMessage();
-
-
-          setTimeout(
-            () => {
-
-              typing.remove();
-
-
-              const answer =
-                relmunBot.findAnswer(question);
-
-
-              addChatMessage(
-                answer,
-                "bot"
-              );
-
-            },
-            500
-          );
-
-        }
-      );
-
-    });
-
+  /* -------------------------------------------------------
+     ESCAPE KEY
+     ------------------------------------------------------- */
 
   document.addEventListener(
     "keydown",
     event => {
 
       if (
-        event.key === "Escape" &&
-        windowBox.classList.contains("open")
+        event.key === "Escape"
       ) {
 
-        windowBox.classList.remove(
-          "open"
-        );
-
-        windowBox.setAttribute(
-          "aria-hidden",
-          "true"
-        );
+        closeChat();
 
       }
 
     }
   );
 
-}
 
-
-
-/* =========================================
-   MESSAGE FUNCTIONS
-   ========================================= */
-
-function addChatMessage(
-  message,
-  type
-) {
-
-  const messages =
-    document.getElementById(
-      "relmunChatMessages"
-    );
-
-
-  if (!messages) return;
-
-
-  const wrapper =
-    document.createElement("div");
-
-
-  wrapper.className =
-    `relmun-message ${type}`;
-
-
-  if (type === "bot") {
-
-    wrapper.innerHTML = `
-
-      <span class="message-label">
-        RELMUN AI
-      </span>
-
-      <p>
-        ${escapeHtml(message)}
-      </p>
-
-    `;
-
-  } else {
-
-    wrapper.innerHTML = `
-
-      <p>
-        ${escapeHtml(message)}
-      </p>
-
-    `;
-
-  }
-
-
-  messages.appendChild(
-    wrapper
-  );
-
-
-  messages.scrollTop =
-    messages.scrollHeight;
-
-}
-
-
-
-/* =========================================
-   TYPING INDICATOR
-   ========================================= */
-
-function addTypingMessage() {
-
-  const messages =
-    document.getElementById(
-      "relmunChatMessages"
-    );
-
-
-  const typing =
-    document.createElement("div");
-
-
-  typing.className =
-    "relmun-message bot typing";
-
-
-  typing.innerHTML = `
-
-    <span class="message-label">
-      RELMUN AI
-    </span>
-
-    <p>
-      <span></span>
-      <span></span>
-      <span></span>
-    </p>
-
-  `;
-
-
-  messages.appendChild(
-    typing
-  );
-
-
-  messages.scrollTop =
-    messages.scrollHeight;
-
-
-  return typing;
-
-}
-
-
-
-/* =========================================
-   SECURITY
-   ========================================= */
-
-function escapeHtml(text) {
-
-  const div =
-    document.createElement("div");
-
-
-  div.textContent =
-    text;
-
-
-  return div.innerHTML;
-
-}
-
-
-
-/* =========================================
-   START
-   ========================================= */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    createRelmunChatbot();
-
-  }
-);
+})();
