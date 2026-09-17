@@ -1,212 +1,126 @@
-/* =========================================================
-   RELMUN '26
-   COMMITTEE SYSTEM
-   ========================================================= */
-
-
 const committeeData = {
 
   unsc: {
     code: "UNSC",
     number: "01",
-
-    title:
-      "UNITED NATIONS<br>SECURITY COUNCIL",
-
+    title: "UNITED NATIONS<br>SECURITY COUNCIL",
     description:
       "The Security Council is the United Nations' principal body for addressing international peace and security. Delegates will engage in high-level diplomacy, negotiation and decision-making.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   unhrc: {
     code: "UNHRC",
     number: "02",
-
-    title:
-      "UNITED NATIONS<br>HUMAN RIGHTS COUNCIL",
-
+    title: "UNITED NATIONS<br>HUMAN RIGHTS COUNCIL",
     description:
       "The Human Rights Council addresses international human rights situations and promotes cooperation, dialogue and policy-focused multilateral action.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   unodc: {
     code: "UNODC",
     number: "03",
-
-    title:
-      "UNITED NATIONS OFFICE<br>ON DRUGS AND CRIME",
-
+    title: "UNITED NATIONS OFFICE<br>ON DRUGS AND CRIME",
     description:
       "The United Nations Office on Drugs and Crime works around international cooperation against drugs, organised crime, corruption and related transnational challenges.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   aippm: {
     code: "AIPPM",
     number: "04",
-
-    title:
-      "ALL INDIA<br>POLITICAL PARTIES MEET",
-
+    title: "ALL INDIA<br>POLITICAL PARTIES MEET",
     description:
       "AIPPM brings together representatives of India's political parties to engage in parliamentary debate, political negotiation and deliberation on matters of national importance.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   ipla: {
     code: "IPLA",
     number: "05",
-
-    title:
-      "INDIAN PREMIER<br>LEAGUE AUCTION",
-
+    title: "INDIAN PREMIER<br>LEAGUE AUCTION",
     description:
       "The Indian Premier League Auction places participants in a high-pressure auction environment involving strategic bidding, team management, financial decisions and competition.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   unw: {
     code: "UNW",
     number: "06",
-
-    title:
-      "UN WOMEN",
-
+    title: "UN WOMEN",
     description:
       "UN Women works to advance gender equality and the empowerment of women and girls through international cooperation, policy development and multilateral action.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   }
 
 };
 
 
+/* =========================================
+   COMMITTEE DETAIL PAGE
+========================================= */
 
-/* =========================================================
-   COMMITTEE ROUTING
-   ========================================================= */
+function renderCommitteePage() {
 
-function initialiseCommitteePage() {
-
-  const listing =
-    document.getElementById("committeesPage");
-
-  const detail =
-    document.getElementById("committeePage");
-
+  const target = document.getElementById("committeePage");
 
   /*
-    If neither container exists, this page isn't
-    the committees page.
-  */
+    CRITICAL:
+    If this element doesn't exist,
+    DO NOTHING.
 
-  if (!listing && !detail) {
-    return;
-  }
+    This prevents committees.html
+    from being overwritten by UNSC.
+  */
+  if (!target) return;
 
 
   const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
+    new URLSearchParams(window.location.search);
 
   const key =
     params.get("committee");
 
 
   /*
-    NO COMMITTEE SELECTED
-    ---------------------
-    Show all committees.
+    No committee selected?
+    Don't randomly show UNSC.
   */
+  if (!key || !committeeData[key]) {
 
-  if (!key) {
+    target.innerHTML = `
+      <section class="committee-error">
 
-    if (listing) {
-      listing.style.display = "block";
-    }
+        <div class="section-index">
+          COMMITTEE / ERROR
+        </div>
 
-    if (detail) {
-      detail.style.display = "none";
-      detail.innerHTML = "";
-    }
+        <h1>
+          COMMITTEE<br>
+          <em>NOT FOUND.</em>
+        </h1>
 
-    document.title =
-      "Committees | RELMUN '26";
+        <p>
+          The committee you're looking for does not exist.
+        </p>
+
+        <a
+          href="committees.html"
+          class="btn btn-gold"
+        >
+          VIEW ALL COMMITTEES →
+        </a>
+
+      </section>
+    `;
 
     return;
   }
 
 
-  /*
-    COMMITTEE SELECTED
-    ------------------
-    Show detail page.
-  */
+  const data = committeeData[key];
 
-  const data =
-    committeeData[key];
-
-
-  /*
-    Invalid committee
-  */
-
-  if (!data) {
-
-    window.location.href =
-      "committees.html";
-
-    return;
-  }
-
-
-  if (listing) {
-    listing.style.display = "none";
-  }
-
-
-  if (detail) {
-
-    detail.style.display = "block";
-
-    renderCommitteePage(
-      detail,
-      data
-    );
-
-  }
-
-}
-
-
-
-/* =========================================================
-   RENDER INDIVIDUAL COMMITTEE
-   ========================================================= */
-
-function renderCommitteePage(
-  target,
-  data
-) {
 
   document.title =
     `${data.code} | RELMUN '26`;
@@ -220,21 +134,17 @@ function renderCommitteePage(
         ${data.number}
       </div>
 
-
       <div class="section-index">
         COMMITTEE / ${data.code}
       </div>
-
 
       <h1>
         ${data.title}
       </h1>
 
-
       <p>
         ${data.description}
       </p>
-
 
       <div class="detail-meta">
 
@@ -255,24 +165,19 @@ function renderCommitteePage(
 
       </div>
 
-
       <div class="hero-actions">
 
         <button
           class="btn btn-gold js-register"
-          type="button"
         >
-          DELEGATE REGISTRATION
-          <span>↗</span>
+          DELEGATE REGISTRATION COMING SOON
         </button>
-
 
         <a
           class="btn btn-outline"
           href="committees.html"
         >
-          ALL COMMITTEES
-          <span>→</span>
+          ALL COMMITTEES →
         </a>
 
       </div>
@@ -280,13 +185,11 @@ function renderCommitteePage(
     </section>
 
 
-
     <section class="detail-section">
 
       <div class="section-index">
         01 / AGENDA
       </div>
-
 
       <div class="agenda-row">
 
@@ -303,13 +206,11 @@ function renderCommitteePage(
     </section>
 
 
-
     <section class="detail-section">
 
       <div class="section-index">
         02 / BACKGROUND GUIDE
       </div>
-
 
       <div class="guide-row">
 
@@ -325,12 +226,11 @@ function renderCommitteePage(
 
           <p>
             The official ${data.code} Background Guide
-            will be published once the committee's academic
-            material has been finalised.
+            will be published once the committee's
+            academic material has been finalised.
           </p>
 
         </div>
-
 
         <span class="coming">
           COMING SOON
@@ -341,16 +241,13 @@ function renderCommitteePage(
     </section>
 
 
-
     <section class="detail-section">
 
       <div class="section-index">
         03 / EXECUTIVE BOARD
       </div>
 
-
       <div class="detail-eb">
-
 
         <div class="eb-role">
 
@@ -364,7 +261,6 @@ function renderCommitteePage(
 
         </div>
 
-
         <div class="eb-role">
 
           <small>
@@ -376,7 +272,6 @@ function renderCommitteePage(
           </strong>
 
         </div>
-
 
         <div class="eb-role">
 
@@ -390,11 +285,9 @@ function renderCommitteePage(
 
         </div>
 
-
       </div>
 
     </section>
-
 
 
     <section class="detail-cta">
@@ -403,252 +296,160 @@ function renderCommitteePage(
         READY?
       </p>
 
-
       <h2>
         ENTER THE<br>
         <em>COMMITTEE.</em>
       </h2>
 
-
       <p>
-        Delegate registrations for RELMUN '26
-        are coming soon.
+        Delegate registrations for
+        ${data.code} are coming soon.
       </p>
-
 
       <button
         class="btn btn-gold big js-register"
-        type="button"
       >
-        REGISTRATIONS COMING SOON
-        <span>↗</span>
+        DELEGATE REGISTRATION COMING SOON
       </button>
 
     </section>
 
   `;
 
-
-  /*
-    Registration buttons were created dynamically,
-    so bind them after rendering.
-  */
-
-  bindRegistration();
-
 }
 
 
-
-/* =========================================================
+/* =========================================
    REGISTRATION MODAL
-   ========================================================= */
+========================================= */
 
 function bindRegistration() {
 
   const modal =
-    document.getElementById(
-      "registrationModal"
-    );
+    document.getElementById("registrationModal");
 
-
-  if (!modal) {
-    return;
-  }
+  if (!modal) return;
 
 
   document
     .querySelectorAll(".js-register")
     .forEach(button => {
 
-      /*
-        Prevent duplicate listeners
-      */
+      button.addEventListener("click", event => {
 
-      if (
-        button.dataset.registrationBound === "true"
-      ) {
-        return;
-      }
+        event.preventDefault();
 
+        modal.classList.add("open");
 
-      button.dataset.registrationBound =
-        "true";
+        modal.setAttribute(
+          "aria-hidden",
+          "false"
+        );
 
+        document.body.classList.add(
+          "modal-open"
+        );
 
-      button.addEventListener(
-        "click",
-        event => {
-
-          event.preventDefault();
-
-
-          modal.classList.add(
-            "open"
-          );
-
-
-          modal.setAttribute(
-            "aria-hidden",
-            "false"
-          );
-
-
-          document.body.classList.add(
-            "modal-open"
-          );
-
-        }
-      );
+      });
 
     });
-
 
 
   document
     .querySelectorAll(".js-close-modal")
     .forEach(button => {
 
-      if (
-        button.dataset.modalBound === "true"
-      ) {
-        return;
-      }
+      button.addEventListener("click", () => {
 
+        modal.classList.remove("open");
 
-      button.dataset.modalBound =
-        "true";
+        modal.setAttribute(
+          "aria-hidden",
+          "true"
+        );
 
+        document.body.classList.remove(
+          "modal-open"
+        );
 
-      button.addEventListener(
-        "click",
-        closeRegistration
-      );
+      });
 
     });
 
-}
 
+  modal.addEventListener("click", event => {
 
+    if (event.target === modal) {
 
-/* =========================================================
-   CLOSE REGISTRATION
-   ========================================================= */
+      modal.classList.remove("open");
 
-function closeRegistration() {
+      modal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
 
-  const modal =
-    document.getElementById(
-      "registrationModal"
-    );
+      document.body.classList.remove(
+        "modal-open"
+      );
 
+    }
 
-  if (!modal) {
-    return;
-  }
-
-
-  modal.classList.remove(
-    "open"
-  );
-
-
-  modal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-
-  document.body.classList.remove(
-    "modal-open"
-  );
+  });
 
 }
 
 
-
-/* =========================================================
+/* =========================================
    MOBILE MENU
-   ========================================================= */
+========================================= */
 
 function setupMenu() {
 
   const toggle =
-    document.querySelector(
-      ".menu-toggle"
-    );
-
+    document.querySelector(".menu-toggle");
 
   const nav =
-    document.querySelector(
-      ".nav-links"
+    document.querySelector(".nav-links");
+
+  if (!toggle || !nav) return;
+
+
+  toggle.addEventListener("click", () => {
+
+    const open =
+      nav.classList.toggle("open");
+
+    toggle.setAttribute(
+      "aria-expanded",
+      String(open)
     );
 
-
-  if (!toggle || !nav) {
-    return;
-  }
-
-
-  if (
-    toggle.dataset.menuBound === "true"
-  ) {
-    return;
-  }
-
-
-  toggle.dataset.menuBound =
-    "true";
-
-
-  toggle.addEventListener(
-    "click",
-    () => {
-
-      const open =
-        nav.classList.toggle(
-          "open"
-        );
-
-
-      toggle.setAttribute(
-        "aria-expanded",
-        String(open)
-      );
-
-    }
-  );
+  });
 
 
   nav
     .querySelectorAll("a")
     .forEach(link => {
 
-      link.addEventListener(
-        "click",
-        () => {
+      link.addEventListener("click", () => {
 
-          nav.classList.remove(
-            "open"
-          );
+        nav.classList.remove("open");
 
-          toggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
+        toggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
 
-        }
-      );
+      });
 
     });
 
 }
 
 
-
-/* =========================================================
+/* =========================================
    ESCAPE KEY
-   ========================================================= */
+========================================= */
 
 function setupEscapeKey() {
 
@@ -656,41 +457,26 @@ function setupEscapeKey() {
     "keydown",
     event => {
 
-      if (
-        event.key === "Escape"
-      ) {
+      if (event.key !== "Escape") return;
 
-        closeRegistration();
 
-        const nav =
-          document.querySelector(
-            ".nav-links"
+      document
+        .querySelectorAll(".modal.open")
+        .forEach(modal => {
+
+          modal.classList.remove("open");
+
+          modal.setAttribute(
+            "aria-hidden",
+            "true"
           );
 
-
-        const toggle =
-          document.querySelector(
-            ".menu-toggle"
-          );
+        });
 
 
-        if (nav) {
-          nav.classList.remove(
-            "open"
-          );
-        }
-
-
-        if (toggle) {
-
-          toggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-      }
+      document.body.classList.remove(
+        "modal-open"
+      );
 
     }
   );
@@ -698,16 +484,15 @@ function setupEscapeKey() {
 }
 
 
-
-/* =========================================================
-   START EVERYTHING
-   ========================================================= */
+/* =========================================
+   INITIALISE
+========================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-    initialiseCommitteePage();
+    renderCommitteePage();
 
     bindRegistration();
 
