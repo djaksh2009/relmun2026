@@ -2253,3 +2253,367 @@ footer {
   }
 
 }
+
+/* =========================================
+   RELMUN CHATBOT
+   ========================================= */
+
+#relmun-chatbot {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 9999;
+  font-family: inherit;
+}
+
+
+/* CHAT BUTTON */
+
+.relmun-chat-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid rgba(241, 236, 224, 0.35);
+
+  background: #080808;
+  color: #F1ECE0;
+
+  padding: 13px 18px;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.relmun-chat-button:hover {
+  background: #F1ECE0;
+  color: #080808;
+  transform: translateY(-2px);
+}
+
+.chat-icon {
+  font-size: 15px;
+}
+
+
+/* CHAT WINDOW */
+
+.relmun-chat-window {
+  position: absolute;
+
+  right: 0;
+  bottom: 58px;
+
+  width: 370px;
+  max-width: calc(100vw - 32px);
+
+  background: #080808;
+  color: #F1ECE0;
+
+  border: 1px solid rgba(241, 236, 224, 0.18);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+
+  overflow: hidden;
+}
+
+.relmun-chat-window.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* HEADER */
+
+.relmun-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid rgba(241, 236, 224, 0.12);
+}
+
+.relmun-chat-header div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.relmun-chat-header small {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  opacity: 0.55;
+}
+
+.relmun-chat-header strong {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.relmun-chat-header button {
+  border: none;
+  background: transparent;
+  color: #F1ECE0;
+
+  font-size: 25px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  opacity: 0.7;
+
+  transition: opacity 0.2s ease;
+}
+
+.relmun-chat-header button:hover {
+  opacity: 1;
+}
+
+
+/* MESSAGES */
+
+.relmun-chat-messages {
+  height: 330px;
+
+  padding: 18px;
+
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/* MESSAGE */
+
+.relmun-message {
+  max-width: 86%;
+}
+
+.relmun-message p {
+  margin: 5px 0 0;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.message-label {
+  display: block;
+
+  font-size: 8px;
+  letter-spacing: 0.15em;
+
+  opacity: 0.45;
+}
+
+
+/* BOT */
+
+.relmun-message.bot {
+  align-self: flex-start;
+}
+
+.relmun-message.bot p {
+  padding: 11px 13px;
+
+  background: rgba(241, 236, 224, 0.07);
+
+  border-left: 2px solid #C79A2B;
+}
+
+
+/* USER */
+
+.relmun-message.user {
+  align-self: flex-end;
+}
+
+.relmun-message.user p {
+  padding: 11px 13px;
+
+  background: #1846FF;
+
+  color: #ffffff;
+}
+
+
+/* SUGGESTIONS */
+
+.relmun-chat-suggestions {
+  display: flex;
+  gap: 7px;
+
+  padding: 0 15px 13px;
+
+  overflow-x: auto;
+}
+
+.relmun-chat-suggestions button {
+  flex-shrink: 0;
+
+  border: 1px solid rgba(241, 236, 224, 0.2);
+
+  background: transparent;
+  color: #F1ECE0;
+
+  padding: 7px 10px;
+
+  font-family: inherit;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.relmun-chat-suggestions button:hover {
+  background: rgba(241, 236, 224, 0.08);
+  border-color: rgba(241, 236, 224, 0.5);
+}
+
+
+/* INPUT */
+
+.relmun-chat-input {
+  display: flex;
+
+  border-top: 1px solid rgba(241, 236, 224, 0.12);
+}
+
+.relmun-chat-input input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+  color: #F1ECE0;
+
+  padding: 16px;
+
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.relmun-chat-input input::placeholder {
+  color: rgba(241, 236, 224, 0.4);
+}
+
+.relmun-chat-input button {
+  width: 52px;
+
+  border: none;
+
+  background: #C79A2B;
+  color: #080808;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: opacity 0.2s ease;
+}
+
+.relmun-chat-input button:hover {
+  opacity: 0.85;
+}
+
+
+/* TYPING */
+
+.relmun-message.typing p {
+  display: flex;
+  gap: 4px;
+
+  align-items: center;
+}
+
+.relmun-message.typing p span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #F1ECE0;
+
+  opacity: 0.4;
+
+  animation: relmunTyping 1.2s infinite;
+}
+
+.relmun-message.typing p span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.relmun-message.typing p span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes relmunTyping {
+
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  #relmun-chatbot {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .relmun-chat-window {
+    width: calc(100vw - 32px);
+    bottom: 55px;
+  }
+
+  .relmun-chat-messages {
+    height: 300px;
+  }
+
+  .relmun-chat-button {
+    padding: 12px 15px;
+  }
+
+}
