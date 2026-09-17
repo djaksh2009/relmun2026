@@ -8,30 +8,41 @@ export default async function handler(req, res) {
 
   try {
 
-    const { messages } = req.body;
+    // Check that the API key exists
+    if (!process.env.OPENAI_API_KEY) {
 
-    if (!messages || !Array.isArray(messages)) {
-      return res.status(400).json({
-        error: "Messages are required"
-      });
-    }
+      console.error("OPENAI_API_KEY is missing");
 
-    const apiKey = process.env.OPENAI_API_KEY;
-
-    if (!apiKey) {
       return res.status(500).json({
-        error: "OPENAI_API_KEY is not configured on Vercel."
+        error: "OPENAI_API_KEY is not configured in Vercel"
       });
+
     }
 
-    const response = await fetch(
+
+    const { message } = req.body || {};
+
+
+    if (!message || typeof message !== "string") {
+
+      return res.status(400).json({
+        error: "Message is required"
+      });
+
+    }
+
+
+    console.log("Received message:", message);
+
+
+    const openaiResponse = await fetch(
       "https://api.openai.com/v1/responses",
       {
         method: "POST",
 
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}`
+          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
         },
 
         body: JSON.stringify({
@@ -41,11 +52,11 @@ export default async function handler(req, res) {
           instructions: `
 You are ASK RELMUN, the official AI assistant for RELMUN '26.
 
-RELMUN '26 stands for Relations, Engagement & Leadership Model United Nations.
+RELMUN stands for Regional Engagement & Leadership Model United Nations.
 
 Conference:
 26–27 December 2026
-Online conference
+Online conference.
 
 Committees:
 1. UNSC — United Nations Security Council
@@ -55,67 +66,69 @@ Committees:
 5. IPLA — Indian Premier League Auction
 6. UNW — UN Women
 
-Organising Team:
-Secretary-General: Akshith Kabilan
-Deputy Secretary-General: S. Shreyaas
-Chief Advisor: Aashi Kushwaha
-Director General: Laasya Vikram
-Head of Administration: Abimayur R
-USG Delegate Affairs: Madhav Bhardwaj
+Organising team:
+Secretary-General — Akshith Kabilan
+Chief Advisor — Aashi Kushwaha
+Deputy Secretary-General — S. Shreyaas
+Director General — Laasya Vikram
+Head of Administration — Abimayur R
+USG, Delegate Affairs — Madhav Bhardwaj
 
 Delegate registrations are currently coming soon.
 
-Be friendly, concise and helpful.
-Answer questions about RELMUN, committees, registration, the conference and the organising team.
+Answer questions about RELMUN clearly and naturally.
 
 Do not invent information.
-If you don't know something, say that it has not been announced yet.
+If something has not been announced, say that it has not been announced yet.
 `,
 
-          input: messages
+          input: message
 
         })
       }
     );
 
-    const data = await response.json();
 
-    if (!response.ok) {
+    const data = await openaiResponse.json();
 
-      console.error("OpenAI API error:", data);
 
-      return res.status(response.status).json({
-        error: data?.error?.message || "OpenAI request failed."
+    console.log("OpenAI status:", openaiResponse.status);
+
+
+    if (!openaiResponse.ok) {
+
+      console.error(
+        "OpenAI error:",
+        JSON.stringify(data)
+      );
+
+      return res.status(500).json({
+        error: "OpenAI API error",
+        details: data
       });
 
     }
 
-    let reply = data.output_text;
-
-    if (!reply && data.output) {
-
-      reply = data.output
-        .flatMap(item => item.content || [])
-        .filter(item => item.type === "output_text")
-        .map(item => item.text)
-        .join("");
-
-    }
-
-    if (!reply) {
-      reply = "I couldn't generate a response right now.";
-    }
 
     return res.status(200).json({
-      reply
+
+      answer:
+        data.output_text ||
+        "I couldn't generate a response."
+
     });
+
 
   } catch (error) {
 
-    console.error("Server error:", error);
+    console.error(
+      "CHAT FUNCTION ERROR:",
+      error
+    );
 
     return res.status(500).json({
-      error: "Something went wrong connecting to the AI."
+      error: "Server error",
+      details: error.message
     });
 
   }
