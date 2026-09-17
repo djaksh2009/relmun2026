@@ -20,21 +20,39 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>RELMUN '26 AI ASSISTANT</span>
         </div>
 
-        <button id="relmunChatClose">×</button>
+        <button id="relmunChatClose" aria-label="Close chatbot">
+          ×
+        </button>
 
       </div>
 
-      <div class="relmun-chat-messages" id="relmunChatMessages">
+
+      <div
+        class="relmun-chat-messages"
+        id="relmunChatMessages"
+      >
 
         <div class="relmun-message bot">
-          Hey! I’m ASK RELMUN. 👋<br><br>
-          Ask me anything about RELMUN '26, the committees,
-          registration, or the conference.
+
+          <p>
+            Hey! I'm ASK RELMUN. 👋
+          </p>
+
+          <p>
+            Ask me anything about RELMUN '26,
+            the committees, registration,
+            or the conference.
+          </p>
+
         </div>
 
       </div>
 
-      <form class="relmun-chat-input" id="relmunChatForm">
+
+      <form
+        class="relmun-chat-input"
+        id="relmunChatForm"
+      >
 
         <input
           id="relmunChatInput"
@@ -43,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
           autocomplete="off"
         >
 
-        <button type="submit">
+        <button type="submit" aria-label="Send message">
           ↑
         </button>
 
@@ -73,8 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("relmunChatMessages");
 
 
-  let conversation = [];
-
+  /* --------------------------------
+     OPEN / CLOSE
+  -------------------------------- */
 
   button.addEventListener("click", () => {
 
@@ -92,6 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  /* --------------------------------
+     ADD MESSAGE
+  -------------------------------- */
+
   function addMessage(text, type) {
 
     const message =
@@ -107,8 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
     messagesBox.scrollTop =
       messagesBox.scrollHeight;
 
+    return message;
+
   }
 
+
+  /* --------------------------------
+     TYPING INDICATOR
+  -------------------------------- */
 
   function addTyping() {
 
@@ -137,96 +166,135 @@ document.addEventListener("DOMContentLoaded", () => {
     const typing =
       document.getElementById("relmunTyping");
 
-    if (typing) typing.remove();
+    if (typing) {
+
+      typing.remove();
+
+    }
 
   }
 
 
-  form.addEventListener("submit", async (event) => {
+  /* --------------------------------
+     SEND MESSAGE
+  -------------------------------- */
 
-    event.preventDefault();
+  form.addEventListener(
+    "submit",
+    async (event) => {
 
-    const text =
-      input.value.trim();
-
-    if (!text) return;
-
-
-    addMessage(text, "user");
-
-    input.value = "";
-
-    conversation.push({
-      role: "user",
-      content: text
-    });
+      event.preventDefault();
 
 
-    addTyping();
+      const text =
+        input.value.trim();
 
 
-    try {
-
-      const response =
-        await fetch("/api/chat", {
-
-          method: "POST",
-
-          headers: {
-            "Content-Type": "application/json"
-          },
-
-          body: JSON.stringify({
-            message: message
-          })
-
-        });
+      if (!text) return;
 
 
-      const data =
-        await response.json();
+      /* Show user's message */
+
+      addMessage(
+        text,
+        "user"
+      );
 
 
-      removeTyping();
+      /* Clear input */
+
+      input.value = "";
 
 
-      if (!response.ok) {
+      /* Show typing */
 
-        console.error("Chatbot error:", data);
+      addTyping();
 
-        throw new Error(
-          data.error || "Request failed"
+
+      try {
+
+        const response =
+          await fetch(
+            "/api/chat",
+            {
+
+              method: "POST",
+
+              headers: {
+                "Content-Type": "application/json"
+              },
+
+              /*
+               * IMPORTANT:
+               * Backend expects "message"
+               */
+              body: JSON.stringify({
+
+                message: text
+
+              })
+
+            }
+          );
+
+
+        const data =
+          await response.json();
+
+
+        removeTyping();
+
+
+        /* Handle API errors */
+
+        if (!response.ok) {
+
+          console.error(
+            "ASK RELMUN API error:",
+            data
+          );
+
+          throw new Error(
+            data.error ||
+            "Request failed"
+          );
+
+        }
+
+
+        /*
+         * Backend returns "answer"
+         */
+        const reply =
+          data.answer ||
+          "I couldn't generate a response.";
+
+
+        addMessage(
+          reply,
+          "bot"
+        );
+
+
+      } catch (error) {
+
+        removeTyping();
+
+
+        console.error(
+          "ASK RELMUN error:",
+          error
+        );
+
+
+        addMessage(
+          "Sorry, I'm having trouble connecting right now. Please try again.",
+          "bot"
         );
 
       }
 
-
-      const reply =
-        data.reply || "I couldn't answer that.";
-
-
-      addMessage(reply, "bot");
-
-
-      conversation.push({
-        role: "assistant",
-        content: reply
-      });
-
-
-    } catch (error) {
-
-      removeTyping();
-
-      console.error(error);
-
-      addMessage(
-        "Sorry, I'm having trouble connecting right now. Please try again.",
-        "bot"
-      );
-
     }
-
-  });
+  );
 
 });
