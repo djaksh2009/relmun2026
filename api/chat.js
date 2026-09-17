@@ -1,28 +1,18 @@
 export default async function handler(req, res) {
-
-  // Only allow POST requests
   if (req.method !== "POST") {
-
     return res.status(405).json({
       error: "Method not allowed"
     });
-
   }
 
-
   try {
-
     const { message } = req.body;
 
-
-    if (!message || !message.trim()) {
-
+    if (!message) {
       return res.status(400).json({
         error: "Message is required"
       });
-
     }
-
 
     const response = await fetch(
       "https://api.openai.com/v1/responses",
@@ -31,28 +21,20 @@ export default async function handler(req, res) {
 
         headers: {
           "Content-Type": "application/json",
-
-          "Authorization":
-            `Bearer ${process.env.OPENAI_API_KEY}`
+          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
         },
 
         body: JSON.stringify({
-
-          model: "gpt-5.6",
+          model: "gpt-4.1-mini",
 
           instructions: `
-You are RELMUN AI, the official virtual assistant
-for RELMUN '26 — Relations, Engagement & Leadership
-Model United Nations.
+You are ASK RELMUN, the official AI assistant for RELMUN '26.
+
+RELMUN stands for Relations, Engagement & Leadership Model United Nations.
 
 Conference:
-RELMUN '26
-
-Dates:
 26–27 December 2026
-
-Format:
-Online
+Online conference
 
 Committees:
 1. UNSC — United Nations Security Council
@@ -62,133 +44,45 @@ Committees:
 5. IPLA — Indian Premier League Auction
 6. UNW — UN Women
 
-Organising Team:
-Secretary-General — Akshith Kabilan
-Deputy Secretary-General — S. Shreyaas
-Director General — Laasya Vikram
-Chief Advisor — Aashi Kushwaha
-Head of Administration — Abimayur R
-USG Delegate Affairs — Madhav Bhardwaj
+Answer questions about RELMUN clearly, naturally and concisely.
 
-Delegate registrations are currently
-COMING SOON.
+If information is not available, say that it has not been announced yet.
+Do not invent registration dates, agendas, committee leadership or other official information.
 
-Answer questions about RELMUN clearly,
-naturally and concisely.
-
-Do not invent information.
-
-If something has not been announced,
-say that it has not been announced yet.
-
-You are an official conference assistant,
-so keep your tone helpful, professional,
-friendly and slightly energetic.
-
-Do not claim that registrations are open.
-
-Do not invent Executive Board members,
-agendas, fees, awards or conference details.
+The user may ask things like:
+- How do I register?
+- What committees are there?
+- When is RELMUN?
+- Is RELMUN online?
+- What is UNW?
+- What is IPLA?
+- Who can participate?
 `,
 
           input: message
-
         })
-
       }
     );
 
+    const data = await response.json();
 
     if (!response.ok) {
+      console.error("OpenAI error:", data);
 
-      const errorText =
-        await response.text();
-
-      console.error(
-        "OpenAI API error:",
-        errorText
-      );
-
-      return res.status(500).json({
-        error: "AI request failed"
+      return res.status(response.status).json({
+        error: "OpenAI request failed"
       });
-
     }
-
-
-    const data =
-      await response.json();
-
-
-    let reply = "";
-
-
-    /*
-      Responses API output is made up of output items.
-      Extract the text returned by the model.
-    */
-
-    if (
-      data.output &&
-      Array.isArray(data.output)
-    ) {
-
-      for (
-        const item of data.output
-      ) {
-
-        if (
-          item.type === "message" &&
-          Array.isArray(item.content)
-        ) {
-
-          for (
-            const content of item.content
-          ) {
-
-            if (
-              content.type === "output_text"
-            ) {
-
-              reply +=
-                content.text;
-
-            }
-
-          }
-
-        }
-
-      }
-
-    }
-
-
-    if (!reply) {
-
-      reply =
-        "Sorry, I couldn't generate a response right now.";
-
-    }
-
 
     return res.status(200).json({
-      reply
+      reply: data.output_text || "Sorry, I couldn't generate a response."
     });
-
 
   } catch (error) {
-
-    console.error(
-      "RELMUN chatbot error:",
-      error
-    );
-
+    console.error("Server error:", error);
 
     return res.status(500).json({
-      error: "Internal server error"
+      error: "Server error"
     });
-
   }
-
 }
