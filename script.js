@@ -1,3 +1,12 @@
+/* =========================================================
+   RELMUN '26 — MAIN SCRIPT
+   ========================================================= */
+
+
+/* =========================================================
+   COMMITTEE DATA
+   ========================================================= */
+
 const committeeData = {
 
   unsc: {
@@ -92,6 +101,9 @@ const committeeData = {
 };
 
 
+/* =========================================================
+   COMMITTEE DETAIL PAGE
+   ========================================================= */
 
 function renderCommitteePage() {
 
@@ -125,21 +137,17 @@ function renderCommitteePage() {
         ${data.number}
       </div>
 
-
       <div class="section-index">
         COMMITTEE / ${data.code}
       </div>
-
 
       <h1>
         ${data.title}
       </h1>
 
-
       <p>
         ${data.description}
       </p>
-
 
       <div class="detail-meta">
 
@@ -160,11 +168,14 @@ function renderCommitteePage() {
 
       </div>
 
-
       <div class="hero-actions">
 
-        <button class="btn btn-gold js-register">
-          REGISTER NOW <span>↗</span>
+        <button
+          class="btn btn-gold js-register"
+          type="button"
+        >
+          REGISTER NOW
+          <span>↗</span>
         </button>
 
 
@@ -172,7 +183,8 @@ function renderCommitteePage() {
           class="btn btn-outline"
           href="committees.html"
         >
-          ALL COMMITTEES <span>→</span>
+          ALL COMMITTEES
+          <span>→</span>
         </a>
 
       </div>
@@ -180,13 +192,11 @@ function renderCommitteePage() {
     </section>
 
 
-
     <section class="detail-section">
 
       <div class="section-index">
         01 / AGENDA
       </div>
-
 
       <div class="agenda-row">
 
@@ -203,13 +213,11 @@ function renderCommitteePage() {
     </section>
 
 
-
     <section class="detail-section">
 
       <div class="section-index">
         02 / BACKGROUND GUIDE
       </div>
-
 
       <div class="guide-row">
 
@@ -231,7 +239,6 @@ function renderCommitteePage() {
 
         </div>
 
-
         <span class="coming">
           COMING SOON
         </span>
@@ -241,16 +248,13 @@ function renderCommitteePage() {
     </section>
 
 
-
     <section class="detail-section">
 
       <div class="section-index">
         03 / EXECUTIVE BOARD
       </div>
 
-
       <div class="detail-eb">
-
 
         <div class="eb-role">
 
@@ -290,11 +294,9 @@ function renderCommitteePage() {
 
         </div>
 
-
       </div>
 
     </section>
-
 
 
     <section class="detail-cta">
@@ -303,21 +305,22 @@ function renderCommitteePage() {
         READY?
       </p>
 
-
       <h2>
         ENTER THE<br>
         <em>COMMITTEE.</em>
       </h2>
 
-
       <p>
-        Choose your preferred registration platform
-        to register for ${data.code}.
+        Delegate registrations for ${data.code}
+        will be opening soon.
       </p>
 
-
-      <button class="btn btn-gold big js-register">
-        REGISTER NOW <span>↗</span>
+      <button
+        class="btn btn-gold big js-register"
+        type="button"
+      >
+        DELEGATE REGISTRATIONS
+        <span>↗</span>
       </button>
 
     </section>
@@ -330,6 +333,9 @@ function renderCommitteePage() {
 }
 
 
+/* =========================================================
+   REGISTRATION MODAL
+   ========================================================= */
 
 function bindRegistration() {
 
@@ -367,16 +373,7 @@ function bindRegistration() {
 
       button.onclick = () => {
 
-        modal.classList.remove("open");
-
-        modal.setAttribute(
-          "aria-hidden",
-          "true"
-        );
-
-        document.body.classList.remove(
-          "modal-open"
-        );
+        closeModal(modal);
 
       };
 
@@ -385,6 +382,32 @@ function bindRegistration() {
 }
 
 
+/* =========================================================
+   CLOSE MODAL
+   ========================================================= */
+
+function closeModal(modal) {
+
+  if (!modal) return;
+
+
+  modal.classList.remove("open");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
 
 function setupMenu() {
 
@@ -425,6 +448,11 @@ function setupMenu() {
 
           nav.classList.remove("open");
 
+          toggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
         }
       );
 
@@ -433,6 +461,260 @@ function setupMenu() {
 }
 
 
+/* =========================================================
+   SCROLL NAVBAR
+   ========================================================= */
+
+function setupNavbarScroll() {
+
+  const navbar =
+    document.querySelector(".navbar");
+
+  if (!navbar) return;
+
+
+  let lastScroll = 0;
+
+
+  window.addEventListener(
+    "scroll",
+    () => {
+
+      const currentScroll =
+        window.scrollY;
+
+
+      if (currentScroll > 30) {
+
+        navbar.classList.add(
+          "scrolled"
+        );
+
+      } else {
+
+        navbar.classList.remove(
+          "scrolled"
+        );
+
+      }
+
+
+      lastScroll = currentScroll;
+
+    },
+    { passive: true }
+  );
+
+}
+
+
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+
+function setupRevealAnimations() {
+
+  const elements =
+    document.querySelectorAll(
+      ".section, .committee-row, .conference-card, .team-card"
+    );
+
+
+  if (!elements.length) return;
+
+
+  elements.forEach(element => {
+
+    element.classList.add(
+      "reveal-element"
+    );
+
+  });
+
+
+  if (
+    !("IntersectionObserver" in window)
+  ) {
+
+    elements.forEach(element => {
+
+      element.classList.add(
+        "revealed"
+      );
+
+    });
+
+    return;
+
+  }
+
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (
+            entry.isIntersecting
+          ) {
+
+            entry.target.classList.add(
+              "revealed"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+
+  elements.forEach(element => {
+
+    observer.observe(element);
+
+  });
+
+}
+
+
+/* =========================================================
+   SMOOTH ANCHOR LINKS
+   ========================================================= */
+
+function setupSmoothLinks() {
+
+  document
+    .querySelectorAll(
+      'a[href^="#"]'
+    )
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        event => {
+
+          const targetId =
+            link.getAttribute("href");
+
+
+          if (
+            !targetId ||
+            targetId === "#"
+          ) return;
+
+
+          const target =
+            document.querySelector(
+              targetId
+            );
+
+
+          if (!target) return;
+
+
+          event.preventDefault();
+
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+      );
+
+    });
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+   ========================================================= */
+
+function setupEscapeKey() {
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key !== "Escape"
+      ) return;
+
+
+      document
+        .querySelectorAll(
+          ".modal.open"
+        )
+        .forEach(modal => {
+
+          closeModal(modal);
+
+        });
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   CURSOR GLOW
+   ========================================================= */
+
+function setupCursorGlow() {
+
+  if (
+    window.matchMedia(
+      "(pointer: coarse)"
+    ).matches
+  ) return;
+
+
+  const glow =
+    document.createElement("div");
+
+
+  glow.className =
+    "cursor-glow";
+
+
+  document.body.appendChild(
+    glow
+  );
+
+
+  window.addEventListener(
+    "mousemove",
+    event => {
+
+      glow.style.left =
+        `${event.clientX}px`;
+
+      glow.style.top =
+        `${event.clientY}px`;
+
+    },
+    { passive: true }
+  );
+
+}
+
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -444,36 +726,15 @@ document.addEventListener(
 
     setupMenu();
 
+    setupNavbarScroll();
 
-    document.addEventListener(
-      "keydown",
-      e => {
+    setupRevealAnimations();
 
-        if (e.key === "Escape") {
+    setupSmoothLinks();
 
-          document
-            .querySelectorAll(".modal.open")
-            .forEach(modal => {
+    setupEscapeKey();
 
-              modal.classList.remove(
-                "open"
-              );
-
-              modal.setAttribute(
-                "aria-hidden",
-                "true"
-              );
-
-              document.body.classList.remove(
-                "modal-open"
-              );
-
-            });
-
-        }
-
-      }
-    );
+    setupCursorGlow();
 
   }
 );
