@@ -72,6 +72,21 @@ const committeeData = {
 
     agenda:
       "TO BE ANNOUNCED"
+  },
+
+
+  unw: {
+    code: "UNW",
+    number: "06",
+
+    title:
+      "UN WOMEN",
+
+    description:
+      "UN Women works to advance gender equality and the empowerment of women and girls through international cooperation, policy development and multilateral action.",
+
+    agenda:
+      "TO BE ANNOUNCED"
   }
 
 };
