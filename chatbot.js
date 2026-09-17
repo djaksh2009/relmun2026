@@ -4,60 +4,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!root) return;
 
-
-  /* =========================================
+  /* =========================================================
      CHATBOT HTML
-  ========================================= */
+  ========================================================= */
 
   root.innerHTML = `
 
-    <button
-      class="relmun-chat-button"
-      id="relmunChatButton"
-      type="button"
-      aria-label="Open ASK RELMUN"
-    >
+    <button class="relmun-chat-button" id="relmunChatButton">
       <span>✦</span>
       ASK RELMUN
     </button>
 
-
-    <div
-      class="relmun-chat-window"
-      id="relmunChatWindow"
-      aria-hidden="true"
-    >
+    <div class="relmun-chat-window" id="relmunChatWindow">
 
       <div class="relmun-chat-header">
 
-        <div class="relmun-chat-brand">
-
-          <div class="relmun-chat-icon">
-            ✦
-          </div>
-
-          <div>
-            <strong>ASK RELMUN</strong>
-
-            <span>
-              RELMUN '26 AI ASSISTANT
-            </span>
-          </div>
-
+        <div class="relmun-chat-title">
+          <strong>ASK RELMUN</strong>
+          <span>RELMUN '26 AI ASSISTANT</span>
         </div>
 
-
         <button
-          id="relmunChatClose"
           class="relmun-chat-close"
-          type="button"
-          aria-label="Close chatbot"
+          id="relmunChatClose"
+          aria-label="Close chat"
         >
           ×
         </button>
 
       </div>
-
 
       <div
         class="relmun-chat-messages"
@@ -65,25 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
       >
 
         <div class="relmun-message bot">
-
-          <div class="message-content">
-
-            <p>
-              Hey! I'm <strong>ASK RELMUN</strong>. 👋
-            </p>
-
-            <p>
-              Ask me anything about RELMUN '26,
-              committees, registration, the team,
-              or the conference.
-            </p>
-
+          <div class="relmun-markdown">
+            Hey! I’m <strong>ASK RELMUN.</strong> 👋
+            <br><br>
+            Ask me anything about RELMUN '26,
+            committees, registration, the team,
+            or the conference.
           </div>
-
         </div>
 
       </div>
-
 
       <form
         class="relmun-chat-input"
@@ -95,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
           type="text"
           placeholder="Ask about RELMUN..."
           autocomplete="off"
-          maxlength="1000"
+          aria-label="Ask about RELMUN"
         >
 
         <button
@@ -112,9 +78,520 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 
 
-  /* =========================================
+  /* =========================================================
+     INLINE CSS
+     No chatbot.css required.
+  ========================================================= */
+
+  const style = document.createElement("style");
+
+  style.textContent = `
+
+    /* =========================
+       CHAT BUTTON
+    ========================= */
+
+    .relmun-chat-button {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+
+      z-index: 99999;
+
+      border: 1px solid #c79a2b;
+      background: #080808;
+      color: #f1ece0;
+
+      padding: 14px 22px;
+
+      font-family: inherit;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+
+      cursor: pointer;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .relmun-chat-button span {
+      color: #c79a2b;
+      margin-right: 7px;
+    }
+
+    .relmun-chat-button:hover {
+      background: #c79a2b;
+      color: #080808;
+      transform: translateY(-3px);
+    }
+
+    .relmun-chat-button:hover span {
+      color: #080808;
+    }
+
+
+    /* =========================
+       CHAT WINDOW
+    ========================= */
+
+    .relmun-chat-window {
+      position: fixed;
+
+      right: 28px;
+      bottom: 28px;
+
+      width: min(430px, calc(100vw - 40px));
+      height: min(650px, calc(100vh - 50px));
+
+      z-index: 100000;
+
+      display: flex;
+      flex-direction: column;
+
+      background: #0b0b0b;
+
+      border: 1px solid rgba(241, 236, 224, 0.18);
+
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.55);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform:
+        translateY(25px)
+        scale(0.97);
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+    }
+
+    .relmun-chat-window.open {
+      opacity: 1;
+      visibility: visible;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .relmun-chat-header {
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 22px 22px;
+
+      border-bottom:
+        1px solid rgba(241,236,224,0.12);
+
+      background: #080808;
+    }
+
+    .relmun-chat-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .relmun-chat-title strong {
+      color: #f1ece0;
+
+      font-size: 18px;
+      font-weight: 600;
+
+      letter-spacing: -0.02em;
+    }
+
+    .relmun-chat-title span {
+      color: #8e8b83;
+
+      font-size: 9px;
+      letter-spacing: 0.14em;
+    }
+
+    .relmun-chat-close {
+      width: 34px;
+      height: 34px;
+
+      border: 0;
+      background: transparent;
+
+      color: #f1ece0;
+
+      font-size: 27px;
+      line-height: 1;
+
+      cursor: pointer;
+
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .relmun-chat-close:hover {
+      color: #c79a2b;
+      transform: rotate(90deg);
+    }
+
+
+    /* =========================
+       MESSAGES
+    ========================= */
+
+    .relmun-chat-messages {
+
+      flex: 1;
+
+      overflow-y: auto;
+
+      padding: 24px 18px;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 16px;
+
+      scrollbar-width: thin;
+      scrollbar-color: #333 transparent;
+    }
+
+    .relmun-chat-messages::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .relmun-chat-messages::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .relmun-chat-messages::-webkit-scrollbar-thumb {
+      background: #333;
+    }
+
+
+    /* =========================
+       ALL MESSAGE BUBBLES
+    ========================= */
+
+    .relmun-message {
+
+      font-size: 15px;
+      line-height: 1.65;
+
+      word-break: break-word;
+
+      max-width: 82%;
+
+      box-sizing: border-box;
+    }
+
+
+    /* =========================
+       BOT MESSAGE
+    ========================= */
+
+    .relmun-message.bot {
+
+      align-self: flex-start;
+
+      width: fit-content;
+      max-width: 86%;
+
+      padding: 18px 20px;
+
+      background: #171717;
+
+      border: 1px solid
+        rgba(241,236,224,0.12);
+
+      border-radius: 20px 20px 20px 5px;
+
+      color: #e8e4da;
+    }
+
+
+    /* =========================
+       USER MESSAGE
+       
+       THIS FIXES THE HUGE BLUE BOX
+    ========================= */
+
+    .relmun-message.user {
+
+      align-self: flex-end;
+
+      /*
+        IMPORTANT:
+        width: fit-content makes the
+        bubble only as wide as needed.
+      */
+
+      width: fit-content;
+
+      max-width: 78%;
+
+      padding: 14px 18px;
+
+      background: #1846ff;
+
+      color: white;
+
+      border-radius: 18px 18px 5px 18px;
+
+      white-space: pre-wrap;
+
+      overflow-wrap: anywhere;
+
+      box-sizing: border-box;
+    }
+
+
+    /* =========================
+       MARKDOWN
+    ========================= */
+
+    .relmun-markdown {
+      color: inherit;
+    }
+
+    .relmun-markdown strong {
+      font-weight: 650;
+      color: #f1ece0;
+    }
+
+    .relmun-markdown h1,
+    .relmun-markdown h2,
+    .relmun-markdown h3 {
+      margin: 0 0 10px;
+      color: #f1ece0;
+      line-height: 1.2;
+    }
+
+    .relmun-markdown h1 {
+      font-size: 22px;
+    }
+
+    .relmun-markdown h2 {
+      font-size: 19px;
+    }
+
+    .relmun-markdown h3 {
+      font-size: 17px;
+    }
+
+    .relmun-markdown ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+
+    .relmun-markdown li {
+      margin: 4px 0;
+    }
+
+    .relmun-markdown p {
+      margin: 0 0 10px;
+    }
+
+    .relmun-markdown p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       TYPING
+    ========================= */
+
+    .relmun-message.typing {
+      color: #9b978e;
+      font-style: italic;
+    }
+
+    .relmun-typing-dots {
+      display: inline-flex;
+      gap: 4px;
+      margin-left: 4px;
+    }
+
+    .relmun-typing-dots span {
+      width: 5px;
+      height: 5px;
+
+      border-radius: 50%;
+
+      background: #c79a2b;
+
+      animation: relmunTyping 1.2s infinite;
+    }
+
+    .relmun-typing-dots span:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .relmun-typing-dots span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes relmunTyping {
+
+      0%,
+      60%,
+      100% {
+        opacity: 0.25;
+        transform: translateY(0);
+      }
+
+      30% {
+        opacity: 1;
+        transform: translateY(-3px);
+      }
+
+    }
+
+
+    /* =========================
+       INPUT
+    ========================= */
+
+    .relmun-chat-input {
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 14px 16px 16px;
+
+      background: #080808;
+
+      border-top:
+        1px solid rgba(241,236,224,0.10);
+    }
+
+    .relmun-chat-input input {
+
+      flex: 1;
+
+      min-width: 0;
+
+      height: 52px;
+
+      padding: 0 18px;
+
+      border-radius: 28px;
+
+      border: 1px solid #5e4b15;
+
+      outline: none;
+
+      background: #151515;
+
+      color: #f1ece0;
+
+      font-family: inherit;
+      font-size: 15px;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .relmun-chat-input input::placeholder {
+      color: #6f6c66;
+    }
+
+    .relmun-chat-input input:focus {
+
+      border-color: #c79a2b;
+
+      box-shadow:
+        0 0 0 1px rgba(199,154,43,0.15);
+    }
+
+    .relmun-chat-input button {
+
+      flex-shrink: 0;
+
+      width: 52px;
+      height: 52px;
+
+      border: 0;
+
+      border-radius: 50%;
+
+      background: #c79a2b;
+
+      color: #080808;
+
+      font-size: 23px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .relmun-chat-input button:hover {
+      transform: translateY(-2px);
+      background: #e0b84d;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .relmun-chat-button {
+        right: 16px;
+        bottom: 16px;
+
+        padding: 12px 17px;
+      }
+
+      .relmun-chat-window {
+
+        right: 10px;
+        bottom: 10px;
+
+        width: calc(100vw - 20px);
+        height: calc(100vh - 20px);
+
+        max-height: none;
+      }
+
+      .relmun-message.user {
+        max-width: 82%;
+      }
+
+      .relmun-message.bot {
+        max-width: 90%;
+      }
+
+    }
+
+  `;
+
+  document.head.appendChild(style);
+
+
+  /* =========================================================
      ELEMENTS
-  ========================================= */
+  ========================================================= */
 
   const button =
     document.getElementById("relmunChatButton");
@@ -135,372 +612,106 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("relmunChatMessages");
 
 
-  /* =========================================
-     OPEN CHAT
-  ========================================= */
+  let conversation = [];
+
+
+  /* =========================================================
+     OPEN / CLOSE
+  ========================================================= */
 
   button.addEventListener("click", () => {
 
     windowBox.classList.add("open");
 
-    windowBox.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-    input.focus();
+    setTimeout(() => {
+      input.focus();
+    }, 100);
 
   });
 
-
-  /* =========================================
-     CLOSE CHAT
-  ========================================= */
 
   close.addEventListener("click", () => {
 
     windowBox.classList.remove("open");
 
-    windowBox.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
   });
 
 
-  /* =========================================
-     ESCAPE KEY
-  ========================================= */
-
-  document.addEventListener("keydown", (event) => {
-
-    if (event.key === "Escape") {
-
-      windowBox.classList.remove("open");
-
-      windowBox.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-    }
-
-  });
-
-
-  /* =========================================
+  /* =========================================================
      MARKDOWN PARSER
-  ========================================= */
+     
+     Safe basic Markdown support.
+  ========================================================= */
 
-  function markdownToHTML(markdown) {
+  function escapeHTML(text) {
 
-    if (!markdown) return "";
-
-
-    /*
-      Escape HTML first.
-      This prevents the AI response from
-      injecting arbitrary HTML into the page.
-    */
-
-    let text = markdown
+    return text
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+  }
 
 
-    /*
-      CODE BLOCKS
-    */
+  function markdownToHTML(text) {
 
-    const codeBlocks = [];
-
-    text = text.replace(
-      /```([\s\S]*?)```/g,
-      (match, code) => {
-
-        const index =
-          codeBlocks.length;
-
-        codeBlocks.push(code.trim());
-
-        return `@@CODEBLOCK${index}@@`;
-
-      }
-    );
+    let html = escapeHTML(text);
 
 
-    /*
-      INLINE CODE
-    */
+    /* Bold */
 
-    text = text.replace(
-      /`([^`]+)`/g,
-      "<code>$1</code>"
-    );
-
-
-    /*
-      HEADINGS
-    */
-
-    text = text.replace(
-      /^### (.+)$/gm,
-      "<h4>$1</h4>"
-    );
-
-    text = text.replace(
-      /^## (.+)$/gm,
-      "<h3>$1</h3>"
-    );
-
-    text = text.replace(
-      /^# (.+)$/gm,
-      "<h3>$1</h3>"
-    );
-
-
-    /*
-      BOLD + ITALIC
-    */
-
-    text = text.replace(
-      /\*\*\*(.+?)\*\*\*/g,
-      "<strong><em>$1</em></strong>"
-    );
-
-    text = text.replace(
-      /\*\*(.+?)\*\*/g,
+    html = html.replace(
+      /\*\*(.*?)\*\*/g,
       "<strong>$1</strong>"
     );
 
-    text = text.replace(
-      /__(.+?)__/g,
-      "<strong>$1</strong>"
-    );
 
-    text = text.replace(
-      /\*(.+?)\*/g,
-      "<em>$1</em>"
-    );
+    /* Italic */
 
-    text = text.replace(
-      /_(.+?)_/g,
+    html = html.replace(
+      /(?<!\*)\*([^*\n]+)\*(?!\*)/g,
       "<em>$1</em>"
     );
 
 
-    /*
-      LINKS
-    */
+    /* Headings */
 
-    text = text.replace(
-      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
-      '<a href="$2" target="_blank" rel="noopener noreferrer">$1 ↗</a>'
+    html = html.replace(
+      /^### (.*)$/gm,
+      "<h3>$1</h3>"
+    );
+
+    html = html.replace(
+      /^## (.*)$/gm,
+      "<h2>$1</h2>"
+    );
+
+    html = html.replace(
+      /^# (.*)$/gm,
+      "<h1>$1</h1>"
     );
 
 
-    /*
-      HORIZONTAL RULE
-    */
+    /* Bullet points */
 
-    text = text.replace(
-      /^---$/gm,
-      "<hr>"
+    html = html.replace(
+      /(?:^|\n)- (.*)(?=\n|$)/g,
+      "<li>$1</li>"
+    );
+
+    html = html.replace(
+      /(<li>.*?<\/li>)/gs,
+      "<ul>$1</ul>"
     );
 
 
-    /*
-      PROCESS LINE BY LINE
-    */
-
-    const lines =
-      text.split("\n");
-
-    let html = "";
-
-    let inUnorderedList = false;
-    let inOrderedList = false;
-
-
-    function closeLists() {
-
-      if (inUnorderedList) {
-
-        html += "</ul>";
-
-        inUnorderedList = false;
-
-      }
-
-      if (inOrderedList) {
-
-        html += "</ol>";
-
-        inOrderedList = false;
-
-      }
-
-    }
-
-
-    lines.forEach((line) => {
-
-      const trimmed =
-        line.trim();
-
-
-      /*
-        Empty line
-      */
-
-      if (!trimmed) {
-
-        closeLists();
-
-        return;
-
-      }
-
-
-      /*
-        Unordered list
-      */
-
-      if (
-        trimmed.startsWith("- ") ||
-        trimmed.startsWith("* ")
-      ) {
-
-        if (inOrderedList) {
-
-          html += "</ol>";
-
-          inOrderedList = false;
-
-        }
-
-        if (!inUnorderedList) {
-
-          html += "<ul>";
-
-          inUnorderedList = true;
-
-        }
-
-        html +=
-          `<li>${trimmed.substring(2)}</li>`;
-
-        return;
-
-      }
-
-
-      /*
-        Ordered list
-      */
-
-      const orderedMatch =
-        trimmed.match(/^(\d+)\.\s+(.+)$/);
-
-      if (orderedMatch) {
-
-        if (inUnorderedList) {
-
-          html += "</ul>";
-
-          inUnorderedList = false;
-
-        }
-
-        if (!inOrderedList) {
-
-          html += "<ol>";
-
-          inOrderedList = true;
-
-        }
-
-        html +=
-          `<li>${orderedMatch[2]}</li>`;
-
-        return;
-
-      }
-
-
-      /*
-        Headings
-      */
-
-      if (
-        trimmed.startsWith("<h3>") ||
-        trimmed.startsWith("<h4>") ||
-        trimmed === "<hr>"
-      ) {
-
-        closeLists();
-
-        html += trimmed;
-
-        return;
-
-      }
-
-
-      /*
-        Code block placeholder
-      */
-
-      if (
-        trimmed.startsWith("@@CODEBLOCK") &&
-        trimmed.endsWith("@@")
-      ) {
-
-        closeLists();
-
-        html += trimmed;
-
-        return;
-
-      }
-
-
-      /*
-        Normal paragraph
-      */
-
-      closeLists();
-
-      html +=
-        `<p>${trimmed}</p>`;
-
-    });
-
-
-    closeLists();
-
-
-    /*
-      Restore code blocks
-    */
-
-    codeBlocks.forEach(
-      (code, index) => {
-
-        const escapedCode =
-          code
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;");
-
-        html = html.replace(
-          `@@CODEBLOCK${index}@@`,
-          `<pre><code>${escapedCode}</code></pre>`
-        );
-
-      }
+    /* Line breaks */
+
+    html = html.replace(
+      /\n/g,
+      "<br>"
     );
 
 
@@ -509,9 +720,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* =========================================
+  /* =========================================================
      ADD MESSAGE
-  ========================================= */
+  ========================================================= */
 
   function addMessage(text, type) {
 
@@ -522,45 +733,42 @@ document.addEventListener("DOMContentLoaded", () => {
       `relmun-message ${type}`;
 
 
-    const content =
-      document.createElement("div");
-
-    content.className =
-      "message-content";
-
-
     if (type === "bot") {
+
+      const content =
+        document.createElement("div");
+
+      content.className =
+        "relmun-markdown";
 
       content.innerHTML =
         markdownToHTML(text);
 
+      message.appendChild(content);
+
     } else {
 
-      content.textContent =
-        text;
+      message.textContent = text;
 
     }
 
 
-    message.appendChild(content);
-
     messagesBox.appendChild(message);
-
 
     messagesBox.scrollTop =
       messagesBox.scrollHeight;
 
-
-    return message;
-
   }
 
 
-  /* =========================================
+  /* =========================================================
      TYPING INDICATOR
-  ========================================= */
+  ========================================================= */
 
   function addTyping() {
+
+    removeTyping();
+
 
     const typing =
       document.createElement("div");
@@ -573,23 +781,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     typing.innerHTML = `
-
-      <div class="message-content">
-
-        <div class="relmun-thinking">
-
-          <span></span>
-          <span></span>
-          <span></span>
-
-          <small>
-            ASK RELMUN IS THINKING
-          </small>
-
-        </div>
-
-      </div>
-
+      Thinking
+      <span class="relmun-typing-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
     `;
 
 
@@ -601,29 +798,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* =========================================
-     REMOVE TYPING
-  ========================================= */
-
   function removeTyping() {
 
     const typing =
-      document.getElementById(
-        "relmunTyping"
-      );
+      document.getElementById("relmunTyping");
 
     if (typing) {
-
       typing.remove();
-
     }
 
   }
 
 
-  /* =========================================
+  /* =========================================================
      SEND MESSAGE
-  ========================================= */
+  ========================================================= */
 
   form.addEventListener(
     "submit",
@@ -639,39 +828,20 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!text) return;
 
 
-      /*
-        Show user message
-      */
+      /* Add user message */
 
-      addMessage(
-        text,
-        "user"
-      );
-
-
-      /*
-        Clear input
-      */
+      addMessage(text, "user");
 
       input.value = "";
-
-
-      /*
-        Disable input while waiting
-      */
 
       input.disabled = true;
 
 
-      const sendButton =
-        form.querySelector("button");
+      conversation.push({
+        role: "user",
+        content: text
+      });
 
-      sendButton.disabled = true;
-
-
-      /*
-        Typing animation
-      */
 
       addTyping();
 
@@ -679,95 +849,72 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
 
         const response =
-          await fetch(
-            "/api/chat",
-            {
+          await fetch("/api/chat", {
 
-              method: "POST",
+            method: "POST",
 
-              headers: {
-                "Content-Type":
-                  "application/json"
-              },
+            headers: {
+              "Content-Type": "application/json"
+            },
 
-              body: JSON.stringify({
-                message: text
-              })
+            body: JSON.stringify({
+              message: text
+            })
 
-            }
-          );
+          });
 
 
-        /*
-          Try to parse JSON
-        */
-
-        let data;
-
-        try {
-
-          data =
-            await response.json();
-
-        } catch {
-
-          throw new Error(
-            "The server returned an invalid response."
-          );
-
-        }
+        const data =
+          await response.json();
 
 
         removeTyping();
 
 
-        /*
-          API error
-        */
+        console.log(
+          "ASK RELMUN response:",
+          data
+        );
+
 
         if (!response.ok) {
 
           console.error(
-            "ASK RELMUN API error:",
+            "Chatbot error:",
             data
           );
 
-
           throw new Error(
-            data.details ||
             data.error ||
-            "Request failed."
+            "Request failed"
           );
 
         }
 
 
         /*
-          Backend returns:
-          { answer: "..." }
+          Your API returns:
+          {
+            answer: "..."
+          }
         */
 
         const reply =
-          data.answer;
+          data.answer ||
+          data.reply ||
+          "I couldn't generate a response.";
 
-
-        if (!reply) {
-
-          throw new Error(
-            "The AI returned an empty response."
-          );
-
-        }
-
-
-        /*
-          Display AI response
-        */
 
         addMessage(
           reply,
           "bot"
         );
+
+
+        conversation.push({
+          role: "assistant",
+          content: reply
+        });
 
 
       } catch (error) {
@@ -776,25 +923,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         console.error(
-          "ASK RELMUN error:",
+          "ASK RELMUN:",
           error
         );
 
 
         addMessage(
-          "Sorry, I'm having trouble connecting right now. Please try again in a moment.",
+          "Sorry, I'm having trouble connecting right now. Please try again.",
           "bot"
         );
 
       } finally {
 
-        /*
-          Re-enable input
-        */
-
         input.disabled = false;
-
-        sendButton.disabled = false;
 
         input.focus();
 
