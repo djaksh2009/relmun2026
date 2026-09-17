@@ -1,180 +1,150 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const chatbot = document.getElementById("relmun-chatbot");
+  const container = document.getElementById("relmun-chatbot");
 
-  if (!chatbot) return;
+  if (!container) return;
 
-  chatbot.innerHTML = `
-    <button class="relmun-chat-button" id="relmunChatButton">
+  container.innerHTML = `
+    <button id="chatbot-toggle" aria-label="Open ASK RELMUN">
       ✦ ASK RELMUN
     </button>
 
-    <div class="relmun-chat-window" id="relmunChatWindow">
+    <div id="chatbot-window">
 
-      <div class="relmun-chat-header">
+      <div id="chatbot-header">
         <div>
-          <strong>RELMUN AI</strong>
-          <span>YOUR CONFERENCE ASSISTANT</span>
+          <strong>ASK RELMUN</strong>
+          <span>RELMUN '26 AI ASSISTANT</span>
         </div>
 
-        <button id="relmunChatClose">×</button>
+        <button id="chatbot-close">×</button>
       </div>
 
-      <div class="relmun-chat-messages" id="relmunChatMessages">
+      <div id="chatbot-messages">
 
-        <div class="relmun-message bot">
-          Hey! I'm RELMUN AI. 👋<br><br>
-          Ask me anything about RELMUN '26, committees,
-          the conference, registration, or the organising team.
+        <div class="bot-message">
+          Hey! I'm ASK RELMUN. 👋<br><br>
+          Ask me anything about RELMUN '26, the committees, registration, or the conference.
         </div>
 
       </div>
 
-      <form class="relmun-chat-input" id="relmunChatForm">
+      <div id="chatbot-input-area">
 
         <input
+          id="chatbot-input"
           type="text"
-          id="relmunChatInput"
-          placeholder="Ask RELMUN..."
+          placeholder="Ask about RELMUN..."
           autocomplete="off"
-          required
         >
 
-        <button type="submit">
+        <button id="chatbot-send">
           ↑
         </button>
 
-      </form>
+      </div>
 
     </div>
   `;
 
+  const toggle = document.getElementById("chatbot-toggle");
+  const windowBox = document.getElementById("chatbot-window");
+  const close = document.getElementById("chatbot-close");
+  const input = document.getElementById("chatbot-input");
+  const send = document.getElementById("chatbot-send");
+  const messages = document.getElementById("chatbot-messages");
 
-  const openButton =
-    document.getElementById("relmunChatButton");
-
-  const closeButton =
-    document.getElementById("relmunChatClose");
-
-  const windowBox =
-    document.getElementById("relmunChatWindow");
-
-  const form =
-    document.getElementById("relmunChatForm");
-
-  const input =
-    document.getElementById("relmunChatInput");
-
-  const messages =
-    document.getElementById("relmunChatMessages");
-
-
-  openButton.addEventListener("click", () => {
-
+  toggle.addEventListener("click", () => {
     windowBox.classList.add("open");
-
     input.focus();
-
   });
 
-
-  closeButton.addEventListener("click", () => {
-
+  close.addEventListener("click", () => {
     windowBox.classList.remove("open");
-
   });
 
+  function addMessage(text, type) {
 
-  form.addEventListener("submit", async (event) => {
+    const message = document.createElement("div");
 
-    event.preventDefault();
+    message.className =
+      type === "user"
+        ? "user-message"
+        : "bot-message";
+
+    message.innerHTML = text;
+
+    messages.appendChild(message);
+
+    messages.scrollTop = messages.scrollHeight;
+
+    return message;
+  }
+
+  async function sendMessage() {
 
     const message = input.value.trim();
 
     if (!message) return;
 
-
     addMessage(message, "user");
 
     input.value = "";
 
-    const typing =
-      addMessage("Thinking...", "bot typing");
+    send.disabled = true;
 
+    const loading = addMessage(
+      "Thinking...",
+      "bot"
+    );
 
     try {
 
-      const response =
-        await fetch("/api/chat", {
+      const response = await fetch("/api/chat", {
 
-          method: "POST",
+        method: "POST",
 
-          headers: {
-            "Content-Type": "application/json"
-          },
+        headers: {
+          "Content-Type": "application/json"
+        },
 
-          body: JSON.stringify({
-            message: message
-          })
+        body: JSON.stringify({
+          message: message
+        })
 
-        });
+      });
 
-
-      const data =
-        await response.json();
-
-
-      typing.remove();
-
+      const data = await response.json();
 
       if (!response.ok) {
-
-        throw new Error(
-          data.error || "Something went wrong."
-        );
-
+        throw new Error(data.error || "Request failed");
       }
 
-
-      addMessage(
-        data.reply,
-        "bot"
-      );
-
+      loading.innerHTML = data.reply;
 
     } catch (error) {
 
       console.error(error);
 
-      typing.remove();
+      loading.innerHTML =
+        "Sorry, I'm having trouble connecting right now. Please try again.";
 
-      addMessage(
-        "Sorry, I'm having trouble connecting right now. Please try again.",
-        "bot"
-      );
+    } finally {
 
+      send.disabled = false;
+      input.focus();
+
+    }
+  }
+
+  send.addEventListener("click", sendMessage);
+
+  input.addEventListener("keydown", (event) => {
+
+    if (event.key === "Enter") {
+      sendMessage();
     }
 
   });
-
-
-  function addMessage(text, type) {
-
-    const messageElement =
-      document.createElement("div");
-
-    messageElement.className =
-      `relmun-message ${type}`;
-
-    messageElement.textContent = text;
-
-    messages.appendChild(messageElement);
-
-    messages.scrollTop =
-      messages.scrollHeight;
-
-    return messageElement;
-
-  }
 
 });
