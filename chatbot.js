@@ -107,11 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       </form>
 
-
-      <div class="relmun-chat-footer">
-        POWERED BY AI · RELMUN '26
-      </div>
-
     </div>
 
   `;
