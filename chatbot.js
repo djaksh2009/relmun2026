@@ -1,162 +1,54 @@
-/* =========================================================
-   RELMUN '26 — AI CHATBOT
-   Frontend
-   ========================================================= */
-
-(function () {
-
-  "use strict";
-
-
-  /* -------------------------------------------------------
-     CHATBOT HTML
-     ------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
 
   const chatbot = document.getElementById("relmun-chatbot");
 
   if (!chatbot) return;
 
-
   chatbot.innerHTML = `
-
-    <button
-      class="relmun-chat-button"
-      id="relmunChatButton"
-      aria-label="Open RELMUN AI"
-    >
-
-      <span class="chat-icon">✦</span>
-
-      <span class="chat-button-text">
-        RELMUN AI
-      </span>
-
+    <button class="relmun-chat-button" id="relmunChatButton">
+      ✦ ASK RELMUN
     </button>
 
-
-    <div
-      class="relmun-chat-window"
-      id="relmunChatWindow"
-      aria-hidden="true"
-    >
+    <div class="relmun-chat-window" id="relmunChatWindow">
 
       <div class="relmun-chat-header">
-
-        <div class="relmun-chat-brand">
-
-          <div class="relmun-ai-mark">
-            ✦
-          </div>
-
-          <div>
-
-            <strong>
-              RELMUN AI
-            </strong>
-
-            <small>
-              YOUR CONFERENCE ASSISTANT
-            </small>
-
-          </div>
-
+        <div>
+          <strong>RELMUN AI</strong>
+          <span>YOUR CONFERENCE ASSISTANT</span>
         </div>
 
-
-        <button
-          class="relmun-chat-close"
-          id="relmunChatClose"
-          aria-label="Close chatbot"
-        >
-          ×
-        </button>
-
+        <button id="relmunChatClose">×</button>
       </div>
 
-
-      <div
-        class="relmun-chat-messages"
-        id="relmunChatMessages"
-      >
+      <div class="relmun-chat-messages" id="relmunChatMessages">
 
         <div class="relmun-message bot">
-
-          <div class="message-label">
-            RELMUN AI
-          </div>
-
-          <div class="message-bubble">
-
-            Hey! 👋<br><br>
-
-            I'm the RELMUN '26 assistant.
-            Ask me anything about the conference,
-            committees, dates, registration,
-            Executive Board or the organising team.
-
-          </div>
-
+          Hey! I'm RELMUN AI. 👋<br><br>
+          Ask me anything about RELMUN '26, committees,
+          the conference, registration, or the organising team.
         </div>
 
       </div>
 
-
-      <div class="relmun-quick-actions">
-
-        <button data-question="What is RELMUN?">
-          What is RELMUN?
-        </button>
-
-        <button data-question="What committees are available?">
-          Committees
-        </button>
-
-        <button data-question="Who is in the organising team?">
-          Organising Team
-        </button>
-
-        <button data-question="When is RELMUN 2026?">
-          Conference Date
-        </button>
-
-      </div>
-
-
-      <form
-        class="relmun-chat-input"
-        id="relmunChatForm"
-      >
+      <form class="relmun-chat-input" id="relmunChatForm">
 
         <input
           type="text"
           id="relmunChatInput"
-          placeholder="Ask RELMUN AI..."
+          placeholder="Ask RELMUN..."
           autocomplete="off"
-          maxlength="500"
+          required
         >
 
-        <button
-          type="submit"
-          aria-label="Send message"
-        >
+        <button type="submit">
           ↑
         </button>
 
       </form>
 
-
-      <div class="relmun-chat-footer">
-        RELATIONS · ENGAGEMENT · LEADERSHIP
-      </div>
-
     </div>
-
   `;
 
-
-  /* -------------------------------------------------------
-     ELEMENTS
-     ------------------------------------------------------- */
 
   const openButton =
     document.getElementById("relmunChatButton");
@@ -164,7 +56,7 @@
   const closeButton =
     document.getElementById("relmunChatClose");
 
-  const chatWindow =
+  const windowBox =
     document.getElementById("relmunChatWindow");
 
   const form =
@@ -176,368 +68,113 @@
   const messages =
     document.getElementById("relmunChatMessages");
 
-  const quickActions =
-    document.querySelectorAll(
-      ".relmun-quick-actions button"
-    );
+
+  openButton.addEventListener("click", () => {
+
+    windowBox.classList.add("open");
+
+    input.focus();
+
+  });
 
 
-  /* -------------------------------------------------------
-     OPEN CHAT
-     ------------------------------------------------------- */
+  closeButton.addEventListener("click", () => {
 
-  function openChat() {
+    windowBox.classList.remove("open");
 
-    chatWindow.classList.add("open");
-
-    chatWindow.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-    setTimeout(() => {
-
-      input.focus();
-
-    }, 250);
-
-  }
+  });
 
 
-  /* -------------------------------------------------------
-     CLOSE CHAT
-     ------------------------------------------------------- */
+  form.addEventListener("submit", async (event) => {
 
-  function closeChat() {
+    event.preventDefault();
 
-    chatWindow.classList.remove("open");
+    const message = input.value.trim();
 
-    chatWindow.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-  }
+    if (!message) return;
 
 
-  openButton.addEventListener(
-    "click",
-    openChat
-  );
+    addMessage(message, "user");
 
-
-  closeButton.addEventListener(
-    "click",
-    closeChat
-  );
-
-
-  /* -------------------------------------------------------
-     ADD MESSAGE
-     ------------------------------------------------------- */
-
-  function addMessage(
-    text,
-    type = "bot"
-  ) {
-
-    const message =
-      document.createElement("div");
-
-    message.className =
-      `relmun-message ${type}`;
-
-
-    const label =
-      type === "user"
-        ? "YOU"
-        : "RELMUN AI";
-
-
-    message.innerHTML = `
-
-      <div class="message-label">
-        ${label}
-      </div>
-
-      <div class="message-bubble">
-        ${formatMessage(text)}
-      </div>
-
-    `;
-
-
-    messages.appendChild(message);
-
-    scrollToBottom();
-
-  }
-
-
-  /* -------------------------------------------------------
-     FORMAT MESSAGE
-     ------------------------------------------------------- */
-
-  function formatMessage(text) {
-
-    if (!text) return "";
-
-
-    return text
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/\n/g, "<br>");
-
-  }
-
-
-  /* -------------------------------------------------------
-     TYPING INDICATOR
-     ------------------------------------------------------- */
-
-  function showTyping() {
+    input.value = "";
 
     const typing =
-      document.createElement("div");
-
-
-    typing.className =
-      "relmun-message bot";
-
-    typing.id =
-      "relmunTyping";
-
-
-    typing.innerHTML = `
-
-      <div class="message-label">
-        RELMUN AI
-      </div>
-
-      <div class="message-bubble typing">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </div>
-
-    `;
-
-
-    messages.appendChild(typing);
-
-    scrollToBottom();
-
-  }
-
-
-  /* -------------------------------------------------------
-     REMOVE TYPING
-     ------------------------------------------------------- */
-
-  function removeTyping() {
-
-    const typing =
-      document.getElementById(
-        "relmunTyping"
-      );
-
-
-    if (typing) {
-
-      typing.remove();
-
-    }
-
-  }
-
-
-  /* -------------------------------------------------------
-     SCROLL
-     ------------------------------------------------------- */
-
-  function scrollToBottom() {
-
-    messages.scrollTop =
-      messages.scrollHeight;
-
-  }
-
-
-  /* -------------------------------------------------------
-     SEND TO BACKEND
-     ------------------------------------------------------- */
-
-  async function askAI(question) {
-
-    showTyping();
+      addMessage("Thinking...", "bot typing");
 
 
     try {
 
       const response =
-        await fetch(
-          "/api/chat",
-          {
-            method: "POST",
+        await fetch("/api/chat", {
 
-            headers: {
-              "Content-Type":
-                "application/json"
-            },
+          method: "POST",
 
-            body:
-              JSON.stringify({
-                message: question
-              })
+          headers: {
+            "Content-Type": "application/json"
+          },
 
-          }
-        );
+          body: JSON.stringify({
+            message: message
+          })
 
-
-      if (!response.ok) {
-
-        throw new Error(
-          "API request failed"
-        );
-
-      }
+        });
 
 
       const data =
         await response.json();
 
 
-      removeTyping();
+      typing.remove();
 
 
-      if (
-        data &&
-        data.reply
-      ) {
+      if (!response.ok) {
 
-        addMessage(
-          data.reply,
-          "bot"
-        );
-
-      } else {
-
-        addMessage(
-          "I couldn't process that right now. Please try again.",
-          "bot"
+        throw new Error(
+          data.error || "Something went wrong."
         );
 
       }
 
 
-    } catch (error) {
-
-      console.error(
-        "RELMUN AI:",
-        error
+      addMessage(
+        data.reply,
+        "bot"
       );
 
 
-      removeTyping();
+    } catch (error) {
 
+      console.error(error);
+
+      typing.remove();
 
       addMessage(
-        "I'm having trouble connecting right now. Please try again in a moment.",
+        "Sorry, I'm having trouble connecting right now. Please try again.",
         "bot"
       );
 
     }
 
+  });
+
+
+  function addMessage(text, type) {
+
+    const messageElement =
+      document.createElement("div");
+
+    messageElement.className =
+      `relmun-message ${type}`;
+
+    messageElement.textContent = text;
+
+    messages.appendChild(messageElement);
+
+    messages.scrollTop =
+      messages.scrollHeight;
+
+    return messageElement;
+
   }
 
-
-  /* -------------------------------------------------------
-     FORM SUBMIT
-     ------------------------------------------------------- */
-
-  form.addEventListener(
-    "submit",
-    event => {
-
-      event.preventDefault();
-
-
-      const question =
-        input.value.trim();
-
-
-      if (!question) return;
-
-
-      addMessage(
-        question,
-        "user"
-      );
-
-
-      input.value = "";
-
-
-      askAI(question);
-
-    }
-  );
-
-
-  /* -------------------------------------------------------
-     QUICK QUESTIONS
-     ------------------------------------------------------- */
-
-  quickActions.forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          const question =
-            button.dataset.question;
-
-
-          if (!question) return;
-
-
-          addMessage(
-            question,
-            "user"
-          );
-
-
-          askAI(question);
-
-        }
-      );
-
-    }
-  );
-
-
-  /* -------------------------------------------------------
-     ESCAPE KEY
-     ------------------------------------------------------- */
-
-  document.addEventListener(
-    "keydown",
-    event => {
-
-      if (
-        event.key === "Escape"
-      ) {
-
-        closeChat();
-
-      }
-
-    }
-  );
-
-
-})();
+});
