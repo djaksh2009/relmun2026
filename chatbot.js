@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
           },
 
           body: JSON.stringify({
-            messages: conversation
+            message: message
           })
 
         });
