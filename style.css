@@ -2617,3 +2617,476 @@ footer {
   }
 
 }
+/* =========================================================
+   RELMUN — ATMOSPHERIC BACKGROUND ART
+   Scoped ONLY to the homepage hero
+   ========================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+
+/* Main atmospheric illustration */
+
+.hero::before {
+  content: "";
+  position: absolute;
+
+  width: min(72vw, 900px);
+  height: min(72vw, 900px);
+
+  right: -18%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 0 27%,
+      rgba(209, 170, 80, 0.055) 27.2%,
+      transparent 27.5% 40%,
+      rgba(209, 170, 80, 0.04) 40.2%,
+      transparent 40.5% 53%,
+      rgba(209, 170, 80, 0.025) 53.2%,
+      transparent 53.5%
+    );
+
+  border: 1px solid rgba(209, 170, 80, 0.07);
+
+  box-shadow:
+    0 0 0 70px rgba(209, 170, 80, 0.012),
+    0 0 0 140px rgba(209, 170, 80, 0.008);
+
+  pointer-events: none;
+
+  z-index: -3;
+
+  animation:
+    relmunOrbit 22s linear infinite;
+}
+
+
+/* Latitude / longitude style grid */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: min(60vw, 760px);
+  height: min(60vw, 760px);
+
+  right: -10%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    repeating-radial-gradient(
+      ellipse at center,
+      transparent 0,
+      transparent 45px,
+      rgba(245, 243, 237, 0.025) 46px,
+      transparent 47px
+    );
+
+  mask-image:
+    radial-gradient(
+      circle,
+      black 0 48%,
+      transparent 72%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      circle,
+      black 0 48%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+
+  z-index: -2;
+
+  animation:
+    relmunFloat 12s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   COMPASS / ORBITAL DETAIL
+   ========================================================= */
+
+.hero .hero-mark {
+  position: absolute;
+
+  right: 8%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: min(30vw, 430px);
+  height: min(30vw, 430px);
+
+  border: 1px solid rgba(209, 170, 80, 0.12);
+
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  color: rgba(245, 243, 237, 0.4);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* Outer ring */
+
+.hero .hero-mark::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -22px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(209, 170, 80, 0.07);
+
+  border-left-color:
+    rgba(209, 170, 80, 0.3);
+
+  border-right-color:
+    rgba(209, 170, 80, 0.16);
+
+  animation:
+    relmunSpin 35s linear infinite;
+}
+
+
+/* Crosshair */
+
+.hero .hero-mark::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(209, 170, 80, 0.16),
+      transparent
+    );
+
+  box-shadow:
+    0 -90px 0 rgba(209, 170, 80, 0.035),
+    0 90px 0 rgba(209, 170, 80, 0.035);
+}
+
+
+/* Compass symbol */
+
+.hero .compass {
+  position: relative;
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--gold);
+
+  font-size: 28px;
+
+  border:
+    1px solid rgba(209, 170, 80, 0.22);
+
+  transform: rotate(45deg);
+}
+
+.hero .compass::before {
+  content: "";
+
+  position: absolute;
+
+  width: 1px;
+  height: 85px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(209, 170, 80, 0.3),
+      transparent
+    );
+
+  transform: rotate(-45deg);
+}
+
+
+/* Mark typography */
+
+.hero .hero-mark > span {
+  position: relative;
+
+  z-index: 2;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.38em;
+
+  opacity: 0.7;
+}
+
+.hero .hero-mark .mark-year {
+  margin-top: 12px;
+
+  color: var(--gold);
+
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   HERO LINEWORK
+   ========================================================= */
+
+.hero .hero-lines {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  opacity: 0.55;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 14%,
+      rgba(209, 170, 80, 0.035) 14.05%,
+      transparent 14.1% 33%,
+      rgba(209, 170, 80, 0.025) 33.05%,
+      transparent 33.1% 66%,
+      rgba(209, 170, 80, 0.025) 66.05%,
+      transparent 66.1% 85%,
+      rgba(209, 170, 80, 0.035) 85.05%,
+      transparent 85.1%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   SMALL FLOATING ACCENTS
+   ========================================================= */
+
+.hero .hero-lines::before,
+.hero .hero-lines::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow:
+    0 0 18px rgba(209, 170, 80, 0.45);
+
+  opacity: 0.45;
+}
+
+.hero .hero-lines::before {
+  top: 31%;
+  right: 23%;
+
+  animation:
+    relmunPulse 4s ease-in-out infinite;
+}
+
+.hero .hero-lines::after {
+  bottom: 27%;
+  left: 17%;
+
+  animation:
+    relmunPulse 5s ease-in-out infinite 1.5s;
+}
+
+
+/* =========================================================
+   HERO CONTENT DEPTH
+   ========================================================= */
+
+.hero .hero-copy {
+  position: relative;
+  z-index: 5;
+}
+
+.hero .hero-copy h1 {
+  text-shadow:
+    0 8px 50px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes relmunOrbit {
+
+  0% {
+    transform:
+      translateY(-50%)
+      rotate(0deg);
+  }
+
+  100% {
+    transform:
+      translateY(-50%)
+      rotate(360deg);
+  }
+
+}
+
+
+@keyframes relmunSpin {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+@keyframes relmunFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(-50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateY(-51%)
+      scale(1.025);
+  }
+
+}
+
+
+@keyframes relmunPulse {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.35);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE — KEEP ART SUBTLE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .hero::before {
+    width: 110vw;
+    height: 110vw;
+
+    right: -55%;
+  }
+
+  .hero::after {
+    width: 90vw;
+    height: 90vw;
+
+    right: -35%;
+  }
+
+  .hero .hero-mark {
+    width: 55vw;
+    height: 55vw;
+
+    right: -15%;
+
+    opacity: 0.55;
+  }
+
+  .hero .hero-lines {
+    opacity: 0.3;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .hero .hero-mark {
+    width: 65vw;
+    height: 65vw;
+
+    right: -28%;
+
+    opacity: 0.35;
+  }
+
+}
