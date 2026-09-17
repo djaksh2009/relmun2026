@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <button class="relmun-chat-button" id="relmunChatButton">
       <span>✦</span>
-      ASK RELMUN
+      REX
     </button>
 
     <div class="relmun-chat-window" id="relmunChatWindow">
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="relmun-chat-header">
 
         <div class="relmun-chat-title">
-          <strong>ASK RELMUN</strong>
+          <strong>REX</strong>
           <span>RELMUN '26 AI ASSISTANT</span>
         </div>
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="relmun-message bot">
           <div class="relmun-markdown">
-            Hey! I’m <strong>ASK RELMUN.</strong> 👋
+            Hey! I’m <strong>REX.</strong> 👋
             <br><br>
             Ask me anything about RELMUN '26,
             committees, registration, the team,
@@ -872,7 +872,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         console.log(
-          "ASK RELMUN response:",
+          "REX response:",
           data
         );
 
@@ -923,7 +923,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         console.error(
-          "ASK RELMUN:",
+          "REX:",
           error
         );
 
