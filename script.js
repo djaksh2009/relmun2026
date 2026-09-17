@@ -1,127 +1,218 @@
 /* =========================================================
-   RELMUN '26 — MAIN SCRIPT
+   RELMUN '26
+   COMMITTEE SYSTEM
    ========================================================= */
 
-
-/* =========================================================
-   COMMITTEE DATA
-   ========================================================= */
 
 const committeeData = {
 
   unsc: {
     code: "UNSC",
     number: "01",
-    title: "UNITED NATIONS<br>SECURITY COUNCIL",
+
+    title:
+      "UNITED NATIONS<br>SECURITY COUNCIL",
+
     description:
       "The Security Council is the United Nations' principal body for addressing international peace and security. Delegates will engage in high-level diplomacy, negotiation and decision-making.",
-    agenda: "TO BE ANNOUNCED"
+
+    agenda:
+      "TO BE ANNOUNCED"
   },
+
 
   unhrc: {
     code: "UNHRC",
     number: "02",
-    title: "UNITED NATIONS<br>HUMAN RIGHTS COUNCIL",
+
+    title:
+      "UNITED NATIONS<br>HUMAN RIGHTS COUNCIL",
+
     description:
       "The Human Rights Council addresses international human rights situations and promotes cooperation, dialogue and policy-focused multilateral action.",
-    agenda: "TO BE ANNOUNCED"
+
+    agenda:
+      "TO BE ANNOUNCED"
   },
+
 
   unodc: {
     code: "UNODC",
     number: "03",
-    title: "UNITED NATIONS OFFICE<br>ON DRUGS AND CRIME",
+
+    title:
+      "UNITED NATIONS OFFICE<br>ON DRUGS AND CRIME",
+
     description:
       "The United Nations Office on Drugs and Crime works around international cooperation against drugs, organised crime, corruption and related transnational challenges.",
-    agenda: "TO BE ANNOUNCED"
+
+    agenda:
+      "TO BE ANNOUNCED"
   },
+
 
   aippm: {
     code: "AIPPM",
     number: "04",
-    title: "ALL INDIA<br>POLITICAL PARTIES MEET",
+
+    title:
+      "ALL INDIA<br>POLITICAL PARTIES MEET",
+
     description:
       "AIPPM brings together representatives of India's political parties to engage in parliamentary debate, political negotiation and deliberation on matters of national importance.",
-    agenda: "TO BE ANNOUNCED"
+
+    agenda:
+      "TO BE ANNOUNCED"
   },
+
 
   ipla: {
     code: "IPLA",
     number: "05",
-    title: "INDIAN PREMIER<br>LEAGUE AUCTION",
+
+    title:
+      "INDIAN PREMIER<br>LEAGUE AUCTION",
+
     description:
       "The Indian Premier League Auction places participants in a high-pressure auction environment involving strategic bidding, team management, financial decisions and competition.",
-    agenda: "TO BE ANNOUNCED"
+
+    agenda:
+      "TO BE ANNOUNCED"
   },
+
 
   unw: {
     code: "UNW",
     number: "06",
-    title: "UN WOMEN",
+
+    title:
+      "UN WOMEN",
+
     description:
       "UN Women works to advance gender equality and the empowerment of women and girls through international cooperation, policy development and multilateral action.",
-    agenda: "TO BE ANNOUNCED"
+
+    agenda:
+      "TO BE ANNOUNCED"
   }
 
 };
 
 
+
 /* =========================================================
-   GET CURRENT COMMITTEE
+   COMMITTEE ROUTING
    ========================================================= */
 
-function getCurrentCommittee() {
+function initialiseCommitteePage() {
 
-  const params = new URLSearchParams(window.location.search);
+  const listing =
+    document.getElementById("committeesPage");
 
-  let key = params.get("committee");
+  const detail =
+    document.getElementById("committeePage");
+
 
   /*
-    Also support:
-    committee.html#unsc
-    committee.html#unhrc
+    If neither container exists, this page isn't
+    the committees page.
   */
 
-  if (!key && window.location.hash) {
-    key = window.location.hash.replace("#", "");
+  if (!listing && !detail) {
+    return;
   }
+
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const key =
+    params.get("committee");
+
+
+  /*
+    NO COMMITTEE SELECTED
+    ---------------------
+    Show all committees.
+  */
 
   if (!key) {
-    key = "unsc";
+
+    if (listing) {
+      listing.style.display = "block";
+    }
+
+    if (detail) {
+      detail.style.display = "none";
+      detail.innerHTML = "";
+    }
+
+    document.title =
+      "Committees | RELMUN '26";
+
+    return;
   }
 
-  key = key.toLowerCase().trim();
 
-  return committeeData[key] || committeeData.unsc;
+  /*
+    COMMITTEE SELECTED
+    ------------------
+    Show detail page.
+  */
+
+  const data =
+    committeeData[key];
+
+
+  /*
+    Invalid committee
+  */
+
+  if (!data) {
+
+    window.location.href =
+      "committees.html";
+
+    return;
+  }
+
+
+  if (listing) {
+    listing.style.display = "none";
+  }
+
+
+  if (detail) {
+
+    detail.style.display = "block";
+
+    renderCommitteePage(
+      detail,
+      data
+    );
+
+  }
+
 }
 
 
+
 /* =========================================================
-   RENDER COMMITTEE DETAIL PAGE
+   RENDER INDIVIDUAL COMMITTEE
    ========================================================= */
 
-function renderCommitteePage() {
+function renderCommitteePage(
+  target,
+  data
+) {
 
-  const target = document.getElementById("committeePage");
-
-  /*
-    IMPORTANT:
-    If this element doesn't exist, we're NOT on a
-    committee detail page.
-  */
-
-  if (!target) return;
-
-
-  const data = getCurrentCommittee();
-
-
-  document.title = `${data.code} | RELMUN '26`;
+  document.title =
+    `${data.code} | RELMUN '26`;
 
 
   target.innerHTML = `
-
-    <!-- ================= HERO ================= -->
 
     <section class="committee-detail-hero">
 
@@ -129,17 +220,21 @@ function renderCommitteePage() {
         ${data.number}
       </div>
 
+
       <div class="section-index">
         COMMITTEE / ${data.code}
       </div>
+
 
       <h1>
         ${data.title}
       </h1>
 
+
       <p>
         ${data.description}
       </p>
+
 
       <div class="detail-meta">
 
@@ -164,11 +259,13 @@ function renderCommitteePage() {
       <div class="hero-actions">
 
         <button
-          class="btn btn-gold delegate-registration"
+          class="btn btn-gold js-register"
           type="button"
         >
-          DELEGATE REGISTRATIONS COMING SOON
+          DELEGATE REGISTRATION
+          <span>↗</span>
         </button>
+
 
         <a
           class="btn btn-outline"
@@ -183,13 +280,13 @@ function renderCommitteePage() {
     </section>
 
 
-    <!-- ================= AGENDA ================= -->
 
     <section class="detail-section">
 
       <div class="section-index">
         01 / AGENDA
       </div>
+
 
       <div class="agenda-row">
 
@@ -206,13 +303,13 @@ function renderCommitteePage() {
     </section>
 
 
-    <!-- ================= BACKGROUND GUIDE ================= -->
 
     <section class="detail-section">
 
       <div class="section-index">
         02 / BACKGROUND GUIDE
       </div>
+
 
       <div class="guide-row">
 
@@ -234,6 +331,7 @@ function renderCommitteePage() {
 
         </div>
 
+
         <span class="coming">
           COMING SOON
         </span>
@@ -243,7 +341,6 @@ function renderCommitteePage() {
     </section>
 
 
-    <!-- ================= EXECUTIVE BOARD ================= -->
 
     <section class="detail-section">
 
@@ -251,7 +348,9 @@ function renderCommitteePage() {
         03 / EXECUTIVE BOARD
       </div>
 
+
       <div class="detail-eb">
+
 
         <div class="eb-role">
 
@@ -291,12 +390,12 @@ function renderCommitteePage() {
 
         </div>
 
+
       </div>
 
     </section>
 
 
-    <!-- ================= CTA ================= -->
 
     <section class="detail-cta">
 
@@ -304,63 +403,168 @@ function renderCommitteePage() {
         READY?
       </p>
 
+
       <h2>
         ENTER THE<br>
         <em>COMMITTEE.</em>
       </h2>
 
+
       <p>
         Delegate registrations for RELMUN '26
-        will be opening soon.
+        are coming soon.
       </p>
 
+
       <button
-        class="btn btn-gold big delegate-registration"
+        class="btn btn-gold big js-register"
         type="button"
       >
-        DELEGATE REGISTRATIONS COMING SOON
+        REGISTRATIONS COMING SOON
+        <span>↗</span>
       </button>
 
     </section>
 
   `;
 
+
+  /*
+    Registration buttons were created dynamically,
+    so bind them after rendering.
+  */
+
+  bindRegistration();
+
 }
 
 
+
 /* =========================================================
-   COMMITTEE "VIEW MORE" LINKS
+   REGISTRATION MODAL
    ========================================================= */
 
-function setupCommitteeLinks() {
+function bindRegistration() {
 
-  /*
-    This supports cards like:
+  const modal =
+    document.getElementById(
+      "registrationModal"
+    );
 
-    <a data-committee="unsc">VIEW MORE</a>
 
-    So you don't have to manually build URLs.
-  */
+  if (!modal) {
+    return;
+  }
+
 
   document
-    .querySelectorAll("[data-committee]")
-    .forEach(link => {
+    .querySelectorAll(".js-register")
+    .forEach(button => {
 
-      const committee = link
-        .getAttribute("data-committee")
-        ?.toLowerCase()
-        .trim();
+      /*
+        Prevent duplicate listeners
+      */
 
-      if (!committee) return;
+      if (
+        button.dataset.registrationBound === "true"
+      ) {
+        return;
+      }
 
-      if (!committeeData[committee]) return;
 
-      link.href =
-        `committee.html?committee=${committee}`;
+      button.dataset.registrationBound =
+        "true";
+
+
+      button.addEventListener(
+        "click",
+        event => {
+
+          event.preventDefault();
+
+
+          modal.classList.add(
+            "open"
+          );
+
+
+          modal.setAttribute(
+            "aria-hidden",
+            "false"
+          );
+
+
+          document.body.classList.add(
+            "modal-open"
+          );
+
+        }
+      );
+
+    });
+
+
+
+  document
+    .querySelectorAll(".js-close-modal")
+    .forEach(button => {
+
+      if (
+        button.dataset.modalBound === "true"
+      ) {
+        return;
+      }
+
+
+      button.dataset.modalBound =
+        "true";
+
+
+      button.addEventListener(
+        "click",
+        closeRegistration
+      );
 
     });
 
 }
+
+
+
+/* =========================================================
+   CLOSE REGISTRATION
+   ========================================================= */
+
+function closeRegistration() {
+
+  const modal =
+    document.getElementById(
+      "registrationModal"
+    );
+
+
+  if (!modal) {
+    return;
+  }
+
+
+  modal.classList.remove(
+    "open"
+  );
+
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
 
 
 /* =========================================================
@@ -370,69 +574,76 @@ function setupCommitteeLinks() {
 function setupMenu() {
 
   const toggle =
-    document.querySelector(".menu-toggle");
-
-  const nav =
-    document.querySelector(".nav-links");
-
-
-  if (!toggle || !nav) return;
-
-
-  toggle.addEventListener("click", () => {
-
-    const open =
-      nav.classList.toggle("open");
-
-    toggle.setAttribute(
-      "aria-expanded",
-      String(open)
+    document.querySelector(
+      ".menu-toggle"
     );
 
-  });
+
+  const nav =
+    document.querySelector(
+      ".nav-links"
+    );
+
+
+  if (!toggle || !nav) {
+    return;
+  }
+
+
+  if (
+    toggle.dataset.menuBound === "true"
+  ) {
+    return;
+  }
+
+
+  toggle.dataset.menuBound =
+    "true";
+
+
+  toggle.addEventListener(
+    "click",
+    () => {
+
+      const open =
+        nav.classList.toggle(
+          "open"
+        );
+
+
+      toggle.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
+
+    }
+  );
 
 
   nav
     .querySelectorAll("a")
     .forEach(link => {
 
-      link.addEventListener("click", () => {
+      link.addEventListener(
+        "click",
+        () => {
 
-        nav.classList.remove("open");
+          nav.classList.remove(
+            "open"
+          );
 
-        toggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+          toggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
-      });
-
-    });
-
-}
-
-
-/* =========================================================
-   REGISTRATION BUTTON
-   ========================================================= */
-
-function setupRegistrationButtons() {
-
-  document
-    .querySelectorAll(".delegate-registration")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        alert(
-          "Delegate registrations for RELMUN '26 are coming soon. Stay tuned!"
-        );
-
-      });
+        }
+      );
 
     });
 
 }
+
 
 
 /* =========================================================
@@ -441,45 +652,66 @@ function setupRegistrationButtons() {
 
 function setupEscapeKey() {
 
-  document.addEventListener("keydown", event => {
+  document.addEventListener(
+    "keydown",
+    event => {
 
-    if (event.key !== "Escape") return;
+      if (
+        event.key === "Escape"
+      ) {
 
-    document
-      .querySelectorAll(".modal.open")
-      .forEach(modal => {
+        closeRegistration();
 
-        modal.classList.remove("open");
+        const nav =
+          document.querySelector(
+            ".nav-links"
+          );
 
-        modal.setAttribute(
-          "aria-hidden",
-          "true"
-        );
 
-      });
+        const toggle =
+          document.querySelector(
+            ".menu-toggle"
+          );
 
-    document.body.classList.remove("modal-open");
 
-  });
+        if (nav) {
+          nav.classList.remove(
+            "open"
+          );
+        }
+
+
+        if (toggle) {
+
+          toggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+
+      }
+
+    }
+  );
 
 }
 
 
+
 /* =========================================================
-   INITIALISE
+   START EVERYTHING
    ========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-    renderCommitteePage();
+    initialiseCommitteePage();
 
-    setupCommitteeLinks();
+    bindRegistration();
 
     setupMenu();
-
-    setupRegistrationButtons();
 
     setupEscapeKey();
 
