@@ -12,124 +12,116 @@ const committeeData = {
   unsc: {
     code: "UNSC",
     number: "01",
-
-    title:
-      "UNITED NATIONS<br>SECURITY COUNCIL",
-
+    title: "UNITED NATIONS<br>SECURITY COUNCIL",
     description:
       "The Security Council is the United Nations' principal body for addressing international peace and security. Delegates will engage in high-level diplomacy, negotiation and decision-making.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   unhrc: {
     code: "UNHRC",
     number: "02",
-
-    title:
-      "UNITED NATIONS<br>HUMAN RIGHTS COUNCIL",
-
+    title: "UNITED NATIONS<br>HUMAN RIGHTS COUNCIL",
     description:
       "The Human Rights Council addresses international human rights situations and promotes cooperation, dialogue and policy-focused multilateral action.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   unodc: {
     code: "UNODC",
     number: "03",
-
-    title:
-      "UNITED NATIONS OFFICE<br>ON DRUGS AND CRIME",
-
+    title: "UNITED NATIONS OFFICE<br>ON DRUGS AND CRIME",
     description:
       "The United Nations Office on Drugs and Crime works around international cooperation against drugs, organised crime, corruption and related transnational challenges.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   aippm: {
     code: "AIPPM",
     number: "04",
-
-    title:
-      "ALL INDIA<br>POLITICAL PARTIES MEET",
-
+    title: "ALL INDIA<br>POLITICAL PARTIES MEET",
     description:
       "AIPPM brings together representatives of India's political parties to engage in parliamentary debate, political negotiation and deliberation on matters of national importance.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   ipla: {
     code: "IPLA",
     number: "05",
-
-    title:
-      "INDIAN PREMIER<br>LEAGUE AUCTION",
-
+    title: "INDIAN PREMIER<br>LEAGUE AUCTION",
     description:
       "The Indian Premier League Auction places participants in a high-pressure auction environment involving strategic bidding, team management, financial decisions and competition.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   },
-
 
   unw: {
     code: "UNW",
     number: "06",
-
-    title:
-      "UN WOMEN",
-
+    title: "UN WOMEN",
     description:
       "UN Women works to advance gender equality and the empowerment of women and girls through international cooperation, policy development and multilateral action.",
-
-    agenda:
-      "TO BE ANNOUNCED"
+    agenda: "TO BE ANNOUNCED"
   }
 
 };
 
 
 /* =========================================================
-   COMMITTEE DETAIL PAGE
+   GET CURRENT COMMITTEE
+   ========================================================= */
+
+function getCurrentCommittee() {
+
+  const params = new URLSearchParams(window.location.search);
+
+  let key = params.get("committee");
+
+  /*
+    Also support:
+    committee.html#unsc
+    committee.html#unhrc
+  */
+
+  if (!key && window.location.hash) {
+    key = window.location.hash.replace("#", "");
+  }
+
+  if (!key) {
+    key = "unsc";
+  }
+
+  key = key.toLowerCase().trim();
+
+  return committeeData[key] || committeeData.unsc;
+}
+
+
+/* =========================================================
+   RENDER COMMITTEE DETAIL PAGE
    ========================================================= */
 
 function renderCommitteePage() {
 
-  const target =
-    document.getElementById("committeePage");
+  const target = document.getElementById("committeePage");
+
+  /*
+    IMPORTANT:
+    If this element doesn't exist, we're NOT on a
+    committee detail page.
+  */
 
   if (!target) return;
 
 
-  const params =
-    new URLSearchParams(window.location.search);
+  const data = getCurrentCommittee();
 
 
-  const key =
-    params.get("committee") || "unsc";
-
-
-  const data =
-    committeeData[key] || committeeData.unsc;
-
-
-  document.title =
-    `${data.code} | RELMUN '26`;
+  document.title = `${data.code} | RELMUN '26`;
 
 
   target.innerHTML = `
+
+    <!-- ================= HERO ================= -->
 
     <section class="committee-detail-hero">
 
@@ -168,16 +160,15 @@ function renderCommitteePage() {
 
       </div>
 
+
       <div class="hero-actions">
 
         <button
-          class="btn btn-gold js-register"
+          class="btn btn-gold delegate-registration"
           type="button"
         >
-          REGISTER NOW
-          <span>↗</span>
+          DELEGATE REGISTRATIONS COMING SOON
         </button>
-
 
         <a
           class="btn btn-outline"
@@ -191,6 +182,8 @@ function renderCommitteePage() {
 
     </section>
 
+
+    <!-- ================= AGENDA ================= -->
 
     <section class="detail-section">
 
@@ -212,6 +205,8 @@ function renderCommitteePage() {
 
     </section>
 
+
+    <!-- ================= BACKGROUND GUIDE ================= -->
 
     <section class="detail-section">
 
@@ -247,6 +242,8 @@ function renderCommitteePage() {
 
     </section>
 
+
+    <!-- ================= EXECUTIVE BOARD ================= -->
 
     <section class="detail-section">
 
@@ -299,6 +296,8 @@ function renderCommitteePage() {
     </section>
 
 
+    <!-- ================= CTA ================= -->
+
     <section class="detail-cta">
 
       <p class="eyebrow">
@@ -311,96 +310,55 @@ function renderCommitteePage() {
       </h2>
 
       <p>
-        Delegate registrations for ${data.code}
+        Delegate registrations for RELMUN '26
         will be opening soon.
       </p>
 
       <button
-        class="btn btn-gold big js-register"
+        class="btn btn-gold big delegate-registration"
         type="button"
       >
-        DELEGATE REGISTRATIONS
-        <span>↗</span>
+        DELEGATE REGISTRATIONS COMING SOON
       </button>
 
     </section>
 
   `;
 
-
-  bindRegistration();
-
 }
 
 
 /* =========================================================
-   REGISTRATION MODAL
+   COMMITTEE "VIEW MORE" LINKS
    ========================================================= */
 
-function bindRegistration() {
+function setupCommitteeLinks() {
 
-  const modal =
-    document.getElementById("registrationModal");
+  /*
+    This supports cards like:
 
-  if (!modal) return;
+    <a data-committee="unsc">VIEW MORE</a>
 
-
-  document
-    .querySelectorAll(".js-register")
-    .forEach(button => {
-
-      button.onclick = () => {
-
-        modal.classList.add("open");
-
-        modal.setAttribute(
-          "aria-hidden",
-          "false"
-        );
-
-        document.body.classList.add(
-          "modal-open"
-        );
-
-      };
-
-    });
-
+    So you don't have to manually build URLs.
+  */
 
   document
-    .querySelectorAll(".js-close-modal")
-    .forEach(button => {
+    .querySelectorAll("[data-committee]")
+    .forEach(link => {
 
-      button.onclick = () => {
+      const committee = link
+        .getAttribute("data-committee")
+        ?.toLowerCase()
+        .trim();
 
-        closeModal(modal);
+      if (!committee) return;
 
-      };
+      if (!committeeData[committee]) return;
+
+      link.href =
+        `committee.html?committee=${committee}`;
 
     });
-
-}
-
-
-/* =========================================================
-   CLOSE MODAL
-   ========================================================= */
-
-function closeModal(modal) {
-
-  if (!modal) return;
-
-
-  modal.classList.remove("open");
-
-  modal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-  document.body.classList.remove(
-    "modal-open"
-  );
 
 }
 
@@ -421,40 +379,33 @@ function setupMenu() {
   if (!toggle || !nav) return;
 
 
-  toggle.addEventListener(
-    "click",
-    () => {
+  toggle.addEventListener("click", () => {
 
-      const open =
-        nav.classList.toggle("open");
+    const open =
+      nav.classList.toggle("open");
 
+    toggle.setAttribute(
+      "aria-expanded",
+      String(open)
+    );
 
-      toggle.setAttribute(
-        "aria-expanded",
-        String(open)
-      );
-
-    }
-  );
+  });
 
 
   nav
     .querySelectorAll("a")
     .forEach(link => {
 
-      link.addEventListener(
-        "click",
-        () => {
+      link.addEventListener("click", () => {
 
-          nav.classList.remove("open");
+        nav.classList.remove("open");
 
-          toggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
+        toggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
 
-        }
-      );
+      });
 
     });
 
@@ -462,176 +413,22 @@ function setupMenu() {
 
 
 /* =========================================================
-   SCROLL NAVBAR
+   REGISTRATION BUTTON
    ========================================================= */
 
-function setupNavbarScroll() {
-
-  const navbar =
-    document.querySelector(".navbar");
-
-  if (!navbar) return;
-
-
-  let lastScroll = 0;
-
-
-  window.addEventListener(
-    "scroll",
-    () => {
-
-      const currentScroll =
-        window.scrollY;
-
-
-      if (currentScroll > 30) {
-
-        navbar.classList.add(
-          "scrolled"
-        );
-
-      } else {
-
-        navbar.classList.remove(
-          "scrolled"
-        );
-
-      }
-
-
-      lastScroll = currentScroll;
-
-    },
-    { passive: true }
-  );
-
-}
-
-
-/* =========================================================
-   REVEAL ANIMATIONS
-   ========================================================= */
-
-function setupRevealAnimations() {
-
-  const elements =
-    document.querySelectorAll(
-      ".section, .committee-row, .conference-card, .team-card"
-    );
-
-
-  if (!elements.length) return;
-
-
-  elements.forEach(element => {
-
-    element.classList.add(
-      "reveal-element"
-    );
-
-  });
-
-
-  if (
-    !("IntersectionObserver" in window)
-  ) {
-
-    elements.forEach(element => {
-
-      element.classList.add(
-        "revealed"
-      );
-
-    });
-
-    return;
-
-  }
-
-
-  const observer =
-    new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (
-            entry.isIntersecting
-          ) {
-
-            entry.target.classList.add(
-              "revealed"
-            );
-
-            observer.unobserve(
-              entry.target
-            );
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-
-  elements.forEach(element => {
-
-    observer.observe(element);
-
-  });
-
-}
-
-
-/* =========================================================
-   SMOOTH ANCHOR LINKS
-   ========================================================= */
-
-function setupSmoothLinks() {
+function setupRegistrationButtons() {
 
   document
-    .querySelectorAll(
-      'a[href^="#"]'
-    )
-    .forEach(link => {
+    .querySelectorAll(".delegate-registration")
+    .forEach(button => {
 
-      link.addEventListener(
-        "click",
-        event => {
+      button.addEventListener("click", () => {
 
-          const targetId =
-            link.getAttribute("href");
+        alert(
+          "Delegate registrations for RELMUN '26 are coming soon. Stay tuned!"
+        );
 
-
-          if (
-            !targetId ||
-            targetId === "#"
-          ) return;
-
-
-          const target =
-            document.querySelector(
-              targetId
-            );
-
-
-          if (!target) return;
-
-
-          event.preventDefault();
-
-
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-        }
-      );
+      });
 
     });
 
@@ -644,70 +441,26 @@ function setupSmoothLinks() {
 
 function setupEscapeKey() {
 
-  document.addEventListener(
-    "keydown",
-    event => {
+  document.addEventListener("keydown", event => {
 
-      if (
-        event.key !== "Escape"
-      ) return;
+    if (event.key !== "Escape") return;
 
+    document
+      .querySelectorAll(".modal.open")
+      .forEach(modal => {
 
-      document
-        .querySelectorAll(
-          ".modal.open"
-        )
-        .forEach(modal => {
+        modal.classList.remove("open");
 
-          closeModal(modal);
+        modal.setAttribute(
+          "aria-hidden",
+          "true"
+        );
 
-        });
+      });
 
-    }
-  );
+    document.body.classList.remove("modal-open");
 
-}
-
-
-/* =========================================================
-   CURSOR GLOW
-   ========================================================= */
-
-function setupCursorGlow() {
-
-  if (
-    window.matchMedia(
-      "(pointer: coarse)"
-    ).matches
-  ) return;
-
-
-  const glow =
-    document.createElement("div");
-
-
-  glow.className =
-    "cursor-glow";
-
-
-  document.body.appendChild(
-    glow
-  );
-
-
-  window.addEventListener(
-    "mousemove",
-    event => {
-
-      glow.style.left =
-        `${event.clientX}px`;
-
-      glow.style.top =
-        `${event.clientY}px`;
-
-    },
-    { passive: true }
-  );
+  });
 
 }
 
@@ -722,19 +475,13 @@ document.addEventListener(
 
     renderCommitteePage();
 
-    bindRegistration();
+    setupCommitteeLinks();
 
     setupMenu();
 
-    setupNavbarScroll();
-
-    setupRevealAnimations();
-
-    setupSmoothLinks();
+    setupRegistrationButtons();
 
     setupEscapeKey();
-
-    setupCursorGlow();
 
   }
 );
