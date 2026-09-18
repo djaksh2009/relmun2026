@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Committees | RELMUN 2026</title>
-
     <meta
         name="description"
-        content="Explore the committees of RELMUN 2026 — UNSC, UNHRC and UNODC."
+        content="Explore the committees of RELMUN 2026 — UNSC, UNODC, UNHRC, AIPPM, UNW and IPLA."
     >
+
+    <meta name="theme-color" content="#080808">
+
+    <title>Committees — RELMUN 2026</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
@@ -25,552 +27,871 @@
 
 <body>
 
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
-    <header class="site-header">
+<header class="site-header">
 
-        <div class="container navbar">
+    <nav class="navbar container" aria-label="Main navigation">
+
+        <a
+            href="index.html"
+            class="nav-brand"
+            aria-label="RELMUN 2026 Home"
+        >
+            <span
+                style="
+                    color:#F1ECE0;
+                    font-family:'Space Grotesk',sans-serif;
+                    font-size:22px;
+                    font-weight:700;
+                    letter-spacing:-0.06em;
+                "
+            >
+                RELMUN<span style="color:#1846FF;">26</span>
+            </span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
 
             <a
                 href="index.html"
-                class="nav-brand"
-                aria-label="RELMUN 2026 Home"
+                class="nav-link"
             >
-                <img
-                    src="relmun-logo.png"
-                    alt="RELMUN 2026"
-                >
+                Home
             </a>
 
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                aria-controls="navLinks"
+            <a
+                href="committees.html"
+                class="nav-link active"
             >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                Committees
+            </a>
 
-            <nav
-                class="nav-links"
-                id="navLinks"
-                aria-label="Main navigation"
+            <a
+                href="eb.html"
+                class="nav-link"
             >
+                Executive Board
+            </a>
 
-                <a
-                    href="index.html"
-                    class="nav-link"
-                >
-                    Home
-                </a>
+            <a
+                href="register.html"
+                class="nav-link"
+            >
+                Register
+            </a>
 
-                <a
-                    href="committees.html"
-                    class="nav-link active"
-                >
-                    Committees
-                </a>
+            <a
+                href="faq.html"
+                class="nav-link"
+            >
+                FAQ
+            </a>
 
-                <a
-                    href="eb.html"
-                    class="nav-link"
-                >
-                    Executive Board
-                </a>
-
-                <a
-                    href="register.html"
-                    class="nav-link"
-                >
-                    Register
-                </a>
-
-                <a
-                    href="faq.html"
-                    class="nav-link"
-                >
-                    FAQ
-                </a>
-
-                <a
-                    href="register.html"
-                    class="nav-register"
-                >
-                    Register
-                </a>
-
-            </nav>
+            <a
+                href="register.html"
+                class="nav-register"
+            >
+                REGISTER
+            </a>
 
         </div>
 
-    </header>
+    </nav>
 
+</header>
 
-    <main>
 
-        <!-- =================================================
-             PAGE HERO
-             ================================================= -->
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
 
-        <section class="page-hero">
-
-            <div class="container">
-
-                <div class="page-hero-content animate-in">
-
-                    <div class="eyebrow">
-                        RELMUN 2026
-                    </div>
-
-                    <h1 class="page-title">
-                        The
-                        <span class="text-blue">
-                            Committees
-                        </span>
-                    </h1>
-
-                    <p class="page-description">
-                        Three committees. Three distinct arenas for
-                        diplomacy, negotiation and international debate.
-                        Explore each committee before making your
-                        preferences during registration.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             COMMITTEES
-             ================================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div class="eyebrow">
-                        Committee Overview
-                    </div>
-
-                    <h2 class="section-title">
-                        Find your
-                        <span class="text-blue">
-                            arena.
-                        </span>
-                    </h2>
-
-                    <p class="section-description">
-                        RELMUN 2026 features UNSC, UNHRC and UNODC.
-                        Each committee offers a different perspective
-                        on international cooperation and diplomacy.
-                    </p>
-
-                </div>
-
-
-                <div class="card-grid card-grid-3">
-
-                    <!-- =====================================
-                         UNSC
-                         ===================================== -->
-
-                    <article class="card committee-card">
-
-                        <div>
-
-                            <div class="committee-code">
-                                Committee 01
-                            </div>
-
-                            <h2 class="committee-title">
-                                United Nations
-                                Security Council
-                            </h2>
-
-                            <p class="committee-agenda">
-                                Addressing the Escalating Crisis in the
-                                Strait of Hormuz and Its Implications
-                                for International Peace and Security.
-                            </p>
-
-                        </div>
-
-                        <a
-                            href="committee.html?committee=unsc"
-                            class="card-link"
-                        >
-                            Explore UNSC
-                        </a>
-
-                    </article>
-
-
-                    <!-- =====================================
-                         UNHRC
-                         ===================================== -->
-
-                    <article class="card committee-card">
-
-                        <div>
-
-                            <div class="committee-code">
-                                Committee 02
-                            </div>
-
-                            <h2 class="committee-title">
-                                United Nations
-                                Human Rights Council
-                            </h2>
-
-                            <p class="committee-agenda">
-                                Examine the committee mandate,
-                                international human rights issues and
-                                the role of multilateral diplomacy.
-                            </p>
-
-                        </div>
-
-                        <a
-                            href="committee.html?committee=unhrc"
-                            class="card-link"
-                        >
-                            Explore UNHRC
-                        </a>
-
-                    </article>
-
-
-                    <!-- =====================================
-                         UNODC
-                         ===================================== -->
-
-                    <article class="card committee-card">
-
-                        <div>
-
-                            <div class="committee-code">
-                                Committee 03
-                            </div>
-
-                            <h2 class="committee-title">
-                                United Nations Office
-                                on Drugs and Crime
-                            </h2>
-
-                            <p class="committee-agenda">
-                                Examine international cooperation
-                                against transnational crime and
-                                related challenges.
-                            </p>
-
-                        </div>
-
-                        <a
-                            href="committee.html?committee=unodc"
-                            class="card-link"
-                        >
-                            Explore UNODC
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             HOW TO CHOOSE
-             ================================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div class="eyebrow">
-                        Delegate Guide
-                    </div>
-
-                    <h2 class="section-title">
-                        Choose based on
-                        <span class="text-blue">
-                            your interests.
-                        </span>
-                    </h2>
-
-                    <p class="section-description">
-                        Your committee determines the type of debate,
-                        research and diplomacy you will experience.
-                    </p>
-
-                </div>
-
-
-                <div class="card-grid card-grid-3">
-
-                    <article class="card">
-
-                        <div class="card-number">
-                            01
-                        </div>
-
-                        <h3 class="card-title">
-                            Security & Diplomacy
-                        </h3>
-
-                        <p class="card-description">
-                            UNSC is centred around questions of
-                            international peace and security and
-                            high-stakes diplomatic decision-making.
-                        </p>
-
-                    </article>
-
-
-                    <article class="card">
-
-                        <div class="card-number">
-                            02
-                        </div>
-
-                        <h3 class="card-title">
-                            Human Rights
-                        </h3>
-
-                        <p class="card-description">
-                            UNHRC focuses on international human rights
-                            discussions, policy and multilateral
-                            cooperation.
-                        </p>
-
-                    </article>
-
-
-                    <article class="card">
-
-                        <div class="card-number">
-                            03
-                        </div>
-
-                        <h3 class="card-title">
-                            Transnational Issues
-                        </h3>
-
-                        <p class="card-description">
-                            UNODC addresses challenges involving
-                            international crime, cooperation and
-                            cross-border issues.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             REGISTRATION CTA
-             ================================================= -->
-
-        <section class="cta">
-
-            <div class="container">
-
-                <div class="cta-inner">
-
-                    <div>
-
-                        <div class="eyebrow">
-                            Ready?
-                        </div>
-
-                        <h2 class="cta-title">
-                            Pick your preferences
-                            <span class="text-blue">
-                                on 1 October.
-                            </span>
-                        </h2>
-
-                        <p class="cta-description">
-                            Delegate registrations for RELMUN 2026
-                            open on 1 October 2026.
-                        </p>
-
-                    </div>
-
-                    <div class="btn-row">
-
-                        <a
-                            href="register.html"
-                            class="btn btn-primary"
-                        >
-                            Registration
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
+<main>
 
     <!-- =====================================================
-         FOOTER
+         PAGE HERO
          ===================================================== -->
 
-    <footer class="site-footer">
+    <section class="page-hero">
 
         <div class="container">
 
-            <div class="footer-main">
+            <span class="eyebrow">
+                RELMUN / 2026 / COMMITTEES
+            </span>
 
-                <div class="footer-brand">
+            <h1 class="page-title">
+                Six rooms.
+                <span style="color:#1846FF;">
+                    Six arenas.
+                </span>
+            </h1>
 
-                    <a
-                        href="index.html"
-                        aria-label="RELMUN 2026 Home"
+            <p class="page-lead">
+                Explore the committees of RELMUN 2026 and find
+                the forum that matches your interests, diplomacy
+                style and debating experience.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COMMITTEE GRID
+         ===================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div
+                class="committee-grid"
+                style="
+                    display:grid;
+                    grid-template-columns:repeat(2,minmax(0,1fr));
+                    gap:18px;
+                "
+            >
+
+                <!-- =================================================
+                     UNSC
+                     ================================================= -->
+
+                <article
+                    class="committee-card"
+                    style="
+                        position:relative;
+                        min-height:360px;
+                        padding:36px;
+                        overflow:hidden;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                        transition:transform .3s ease,border-color .3s ease;
+                    "
+                >
+
+                    <div
+                        style="
+                            position:absolute;
+                            top:0;
+                            right:0;
+                            width:120px;
+                            height:120px;
+                            border-top:1px solid rgba(24,70,255,.65);
+                            border-right:1px solid rgba(24,70,255,.65);
+                        "
+                    ></div>
+
+                    <span
+                        style="
+                            display:block;
+                            color:#1846FF;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:11px;
+                            font-weight:700;
+                            letter-spacing:.16em;
+                            margin-bottom:70px;
+                        "
                     >
-                        <img
-                            src="relmun-logo.png"
-                            alt="RELMUN 2026"
-                        >
-                    </a>
+                        01 / SECURITY
+                    </span>
 
-                    <p class="footer-description">
-                        Regional Engagement & Leadership Model United
-                        Nations — an online conference taking place on
-                        26–27 December 2026.
+                    <h2
+                        style="
+                            margin:0 0 15px;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:clamp(42px,6vw,68px);
+                            line-height:.9;
+                            letter-spacing:-.065em;
+                        "
+                    >
+                        UNSC
+                    </h2>
+
+                    <p
+                        style="
+                            max-width:520px;
+                            margin:0 0 25px;
+                            color:rgba(241,236,224,.55);
+                            font-size:14px;
+                            line-height:1.75;
+                        "
+                    >
+                        United Nations Security Council —
+                        a high-stakes forum focused on international
+                        peace and security.
                     </p>
 
+                    <a
+                        href="committee.html?committee=UNSC"
+                        class="committee-link"
+                        style="
+                            display:inline-flex;
+                            align-items:center;
+                            gap:8px;
+                            color:#F1ECE0;
+                            text-decoration:none;
+                            font-size:12px;
+                            font-weight:700;
+                        "
+                    >
+                        Explore committee
+                        <span style="color:#1846FF;">↗</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =================================================
+                     UNODC
+                     ================================================= -->
+
+                <article
+                    class="committee-card"
+                    style="
+                        position:relative;
+                        min-height:360px;
+                        padding:36px;
+                        overflow:hidden;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                        transition:transform .3s ease,border-color .3s ease;
+                    "
+                >
+
+                    <div
+                        style="
+                            position:absolute;
+                            top:0;
+                            right:0;
+                            width:120px;
+                            height:120px;
+                            border-top:1px solid rgba(199,154,43,.65);
+                            border-right:1px solid rgba(199,154,43,.65);
+                        "
+                    ></div>
+
+                    <span
+                        style="
+                            display:block;
+                            color:#C79A2B;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:11px;
+                            font-weight:700;
+                            letter-spacing:.16em;
+                            margin-bottom:70px;
+                        "
+                    >
+                        02 / CRIME & JUSTICE
+                    </span>
+
+                    <h2
+                        style="
+                            margin:0 0 15px;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:clamp(42px,6vw,68px);
+                            line-height:.9;
+                            letter-spacing:-.065em;
+                        "
+                    >
+                        UNODC
+                    </h2>
+
+                    <p
+                        style="
+                            max-width:520px;
+                            margin:0 0 25px;
+                            color:rgba(241,236,224,.55);
+                            font-size:14px;
+                            line-height:1.75;
+                        "
+                    >
+                        United Nations Office on Drugs and Crime —
+                        addressing transnational crime, illicit drugs
+                        and international cooperation.
+                    </p>
+
+                    <a
+                        href="committee.html?committee=UNODC"
+                        class="committee-link"
+                        style="
+                            display:inline-flex;
+                            align-items:center;
+                            gap:8px;
+                            color:#F1ECE0;
+                            text-decoration:none;
+                            font-size:12px;
+                            font-weight:700;
+                        "
+                    >
+                        Explore committee
+                        <span style="color:#C79A2B;">↗</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =================================================
+                     UNHRC
+                     ================================================= -->
+
+                <article
+                    class="committee-card"
+                    style="
+                        position:relative;
+                        min-height:360px;
+                        padding:36px;
+                        overflow:hidden;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                        transition:transform .3s ease,border-color .3s ease;
+                    "
+                >
+
+                    <div
+                        style="
+                            position:absolute;
+                            top:0;
+                            right:0;
+                            width:120px;
+                            height:120px;
+                            border-top:1px solid rgba(24,70,255,.65);
+                            border-right:1px solid rgba(24,70,255,.65);
+                        "
+                    ></div>
+
+                    <span
+                        style="
+                            display:block;
+                            color:#1846FF;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:11px;
+                            font-weight:700;
+                            letter-spacing:.16em;
+                            margin-bottom:70px;
+                        "
+                    >
+                        03 / HUMAN RIGHTS
+                    </span>
+
+                    <h2
+                        style="
+                            margin:0 0 15px;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:clamp(42px,6vw,68px);
+                            line-height:.9;
+                            letter-spacing:-.065em;
+                        "
+                    >
+                        UNHRC
+                    </h2>
+
+                    <p
+                        style="
+                            max-width:520px;
+                            margin:0 0 25px;
+                            color:rgba(241,236,224,.55);
+                            font-size:14px;
+                            line-height:1.75;
+                        "
+                    >
+                        United Nations Human Rights Council —
+                        examining human rights questions and the
+                        international mechanisms created to address them.
+                    </p>
+
+                    <a
+                        href="committee.html?committee=UNHRC"
+                        class="committee-link"
+                        style="
+                            display:inline-flex;
+                            align-items:center;
+                            gap:8px;
+                            color:#F1ECE0;
+                            text-decoration:none;
+                            font-size:12px;
+                            font-weight:700;
+                        "
+                    >
+                        Explore committee
+                        <span style="color:#1846FF;">↗</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =================================================
+                     AIPPM
+                     ================================================= -->
+
+                <article
+                    class="committee-card"
+                    style="
+                        position:relative;
+                        min-height:360px;
+                        padding:36px;
+                        overflow:hidden;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                        transition:transform .3s ease,border-color .3s ease;
+                    "
+                >
+
+                    <div
+                        style="
+                            position:absolute;
+                            top:0;
+                            right:0;
+                            width:120px;
+                            height:120px;
+                            border-top:1px solid rgba(199,154,43,.65);
+                            border-right:1px solid rgba(199,154,43,.65);
+                        "
+                    ></div>
+
+                    <span
+                        style="
+                            display:block;
+                            color:#C79A2B;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:11px;
+                            font-weight:700;
+                            letter-spacing:.16em;
+                            margin-bottom:70px;
+                        "
+                    >
+                        04 / INDIAN POLITICS
+                    </span>
+
+                    <h2
+                        style="
+                            margin:0 0 15px;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:clamp(42px,6vw,68px);
+                            line-height:.9;
+                            letter-spacing:-.065em;
+                        "
+                    >
+                        AIPPM
+                    </h2>
+
+                    <p
+                        style="
+                            max-width:520px;
+                            margin:0 0 25px;
+                            color:rgba(241,236,224,.55);
+                            font-size:14px;
+                            line-height:1.75;
+                        "
+                    >
+                        All India Political Parties Meet —
+                        a parliamentary-style forum centred on
+                        Indian political discourse and policymaking.
+                    </p>
+
+                    <a
+                        href="committee.html?committee=AIPPM"
+                        class="committee-link"
+                        style="
+                            display:inline-flex;
+                            align-items:center;
+                            gap:8px;
+                            color:#F1ECE0;
+                            text-decoration:none;
+                            font-size:12px;
+                            font-weight:700;
+                        "
+                    >
+                        Explore committee
+                        <span style="color:#C79A2B;">↗</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =================================================
+                     UNW
+                     ================================================= -->
+
+                <article
+                    class="committee-card"
+                    style="
+                        position:relative;
+                        min-height:360px;
+                        padding:36px;
+                        overflow:hidden;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                        transition:transform .3s ease,border-color .3s ease;
+                    "
+                >
+
+                    <div
+                        style="
+                            position:absolute;
+                            top:0;
+                            right:0;
+                            width:120px;
+                            height:120px;
+                            border-top:1px solid rgba(24,70,255,.65);
+                            border-right:1px solid rgba(24,70,255,.65);
+                        "
+                    ></div>
+
+                    <span
+                        style="
+                            display:block;
+                            color:#1846FF;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:11px;
+                            font-weight:700;
+                            letter-spacing:.16em;
+                            margin-bottom:70px;
+                        "
+                    >
+                        05 / GENDER EQUALITY
+                    </span>
+
+                    <h2
+                        style="
+                            margin:0 0 15px;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:clamp(42px,6vw,68px);
+                            line-height:.9;
+                            letter-spacing:-.065em;
+                        "
+                    >
+                        UNW
+                    </h2>
+
+                    <p
+                        style="
+                            max-width:520px;
+                            margin:0 0 25px;
+                            color:rgba(241,236,224,.55);
+                            font-size:14px;
+                            line-height:1.75;
+                        "
+                    >
+                        United Nations Women —
+                        a forum examining issues surrounding gender
+                        equality and the empowerment of women and girls.
+                    </p>
+
+                    <a
+                        href="committee.html?committee=UNW"
+                        class="committee-link"
+                        style="
+                            display:inline-flex;
+                            align-items:center;
+                            gap:8px;
+                            color:#F1ECE0;
+                            text-decoration:none;
+                            font-size:12px;
+                            font-weight:700;
+                        "
+                    >
+                        Explore committee
+                        <span style="color:#1846FF;">↗</span>
+                    </a>
+
+                </article>
+
+
+                <!-- =================================================
+                     IPLA
+                     ================================================= -->
+
+                <article
+                    class="committee-card"
+                    style="
+                        position:relative;
+                        min-height:360px;
+                        padding:36px;
+                        overflow:hidden;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                        transition:transform .3s ease,border-color .3s ease;
+                    "
+                >
+
+                    <div
+                        style="
+                            position:absolute;
+                            top:0;
+                            right:0;
+                            width:120px;
+                            height:120px;
+                            border-top:1px solid rgba(199,154,43,.65);
+                            border-right:1px solid rgba(199,154,43,.65);
+                        "
+                    ></div>
+
+                    <span
+                        style="
+                            display:block;
+                            color:#C79A2B;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:11px;
+                            font-weight:700;
+                            letter-spacing:.16em;
+                            margin-bottom:70px;
+                        "
+                    >
+                        06 / SPORTS AUCTION
+                    </span>
+
+                    <h2
+                        style="
+                            margin:0 0 15px;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:clamp(42px,6vw,68px);
+                            line-height:.9;
+                            letter-spacing:-.065em;
+                        "
+                    >
+                        IPLA
+                    </h2>
+
+                    <p
+                        style="
+                            max-width:520px;
+                            margin:0 0 25px;
+                            color:rgba(241,236,224,.55);
+                            font-size:14px;
+                            line-height:1.75;
+                        "
+                    >
+                        The IPL Auction committee —
+                        a dynamic simulation built around strategy,
+                        negotiation, team-building and auction-room decisions.
+                    </p>
+
+                    <a
+                        href="committee.html?committee=IPLA"
+                        class="committee-link"
+                        style="
+                            display:inline-flex;
+                            align-items:center;
+                            gap:8px;
+                            color:#F1ECE0;
+                            text-decoration:none;
+                            font-size:12px;
+                            font-weight:700;
+                        "
+                    >
+                        Explore committee
+                        <span style="color:#C79A2B;">↗</span>
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div
+                style="
+                    position:relative;
+                    overflow:hidden;
+                    padding:55px;
+                    background:#0D0D0D;
+                    border:1px solid rgba(241,236,224,.12);
+                "
+            >
+
+                <div
+                    style="
+                        position:absolute;
+                        top:0;
+                        right:0;
+                        width:240px;
+                        height:240px;
+                        border-top:1px solid rgba(24,70,255,.5);
+                        border-right:1px solid rgba(24,70,255,.5);
+                        pointer-events:none;
+                    "
+                ></div>
+
+                <span class="eyebrow">
+                    RELMUN / 26–27 DECEMBER
+                </span>
+
+                <h2
+                    style="
+                        max-width:700px;
+                        margin:0 0 18px;
+                        font-family:'Space Grotesk',sans-serif;
+                        color:#F1ECE0;
+                        font-size:clamp(34px,5vw,60px);
+                        line-height:.98;
+                        letter-spacing:-.055em;
+                    "
+                >
+                    Choose your room.
+                    <span style="color:#1846FF;">
+                        Make your mark.
+                    </span>
+                </h2>
+
+                <p
+                    style="
+                        max-width:620px;
+                        margin:0 0 30px;
+                        color:rgba(241,236,224,.55);
+                        font-size:14px;
+                        line-height:1.75;
+                    "
+                >
+                    Delegate registrations open on
+                    1 October 2026.
+                </p>
+
+                <a
+                    href="register.html"
+                    class="btn btn-primary"
+                >
+                    Register for RELMUN
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html">
+
+                    <span
+                        style="
+                            display:block;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:25px;
+                            font-weight:700;
+                            letter-spacing:-.06em;
+                        "
+                    >
+                        RELMUN<span style="color:#1846FF;">26</span>
+                    </span>
+
+                </a>
+
+                <p class="footer-description">
+                    Regional Engagement & Leadership
+                    Model United Nations.
+                    26–27 December 2026.
+                    Online.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Navigate
                 </div>
 
+                <div class="footer-links">
 
-                <div>
+                    <a href="index.html" class="footer-link">
+                        Home
+                    </a>
 
-                    <div class="footer-title">
-                        Navigate
-                    </div>
+                    <a href="committees.html" class="footer-link">
+                        Committees
+                    </a>
 
-                    <div class="footer-links">
+                    <a href="eb.html" class="footer-link">
+                        Executive Board
+                    </a>
 
-                        <a
-                            href="index.html"
-                            class="footer-link"
-                        >
-                            Home
-                        </a>
+                    <a href="register.html" class="footer-link">
+                        Register
+                    </a>
 
-                        <a
-                            href="committees.html"
-                            class="footer-link"
-                        >
-                            Committees
-                        </a>
-
-                        <a
-                            href="eb.html"
-                            class="footer-link"
-                        >
-                            Executive Board
-                        </a>
-
-                        <a
-                            href="register.html"
-                            class="footer-link"
-                        >
-                            Register
-                        </a>
-
-                        <a
-                            href="faq.html"
-                            class="footer-link"
-                        >
-                            FAQ
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div>
-
-                    <div class="footer-title">
-                        Contact
-                    </div>
-
-                    <div class="footer-links">
-
-                        <a
-                            href="https://www.instagram.com/relmun.official/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="footer-link"
-                        >
-                            Instagram — @relmun.official
-                        </a>
-
-                        <a
-                            href="mailto:akshithkabilan@gmail.com"
-                            class="footer-link"
-                        >
-                            akshithkabilan@gmail.com
-                        </a>
-
-                    </div>
+                    <a href="faq.html" class="footer-link">
+                        FAQ
+                    </a>
 
                 </div>
 
             </div>
 
 
-            <div class="footer-bottom">
+            <div>
 
-                <span>
-                    © 2026 RELMUN. All rights reserved.
-                </span>
+                <div class="footer-title">
+                    Contact
+                </div>
 
-                <div class="social-links">
-
-                    <a
-                        href="https://www.instagram.com/relmun.official/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-link"
-                        aria-label="RELMUN Instagram"
-                    >
-                        IG
-                    </a>
+                <div class="footer-links">
 
                     <a
                         href="mailto:akshithkabilan@gmail.com"
-                        class="social-link"
-                        aria-label="Email RELMUN"
+                        class="footer-link"
                     >
-                        @
+                        Email the team
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/relmun.official/"
+                        class="footer-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Instagram ↗
                     </a>
 
                 </div>
@@ -579,116 +900,126 @@
 
         </div>
 
-    </footer>
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 RELMUN. All rights reserved.
+            </span>
+
+            <div class="social-links">
+
+                <a
+                    href="https://www.instagram.com/relmun.official/"
+                    class="social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                >
+                    IG
+                </a>
+
+                <a
+                    href="mailto:akshithkabilan@gmail.com"
+                    class="social-link"
+                    aria-label="Email"
+                >
+                    @
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
+<!-- =========================================================
+     MOBILE NAVIGATION
+     ========================================================= -->
 
-    <script>
-        (() => {
-            "use strict";
+<script>
 
-            /* ---------------------------------------------
-               MOBILE NAVIGATION
-               --------------------------------------------- */
+(function () {
 
-            const menuToggle =
-                document.getElementById("menuToggle");
+    "use strict";
 
-            const navLinks =
-                document.getElementById("navLinks");
+    const menuToggle =
+        document.getElementById("menuToggle");
 
-            if (menuToggle && navLinks) {
-
-                const closeMenu = () => {
-
-                    navLinks.classList.remove("open");
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation"
-                    );
-
-                    document.body.classList.remove(
-                        "menu-open"
-                    );
-                };
+    const navLinks =
+        document.getElementById("navLinks");
 
 
-                const openMenu = () => {
-
-                    navLinks.classList.add("open");
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Close navigation"
-                    );
-
-                    document.body.classList.add(
-                        "menu-open"
-                    );
-                };
+    if (!menuToggle || !navLinks) {
+        return;
+    }
 
 
-                menuToggle.addEventListener(
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                navLinks.classList.toggle("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+
+            document.body.classList.toggle(
+                "menu-open",
+                isOpen
+            );
+
+        }
+    );
+
+
+    navLinks
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
                     "click",
-                    () => {
+                    function () {
 
-                        if (
-                            navLinks.classList.contains(
-                                "open"
-                            )
-                        ) {
-                            closeMenu();
-                        } else {
-                            openMenu();
-                        }
+                        navLinks.classList.remove("open");
 
-                    }
-                );
-
-
-                navLinks
-                    .querySelectorAll("a")
-                    .forEach((link) => {
-
-                        link.addEventListener(
-                            "click",
-                            closeMenu
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
                         );
 
-                    });
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation menu"
+                        );
 
-
-                window.addEventListener(
-                    "resize",
-                    () => {
-
-                        if (
-                            window.innerWidth > 700
-                        ) {
-                            closeMenu();
-                        }
+                        document.body.classList.remove(
+                            "menu-open"
+                        );
 
                     }
                 );
 
             }
+        );
 
-        })();
-    </script>
+})();
+
+</script>
 
 </body>
 </html>
