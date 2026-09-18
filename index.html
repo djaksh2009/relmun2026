@@ -10,11 +10,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>RELMUN '26 — Regional Engagement & Leadership Model United Nations</title>
+  <title>RELMUN '26 — Relations · Engagement · Leadership</title>
 
   <meta
     name="description"
-    content="RELMUN '26 — 26–27 December 2026. Fully online."
+    content="RELMUN '26 — Relations, Engagement & Leadership Model United Nations. 26–27 December 2026. Fully online."
   >
 
   <link
@@ -23,10 +23,854 @@
     type="image/png"
   >
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet"
+  >
+
   <link
     rel="stylesheet"
     href="style.css"
   >
+
+  <style>
+
+    :root {
+      --relmun-bg: #050b13;
+      --relmun-bg-2: #071321;
+      --relmun-ivory: #eee9dc;
+      --relmun-muted: #8993a1;
+      --relmun-gold: #c79a2b;
+      --relmun-gold-light: #e3c46b;
+      --relmun-blue: #1846ff;
+      --relmun-line: rgba(238,233,220,.12);
+      --relmun-display: "Playfair Display", Georgia, serif;
+      --relmun-body: "Manrope", Arial, sans-serif;
+      --relmun-mono: "DM Mono", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--relmun-bg);
+      color: var(--relmun-ivory);
+      font-family: var(--relmun-body);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .035;
+      background-image:
+        radial-gradient(rgba(255,255,255,.8) .5px, transparent .5px);
+      background-size: 5px 5px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--relmun-line);
+      background: rgba(5,11,19,.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .navbar {
+      width: min(1400px, 92vw);
+      height: 78px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      width: 125px;
+    }
+
+    .nav-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links > a {
+      position: relative;
+      font-family: var(--relmun-mono);
+      font-size: 9px;
+      letter-spacing: .14em;
+      color: rgba(238,233,220,.72);
+      transition: color .25s ease;
+    }
+
+    .nav-links > a:hover {
+      color: var(--relmun-gold-light);
+    }
+
+    .nav-register {
+      padding: 14px 20px !important;
+      background: var(--relmun-gold);
+      color: #07111f !important;
+      transition: background .25s ease, transform .25s ease;
+    }
+
+    .nav-register:hover {
+      background: var(--relmun-gold-light);
+      transform: translateY(-2px);
+    }
+
+    .nav-menu {
+      display: none;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      padding: 150px 7vw 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 78% 25%,
+          rgba(24,70,255,.10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 20% 70%,
+          rgba(199,154,43,.07),
+          transparent 25%
+        ),
+        var(--relmun-bg);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -180px;
+      bottom: -180px;
+      border: 1px solid rgba(199,154,43,.14);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 70px rgba(199,154,43,.025),
+        0 0 0 140px rgba(199,154,43,.018);
+      pointer-events: none;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-meta span {
+      font-family: var(--relmun-mono);
+      font-size: 9px;
+      letter-spacing: .15em;
+      color: var(--relmun-muted);
+    }
+
+    .hero-title {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      margin-bottom: auto;
+      padding: 70px 0;
+    }
+
+    .hero-line {
+      display: block;
+      font-family: var(--relmun-body);
+      font-size: clamp(100px, 18vw, 280px);
+      line-height: .72;
+      font-weight: 800;
+      letter-spacing: -.105em;
+      color: var(--relmun-ivory);
+    }
+
+    .hero-line-offset {
+      margin-left: clamp(35px, 9vw, 145px);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(238,233,220,.55);
+    }
+
+    .hero-year {
+      position: absolute;
+      left: clamp(60px, 15vw, 240px);
+      bottom: 45px;
+      font-family: var(--relmun-display);
+      font-size: clamp(38px, 6vw, 82px);
+      font-style: italic;
+      color: var(--relmun-gold-light);
+      letter-spacing: -.05em;
+    }
+
+    .hero-bottom {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+    }
+
+    .hero-bottom p {
+      max-width: 430px;
+      margin: 0;
+      color: var(--relmun-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .hero-bottom strong {
+      color: var(--relmun-ivory);
+    }
+
+    .scroll-link,
+    .text-link {
+      font-family: var(--relmun-mono);
+      font-size: 9px;
+      letter-spacing: .14em;
+      color: var(--relmun-gold-light);
+    }
+
+    .scroll-link:hover,
+    .text-link:hover {
+      color: var(--relmun-ivory);
+    }
+
+    /* GENERAL */
+
+    .section {
+      width: min(1250px, 86vw);
+      margin: auto;
+      padding: 140px 0;
+      border-top: 1px solid var(--relmun-line);
+    }
+
+    .section-index {
+      margin-bottom: 50px;
+      color: var(--relmun-gold);
+      font-family: var(--relmun-mono);
+      font-size: 9px;
+      letter-spacing: .16em;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: var(--relmun-body);
+      font-size: clamp(55px, 8vw, 120px);
+      line-height: .83;
+      letter-spacing: -.075em;
+      font-weight: 800;
+    }
+
+    h2 em {
+      color: var(--relmun-gold-light);
+      font-family: var(--relmun-display);
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -.055em;
+    }
+
+    .about-grid,
+    .split-heading {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+    }
+
+    .about-copy {
+      padding-top: 15px;
+    }
+
+    .about-copy p,
+    .split-heading p {
+      color: var(--relmun-muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .large-copy {
+      color: var(--relmun-ivory) !important;
+      font-size: 20px !important;
+      line-height: 1.65 !important;
+    }
+
+    .text-link {
+      display: inline-block;
+      margin-top: 30px;
+    }
+
+    /* CONFERENCE */
+
+    .conference-grid {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border-top: 1px solid var(--relmun-line);
+      border-left: 1px solid var(--relmun-line);
+    }
+
+    .conference-item {
+      min-height: 240px;
+      padding: 28px;
+      border-right: 1px solid var(--relmun-line);
+      border-bottom: 1px solid var(--relmun-line);
+      transition: background .25s ease;
+    }
+
+    .conference-item:hover {
+      background: rgba(199,154,43,.035);
+    }
+
+    .conference-item span {
+      font-family: var(--relmun-mono);
+      color: var(--relmun-gold);
+      font-size: 9px;
+    }
+
+    .conference-item h3 {
+      margin: 70px 0 18px;
+      font-family: var(--relmun-mono);
+      font-size: 10px;
+      letter-spacing: .15em;
+    }
+
+    .conference-item p {
+      margin: 0;
+      color: var(--relmun-muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* COMMITTEES */
+
+    .heading-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 50px;
+      margin-bottom: 65px;
+    }
+
+    .heading-row > p {
+      max-width: 330px;
+      margin: 0;
+      color: var(--relmun-muted);
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      border-top: 1px solid var(--relmun-line);
+      border-left: 1px solid var(--relmun-line);
+    }
+
+    .committee-card {
+      min-height: 320px;
+      padding: 30px;
+      border-right: 1px solid var(--relmun-line);
+      border-bottom: 1px solid var(--relmun-line);
+      transition:
+        background .3s ease,
+        transform .3s ease;
+    }
+
+    .committee-card:hover {
+      background: rgba(24,70,255,.06);
+      transform: translateY(-3px);
+    }
+
+    .committee-card .number {
+      color: var(--relmun-gold);
+      font-family: var(--relmun-mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+    }
+
+    .committee-card h3 {
+      margin: 85px 0 18px;
+      font-size: 31px;
+      line-height: .95;
+      letter-spacing: -.05em;
+    }
+
+    .committee-card p {
+      margin: 0;
+      color: var(--relmun-muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-grid,
+    .team-grid,
+    .eb-grid {
+      margin-top: 65px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      border-top: 1px solid var(--relmun-line);
+      border-left: 1px solid var(--relmun-line);
+    }
+
+    .experience-card,
+    .person-card,
+    .eb-card {
+      padding: 30px;
+      border-right: 1px solid var(--relmun-line);
+      border-bottom: 1px solid var(--relmun-line);
+    }
+
+    .experience-card {
+      min-height: 270px;
+    }
+
+    .experience-card span,
+    .person-number,
+    .eb-card > span {
+      color: var(--relmun-gold);
+      font-family: var(--relmun-mono);
+      font-size: 9px;
+    }
+
+    .experience-card h3 {
+      margin-top: 90px;
+      font-size: 25px;
+    }
+
+    .experience-card p,
+    .eb-card p {
+      color: var(--relmun-muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* TEAM */
+
+    .team-grid {
+      grid-template-columns: repeat(4,1fr);
+    }
+
+    .person-card {
+      min-height: 300px;
+      position: relative;
+    }
+
+    .avatar {
+      width: 68px;
+      height: 68px;
+      margin: 55px 0 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--relmun-gold);
+      border-radius: 50%;
+      color: var(--relmun-gold-light);
+      font-family: var(--relmun-display);
+      font-size: 22px;
+    }
+
+    .person-card small {
+      color: var(--relmun-muted);
+      font-family: var(--relmun-mono);
+      font-size: 7px;
+      letter-spacing: .08em;
+    }
+
+    .person-card h3 {
+      margin: 10px 0 0;
+      font-size: 15px;
+      letter-spacing: -.02em;
+    }
+
+    /* EB */
+
+    .eb-grid {
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    .eb-card {
+      min-height: 210px;
+    }
+
+    .eb-card h3 {
+      margin: 55px 0 12px;
+      font-size: 18px;
+    }
+
+    .eb-card p {
+      margin: 0;
+    }
+
+    /* REGISTRATION */
+
+    .register-section {
+      padding-bottom: 160px;
+    }
+
+    .register-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 70px;
+      border: 1px solid var(--relmun-line);
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(24,70,255,.09),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(199,154,43,.08),
+          transparent 30%
+        ),
+        var(--relmun-bg-2);
+    }
+
+    .register-panel::before {
+      content: "01";
+      position: absolute;
+      right: 30px;
+      top: 15px;
+      font-family: var(--relmun-display);
+      font-size: 180px;
+      color: rgba(238,233,220,.025);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--relmun-gold);
+      font-family: var(--relmun-mono);
+      font-size: 9px;
+      letter-spacing: .16em;
+    }
+
+    .register-panel h2 {
+      margin-top: 25px;
+      max-width: 800px;
+    }
+
+    .registration-description {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 35px 0 30px;
+      color: var(--relmun-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .countdown {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(90px,1fr));
+      max-width: 760px;
+      margin: 40px 0;
+      border-top: 1px solid var(--relmun-line);
+      border-bottom: 1px solid var(--relmun-line);
+    }
+
+    .countdown-unit {
+      padding: 25px 20px;
+      border-right: 1px solid var(--relmun-line);
+      text-align: center;
+    }
+
+    .countdown-unit:last-child {
+      border-right: 0;
+    }
+
+    .countdown-unit strong {
+      display: block;
+      font-family: var(--relmun-display);
+      font-size: clamp(35px,5vw,65px);
+      font-weight: 500;
+      color: var(--relmun-ivory);
+    }
+
+    .countdown-unit span {
+      display: block;
+      margin-top: 7px;
+      color: var(--relmun-gold);
+      font-family: var(--relmun-mono);
+      font-size: 7px;
+      letter-spacing: .15em;
+    }
+
+    .countdown-label,
+    .registration-open-label {
+      color: var(--relmun-gold);
+      font-family: var(--relmun-mono);
+      font-size: 9px;
+      letter-spacing: .15em;
+    }
+
+    .registration-options {
+      position: relative;
+      z-index: 2;
+      display: none;
+      margin-top: 45px;
+    }
+
+    .registration-options.open {
+      display: block;
+      animation: reveal .5s ease;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .registration-options-grid {
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .registration-option {
+      min-height: 100px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-end;
+      border: 1px solid var(--relmun-line);
+      background: rgba(255,255,255,.015);
+      color: var(--relmun-ivory);
+      font-family: var(--relmun-mono);
+      font-size: 8px;
+      letter-spacing: .08em;
+      transition:
+        border-color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+    }
+
+    .registration-option:hover {
+      border-color: var(--relmun-gold);
+      background: rgba(199,154,43,.06);
+      transform: translateY(-3px);
+    }
+
+    .registration-option.featured {
+      border-color: rgba(199,154,43,.45);
+    }
+
+    /* FAQ */
+
+    .faq-cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--relmun-line);
+      padding: 60px 7vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: #03080e;
+    }
+
+    .footer-logo img {
+      width: 145px;
+      max-width: 100%;
+    }
+
+    .footer-middle strong {
+      display: block;
+      font-family: var(--relmun-display);
+      font-size: 22px;
+      color: var(--relmun-gold-light);
+    }
+
+    .footer-middle span,
+    .footer-right span {
+      display: block;
+      margin-top: 8px;
+      color: var(--relmun-muted);
+      font-family: var(--relmun-mono);
+      font-size: 7px;
+      letter-spacing: .1em;
+      line-height: 1.7;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-contact {
+      margin-top: 10px;
+    }
+
+    /* CHATBOT */
+
+    #relmun-chatbot {
+      position: relative;
+      z-index: 10000;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .navbar {
+        height: 68px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 25px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(5,11,19,.98);
+        border-bottom: 1px solid var(--relmun-line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+      }
+
+      .nav-menu span {
+        width: 24px;
+        height: 1px;
+        display: block;
+        background: var(--relmun-ivory);
+      }
+
+      .hero {
+        padding: 120px 7vw 45px;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .hero-line {
+        font-size: clamp(75px, 24vw, 160px);
+      }
+
+      .hero-line-offset {
+        margin-left: 30px;
+      }
+
+      .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-grid,
+      .split-heading {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .conference-grid,
+      .committee-grid,
+      .experience-grid,
+      .team-grid,
+      .eb-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .heading-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .register-panel {
+        padding: 45px 25px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .countdown-unit:nth-child(2) {
+        border-right: 0;
+      }
+
+      .registration-options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+
+  </style>
 
 </head>
 
@@ -42,35 +886,24 @@
       href="index.html"
       class="nav-logo"
     >
-
       <img
         src="relmun-logo.png"
         alt="RELMUN '26"
       >
-
     </a>
 
 
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
 
       <a href="#about">ABOUT</a>
 
-      <a href="committees.html">
-        COMMITTEES
-      </a>
+      <a href="committees.html">COMMITTEES</a>
 
-      <a href="#team">
-        TEAM
-      </a>
+      <a href="#team">TEAM</a>
 
-      <a href="#eb">
-        EB
-      </a>
+      <a href="#eb">EB</a>
 
-      <a
-        href="#register"
-        class="nav-register"
-      >
+      <a href="#register" class="nav-register">
         REGISTER
       </a>
 
@@ -83,12 +916,12 @@
 
     <button
       class="nav-menu"
+      id="navMenu"
       aria-label="Open menu"
+      aria-expanded="false"
     >
-
       <span></span>
       <span></span>
-
     </button>
 
   </nav>
@@ -100,25 +933,11 @@
 <main>
 
 
-<!-- ========================================
-     HERO
-======================================== -->
-
-<section
-  class="hero"
-  id="home"
->
+<section class="hero" id="home">
 
   <div class="hero-meta">
-
-    <span>
-      RELATIONS · ENGAGEMENT · LEADERSHIP
-    </span>
-
-    <span>
-      26–27 DECEMBER 2026 · ONLINE
-    </span>
-
+    <span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+    <span>26–27 DECEMBER 2026 · ONLINE</span>
   </div>
 
 
@@ -159,14 +978,7 @@
 
 
 
-<!-- ========================================
-     ABOUT
-======================================== -->
-
-<section
-  id="about"
-  class="section"
->
+<section id="about" class="section">
 
   <div class="section-index">
     01 / ABOUT
@@ -212,14 +1024,7 @@
 
 
 
-<!-- ========================================
-     CONFERENCE
-======================================== -->
-
-<section
-  id="conference"
-  class="section"
->
+<section id="conference" class="section">
 
   <div class="section-index">
     02 / CONFERENCE
@@ -235,58 +1040,27 @@
   <div class="conference-grid">
 
     <div class="conference-item">
-
       <span>01</span>
-
       <h3>DATE</h3>
-
-      <p>
-        26–27<br>
-        DECEMBER 2026
-      </p>
-
+      <p>26–27<br>DECEMBER 2026</p>
     </div>
 
-
     <div class="conference-item">
-
       <span>02</span>
-
       <h3>FORMAT</h3>
-
-      <p>
-        FULLY<br>
-        ONLINE
-      </p>
-
+      <p>FULLY<br>ONLINE</p>
     </div>
 
-
     <div class="conference-item">
-
       <span>03</span>
-
       <h3>REGISTRATION</h3>
-
-      <p>
-        COMPLETELY<br>
-        FREE
-      </p>
-
+      <p>COMPLETELY<br>FREE</p>
     </div>
 
-
     <div class="conference-item">
-
       <span>04</span>
-
       <h3>CERTIFICATES</h3>
-
-      <p>
-        PROVIDED TO<br>
-        PARTICIPANTS
-      </p>
-
+      <p>PROVIDED TO<br>PARTICIPANTS</p>
     </div>
 
   </div>
@@ -294,10 +1068,6 @@
 </section>
 
 
-
-<!-- ========================================
-     COMMITTEES
-======================================== -->
 
 <section class="section">
 
@@ -323,126 +1093,70 @@
 
   <div class="committee-grid">
 
-
-    <a
-      class="committee-card"
-      href="committee.html?committee=unsc"
-    >
-
+    <a class="committee-card" href="committee.html?committee=unsc">
       <span class="number">01 / UNSC</span>
-
       <h3>SECURITY<br>COUNCIL.</h3>
-
       <p>
         International peace and security,
         diplomacy and high-level decision-making.
       </p>
-
     </a>
 
-
-    <a
-      class="committee-card"
-      href="committee.html?committee=unhrc"
-    >
-
+    <a class="committee-card" href="committee.html?committee=unhrc">
       <span class="number">02 / UNHRC</span>
-
       <h3>HUMAN<br>RIGHTS.</h3>
-
       <p>
         International human rights, cooperation
         and multilateral action.
       </p>
-
     </a>
 
-
-    <a
-      class="committee-card"
-      href="committee.html?committee=unodc"
-    >
-
+    <a class="committee-card" href="committee.html?committee=unodc">
       <span class="number">03 / UNODC</span>
-
       <h3>DRUGS &<br>CRIME.</h3>
-
       <p>
         International cooperation against drugs,
         organised crime and transnational challenges.
       </p>
-
     </a>
 
-
-    <a
-      class="committee-card"
-      href="committee.html?committee=aippm"
-    >
-
+    <a class="committee-card" href="committee.html?committee=aippm">
       <span class="number">04 / AIPPM</span>
-
       <h3>POLITICAL<br>PARTIES.</h3>
-
       <p>
         Parliamentary debate, political negotiation
         and national policy deliberation.
       </p>
-
     </a>
 
-
-    <a
-      class="committee-card"
-      href="committee.html?committee=ipla"
-    >
-
+    <a class="committee-card" href="committee.html?committee=ipla">
       <span class="number">05 / IPLA</span>
-
       <h3>IPL<br>AUCTION.</h3>
-
       <p>
         Strategic bidding, team management and
         decision-making in an IPL auction environment.
       </p>
-
     </a>
 
-
-    <a
-      class="committee-card"
-      href="committee.html?committee=unw"
-    >
-
+    <a class="committee-card" href="committee.html?committee=unw">
       <span class="number">06 / UNW</span>
-
       <h3>UN<br>WOMEN.</h3>
-
       <p>
         Gender equality, empowerment and
         international cooperation.
       </p>
-
     </a>
-
 
   </div>
 
 
-  <a
-    href="committees.html"
-    class="text-link"
-  >
+  <a href="committees.html" class="text-link">
     VIEW ALL COMMITTEES →
   </a>
 
 </section>
 
 
-
-<!-- ========================================
-     EXPERIENCE
-======================================== -->
 
 <section class="section">
 
@@ -460,44 +1174,30 @@
   <div class="experience-grid">
 
     <article class="experience-card">
-
       <span>01</span>
-
       <h3>PREPARE</h3>
-
       <p>
         Understand your committee, portfolio
         and agenda before entering the room.
       </p>
-
     </article>
 
-
     <article class="experience-card">
-
       <span>02</span>
-
       <h3>DEBATE</h3>
-
       <p>
         Present ideas, challenge perspectives
         and participate constructively.
       </p>
-
     </article>
 
-
     <article class="experience-card">
-
       <span>03</span>
-
       <h3>ENGAGE</h3>
-
       <p>
         Listen, negotiate, form blocs and
         contribute throughout committee.
       </p>
-
     </article>
 
   </div>
@@ -506,14 +1206,7 @@
 
 
 
-<!-- ========================================
-     TEAM
-======================================== -->
-
-<section
-  id="team"
-  class="section"
->
+<section id="team" class="section">
 
   <div class="section-index">
     05 / ORGANISING COMMITTEE
@@ -537,90 +1230,33 @@
 
   <div class="team-grid">
 
-
     <article class="person-card">
-
-      <span class="person-number">
-        01
-      </span>
-
-      <div class="avatar">
-        AK
-      </div>
-
-      <small>
-        SECRETARY-GENERAL
-      </small>
-
-      <h3>
-        AKSHITH KABILAN
-      </h3>
-
+      <span class="person-number">01</span>
+      <div class="avatar">AK</div>
+      <small>SECRETARY-GENERAL</small>
+      <h3>AKSHITH KABILAN</h3>
     </article>
 
-
     <article class="person-card">
-
-      <span class="person-number">
-        02
-      </span>
-
-      <div class="avatar">
-        SS
-      </div>
-
-      <small>
-        DEPUTY SECRETARY-GENERAL
-      </small>
-
-      <h3>
-        S. SHREYAAS
-      </h3>
-
+      <span class="person-number">02</span>
+      <div class="avatar">SS</div>
+      <small>DEPUTY SECRETARY-GENERAL</small>
+      <h3>S. SHREYAAS</h3>
     </article>
 
-
     <article class="person-card">
-
-      <span class="person-number">
-        03
-      </span>
-
-      <div class="avatar">
-        LV
-      </div>
-
-      <small>
-        DIRECTOR-GENERAL
-      </small>
-
-      <h3>
-        LAASYA VIKRAM
-      </h3>
-
+      <span class="person-number">03</span>
+      <div class="avatar">LV</div>
+      <small>DIRECTOR-GENERAL</small>
+      <h3>LAASYA VIKRAM</h3>
     </article>
 
-
     <article class="person-card">
-
-      <span class="person-number">
-        04
-      </span>
-
-      <div class="avatar">
-        AR
-      </div>
-
-      <small>
-        HEAD OF ADMINISTRATION & OUTREACH
-      </small>
-
-      <h3>
-        ABIMAYUR R
-      </h3>
-
+      <span class="person-number">04</span>
+      <div class="avatar">AR</div>
+      <small>HEAD OF ADMINISTRATION & OUTREACH</small>
+      <h3>ABIMAYUR R</h3>
     </article>
-
 
   </div>
 
@@ -628,14 +1264,7 @@
 
 
 
-<!-- ========================================
-     EB
-======================================== -->
-
-<section
-  id="eb"
-  class="section"
->
+<section id="eb" class="section">
 
   <div class="section-index">
     06 / EXECUTIVE BOARD
@@ -657,7 +1286,7 @@
         procedure.
       </p>
 
-      <p class="muted-copy">
+      <p>
         Committee-specific EB profiles will be
         announced soon.
       </p>
@@ -672,64 +1301,43 @@
     <article class="eb-card">
       <span>UNSC</span>
       <h3>CHAIR · TBA</h3>
-      <p>
-        VICE CHAIR · TBA<br>
-        MODERATOR · TBA
-      </p>
+      <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
     </article>
 
     <article class="eb-card">
       <span>UNHRC</span>
       <h3>CHAIR · TBA</h3>
-      <p>
-        VICE CHAIR · TBA<br>
-        MODERATOR · TBA
-      </p>
+      <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
     </article>
 
     <article class="eb-card">
       <span>UNODC</span>
       <h3>CHAIR · TBA</h3>
-      <p>
-        VICE CHAIR · TBA<br>
-        MODERATOR · TBA
-      </p>
+      <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
     </article>
 
     <article class="eb-card">
       <span>AIPPM</span>
       <h3>CHAIR · TBA</h3>
-      <p>
-        VICE CHAIR · TBA<br>
-        MODERATOR · TBA
-      </p>
+      <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
     </article>
 
     <article class="eb-card">
       <span>IPLA</span>
       <h3>CHAIR · TBA</h3>
-      <p>
-        VICE CHAIR · TBA<br>
-        MODERATOR · TBA
-      </p>
+      <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
     </article>
 
     <article class="eb-card">
       <span>UN WOMEN</span>
       <h3>CHAIR · TBA</h3>
-      <p>
-        VICE CHAIR · TBA<br>
-        MODERATOR · TBA
-      </p>
+      <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
     </article>
 
   </div>
 
 
-  <a
-    href="eb.html"
-    class="text-link"
-  >
+  <a href="eb.html" class="text-link">
     VIEW EXECUTIVE BOARD →
   </a>
 
@@ -737,14 +1345,7 @@
 
 
 
-<!-- ========================================
-     REGISTRATION
-======================================== -->
-
-<section
-  id="register"
-  class="section register-section"
->
+<section id="register" class="section register-section">
 
   <div class="section-index">
     07 / REGISTRATION
@@ -768,34 +1369,38 @@
       class="registration-description"
       id="registrationDescription"
     >
-      Delegate registrations open on
-      1 October 2026.
+      Delegate registrations open on 1 October 2026.
     </p>
 
 
-    <div
-      class="countdown"
-      id="registrationCountdown"
-    >
+    <div id="registrationCountdown">
 
-      <div class="countdown-unit">
-        <strong id="countdownDays">00</strong>
-        <span>DAYS</span>
+      <div class="countdown-label">
+        REGISTRATIONS OPEN IN
       </div>
 
-      <div class="countdown-unit">
-        <strong id="countdownHours">00</strong>
-        <span>HOURS</span>
-      </div>
+      <div class="countdown">
 
-      <div class="countdown-unit">
-        <strong id="countdownMinutes">00</strong>
-        <span>MINUTES</span>
-      </div>
+        <div class="countdown-unit">
+          <strong id="countdownDays">00</strong>
+          <span>DAYS</span>
+        </div>
 
-      <div class="countdown-unit">
-        <strong id="countdownSeconds">00</strong>
-        <span>SECONDS</span>
+        <div class="countdown-unit">
+          <strong id="countdownHours">00</strong>
+          <span>HOURS</span>
+        </div>
+
+        <div class="countdown-unit">
+          <strong id="countdownMinutes">00</strong>
+          <span>MINUTES</span>
+        </div>
+
+        <div class="countdown-unit">
+          <strong id="countdownSeconds">00</strong>
+          <span>SECONDS</span>
+        </div>
+
       </div>
 
     </div>
@@ -806,13 +1411,22 @@
       id="registrationOptions"
     >
 
+      <div class="registration-open-label">
+        REGISTRATIONS ARE NOW OPEN
+      </div>
+
+      <p class="registration-description">
+        Choose whichever registration method works best for you.
+      </p>
+
+
       <div class="registration-options-grid">
 
         <a
-          class="registration-option"
+          class="registration-option featured"
           href="https://champarena.co.in/e/relmun2026"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           CHAMPARENA ↗
         </a>
@@ -821,14 +1435,14 @@
           class="registration-option"
           href="register.html"
         >
-          WEBSITE ↗
+          RELMUN WEBSITE ↗
         </a>
 
         <a
           class="registration-option"
           href="https://mymun.com/conferences/relmun-2026"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           MYMUN ↗
         </a>
@@ -837,7 +1451,7 @@
           class="registration-option"
           href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           GAVELLING ↗
         </a>
@@ -846,7 +1460,7 @@
           class="registration-option"
           href="https://forms.gle/fVu57FN1cZBb6Pdg7"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           GOOGLE FORM ↗
         </a>
@@ -861,10 +1475,6 @@
 
 
 
-<!-- ========================================
-     FAQ
-======================================== -->
-
 <section class="section">
 
   <div class="section-index">
@@ -872,18 +1482,22 @@
   </div>
 
 
-  <h2>
-    GOT<br>
-    <em>QUESTIONS?</em>
-  </h2>
+  <div class="faq-cta">
+
+    <h2>
+      GOT<br>
+      <em>QUESTIONS?</em>
+    </h2>
 
 
-  <a
-    href="faq.html"
-    class="text-link"
-  >
-    EXPLORE THE FAQ →
-  </a>
+    <a
+      href="faq.html"
+      class="text-link"
+    >
+      EXPLORE THE FAQ →
+    </a>
+
+  </div>
 
 </section>
 
@@ -912,6 +1526,10 @@
       RELATIONS · ENGAGEMENT · LEADERSHIP
     </span>
 
+    <span class="footer-contact">
+      INSTAGRAM · @relmun.official
+    </span>
+
   </div>
 
 
@@ -925,6 +1543,10 @@
       © 2026 RELMUN
     </span>
 
+    <span>
+      akshithkabilan@gmail.com
+    </span>
+
   </div>
 
 </footer>
@@ -934,8 +1556,187 @@
 <div id="relmun-chatbot"></div>
 
 
+
 <script src="script.js"></script>
 <script src="chatbot.js"></script>
+
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==============================
+       MOBILE NAVIGATION
+    ============================== */
+
+    const menu = document.getElementById("navMenu");
+    const nav = document.getElementById("navLinks");
+
+    if (menu && nav) {
+
+      menu.addEventListener("click", () => {
+
+        const open = nav.classList.toggle("open");
+
+        menu.setAttribute(
+          "aria-expanded",
+          open ? "true" : "false"
+        );
+
+      });
+
+      nav.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+          menu.setAttribute("aria-expanded", "false");
+        });
+
+      });
+
+    }
+
+
+    /* ==============================
+       REGISTRATION COUNTDOWN
+       1 OCTOBER 2026 — 00:00 IST
+    ============================== */
+
+    const registrationDate =
+      new Date(
+        "2026-10-01T00:00:00+05:30"
+      ).getTime();
+
+
+    const countdown =
+      document.getElementById(
+        "registrationCountdown"
+      );
+
+    const options =
+      document.getElementById(
+        "registrationOptions"
+      );
+
+    const description =
+      document.getElementById(
+        "registrationDescription"
+      );
+
+    const days =
+      document.getElementById(
+        "countdownDays"
+      );
+
+    const hours =
+      document.getElementById(
+        "countdownHours"
+      );
+
+    const minutes =
+      document.getElementById(
+        "countdownMinutes"
+      );
+
+    const seconds =
+      document.getElementById(
+        "countdownSeconds"
+      );
+
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+
+    function openRegistrations() {
+
+      if (countdown) {
+        countdown.style.display = "none";
+      }
+
+      if (options) {
+        options.classList.add("open");
+      }
+
+      if (description) {
+        description.textContent =
+          "Delegate registrations for RELMUN '26 are now open.";
+      }
+
+    }
+
+
+    function updateCountdown() {
+
+      const difference =
+        registrationDate - Date.now();
+
+
+      if (difference <= 0) {
+        openRegistrations();
+        return;
+      }
+
+
+      const totalSeconds =
+        Math.floor(
+          difference / 1000
+        );
+
+
+      const d =
+        Math.floor(
+          totalSeconds / 86400
+        );
+
+
+      const h =
+        Math.floor(
+          (totalSeconds % 86400) / 3600
+        );
+
+
+      const m =
+        Math.floor(
+          (totalSeconds % 3600) / 60
+        );
+
+
+      const s =
+        totalSeconds % 60;
+
+
+      if (days) {
+        days.textContent = pad(d);
+      }
+
+      if (hours) {
+        hours.textContent = pad(h);
+      }
+
+      if (minutes) {
+        minutes.textContent = pad(m);
+      }
+
+      if (seconds) {
+        seconds.textContent = pad(s);
+      }
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+  });
+
+</script>
+
 
 </body>
 </html>
