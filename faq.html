@@ -1,1583 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FAQ — RELMUN '26</title>
-
-  <meta
-    name="description"
-    content="Frequently asked questions about RELMUN '26."
-  >
+  <title>FAQ | RELMUN '26</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
+  <link rel="stylesheet" href="style.css">
 
-    :root {
-      --bg: #05080d;
-      --panel: #0b1119;
-      --panel-2: #0e151e;
-
-      --ivory: #f1ece0;
-      --muted: #8b96a3;
-      --muted-2: #64707d;
-
-      --blue: #1846ff;
-      --blue-light: #3d65ff;
-
-      --gold: #c79a2b;
-      --gold-light: #e2b941;
-
-      --border: rgba(241,236,224,.11);
-      --border-strong: rgba(241,236,224,.19);
-
-      --max: 1160px;
-    }
-
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-
-    body {
-      min-height: 100vh;
-
-      background:
-        radial-gradient(
-          circle at 10% 0%,
-          rgba(24,70,255,.11),
-          transparent 27%
-        ),
-        radial-gradient(
-          circle at 90% 25%,
-          rgba(199,154,43,.055),
-          transparent 25%
-        ),
-        var(--bg);
-
-      color: var(--ivory);
-
-      font-family: "Manrope", sans-serif;
-
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-
-    body::before {
-      content: "";
-
-      position: fixed;
-      inset: 0;
-
-      z-index: -1;
-
-      pointer-events: none;
-
-      opacity: .15;
-
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.025) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.025) 1px,
-          transparent 1px
-        );
-
-      background-size: 70px 70px;
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black,
-          transparent 85%
-        );
-    }
-
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-
-    /* =====================================================
-       NAVBAR
-       ===================================================== */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-
-      z-index: 1000;
-
-      height: 76px;
-
-      background:
-        rgba(5,8,13,.86);
-
-      border-bottom:
-        1px solid
-        var(--border);
-
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-
-    .nav-inner {
-      width:
-        min(
-          calc(100% - 48px),
-          1240px
-        );
-
-      height: 100%;
-
-      margin: auto;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: space-between;
-    }
-
-
-    .brand {
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
-    }
-
-
-    .brand-mark {
-      width: 35px;
-      height: 35px;
-
-      display: grid;
-
-      place-items: center;
-
-      border:
-        1px solid
-        var(--gold);
-
-      color: var(--gold);
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 12px;
-
-      transform: rotate(45deg);
-    }
-
-
-    .brand-mark span {
-      transform: rotate(-45deg);
-    }
-
-
-    .brand-text {
-      display: flex;
-
-      flex-direction: column;
-
-      line-height: 1;
-    }
-
-
-    .brand-name {
-      font-family:
-        "Playfair Display",
-        serif;
-
-      font-size: 22px;
-
-      letter-spacing: 3px;
-    }
-
-
-    .brand-year {
-      margin-top: 5px;
-
-      color: var(--gold);
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 9px;
-
-      letter-spacing: 3px;
-    }
-
-
-    .nav-links {
-      display: flex;
-
-      align-items: center;
-
-      gap: 30px;
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 11px;
-
-      letter-spacing: 1.4px;
-
-      text-transform: uppercase;
-    }
-
-
-    .nav-links a {
-      color: #aeb7c3;
-
-      transition:
-        color .2s ease;
-    }
-
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--ivory);
-    }
-
-
-    .nav-register {
-      padding:
-        12px 19px;
-
-      background:
-        var(--gold);
-
-      color:
-        #07090c !important;
-
-      transition:
-        transform .2s ease,
-        background .2s ease;
-    }
-
-
-    .nav-register:hover {
-      background:
-        var(--gold-light);
-
-      transform:
-        translateY(-2px);
-    }
-
-
-    /* =====================================================
-       PAGE HEADER
-       ===================================================== */
-
-    .page-header {
-      width:
-        min(
-          calc(100% - 48px),
-          var(--max)
-        );
-
-      margin: auto;
-
-      padding:
-        90px 0 55px;
-    }
-
-
-    .eyebrow {
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
-
-      color:
-        var(--gold);
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 10px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-
-    .eyebrow::before {
-      content: "";
-
-      width: 34px;
-      height: 1px;
-
-      background:
-        var(--gold);
-    }
-
-
-    .page-header h1 {
-      margin-top: 22px;
-
-      font-family:
-        "Playfair Display",
-        serif;
-
-      font-size:
-        clamp(
-          60px,
-          8vw,
-          96px
-        );
-
-      line-height: .92;
-
-      letter-spacing: -4px;
-
-      font-weight: 500;
-    }
-
-
-    .page-header h1 em {
-      color:
-        var(--gold);
-
-      font-style:
-        normal;
-    }
-
-
-    .page-header p {
-      max-width: 650px;
-
-      margin-top: 25px;
-
-      color:
-        var(--muted);
-
-      font-size: 15px;
-
-      line-height: 1.8;
-    }
-
-
-    /* =====================================================
-       FAQ
-       ===================================================== */
-
-    .faq-wrap {
-      width:
-        min(
-          calc(100% - 48px),
-          930px
-        );
-
-      margin:
-        0 auto 120px;
-    }
-
-
-    .faq-intro {
-      margin-bottom: 25px;
-
-      color:
-        var(--muted-2);
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 10px;
-
-      letter-spacing: 1.2px;
-
-      text-transform: uppercase;
-    }
-
-
-    .faq-list {
-      border-top:
-        1px solid
-        var(--border);
-    }
-
-
-    .faq-item {
-      border-bottom:
-        1px solid
-        var(--border);
-    }
-
-
-    .faq-question {
-      width: 100%;
-
-      padding:
-        25px 4px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 25px;
-
-      border: none;
-
-      background: none;
-
-      color: var(--ivory);
-
-      text-align: left;
-
-      cursor: pointer;
-    }
-
-
-    .question-left {
-      display: flex;
-
-      align-items: flex-start;
-
-      gap: 20px;
-    }
-
-
-    .faq-number {
-      flex:
-        0 0 auto;
-
-      color:
-        var(--gold);
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 10px;
-
-      letter-spacing: 1px;
-
-      padding-top: 3px;
-    }
-
-
-    .faq-question-text {
-      font-size: 16px;
-
-      font-weight: 600;
-
-      line-height: 1.5;
-    }
-
-
-    .faq-icon {
-      flex:
-        0 0 auto;
-
-      width: 30px;
-      height: 30px;
-
-      display: grid;
-
-      place-items: center;
-
-      border:
-        1px solid
-        var(--border);
-
-      color:
-        var(--gold);
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 15px;
-
-      transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease;
-    }
-
-
-    .faq-answer {
-      max-height: 0;
-
-      overflow: hidden;
-
-      transition:
-        max-height .35s ease;
-    }
-
-
-    .faq-answer-inner {
-      max-width: 760px;
-
-      padding:
-        0 50px 0 58px;
-
-      color:
-        var(--muted);
-
-      font-size: 13px;
-
-      line-height: 1.85;
-    }
-
-
-    .faq-item.open
-    .faq-answer {
-      max-height: 300px;
-    }
-
-
-    .faq-item.open
-    .faq-answer-inner {
-      padding-bottom:
-        27px;
-    }
-
-
-    .faq-item.open
-    .faq-icon {
-      transform:
-        rotate(45deg);
-
-      border-color:
-        rgba(199,154,43,.4);
-
-      background:
-        rgba(199,154,43,.06);
-    }
-
-
-    /* =====================================================
-       BOTTOM CTA
-       ===================================================== */
-
-    .cta {
-      width:
-        min(
-          calc(100% - 48px),
-          var(--max)
-        );
-
-      margin:
-        0 auto 120px;
-
-      padding:
-        45px;
-
-      border:
-        1px solid
-        var(--border);
-
-      background:
-        linear-gradient(
-          120deg,
-          rgba(24,70,255,.06),
-          rgba(199,154,43,.035)
-        );
-    }
-
-
-    .cta-label {
-      color:
-        var(--gold);
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 9px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-
-    .cta h2 {
-      margin-top: 13px;
-
-      font-family:
-        "Playfair Display",
-        serif;
-
-      font-size: 36px;
-
-      font-weight: 500;
-    }
-
-
-    .cta p {
-      max-width: 600px;
-
-      margin-top: 10px;
-
-      color:
-        var(--muted);
-
-      font-size: 13px;
-
-      line-height: 1.7;
-    }
-
-
-    .cta-button {
-      display: inline-block;
-
-      margin-top: 24px;
-
-      padding:
-        14px 21px;
-
-      background:
-        var(--gold);
-
-      color:
-        #07090c;
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 10px;
-
-      letter-spacing: 1.2px;
-
-      text-transform: uppercase;
-
-      transition:
-        transform .2s ease,
-        background .2s ease;
-    }
-
-
-    .cta-button:hover {
-      background:
-        var(--gold-light);
-
-      transform:
-        translateY(-2px);
-    }
-
-
-    /* =====================================================
-       FOOTER
-       ===================================================== */
-
-    footer {
-      padding:
-        35px 24px;
-
-      border-top:
-        1px solid
-        var(--border);
-    }
-
-
-    .footer-inner {
-      width:
-        min(
-          100%,
-          var(--max)
-        );
-
-      margin: auto;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 20px;
-    }
-
-
-    .footer-logo {
-      color:
-        var(--gold);
-
-      font-family:
-        "Playfair Display",
-        serif;
-
-      font-size: 18px;
-
-      letter-spacing: 3px;
-    }
-
-
-    .footer-copy {
-      color:
-        #596572;
-
-      font-family:
-        "DM Mono",
-        monospace;
-
-      font-size: 9px;
-
-      letter-spacing: 1px;
-    }
-
-
-    /* =====================================================
-       MOBILE
-       ===================================================== */
-
-    @media (max-width: 700px) {
-
-      .nav-links {
-        display: none;
-      }
-
-
-      .page-header,
-      .faq-wrap,
-      .cta {
-        width:
-          calc(100% - 30px);
-      }
-
-
-      .page-header {
-        padding:
-          60px 0 40px;
-      }
-
-
-      .page-header h1 {
-        font-size:
-          60px;
-
-        letter-spacing:
-          -2.5px;
-      }
-
-
-      .faq-question {
-        padding:
-          21px 0;
-      }
-
-
-      .question-left {
-        gap: 13px;
-      }
-
-
-      .faq-question-text {
-        font-size: 14px;
-      }
-
-
-      .faq-answer-inner {
-        padding:
-          0 20px 0 35px;
-      }
-
-
-      .faq-item.open
-      .faq-answer-inner {
-        padding-bottom:
-          23px;
-      }
-
-
-      .cta {
-        padding:
-          30px 24px;
-      }
-
-
-      .cta h2 {
-        font-size: 31px;
-      }
-
-
-      .footer-inner {
-        align-items:
-          flex-start;
-
-        flex-direction:
-          column;
-      }
-
-    }
-
-
-    @media (max-width: 430px) {
-
-      .brand-name {
-        font-size:
-          19px;
-      }
-
-
-      .brand-mark {
-        width: 31px;
-        height: 31px;
-      }
-
-
-      .page-header h1 {
-        font-size:
-          52px;
-      }
-
-    }
-
-  </style>
 </head>
-
 
 <body>
 
+<header class="navbar">
 
-  <!-- =====================================================
-       NAVIGATION
-       ===================================================== -->
+  <div class="nav-container">
 
-  <header class="navbar">
+    <a href="index.html" class="brand">
 
-    <div class="nav-inner">
+      <span class="brand-mark">R</span>
 
-      <a
-        href="index.html"
-        class="brand"
-      >
+      <span class="brand-text">
+        <strong>RELMUN</strong>
+        <small>'26</small>
+      </span>
 
-        <div class="brand-mark">
-          <span>R</span>
-        </div>
+    </a>
 
-        <div class="brand-text">
+    <nav class="nav-links">
 
-          <div class="brand-name">
-            RELMUN
-          </div>
+      <a href="index.html">Home</a>
+      <a href="committees.html">Committees</a>
+      <a href="eb.html">Executive Board</a>
+      <a href="faq.html" class="active">FAQ</a>
 
-          <div class="brand-year">
-            2026
-          </div>
+    </nav>
 
-        </div>
+    <a href="register.html" class="nav-register">
+      Register <span>↗</span>
+    </a>
 
-      </a>
+  </div>
+
+</header>
 
 
-      <nav class="nav-links">
+<main>
 
-        <a href="index.html">
-          HOME
-        </a>
+<section class="page-hero">
 
-        <a href="committees.html">
-          COMMITTEES
-        </a>
+  <div class="page-hero-inner">
 
-        <a href="eb.html">
-          EB
-        </a>
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      RELMUN '26 · FREQUENTLY ASKED QUESTIONS
+    </div>
 
-        <a
-          href="faq.html"
-          class="active"
-        >
-          FAQ
-        </a>
+    <h1>FAQ<span>.</span></h1>
 
-        <a
-          href="register.html"
-          class="nav-register"
-        >
-          REGISTER
-        </a>
+    <p>
+      Everything you need to know before stepping
+      into the conference.
+    </p>
 
-      </nav>
+  </div>
+
+</section>
+
+
+<section class="faq-section">
+
+
+  <div class="faq-item">
+
+    <button class="faq-question">
+      <span>What is RELMUN '26?</span>
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+
+      <p>
+        RELMUN '26 is an online Model United Nations
+        conference focused on diplomacy, debate,
+        engagement and leadership.
+      </p>
 
     </div>
 
-  </header>
+  </div>
 
 
-  <!-- =====================================================
-       HEADER
-       ===================================================== -->
+  <div class="faq-item">
 
-  <main>
+    <button class="faq-question">
+      <span>When is RELMUN '26?</span>
+      <span>+</span>
+    </button>
 
-    <section class="page-header">
-
-      <div class="eyebrow">
-        RELMUN '26 · INFORMATION
-      </div>
-
-
-      <h1>
-        Frequently<br>
-        <em>asked.</em>
-      </h1>
-
+    <div class="faq-answer">
 
       <p>
-        Everything you need to know before stepping
-        into RELMUN '26. If you still have a question,
-        reach out to the Secretariat.
+        The conference will take place on
+        26–27 December 2026.
       </p>
 
-    </section>
+    </div>
 
+  </div>
 
-    <!-- ===================================================
-         QUESTIONS
-         =================================================== -->
 
-    <section class="faq-wrap">
+  <div class="faq-item">
 
-      <div class="faq-intro">
-        Delegate Information / 01
-      </div>
+    <button class="faq-question">
+      <span>Is the conference online?</span>
+      <span>+</span>
+    </button>
 
-
-      <div class="faq-list">
-
-
-        <!-- 01 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                01
-              </span>
-
-              <span class="faq-question-text">
-                What is RELMUN '26?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              RELMUN '26 is an online Model United Nations
-              conference organised to bring together
-              delegates from different backgrounds for
-              debate, diplomacy, negotiation and
-              collaborative problem-solving.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 02 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                02
-              </span>
-
-              <span class="faq-question-text">
-                When is RELMUN '26?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              RELMUN '26 will take place online on
-              <strong>26–27 December 2026</strong>.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 03 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                03
-              </span>
-
-              <span class="faq-question-text">
-                Is registration free?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              Yes. RELMUN '26 is a completely free
-              conference and there is no registration fee
-              for delegates.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 04 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                04
-              </span>
-
-              <span class="faq-question-text">
-                When do delegate registrations open?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              Delegate registrations officially open on
-              <strong>1 October 2026</strong>.
-
-              Registrations submitted before the opening
-              date will not be accepted.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 05 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                05
-              </span>
-
-              <span class="faq-question-text">
-                Which committees are available?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              RELMUN '26 currently features the United
-              Nations Security Council (UNSC), United
-              Nations Human Rights Council (UNHRC), and
-              United Nations Office on Drugs and Crime
-              (UNODC).
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 06 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                06
-              </span>
-
-              <span class="faq-question-text">
-                Can I choose any country as my portfolio?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              Delegates can enter their preferred countries
-              or portfolios during registration. Final
-              portfolio allotments are subject to
-              availability and the decision of the
-              Secretariat.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 07 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                07
-              </span>
-
-              <span class="faq-question-text">
-                Can beginners participate?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              Yes. Delegates with no previous MUN experience
-              are welcome to register. Training and relevant
-              conference information will be provided to
-              help delegates prepare.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 08 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                08
-              </span>
-
-              <span class="faq-question-text">
-                Will participants receive certificates?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              Certificates will be provided to participants
-              in accordance with the conference's
-              certification structure.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 09 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                09
-              </span>
-
-              <span class="faq-question-text">
-                Where can I register?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              Delegate registrations will be available
-              through the official RELMUN registration
-              process once registrations open on
-              1 October 2026.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- 10 -->
-
-        <div class="faq-item">
-
-          <button
-            class="faq-question"
-            type="button"
-            aria-expanded="false"
-          >
-
-            <span class="question-left">
-
-              <span class="faq-number">
-                10
-              </span>
-
-              <span class="faq-question-text">
-                Who can I contact for further questions?
-              </span>
-
-            </span>
-
-
-            <span class="faq-icon">
-              +
-            </span>
-
-          </button>
-
-
-          <div class="faq-answer">
-
-            <div class="faq-answer-inner">
-
-              For questions that are not answered here,
-              please contact the RELMUN Secretariat through
-              the official conference communication
-              channels.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         CTA
-         =================================================== -->
-
-    <section class="cta">
-
-      <div class="cta-label">
-        RELMUN '26 · DELEGATES
-      </div>
-
-
-      <h2>
-        Ready to take your seat?
-      </h2>
-
+    <div class="faq-answer">
 
       <p>
-        Delegate registrations officially open on
+        Yes. RELMUN '26 is an entirely online conference.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="faq-item">
+
+    <button class="faq-question">
+      <span>Is registration free?</span>
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+
+      <p>
+        Yes. Delegate registration for RELMUN '26
+        is completely free.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="faq-item">
+
+    <button class="faq-question">
+      <span>When do delegate registrations open?</span>
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+
+      <p>
+        Delegate registrations open on
         1 October 2026.
       </p>
 
+    </div>
 
-      <a
-        href="register.html"
-        class="cta-button"
-      >
-        Registration · 01 October
-      </a>
-
-    </section>
-
-  </main>
+  </div>
 
 
-  <!-- =====================================================
-       FOOTER
-       ===================================================== -->
+  <div class="faq-item">
 
-  <footer>
+    <button class="faq-question">
+      <span>Which committees are available?</span>
+      <span>+</span>
+    </button>
 
-    <div class="footer-inner">
+    <div class="faq-answer">
+
+      <p>
+        RELMUN '26 currently features the United Nations
+        Security Council (UNSC), United Nations Human
+        Rights Council (UNHRC), and United Nations Office
+        on Drugs and Crime (UNODC).
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="faq-item">
+
+    <button class="faq-question">
+      <span>Can I choose any country?</span>
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+
+      <p>
+        You can indicate your committee preferences during
+        registration. Country and portfolio allocation will
+        be handled according to the conference's allocation
+        process.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="faq-item">
+
+    <button class="faq-question">
+      <span>Do I need prior MUN experience?</span>
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+
+      <p>
+        No. Delegates with different levels of MUN
+        experience can participate. The registration form
+        simply asks about your previous experience so the
+        organising team has the relevant information.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="faq-item">
+
+    <button class="faq-question">
+      <span>How can I contact RELMUN?</span>
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+
+      <p>
+        You can contact the organising team at
+        akshithkabilan@gmail.com or reach RELMUN through
+        Instagram at @relmun.official.
+      </p>
+
+    </div>
+
+  </div>
+
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="footer-top">
+
+    <div class="footer-brand">
 
       <div class="footer-logo">
-        RELMUN '26
+
+        <span class="brand-mark">R</span>
+
+        <span>
+          <strong>RELMUN</strong>
+          <small>'26</small>
+        </span>
+
+      </div>
+
+      <p>
+        Regional Engagement & Leadership
+        Model United Nations.
+      </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <div>
+
+        <span class="footer-heading">EXPLORE</span>
+
+        <a href="index.html">Home</a>
+        <a href="committees.html">Committees</a>
+        <a href="eb.html">Executive Board</a>
+        <a href="register.html">Registration</a>
+
       </div>
 
 
-      <div class="footer-copy">
-        RELATIONS · ENGAGEMENT · LEADERSHIP
-        &nbsp; / &nbsp;
-        26–27 DECEMBER 2026
+      <div>
+
+        <span class="footer-heading">CONNECT</span>
+
+        <a href="https://instagram.com/relmun.official"
+           target="_blank"
+           rel="noopener noreferrer">
+          Instagram ↗
+        </a>
+
+        <a href="mailto:akshithkabilan@gmail.com">
+          Email ↗
+        </a>
+
       </div>
 
     </div>
 
-  </footer>
+  </div>
 
 
-  <!-- =====================================================
-       FAQ JAVASCRIPT
-       ===================================================== -->
+  <div class="footer-bottom">
+    <span>© 2026 RELMUN</span>
+    <span>26–27 DECEMBER 2026 · ONLINE</span>
+    <span>RELMUN '26</span>
+  </div>
 
-  <script>
-
-    const faqItems =
-      document.querySelectorAll(
-        ".faq-item"
-      );
+</footer>
 
 
-    faqItems.forEach(function(item) {
-
-      const button =
-        item.querySelector(
-          ".faq-question"
-        );
-
-
-      button.addEventListener(
-        "click",
-        function() {
-
-          const isOpen =
-            item.classList.contains(
-              "open"
-            );
-
-
-          /*
-           * Close every other FAQ.
-           */
-
-          faqItems.forEach(
-            function(otherItem) {
-
-              otherItem.classList.remove(
-                "open"
-              );
-
-              const otherButton =
-                otherItem.querySelector(
-                  ".faq-question"
-                );
-
-              otherButton.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-
-            }
-          );
-
-
-          /*
-           * Open clicked FAQ.
-           */
-
-          if (!isOpen) {
-
-            item.classList.add(
-              "open"
-            );
-
-            button.setAttribute(
-              "aria-expanded",
-              "true"
-            );
-
-          }
-
-        }
-      );
-
-    });
-
-  </script>
+<script src="script.js"></script>
 
 </body>
 </html>
