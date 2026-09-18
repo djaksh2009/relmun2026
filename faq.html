@@ -1,335 +1,536 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | RELMUN 2026</title>
 
-  <title>FAQ | RELMUN '26</title>
+    <meta
+        name="description"
+        content="Frequently asked questions about RELMUN 2026."
+    >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-  <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="navbar">
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="site-header">
+
+        <div class="container navbar">
+
+            <a
+                href="index.html"
+                class="nav-brand"
+                aria-label="RELMUN 2026 Home"
+            >
+                <img
+                    src="relmun-logo.png"
+                    alt="RELMUN 2026"
+                >
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav
+                class="nav-links"
+                id="navLinks"
+                aria-label="Main navigation"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="committees.html"
+                    class="nav-link"
+                >
+                    Committees
+                </a>
+
+                <a
+                    href="eb.html"
+                    class="nav-link"
+                >
+                    Executive Board
+                </a>
+
+                <a
+                    href="register.html"
+                    class="nav-link"
+                >
+                    Register
+                </a>
+
+                <a
+                    href="faq.html"
+                    class="nav-link active"
+                >
+                    FAQ
+                </a>
+
+                <a
+                    href="register.html"
+                    class="nav-register"
+                >
+                    Register
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =================================================
+             PAGE HERO
+             ================================================= -->
+
+        <section class="page-hero">
+
+            <div class="container">
+
+                <div class="page-hero-content animate-in">
+
+                    <div class="eyebrow">
+                        RELMUN 2026
+                    </div>
 
-  <div class="nav-container">
+                    <h1 class="page-title">
+                        Frequently Asked
+                        <span class="text-blue">
+                            Questions
+                        </span>
+                    </h1>
 
-    <a href="index.html" class="brand">
+                    <p class="page-description">
+                        Everything you need to know about RELMUN 2026,
+                        registration, committees and the conference.
+                    </p>
 
-      <span class="brand-mark">R</span>
+                </div>
 
-      <span class="brand-text">
-        <strong>RELMUN</strong>
-        <small>'26</small>
-      </span>
+            </div>
 
-    </a>
+        </section>
 
-    <nav class="nav-links">
 
-      <a href="index.html">Home</a>
-      <a href="committees.html">Committees</a>
-      <a href="eb.html">Executive Board</a>
-      <a href="faq.html" class="active">FAQ</a>
+        <!-- =================================================
+             FAQ
+             ================================================= -->
 
-    </nav>
+        <section class="section">
 
-    <a href="register.html" class="nav-register">
-      Register <span>↗</span>
-    </a>
+            <div class="container">
 
-  </div>
+                <div class="faq-layout">
 
-</header>
+                    <div class="faq-intro">
 
+                        <div class="eyebrow">
+                            FAQ
+                        </div>
 
-<main>
+                        <h2 class="section-title">
+                            Got
+                            <span class="text-blue">
+                                questions?
+                            </span>
+                        </h2>
 
-<section class="page-hero">
+                        <p class="section-description">
+                            We've put together answers to the questions
+                            delegates are most likely to have before
+                            registering for RELMUN 2026.
+                        </p>
 
-  <div class="page-hero-inner">
+                        <a
+                            href="mailto:akshithkabilan@gmail.com"
+                            class="btn btn-secondary"
+                        >
+                            Contact the Team
+                        </a>
 
-    <div class="eyebrow">
-      <span class="eyebrow-dot"></span>
-      RELMUN '26 · FREQUENTLY ASKED QUESTIONS
-    </div>
+                    </div>
 
-    <h1>FAQ<span>.</span></h1>
 
-    <p>
-      Everything you need to know before stepping
-      into the conference.
-    </p>
+                    <div
+                        class="faq-list"
+                        id="faqList"
+                    >
 
-  </div>
+                        <!-- FAQ 1 -->
 
-</section>
+                        <div class="faq-item">
 
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
-<section class="faq-section">
+                                <span>
+                                    What is RELMUN?
+                                </span>
 
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
-  <div class="faq-item">
+                            </button>
 
-    <button class="faq-question">
-      <span>What is RELMUN '26?</span>
-      <span>+</span>
-    </button>
+                            <div class="faq-answer">
 
-    <div class="faq-answer">
+                                <p>
+                                    RELMUN stands for Regional Engagement
+                                    & Leadership Model United Nations. It
+                                    is an online Model United Nations
+                                    conference designed around debate,
+                                    diplomacy, research and leadership.
+                                </p>
 
-      <p>
-        RELMUN '26 is an online Model United Nations
-        conference focused on diplomacy, debate,
-        engagement and leadership.
-      </p>
+                            </div>
 
-    </div>
+                        </div>
 
-  </div>
 
+                        <!-- FAQ 2 -->
 
-  <div class="faq-item">
+                        <div class="faq-item">
 
-    <button class="faq-question">
-      <span>When is RELMUN '26?</span>
-      <span>+</span>
-    </button>
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
-    <div class="faq-answer">
+                                <span>
+                                    When is RELMUN 2026?
+                                </span>
 
-      <p>
-        The conference will take place on
-        26–27 December 2026.
-      </p>
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
-    </div>
+                            </button>
 
-  </div>
+                            <div class="faq-answer">
 
+                                <p>
+                                    RELMUN 2026 will take place on
+                                    <strong>26–27 December 2026</strong>.
+                                </p>
 
-  <div class="faq-item">
+                            </div>
 
-    <button class="faq-question">
-      <span>Is the conference online?</span>
-      <span>+</span>
-    </button>
+                        </div>
 
-    <div class="faq-answer">
 
-      <p>
-        Yes. RELMUN '26 is an entirely online conference.
-      </p>
+                        <!-- FAQ 3 -->
 
-    </div>
+                        <div class="faq-item">
 
-  </div>
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
+                                <span>
+                                    Is the conference online?
+                                </span>
 
-  <div class="faq-item">
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
-    <button class="faq-question">
-      <span>Is registration free?</span>
-      <span>+</span>
-    </button>
+                            </button>
 
-    <div class="faq-answer">
+                            <div class="faq-answer">
 
-      <p>
-        Yes. Delegate registration for RELMUN '26
-        is completely free.
-      </p>
+                                <p>
+                                    Yes. RELMUN 2026 is an entirely
+                                    online conference. Delegates will
+                                    participate remotely during the
+                                    conference dates.
+                                </p>
 
-    </div>
+                            </div>
 
-  </div>
+                        </div>
 
 
-  <div class="faq-item">
+                        <!-- FAQ 4 -->
 
-    <button class="faq-question">
-      <span>When do delegate registrations open?</span>
-      <span>+</span>
-    </button>
+                        <div class="faq-item">
 
-    <div class="faq-answer">
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
-      <p>
-        Delegate registrations open on
-        1 October 2026.
-      </p>
+                                <span>
+                                    When do registrations open?
+                                </span>
 
-    </div>
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
-  </div>
+                            </button>
 
+                            <div class="faq-answer">
 
-  <div class="faq-item">
+                                <p>
+                                    Delegate registrations open on
+                                    <strong>1 October 2026</strong>.
+                                    The registration form will not accept
+                                    submissions before that date.
+                                </p>
 
-    <button class="faq-question">
-      <span>Which committees are available?</span>
-      <span>+</span>
-    </button>
+                            </div>
 
-    <div class="faq-answer">
+                        </div>
 
-      <p>
-        RELMUN '26 currently features the United Nations
-        Security Council (UNSC), United Nations Human
-        Rights Council (UNHRC), and United Nations Office
-        on Drugs and Crime (UNODC).
-      </p>
 
-    </div>
+                        <!-- FAQ 5 -->
 
-  </div>
+                        <div class="faq-item">
 
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
-  <div class="faq-item">
+                                <span>
+                                    Is registration free?
+                                </span>
 
-    <button class="faq-question">
-      <span>Can I choose any country?</span>
-      <span>+</span>
-    </button>
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
-    <div class="faq-answer">
+                            </button>
 
-      <p>
-        You can indicate your committee preferences during
-        registration. Country and portfolio allocation will
-        be handled according to the conference's allocation
-        process.
-      </p>
+                            <div class="faq-answer">
 
-    </div>
+                                <p>
+                                    Yes. Delegate registration for
+                                    RELMUN 2026 is free of cost.
+                                </p>
 
-  </div>
+                            </div>
 
+                        </div>
 
-  <div class="faq-item">
 
-    <button class="faq-question">
-      <span>Do I need prior MUN experience?</span>
-      <span>+</span>
-    </button>
+                        <!-- FAQ 6 -->
 
-    <div class="faq-answer">
+                        <div class="faq-item">
 
-      <p>
-        No. Delegates with different levels of MUN
-        experience can participate. The registration form
-        simply asks about your previous experience so the
-        organising team has the relevant information.
-      </p>
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
-    </div>
+                                <span>
+                                    Which committees are available?
+                                </span>
 
-  </div>
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
+                            </button>
 
-  <div class="faq-item">
+                            <div class="faq-answer">
 
-    <button class="faq-question">
-      <span>How can I contact RELMUN?</span>
-      <span>+</span>
-    </button>
+                                <p>
+                                    RELMUN 2026 currently features:
+                                </p>
 
-    <div class="faq-answer">
+                                <ul>
+                                    <li>United Nations Security Council (UNSC)</li>
+                                    <li>United Nations Human Rights Council (UNHRC)</li>
+                                    <li>United Nations Office on Drugs and Crime (UNODC)</li>
+                                </ul>
 
-      <p>
-        You can contact the organising team at
-        akshithkabilan@gmail.com or reach RELMUN through
-        Instagram at @relmun.official.
-      </p>
+                                <p>
+                                    Any additional committee should only
+                                    be considered official if announced
+                                    by the RELMUN organising team.
+                                </p>
 
-    </div>
+                            </div>
 
-  </div>
+                        </div>
 
 
-</section>
+                        <!-- FAQ 7 -->
 
-</main>
+                        <div class="faq-item">
 
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
-<footer class="footer">
+                                <span>
+                                    How do I register?
+                                </span>
 
-  <div class="footer-top">
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
-    <div class="footer-brand">
+                            </button>
 
-      <div class="footer-logo">
+                            <div class="faq-answer">
 
-        <span class="brand-mark">R</span>
+                                <p>
+                                    Visit the
+                                    <a href="register.html">
+                                        registration page
+                                    </a>
+                                    after registrations open on
+                                    1 October 2026 and complete the
+                                    registration form.
+                                </p>
 
-        <span>
-          <strong>RELMUN</strong>
-          <small>'26</small>
-        </span>
+                            </div>
 
-      </div>
+                        </div>
 
-      <p>
-        Regional Engagement & Leadership
-        Model United Nations.
-      </p>
 
-    </div>
+                        <!-- FAQ 8 -->
 
+                        <div class="faq-item">
 
-    <div class="footer-links">
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
-      <div>
+                                <span>
+                                    Will certificates be provided?
+                                </span>
 
-        <span class="footer-heading">EXPLORE</span>
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
-        <a href="index.html">Home</a>
-        <a href="committees.html">Committees</a>
-        <a href="eb.html">Executive Board</a>
-        <a href="register.html">Registration</a>
+                            </button>
 
-      </div>
+                            <div class="faq-answer">
 
+                                <p>
+                                    Certificates will be provided to
+                                    participants as specified by the
+                                    RELMUN organising team.
+                                </p>
 
-      <div>
+                            </div>
 
-        <span class="footer-heading">CONNECT</span>
+                        </div>
 
-        <a href="https://instagram.com/relmun.official"
-           target="_blank"
-           rel="noopener noreferrer">
-          Instagram ↗
-        </a>
 
-        <a href="mailto:akshithkabilan@gmail.com">
-          Email ↗
-        </a>
+                        <!-- FAQ 9 -->
 
-      </div>
+                        <div class="faq-item">
 
-    </div>
+                            <button
+                                class="faq-question"
+                                type="button"
+                                aria-expanded="false"
+                            >
 
-  </div>
+                                <span>
+                                    How can I contact the team?
+                                </span>
 
+                                <span
+                                    class="faq-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
 
-  <div class="footer-bottom">
-    <span>© 2026 RELMUN</span>
-    <span>26–27 DECEMBER 2026 · ONLINE</span>
-    <span>RELMUN '26</span>
-  </div>
+                            </button>
 
-</footer>
+                            <div class="faq-answer">
 
-
-<script src="script.js"></script>
-
-</body>
-</html>
+                                <p>
+                                    You can contact the RELMUN team at
+                                    <a href="mailto:akshithkabilan@gmail.com">
+                                        akshithkabilan@gmail.com
+                                    </a>
+                                    or reach out through our official
+                                    Instagram account
+                                    <a
+                                        href="https://www.instagram.com/relmun.official/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        @relmun.offici
+```
