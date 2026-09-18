@@ -1,1554 +1,848 @@
-```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="description" content="RELMUN 2026 — Regional Engagement & Leadership Model United Nations. 26–27 December 2026. Online.">
 
-    <meta
-        name="description"
-        content="RELMUN 2026 — Regional Engagement & Leadership Model United Nations. An online Model United Nations conference on 26–27 December 2026."
-    >
+<title>RELMUN 2026 — Regional Engagement & Leadership MUN</title>
 
-    <meta
-        name="theme-color"
-        content="#080808"
-    >
-
-    <title>RELMUN 2026 — Regional Engagement & Leadership MUN</title>
-
-    <!-- Premium sans-serif typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+<link rel="icon" href="relmun-logo.png" type="image/png">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
-
 <header class="site-header">
 
-    <nav
-        class="navbar container"
-        aria-label="Main navigation"
-    >
+<nav class="navbar container">
 
-        <a
-            href="index.html"
-            class="nav-brand"
-            aria-label="RELMUN 2026 home"
-        >
-            <!--
-                If your project already contains a RELMUN logo,
-                replace only this src with the existing logo path.
-            -->
-            <span
-                style="
-                    color:#F1ECE0;
-                    font-family:'Space Grotesk',sans-serif;
-                    font-size:22px;
-                    font-weight:700;
-                    letter-spacing:-0.06em;
-                "
-            >
-                RELMUN<span style="color:#1846FF;">26</span>
-            </span>
-        </a>
+<a class="nav-logo" href="index.html">
+<img src="relmun-logo.png" alt="RELMUN 2026">
+</a>
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-            aria-controls="navLinks"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+<button
+class="menu-toggle"
+id="menuToggle"
+aria-label="Open menu"
+aria-expanded="false"
+>
+<span></span>
+<span></span>
+<span></span>
+</button>
 
-        <div
-            class="nav-links"
-            id="navLinks"
-        >
+<div class="nav-links" id="navLinks">
 
-            <a
-                href="index.html"
-                class="nav-link active"
-            >
-                Home
-            </a>
+<a class="nav-link active" href="index.html">Home</a>
 
-            <a
-                href="committees.html"
-                class="nav-link"
-            >
-                Committees
-            </a>
+<a class="nav-link" href="committees.html">
+Committees
+</a>
 
-            <a
-                href="eb.html"
-                class="nav-link"
-            >
-                Executive Board
-            </a>
+<a class="nav-link" href="eb.html">
+Executive Board
+</a>
 
-            <a
-                href="register.html"
-                class="nav-link"
-            >
-                Register
-            </a>
+<a class="nav-link" href="register.html">
+Register
+</a>
 
-            <a
-                href="faq.html"
-                class="nav-link"
-            >
-                FAQ
-            </a>
+<a class="nav-link" href="faq.html">
+FAQ
+</a>
 
-            <a
-                href="register.html"
-                class="nav-register"
-            >
-                REGISTER
-            </a>
+<a class="nav-register" href="register.html">
+REGISTER
+</a>
 
-        </div>
+</div>
 
-    </nav>
+</nav>
 
 </header>
 
 
 <main>
 
-<!-- =========================================================
-     HERO
-     ========================================================= -->
+<section class="hero" id="home">
 
-<section class="relmun-home-hero">
+<div class="hero-grid"></div>
 
-    <div class="container">
+<div class="hero-content">
 
-        <div
-            class="relmun-hero-grid"
-            style="
-                min-height:calc(100vh - 78px);
-                display:grid;
-                grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);
-                align-items:center;
-                gap:70px;
-                padding:70px 0;
-            "
-        >
+<span class="hero-kicker">
+REGIONAL ENGAGEMENT & LEADERSHIP
+</span>
 
-            <div>
+<h1>
+REL<em>MUN</em>
+<span class="hero-year">26</span>
+</h1>
 
-                <div class="eyebrow">
-                    Regional Engagement & Leadership
-                </div>
+<div class="hero-bottom">
 
-                <h1
-                    style="
-                        margin:0;
-                        max-width:900px;
-                        font-family:'Space Grotesk','Inter',sans-serif;
-                        font-size:clamp(68px,11vw,150px);
-                        font-weight:700;
-                        line-height:.82;
-                        letter-spacing:-.075em;
-                    "
-                >
-                    RELMUN
-                    <span style="color:#1846FF;">26</span>
-                </h1>
+<p>
+A two-day online conference built around
+<strong>
+ideas, diplomacy, engagement & leadership.
+</strong>
+</p>
 
-                <div
-                    style="
-                        display:flex;
-                        align-items:center;
-                        gap:14px;
-                        margin-top:34px;
-                    "
-                >
+<div class="hero-meta">
 
-                    <span
-                        style="
-                            width:42px;
-                            height:1px;
-                            background:#C79A2B;
-                        "
-                    ></span>
+<span>
+26–27 DECEMBER 2026
+</span>
 
-                    <span
-                        style="
-                            color:#C79A2B;
-                            font-size:12px;
-                            font-weight:700;
-                            letter-spacing:.13em;
-                            text-transform:uppercase;
-                        "
-                    >
-                        Model United Nations
-                    </span>
+<span>
+ONLINE CONFERENCE
+</span>
 
-                </div>
+</div>
 
-                <p
-                    style="
-                        max-width:650px;
-                        margin:30px 0 0;
-                        font-size:clamp(16px,2vw,20px);
-                        line-height:1.7;
-                    "
-                >
-                    A platform for diplomacy, leadership and
-                    meaningful engagement — bringing delegates
-                    together for two days of debate, negotiation
-                    and international affairs.
-                </p>
+</div>
 
-                <div
-                    class="btn-row"
-                    style="margin-top:38px;"
-                >
+</div>
 
-                    <a
-                        href="register.html"
-                        class="btn btn-primary"
-                    >
-                        Register for RELMUN
-                        <span aria-hidden="true">↗</span>
-                    </a>
-
-                    <a
-                        href="committees.html"
-                        class="btn btn-secondary"
-                    >
-                        Explore Committees
-                        <span aria-hidden="true">→</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Hero information panel -->
-
-            <aside
-                style="
-                    position:relative;
-                    padding:30px;
-                    background:#0D0D0D;
-                    border:1px solid rgba(241,236,224,.12);
-                "
-            >
-
-                <div
-                    style="
-                        display:flex;
-                        justify-content:space-between;
-                        align-items:center;
-                        padding-bottom:20px;
-                        border-bottom:1px solid rgba(241,236,224,.12);
-                    "
-                >
-
-                    <span
-                        style="
-                            color:#C79A2B;
-                            font-size:10px;
-                            font-weight:700;
-                            letter-spacing:.16em;
-                        "
-                    >
-                        RELMUN / 2026
-                    </span>
-
-                    <span
-                        style="
-                            width:7px;
-                            height:7px;
-                            border-radius:50%;
-                            background:#1846FF;
-                        "
-                    ></span>
-
-                </div>
-
-                <div style="padding:36px 0 20px;">
-
-                    <span
-                        style="
-                            display:block;
-                            color:rgba(241,236,224,.42);
-                            font-size:10px;
-                            font-weight:700;
-                            letter-spacing:.15em;
-                            text-transform:uppercase;
-                            margin-bottom:13px;
-                        "
-                    >
-                        Conference dates
-                    </span>
-
-                    <strong
-                        style="
-                            display:block;
-                            color:#F1ECE0;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:clamp(34px,4vw,48px);
-                            line-height:1;
-                            letter-spacing:-.05em;
-                        "
-                    >
-                        26–27
-                    </strong>
-
-                    <strong
-                        style="
-                            display:block;
-                            color:#F1ECE0;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:clamp(34px,4vw,48px);
-                            line-height:1;
-                            letter-spacing:-.05em;
-                        "
-                    >
-                        DEC 2026
-                    </strong>
-
-                </div>
-
-                <div
-                    style="
-                        display:grid;
-                        grid-template-columns:1fr 1fr;
-                        border-top:1px solid rgba(241,236,224,.12);
-                    "
-                >
-
-                    <div
-                        style="
-                            padding:20px 15px 5px 0;
-                            border-right:1px solid rgba(241,236,224,.12);
-                        "
-                    >
-                        <span
-                            style="
-                                display:block;
-                                color:rgba(241,236,224,.42);
-                                font-size:9px;
-                                font-weight:700;
-                                letter-spacing:.13em;
-                                text-transform:uppercase;
-                                margin-bottom:8px;
-                            "
-                        >
-                            Format
-                        </span>
-
-                        <span
-                            style="
-                                color:#F1ECE0;
-                                font-size:14px;
-                                font-weight:600;
-                            "
-                        >
-                            Online
-                        </span>
-                    </div>
-
-                    <div
-                        style="
-                            padding:20px 0 5px 15px;
-                        "
-                    >
-                        <span
-                            style="
-                                display:block;
-                                color:rgba(241,236,224,.42);
-                                font-size:9px;
-                                font-weight:700;
-                                letter-spacing:.13em;
-                                text-transform:uppercase;
-                                margin-bottom:8px;
-                            "
-                        >
-                            Registration
-                        </span>
-
-                        <span
-                            style="
-                                color:#F1ECE0;
-                                font-size:14px;
-                                font-weight:600;
-                            "
-                        >
-                            01 OCT
-                        </span>
-                    </div>
-
-                </div>
-
-            </aside>
-
-        </div>
-
-    </div>
+<div class="hero-scroll">
+<span>SCROLL TO EXPLORE</span>
+<i class="scroll-line"></i>
+</div>
 
 </section>
 
 
-<!-- =========================================================
-     COUNTDOWN
-     ========================================================= -->
+<section class="section" id="about">
 
-<section
-    class="section"
-    style="padding-top:0;"
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-index">
+01 / ABOUT
+</span>
+
+<span class="section-line"></span>
+
+<span class="section-caption">
+THE CONFERENCE
+</span>
+
+</div>
+
+
+<div class="about-layout">
+
+<div>
+
+<span class="eyebrow">
+WHY RELMUN?
+</span>
+
+<h2>
+MORE THAN<br>
+<em>A DEBATE.</em>
+</h2>
+
+</div>
+
+
+<div class="about-content">
+
+<p class="large-copy">
+RELMUN is where engagement meets leadership.
+</p>
+
+<p>
+Regional Engagement & Leadership Model United Nations
+brings delegates together for two days of diplomacy,
+discussion, negotiation and competition.
+</p>
+
+<p>
+From international affairs to parliamentary debate
+and a high-pressure IPL auction, every room is designed
+to offer a distinct experience.
+</p>
+
+<a
+class="text-link"
+href="committees.html"
+>
+EXPLORE THE SIX COMMITTEES →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="about-stats">
+
+<div class="stat">
+<strong>02</strong>
+<span>DAYS</span>
+</div>
+
+<div class="stat">
+<strong>06</strong>
+<span>COMMITTEES</span>
+</div>
+
+<div class="stat">
+<strong>01</strong>
+<span>ONLINE CONFERENCE</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="committees">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-index">
+02 / COMMITTEES
+</span>
+
+<span class="section-line"></span>
+
+<span class="section-caption">
+SIX ROOMS
+</span>
+
+</div>
+
+
+<div class="committees-heading">
+
+<div>
+
+<span class="eyebrow">
+SIX ROOMS. SIX EXPERIENCES.
+</span>
+
+<h2>
+FIND YOUR<br>
+<em>ARENA.</em>
+</h2>
+
+</div>
+
+<a
+class="text-link"
+href="committees.html"
+>
+VIEW ALL →
+</a>
+
+</div>
+
+
+<div class="committee-list">
+
+<a
+class="committee-item"
+href="committee.html?committee=unsc"
+>
+<span class="committee-number">01</span>
+
+<div class="committee-name">
+<strong>UNSC</strong>
+<span>UNITED NATIONS SECURITY COUNCIL</span>
+</div>
+
+<span class="committee-arrow">↗</span>
+</a>
+
+
+<a
+class="committee-item"
+href="committee.html?committee=unhrc"
+>
+<span class="committee-number">02</span>
+
+<div class="committee-name">
+<strong>UNHRC</strong>
+<span>UNITED NATIONS HUMAN RIGHTS COUNCIL</span>
+</div>
+
+<span class="committee-arrow">↗</span>
+</a>
+
+
+<a
+class="committee-item"
+href="committee.html?committee=unodc"
+>
+<span class="committee-number">03</span>
+
+<div class="committee-name">
+<strong>UNODC</strong>
+<span>UNITED NATIONS OFFICE ON DRUGS & CRIME</span>
+</div>
+
+<span class="committee-arrow">↗</span>
+</a>
+
+
+<a
+class="committee-item"
+href="committee.html?committee=aippm"
+>
+<span class="committee-number">04</span>
+
+<div class="committee-name">
+<strong>AIPPM</strong>
+<span>ALL INDIA POLITICAL PARTIES MEET</span>
+</div>
+
+<span class="committee-arrow">↗</span>
+</a>
+
+
+<a
+class="committee-item"
+href="committee.html?committee=unw"
+>
+<span class="committee-number">05</span>
+
+<div class="committee-name">
+<strong>UNW</strong>
+<span>UN WOMEN</span>
+</div>
+
+<span class="committee-arrow">↗</span>
+</a>
+
+
+<a
+class="committee-item"
+href="committee.html?committee=ipla"
+>
+<span class="committee-number">06</span>
+
+<div class="committee-name">
+<strong>IPLA</strong>
+<span>INDIAN PREMIER LEAGUE AUCTION</span>
+</div>
+
+<span class="committee-arrow">↗</span>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="team">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-index">
+03 / ORGANIZING COMMITTEE
+</span>
+
+<span class="section-line"></span>
+
+<span class="section-caption">
+THE PEOPLE
+</span>
+
+</div>
+
+
+<div class="committees-heading">
+
+<div>
+
+<span class="eyebrow">
+THE TEAM BEHIND RELMUN
+</span>
+
+<h2>
+BUILT TO<br>
+<em>LEAD.</em>
+</h2>
+
+</div>
+
+<a
+class="text-link"
+href="eb.html#organizing"
+>
+MEET THE TEAM →
+</a>
+
+</div>
+
+
+<div class="team-grid">
+
+<article class="team-card">
+<span class="team-role">
+SECRETARY-GENERAL
+</span>
+<h3>
+AKSHITH<br>
+KABILAN
+</h3>
+</article>
+
+
+<article class="team-card">
+<span class="team-role">
+DEPUTY SECRETARY-GENERAL
+</span>
+<h3>
+S.<br>
+SHREYAAAS
+</h3>
+</article>
+
+
+<article class="team-card">
+<span class="team-role">
+DIRECTOR GENERAL
+</span>
+<h3>
+LAASYA<br>
+VIKRAM
+</h3>
+</article>
+
+
+<article class="team-card">
+<span class="team-role">
+HEAD OF ADMINISTRATION
+</span>
+<h3>
+ABIMAYUR<br>
+R
+</h3>
+</article>
+
+
+<article class="team-card">
+<span class="team-role">
+CHIEF ADVISOR
+</span>
+<h3>
+AASHI<br>
+KUSHWAHA
+</h3>
+</article>
+
+
+<article class="team-card">
+<span class="team-role">
+USG — DELEGATE AFFAIRS
+</span>
+<h3>
+MADHAV<br>
+BHARDWAJ
+</h3>
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-index">
+04 / EXECUTIVE BOARD
+</span>
+
+<span class="section-line"></span>
+
+<span class="section-caption">
+THE DAIS
+</span>
+
+</div>
+
+
+<div class="eb-layout">
+
+<div>
+
+<span class="eyebrow">
+EXECUTIVE BOARD
+</span>
+
+<h2>
+LEAD<br>
+THE <em>ROOM.</em>
+</h2>
+
+</div>
+
+
+<div class="eb-content">
+
+<p class="large-copy">
+The people who turn a committee into an experience.
+</p>
+
+<p>
+Committee-specific EB profiles will be displayed
+once officially announced.
+</p>
+
+<a
+class="text-link"
+href="eb.html"
+>
+VIEW EXECUTIVE BOARD →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-index">
+05 / REGISTRATION
+</span>
+
+<span class="section-line"></span>
+
+<span class="section-caption">
+01 OCTOBER 2026
+</span>
+
+</div>
+
+
+<div class="register-panel">
+
+<span class="eyebrow">
+DELEGATE REGISTRATION
+</span>
+
+<h2>
+READY TO<br>
+<em>ENTER?</em>
+</h2>
+
+<p
+class="registration-description"
+id="registrationDescription"
+>
+Registrations open on 1 October 2026.
+</p>
+
+
+<div id="registrationCountdown">
+
+<div class="countdown-label">
+REGISTRATIONS OPEN IN
+</div>
+
+<div class="countdown">
+
+<div class="countdown-unit">
+<strong id="countdownDays">00</strong>
+<span>DAYS</span>
+</div>
+
+<div class="countdown-unit">
+<strong id="countdownHours">00</strong>
+<span>HOURS</span>
+</div>
+
+<div class="countdown-unit">
+<strong id="countdownMinutes">00</strong>
+<span>MINUTES</span>
+</div>
+
+<div class="countdown-unit">
+<strong id="countdownSeconds">00</strong>
+<span>SECONDS</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div
+class="registration-options"
+id="registrationOptions"
 >
 
-    <div class="container">
+<div class="registration-open-label">
+REGISTRATIONS ARE NOW OPEN
+</div>
 
-        <div
-            style="
-                display:flex;
-                align-items:center;
-                justify-content:space-between;
-                gap:30px;
-                margin-bottom:25px;
-            "
-        >
+<p class="registration-description">
+Choose your preferred registration method.
+</p>
 
-            <span class="eyebrow" style="margin-bottom:0;">
-                Until opening night
-            </span>
 
-            <span
-                style="
-                    color:rgba(241,236,224,.35);
-                    font-size:10px;
-                    font-weight:700;
-                    letter-spacing:.14em;
-                    text-transform:uppercase;
-                "
-            >
-                26.12.2026
-            </span>
+<div class="registration-options-grid">
 
-        </div>
+<a
+class="registration-option featured"
+href="https://champarena.co.in/e/relmun2026"
+target="_blank"
+rel="noopener"
+>
+CHAMPARENA ↗
+</a>
 
-        <div
-            class="countdown"
-            id="conferenceCountdown"
-            aria-label="Countdown to RELMUN 2026"
-        >
+<a
+class="registration-option"
+href="register.html"
+>
+RELMUN WEBSITE ↗
+</a>
 
-            <div class="countdown-item">
-                <span
-                    class="countdown-value"
-                    id="countdownDays"
-                >
-                    00
-                </span>
+<a
+class="registration-option"
+href="https://mymun.com/conferences/relmun-2026"
+target="_blank"
+rel="noopener"
+>
+MYMUN ↗
+</a>
 
-                <span class="countdown-label">
-                    Days
-                </span>
-            </div>
+<a
+class="registration-option"
+href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
+target="_blank"
+rel="noopener"
+>
+GAVELLING ↗
+</a>
 
-            <div class="countdown-item">
-                <span
-                    class="countdown-value"
-                    id="countdownHours"
-                >
-                    00
-                </span>
+<a
+class="registration-option"
+href="https://forms.gle/fVu57FN1cZBb6Pdg7"
+target="_blank"
+rel="noopener"
+>
+GOOGLE FORM ↗
+</a>
 
-                <span class="countdown-label">
-                    Hours
-                </span>
-            </div>
+</div>
 
-            <div class="countdown-item">
-                <span
-                    class="countdown-value"
-                    id="countdownMinutes"
-                >
-                    00
-                </span>
+</div>
 
-                <span class="countdown-label">
-                    Minutes
-                </span>
-            </div>
+</div>
 
-            <div class="countdown-item">
-                <span
-                    class="countdown-value"
-                    id="countdownSeconds"
-                >
-                    00
-                </span>
-
-                <span class="countdown-label">
-                    Seconds
-                </span>
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-
-<!-- =========================================================
-     ABOUT
-     ========================================================= -->
 
 <section class="section">
 
-    <div class="container">
+<div class="container">
 
-        <div
-            style="
-                display:grid;
-                grid-template-columns:.55fr 1.45fr;
-                gap:80px;
-                align-items:start;
-            "
-        >
+<div class="section-heading">
 
-            <div>
+<span class="section-index">
+06 / QUESTIONS
+</span>
 
-                <span class="eyebrow">
-                    01 / The Conference
-                </span>
+<span class="section-line"></span>
 
-                <p
-                    style="
-                        max-width:280px;
-                        font-size:13px;
-                        line-height:1.8;
-                    "
-                >
-                    RELMUN is built around meaningful
-                    participation — not simply speaking
-                    for the sake of speaking.
-                </p>
+<span class="section-caption">
+NEED TO KNOW
+</span>
 
-            </div>
+</div>
 
-            <div>
 
-                <h2 class="section-title">
-                    Diplomacy,
-                    <span style="color:#1846FF;">reimagined.</span>
-                </h2>
+<div class="committees-heading">
 
-                <p class="section-description">
-                    RELMUN 2026 brings delegates into a
-                    structured environment where diplomacy,
-                    policy and strategic negotiation meet.
-                    Across six committees, participants will
-                    research complex issues, represent their
-                    assigned portfolios and work towards
-                    substantive outcomes.
-                </p>
+<div>
 
-                <div
-                    style="
-                        display:grid;
-                        grid-template-columns:repeat(3,1fr);
-                        gap:1px;
-                        margin-top:55px;
-                        background:rgba(241,236,224,.12);
-                        border:1px solid rgba(241,236,224,.12);
-                    "
-                >
+<span class="eyebrow">
+BEFORE YOU REGISTER
+</span>
 
-                    <div
-                        style="
-                            padding:25px;
-                            background:#0D0D0D;
-                        "
-                    >
-                        <span
-                            style="
-                                display:block;
-                                color:#C79A2B;
-                                font-size:10px;
-                                font-weight:700;
-                                letter-spacing:.14em;
-                                margin-bottom:15px;
-                            "
-                        >
-                            01
-                        </span>
+<h2>
+GOT<br>
+<em>QUESTIONS?</em>
+</h2>
 
-                        <strong
-                            style="
-                                display:block;
-                                color:#F1ECE0;
-                                font-size:15px;
-                            "
-                        >
-                            Debate
-                        </strong>
-                    </div>
+</div>
 
-                    <div
-                        style="
-                            padding:25px;
-                            background:#0D0D0D;
-                        "
-                    >
-                        <span
-                            style="
-                                display:block;
-                                color:#C79A2B;
-                                font-size:10px;
-                                font-weight:700;
-                                letter-spacing:.14em;
-                                margin-bottom:15px;
-                            "
-                        >
-                            02
-                        </span>
+<a
+class="text-link"
+href="faq.html"
+>
+EXPLORE THE FAQ →
+</a>
 
-                        <strong
-                            style="
-                                display:block;
-                                color:#F1ECE0;
-                                font-size:15px;
-                            "
-                        >
-                            Negotiate
-                        </strong>
-                    </div>
+</div>
 
-                    <div
-                        style="
-                            padding:25px;
-                            background:#0D0D0D;
-                        "
-                    >
-                        <span
-                            style="
-                                display:block;
-                                color:#C79A2B;
-                                font-size:10px;
-                                font-weight:700;
-                                letter-spacing:.14em;
-                                margin-bottom:15px;
-                            "
-                        >
-                            03
-                        </span>
-
-                        <strong
-                            style="
-                                display:block;
-                                color:#F1ECE0;
-                                font-size:15px;
-                            "
-                        >
-                            Lead
-                        </strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     COMMITTEES PREVIEW
-     ========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div
-            class="section-header"
-            style="
-                display:flex;
-                justify-content:space-between;
-                align-items:flex-end;
-                gap:40px;
-            "
-        >
-
-            <div>
-
-                <span class="eyebrow">
-                    02 / Committees
-                </span>
-
-                <h2 class="section-title">
-                    Six rooms.
-                    <br>
-                    <span style="color:#1846FF;">
-                        Infinite debate.
-                    </span>
-                </h2>
-
-            </div>
-
-            <a
-                href="committees.html"
-                class="btn btn-secondary"
-            >
-                View all committees
-                <span aria-hidden="true">↗</span>
-            </a>
-
-        </div>
-
-
-        <div class="committee-grid">
-
-            <a
-                href="committee.html?committee=unsc"
-                class="committee-card"
-            >
-
-                <div class="committee-code">
-                    <span>01 / UNSC</span>
-
-                    <span class="committee-arrow">
-                        ↗
-                    </span>
-                </div>
-
-                <h3 class="committee-name">
-                    United Nations
-                    Security Council
-                </h3>
-
-                <p class="committee-description">
-                    Deliberate on matters concerning
-                    international peace and security.
-                </p>
-
-            </a>
-
-
-            <a
-                href="committee.html?committee=unodc"
-                class="committee-card"
-            >
-
-                <div class="committee-code">
-                    <span>02 / UNODC</span>
-
-                    <span class="committee-arrow">
-                        ↗
-                    </span>
-                </div>
-
-                <h3 class="committee-name">
-                    United Nations Office
-                    on Drugs and Crime
-                </h3>
-
-                <p class="committee-description">
-                    Examine transnational crime,
-                    security and international cooperation.
-                </p>
-
-            </a>
-
-
-            <a
-                href="committee.html?committee=unhrc"
-                class="committee-card"
-            >
-
-                <div class="committee-code">
-                    <span>03 / UNHRC</span>
-
-                    <span class="committee-arrow">
-                        ↗
-                    </span>
-                </div>
-
-                <h3 class="committee-name">
-                    United Nations
-                    Human Rights Council
-                </h3>
-
-                <p class="committee-description">
-                    Engage with contemporary human
-                    rights questions through diplomacy.
-                </p>
-
-            </a>
-
-
-            <a
-                href="committee.html?committee=aippm"
-                class="committee-card"
-            >
-
-                <div class="committee-code">
-                    <span>04 / AIPPM</span>
-
-                    <span class="committee-arrow">
-                        ↗
-                    </span>
-                </div>
-
-                <h3 class="committee-name">
-                    All India Political
-                    Parties Meet
-                </h3>
-
-                <p class="committee-description">
-                    Debate domestic political questions
-                    through a parliamentary simulation.
-                </p>
-
-            </a>
-
-
-            <a
-                href="committee.html?committee=unw"
-                class="committee-card"
-            >
-
-                <div class="committee-code">
-                    <span>05 / UNW</span>
-
-                    <span class="committee-arrow">
-                        ↗
-                    </span>
-                </div>
-
-                <h3 class="committee-name">
-                    UN Women
-                </h3>
-
-                <p class="committee-description">
-                    Address issues surrounding gender
-                    equality and women's empowerment.
-                </p>
-
-            </a>
-
-
-            <a
-                href="committee.html?committee=ipla"
-                class="committee-card"
-            >
-
-                <div class="committee-code">
-                    <span>06 / IPLA</span>
-
-                    <span class="committee-arrow">
-                        ↗
-                    </span>
-                </div>
-
-                <h3 class="committee-name">
-                    IPLA
-                </h3>
-
-                <p class="committee-description">
-                    A dynamic simulation built around
-                    strategy, decision-making and negotiation.
-                </p>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     EXPERIENCE / FEATURES
-     ========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div
-            style="
-                display:grid;
-                grid-template-columns:1fr 1fr;
-                gap:1px;
-                background:rgba(241,236,224,.12);
-                border:1px solid rgba(241,236,224,.12);
-            "
-        >
-
-            <div
-                style="
-                    min-height:390px;
-                    padding:45px;
-                    background:#0D0D0D;
-                "
-            >
-
-                <span class="eyebrow">
-                    03 / The Experience
-                </span>
-
-                <h2
-                    style="
-                        max-width:540px;
-                        margin:0 0 25px;
-                        font-family:'Space Grotesk',sans-serif;
-                        font-size:clamp(36px,5vw,62px);
-                        line-height:.96;
-                        letter-spacing:-.055em;
-                    "
-                >
-                    Come prepared.
-                    <br>
-                    <span style="color:#1846FF;">
-                        Leave sharper.
-                    </span>
-                </h2>
-
-                <p
-                    style="
-                        max-width:500px;
-                        margin:0;
-                        font-size:14px;
-                        line-height:1.8;
-                    "
-                >
-                    From committee strategy to moderated
-                    caucuses, informal negotiation and
-                    resolution-building, RELMUN is designed
-                    to reward preparation and engagement.
-                </p>
-
-            </div>
-
-
-            <div
-                style="
-                    display:grid;
-                    grid-template-rows:repeat(3,1fr);
-                    background:#080808;
-                "
-            >
-
-                <div
-                    style="
-                        display:flex;
-                        align-items:center;
-                        gap:25px;
-                        padding:25px 32px;
-                        border-bottom:1px solid rgba(241,236,224,.12);
-                    "
-                >
-
-                    <span
-                        style="
-                            color:#C79A2B;
-                            font-size:11px;
-                            font-weight:700;
-                        "
-                    >
-                        01
-                    </span>
-
-                    <div>
-                        <strong
-                            style="
-                                display:block;
-                                color:#F1ECE0;
-                                font-size:16px;
-                                margin-bottom:4px;
-                            "
-                        >
-                            Research
-                        </strong>
-
-                        <span
-                            style="
-                                color:rgba(241,236,224,.5);
-                                font-size:12px;
-                            "
-                        >
-                            Understand your agenda.
-                        </span>
-                    </div>
-
-                </div>
-
-
-                <div
-                    style="
-                        display:flex;
-                        align-items:center;
-                        gap:25px;
-                        padding:25px 32px;
-                        border-bottom:1px solid rgba(241,236,224,.12);
-                    "
-                >
-
-                    <span
-                        style="
-                            color:#C79A2B;
-                            font-size:11px;
-                            font-weight:700;
-                        "
-                    >
-                        02
-                    </span>
-
-                    <div>
-                        <strong
-                            style="
-                                display:block;
-                                color:#F1ECE0;
-                                font-size:16px;
-                                margin-bottom:4px;
-                            "
-                        >
-                            Represent
-                        </strong>
-
-                        <span
-                            style="
-                                color:rgba(241,236,224,.5);
-                                font-size:12px;
-                            "
-                        >
-                            Defend your portfolio.
-                        </span>
-                    </div>
-
-                </div>
-
-
-                <div
-                    style="
-                        display:flex;
-                        align-items:center;
-                        gap:25px;
-                        padding:25px 32px;
-                    "
-                >
-
-                    <span
-                        style="
-                            color:#C79A2B;
-                            font-size:11px;
-                            font-weight:700;
-                        "
-                    >
-                        03
-                    </span>
-
-                    <div>
-                        <strong
-                            style="
-                                display:block;
-                                color:#F1ECE0;
-                                font-size:16px;
-                                margin-bottom:4px;
-                            "
-                        >
-                            Negotiate
-                        </strong>
-
-                        <span
-                            style="
-                                color:rgba(241,236,224,.5);
-                                font-size:12px;
-                            "
-                        >
-                            Build meaningful outcomes.
-                        </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     REGISTRATION CTA
-     ========================================================= -->
-
-<section class="cta">
-
-    <div class="container">
-
-        <div class="cta-inner">
-
-            <div>
-
-                <span class="eyebrow">
-                    04 / Registration
-                </span>
-
-                <h2 class="cta-title">
-                    Your seat at the table
-                    starts here.
-                </h2>
-
-                <p class="cta-description">
-                    Delegate registrations open on
-                    <strong style="color:#F1ECE0;">
-                        1 October 2026.
-                    </strong>
-                </p>
-
-            </div>
-
-            <a
-                href="register.html"
-                class="btn btn-primary"
-            >
-                Registration details
-                <span aria-hidden="true">↗</span>
-            </a>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 </main>
 
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
 <footer class="site-footer">
 
-    <div class="container">
+<div class="container">
 
-        <div class="footer-main">
+<div class="footer-main">
 
-            <div class="footer-brand">
+<div>
 
-                <a
-                    href="index.html"
-                    aria-label="RELMUN home"
-                >
-                    <span
-                        style="
-                            display:block;
-                            color:#F1ECE0;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:25px;
-                            font-weight:700;
-                            letter-spacing:-.06em;
-                        "
-                    >
-                        RELMUN<span style="color:#1846FF;">26</span>
-                    </span>
-                </a>
+<a href="index.html">
+<img
+class="footer-logo"
+src="relmun-logo.png"
+alt="RELMUN 2026"
+>
+</a>
 
-                <p class="footer-description">
-                    Regional Engagement & Leadership
-                    Model United Nations.
-                    26–27 December 2026.
-                    Online.
-                </p>
+<p class="footer-description">
+Regional Engagement & Leadership Model United Nations.
+<br>
+26–27 December 2026 · Online.
+</p>
 
-            </div>
+</div>
 
 
-            <div>
+<div>
 
-                <div class="footer-title">
-                    Navigate
-                </div>
+<div class="footer-title">
+NAVIGATE
+</div>
 
-                <div class="footer-links">
+<div class="footer-links">
 
-                    <a
-                        href="index.html"
-                        class="footer-link"
-                    >
-                        Home
-                    </a>
+<a class="footer-link" href="index.html">
+Home
+</a>
 
-                    <a
-                        href="committees.html"
-                        class="footer-link"
-                    >
-                        Committees
-                    </a>
+<a class="footer-link" href="committees.html">
+Committees
+</a>
 
-                    <a
-                        href="eb.html"
-                        class="footer-link"
-                    >
-                        Executive Board
-                    </a>
+<a class="footer-link" href="eb.html">
+Executive Board
+</a>
 
-                    <a
-                        href="register.html"
-                        class="footer-link"
-                    >
-                        Register
-                    </a>
+<a class="footer-link" href="register.html">
+Register
+</a>
 
-                    <a
-                        href="faq.html"
-                        class="footer-link"
-                    >
-                        FAQ
-                    </a>
+<a class="footer-link" href="faq.html">
+FAQ
+</a>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
 
-            <div>
+<div>
 
-                <div class="footer-title">
-                    Contact
-                </div>
+<div class="footer-title">
+CONTACT
+</div>
 
-                <div class="footer-links">
+<div class="footer-links">
 
-                    <a
-                        href="mailto:akshithkabilan@gmail.com"
-                        class="footer-link"
-                    >
-                        Email the team
-                    </a>
+<a
+class="footer-link"
+href="https://www.instagram.com/relmun.official/"
+target="_blank"
+rel="noopener"
+>
+Instagram ↗
+</a>
 
-                    <a
-                        href="https://www.instagram.com/relmun.official/"
-                        class="footer-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Instagram ↗
-                    </a>
+<a
+class="footer-link"
+href="mailto:akshithkabilan@gmail.com"
+>
+akshithkabilan@gmail.com
+</a>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
 
-        <div class="footer-bottom">
+<div class="footer-bottom">
 
-            <span>
-                © 2026 RELMUN. All rights reserved.
-            </span>
+<span>
+© 2026 RELMUN. ALL RIGHTS RESERVED.
+</span>
 
-            <div class="social-links">
+<div class="social-links">
 
-                <a
-                    href="https://www.instagram.com/relmun.official/"
-                    class="social-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="RELMUN on Instagram"
-                >
-                    IG
-                </a>
+<a
+class="social-link"
+href="https://www.instagram.com/relmun.official/"
+target="_blank"
+rel="noopener"
+>
+IG
+</a>
 
-                <a
-                    href="mailto:akshithkabilan@gmail.com"
-                    class="social-link"
-                    aria-label="Email RELMUN"
-                >
-                    @
-                </a>
+<a
+class="social-link"
+href="mailto:akshithkabilan@gmail.com"
+>
+@
+</a>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </footer>
 
 
-<!-- =========================================================
-     MOBILE NAV + COUNTDOWN
-     ========================================================= -->
+<div id="relmun-chatbot"></div>
 
-<script>
-
-(function () {
-
-    "use strict";
-
-
-    /* ---------------------------------------------------------
-       Mobile navigation
-       --------------------------------------------------------- */
-
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const navLinks =
-        document.getElementById("navLinks");
-
-
-    if (menuToggle && navLinks) {
-
-        menuToggle.addEventListener(
-            "click",
-            function () {
-
-                const isOpen =
-                    navLinks.classList.toggle("open");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    isOpen
-                        ? "Close navigation menu"
-                        : "Open navigation menu"
-                );
-
-                document.body.classList.toggle(
-                    "menu-open",
-                    isOpen
-                );
-
-            }
-        );
-
-
-        navLinks
-            .querySelectorAll("a")
-            .forEach(function (link) {
-
-                link.addEventListener(
-                    "click",
-                    function () {
-
-                        navLinks.classList.remove("open");
-
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-                        menuToggle.setAttribute(
-                            "aria-label",
-                            "Open navigation menu"
-                        );
-
-                        document.body.classList.remove(
-                            "menu-open"
-                        );
-
-                    }
-                );
-
-            });
-
-    }
-
-
-    /* ---------------------------------------------------------
-       RELMUN countdown
-       ---------------------------------------------------------
-
-       Uses the visitor's browser time zone.
-
-       Target:
-       26 December 2026, 00:00:00 local browser time.
-       --------------------------------------------------------- */
-
-    const daysElement =
-        document.getElementById("countdownDays");
-
-    const hoursElement =
-        document.getElementById("countdownHours");
-
-    const minutesElement =
-        document.getElementById("countdownMinutes");
-
-    const secondsElement =
-        document.getElementById("countdownSeconds");
-
-
-    function pad(number) {
-
-        return String(number).padStart(2, "0");
-
-    }
-
-
-    function updateCountdown() {
-
-        if (
-            !daysElement ||
-            !hoursElement ||
-            !minutesElement ||
-            !secondsElement
-        ) {
-            return;
-        }
-
-
-        const now =
-            new Date();
-
-
-        /*
-            Construct the target using local browser time.
-            This avoids hard-coding a UTC offset.
-        */
-
-        const target =
-            new Date(
-                now.getFullYear() === 2026
-                    ? 2026
-                    : 2026,
-                11,
-                26,
-                0,
-                0,
-                0,
-                0
-            );
-
-
-        let difference =
-            target.getTime() -
-            now.getTime();
-
-
-        if (difference <= 0) {
-
-            daysElement.textContent = "00";
-            hoursElement.textContent = "00";
-            minutesElement.textContent = "00";
-            secondsElement.textContent = "00";
-
-            return;
-
-        }
-
-
-        const totalSeconds =
-            Math.floor(
-                difference / 1000
-            );
-
-
-        const days =
-            Math.floor(
-                totalSeconds / 86400
-            );
-
-
-        const hours =
-            Math.floor(
-                (totalSeconds % 86400) / 3600
-            );
-
-
-        const minutes =
-            Math.floor(
-                (totalSeconds % 3600) / 60
-            );
-
-
-        const seconds =
-            totalSeconds % 60;
-
-
-        daysElement.textContent =
-            String(days).padStart(2, "0");
-
-        hoursElement.textContent =
-            pad(hours);
-
-        minutesElement.textContent =
-            pad(minutes);
-
-        secondsElement.textContent =
-            pad(seconds);
-
-    }
-
-
-    updateCountdown();
-
-    setInterval(
-        updateCountdown,
-        1000
-    );
-
-
-})();
-
-</script>
-
-
-<!-- =========================================================
-     EXISTING REX CHATBOT
-     =========================================================
-
-     IMPORTANT:
-     This does NOT create a fake chatbot.
-
-     Your existing chatbot.js should be loaded here if that
-     is where the current project expects it.
-
-     Keep the actual existing chatbot.js file and its API
-     connection to /api/chat intact.
-     ========================================================= -->
-
+<script src="script.js"></script>
 <script src="chatbot.js"></script>
 
 </body>
 </html>
-```
