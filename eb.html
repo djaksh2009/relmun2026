@@ -3,27 +3,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Executive Board | RELMUN 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Meet the Executive Board of RELMUN 2026."
+        content="Executive Board and Organizing Committee of RELMUN 2026."
     >
+
+    <meta name="theme-color" content="#080808">
+
+    <title>Team — RELMUN 2026</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
@@ -32,533 +27,575 @@
 
 <body>
 
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
-    <header class="site-header">
+<header class="site-header">
 
-        <div class="container navbar">
+    <nav class="navbar container" aria-label="Main navigation">
+
+        <a
+            href="index.html"
+            class="nav-brand"
+            aria-label="RELMUN 2026 Home"
+        >
+            <span
+                style="
+                    color:#F1ECE0;
+                    font-family:'Space Grotesk',sans-serif;
+                    font-size:22px;
+                    font-weight:700;
+                    letter-spacing:-0.06em;
+                "
+            >
+                RELMUN<span style="color:#1846FF;">26</span>
+            </span>
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <div class="nav-links" id="navLinks">
 
             <a
                 href="index.html"
-                class="nav-brand"
-                aria-label="RELMUN 2026 Home"
+                class="nav-link"
             >
-                <img
-                    src="relmun-logo.png"
-                    alt="RELMUN 2026"
-                >
+                Home
             </a>
 
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                aria-controls="navLinks"
+            <a
+                href="committees.html"
+                class="nav-link"
             >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                Committees
+            </a>
 
-            <nav
-                class="nav-links"
-                id="navLinks"
-                aria-label="Main navigation"
+            <a
+                href="eb.html"
+                class="nav-link active"
             >
+                Executive Board
+            </a>
 
-                <a
-                    href="index.html"
-                    class="nav-link"
-                >
-                    Home
-                </a>
+            <a
+                href="register.html"
+                class="nav-link"
+            >
+                Register
+            </a>
 
-                <a
-                    href="committees.html"
-                    class="nav-link"
-                >
-                    Committees
-                </a>
+            <a
+                href="faq.html"
+                class="nav-link"
+            >
+                FAQ
+            </a>
 
-                <a
-                    href="eb.html"
-                    class="nav-link active"
-                >
-                    Executive Board
-                </a>
-
-                <a
-                    href="register.html"
-                    class="nav-link"
-                >
-                    Register
-                </a>
-
-                <a
-                    href="faq.html"
-                    class="nav-link"
-                >
-                    FAQ
-                </a>
-
-                <a
-                    href="register.html"
-                    class="nav-register"
-                >
-                    Register
-                </a>
-
-            </nav>
+            <a
+                href="register.html"
+                class="nav-register"
+            >
+                REGISTER
+            </a>
 
         </div>
 
-    </header>
+    </nav>
 
+</header>
 
-    <main>
 
-        <!-- =================================================
-             PAGE HERO
-             ================================================= -->
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
 
-        <section class="page-hero">
-
-            <div class="container">
-
-                <div class="page-hero-content animate-in">
-
-                    <div class="eyebrow">
-                        RELMUN 2026
-                    </div>
-
-                    <h1 class="page-title">
-                        Executive
-                        <span class="text-blue">
-                            Board
-                        </span>
-                    </h1>
-
-                    <p class="page-description">
-                        Meet the individuals responsible for guiding
-                        committee proceedings and creating a meaningful
-                        delegate experience at RELMUN 2026.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             EXECUTIVE BOARD
-             ================================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div class="eyebrow">
-                        The Team
-                    </div>
-
-                    <h2 class="section-title">
-                        The people behind
-                        <span class="text-blue">
-                            the dais.
-                        </span>
-                    </h2>
-
-                    <p class="section-description">
-                        Our Executive Board brings together experienced
-                        MUN participants committed to thoughtful debate,
-                        fair moderation and an engaging conference
-                        experience.
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="eb-grid"
-                    id="ebGrid"
-                >
-
-                    <!-- =================================================
-                         EXISTING EB CARDS
-                         
-                         Keep/add the existing EB members here.
-                         The two confirmed team members are included below.
-                         ================================================= -->
-
-
-                    <article class="eb-card">
-
-                        <div class="eb-card-top">
-
-                            <div class="eb-initials">
-                                AK
-                            </div>
-
-                            <div class="eb-status">
-                                RELMUN 2026
-                            </div>
-
-                        </div>
-
-                        <div class="eb-card-body">
-
-                            <h2 class="eb-name">
-                                Aashi Kushwaha
-                            </h2>
-
-                            <p class="eb-position">
-                                Chief Advisor
-                            </p>
-
-                            <p class="eb-description">
-                                Providing strategic guidance and
-                                supporting the conference team in
-                                delivering a smooth and engaging
-                                RELMUN experience.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="eb-card">
-
-                        <div class="eb-card-top">
-
-                            <div class="eb-initials">
-                                MB
-                            </div>
-
-                            <div class="eb-status">
-                                RELMUN 2026
-                            </div>
-
-                        </div>
-
-                        <div class="eb-card-body">
-
-                            <h2 class="eb-name">
-                                Madhav Bhardwaj
-                            </h2>
-
-                            <p class="eb-position">
-                                USG — Delegate Affairs
-                            </p>
-
-                            <p class="eb-description">
-                                Overseeing delegate-related
-                                coordination and helping ensure a
-                                clear and organised experience for
-                                participants.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             EB RESPONSIBILITIES
-             ================================================= -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div class="eyebrow">
-                        Our Approach
-                    </div>
-
-                    <h2 class="section-title">
-                        What the board
-                        <span class="text-blue">
-                            stands for.
-                        </span>
-                    </h2>
-
-                </div>
-
-
-                <div class="card-grid card-grid-3">
-
-                    <article class="card">
-
-                        <div class="card-number">
-                            01
-                        </div>
-
-                        <h3 class="card-title">
-                            Fairness
-                        </h3>
-
-                        <p class="card-description">
-                            Committee proceedings should provide
-                            every delegate with a fair opportunity
-                            to participate and contribute.
-                        </p>
-
-                    </article>
-
-
-                    <article class="card">
-
-                        <div class="card-number">
-                            02
-                        </div>
-
-                        <h3 class="card-title">
-                            Engagement
-                        </h3>
-
-                        <p class="card-description">
-                            We aim to create committees where
-                            research, diplomacy and meaningful
-                            discussion remain at the centre.
-                        </p>
-
-                    </article>
-
-
-                    <article class="card">
-
-                        <div class="card-number">
-                            03
-                        </div>
-
-                        <h3 class="card-title">
-                            Excellence
-                        </h3>
-
-                        <p class="card-description">
-                            From preparation to committee
-                            proceedings, the board works towards
-                            maintaining a professional conference
-                            environment.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             CONTACT / CTA
-             ================================================= -->
-
-        <section class="cta">
-
-            <div class="container">
-
-                <div class="cta-inner">
-
-                    <div>
-
-                        <div class="eyebrow">
-                            RELMUN 2026
-                        </div>
-
-                        <h2 class="cta-title">
-                            Want to be part of
-                            <span class="text-blue">
-                                the conference?
-                            </span>
-                        </h2>
-
-                        <p class="cta-description">
-                            Delegate registrations open on
-                            1 October 2026.
-                        </p>
-
-                    </div>
-
-                    <div class="btn-row">
-
-                        <a
-                            href="register.html"
-                            class="btn btn-primary"
-                        >
-                            Register
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                        <a
-                            href="mailto:akshithkabilan@gmail.com"
-                            class="btn btn-secondary"
-                        >
-                            Contact Team
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
+<main>
 
     <!-- =====================================================
-         FOOTER
+         HERO
          ===================================================== -->
 
-    <footer class="site-footer">
+    <section class="page-hero">
 
         <div class="container">
 
-            <div class="footer-main">
+            <span class="eyebrow">
+                RELMUN / 2026 / TEAM
+            </span>
 
-                <div class="footer-brand">
+            <h1 class="page-title">
+                The people
+                <span style="color:#1846FF;">
+                    behind RELMUN.
+                </span>
+            </h1>
 
-                    <a
-                        href="index.html"
-                        aria-label="RELMUN 2026 Home"
+            <p class="page-lead">
+                Meet the Executive Board and Organizing Committee
+                working behind the scenes to bring RELMUN 2026
+                together.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXECUTIVE BOARD
+         ===================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div style="margin-bottom:40px;">
+
+                <span class="eyebrow">
+                    01 / EXECUTIVE BOARD
+                </span>
+
+                <h2
+                    style="
+                        margin:0 0 15px;
+                        color:#F1ECE0;
+                        font-family:'Space Grotesk',sans-serif;
+                        font-size:clamp(34px,5vw,58px);
+                        line-height:.98;
+                        letter-spacing:-.055em;
+                    "
+                >
+                    Executive
+                    <span style="color:#1846FF;">
+                        Board
+                    </span>
+                </h2>
+
+                <p
+                    style="
+                        max-width:650px;
+                        margin:0;
+                        color:rgba(241,236,224,.56);
+                        font-size:14px;
+                        line-height:1.8;
+                    "
+                >
+                    The Executive Board will guide committee
+                    proceedings, moderate debate and ensure that
+                    delegates experience a structured and engaging
+                    conference.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 EB MEMBERS
+                 
+                 IMPORTANT:
+                 Keep the existing EB members from the project here.
+                 Do not put Aashi or Madhav in this section.
+                 ================================================= -->
+
+            <div
+                id="executiveBoardGrid"
+                style="
+                    display:grid;
+                    grid-template-columns:repeat(3,minmax(0,1fr));
+                    gap:18px;
+                "
+            >
+
+                <!--
+                    Existing Executive Board members belong here.
+
+                    The previous version of this page incorrectly
+                    removed existing members. Their exact names,
+                    positions and committee assignments should be
+                    retained from the existing project.
+
+                    This empty state is intentional rather than
+                    inventing people or positions.
+                -->
+
+                <div
+                    id="ebEmptyState"
+                    style="
+                        grid-column:1/-1;
+                        padding:45px;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                    "
+                >
+
+                    <span class="eyebrow">
+                        EXECUTIVE BOARD
+                    </span>
+
+                    <p
+                        style="
+                            max-width:650px;
+                            margin:0;
+                            color:rgba(241,236,224,.52);
+                            font-size:14px;
+                            line-height:1.8;
+                        "
                     >
-                        <img
-                            src="relmun-logo.png"
-                            alt="RELMUN 2026"
-                        >
-                    </a>
-
-                    <p class="footer-description">
-                        Regional Engagement & Leadership Model United
-                        Nations — an online conference taking place on
-                        26–27 December 2026.
+                        Executive Board profiles will appear here
+                        using the existing RELMUN team information.
                     </p>
-
-                </div>
-
-
-                <div>
-
-                    <div class="footer-title">
-                        Navigate
-                    </div>
-
-                    <div class="footer-links">
-
-                        <a
-                            href="index.html"
-                            class="footer-link"
-                        >
-                            Home
-                        </a>
-
-                        <a
-                            href="committees.html"
-                            class="footer-link"
-                        >
-                            Committees
-                        </a>
-
-                        <a
-                            href="eb.html"
-                            class="footer-link"
-                        >
-                            Executive Board
-                        </a>
-
-                        <a
-                            href="register.html"
-                            class="footer-link"
-                        >
-                            Register
-                        </a>
-
-                        <a
-                            href="faq.html"
-                            class="footer-link"
-                        >
-                            FAQ
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div>
-
-                    <div class="footer-title">
-                        Contact
-                    </div>
-
-                    <div class="footer-links">
-
-                        <a
-                            href="https://www.instagram.com/relmun.official/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="footer-link"
-                        >
-                            Instagram — @relmun.official
-                        </a>
-
-                        <a
-                            href="mailto:akshithkabilan@gmail.com"
-                            class="footer-link"
-                        >
-                            akshithkabilan@gmail.com
-                        </a>
-
-                    </div>
 
                 </div>
 
             </div>
 
+        </div>
 
-            <div class="footer-bottom">
+    </section>
 
-                <span>
-                    © 2026 RELMUN. All rights reserved.
+
+    <!-- =====================================================
+         ORGANIZING COMMITTEE
+         ===================================================== -->
+
+    <section
+        class="section"
+        style="
+            padding-top:20px;
+        "
+    >
+
+        <div class="container">
+
+            <div style="margin-bottom:40px;">
+
+                <span class="eyebrow">
+                    02 / ORGANIZING COMMITTEE
                 </span>
 
-                <div class="social-links">
+                <h2
+                    style="
+                        margin:0 0 15px;
+                        color:#F1ECE0;
+                        font-family:'Space Grotesk',sans-serif;
+                        font-size:clamp(34px,5vw,58px);
+                        line-height:.98;
+                        letter-spacing:-.055em;
+                    "
+                >
+                    Organizing
+                    <span style="color:#C79A2B;">
+                        Committee
+                    </span>
+                </h2>
 
-                    <a
-                        href="https://www.instagram.com/relmun.official/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-link"
-                        aria-label="RELMUN Instagram"
+                <p
+                    style="
+                        max-width:650px;
+                        margin:0;
+                        color:rgba(241,236,224,.56);
+                        font-size:14px;
+                        line-height:1.8;
+                    "
+                >
+                    The organizing team handles the planning,
+                    delegate experience, coordination and operations
+                    that keep RELMUN moving.
+                </p>
+
+            </div>
+
+
+            <div
+                style="
+                    display:grid;
+                    grid-template-columns:repeat(3,minmax(0,1fr));
+                    gap:18px;
+                "
+            >
+
+                <!-- =================================================
+                     AASHI
+                     ================================================= -->
+
+                <article
+                    class="team-card"
+                    style="
+                        position:relative;
+                        min-height:290px;
+                        padding:30px;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                        overflow:hidden;
+                    "
+                >
+
+                    <div
+                        style="
+                            position:absolute;
+                            top:0;
+                            right:0;
+                            width:90px;
+                            height:90px;
+                            border-top:1px solid rgba(199,154,43,.7);
+                            border-right:1px solid rgba(199,154,43,.7);
+                        "
+                    ></div>
+
+
+                    <div
+                        style="
+                            width:62px;
+                            height:62px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            margin-bottom:45px;
+                            border:1px solid rgba(199,154,43,.45);
+                            color:#C79A2B;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:19px;
+                            font-weight:700;
+                        "
                     >
-                        IG
-                    </a>
+                        AK
+                    </div>
+
+
+                    <span
+                        style="
+                            display:block;
+                            margin-bottom:9px;
+                            color:#C79A2B;
+                            font-size:9px;
+                            font-weight:700;
+                            letter-spacing:.15em;
+                            text-transform:uppercase;
+                        "
+                    >
+                        Chief Advisor
+                    </span>
+
+
+                    <h3
+                        style="
+                            margin:0;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:25px;
+                            line-height:1.1;
+                            letter-spacing:-.035em;
+                        "
+                    >
+                        Aashi Kushwaha
+                    </h3>
+
+                </article>
+
+
+                <!-- =================================================
+                     MADHAV
+                     ================================================= -->
+
+                <article
+                    class="team-card"
+                    style="
+                        position:relative;
+                        min-height:290px;
+                        padding:30px;
+                        background:#0D0D0D;
+                        border:1px solid rgba(241,236,224,.12);
+                        overflow:hidden;
+                    "
+                >
+
+                    <div
+                        style="
+                            position:absolute;
+                            top:0;
+                            right:0;
+                            width:90px;
+                            height:90px;
+                            border-top:1px solid rgba(24,70,255,.7);
+                            border-right:1px solid rgba(24,70,255,.7);
+                        "
+                    ></div>
+
+
+                    <div
+                        style="
+                            width:62px;
+                            height:62px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            margin-bottom:45px;
+                            border:1px solid rgba(24,70,255,.5);
+                            color:#1846FF;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:19px;
+                            font-weight:700;
+                        "
+                    >
+                        MB
+                    </div>
+
+
+                    <span
+                        style="
+                            display:block;
+                            margin-bottom:9px;
+                            color:#1846FF;
+                            font-size:9px;
+                            font-weight:700;
+                            letter-spacing:.15em;
+                            text-transform:uppercase;
+                        "
+                    >
+                        USG — Delegate Affairs
+                    </span>
+
+
+                    <h3
+                        style="
+                            margin:0;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:25px;
+                            line-height:1.1;
+                            letter-spacing:-.035em;
+                        "
+                    >
+                        Madhav Bhardwaj
+                    </h3>
+
+                </article>
+
+
+                <!-- =================================================
+                     SPACE FOR EXISTING ORGANIZING TEAM
+                     ================================================= -->
+
+                <!--
+                    Do NOT delete existing organizing committee
+                    members from your current website.
+
+                    Add their exact existing cards here.
+                -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT / CTA
+         ===================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div
+                style="
+                    position:relative;
+                    overflow:hidden;
+                    padding:50px;
+                    background:#0D0D0D;
+                    border:1px solid rgba(241,236,224,.12);
+                "
+            >
+
+                <div
+                    style="
+                        position:absolute;
+                        top:0;
+                        right:0;
+                        width:180px;
+                        height:180px;
+                        border-top:1px solid rgba(24,70,255,.5);
+                        border-right:1px solid rgba(24,70,255,.5);
+                        pointer-events:none;
+                    "
+                ></div>
+
+
+                <span class="eyebrow">
+                    RELMUN / CONTACT
+                </span>
+
+
+                <h2
+                    style="
+                        max-width:700px;
+                        margin:0 0 18px;
+                        color:#F1ECE0;
+                        font-family:'Space Grotesk',sans-serif;
+                        font-size:clamp(32px,5vw,55px);
+                        line-height:1;
+                        letter-spacing:-.05em;
+                    "
+                >
+                    Have a question for
+                    the team?
+                </h2>
+
+
+                <p
+                    style="
+                        max-width:620px;
+                        margin:0 0 28px;
+                        color:rgba(241,236,224,.55);
+                        font-size:14px;
+                        line-height:1.8;
+                    "
+                >
+                    Get in touch with the RELMUN organizing team
+                    before the conference.
+                </p>
+
+
+                <div
+                    style="
+                        display:flex;
+                        flex-wrap:wrap;
+                        gap:12px;
+                    "
+                >
 
                     <a
                         href="mailto:akshithkabilan@gmail.com"
-                        class="social-link"
-                        aria-label="Email RELMUN"
+                        class="btn btn-primary"
                     >
-                        @
+                        Email the team
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/relmun.official/"
+                        class="btn btn-secondary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Instagram
+                        <span aria-hidden="true">↗</span>
                     </a>
 
                 </div>
@@ -567,115 +604,260 @@
 
         </div>
 
-    </footer>
+    </section>
+
+</main>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
 
-    <script>
-        (() => {
-            "use strict";
+<footer class="site-footer">
 
-            /* ---------------------------------------------
-               MOBILE NAVIGATION
-               --------------------------------------------- */
+    <div class="container">
 
-            const menuToggle =
-                document.getElementById("menuToggle");
+        <div class="footer-main">
 
-            const navLinks =
-                document.getElementById("navLinks");
+            <div class="footer-brand">
 
+                <a href="index.html">
 
-            if (menuToggle && navLinks) {
+                    <span
+                        style="
+                            display:block;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:25px;
+                            font-weight:700;
+                            letter-spacing:-.06em;
+                        "
+                    >
+                        RELMUN<span style="color:#1846FF;">26</span>
+                    </span>
 
-                const closeMenu = () => {
-
-                    navLinks.classList.remove("open");
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation"
-                    );
-
-                    document.body.classList.remove(
-                        "menu-open"
-                    );
-
-                };
+                </a>
 
 
-                const openMenu = () => {
+                <p class="footer-description">
+                    Regional Engagement & Leadership
+                    Model United Nations.
+                    26–27 December 2026.
+                    Online.
+                </p>
 
-                    navLinks.classList.add("open");
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Close navigation"
-                    );
-
-                    document.body.classList.add(
-                        "menu-open"
-                    );
-
-                };
+            </div>
 
 
-                menuToggle.addEventListener(
+            <div>
+
+                <div class="footer-title">
+                    Navigate
+                </div>
+
+                <div class="footer-links">
+
+                    <a
+                        href="index.html"
+                        class="footer-link"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="committees.html"
+                        class="footer-link"
+                    >
+                        Committees
+                    </a>
+
+                    <a
+                        href="eb.html"
+                        class="footer-link"
+                    >
+                        Executive Board
+                    </a>
+
+                    <a
+                        href="register.html"
+                        class="footer-link"
+                    >
+                        Register
+                    </a>
+
+                    <a
+                        href="faq.html"
+                        class="footer-link"
+                    >
+                        FAQ
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Contact
+                </div>
+
+                <div class="footer-links">
+
+                    <a
+                        href="mailto:akshithkabilan@gmail.com"
+                        class="footer-link"
+                    >
+                        Email the team
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/relmun.official/"
+                        class="footer-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Instagram ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 RELMUN. All rights reserved.
+            </span>
+
+
+            <div class="social-links">
+
+                <a
+                    href="https://www.instagram.com/relmun.official/"
+                    class="social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                >
+                    IG
+                </a>
+
+
+                <a
+                    href="mailto:akshithkabilan@gmail.com"
+                    class="social-link"
+                    aria-label="Email"
+                >
+                    @
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     MOBILE NAVIGATION
+     ========================================================= -->
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    if (!menuToggle || !navLinks) {
+        return;
+    }
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                navLinks.classList.toggle("open");
+
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+
+
+            document.body.classList.toggle(
+                "menu-open",
+                isOpen
+            );
+
+        }
+    );
+
+
+    navLinks
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
                     "click",
-                    () => {
+                    function () {
 
-                        if (
-                            navLinks.classList.contains("open")
-                        ) {
-                            closeMenu();
-                        } else {
-                            openMenu();
-                        }
-
-                    }
-                );
-
-
-                navLinks
-                    .querySelectorAll("a")
-                    .forEach((link) => {
-
-                        link.addEventListener(
-                            "click",
-                            closeMenu
+                        navLinks.classList.remove(
+                            "open"
                         );
 
-                    });
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
 
-                window.addEventListener(
-                    "resize",
-                    () => {
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation menu"
+                        );
 
-                        if (window.innerWidth > 700) {
-                            closeMenu();
-                        }
+
+                        document.body.classList.remove(
+                            "menu-open"
+                        );
 
                     }
                 );
 
             }
+        );
 
-        })();
-    </script>
+})();
+
+</script>
 
 </body>
 </html>
