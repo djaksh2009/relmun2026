@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -14,7 +13,7 @@
 
   <meta
     name="description"
-    content="Register as a delegate for RELMUN '26 — Regional Engagement & Leadership Model United Nations."
+    content="Register for RELMUN '26 — Regional Engagement & Leadership Model United Nations."
   >
 
   <link
@@ -31,12 +30,13 @@
   <style>
 
     /* =====================================================
-       RELMUN '26 — REGISTRATION PAGE
+       REGISTRATION PAGE
        ===================================================== */
 
     .registration-page {
       min-height: 100vh;
       padding: 150px 7vw 100px;
+
       background:
         radial-gradient(
           circle at 80% 15%,
@@ -61,10 +61,16 @@
 
     .registration-header h1 {
       margin: 0;
+
       color: var(--ivory);
+
       font-family: var(--display);
-      font-size: clamp(55px, 9vw, 130px);
+
+      font-size:
+        clamp(55px, 9vw, 130px);
+
       line-height: .82;
+
       letter-spacing: -.07em;
     }
 
@@ -78,8 +84,11 @@
 
     .registration-header p {
       max-width: 650px;
+
       margin-top: 35px;
+
       color: var(--muted);
+
       font-size: 14px;
       line-height: 1.8;
     }
@@ -91,18 +100,26 @@
 
     .registration-progress {
       max-width: 1100px;
+
       margin: 0 auto 55px;
+
       display: flex;
       align-items: center;
+
       gap: 10px;
     }
 
 
     .progress-step {
       flex: 1;
+
       height: 3px;
-      background: rgba(241,236,224,.12);
-      transition: background .3s ease;
+
+      background:
+        rgba(241,236,224,.12);
+
+      transition:
+        background .3s ease;
     }
 
 
@@ -113,10 +130,15 @@
 
     .progress-text {
       margin-left: 15px;
+
       color: var(--muted);
+
       font-family: var(--mono);
+
       font-size: 8px;
+
       letter-spacing: .15em;
+
       white-space: nowrap;
     }
 
@@ -133,14 +155,19 @@
 
     .form-section {
       display: none;
-      border-top: 1px solid var(--line);
+
+      border-top:
+        1px solid var(--line);
+
       padding-top: 35px;
     }
 
 
     .form-section.active {
       display: block;
-      animation: sectionIn .35s ease;
+
+      animation:
+        sectionIn .35s ease;
     }
 
 
@@ -161,36 +188,53 @@
 
     .form-section-number {
       display: block;
+
       margin-bottom: 12px;
+
       color: var(--gold);
+
       font-family: var(--mono);
+
       font-size: 8px;
+
       letter-spacing: .16em;
     }
 
 
     .form-section h2 {
       margin: 0 0 12px;
+
       color: var(--ivory);
+
       font-family: var(--display);
-      font-size: clamp(32px, 5vw, 65px);
+
+      font-size:
+        clamp(32px, 5vw, 65px);
+
       line-height: .9;
+
       letter-spacing: -.055em;
     }
 
 
     .form-section h2 em {
       color: var(--gold-light);
+
       font-style: italic;
+
       font-weight: 400;
     }
 
 
     .section-description {
       max-width: 650px;
+
       margin-bottom: 45px;
+
       color: var(--muted);
+
       font-size: 13px;
+
       line-height: 1.7;
     }
 
@@ -201,7 +245,10 @@
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 35px 25px;
     }
 
@@ -219,9 +266,13 @@
 
     .form-field label {
       margin-bottom: 12px;
+
       color: var(--ivory);
+
       font-family: var(--mono);
+
       font-size: 9px;
+
       letter-spacing: .12em;
     }
 
@@ -236,40 +287,49 @@
     .form-field textarea {
 
       width: 100%;
+
       box-sizing: border-box;
 
       padding: 17px 16px;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid var(--line);
+
       border-radius: 0;
 
       outline: none;
 
-      background: rgba(7,17,31,.7);
+      background:
+        rgba(7,17,31,.7);
 
       color: var(--ivory);
 
       font-family: var(--body);
+
       font-size: 13px;
 
       transition:
         border-color .25s ease,
         background .25s ease;
-
     }
 
 
     .form-field input::placeholder,
     .form-field textarea::placeholder {
-      color: rgba(241,236,224,.3);
+      color:
+        rgba(241,236,224,.3);
     }
 
 
     .form-field input:focus,
     .form-field select:focus,
     .form-field textarea:focus {
-      border-color: var(--gold);
-      background: rgba(7,17,31,.95);
+
+      border-color:
+        var(--gold);
+
+      background:
+        rgba(7,17,31,.95);
     }
 
 
@@ -293,10 +353,15 @@
 
     .field-note {
       margin-top: 9px;
+
       color: var(--muted);
+
       font-family: var(--mono);
+
       font-size: 7px;
+
       letter-spacing: .05em;
+
       line-height: 1.6;
     }
 
@@ -312,51 +377,76 @@
 
     .preference-title {
       margin-bottom: 22px;
+
       color: var(--gold-light);
+
       font-family: var(--mono);
+
       font-size: 9px;
+
       letter-spacing: .16em;
     }
 
 
     .preference-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 18px;
     }
 
 
     .preference-number {
       display: block;
+
       margin-bottom: 9px;
+
       color: var(--muted);
+
       font-family: var(--mono);
+
       font-size: 7px;
+
       letter-spacing: .12em;
     }
 
 
     /* =====================================================
-       CHECKBOXES
+       CONFIRMATION
        ===================================================== */
 
     .confirmation-list {
       display: flex;
+
       flex-direction: column;
+
       gap: 18px;
+
       max-width: 850px;
     }
 
 
     .confirmation-item {
       position: relative;
+
       display: flex;
+
       align-items: flex-start;
+
       gap: 15px;
+
       padding: 20px;
-      border: 1px solid var(--line);
-      background: rgba(7,17,31,.5);
+
+      border:
+        1px solid var(--line);
+
+      background:
+        rgba(7,17,31,.5);
+
       cursor: pointer;
+
       transition:
         border-color .25s ease,
         background .25s ease;
@@ -364,13 +454,16 @@
 
 
     .confirmation-item:hover {
-      border-color: rgba(199,154,43,.4);
+      border-color:
+        rgba(199,154,43,.4);
     }
 
 
     .confirmation-item input {
       position: absolute;
+
       opacity: 0;
+
       pointer-events: none;
     }
 
@@ -378,97 +471,170 @@
     .custom-check {
       width: 17px;
       height: 17px;
-      flex: 0 0 17px;
-      border: 1px solid var(--muted);
+
+      flex:
+        0 0 17px;
+
+      border:
+        1px solid var(--muted);
+
       position: relative;
+
       margin-top: 2px;
-      transition: all .25s ease;
+
+      transition:
+        all .25s ease;
     }
 
 
-    .confirmation-item input:checked + .custom-check {
-      border-color: var(--gold);
-      background: var(--gold);
+    .confirmation-item input:checked
+    + .custom-check {
+
+      border-color:
+        var(--gold);
+
+      background:
+        var(--gold);
     }
 
 
-    .confirmation-item input:checked + .custom-check::after {
+    .confirmation-item input:checked
+    + .custom-check::after {
+
       content: "✓";
+
       position: absolute;
+
       inset: 0;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       color: #07111f;
+
       font-size: 11px;
+
       font-weight: 700;
     }
 
 
     .confirmation-text {
       color: var(--ivory);
+
       font-size: 12px;
+
       line-height: 1.6;
     }
 
 
     /* =====================================================
-       NAVIGATION BUTTONS
+       NAVIGATION
        ===================================================== */
 
     .form-navigation {
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       align-items: center;
+
       margin-top: 55px;
+
       padding-top: 30px;
-      border-top: 1px solid var(--line);
+
+      border-top:
+        1px solid var(--line);
     }
 
 
     .form-button {
+
       min-width: 150px;
+
       padding: 16px 25px;
-      border: 1px solid var(--gold);
+
+      border:
+        1px solid var(--gold);
+
       background: transparent;
+
       color: var(--gold-light);
+
       font-family: var(--mono);
+
       font-size: 8px;
+
       letter-spacing: .15em;
+
       cursor: pointer;
+
       transition:
         background .25s ease,
-        color .25s ease;
+        color .25s ease,
+        opacity .25s ease;
     }
 
 
     .form-button:hover {
-      background: var(--gold);
-      color: #07111f;
+
+      background:
+        var(--gold);
+
+      color:
+        #07111f;
     }
 
 
     .form-button.back {
-      border-color: var(--line);
-      color: var(--muted);
+
+      border-color:
+        var(--line);
+
+      color:
+        var(--muted);
     }
 
 
     .form-button.back:hover {
-      border-color: var(--gold);
-      color: var(--gold-light);
-      background: transparent;
+
+      border-color:
+        var(--gold);
+
+      color:
+        var(--gold-light);
+
+      background:
+        transparent;
     }
 
 
     .form-button.submit {
-      background: var(--gold);
-      color: #07111f;
+
+      background:
+        var(--gold);
+
+      color:
+        #07111f;
     }
 
 
     .form-button.submit:hover {
-      background: var(--gold-light);
+
+      background:
+        var(--gold-light);
+    }
+
+
+    .form-button:disabled {
+
+      opacity: .55;
+
+      cursor:
+        not-allowed;
     }
 
 
@@ -477,58 +643,136 @@
        ===================================================== */
 
     .registration-success {
+
       display: none;
+
       max-width: 800px;
+
       margin: 0 auto;
+
       padding: 70px 40px;
-      border-top: 1px solid var(--gold);
+
+      border-top:
+        1px solid var(--gold);
+
       text-align: center;
     }
 
 
     .registration-success.active {
+
       display: block;
-      animation: sectionIn .5s ease;
+
+      animation:
+        sectionIn .5s ease;
     }
 
 
-    .registration-success .success-mark {
+    .success-mark {
+
       width: 65px;
       height: 65px;
-      margin: 0 auto 30px;
+
+      margin:
+        0 auto 30px;
+
       display: flex;
+
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--gold);
+
+      border:
+        1px solid var(--gold);
+
       border-radius: 50%;
-      color: var(--gold-light);
+
+      color:
+        var(--gold-light);
+
       font-size: 25px;
     }
 
 
     .registration-success h2 {
+
       margin: 0;
-      color: var(--ivory);
-      font-family: var(--display);
-      font-size: clamp(40px, 7vw, 80px);
+
+      color:
+        var(--ivory);
+
+      font-family:
+        var(--display);
+
+      font-size:
+        clamp(40px, 7vw, 80px);
+
       line-height: .9;
+
       letter-spacing: -.06em;
     }
 
 
     .registration-success h2 em {
-      color: var(--gold-light);
+
+      color:
+        var(--gold-light);
+
       font-style: italic;
+
       font-weight: 400;
     }
 
 
     .registration-success p {
+
       max-width: 550px;
-      margin: 30px auto 0;
-      color: var(--muted);
+
+      margin:
+        30px auto 0;
+
+      color:
+        var(--muted);
+
       font-size: 13px;
+
       line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       ERROR
+       ===================================================== */
+
+    .registration-error {
+
+      display: none;
+
+      margin-top: 25px;
+
+      padding: 16px 18px;
+
+      border:
+        1px solid rgba(255,80,80,.35);
+
+      color:
+        #ffb5b5;
+
+      background:
+        rgba(255,80,80,.05);
+
+      font-family:
+        var(--mono);
+
+      font-size: 8px;
+
+      letter-spacing: .04em;
+
+      line-height: 1.6;
+    }
+
+
+    .registration-error.show {
+      display: block;
     }
 
 
@@ -539,59 +783,79 @@
     @media (max-width: 700px) {
 
       .registration-page {
-        padding: 120px 20px 70px;
+
+        padding:
+          120px 20px 70px;
       }
 
 
       .registration-header {
-        margin-bottom: 45px;
+
+        margin-bottom:
+          45px;
       }
 
 
       .registration-header h1 {
-        font-size: clamp(55px, 18vw, 90px);
+
+        font-size:
+          clamp(55px, 18vw, 90px);
       }
 
 
       .registration-progress {
+
         gap: 5px;
       }
 
 
       .progress-text {
+
         display: none;
       }
 
 
       .form-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
+
         gap: 25px;
       }
 
 
       .form-field.full {
-        grid-column: auto;
+
+        grid-column:
+          auto;
       }
 
 
       .preference-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
       }
 
 
       .form-navigation {
+
         gap: 15px;
       }
 
 
       .form-button {
+
         min-width: 0;
+
         flex: 1;
       }
 
 
       .registration-success {
-        padding: 55px 15px;
+
+        padding:
+          55px 15px;
       }
 
     }
@@ -644,7 +908,7 @@
         </a>
 
         <a
-          href="index.html#register"
+          href="register.html"
           class="nav-register"
         >
           REGISTER
@@ -670,7 +934,7 @@
 
 
   <!-- =====================================================
-       REGISTRATION
+       MAIN
        ===================================================== -->
 
   <main class="registration-page">
@@ -704,36 +968,33 @@
          PROGRESS
          ===================================================== -->
 
-    <div class="registration-progress">
+    <div
+      class="registration-progress"
+      id="registrationProgress"
+    >
 
       <div
         class="progress-step active"
-        data-progress="1"
       ></div>
 
       <div
         class="progress-step"
-        data-progress="2"
       ></div>
 
       <div
         class="progress-step"
-        data-progress="3"
       ></div>
 
       <div
         class="progress-step"
-        data-progress="4"
       ></div>
 
       <div
         class="progress-step"
-        data-progress="5"
       ></div>
 
       <div
         class="progress-step"
-        data-progress="6"
       ></div>
 
       <span
@@ -758,9 +1019,7 @@
     >
 
 
-      <!-- =================================================
-           SECTION 1
-           ================================================= -->
+      <!-- SECTION 1 -->
 
       <section
         class="form-section active"
@@ -790,7 +1049,8 @@
           <div class="form-field">
 
             <label for="fullName">
-              FULL NAME <span class="required">*</span>
+              FULL NAME
+              <span class="required">*</span>
             </label>
 
             <input
@@ -804,11 +1064,11 @@
           </div>
 
 
-
           <div class="form-field">
 
             <label for="email">
-              EMAIL ADDRESS <span class="required">*</span>
+              EMAIL ADDRESS
+              <span class="required">*</span>
             </label>
 
             <input
@@ -822,11 +1082,11 @@
           </div>
 
 
-
           <div class="form-field">
 
             <label for="whatsapp">
-              WHATSAPP NUMBER <span class="required">*</span>
+              WHATSAPP NUMBER
+              <span class="required">*</span>
             </label>
 
             <input
@@ -840,11 +1100,11 @@
           </div>
 
 
-
           <div class="form-field">
 
             <label for="city">
-              COUNTRY / CITY <span class="required">*</span>
+              COUNTRY / CITY
+              <span class="required">*</span>
             </label>
 
             <input
@@ -878,9 +1138,7 @@
 
 
 
-      <!-- =================================================
-           SECTION 2
-           ================================================= -->
+      <!-- SECTION 2 -->
 
       <section
         class="form-section"
@@ -906,12 +1164,14 @@
 
         <div class="form-grid">
 
-
           <div class="form-field full">
 
             <label for="munExperience">
+
               HOW MANY MUNS HAVE YOU ATTENDED?
+
               <span class="required">*</span>
+
             </label>
 
             <input
@@ -927,7 +1187,6 @@
             </span>
 
           </div>
-
 
         </div>
 
@@ -955,9 +1214,7 @@
 
 
 
-      <!-- =================================================
-           SECTION 3
-           ================================================= -->
+      <!-- SECTION 3 -->
 
       <section
         class="form-section"
@@ -977,13 +1234,10 @@
 
         <p class="section-description">
           Select your preferred committees and enter your
-          preferred portfolios. Committee and portfolio
-          allotments remain subject to availability and
-          the decision of the Secretariat.
+          preferred portfolios. Allotments are subject to
+          availability and the decision of the Secretariat.
         </p>
 
-
-        <!-- COMMITTEE PREFERENCES -->
 
         <div class="preference-block">
 
@@ -1044,7 +1298,6 @@
             </div>
 
 
-
             <div class="form-field">
 
               <span class="preference-number">
@@ -1092,7 +1345,6 @@
               </select>
 
             </div>
-
 
 
             <div class="form-field">
@@ -1143,14 +1395,11 @@
 
             </div>
 
-
           </div>
 
         </div>
 
 
-
-        <!-- PORTFOLIO PREFERENCES -->
 
         <div class="preference-block">
 
@@ -1172,12 +1421,11 @@
                 type="text"
                 id="portfolio1"
                 name="portfolio1"
-                placeholder="Enter portfolio"
+                placeholder="Enter your preference"
                 required
               >
 
             </div>
-
 
 
             <div class="form-field">
@@ -1190,12 +1438,11 @@
                 type="text"
                 id="portfolio2"
                 name="portfolio2"
-                placeholder="Enter portfolio"
+                placeholder="Enter your preference"
                 required
               >
 
             </div>
-
 
 
             <div class="form-field">
@@ -1208,12 +1455,11 @@
                 type="text"
                 id="portfolio3"
                 name="portfolio3"
-                placeholder="Enter portfolio"
+                placeholder="Enter your preference"
                 required
               >
 
             </div>
-
 
           </div>
 
@@ -1249,9 +1495,7 @@
 
 
 
-      <!-- =================================================
-           SECTION 4
-           ================================================= -->
+      <!-- SECTION 4 -->
 
       <section
         class="form-section"
@@ -1280,8 +1524,11 @@
           <div class="form-field full">
 
             <label for="source">
+
               HOW DID YOU HEAR ABOUT RELMUN '26?
+
               <span class="required">*</span>
+
             </label>
 
 
@@ -1328,7 +1575,6 @@
           </div>
 
 
-
           <div
             class="form-field full"
             id="otherSourceField"
@@ -1347,7 +1593,6 @@
             >
 
           </div>
-
 
         </div>
 
@@ -1375,9 +1620,7 @@
 
 
 
-      <!-- =================================================
-           SECTION 5
-           ================================================= -->
+      <!-- SECTION 5 -->
 
       <section
         class="form-section"
@@ -1416,12 +1659,13 @@
             <span class="custom-check"></span>
 
             <span class="confirmation-text">
+
               I confirm that the information provided above
               is accurate.
+
             </span>
 
           </label>
-
 
 
           <label class="confirmation-item">
@@ -1436,13 +1680,14 @@
             <span class="custom-check"></span>
 
             <span class="confirmation-text">
+
               I understand that committee and portfolio
               allotments are subject to availability and
               the decision of the Secretariat.
+
             </span>
 
           </label>
-
 
 
           <label class="confirmation-item">
@@ -1457,14 +1702,22 @@
             <span class="custom-check"></span>
 
             <span class="confirmation-text">
+
               I agree to abide by the Rules of Procedure
               and Code of Conduct of RELMUN '26.
+
             </span>
 
           </label>
 
 
         </div>
+
+
+        <div
+          class="registration-error"
+          id="registrationError"
+        ></div>
 
 
         <div class="form-navigation">
@@ -1480,6 +1733,7 @@
           <button
             type="submit"
             class="form-button submit"
+            id="submitButton"
           >
             SUBMIT REGISTRATION ↗
           </button>
@@ -1494,7 +1748,7 @@
 
 
     <!-- =====================================================
-         SUCCESS MESSAGE
+         SUCCESS
          ===================================================== -->
 
     <section
@@ -1515,9 +1769,8 @@
 
       <p>
         Thank you for registering for RELMUN '26.
-        Your details have been received. The Secretariat
-        will process your registration and committee/
-        portfolio allotment information.
+        Your registration has been successfully submitted
+        to the Secretariat.
       </p>
 
 
@@ -1545,6 +1798,10 @@
        ===================================================== -->
 
   <script>
+
+    const GOOGLE_SHEETS_URL =
+      "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
+
 
     document.addEventListener(
       "DOMContentLoaded",
@@ -1581,6 +1838,12 @@
           );
 
 
+        const progress =
+          document.getElementById(
+            "registrationProgress"
+          );
+
+
         const source =
           document.getElementById(
             "source"
@@ -1593,12 +1856,30 @@
           );
 
 
+        const otherSource =
+          document.getElementById(
+            "otherSource"
+          );
+
+
+        const submitButton =
+          document.getElementById(
+            "submitButton"
+          );
+
+
+        const errorBox =
+          document.getElementById(
+            "registrationError"
+          );
+
+
         let currentSection = 1;
 
 
-        /*
-         * UPDATE PROGRESS
-         */
+        /* ================================================
+           PROGRESS
+           ================================================ */
 
         function updateProgress() {
 
@@ -1621,9 +1902,9 @@
 
 
 
-        /*
-         * SHOW SECTION
-         */
+        /* ================================================
+           SHOW SECTION
+           ================================================ */
 
         function showSection(number) {
 
@@ -1656,9 +1937,9 @@
 
 
 
-        /*
-         * VALIDATE CURRENT SECTION
-         */
+        /* ================================================
+           VALIDATE SECTION
+           ================================================ */
 
         function validateSection() {
 
@@ -1697,9 +1978,9 @@
 
 
 
-        /*
-         * NEXT BUTTONS
-         */
+        /* ================================================
+           NEXT
+           ================================================ */
 
         document
           .querySelectorAll(
@@ -1739,9 +2020,9 @@
 
 
 
-        /*
-         * BACK BUTTONS
-         */
+        /* ================================================
+           BACK
+           ================================================ */
 
         document
           .querySelectorAll(
@@ -1772,9 +2053,9 @@
 
 
 
-        /*
-         * OTHER SOURCE
-         */
+        /* ================================================
+           OTHER SOURCE
+           ================================================ */
 
         source.addEventListener(
           "change",
@@ -1792,11 +2073,7 @@
               otherSourceField.style.display =
                 "none";
 
-              document
-                .getElementById(
-                  "otherSource"
-                )
-                .value = "";
+              otherSource.value = "";
 
             }
 
@@ -1805,21 +2082,20 @@
 
 
 
-        /*
-         * FORM SUBMISSION
-         *
-         * The form currently uses a local
-         * success state.
-         *
-         * Google Sheets backend will be
-         * connected here next.
-         */
+        /* ================================================
+           SUBMIT
+           ================================================ */
 
         form.addEventListener(
           "submit",
-          (event) => {
+          async (event) => {
 
             event.preventDefault();
+
+
+            errorBox.classList.remove(
+              "show"
+            );
 
 
             if (
@@ -1835,38 +2111,168 @@
               new FormData(form);
 
 
-            const registrationData =
-              Object.fromEntries(
-                formData.entries()
+            const registrationData = {
+
+              fullName:
+                formData.get(
+                  "fullName"
+                ) || "",
+
+              email:
+                formData.get(
+                  "email"
+                ) || "",
+
+              whatsapp:
+                formData.get(
+                  "whatsapp"
+                ) || "",
+
+              city:
+                formData.get(
+                  "city"
+                ) || "",
+
+              munExperience:
+                formData.get(
+                  "munExperience"
+                ) || "",
+
+              committee1:
+                formData.get(
+                  "committee1"
+                ) || "",
+
+              committee2:
+                formData.get(
+                  "committee2"
+                ) || "",
+
+              committee3:
+                formData.get(
+                  "committee3"
+                ) || "",
+
+              portfolio1:
+                formData.get(
+                  "portfolio1"
+                ) || "",
+
+              portfolio2:
+                formData.get(
+                  "portfolio2"
+                ) || "",
+
+              portfolio3:
+                formData.get(
+                  "portfolio3"
+                ) || "",
+
+              source:
+                formData.get(
+                  "source"
+                ) || "",
+
+              otherSource:
+                formData.get(
+                  "otherSource"
+                ) || ""
+
+            };
+
+
+            const originalText =
+              submitButton.textContent;
+
+
+            submitButton.disabled =
+              true;
+
+
+            submitButton.textContent =
+              "SUBMITTING...";
+
+
+            try {
+
+              /*
+               * Google Apps Script Web Apps
+               * accept the request below.
+               */
+
+              await fetch(
+                GOOGLE_SHEETS_URL,
+                {
+
+                  method: "POST",
+
+                  mode: "no-cors",
+
+                  headers: {
+                    "Content-Type":
+                      "text/plain;charset=utf-8"
+                  },
+
+                  body:
+                    JSON.stringify(
+                      registrationData
+                    )
+
+                }
               );
 
 
-            console.log(
-              "RELMUN REGISTRATION:",
-              registrationData
-            );
+              /*
+               * no-cors means the browser
+               * cannot read the response,
+               * but the request itself is
+               * sent to Apps Script.
+               */
+
+              form.style.display =
+                "none";
 
 
-            form.style.display =
-              "none";
+              progress.style.display =
+                "none";
 
 
-            document
-              .querySelector(
-                ".registration-progress"
-              )
-              .style.display = "none";
+              success.classList.add(
+                "active"
+              );
 
 
-            success.classList.add(
-              "active"
-            );
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
 
 
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
+            } catch (error) {
+
+              console.error(
+                "RELMUN registration error:",
+                error
+              );
+
+
+              errorBox.textContent =
+                "Something went wrong while submitting your registration. Please check your connection and try again.";
+
+
+              errorBox.classList.add(
+                "show"
+              );
+
+
+              submitButton.disabled =
+                false;
+
+
+              submitButton.textContent =
+                originalText;
+
+            }
 
           }
         );
