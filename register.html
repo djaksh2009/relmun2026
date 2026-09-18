@@ -1,1 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Register — RELMUN '26</title>
+
+  <meta
+    name="description"
+    content="Register as a delegate for RELMUN '26 — Regional Engagement & Leadership Model United Nations."
+  >
+
+  <link
+    rel="icon"
+    href="relmun-logo.png"
+    type="image/png"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       RELMUN '26 — REGISTRATION PAGE
+       ===================================================== */
+
+    .registration-page {
+      min-height: 100vh;
+      padding: 150px 7vw 100px;
+      background:
+        radial-gradient(
+          circle at 80% 15%,
+          rgba(199,154,43,.06),
+          transparent 30%
+        ),
+        var(--navy);
+    }
+
+
+    .registration-header {
+      max-width: 1100px;
+      margin: 0 auto 70px;
+    }
+
+
+    .registration-header .eyebrow {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+
+    .registration-header h1 {
+      margin: 0;
+      color: var(--ivory);
+      font-family: var(--display);
+      font-size: clamp(55px, 9vw, 130px);
+      line-height: .82;
+      letter-spacing: -.07em;
+    }
+
+
+    .registration-header h1 em {
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+
+    .registration-header p {
+      max-width: 650px;
+      margin-top: 35px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       PROGRESS
+       ===================================================== */
+
+    .registration-progress {
+      max-width: 1100px;
+      margin: 0 auto 55px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    .progress-step {
+      flex: 1;
+      height: 3px;
+      background: rgba(241,236,224,.12);
+      transition: background .3s ease;
+    }
+
+
+    .progress-step.active {
+      background: var(--gold);
+    }
+
+
+    .progress-text {
+      margin-left: 15px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: .15em;
+      white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       FORM
+       ===================================================== */
+
+    .registration-form {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+
+    .form-section {
+      display: none;
+      border-top: 1px solid var(--line);
+      padding-top: 35px;
+    }
+
+
+    .form-section.active {
+      display: block;
+      animation: sectionIn .35s ease;
+    }
+
+
+    @keyframes sectionIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+    .form-section-number {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: .16em;
+    }
+
+
+    .form-section h2 {
+      margin: 0 0 12px;
+      color: var(--ivory);
+      font-family: var(--display);
+      font-size: clamp(32px, 5vw, 65px);
+      line-height: .9;
+      letter-spacing: -.055em;
+    }
+
+
+    .form-section h2 em {
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+
+    .section-description {
+      max-width: 650px;
+      margin-bottom: 45px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FIELDS
+       ===================================================== */
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px 25px;
+    }
+
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+
+    .form-field label {
+      margin-bottom: 12px;
+      color: var(--ivory);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+    }
+
+
+    .required {
+      color: var(--gold);
+    }
+
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+
+      width: 100%;
+      box-sizing: border-box;
+
+      padding: 17px 16px;
+
+      border: 1px solid var(--line);
+      border-radius: 0;
+
+      outline: none;
+
+      background: rgba(7,17,31,.7);
+
+      color: var(--ivory);
+
+      font-family: var(--body);
+      font-size: 13px;
+
+      transition:
+        border-color .25s ease,
+        background .25s ease;
+
+    }
+
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(241,236,224,.3);
+    }
+
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--gold);
+      background: rgba(7,17,31,.95);
+    }
+
+
+    .form-field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+
+    .form-field select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+
+    .form-field select option {
+      background: #07111f;
+      color: #f1ece0;
+    }
+
+
+    .field-note {
+      margin-top: 9px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 7px;
+      letter-spacing: .05em;
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       PREFERENCES
+       ===================================================== */
+
+    .preference-block {
+      margin-bottom: 45px;
+    }
+
+
+    .preference-title {
+      margin-bottom: 22px;
+      color: var(--gold-light);
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .16em;
+    }
+
+
+    .preference-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+
+    .preference-number {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 7px;
+      letter-spacing: .12em;
+    }
+
+
+    /* =====================================================
+       CHECKBOXES
+       ===================================================== */
+
+    .confirmation-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 850px;
+    }
+
+
+    .confirmation-item {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: rgba(7,17,31,.5);
+      cursor: pointer;
+      transition:
+        border-color .25s ease,
+        background .25s ease;
+    }
+
+
+    .confirmation-item:hover {
+      border-color: rgba(199,154,43,.4);
+    }
+
+
+    .confirmation-item input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+
+    .custom-check {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 17px;
+      border: 1px solid var(--muted);
+      position: relative;
+      margin-top: 2px;
+      transition: all .25s ease;
+    }
+
+
+    .confirmation-item input:checked + .custom-check {
+      border-color: var(--gold);
+      background: var(--gold);
+    }
+
+
+    .confirmation-item input:checked + .custom-check::after {
+      content: "✓";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #07111f;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+
+    .confirmation-text {
+      color: var(--ivory);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       NAVIGATION BUTTONS
+       ===================================================== */
+
+    .form-navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 55px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+
+    .form-button {
+      min-width: 150px;
+      padding: 16px 25px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold-light);
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: .15em;
+      cursor: pointer;
+      transition:
+        background .25s ease,
+        color .25s ease;
+    }
+
+
+    .form-button:hover {
+      background: var(--gold);
+      color: #07111f;
+    }
+
+
+    .form-button.back {
+      border-color: var(--line);
+      color: var(--muted);
+    }
+
+
+    .form-button.back:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: transparent;
+    }
+
+
+    .form-button.submit {
+      background: var(--gold);
+      color: #07111f;
+    }
+
+
+    .form-button.submit:hover {
+      background: var(--gold-light);
+    }
+
+
+    /* =====================================================
+       SUCCESS
+       ===================================================== */
+
+    .registration-success {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 70px 40px;
+      border-top: 1px solid var(--gold);
+      text-align: center;
+    }
+
+
+    .registration-success.active {
+      display: block;
+      animation: sectionIn .5s ease;
+    }
+
+
+    .registration-success .success-mark {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold-light);
+      font-size: 25px;
+    }
+
+
+    .registration-success h2 {
+      margin: 0;
+      color: var(--ivory);
+      font-family: var(--display);
+      font-size: clamp(40px, 7vw, 80px);
+      line-height: .9;
+      letter-spacing: -.06em;
+    }
+
+
+    .registration-success h2 em {
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+
+    .registration-success p {
+      max-width: 550px;
+      margin: 30px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 700px) {
+
+      .registration-page {
+        padding: 120px 20px 70px;
+      }
+
+
+      .registration-header {
+        margin-bottom: 45px;
+      }
+
+
+      .registration-header h1 {
+        font-size: clamp(55px, 18vw, 90px);
+      }
+
+
+      .registration-progress {
+        gap: 5px;
+      }
+
+
+      .progress-text {
+        display: none;
+      }
+
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+
+      .form-field.full {
+        grid-column: auto;
+      }
+
+
+      .preference-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .form-navigation {
+        gap: 15px;
+      }
+
+
+      .form-button {
+        min-width: 0;
+        flex: 1;
+      }
+
+
+      .registration-success {
+        padding: 55px 15px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+
+  <header>
+
+    <nav class="navbar">
+
+      <a
+        href="index.html"
+        class="nav-logo"
+      >
+
+        <img
+          src="relmun-logo.png"
+          alt="RELMUN '26"
+        >
+
+      </a>
+
+
+      <div class="nav-links">
+
+        <a href="index.html#about">
+          ABOUT
+        </a>
+
+        <a href="committees.html">
+          COMMITTEES
+        </a>
+
+        <a href="index.html#team">
+          TEAM
+        </a>
+
+        <a href="index.html#eb">
+          EB
+        </a>
+
+        <a
+          href="index.html#register"
+          class="nav-register"
+        >
+          REGISTER
+        </a>
+
+      </div>
+
+
+      <button
+        class="nav-menu"
+        aria-label="Open menu"
+      >
+
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       REGISTRATION
+       ===================================================== -->
+
+  <main class="registration-page">
+
+
+    <div class="registration-header">
+
+      <span class="eyebrow">
+        RELMUN '26 · DELEGATE REGISTRATION
+      </span>
+
+
+      <h1>
+        JOIN<br>
+        <em>RELMUN.</em>
+      </h1>
+
+
+      <p>
+        Register as a delegate for the Regional Engagement
+        & Leadership Model United Nations. Please provide
+        accurate information throughout the registration
+        process.
+      </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PROGRESS
+         ===================================================== -->
+
+    <div class="registration-progress">
+
+      <div
+        class="progress-step active"
+        data-progress="1"
+      ></div>
+
+      <div
+        class="progress-step"
+        data-progress="2"
+      ></div>
+
+      <div
+        class="progress-step"
+        data-progress="3"
+      ></div>
+
+      <div
+        class="progress-step"
+        data-progress="4"
+      ></div>
+
+      <div
+        class="progress-step"
+        data-progress="5"
+      ></div>
+
+      <div
+        class="progress-step"
+        data-progress="6"
+      ></div>
+
+      <span
+        class="progress-text"
+        id="progressText"
+      >
+        SECTION 1 OF 6
+      </span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FORM
+         ===================================================== -->
+
+    <form
+      class="registration-form"
+      id="registrationForm"
+      novalidate
+    >
+
+
+      <!-- =================================================
+           SECTION 1
+           ================================================= -->
+
+      <section
+        class="form-section active"
+        data-section="1"
+      >
+
+        <span class="form-section-number">
+          SECTION 1 / 6
+        </span>
+
+
+        <h2>
+          PERSONAL<br>
+          <em>INFORMATION.</em>
+        </h2>
+
+
+        <p class="section-description">
+          Tell us a little about yourself so we can process
+          your delegate registration.
+        </p>
+
+
+        <div class="form-grid">
+
+
+          <div class="form-field">
+
+            <label for="fullName">
+              FULL NAME <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter your full name"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="form-field">
+
+            <label for="email">
+              EMAIL ADDRESS <span class="required">*</span>
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="form-field">
+
+            <label for="whatsapp">
+              WHATSAPP NUMBER <span class="required">*</span>
+            </label>
+
+            <input
+              type="tel"
+              id="whatsapp"
+              name="whatsapp"
+              placeholder="+91 XXXXX XXXXX"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="form-field">
+
+            <label for="city">
+              COUNTRY / CITY <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="Country / City"
+              required
+            >
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-navigation">
+
+          <span></span>
+
+          <button
+            type="button"
+            class="form-button next-button"
+          >
+            NEXT · 02 ↗
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           SECTION 2
+           ================================================= -->
+
+      <section
+        class="form-section"
+        data-section="2"
+      >
+
+        <span class="form-section-number">
+          SECTION 2 / 6
+        </span>
+
+
+        <h2>
+          MUN<br>
+          <em>EXPERIENCE.</em>
+        </h2>
+
+
+        <p class="section-description">
+          Help us understand your previous Model United
+          Nations experience.
+        </p>
+
+
+        <div class="form-grid">
+
+
+          <div class="form-field full">
+
+            <label for="munExperience">
+              HOW MANY MUNS HAVE YOU ATTENDED?
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="munExperience"
+              name="munExperience"
+              placeholder="Enter the number of MUNs attended"
+              required
+            >
+
+            <span class="field-note">
+              IF NONE, TYPE "-"
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-navigation">
+
+          <button
+            type="button"
+            class="form-button back previous-button"
+          >
+            ← BACK
+          </button>
+
+
+          <button
+            type="button"
+            class="form-button next-button"
+          >
+            NEXT · 03 ↗
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           SECTION 3
+           ================================================= -->
+
+      <section
+        class="form-section"
+        data-section="3"
+      >
+
+        <span class="form-section-number">
+          SECTION 3 / 6
+        </span>
+
+
+        <h2>
+          COMMITTEE &<br>
+          <em>PORTFOLIO.</em>
+        </h2>
+
+
+        <p class="section-description">
+          Select your preferred committees and enter your
+          preferred portfolios. Committee and portfolio
+          allotments remain subject to availability and
+          the decision of the Secretariat.
+        </p>
+
+
+        <!-- COMMITTEE PREFERENCES -->
+
+        <div class="preference-block">
+
+          <div class="preference-title">
+            COMMITTEE PREFERENCES
+          </div>
+
+
+          <div class="preference-grid">
+
+
+            <div class="form-field">
+
+              <span class="preference-number">
+                FIRST PREFERENCE
+              </span>
+
+              <select
+                id="committee1"
+                name="committee1"
+                required
+              >
+
+                <option
+                  value=""
+                  selected
+                  disabled
+                >
+                  SELECT COMMITTEE
+                </option>
+
+                <option value="UNSC">
+                  UNSC
+                </option>
+
+                <option value="UNHRC">
+                  UNHRC
+                </option>
+
+                <option value="UNODC">
+                  UNODC
+                </option>
+
+                <option value="AIPPM">
+                  AIPPM
+                </option>
+
+                <option value="IPLA">
+                  IPLA
+                </option>
+
+                <option value="UNW">
+                  UNW
+                </option>
+
+              </select>
+
+            </div>
+
+
+
+            <div class="form-field">
+
+              <span class="preference-number">
+                SECOND PREFERENCE
+              </span>
+
+              <select
+                id="committee2"
+                name="committee2"
+                required
+              >
+
+                <option
+                  value=""
+                  selected
+                  disabled
+                >
+                  SELECT COMMITTEE
+                </option>
+
+                <option value="UNSC">
+                  UNSC
+                </option>
+
+                <option value="UNHRC">
+                  UNHRC
+                </option>
+
+                <option value="UNODC">
+                  UNODC
+                </option>
+
+                <option value="AIPPM">
+                  AIPPM
+                </option>
+
+                <option value="IPLA">
+                  IPLA
+                </option>
+
+                <option value="UNW">
+                  UNW
+                </option>
+
+              </select>
+
+            </div>
+
+
+
+            <div class="form-field">
+
+              <span class="preference-number">
+                THIRD PREFERENCE
+              </span>
+
+              <select
+                id="committee3"
+                name="committee3"
+                required
+              >
+
+                <option
+                  value=""
+                  selected
+                  disabled
+                >
+                  SELECT COMMITTEE
+                </option>
+
+                <option value="UNSC">
+                  UNSC
+                </option>
+
+                <option value="UNHRC">
+                  UNHRC
+                </option>
+
+                <option value="UNODC">
+                  UNODC
+                </option>
+
+                <option value="AIPPM">
+                  AIPPM
+                </option>
+
+                <option value="IPLA">
+                  IPLA
+                </option>
+
+                <option value="UNW">
+                  UNW
+                </option>
+
+              </select>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- PORTFOLIO PREFERENCES -->
+
+        <div class="preference-block">
+
+          <div class="preference-title">
+            PORTFOLIO PREFERENCES
+          </div>
+
+
+          <div class="preference-grid">
+
+
+            <div class="form-field">
+
+              <span class="preference-number">
+                FIRST PORTFOLIO
+              </span>
+
+              <input
+                type="text"
+                id="portfolio1"
+                name="portfolio1"
+                placeholder="Enter portfolio"
+                required
+              >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+              <span class="preference-number">
+                SECOND PORTFOLIO
+              </span>
+
+              <input
+                type="text"
+                id="portfolio2"
+                name="portfolio2"
+                placeholder="Enter portfolio"
+                required
+              >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+              <span class="preference-number">
+                THIRD PORTFOLIO
+              </span>
+
+              <input
+                type="text"
+                id="portfolio3"
+                name="portfolio3"
+                placeholder="Enter portfolio"
+                required
+              >
+
+            </div>
+
+
+          </div>
+
+
+          <span class="field-note">
+            ENTER THE COUNTRY / PORTFOLIO YOU WOULD LIKE
+            TO BE CONSIDERED FOR.
+          </span>
+
+        </div>
+
+
+        <div class="form-navigation">
+
+          <button
+            type="button"
+            class="form-button back previous-button"
+          >
+            ← BACK
+          </button>
+
+
+          <button
+            type="button"
+            class="form-button next-button"
+          >
+            NEXT · 04 ↗
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           SECTION 4
+           ================================================= -->
+
+      <section
+        class="form-section"
+        data-section="4"
+      >
+
+        <span class="form-section-number">
+          SECTION 4 / 6
+        </span>
+
+
+        <h2>
+          HOW DID YOU<br>
+          <em>FIND US?</em>
+        </h2>
+
+
+        <p class="section-description">
+          Tell us how you came across RELMUN '26.
+        </p>
+
+
+        <div class="form-grid">
+
+
+          <div class="form-field full">
+
+            <label for="source">
+              HOW DID YOU HEAR ABOUT RELMUN '26?
+              <span class="required">*</span>
+            </label>
+
+
+            <select
+              id="source"
+              name="source"
+              required
+            >
+
+              <option
+                value=""
+                selected
+                disabled
+              >
+                SELECT AN OPTION
+              </option>
+
+              <option value="Instagram">
+                Instagram
+              </option>
+
+              <option value="MyMUN">
+                MyMUN
+              </option>
+
+              <option value="Gavelling">
+                Gavelling
+              </option>
+
+              <option value="ChampArena">
+                ChampArena
+              </option>
+
+              <option value="Friend / School">
+                Friend / School
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <div
+            class="form-field full"
+            id="otherSourceField"
+            style="display:none;"
+          >
+
+            <label for="otherSource">
+              OTHER
+            </label>
+
+            <input
+              type="text"
+              id="otherSource"
+              name="otherSource"
+              placeholder="Tell us how you heard about RELMUN"
+            >
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-navigation">
+
+          <button
+            type="button"
+            class="form-button back previous-button"
+          >
+            ← BACK
+          </button>
+
+
+          <button
+            type="button"
+            class="form-button next-button"
+          >
+            NEXT · 05 ↗
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           SECTION 5
+           ================================================= -->
+
+      <section
+        class="form-section"
+        data-section="5"
+      >
+
+        <span class="form-section-number">
+          SECTION 5 / 6
+        </span>
+
+
+        <h2>
+          FINAL<br>
+          <em>CONFIRMATION.</em>
+        </h2>
+
+
+        <p class="section-description">
+          Please review and confirm the following before
+          submitting your registration.
+        </p>
+
+
+        <div class="confirmation-list">
+
+
+          <label class="confirmation-item">
+
+            <input
+              type="checkbox"
+              name="accurate"
+              id="accurate"
+              required
+            >
+
+            <span class="custom-check"></span>
+
+            <span class="confirmation-text">
+              I confirm that the information provided above
+              is accurate.
+            </span>
+
+          </label>
+
+
+
+          <label class="confirmation-item">
+
+            <input
+              type="checkbox"
+              name="allotment"
+              id="allotment"
+              required
+            >
+
+            <span class="custom-check"></span>
+
+            <span class="confirmation-text">
+              I understand that committee and portfolio
+              allotments are subject to availability and
+              the decision of the Secretariat.
+            </span>
+
+          </label>
+
+
+
+          <label class="confirmation-item">
+
+            <input
+              type="checkbox"
+              name="codeOfConduct"
+              id="codeOfConduct"
+              required
+            >
+
+            <span class="custom-check"></span>
+
+            <span class="confirmation-text">
+              I agree to abide by the Rules of Procedure
+              and Code of Conduct of RELMUN '26.
+            </span>
+
+          </label>
+
+
+        </div>
+
+
+        <div class="form-navigation">
+
+          <button
+            type="button"
+            class="form-button back previous-button"
+          >
+            ← BACK
+          </button>
+
+
+          <button
+            type="submit"
+            class="form-button submit"
+          >
+            SUBMIT REGISTRATION ↗
+          </button>
+
+        </div>
+
+      </section>
+
+
+    </form>
+
+
+
+    <!-- =====================================================
+         SUCCESS MESSAGE
+         ===================================================== -->
+
+    <section
+      class="registration-success"
+      id="registrationSuccess"
+    >
+
+      <div class="success-mark">
+        ✓
+      </div>
+
+
+      <h2>
+        REGISTRATION<br>
+        <em>RECEIVED.</em>
+      </h2>
+
+
+      <p>
+        Thank you for registering for RELMUN '26.
+        Your details have been received. The Secretariat
+        will process your registration and committee/
+        portfolio allotment information.
+      </p>
+
+
+      <a
+        href="index.html"
+        class="form-button"
+        style="
+          display:inline-block;
+          margin-top:35px;
+          text-decoration:none;
+        "
+      >
+        RETURN TO RELMUN ↗
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+
+        const sections =
+          document.querySelectorAll(
+            ".form-section"
+          );
+
+
+        const progressSteps =
+          document.querySelectorAll(
+            ".progress-step"
+          );
+
+
+        const progressText =
+          document.getElementById(
+            "progressText"
+          );
+
+
+        const form =
+          document.getElementById(
+            "registrationForm"
+          );
+
+
+        const success =
+          document.getElementById(
+            "registrationSuccess"
+          );
+
+
+        const source =
+          document.getElementById(
+            "source"
+          );
+
+
+        const otherSourceField =
+          document.getElementById(
+            "otherSourceField"
+          );
+
+
+        let currentSection = 1;
+
+
+        /*
+         * UPDATE PROGRESS
+         */
+
+        function updateProgress() {
+
+          progressSteps.forEach(
+            (step, index) => {
+
+              step.classList.toggle(
+                "active",
+                index < currentSection
+              );
+
+            }
+          );
+
+
+          progressText.textContent =
+            `SECTION ${currentSection} OF 6`;
+
+        }
+
+
+
+        /*
+         * SHOW SECTION
+         */
+
+        function showSection(number) {
+
+          currentSection = number;
+
+
+          sections.forEach(
+            (section) => {
+
+              section.classList.toggle(
+                "active",
+                Number(
+                  section.dataset.section
+                ) === number
+              );
+
+            }
+          );
+
+
+          updateProgress();
+
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+
+        }
+
+
+
+        /*
+         * VALIDATE CURRENT SECTION
+         */
+
+        function validateSection() {
+
+          const section =
+            document.querySelector(
+              `.form-section[data-section="${currentSection}"]`
+            );
+
+
+          const fields =
+            section.querySelectorAll(
+              "input, select, textarea"
+            );
+
+
+          for (
+            const field of fields
+          ) {
+
+            if (
+              !field.checkValidity()
+            ) {
+
+              field.reportValidity();
+
+              return false;
+
+            }
+
+          }
+
+
+          return true;
+
+        }
+
+
+
+        /*
+         * NEXT BUTTONS
+         */
+
+        document
+          .querySelectorAll(
+            ".next-button"
+          )
+          .forEach(
+            (button) => {
+
+              button.addEventListener(
+                "click",
+                () => {
+
+                  if (
+                    !validateSection()
+                  ) {
+
+                    return;
+
+                  }
+
+
+                  if (
+                    currentSection < 5
+                  ) {
+
+                    showSection(
+                      currentSection + 1
+                    );
+
+                  }
+
+                }
+              );
+
+            }
+          );
+
+
+
+        /*
+         * BACK BUTTONS
+         */
+
+        document
+          .querySelectorAll(
+            ".previous-button"
+          )
+          .forEach(
+            (button) => {
+
+              button.addEventListener(
+                "click",
+                () => {
+
+                  if (
+                    currentSection > 1
+                  ) {
+
+                    showSection(
+                      currentSection - 1
+                    );
+
+                  }
+
+                }
+              );
+
+            }
+          );
+
+
+
+        /*
+         * OTHER SOURCE
+         */
+
+        source.addEventListener(
+          "change",
+          () => {
+
+            if (
+              source.value === "Other"
+            ) {
+
+              otherSourceField.style.display =
+                "flex";
+
+            } else {
+
+              otherSourceField.style.display =
+                "none";
+
+              document
+                .getElementById(
+                  "otherSource"
+                )
+                .value = "";
+
+            }
+
+          }
+        );
+
+
+
+        /*
+         * FORM SUBMISSION
+         *
+         * The form currently uses a local
+         * success state.
+         *
+         * Google Sheets backend will be
+         * connected here next.
+         */
+
+        form.addEventListener(
+          "submit",
+          (event) => {
+
+            event.preventDefault();
+
+
+            if (
+              !validateSection()
+            ) {
+
+              return;
+
+            }
+
+
+            const formData =
+              new FormData(form);
+
+
+            const registrationData =
+              Object.fromEntries(
+                formData.entries()
+              );
+
+
+            console.log(
+              "RELMUN REGISTRATION:",
+              registrationData
+            );
+
+
+            form.style.display =
+              "none";
+
+
+            document
+              .querySelector(
+                ".registration-progress"
+              )
+              .style.display = "none";
+
+
+            success.classList.add(
+              "active"
+            );
+
+
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+
+          }
+        );
+
+
+        updateProgress();
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>
