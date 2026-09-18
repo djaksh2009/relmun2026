@@ -1,351 +1,1117 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Committee | RELMUN 2026</title>
 
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1.0"
->
+    <meta
+        name="description"
+        content="Explore the committees, agendas and information for RELMUN 2026."
+    >
 
-<title>Committee — RELMUN '26</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-  rel="icon"
-  href="relmun-logo.png"
-  type="image/png"
->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-<link
-  rel="stylesheet"
-  href="style.css"
->
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="site-header">
+
+        <div class="container navbar">
+
+            <a
+                href="index.html"
+                class="nav-brand"
+                aria-label="RELMUN 2026 Home"
+            >
+                <img
+                    src="relmun-logo.png"
+                    alt="RELMUN 2026"
+                >
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav
+                class="nav-links"
+                id="navLinks"
+                aria-label="Main navigation"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="committees.html"
+                    class="nav-link active"
+                >
+                    Committees
+                </a>
+
+                <a
+                    href="eb.html"
+                    class="nav-link"
+                >
+                    Executive Board
+                </a>
+
+                <a
+                    href="register.html"
+                    class="nav-link"
+                >
+                    Register
+                </a>
+
+                <a
+                    href="faq.html"
+                    class="nav-link"
+                >
+                    FAQ
+                </a>
+
+                <a
+                    href="register.html"
+                    class="nav-register"
+                >
+                    Register
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main id="committeePage">
+
+        <!-- =================================================
+             COMMITTEE HERO
+             ================================================= -->
+
+        <section class="page-hero">
+
+            <div class="container">
+
+                <a
+                    href="committees.html"
+                    class="back-link"
+                >
+                    <span aria-hidden="true">←</span>
+                    All Committees
+                </a>
 
-<header>
+                <div
+                    class="page-hero-content animate-in"
+                    id="committeeHero"
+                >
 
-<nav class="navbar">
+                    <div
+                        class="eyebrow"
+                        id="committeeCode"
+                    >
+                        COMMITTEE
+                    </div>
 
-<a
-  href="index.html"
-  class="nav-logo"
->
-<img
-  src="relmun-logo.png"
-  alt="RELMUN '26"
->
-</a>
+                    <h1
+                        class="page-title"
+                        id="committeeName"
+                    >
+                        Committee
+                    </h1>
 
+                    <p
+                        class="page-description"
+                        id="committeeIntro"
+                    >
+                        Explore the committee mandate, agenda and
+                        delegate information for RELMUN 2026.
+                    </p>
 
-<div class="nav-links">
+                </div>
 
-<a href="index.html#about">
-ABOUT
-</a>
+            </div>
 
-<a href="committees.html">
-COMMITTEES
-</a>
+        </section>
 
-<a href="index.html#team">
-TEAM
-</a>
 
-<a href="index.html#eb">
-EB
-</a>
+        <!-- =================================================
+             COMMITTEE INFORMATION
+             ================================================= -->
 
-<a
-  href="register.html"
-  class="nav-register"
->
-REGISTER
-</a>
+        <section class="section">
 
-<a href="faq.html">
-FAQ
-</a>
+            <div class="container">
 
-</div>
+                <div class="committee-layout">
 
+                    <!-- MAIN CONTENT -->
 
-<button
-  class="nav-menu"
-  aria-label="Open menu"
->
-<span></span>
-<span></span>
-</button>
+                    <div>
 
-</nav>
+                        <div class="section-header">
 
-</header>
+                            <div class="eyebrow">
+                                Agenda
+                            </div>
 
+                            <h2
+                                class="section-title"
+                                id="agendaHeading"
+                            >
+                                Committee Agenda
+                            </h2>
 
+                        </div>
 
-<main>
 
-<section class="committee-detail">
+                        <article class="agenda-panel">
 
-<div class="detail-top">
+                            <div class="agenda-label">
+                                Agenda
+                            </div>
 
-<div>
+                            <h3
+                                class="agenda-title"
+                                id="agendaTitle"
+                            >
+                                Committee agenda
+                            </h3>
 
-<span
-  class="detail-code"
-  id="committeeCode"
->
-COMMITTEE
-</span>
+                            <p
+                                class="agenda-description"
+                                id="agendaDescription"
+                            >
+                                The committee agenda will guide
+                                discussion and debate during RELMUN 2026.
+                            </p>
 
+                        </article>
 
-<h1
-  class="detail-title"
-  id="committeeTitle"
->
-COMMITTEE.
-</h1>
 
+                        <div class="content-block">
 
-<p
-  class="detail-subtitle"
-  id="committeeDescription"
->
-Loading committee information...
-</p>
+                            <div class="eyebrow">
+                                About the Committee
+                            </div>
 
-</div>
+                            <h2
+                                class="content-title"
+                                id="aboutHeading"
+                            >
+                                Committee Mandate
+                            </h2>
 
-</div>
+                            <div id="committeeAbout">
 
+                                <p>
+                                    This committee provides delegates
+                                    with an opportunity to research,
+                                    debate and negotiate solutions to
+                                    significant international issues.
+                                </p>
 
+                            </div>
 
-<div class="detail-grid">
+                        </div>
 
 
-<div class="detail-box">
+                        <div class="content-block">
 
-<h3>
-MANDATE
-</h3>
+                            <div class="eyebrow">
+                                Delegate Experience
+                            </div>
 
-<p id="committeeMandate">
-Loading...
-</p>
+                            <h2 class="content-title">
+                                What to Expect
+                            </h2>
 
-</div>
+                            <div class="expect-grid">
 
+                                <div class="expect-item">
 
-<div class="detail-box">
+                                    <div class="card-number">
+                                        01
+                                    </div>
 
-<h3>
-FORMAT
-</h3>
+                                    <h3>
+                                        Research
+                                    </h3>
 
-<p id="committeeFormat">
-Delegates will participate in committee debate,
-negotiation and moderated discussion.
-</p>
+                                    <p>
+                                        Understand your country's
+                                        position and arrive prepared
+                                        to discuss the agenda.
+                                    </p>
 
-</div>
+                                </div>
 
 
-<div class="detail-box">
+                                <div class="expect-item">
 
-<h3>
-AGENDA
-</h3>
+                                    <div class="card-number">
+                                        02
+                                    </div>
 
-<p id="committeeAgenda">
-Committee-specific agenda information will be
-announced by the Secretariat.
-</p>
+                                    <h3>
+                                        Debate
+                                    </h3>
 
-</div>
+                                    <p>
+                                        Present arguments, participate
+                                        in moderated discussion and
+                                        engage with other delegates.
+                                    </p>
 
+                                </div>
 
-<div class="detail-box">
 
-<h3>
-EXECUTIVE BOARD
-</h3>
+                                <div class="expect-item">
 
-<p id="committeeEB">
-Committee-specific Executive Board profiles
-will be announced soon.
-</p>
+                                    <div class="card-number">
+                                        03
+                                    </div>
 
-</div>
+                                    <h3>
+                                        Negotiate
+                                    </h3>
 
+                                    <p>
+                                        Collaborate with other
+                                        delegations to develop
+                                        practical solutions.
+                                    </p>
 
-</div>
+                                </div>
 
 
-<div style="margin-top:70px;display:flex;gap:15px;flex-wrap:wrap;">
+                                <div class="expect-item">
 
-<a
-  href="committees.html"
-  class="button"
->
-← ALL COMMITTEES
-</a>
+                                    <div class="card-number">
+                                        04
+                                    </div>
 
-<a
-  href="register.html"
-  class="button"
->
-REGISTER ↗
-</a>
+                                    <h3>
+                                        Lead
+                                    </h3>
 
-</div>
+                                    <p>
+                                        Use diplomacy, public speaking
+                                        and strategic thinking throughout
+                                        the committee.
+                                    </p>
 
+                                </div>
 
-</section>
+                            </div>
 
-</main>
+                        </div>
 
+                    </div>
 
 
-<footer>
+                    <!-- SIDEBAR -->
 
-<div class="footer-logo">
-<img
-  src="relmun-logo.png"
-  alt="RELMUN"
->
-</div>
+                    <aside class="committee-sidebar">
 
-<div class="footer-middle">
-<strong>RELMUN '26</strong>
-<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
-</div>
+                        <div class="card committee-info-card">
 
-<div class="footer-right">
-<span>26—27 DECEMBER 2026</span>
-<span>© 2026 RELMUN</span>
-</div>
+                            <div class="eyebrow">
+                                Committee Details
+                            </div>
 
-</footer>
+                            <div class="detail-list">
 
+                                <div class="detail-row">
 
-<div id="relmun-chatbot"></div>
+                                    <span class="detail-label">
+                                        Committee
+                                    </span>
 
-<script src="script.js"></script>
+                                    <strong
+                                        class="detail-value"
+                                        id="detailCode"
+                                    >
+                                        —
+                                    </strong>
 
+                                </div>
 
-<script>
 
-const committees = {
+                                <div class="detail-row">
 
-  unsc: {
-    code: "01 / UNSC",
-    title: "SECURITY COUNCIL.",
-    description:
-      "The United Nations Security Council focuses on international peace and security, diplomacy, negotiation and high-level decision-making.",
-    mandate:
-      "International peace and security, diplomacy, negotiation and collective decision-making.",
-    agenda:
-      "Committee-specific agenda information will be announced by the Secretariat."
-  },
+                                    <span class="detail-label">
+                                        Format
+                                    </span>
 
-  unhrc: {
-    code: "02 / UNHRC",
-    title: "HUMAN RIGHTS.",
-    description:
-      "The United Nations Human Rights Council focuses on international human rights, cooperation and multilateral action.",
-    mandate:
-      "International human rights, cooperation and multilateral action.",
-    agenda:
-      "Committee-specific agenda information will be announced by the Secretariat."
-  },
+                                    <strong class="detail-value">
+                                        Online
+                                    </strong>
 
-  unodc: {
-    code: "03 / UNODC",
-    title: "DRUGS & CRIME.",
-    description:
-      "The United Nations Office on Drugs and Crime focuses on international cooperation against drugs, organised crime and related transnational challenges.",
-    mandate:
-      "International cooperation against drugs, organised crime, corruption and related transnational challenges.",
-    agenda:
-      "Committee-specific agenda information will be announced by the Secretariat."
-  },
+                                </div>
 
-  aippm: {
-    code: "04 / AIPPM",
-    title: "POLITICAL PARTIES.",
-    description:
-      "The All India Political Parties Meet brings parliamentary debate, political negotiation and deliberation into the conference.",
-    mandate:
-      "Political negotiation, parliamentary debate and deliberation on matters of national importance.",
-    agenda:
-      "Committee-specific agenda information will be announced by the Secretariat."
-  },
 
-  ipla: {
-    code: "05 / IPLA",
-    title: "IPL AUCTION.",
-    description:
-      "The Indian Premier League Auction is a strategic committee environment built around bidding, team management and decision-making.",
-    mandate:
-      "Strategic bidding, team management, financial decisions and competition.",
-    agenda:
-      "Committee-specific rules and auction information will be announced by the Secretariat."
-  },
+                                <div class="detail-row">
 
-  unw: {
-    code: "06 / UN WOMEN",
-    title: "UN WOMEN.",
-    description:
-      "UN Women focuses on advancing gender equality and the empowerment of women and girls through international cooperation and policy development.",
-    mandate:
-      "Gender equality, empowerment and multilateral action.",
-    agenda:
-      "Committee-specific agenda information will be announced by the Secretariat."
-  }
+                                    <span class="detail-label">
+                                        Conference
+                                    </span>
 
-};
+                                    <strong class="detail-value">
+                                        RELMUN 2026
+                                    </strong>
 
+                                </div>
 
-const params =
-  new URLSearchParams(window.location.search);
 
-const key =
-  (params.get("committee") || "unsc").toLowerCase();
+                                <div class="detail-row">
 
-const committee =
-  committees[key] || committees.unsc;
+                                    <span class="detail-label">
+                                        Dates
+                                    </span>
 
+                                    <strong class="detail-value">
+                                        26–27 Dec 2026
+                                    </strong>
 
-document.getElementById("committeeCode").textContent =
-  committee.code;
+                                </div>
 
-document.getElementById("committeeTitle").textContent =
-  committee.title;
+                            </div>
 
-document.getElementById("committeeDescription").textContent =
-  committee.description;
+                            <a
+                                href="register.html"
+                                class="btn btn-primary btn-full"
+                            >
+                                Register
+                                <span aria-hidden="true">→</span>
+                            </a>
 
-document.getElementById("committeeMandate").textContent =
-  committee.mandate;
+                        </div>
 
-document.getElementById("committeeAgenda").textContent =
-  committee.agenda;
 
+                        <div class="card sidebar-note">
 
-document.title =
-  `${committee.code.split("/")[1]?.trim() || "Committee"} — RELMUN '26`;
+                            <div class="card-number">
+                                NOTE
+                            </div>
 
-</script>
+                            <h3 class="card-title">
+                                Registration opens 1 October.
+                            </h3>
 
+                            <p class="card-description">
+                                Committee preferences can be submitted
+                                when delegate registration opens.
+                            </p>
 
-<script src="chatbot.js"></script>
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             OTHER COMMITTEES
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        Explore More
+                    </div>
+
+                    <h2 class="section-title">
+                        Other
+                        <span class="text-blue">
+                            committees.
+                        </span>
+                    </h2>
+
+                </div>
+
+
+                <div class="card-grid card-grid-3">
+
+                    <a
+                        href="committee.html?committee=unsc"
+                        class="card committee-mini"
+                    >
+
+                        <span class="committee-code">
+                            UNSC
+                        </span>
+
+                        <h3 class="card-title">
+                            Security Council
+                        </h3>
+
+                        <span class="card-link">
+                            View Committee →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="committee.html?committee=unhrc"
+                        class="card committee-mini"
+                    >
+
+                        <span class="committee-code">
+                            UNHRC
+                        </span>
+
+                        <h3 class="card-title">
+                            Human Rights Council
+                        </h3>
+
+                        <span class="card-link">
+                            View Committee →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="committee.html?committee=unodc"
+                        class="card committee-mini"
+                    >
+
+                        <span class="committee-code">
+                            UNODC
+                        </span>
+
+                        <h3 class="card-title">
+                            United Nations Office on Drugs and Crime
+                        </h3>
+
+                        <span class="card-link">
+                            View Committee →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CTA
+             ================================================= -->
+
+        <section class="cta">
+
+            <div class="container">
+
+                <div class="cta-inner">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            RELMUN 2026
+                        </div>
+
+                        <h2 class="cta-title">
+                            Ready to take your
+                            <span class="text-blue">
+                                seat?
+                            </span>
+                        </h2>
+
+                        <p class="cta-description">
+                            Delegate registrations open on
+                            1 October 2026.
+                        </p>
+
+                    </div>
+
+                    <div class="btn-row">
+
+                        <a
+                            href="register.html"
+                            class="btn btn-primary"
+                        >
+                            Register
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a
+                            href="committees.html"
+                            class="btn btn-secondary"
+                        >
+                            All Committees
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        aria-label="RELMUN 2026 Home"
+                    >
+                        <img
+                            src="relmun-logo.png"
+                            alt="RELMUN 2026"
+                        >
+                    </a>
+
+                    <p class="footer-description">
+                        Regional Engagement & Leadership Model United
+                        Nations — an online conference taking place on
+                        26–27 December 2026.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Navigate
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a
+                            href="index.html"
+                            class="footer-link"
+                        >
+                            Home
+                        </a>
+
+                        <a
+                            href="committees.html"
+                            class="footer-link"
+                        >
+                            Committees
+                        </a>
+
+                        <a
+                            href="eb.html"
+                            class="footer-link"
+                        >
+                            Executive Board
+                        </a>
+
+                        <a
+                            href="register.html"
+                            class="footer-link"
+                        >
+                            Register
+                        </a>
+
+                        <a
+                            href="faq.html"
+                            class="footer-link"
+                        >
+                            FAQ
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Contact
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a
+                            href="https://www.instagram.com/relmun.official/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="footer-link"
+                        >
+                            Instagram — @relmun.official
+                        </a>
+
+                        <a
+                            href="mailto:akshithkabilan@gmail.com"
+                            class="footer-link"
+                        >
+                            akshithkabilan@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 RELMUN. All rights reserved.
+                </span>
+
+                <div class="social-links">
+
+                    <a
+                        href="https://www.instagram.com/relmun.official/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-link"
+                        aria-label="RELMUN Instagram"
+                    >
+                        IG
+                    </a>
+
+                    <a
+                        href="mailto:akshithkabilan@gmail.com"
+                        class="social-link"
+                        aria-label="Email RELMUN"
+                    >
+                        @
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+        (() => {
+            "use strict";
+
+            /* =================================================
+               MOBILE NAVIGATION
+               ================================================= */
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+
+            if (menuToggle && navLinks) {
+
+                const closeMenu = () => {
+
+                    navLinks.classList.remove("open");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+
+                    document.body.classList.remove(
+                        "menu-open"
+                    );
+
+                };
+
+
+                const openMenu = () => {
+
+                    navLinks.classList.add("open");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Close navigation"
+                    );
+
+                    document.body.classList.add(
+                        "menu-open"
+                    );
+
+                };
+
+
+                menuToggle.addEventListener(
+                    "click",
+                    () => {
+
+                        if (
+                            navLinks.classList.contains("open")
+                        ) {
+                            closeMenu();
+                        } else {
+                            openMenu();
+                        }
+
+                    }
+                );
+
+
+                navLinks
+                    .querySelectorAll("a")
+                    .forEach((link) => {
+
+                        link.addEventListener(
+                            "click",
+                            closeMenu
+                        );
+
+                    });
+
+
+                window.addEventListener(
+                    "resize",
+                    () => {
+
+                        if (window.innerWidth > 700) {
+                            closeMenu();
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =================================================
+               COMMITTEE DATA
+               =================================================
+
+               The page uses the query parameter:
+
+               committee.html?committee=unsc
+               committee.html?committee=unhrc
+               committee.html?committee=unodc
+
+               Only committees currently specified for RELMUN
+               are included here.
+               ================================================= */
+
+            const committeeData = {
+
+                unsc: {
+
+                    code: "UNSC",
+
+                    name:
+                        "United Nations Security Council",
+
+                    intro:
+                        "A high-level diplomatic forum focused on international peace and security, where delegates address complex geopolitical challenges.",
+
+                    agenda:
+                        "Addressing the Escalating Crisis in the Strait of Hormuz and Its Implications for International Peace and Security.",
+
+                    description:
+                        "Delegates will examine the developing crisis in the Strait of Hormuz, its wider implications for regional stability and international peace and security, and the possible responses available to the international community.",
+
+                    about:
+                        `
+                        <p>
+                            The United Nations Security Council bears
+                            primary responsibility within the United
+                            Nations system for the maintenance of
+                            international peace and security.
+                        </p>
+
+                        <p>
+                            At RELMUN 2026, delegates in the UNSC will
+                            be expected to represent their assigned
+                            countries while balancing national
+                            interests, diplomatic relationships and
+                            the broader requirements of international
+                            security.
+                        </p>
+
+                        <p>
+                            The committee will reward preparation,
+                            diplomacy, strategic negotiation and
+                            effective communication.
+                        </p>
+                        `
+
+                },
+
+
+                unhrc: {
+
+                    code: "UNHRC",
+
+                    name:
+                        "United Nations Human Rights Council",
+
+                    intro:
+                        "A multilateral forum where delegates examine international human rights concerns and develop cooperative approaches to protecting fundamental rights.",
+
+                    agenda:
+                        "International Human Rights and Multilateral Cooperation",
+
+                    description:
+                        "Delegates will examine the responsibilities of states and international institutions in addressing human rights concerns while navigating differing national perspectives.",
+
+                    about:
+                        `
+                        <p>
+                            The United Nations Human Rights Council
+                            serves as an intergovernmental body within
+                            the United Nations system dedicated to the
+                            promotion and protection of human rights.
+                        </p>
+
+                        <p>
+                            Delegates will be required to understand
+                            their country's position, engage with
+                            opposing perspectives and work towards
+                            practical diplomatic solutions.
+                        </p>
+
+                        <p>
+                            Constructive debate, evidence-based
+                            arguments and meaningful negotiation will
+                            form an important part of the committee
+                            experience.
+                        </p>
+                        `
+
+                },
+
+
+                unodc: {
+
+                    code: "UNODC",
+
+                    name:
+                        "United Nations Office on Drugs and Crime",
+
+                    intro:
+                        "An international forum focused on cooperation against transnational crime and other cross-border challenges.",
+
+                    agenda:
+                        "International Cooperation Against Transnational Crime",
+
+                    description:
+                        "Delegates will explore how states can cooperate to address transnational criminal activity and strengthen international mechanisms for prevention and enforcement.",
+
+                    about:
+                        `
+                        <p>
+                            The United Nations Office on Drugs and
+                            Crime works with member states on issues
+                            involving transnational organized crime,
+                            illicit trafficking, corruption and
+                            related challenges.
+                        </p>
+
+                        <p>
+                            At RELMUN 2026, delegates will approach
+                            these issues from the perspective of their
+                            assigned states and develop proposals
+                            through diplomatic discussion.
+                        </p>
+
+                        <p>
+                            Successful delegates will combine
+                            research, policy understanding,
+                            negotiation and clear communication.
+                        </p>
+                        `
+
+                }
+
+            };
+
+
+            /* =================================================
+               GET SELECTED COMMITTEE
+               ================================================= */
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+            const committeeKey =
+                (
+                    params.get("committee") ||
+                    "unsc"
+                ).toLowerCase();
+
+
+            const committee =
+                committeeData[committeeKey];
+
+
+            /* =================================================
+               PAGE ELEMENTS
+               ================================================= */
+
+            const committeeCode =
+                document.getElementById(
+                    "committeeCode"
+                );
+
+            const committeeName =
+                document.getElementById(
+                    "committeeName"
+                );
+
+            const committeeIntro =
+                document.getElementById(
+                    "committeeIntro"
+                );
+
+            const agendaTitle =
+                document.getElementById(
+                    "agendaTitle"
+                );
+
+            const agendaDescription =
+                document.getElementById(
+                    "agendaDescription"
+                );
+
+            const committeeAbout =
+                document.getElementById(
+                    "committeeAbout"
+                );
+
+            const detailCode =
+                document.getElementById(
+                    "detailCode"
+                );
+
+
+            /* =================================================
+               RENDER COMMITTEE
+               ================================================= */
+
+            if (committee) {
+
+                document.title =
+                    `${committee.code} | RELMUN 2026`;
+
+                if (committeeCode) {
+                    committeeCode.textContent =
+                        committee.code;
+                }
+
+                if (committeeName) {
+                    committeeName.textContent =
+                        committee.name;
+                }
+
+                if (committeeIntro) {
+                    committeeIntro.textContent =
+                        committee.intro;
+                }
+
+                if (agendaTitle) {
+                    agendaTitle.textContent =
+                        committee.agenda;
+                }
+
+                if (agendaDescription) {
+                    agendaDescription.textContent =
+                        committee.description;
+                }
+
+                if (committeeAbout) {
+                    committeeAbout.innerHTML =
+                        committee.about;
+                }
+
+                if (detailCode) {
+                    detailCode.textContent =
+                        committee.code;
+                }
+
+            } else {
+
+                /*
+                 * Invalid committee URLs are safely redirected
+                 * instead of showing broken or misleading content.
+                 */
+
+                window.location.replace(
+                    "committees.html"
+                );
+
+            }
+
+        })();
+    </script>
 
 </body>
 </html>
+```
