@@ -1,385 +1,306 @@
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
 
-  /* --------------------------------
-     MOBILE / NAV
-  -------------------------------- */
+'use strict';
 
-  const currentPage =
-    window.location.pathname.split("/").pop() || "index.html";
 
-  document.querySelectorAll(".nav-links a").forEach(link => {
+const OPEN_DATE =
+new Date(
+'2026-10-01T00:00:00+05:30'
+).getTime();
 
-    const href = link.getAttribute("href");
 
-    if (href === currentPage) {
-      link.classList.add("active");
-    }
+const CONFERENCE_DATE =
+new Date(
+'2026-12-26T00:00:00+05:30'
+).getTime();
 
-  });
 
+document.addEventListener(
+'DOMContentLoaded',
+() => {
 
-  /* --------------------------------
-     FAQ
-  -------------------------------- */
 
-  document.querySelectorAll(".faq-question").forEach(button => {
+/* MOBILE NAVIGATION */
 
-    button.addEventListener("click", () => {
+const menu =
+document.getElementById('menuToggle');
 
-      const item = button.closest(".faq-item");
-      const answer = item.querySelector(".faq-answer");
+const nav =
+document.getElementById('navLinks');
 
-      document.querySelectorAll(".faq-item.open").forEach(openItem => {
 
-        if (openItem !== item) {
-          openItem.classList.remove("open");
-          openItem.querySelector(".faq-answer").style.maxHeight = null;
-        }
+if(menu && nav){
 
-      });
+menu.addEventListener(
+'click',
+() => {
 
-      item.classList.toggle("open");
+const open =
+nav.classList.toggle('open');
 
-      if (item.classList.contains("open")) {
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      } else {
-        answer.style.maxHeight = null;
-      }
+menu.setAttribute(
+'aria-expanded',
+String(open)
+);
 
-    });
+}
+);
 
-  });
 
+nav
+.querySelectorAll('a')
+.forEach(
+link => {
 
-  /* --------------------------------
-     REGISTRATION DATE
-  -------------------------------- */
+link.addEventListener(
+'click',
+() => {
 
-  const registrationLocked =
-    document.getElementById("registrationLocked");
+nav.classList.remove('open');
 
-  const registrationForm =
-    document.getElementById("registrationForm");
+menu.setAttribute(
+'aria-expanded',
+'false'
+);
 
-  const daysEl =
-    document.getElementById("days");
+}
+);
 
-  const hoursEl =
-    document.getElementById("hours");
+}
+);
 
-  const minutesEl =
-    document.getElementById("minutes");
+}
 
-  const secondsEl =
-    document.getElementById("seconds");
 
+/* REGISTRATION COUNTDOWN */
 
-  /*
-    Registration officially opens:
-    October 1, 2026 at 00:00 IST.
+const d =
+document.getElementById(
+'countdownDays'
+);
 
-    The date is evaluated in the browser.
-  */
+const h =
+document.getElementById(
+'countdownHours'
+);
 
-  const openingDate =
-    new Date("2026-10-01T00:00:00+05:30");
+const m =
+document.getElementById(
+'countdownMinutes'
+);
 
+const s =
+document.getElementById(
+'countdownSeconds'
+);
 
-  function updateRegistrationStatus() {
 
-    const now = new Date();
-    const difference = openingDate - now;
+const countdown =
+document.getElementById(
+'registrationCountdown'
+);
 
-    if (difference <= 0) {
+const options =
+document.getElementById(
+'registrationOptions'
+);
 
-      if (registrationLocked) {
-        registrationLocked.style.display = "none";
-      }
+const description =
+document.getElementById(
+'registrationDescription'
+);
 
-      if (registrationForm) {
-        registrationForm.style.display = "block";
-      }
 
-      return;
+function pad(n){
 
-    }
+return String(n)
+.padStart(2,'0');
 
+}
 
-    if (!registrationLocked) {
-      return;
-    }
 
+function update(){
 
-    const totalSeconds =
-      Math.floor(difference / 1000);
+const diff =
+OPEN_DATE - Date.now();
 
-    const days =
-      Math.floor(totalSeconds / 86400);
 
-    const hours =
-      Math.floor((totalSeconds % 86400) / 3600);
+if(diff <= 0){
 
-    const minutes =
-      Math.floor((totalSeconds % 3600) / 60);
+if(countdown){
 
-    const seconds =
-      totalSeconds % 60;
+countdown.style.display =
+'none';
 
+}
 
-    if (daysEl) {
-      daysEl.textContent =
-        String(days).padStart(2, "0");
-    }
+if(options){
 
-    if (hoursEl) {
-      hoursEl.textContent =
-        String(hours).padStart(2, "0");
-    }
+options.classList.add(
+'open'
+);
 
-    if (minutesEl) {
-      minutesEl.textContent =
-        String(minutes).padStart(2, "0");
-    }
+}
 
-    if (secondsEl) {
-      secondsEl.textContent =
-        String(seconds).padStart(2, "0");
-    }
+if(description){
 
-  }
+description.textContent =
+'Delegate registrations for RELMUN 2026 are now open.';
 
+}
 
-  if (registrationLocked || registrationForm) {
+return;
 
-    updateRegistrationStatus();
+}
 
-    setInterval(
-      updateRegistrationStatus,
-      1000
-    );
 
-  }
+const sec =
+Math.floor(diff / 1000);
 
 
-  /* --------------------------------
-     REGISTRATION FORM
-  -------------------------------- */
+if(d){
 
-  const form =
-    document.getElementById("registrationForm");
+d.textContent =
+pad(
+Math.floor(sec / 86400)
+);
 
-  const message =
-    document.getElementById("formMessage");
+}
 
 
-  /*
-    Google Apps Script Web App endpoint.
-  */
+if(h){
 
-  const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
+h.textContent =
+pad(
+Math.floor(
+sec % 86400 / 3600
+)
+);
 
+}
 
-  if (form) {
 
-    form.addEventListener("submit", async (event) => {
+if(m){
 
-      event.preventDefault();
+m.textContent =
+pad(
+Math.floor(
+sec % 3600 / 60
+)
+);
 
+}
 
-      /*
-        Extra client-side date protection.
-        Even if someone manually changes the HTML,
-        the form will not submit before October 1.
-      */
 
-      if (new Date() < openingDate) {
+if(s){
 
-        showMessage(
-          "Registrations are not open yet. They open on 1 October 2026.",
-          "error"
-        );
+s.textContent =
+pad(
+sec % 60
+);
 
-        return;
+}
 
-      }
+}
 
 
-      const submitButton =
-        form.querySelector("button[type='submit']");
+if(countdown){
 
-      submitButton.disabled = true;
+update();
 
-      submitButton.innerHTML =
-        "Submitting...";
+setInterval(
+update,
+1000
+);
 
+}
 
-      const formData =
-        new FormData(form);
 
-      const data = {};
+/* FAQ ACCORDION */
 
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
+document
+.querySelectorAll(
+'.faq-question'
+)
+.forEach(
+question => {
 
+question.addEventListener(
+'click',
+() => {
 
-      try {
+const item =
+question.closest(
+'.faq-item'
+);
 
-        const response =
-          await fetch(
-            SCRIPT_URL,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-              },
-              body: JSON.stringify(data)
-            }
-          );
+const answer =
+item.querySelector(
+'.faq-answer'
+);
 
+const open =
+question.getAttribute(
+'aria-expanded'
+) === 'true';
 
-        const result =
-          await response.json();
 
+document
+.querySelectorAll(
+'.faq-item'
+)
+.forEach(
+other => {
 
-        if (result.success) {
+if(other !== item){
 
-          showMessage(
-            "Registration submitted successfully. Welcome to RELMUN '26.",
-            "success"
-          );
+other
+.querySelector(
+'.faq-question'
+)
+.setAttribute(
+'aria-expanded',
+'false'
+);
 
-          form.reset();
+other.classList.remove(
+'open'
+);
 
-        } else {
+other
+.querySelector(
+'.faq-answer'
+)
+.style.maxHeight =
+null;
 
-          throw new Error(
-            result.error ||
-            "Registration could not be submitted."
-          );
+}
 
-        }
+}
+);
 
 
-      } catch (error) {
+question.setAttribute(
+'aria-expanded',
+String(!open)
+);
 
-        console.error(error);
+item.classList.toggle(
+'open',
+!open
+);
 
-        showMessage(
-          "Something went wrong while submitting your registration. Please try again.",
-          "error"
-        );
+answer.style.maxHeight =
+open
+? null
+: answer.scrollHeight + 'px';
 
-      } finally {
+}
+);
 
-        submitButton.disabled = false;
-
-        submitButton.innerHTML =
-          "Submit Registration <span>↗</span>";
-
-      }
-
-    });
-
-  }
-
-
-  function showMessage(text, type) {
-
-    if (!message) {
-      return;
-    }
-
-    message.textContent = text;
-
-    message.className =
-      "form-message " + type;
-
-  }
-
-
-  /* --------------------------------
-     COMMITTEE DETAIL PAGE
-  -------------------------------- */
-
-  const committeeTitle =
-    document.getElementById("committeeTitle");
-
-  if (committeeTitle) {
-
-    const params =
-      new URLSearchParams(window.location.search);
-
-    const committee =
-      params.get("committee");
-
-
-    const committeeData = {
-
-      unsc: {
-        code: "01 · UNITED NATIONS SECURITY COUNCIL",
-        title: "UNSC",
-        description:
-          "A forum focused on international peace and security, where delegates navigate complex geopolitical situations through negotiation and diplomacy.",
-        agenda:
-          "Addressing the Escalating Crisis in the Strait of Hormuz and Its Implications for International Peace and Security"
-      },
-
-      unhrc: {
-        code: "02 · UNITED NATIONS HUMAN RIGHTS COUNCIL",
-        title: "UNHRC",
-        description:
-          "A committee centred on international human rights, accountability and the protection of fundamental freedoms.",
-        agenda:
-          "Agenda to be announced"
-      },
-
-      unodc: {
-        code: "03 · UNITED NATIONS OFFICE ON DRUGS AND CRIME",
-        title: "UNODC",
-        description:
-          "A committee examining international cooperation against transnational crime, illicit trafficking and related challenges.",
-        agenda:
-          "Agenda to be announced"
-      }
-
-    };
-
-
-    const data =
-      committeeData[committee] ||
-      committeeData.unsc;
-
-
-    const code =
-      document.getElementById("committeeCode");
-
-    const description =
-      document.getElementById("committeeDescription");
-
-    const agenda =
-      document.getElementById("committeeAgenda");
-
-
-    committeeTitle.textContent =
-      data.title;
-
-    if (code) {
-      code.textContent =
-        data.code;
-    }
-
-    if (description) {
-      description.textContent =
-        data.description;
-    }
-
-    if (agenda) {
-      agenda.textContent =
-        data.agenda;
-    }
-
-  }
+}
+);
 
 });
+
+})();
