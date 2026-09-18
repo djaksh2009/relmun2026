@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -14,2330 +12,2652 @@
 
   <meta
     name="description"
-    content="Delegate registration for RELMUN '26 — Relations, Engagement & Leadership Model United Nations."
-  >
-
-  <link
-    rel="icon"
-    href="relmun-logo.png"
-    type="image/png"
+    content="Register for RELMUN '26 — Relations, Engagement & Leadership Model United Nations."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <!-- Clean modern font pairing -->
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap"
     rel="stylesheet"
-  >
-
-  <link
-    rel="stylesheet"
-    href="style.css"
   >
 
   <style>
 
+    /* =====================================================
+       RELMUN '26 — REGISTER
+       ===================================================== */
+
     :root {
-      --bg: #050b13;
-      --bg2: #071321;
-      --ivory: #eee9dc;
-      --muted: #8993a1;
+      --bg: #05080d;
+      --bg-2: #080d14;
+      --panel: #0b1119;
+      --panel-2: #0e151e;
+
+      --ivory: #f1ece0;
+      --muted: #8d98a6;
+
+      --blue: #1846ff;
+      --blue-light: #3d65ff;
+
       --gold: #c79a2b;
-      --gold-light: #e3c46b;
-      --line: rgba(238,233,220,.12);
-      --display: "Playfair Display", Georgia, serif;
-      --body: "Manrope", Arial, sans-serif;
-      --mono: "DM Mono", monospace;
+      --gold-light: #e2b941;
+
+      --border: rgba(241, 236, 224, 0.11);
+      --border-strong: rgba(241, 236, 224, 0.2);
+
+      --danger: #ff6262;
+      --success: #66d99b;
+
+      --radius: 16px;
+      --max-width: 1120px;
     }
+
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+
 
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
-      margin: 0;
-      background: var(--bg);
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at 15% 5%,
+          rgba(24, 70, 255, 0.11),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(199, 154, 43, 0.07),
+          transparent 24%
+        ),
+        var(--bg);
+
       color: var(--ivory);
-      font-family: var(--body);
+
+      font-family: "Manrope", sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
+
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: 0.18;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 70px 70px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 75%
+        );
+
+      z-index: -1;
+    }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    header {
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      right: 0;
-      border-bottom: 1px solid var(--line);
-      background: rgba(5,11,19,.86);
-      backdrop-filter: blur(18px);
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
     }
+
+
+    button {
+      cursor: pointer;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
 
     .navbar {
-      width: min(1400px, 92vw);
-      height: 78px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+      position: sticky;
+      top: 0;
 
-    .nav-logo {
-      width: 125px;
-      display: block;
-    }
-
-    .nav-logo img {
       width: 100%;
-      display: block;
+
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+
+      z-index: 1000;
+
+      background:
+        rgba(5, 8, 13, 0.82);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid var(--border);
     }
+
+
+    .nav-inner {
+      width: min(
+        calc(100% - 48px),
+        1240px
+      );
+
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+
+    .brand-mark {
+      width: 35px;
+      height: 35px;
+
+      border: 1px solid var(--gold);
+
+      display: grid;
+      place-items: center;
+
+      color: var(--gold);
+
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+
+      transform: rotate(45deg);
+    }
+
+
+    .brand-mark span {
+      transform: rotate(-45deg);
+    }
+
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+    }
+
+
+    .brand-year {
+      margin-top: 5px;
+
+      color: var(--gold);
+
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+
+      letter-spacing: 3px;
+    }
+
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 30px;
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
     }
+
 
     .nav-links a {
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: .13em;
-      color: rgba(238,233,220,.72);
+      color: #aeb7c3;
+      transition: color .25s ease;
     }
+
 
     .nav-links a:hover {
-      color: var(--gold-light);
+      color: var(--ivory);
     }
+
 
     .nav-register {
-      padding: 14px 20px;
+      padding: 12px 19px;
+
       background: var(--gold);
-      color: #07111f !important;
+
+      color: #07090c !important;
+
+      font-weight: 500;
+
+      transition:
+        transform .25s ease,
+        background .25s ease;
     }
 
-    .nav-menu {
-      display: none;
-      border: 0;
-      background: transparent;
+
+    .nav-register:hover {
+      background: var(--gold-light);
+
+      transform: translateY(-2px);
     }
 
-    /* GATE */
 
-    .registration-gate {
-      min-height: 100vh;
-      padding: 150px 7vw 90px;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(
-          circle at 75% 20%,
-          rgba(24,70,255,.10),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 20% 80%,
-          rgba(199,154,43,.07),
-          transparent 30%
-        ),
-        var(--bg);
-    }
+    /* =====================================================
+       HERO
+       ===================================================== */
 
-    .gate-inner {
-      width: min(1100px, 100%);
+    .hero {
+      width: min(
+        calc(100% - 48px),
+        var(--max-width)
+      );
+
       margin: auto;
+
+      padding:
+        90px
+        0
+        65px;
     }
+
 
     .eyebrow {
-      color: var(--gold);
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: .16em;
-    }
-
-    .gate-inner h1 {
-      margin: 25px 0 0;
-      font-family: var(--body);
-      font-size: clamp(65px, 11vw, 155px);
-      line-height: .8;
-      letter-spacing: -.085em;
-      font-weight: 800;
-    }
-
-    .gate-inner h1 em {
-      color: var(--gold-light);
-      font-family: var(--display);
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .gate-copy {
-      max-width: 620px;
-      margin: 35px 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .gate-countdown {
-      max-width: 760px;
-      margin-top: 45px;
-    }
-
-    .gate-countdown-label {
-      margin-bottom: 15px;
-      color: var(--gold);
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: .15em;
-    }
-
-    .gate-clock {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .gate-clock-unit {
-      padding: 25px;
-      text-align: center;
-      border-right: 1px solid var(--line);
-    }
-
-    .gate-clock-unit:last-child {
-      border-right: 0;
-    }
-
-    .gate-clock-unit strong {
-      display: block;
-      font-family: var(--display);
-      font-size: clamp(38px,5vw,65px);
-      font-weight: 500;
-    }
-
-    .gate-clock-unit span {
-      display: block;
-      margin-top: 7px;
-      color: var(--gold);
-      font-family: var(--mono);
-      font-size: 7px;
-      letter-spacing: .14em;
-    }
-
-    .closed-note {
-      margin-top: 30px;
-      padding: 18px 20px;
-      border-left: 2px solid var(--gold);
-      background: rgba(199,154,43,.035);
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    /* FORM */
-
-    .registration-page {
-      min-height: 100vh;
-      padding: 145px 7vw 100px;
-      background:
-        radial-gradient(
-          circle at 80% 15%,
-          rgba(199,154,43,.07),
-          transparent 30%
-        ),
-        var(--bg);
-    }
-
-    .registration-header {
-      width: min(1100px,100%);
-      margin: 0 auto 70px;
-    }
-
-    .registration-header h1 {
-      margin: 25px 0 0;
-      font-size: clamp(65px,9vw,125px);
-      line-height: .8;
-      letter-spacing: -.08em;
-      font-weight: 800;
-    }
-
-    .registration-header h1 em {
-      color: var(--gold-light);
-      font-family: var(--display);
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .registration-header p {
-      max-width: 650px;
-      margin-top: 35px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .registration-progress {
-      width: min(1100px,100%);
-      margin: 0 auto 55px;
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 12px;
+
+      margin-bottom: 24px;
+
+      color: var(--gold);
+
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    .progress-step {
-      height: 3px;
-      flex: 1;
-      background: rgba(238,233,220,.11);
-      transition: background .25s ease;
-    }
 
-    .progress-step.active {
+    .eyebrow::before {
+      content: "";
+
+      width: 32px;
+      height: 1px;
+
       background: var(--gold);
     }
 
-    .progress-text {
-      margin-left: 12px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: .12em;
-      white-space: nowrap;
+
+    .hero h1 {
+      max-width: 850px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(
+        54px,
+        8vw,
+        94px
+      );
+
+      line-height: .94;
+
+      font-weight: 500;
+
+      letter-spacing: -3px;
     }
 
-    .registration-form {
-      width: min(1100px,100%);
-      margin: auto;
-    }
 
-    .form-section {
-      display: none;
-      border-top: 1px solid var(--line);
-      padding-top: 35px;
-    }
-
-    .form-section.active {
-      display: block;
-      animation: sectionIn .35s ease;
-    }
-
-    @keyframes sectionIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .form-section-number {
-      display: block;
-      margin-bottom: 13px;
+    .hero h1 em {
       color: var(--gold);
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: .15em;
+      font-style: normal;
     }
 
-    .form-section h2 {
-      margin: 0;
-      font-size: clamp(40px,6vw,75px);
-      line-height: .85;
-      letter-spacing: -.07em;
-      font-weight: 800;
+
+    .hero-description {
+      max-width: 650px;
+
+      margin-top: 28px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+      line-height: 1.75;
     }
 
-    .form-section h2 em {
-      color: var(--gold-light);
-      font-family: var(--display);
-      font-style: italic;
+
+    .open-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-top: 30px;
+
+      padding: 11px 15px;
+
+      border:
+        1px solid
+        rgba(199,154,43,.3);
+
+      background:
+        rgba(199,154,43,.05);
+
+      color: #d7c28b;
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+
+      letter-spacing: 1px;
+    }
+
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+
+      box-shadow:
+        0 0 12px
+        rgba(199,154,43,.65);
+    }
+
+
+    /* =====================================================
+       FORM AREA
+       ===================================================== */
+
+    .registration-wrap {
+      width: min(
+        calc(100% - 48px),
+        var(--max-width)
+      );
+
+      margin: auto;
+
+      padding-bottom: 120px;
+    }
+
+
+    .registration-grid {
+      display: grid;
+
+      grid-template-columns:
+        250px
+        minmax(0, 1fr);
+
+      gap: 70px;
+
+      align-items: start;
+    }
+
+
+    .side-info {
+      position: sticky;
+      top: 110px;
+    }
+
+
+    .side-label {
+      color: var(--gold);
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 16px;
+    }
+
+
+    .side-info h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 30px;
+      line-height: 1.1;
+
       font-weight: 500;
     }
 
-    .section-description {
-      max-width: 650px;
-      margin: 25px 0 45px;
+
+    .side-info p {
+      margin-top: 18px;
+
       color: var(--muted);
+
       font-size: 13px;
       line-height: 1.8;
     }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 30px 25px;
+
+    .side-line {
+      width: 100%;
+      height: 1px;
+
+      margin: 28px 0;
+
+      background: var(--border);
     }
 
-    .form-field {
+
+    .side-meta {
+      display: grid;
+      gap: 17px;
+    }
+
+
+    .meta-item span {
+      display: block;
+
+      color: #65707d;
+
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+
+      margin-bottom: 5px;
+    }
+
+
+    .meta-item strong {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+
+    /* =====================================================
+       FORM
+       ===================================================== */
+
+    .form-card {
+      padding: 36px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(14,21,30,.96),
+          rgba(8,13,20,.96)
+        );
+
+      border-radius: var(--radius);
+
+      box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.25);
+    }
+
+
+    .form-section {
+      padding-bottom: 38px;
+      margin-bottom: 38px;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+
+    .form-section:last-of-type {
+      border-bottom: none;
+
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 17px;
+
+      margin-bottom: 27px;
+    }
+
+
+    .section-number {
+      flex: 0 0 auto;
+
+      width: 35px;
+      height: 35px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid
+        rgba(199,154,43,.45);
+
+      color: var(--gold);
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+    }
+
+
+    .section-heading h3 {
+      font-size: 19px;
+      font-weight: 700;
+
+      letter-spacing: -.2px;
+    }
+
+
+    .section-heading p {
+      margin-top: 4px;
+
+      color: #697583;
+
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+
+    .fields {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 22px;
+    }
+
+
+    .field {
       display: flex;
       flex-direction: column;
+      gap: 9px;
     }
 
-    .form-field.full {
+
+    .field.full {
       grid-column: 1 / -1;
     }
 
-    .form-field label,
-    .preference-title {
-      margin-bottom: 11px;
-      color: var(--ivory);
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: .1em;
+
+    .field label {
+      color: #c5ccd4;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 11px;
+
+      letter-spacing: .6px;
+
+      text-transform: uppercase;
     }
+
 
     .required {
       color: var(--gold);
     }
 
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
+
+    .field input,
+    .field textarea,
+    .field select {
       width: 100%;
-      padding: 17px 16px;
-      border: 1px solid var(--line);
-      border-radius: 0;
+
+      min-height: 53px;
+
+      padding:
+        0
+        16px;
+
+      border:
+        1px solid
+        rgba(241,236,224,.13);
+
       outline: none;
-      background: rgba(7,17,31,.75);
+
+      border-radius: 8px;
+
+      background:
+        rgba(255,255,255,.025);
+
       color: var(--ivory);
-      font-family: var(--body);
-      font-size: 13px;
+
+      font-size: 14px;
+
       transition:
-        border-color .25s ease,
-        background .25s ease;
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
     }
 
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus {
-      border-color: var(--gold);
-      background: rgba(7,17,31,.95);
+
+    .field textarea {
+      min-height: 110px;
+
+      padding: 15px;
+
+      resize: vertical;
     }
 
-    .form-field input::placeholder {
-      color: rgba(238,233,220,.3);
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #596572;
     }
 
-    .form-field select {
+
+    .field input:hover,
+    .field textarea:hover,
+    .field select:hover {
+      border-color:
+        rgba(241,236,224,.25);
+    }
+
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color:
+        rgba(24,70,255,.8);
+
+      background:
+        rgba(24,70,255,.035);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(24,70,255,.09);
+    }
+
+
+    .field select {
       appearance: none;
-      cursor: pointer;
+
+      background-image:
+        linear-gradient(45deg, transparent 50%, #7c8793 50%),
+        linear-gradient(135deg, #7c8793 50%, transparent 50%);
+
+      background-position:
+        calc(100% - 19px) 23px,
+        calc(100% - 14px) 23px;
+
+      background-size:
+        5px 5px,
+        5px 5px;
+
+      background-repeat: no-repeat;
     }
 
-    .form-field select option {
-      background: #07111f;
+
+    .field select option {
+      background: #0b1119;
       color: var(--ivory);
     }
+
 
     .field-note {
-      margin-top: 9px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 7px;
-      letter-spacing: .04em;
-      line-height: 1.6;
+      color: #606c79;
+
+      font-size: 11px;
+      line-height: 1.5;
     }
 
-    .preference-block {
-      margin-bottom: 45px;
-    }
 
-    .preference-title {
-      color: var(--gold-light);
-    }
+    /* =====================================================
+       PREFERENCE NUMBERS
+       ===================================================== */
 
-    .preference-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 18px;
-    }
-
-    .preference-number {
-      display: block;
-      margin-bottom: 9px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 7px;
-      letter-spacing: .12em;
-    }
-
-    /* CONFIRM */
-
-    .confirmation-list {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 850px;
-    }
-
-    .confirmation-item {
+    .preference {
       position: relative;
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-      padding: 20px;
-      border: 1px solid var(--line);
-      background: rgba(7,17,31,.5);
-      cursor: pointer;
     }
 
-    .confirmation-item:hover {
-      border-color: rgba(199,154,43,.4);
-    }
 
-    .confirmation-item input {
+    .preference-badge {
       position: absolute;
+
+      left: 11px;
+      bottom: 12px;
+
+      width: 29px;
+      height: 29px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 5px;
+
+      background:
+        rgba(24,70,255,.14);
+
+      color: #8ea4ff;
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+
+      pointer-events: none;
+    }
+
+
+    .preference input {
+      padding-left: 53px;
+    }
+
+
+    /* =====================================================
+       CHECKBOXES
+       ===================================================== */
+
+    .confirmations {
+      display: grid;
+      gap: 15px;
+
+      margin-top: 5px;
+    }
+
+
+    .check-row {
+      position: relative;
+
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+
+      padding: 15px;
+
+      border:
+        1px solid
+        rgba(241,236,224,.08);
+
+      border-radius: 8px;
+
+      background:
+        rgba(255,255,255,.018);
+
+      cursor: pointer;
+
+      transition:
+        border-color .2s ease,
+        background .2s ease;
+    }
+
+
+    .check-row:hover {
+      border-color:
+        rgba(241,236,224,.17);
+
+      background:
+        rgba(255,255,255,.03);
+    }
+
+
+    .check-row input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+
+    .check-box {
+      flex: 0 0 auto;
+
+      width: 20px;
+      height: 20px;
+
+      margin-top: 1px;
+
+      border:
+        1px solid
+        #4c5661;
+
+      border-radius: 4px;
+
+      display: grid;
+      place-items: center;
+    }
+
+
+    .check-box::after {
+      content: "✓";
+
+      color: #05080d;
+
+      font-size: 12px;
+      font-weight: 800;
+
       opacity: 0;
     }
 
-    .custom-check {
-      width: 17px;
-      height: 17px;
-      flex: 0 0 17px;
-      margin-top: 2px;
-      border: 1px solid var(--muted);
-    }
 
-    .confirmation-item input:checked + .custom-check {
+    .check-row input:checked
+    + .check-box {
       background: var(--gold);
+
       border-color: var(--gold);
     }
 
-    .confirmation-item input:checked + .custom-check::after {
-      content: "✓";
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      color: #07111f;
-      font-size: 11px;
-      font-weight: 700;
+
+    .check-row input:checked
+    + .check-box::after {
+      opacity: 1;
     }
 
-    .confirmation-text {
-      color: var(--ivory);
+
+    .check-text {
+      color: #9ea8b3;
+
       font-size: 12px;
       line-height: 1.65;
     }
 
-    /* BUTTONS */
 
-    .form-navigation {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      margin-top: 55px;
-      padding-top: 30px;
-      border-top: 1px solid var(--line);
+    .check-text strong {
+      color: var(--ivory);
+      font-weight: 600;
     }
 
-    .form-button {
-      min-width: 155px;
-      padding: 16px 23px;
-      border: 1px solid var(--gold);
-      background: transparent;
-      color: var(--gold-light);
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: .13em;
-      cursor: pointer;
-      transition: all .25s ease;
+
+    /* =====================================================
+       SUBMIT
+       ===================================================== */
+
+    .submit-area {
+      margin-top: 35px;
     }
 
-    .form-button:hover {
-      background: var(--gold);
-      color: #07111f;
+
+    .submit-button {
+      width: 100%;
+
+      min-height: 62px;
+
+      border: none;
+      border-radius: 8px;
+
+      background:
+        linear-gradient(
+          110deg,
+          var(--gold),
+          var(--gold-light)
+        );
+
+      color: #07090c;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+
+      transition:
+        transform .2s ease,
+        filter .2s ease,
+        opacity .2s ease;
     }
 
-    .form-button.back {
-      border-color: var(--line);
-      color: var(--muted);
+
+    .submit-button:hover:not(:disabled) {
+      transform: translateY(-2px);
+
+      filter:
+        brightness(1.08);
     }
 
-    .form-button.submit {
-      background: var(--gold);
-      color: #07111f;
-    }
 
-    .form-button.submit:hover {
-      background: var(--gold-light);
-    }
-
-    .form-button:disabled {
-      opacity: .55;
+    .submit-button:disabled {
       cursor: not-allowed;
+      opacity: .5;
     }
 
-    /* ERROR */
 
-    .registration-error {
-      display: none;
-      margin-top: 25px;
-      padding: 16px 18px;
-      border: 1px solid rgba(255,80,80,.35);
-      background: rgba(255,80,80,.05);
-      color: #ffb5b5;
-      font-family: var(--mono);
-      font-size: 8px;
+    .submit-note {
+      margin-top: 13px;
+
+      color: #596572;
+
+      text-align: center;
+
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+
+      letter-spacing: .7px;
       line-height: 1.6;
     }
 
-    .registration-error.show {
-      display: block;
-    }
 
-    /* SUCCESS */
+    /* =====================================================
+       MESSAGES
+       ===================================================== */
 
-    .registration-success {
+    .form-message {
       display: none;
-      width: min(800px,100%);
-      margin: auto;
-      padding: 80px 30px;
-      border-top: 1px solid var(--gold);
-      text-align: center;
+
+      padding: 17px 18px;
+
+      margin-bottom: 25px;
+
+      border-radius: 8px;
+
+      font-size: 13px;
+      line-height: 1.6;
     }
 
-    .registration-success.active {
+
+    .form-message.show {
       display: block;
-      animation: sectionIn .5s ease;
     }
 
-    .success-mark {
-      width: 65px;
-      height: 65px;
-      margin: 0 auto 30px;
+
+    .form-message.error {
+      border:
+        1px solid
+        rgba(255,98,98,.3);
+
+      background:
+        rgba(255,98,98,.06);
+
+      color: #ff9a9a;
+    }
+
+
+    .form-message.success {
+      border:
+        1px solid
+        rgba(102,217,155,.3);
+
+      background:
+        rgba(102,217,155,.06);
+
+      color: #9ae7bb;
+    }
+
+
+    /* =====================================================
+       LOCK SCREEN
+       ===================================================== */
+
+    .registration-lock {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 9999;
+
       display: flex;
-      justify-content: center;
       align-items: center;
-      border: 1px solid var(--gold);
+      justify-content: center;
+
+      padding: 25px;
+
+      background:
+        rgba(3,6,10,.95);
+
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+
+    .registration-lock.hidden {
+      display: none;
+    }
+
+
+    .lock-box {
+      width: min(
+        100%,
+        520px
+      );
+
+      padding: 50px 40px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        rgba(199,154,43,.28);
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #0c121a,
+          #070b11
+        );
+
+      box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.5);
+    }
+
+
+    .lock-symbol {
+      width: 55px;
+      height: 55px;
+
+      margin:
+        0
+        auto
+        25px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid
+        rgba(199,154,43,.5);
+
+      color: var(--gold);
+
+      font-size: 21px;
+
       border-radius: 50%;
-      color: var(--gold-light);
-      font-size: 25px;
     }
 
-    .registration-success h2 {
-      margin: 0;
-      font-size: clamp(45px,7vw,85px);
-      line-height: .85;
-      letter-spacing: -.07em;
-      font-weight: 800;
+
+    .lock-kicker {
+      color: var(--gold);
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 14px;
     }
 
-    .registration-success h2 em {
-      color: var(--gold-light);
-      font-family: var(--display);
-      font-style: italic;
+
+    .lock-box h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 38px;
       font-weight: 500;
     }
 
-    .registration-success p {
-      max-width: 560px;
-      margin: 30px auto 0;
+
+    .lock-box p {
+      margin-top: 16px;
+
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
 
-    /* FOOTER */
-
-    footer {
-      padding: 55px 7vw;
-      border-top: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 30px;
-      background: #03080e;
-    }
-
-    .footer-logo img {
-      width: 140px;
-    }
-
-    .footer-middle strong {
-      display: block;
-      color: var(--gold-light);
-      font-family: var(--display);
-      font-size: 21px;
-    }
-
-    .footer-middle span,
-    .footer-right span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 7px;
-      letter-spacing: .09em;
+      font-size: 14px;
       line-height: 1.7;
     }
 
-    .footer-right {
-      text-align: right;
+
+    .lock-date {
+      display: inline-block;
+
+      margin-top: 25px;
+
+      padding: 12px 17px;
+
+      border:
+        1px solid
+        rgba(199,154,43,.25);
+
+      color: var(--ivory);
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+
+      letter-spacing: 1px;
     }
 
-    /* MOBILE */
+
+    .lock-countdown {
+      margin-top: 25px;
+
+      color: #667280;
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+
+      letter-spacing: 1px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+      border-top:
+        1px solid var(--border);
+
+      padding:
+        35px 24px;
+    }
+
+
+    .footer-inner {
+      width: min(
+        100%,
+        var(--max-width)
+      );
+
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    .footer-copy {
+      color: #596572;
+
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+
+      letter-spacing: 1px;
+    }
+
+
+    .footer-logo {
+      color: var(--gold);
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 18px;
+      letter-spacing: 3px;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
 
     @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+
+      .hero {
+        padding-top: 65px;
+      }
+
+
+      .registration-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+      }
+
+
+      .side-info {
+        position: static;
+      }
+
+
+      .side-line {
+        margin: 20px 0;
+      }
+
+
+      .side-meta {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 620px) {
+
+      .nav-inner {
+        width:
+          calc(100% - 30px);
+      }
+
 
       .navbar {
         height: 68px;
       }
 
-      .nav-links {
-        position: fixed;
-        top: 68px;
-        left: 0;
-        right: 0;
-        padding: 25px;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        background: rgba(5,11,19,.98);
-        border-bottom: 1px solid var(--line);
+
+      .brand-name {
+        font-size: 18px;
       }
 
-      .nav-links.open {
-        display: flex;
+
+      .hero,
+      .registration-wrap {
+        width:
+          calc(100% - 30px);
       }
 
-      .nav-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        padding: 8px;
+
+      .hero {
+        padding:
+          55px
+          0
+          45px;
       }
 
-      .nav-menu span {
-        width: 24px;
-        height: 1px;
-        display: block;
-        background: var(--ivory);
+
+      .hero h1 {
+        font-size: 54px;
+
+        letter-spacing: -2px;
       }
 
-      .registration-page,
-      .registration-gate {
-        padding-left: 20px;
-        padding-right: 20px;
+
+      .hero-description {
+        font-size: 14px;
       }
 
-      .gate-clock {
-        grid-template-columns: repeat(2,1fr);
+
+      .form-card {
+        padding: 22px 17px;
       }
 
-      .gate-clock-unit:nth-child(2) {
-        border-right: 0;
-      }
 
-      .form-grid {
+      .fields {
         grid-template-columns: 1fr;
       }
 
-      .form-field.full {
+
+      .field.full {
         grid-column: auto;
       }
 
-      .preference-grid {
+
+      .side-meta {
         grid-template-columns: 1fr;
       }
 
-      .form-navigation {
+
+      .section-heading {
         gap: 12px;
       }
 
-      .form-button {
-        min-width: 0;
-        flex: 1;
+
+      .section-heading h3 {
+        font-size: 17px;
       }
 
-      footer {
-        grid-template-columns: 1fr;
+
+      .lock-box {
+        padding:
+          38px
+          22px;
       }
 
-      .footer-right {
-        text-align: left;
+
+      .lock-box h2 {
+        font-size: 31px;
+      }
+
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
     }
 
   </style>
-
 </head>
 
 
 <body>
 
 
-<header>
-
-  <nav class="navbar">
-
-    <a
-      href="index.html"
-      class="nav-logo"
-    >
-      <img
-        src="relmun-logo.png"
-        alt="RELMUN '26"
-      >
-    </a>
-
-
-    <div class="nav-links" id="navLinks">
-
-      <a href="index.html#about">ABOUT</a>
-
-      <a href="committees.html">COMMITTEES</a>
-
-      <a href="index.html#team">TEAM</a>
-
-      <a href="index.html#eb">EB</a>
-
-      <a
-        href="register.html"
-        class="nav-register"
-      >
-        REGISTER
-      </a>
-
-      <a href="faq.html">
-        FAQ
-      </a>
-
-    </div>
-
-
-    <button
-      class="nav-menu"
-      id="navMenu"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-    </button>
-
-  </nav>
-
-</header>
-
-
-
-<!-- ==========================================
-     CLOSED REGISTRATION GATE
-========================================== -->
-
-<section
-  class="registration-gate"
-  id="registrationGate"
->
-
-  <div class="gate-inner">
-
-    <span class="eyebrow">
-      RELMUN '26 · DELEGATE REGISTRATION
-    </span>
-
-
-    <h1>
-      JOIN<br>
-      <em>RELMUN.</em>
-    </h1>
-
-
-    <p class="gate-copy">
-      Delegate registration for RELMUN '26 opens on
-      1 October 2026. Registration will become available
-      automatically when the countdown reaches zero.
-    </p>
-
-
-    <div class="gate-countdown">
-
-      <div class="gate-countdown-label">
-        REGISTRATIONS OPEN IN
-      </div>
-
-
-      <div class="gate-clock">
-
-        <div class="gate-clock-unit">
-          <strong id="gateDays">00</strong>
-          <span>DAYS</span>
-        </div>
-
-        <div class="gate-clock-unit">
-          <strong id="gateHours">00</strong>
-          <span>HOURS</span>
-        </div>
-
-        <div class="gate-clock-unit">
-          <strong id="gateMinutes">00</strong>
-          <span>MINUTES</span>
-        </div>
-
-        <div class="gate-clock-unit">
-          <strong id="gateSeconds">00</strong>
-          <span>SECONDS</span>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="closed-note">
-      Registration is currently closed.
-      Please return on 1 October 2026 to complete
-      your delegate registration.
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==========================================
-     ACTUAL FORM
-========================================== -->
-
-<main
-  class="registration-page"
-  id="registrationPage"
-  style="display:none;"
->
-
-
-  <div class="registration-header">
-
-    <span class="eyebrow">
-      RELMUN '26 · DELEGATE REGISTRATION
-    </span>
-
-
-    <h1>
-      JOIN<br>
-      <em>RELMUN.</em>
-    </h1>
-
-
-    <p>
-      Register as a delegate for the Regional Engagement
-      & Leadership Model United Nations. Please provide
-      accurate information throughout the registration
-      process.
-    </p>
-
-  </div>
-
-
+  <!-- =====================================================
+       REGISTRATION LOCK
+       ===================================================== -->
 
   <div
-    class="registration-progress"
-    id="registrationProgress"
+    class="registration-lock"
+    id="registrationLock"
   >
 
-    <div class="progress-step active"></div>
-    <div class="progress-step"></div>
-    <div class="progress-step"></div>
-    <div class="progress-step"></div>
-    <div class="progress-step"></div>
-    <div class="progress-step"></div>
+    <div class="lock-box">
 
-    <span
-      class="progress-text"
-      id="progressText"
-    >
-      SECTION 1 OF 6
-    </span>
+      <div class="lock-symbol">
+        ◇
+      </div>
 
-  </div>
-
-
-
-  <form
-    class="registration-form"
-    id="registrationForm"
-    novalidate
-  >
-
-
-    <!-- SECTION 1 -->
-
-    <section
-      class="form-section active"
-      data-section="1"
-    >
-
-      <span class="form-section-number">
-        SECTION 1 / 6
-      </span>
-
+      <div class="lock-kicker">
+        RELMUN '26 · DELEGATE REGISTRATION
+      </div>
 
       <h2>
-        PERSONAL<br>
-        <em>INFORMATION.</em>
+        Registrations aren't open yet.
       </h2>
 
-
-      <p class="section-description">
-        Tell us a little about yourself so we can process
-        your delegate registration.
+      <p>
+        Delegate registrations for RELMUN '26
+        officially open on
+        <strong>1 October 2026</strong>.
       </p>
 
-
-      <div class="form-grid">
-
-        <div class="form-field">
-
-          <label for="fullName">
-            FULL NAME <span class="required">*</span>
-          </label>
-
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            placeholder="Enter your full name"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="email">
-            EMAIL ADDRESS <span class="required">*</span>
-          </label>
-
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="you@example.com"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="whatsapp">
-            WHATSAPP NUMBER <span class="required">*</span>
-          </label>
-
-          <input
-            type="tel"
-            id="whatsapp"
-            name="whatsapp"
-            placeholder="+91 XXXXX XXXXX"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="city">
-            COUNTRY / CITY <span class="required">*</span>
-          </label>
-
-          <input
-            type="text"
-            id="city"
-            name="city"
-            placeholder="Country / City"
-            required
-          >
-
-        </div>
-
+      <div class="lock-date">
+        01 · 10 · 2026
       </div>
-
-
-      <div class="form-navigation">
-
-        <span></span>
-
-        <button
-          type="button"
-          class="form-button next-button"
-        >
-          NEXT · 02 ↗
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- SECTION 2 -->
-
-    <section
-      class="form-section"
-      data-section="2"
-    >
-
-      <span class="form-section-number">
-        SECTION 2 / 6
-      </span>
-
-
-      <h2>
-        MUN<br>
-        <em>EXPERIENCE.</em>
-      </h2>
-
-
-      <p class="section-description">
-        Tell us about your previous Model United Nations
-        experience.
-      </p>
-
-
-      <div class="form-grid">
-
-        <div class="form-field full">
-
-          <label for="munExperience">
-            HOW MANY MUNS HAVE YOU ATTENDED?
-            <span class="required">*</span>
-          </label>
-
-          <input
-            type="text"
-            id="munExperience"
-            name="munExperience"
-            placeholder="Enter the number of MUNs attended"
-            required
-          >
-
-          <span class="field-note">
-            IF NONE, TYPE "-"
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button back previous-button"
-        >
-          ← BACK
-        </button>
-
-        <button
-          type="button"
-          class="form-button next-button"
-        >
-          NEXT · 03 ↗
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- SECTION 3 -->
-
-    <section
-      class="form-section"
-      data-section="3"
-    >
-
-      <span class="form-section-number">
-        SECTION 3 / 6
-      </span>
-
-
-      <h2>
-        COMMITTEE<br>
-        <em>PREFERENCES.</em>
-      </h2>
-
-
-      <p class="section-description">
-        Choose your first, second and third committee
-        preferences.
-      </p>
-
-
-      <div class="preference-block">
-
-        <div class="preference-title">
-          COMMITTEE PREFERENCES
-        </div>
-
-
-        <div class="preference-grid">
-
-          <div class="form-field">
-
-            <span class="preference-number">
-              FIRST PREFERENCE
-            </span>
-
-            <select
-              id="committee1"
-              name="committee1"
-              required
-            >
-
-              <option value="" selected disabled>
-                SELECT COMMITTEE
-              </option>
-
-              <option value="UNSC">UNSC</option>
-              <option value="UNHRC">UNHRC</option>
-              <option value="UNODC">UNODC</option>
-              <option value="AIPPM">AIPPM</option>
-              <option value="IPLA">IPLA</option>
-              <option value="UNW">UNW / UN WOMEN</option>
-
-            </select>
-
-          </div>
-
-
-          <div class="form-field">
-
-            <span class="preference-number">
-              SECOND PREFERENCE
-            </span>
-
-            <select
-              id="committee2"
-              name="committee2"
-              required
-            >
-
-              <option value="" selected disabled>
-                SELECT COMMITTEE
-              </option>
-
-              <option value="UNSC">UNSC</option>
-              <option value="UNHRC">UNHRC</option>
-              <option value="UNODC">UNODC</option>
-              <option value="AIPPM">AIPPM</option>
-              <option value="IPLA">IPLA</option>
-              <option value="UNW">UNW / UN WOMEN</option>
-
-            </select>
-
-          </div>
-
-
-          <div class="form-field">
-
-            <span class="preference-number">
-              THIRD PREFERENCE
-            </span>
-
-            <select
-              id="committee3"
-              name="committee3"
-              required
-            >
-
-              <option value="" selected disabled>
-                SELECT COMMITTEE
-              </option>
-
-              <option value="UNSC">UNSC</option>
-              <option value="UNHRC">UNHRC</option>
-              <option value="UNODC">UNODC</option>
-              <option value="AIPPM">AIPPM</option>
-              <option value="IPLA">IPLA</option>
-              <option value="UNW">UNW / UN WOMEN</option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button back previous-button"
-        >
-          ← BACK
-        </button>
-
-        <button
-          type="button"
-          class="form-button next-button"
-        >
-          NEXT · 04 ↗
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- SECTION 4 -->
-
-    <section
-      class="form-section"
-      data-section="4"
-    >
-
-      <span class="form-section-number">
-        SECTION 4 / 6
-      </span>
-
-
-      <h2>
-        PORTFOLIO<br>
-        <em>PREFERENCES.</em>
-      </h2>
-
-
-      <p class="section-description">
-        Enter any country or portfolio you would like
-        to be considered for. There is no fixed portfolio
-        list on this form.
-      </p>
-
-
-      <div class="preference-block">
-
-        <div class="preference-title">
-          PORTFOLIO PREFERENCES
-        </div>
-
-
-        <div class="preference-grid">
-
-          <div class="form-field">
-
-            <span class="preference-number">
-              FIRST PORTFOLIO
-            </span>
-
-            <input
-              type="text"
-              id="portfolio1"
-              name="portfolio1"
-              placeholder="Enter any country / portfolio"
-              required
-            >
-
-          </div>
-
-
-          <div class="form-field">
-
-            <span class="preference-number">
-              SECOND PORTFOLIO
-            </span>
-
-            <input
-              type="text"
-              id="portfolio2"
-              name="portfolio2"
-              placeholder="Enter any country / portfolio"
-              required
-            >
-
-          </div>
-
-
-          <div class="form-field">
-
-            <span class="preference-number">
-              THIRD PORTFOLIO
-            </span>
-
-            <input
-              type="text"
-              id="portfolio3"
-              name="portfolio3"
-              placeholder="Enter any country / portfolio"
-              required
-            >
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button back previous-button"
-        >
-          ← BACK
-        </button>
-
-        <button
-          type="button"
-          class="form-button next-button"
-        >
-          NEXT · 05 ↗
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- SECTION 5 -->
-
-    <section
-      class="form-section"
-      data-section="5"
-    >
-
-      <span class="form-section-number">
-        SECTION 5 / 6
-      </span>
-
-
-      <h2>
-        HOW DID YOU<br>
-        <em>FIND US?</em>
-      </h2>
-
-
-      <p class="section-description">
-        Tell us how you came across RELMUN '26.
-      </p>
-
-
-      <div class="form-grid">
-
-        <div class="form-field full">
-
-          <label for="source">
-            HOW DID YOU HEAR ABOUT RELMUN '26?
-            <span class="required">*</span>
-          </label>
-
-
-          <select
-            id="source"
-            name="source"
-            required
-          >
-
-            <option value="" selected disabled>
-              SELECT AN OPTION
-            </option>
-
-            <option value="Instagram">
-              Instagram
-            </option>
-
-            <option value="MyMUN">
-              MyMUN
-            </option>
-
-            <option value="Gavelling">
-              Gavelling
-            </option>
-
-            <option value="ChampArena">
-              ChampArena
-            </option>
-
-            <option value="Friend / School">
-              Friend / School
-            </option>
-
-            <option value="Other">
-              Other
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div
-          class="form-field full"
-          id="otherSourceField"
-          style="display:none;"
-        >
-
-          <label for="otherSource">
-            OTHER
-          </label>
-
-          <input
-            type="text"
-            id="otherSource"
-            name="otherSource"
-            placeholder="Tell us how you heard about RELMUN"
-          >
-
-        </div>
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button back previous-button"
-        >
-          ← BACK
-        </button>
-
-        <button
-          type="button"
-          class="form-button next-button"
-        >
-          NEXT · 06 ↗
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- SECTION 6 -->
-
-    <section
-      class="form-section"
-      data-section="6"
-    >
-
-      <span class="form-section-number">
-        SECTION 6 / 6
-      </span>
-
-
-      <h2>
-        FINAL<br>
-        <em>CONFIRMATION.</em>
-      </h2>
-
-
-      <p class="section-description">
-        Please review and confirm the following before
-        submitting your registration.
-      </p>
-
-
-      <div class="confirmation-list">
-
-        <label class="confirmation-item">
-
-          <input
-            type="checkbox"
-            name="accurate"
-            id="accurate"
-            required
-          >
-
-          <span class="custom-check"></span>
-
-          <span class="confirmation-text">
-            I confirm that the information provided above
-            is accurate.
-          </span>
-
-        </label>
-
-
-        <label class="confirmation-item">
-
-          <input
-            type="checkbox"
-            name="allotment"
-            id="allotment"
-            required
-          >
-
-          <span class="custom-check"></span>
-
-          <span class="confirmation-text">
-            I understand that committee and portfolio
-            allotments are subject to availability and
-            the decision of the Secretariat.
-          </span>
-
-        </label>
-
-
-        <label class="confirmation-item">
-
-          <input
-            type="checkbox"
-            name="codeOfConduct"
-            id="codeOfConduct"
-            required
-          >
-
-          <span class="custom-check"></span>
-
-          <span class="confirmation-text">
-            I agree to abide by the Rules of Procedure
-            and Code of Conduct of RELMUN '26.
-          </span>
-
-        </label>
-
-      </div>
-
 
       <div
-        class="registration-error"
-        id="registrationError"
-      ></div>
+        class="lock-countdown"
+        id="lockCountdown"
+      >
+        CALCULATING...
+      </div>
+
+    </div>
+
+  </div>
 
 
-      <div class="form-navigation">
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
 
-        <button
-          type="button"
-          class="form-button back previous-button"
+  <header class="navbar">
+
+    <div class="nav-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <div class="brand-mark">
+          <span>R</span>
+        </div>
+
+        <div class="brand-text">
+
+          <div class="brand-name">
+            RELMUN
+          </div>
+
+          <div class="brand-year">
+            2026
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <nav class="nav-links">
+
+        <a href="index.html">
+          HOME
+        </a>
+
+        <a href="committees.html">
+          COMMITTEES
+        </a>
+
+        <a href="eb.html">
+          EB
+        </a>
+
+        <a
+          href="register.html"
+          class="nav-register"
         >
-          ← BACK
-        </button>
+          REGISTER
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
 
 
-        <button
-          type="submit"
-          class="form-button submit"
-          id="submitButton"
-        >
-          SUBMIT REGISTRATION ↗
-        </button>
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        Delegate Registration · 2026
+      </div>
+
+      <h1>
+        Enter the room.<br>
+        <em>Make your mark.</em>
+      </h1>
+
+      <p class="hero-description">
+        Register for RELMUN '26 — a two-day online
+        Model United Nations conference built around
+        diplomacy, engagement and leadership.
+      </p>
+
+      <div class="open-status">
+
+        <span class="status-dot"></span>
+
+        REGISTRATIONS OPEN
+        <span id="openDateText">
+          1 OCTOBER 2026
+        </span>
 
       </div>
 
     </section>
 
 
-  </form>
+    <!-- =================================================
+         REGISTRATION
+         ================================================= -->
+
+    <section class="registration-wrap">
+
+      <div class="registration-grid">
 
 
+        <!-- SIDE INFORMATION -->
 
-  <!-- SUCCESS -->
+        <aside class="side-info">
 
-  <section
-    class="registration-success"
-    id="registrationSuccess"
-  >
+          <div class="side-label">
+            Before you begin
+          </div>
 
-    <div class="success-mark">
-      ✓
+          <h2>
+            Your delegate profile.
+          </h2>
+
+          <p>
+            Fill in your details carefully. Your
+            committee and portfolio preferences help
+            the Secretariat understand where you would
+            like to participate.
+          </p>
+
+          <div class="side-line"></div>
+
+          <div class="side-meta">
+
+            <div class="meta-item">
+
+              <span>
+                Conference
+              </span>
+
+              <strong>
+                RELMUN '26
+              </strong>
+
+            </div>
+
+
+            <div class="meta-item">
+
+              <span>
+                Format
+              </span>
+
+              <strong>
+                Online
+              </strong>
+
+            </div>
+
+
+            <div class="meta-item">
+
+              <span>
+                Dates
+              </span>
+
+              <strong>
+                26–27 Dec 2026
+              </strong>
+
+            </div>
+
+          </div>
+
+        </aside>
+
+
+        <!-- FORM -->
+
+        <div class="form-card">
+
+          <div
+            class="form-message"
+            id="formMessage"
+          ></div>
+
+
+          <form
+            id="registrationForm"
+            novalidate
+          >
+
+
+            <!-- =========================================
+                 SECTION 01
+                 ========================================= -->
+
+            <div class="form-section">
+
+              <div class="section-heading">
+
+                <div class="section-number">
+                  01
+                </div>
+
+                <div>
+
+                  <h3>
+                    Personal Information
+                  </h3>
+
+                  <p>
+                    Tell us who you are.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="fields">
+
+                <div class="field full">
+
+                  <label for="fullName">
+                    Full Name
+                    <span class="required">*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label for="email">
+                    Email Address
+                    <span class="required">*</span>
+                  </label>
+
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label for="whatsapp">
+                    WhatsApp Number
+                    <span class="required">*</span>
+                  </label>
+
+                  <input
+                    type="tel"
+                    id="whatsapp"
+                    name="whatsapp"
+                    placeholder="+91 XXXXX XXXXX"
+                    autocomplete="tel"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="field full">
+
+                  <label for="city">
+                    Country / City
+                    <span class="required">*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    placeholder="e.g. India / Bengaluru"
+                    required
+                  >
+
+                  <div class="field-note">
+                    Enter any country and city you are
+                    representing from.
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 SECTION 02
+                 ========================================= -->
+
+            <div class="form-section">
+
+              <div class="section-heading">
+
+                <div class="section-number">
+                  02
+                </div>
+
+                <div>
+
+                  <h3>
+                    MUN Experience
+                  </h3>
+
+                  <p>
+                    A little about your previous conferences.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="fields">
+
+                <div class="field full">
+
+                  <label for="munExperience">
+                    How many MUNs have you attended?
+                    <span class="required">*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="munExperience"
+                    name="munExperience"
+                    placeholder="e.g. 5 — or type '-' if none"
+                    required
+                  >
+
+                  <div class="field-note">
+                    If you have never attended an MUN,
+                    simply type "-".
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 SECTION 03
+                 ========================================= -->
+
+            <div class="form-section">
+
+              <div class="section-heading">
+
+                <div class="section-number">
+                  03
+                </div>
+
+                <div>
+
+                  <h3>
+                    Committee & Portfolio Preferences
+                  </h3>
+
+                  <p>
+                    Choose your preferred committees and
+                    portfolios.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="fields">
+
+
+                <!-- COMMITTEE 1 -->
+
+                <div class="field full preference">
+
+                  <label for="committee1">
+                    First Committee Preference
+                    <span class="required">*</span>
+                  </label>
+
+                  <span class="preference-badge">
+                    01
+                  </span>
+
+                  <input
+                    type="text"
+                    id="committee1"
+                    name="committee1"
+                    placeholder="Enter your first committee preference"
+                    required
+                  >
+
+                </div>
+
+
+                <!-- COMMITTEE 2 -->
+
+                <div class="field full preference">
+
+                  <label for="committee2">
+                    Second Committee Preference
+                    <span class="required">*</span>
+                  </label>
+
+                  <span class="preference-badge">
+                    02
+                  </span>
+
+                  <input
+                    type="text"
+                    id="committee2"
+                    name="committee2"
+                    placeholder="Enter your second committee preference"
+                    required
+                  >
+
+                </div>
+
+
+                <!-- COMMITTEE 3 -->
+
+                <div class="field full preference">
+
+                  <label for="committee3">
+                    Third Committee Preference
+                    <span class="required">*</span>
+                  </label>
+
+                  <span class="preference-badge">
+                    03
+                  </span>
+
+                  <input
+                    type="text"
+                    id="committee3"
+                    name="committee3"
+                    placeholder="Enter your third committee preference"
+                    required
+                  >
+
+                </div>
+
+
+                <!-- PORTFOLIOS -->
+
+                <div class="field">
+
+                  <label for="portfolio1">
+                    First Portfolio Preference
+                  </label>
+
+                  <input
+                    type="text"
+                    id="portfolio1"
+                    name="portfolio1"
+                    placeholder="Enter preferred country / portfolio"
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label for="portfolio2">
+                    Second Portfolio Preference
+                  </label>
+
+                  <input
+                    type="text"
+                    id="portfolio2"
+                    name="portfolio2"
+                    placeholder="Enter preferred country / portfolio"
+                  >
+
+                </div>
+
+
+                <div class="field full">
+
+                  <label for="portfolio3">
+                    Third Portfolio Preference
+                  </label>
+
+                  <input
+                    type="text"
+                    id="portfolio3"
+                    name="portfolio3"
+                    placeholder="Enter preferred country / portfolio"
+                  >
+
+                  <div class="field-note">
+                    Portfolio options will be finalized by
+                    the Secretariat later.
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 SECTION 04
+                 ========================================= -->
+
+            <div class="form-section">
+
+              <div class="section-heading">
+
+                <div class="section-number">
+                  04
+                </div>
+
+                <div>
+
+                  <h3>
+                    Registration Details
+                  </h3>
+
+                  <p>
+                    Help us understand how you found us.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="fields">
+
+                <div class="field full">
+
+                  <label for="source">
+                    How did you hear about RELMUN '26?
+                    <span class="required">*</span>
+                  </label>
+
+                  <select
+                    id="source"
+                    name="source"
+                    required
+                  >
+
+                    <option
+                      value=""
+                      selected
+                      disabled
+                    >
+                      Select an option
+                    </option>
+
+                    <option value="Instagram">
+                      Instagram
+                    </option>
+
+                    <option value="MyMUN">
+                      MyMUN
+                    </option>
+
+                    <option value="Gavelling">
+                      Gavelling
+                    </option>
+
+                    <option value="WhatsApp">
+                      WhatsApp
+                    </option>
+
+                    <option value="Friend / Delegate">
+                      Friend / Delegate
+                    </option>
+
+                    <option value="School">
+                      School
+                    </option>
+
+                    <option value="Google">
+                      Google / Search
+                    </option>
+
+                    <option value="Other">
+                      Other
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div
+                  class="field full"
+                  id="otherSourceField"
+                  style="display:none;"
+                >
+
+                  <label for="otherSource">
+                    Other
+                  </label>
+
+                  <input
+                    type="text"
+                    id="otherSource"
+                    name="otherSource"
+                    placeholder="Tell us how you heard about RELMUN"
+                  >
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 SECTION 05
+                 ========================================= -->
+
+            <div class="form-section">
+
+              <div class="section-heading">
+
+                <div class="section-number">
+                  05
+                </div>
+
+                <div>
+
+                  <h3>
+                    Confirmation
+                  </h3>
+
+                  <p>
+                    Please confirm the following before
+                    submitting.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="confirmations">
+
+
+                <label class="check-row">
+
+                  <input
+                    type="checkbox"
+                    name="confirmAccuracy"
+                    id="confirmAccuracy"
+                    required
+                  >
+
+                  <span class="check-box"></span>
+
+                  <span class="check-text">
+                    I confirm that the information provided
+                    above is <strong>accurate and complete</strong>.
+                  </span>
+
+                </label>
+
+
+                <label class="check-row">
+
+                  <input
+                    type="checkbox"
+                    name="confirmAllotment"
+                    id="confirmAllotment"
+                    required
+                  >
+
+                  <span class="check-box"></span>
+
+                  <span class="check-text">
+                    I understand that committee and portfolio
+                    allotments are subject to
+                    <strong>availability and the decision of
+                    the Secretariat</strong>.
+                  </span>
+
+                </label>
+
+
+                <label class="check-row">
+
+                  <input
+                    type="checkbox"
+                    name="confirmROP"
+                    id="confirmROP"
+                    required
+                  >
+
+                  <span class="check-box"></span>
+
+                  <span class="check-text">
+                    I agree to abide by the
+                    <strong>Rules of Procedure and Code of
+                    Conduct of RELMUN '26</strong>.
+                  </span>
+
+                </label>
+
+              </div>
+
+
+              <!-- SUBMIT -->
+
+              <div class="submit-area">
+
+                <button
+                  type="submit"
+                  class="submit-button"
+                  id="submitButton"
+                >
+                  Submit Registration
+                </button>
+
+                <div class="submit-note">
+                  By submitting this form, your information
+                  will be securely sent to the RELMUN
+                  Secretariat.
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-logo">
+        RELMUN '26
+      </div>
+
+      <div class="footer-copy">
+        RELATIONS · ENGAGEMENT · LEADERSHIP
+        &nbsp; / &nbsp;
+        26–27 DECEMBER 2026
+      </div>
+
     </div>
 
-
-    <h2>
-      REGISTRATION<br>
-      <em>RECEIVED.</em>
-    </h2>
+  </footer>
 
 
-    <p>
-      Thank you for registering for RELMUN '26.
-      Your registration has been successfully submitted
-      to the Secretariat.
-    </p>
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       CONFIGURATION
+       ===================================================== */
+
+    const APPS_SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
 
 
-    <a
-      href="index.html"
-      class="form-button"
-      style="
-        display:inline-block;
-        margin-top:35px;
-      "
-    >
-      RETURN TO RELMUN ↗
-    </a>
-
-  </section>
+    const REGISTRATION_OPEN =
+      new Date("2026-10-01T00:00:00+05:30");
 
 
-</main>
+    /* =====================================================
+       ELEMENTS
+       ===================================================== */
+
+    const registrationLock =
+      document.getElementById(
+        "registrationLock"
+      );
+
+    const lockCountdown =
+      document.getElementById(
+        "lockCountdown"
+      );
+
+    const form =
+      document.getElementById(
+        "registrationForm"
+      );
+
+    const submitButton =
+      document.getElementById(
+        "submitButton"
+      );
+
+    const formMessage =
+      document.getElementById(
+        "formMessage"
+      );
+
+    const source =
+      document.getElementById(
+        "source"
+      );
+
+    const otherSourceField =
+      document.getElementById(
+        "otherSourceField"
+      );
 
 
+    /* =====================================================
+       REGISTRATION STATUS
+       ===================================================== */
 
-<footer>
+    function registrationsOpen() {
 
-  <div class="footer-logo">
+      return new Date() >=
+        REGISTRATION_OPEN;
 
-    <img
-      src="relmun-logo.png"
-      alt="RELMUN '26"
-    >
-
-  </div>
-
-
-  <div class="footer-middle">
-
-    <strong>RELMUN '26</strong>
-
-    <span>
-      RELATIONS · ENGAGEMENT · LEADERSHIP
-    </span>
-
-    <span>
-      INSTAGRAM · @relmun.official
-    </span>
-
-  </div>
+    }
 
 
-  <div class="footer-right">
+    function updateRegistrationStatus() {
 
-    <span>
-      26—27 DECEMBER 2026
-    </span>
+      if (registrationsOpen()) {
 
-    <span>
-      © 2026 RELMUN
-    </span>
+        registrationLock
+          .classList.add("hidden");
 
-    <span>
-      akshithkabilan@gmail.com
-    </span>
+        submitButton.disabled =
+          false;
 
-  </div>
-
-</footer>
-
-
-
-<script>
-
-  /* =========================================
-     CONFIG
-  ========================================= */
-
-  const GOOGLE_SHEETS_URL =
-    "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
-
-
-  const REGISTRATION_DATE =
-    new Date(
-      "2026-10-01T00:00:00+05:30"
-    ).getTime();
-
-
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-
-      /* =====================================
-         MOBILE NAV
-      ===================================== */
-
-      const navMenu =
-        document.getElementById(
-          "navMenu"
-        );
-
-      const navLinks =
-        document.getElementById(
-          "navLinks"
-        );
-
-
-      if (navMenu && navLinks) {
-
-        navMenu.addEventListener(
-          "click",
-          () => {
-
-            const open =
-              navLinks.classList.toggle(
-                "open"
-              );
-
-            navMenu.setAttribute(
-              "aria-expanded",
-              open ? "true" : "false"
-            );
-
-          }
-        );
+        return;
 
       }
 
 
+      registrationLock
+        .classList.remove("hidden");
 
-      /* =====================================
-         REGISTRATION GATE
-      ===================================== */
+      submitButton.disabled =
+        true;
 
-      const gate =
-        document.getElementById(
-          "registrationGate"
-        );
-
-      const registrationPage =
-        document.getElementById(
-          "registrationPage"
-        );
-
-      const gateDays =
-        document.getElementById(
-          "gateDays"
-        );
-
-      const gateHours =
-        document.getElementById(
-          "gateHours"
-        );
-
-      const gateMinutes =
-        document.getElementById(
-          "gateMinutes"
-        );
-
-      const gateSeconds =
-        document.getElementById(
-          "gateSeconds"
-        );
+    }
 
 
-      function pad(number) {
-        return String(number)
-          .padStart(2, "0");
+    /* =====================================================
+       COUNTDOWN
+       ===================================================== */
+
+    function updateLockCountdown() {
+
+      if (registrationsOpen()) {
+
+        lockCountdown.textContent =
+          "REGISTRATIONS ARE NOW OPEN";
+
+        updateRegistrationStatus();
+
+        return;
+
       }
 
 
-      function openRegistrationPage() {
+      const now =
+        new Date();
 
-        if (gate) {
-          gate.style.display = "none";
+      let difference =
+        REGISTRATION_OPEN -
+        now;
+
+
+      const days =
+        Math.floor(
+          difference /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      difference %=
+        1000 * 60 * 60 * 24;
+
+
+      const hours =
+        Math.floor(
+          difference /
+          (1000 * 60 * 60)
+        );
+
+
+      difference %=
+        1000 * 60 * 60;
+
+
+      const minutes =
+        Math.floor(
+          difference /
+          (1000 * 60)
+        );
+
+
+      const seconds =
+        Math.floor(
+          (difference %
+            (1000 * 60)) /
+          1000
+        );
+
+
+      lockCountdown.textContent =
+        `${days} DAYS · ` +
+        `${String(hours).padStart(2, "0")} HRS · ` +
+        `${String(minutes).padStart(2, "0")} MIN · ` +
+        `${String(seconds).padStart(2, "0")} SEC`;
+
+    }
+
+
+    updateRegistrationStatus();
+
+    updateLockCountdown();
+
+    setInterval(
+      updateLockCountdown,
+      1000
+    );
+
+
+    /* =====================================================
+       OTHER SOURCE
+       ===================================================== */
+
+    source.addEventListener(
+      "change",
+      () => {
+
+        if (
+          source.value === "Other"
+        ) {
+
+          otherSourceField.style.display =
+            "flex";
+
+        } else {
+
+          otherSourceField.style.display =
+            "none";
+
         }
 
-        if (registrationPage) {
-          registrationPage.style.display = "block";
-        }
-
       }
+    );
 
 
-      function updateGate() {
+    /* =====================================================
+       MESSAGE
+       ===================================================== */
 
-        const difference =
-          REGISTRATION_DATE - Date.now();
+    function showMessage(
+      message,
+      type
+    ) {
+
+      formMessage.textContent =
+        message;
+
+      formMessage.className =
+        "form-message show " +
+        type;
+
+      window.scrollTo({
+        top:
+          formMessage.getBoundingClientRect()
+            .top +
+          window.scrollY -
+          110,
+        behavior: "smooth"
+      });
+
+    }
 
 
-        if (difference <= 0) {
+    /* =====================================================
+       FORM SUBMISSION
+       ===================================================== */
 
-          openRegistrationPage();
+    form.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+
+        /* -----------------------------------------------
+           HARD DATE CHECK
+           ----------------------------------------------- */
+
+        if (
+          !registrationsOpen()
+        ) {
+
+          updateRegistrationStatus();
+
+          showMessage(
+            "Registrations open on 1 October 2026.",
+            "error"
+          );
 
           return;
 
         }
 
 
-        const totalSeconds =
-          Math.floor(
-            difference / 1000
+        /* -----------------------------------------------
+           BROWSER VALIDATION
+           ----------------------------------------------- */
+
+        if (
+          !form.checkValidity()
+        ) {
+
+          form.reportValidity();
+
+          showMessage(
+            "Please complete all required fields before submitting.",
+            "error"
           );
 
-
-        const days =
-          Math.floor(
-            totalSeconds / 86400
-          );
-
-
-        const hours =
-          Math.floor(
-            (totalSeconds % 86400) / 3600
-          );
-
-
-        const minutes =
-          Math.floor(
-            (totalSeconds % 3600) / 60
-          );
-
-
-        const seconds =
-          totalSeconds % 60;
-
-
-        if (gateDays) {
-          gateDays.textContent =
-            pad(days);
-        }
-
-        if (gateHours) {
-          gateHours.textContent =
-            pad(hours);
-        }
-
-        if (gateMinutes) {
-          gateMinutes.textContent =
-            pad(minutes);
-        }
-
-        if (gateSeconds) {
-          gateSeconds.textContent =
-            pad(seconds);
-        }
-
-      }
-
-
-      updateGate();
-
-      setInterval(
-        updateGate,
-        1000
-      );
-
-
-
-      /* =====================================
-         FORM LOGIC
-      ===================================== */
-
-      const sections =
-        document.querySelectorAll(
-          ".form-section"
-        );
-
-      const progressSteps =
-        document.querySelectorAll(
-          ".progress-step"
-        );
-
-      const progressText =
-        document.getElementById(
-          "progressText"
-        );
-
-      const form =
-        document.getElementById(
-          "registrationForm"
-        );
-
-      const success =
-        document.getElementById(
-          "registrationSuccess"
-        );
-
-      const progress =
-        document.getElementById(
-          "registrationProgress"
-        );
-
-      const source =
-        document.getElementById(
-          "source"
-        );
-
-      const otherSourceField =
-        document.getElementById(
-          "otherSourceField"
-        );
-
-      const otherSource =
-        document.getElementById(
-          "otherSource"
-        );
-
-      const submitButton =
-        document.getElementById(
-          "submitButton"
-        );
-
-      const errorBox =
-        document.getElementById(
-          "registrationError"
-        );
-
-
-      let currentSection = 1;
-
-
-      function updateProgress() {
-
-        progressSteps.forEach(
-          (step, index) => {
-
-            step.classList.toggle(
-              "active",
-              index < currentSection
-            );
-
-          }
-        );
-
-
-        progressText.textContent =
-          `SECTION ${currentSection} OF 6`;
-
-      }
-
-
-      function showSection(number) {
-
-        currentSection = number;
-
-
-        sections.forEach(
-          section => {
-
-            section.classList.toggle(
-              "active",
-              Number(
-                section.dataset.section
-              ) === number
-            );
-
-          }
-        );
-
-
-        updateProgress();
-
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-      }
-
-
-      function validateSection() {
-
-        const section =
-          document.querySelector(
-            `.form-section[data-section="${currentSection}"]`
-          );
-
-
-        if (!section) {
-          return false;
-        }
-
-
-        const fields =
-          section.querySelectorAll(
-            "input, select, textarea"
-          );
-
-
-        for (const field of fields) {
-
-          if (!field.checkValidity()) {
-
-            field.reportValidity();
-
-            return false;
-
-          }
+          return;
 
         }
 
 
-        return true;
+        /* -----------------------------------------------
+           COLLECT DATA
+           ----------------------------------------------- */
 
-      }
+        const data = {
 
+          fullName:
+            document.getElementById(
+              "fullName"
+            ).value.trim(),
 
+          email:
+            document.getElementById(
+              "email"
+            ).value.trim(),
 
-      /* NEXT */
+          whatsapp:
+            document.getElementById(
+              "whatsapp"
+            ).value.trim(),
 
-      document
-        .querySelectorAll(".next-button")
-        .forEach(button => {
+          city:
+            document.getElementById(
+              "city"
+            ).value.trim(),
 
-          button.addEventListener(
-            "click",
-            () => {
+          munExperience:
+            document.getElementById(
+              "munExperience"
+            ).value.trim(),
 
-              if (!validateSection()) {
-                return;
-              }
+          committee1:
+            document.getElementById(
+              "committee1"
+            ).value.trim(),
 
+          committee2:
+            document.getElementById(
+              "committee2"
+            ).value.trim(),
 
-              if (currentSection < 6) {
+          committee3:
+            document.getElementById(
+              "committee3"
+            ).value.trim(),
 
-                showSection(
-                  currentSection + 1
-                );
+          portfolio1:
+            document.getElementById(
+              "portfolio1"
+            ).value.trim(),
 
-              }
+          portfolio2:
+            document.getElementById(
+              "portfolio2"
+            ).value.trim(),
 
-            }
-          );
+          portfolio3:
+            document.getElementById(
+              "portfolio3"
+            ).value.trim(),
 
-        });
+          source:
+            document.getElementById(
+              "source"
+            ).value,
 
+          otherSource:
+            document.getElementById(
+              "otherSource"
+            ).value.trim()
 
-
-      /* BACK */
-
-      document
-        .querySelectorAll(".previous-button")
-        .forEach(button => {
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              if (currentSection > 1) {
-
-                showSection(
-                  currentSection - 1
-                );
-
-              }
-
-            }
-          );
-
-        });
-
-
-
-      /* OTHER SOURCE */
-
-      if (source) {
-
-        source.addEventListener(
-          "change",
-          () => {
-
-            if (
-              source.value === "Other"
-            ) {
-
-              otherSourceField.style.display =
-                "flex";
-
-            } else {
-
-              otherSourceField.style.display =
-                "none";
-
-              otherSource.value = "";
-
-            }
-
-          }
-        );
-
-      }
+        };
 
 
+        /* -----------------------------------------------
+           SUBMIT STATE
+           ----------------------------------------------- */
 
-      /* SUBMIT */
+        submitButton.disabled =
+          true;
 
-      form.addEventListener(
-        "submit",
-        async event => {
+        submitButton.textContent =
+          "Submitting Registration…";
 
-          event.preventDefault();
+        formMessage.className =
+          "form-message";
 
+
+        try {
 
           /*
-           * Double protection:
-           * the page itself refuses submissions
-           * before 1 October 2026.
+           * IMPORTANT:
+           *
+           * Do NOT set Content-Type to
+           * application/json here.
+           *
+           * Apps Script can receive the JSON body
+           * through e.postData.contents while avoiding
+           * an unnecessary CORS preflight.
            */
 
-          if (
-            Date.now() <
-            REGISTRATION_DATE
-          ) {
-
-            errorBox.textContent =
-              "Registrations are not open yet. Registration opens on 1 October 2026.";
-
-            errorBox.classList.add(
-              "show"
-            );
-
-            return;
-
-          }
-
-
-          errorBox.classList.remove(
-            "show"
-          );
-
-
-          if (!validateSection()) {
-            return;
-          }
-
-
-          const formData =
-            new FormData(form);
-
-
-          const registrationData = {
-
-            fullName:
-              formData.get("fullName") || "",
-
-            email:
-              formData.get("email") || "",
-
-            whatsapp:
-              formData.get("whatsapp") || "",
-
-            city:
-              formData.get("city") || "",
-
-            munExperience:
-              formData.get("munExperience") || "",
-
-            committee1:
-              formData.get("committee1") || "",
-
-            committee2:
-              formData.get("committee2") || "",
-
-            committee3:
-              formData.get("committee3") || "",
-
-            portfolio1:
-              formData.get("portfolio1") || "",
-
-            portfolio2:
-              formData.get("portfolio2") || "",
-
-            portfolio3:
-              formData.get("portfolio3") || "",
-
-            source:
-              formData.get("source") || "",
-
-            otherSource:
-              formData.get("otherSource") || ""
-
-          };
-
-
-          const originalText =
-            submitButton.textContent;
-
-
-          submitButton.disabled =
-            true;
-
-          submitButton.textContent =
-            "SUBMITTING...";
-
-
-          try {
-
+          const response =
             await fetch(
-              GOOGLE_SHEETS_URL,
+              APPS_SCRIPT_URL,
               {
-
                 method: "POST",
 
-                mode: "no-cors",
-
-                headers: {
-                  "Content-Type":
-                    "text/plain;charset=utf-8"
-                },
-
                 body:
-                  JSON.stringify(
-                    registrationData
-                  )
-
+                  JSON.stringify(data)
               }
             );
 
 
-            form.style.display =
+          const result =
+            await response.json();
+
+
+          if (
+            result &&
+            result.success
+          ) {
+
+            showMessage(
+              "Registration submitted successfully. The RELMUN Secretariat has received your details.",
+              "success"
+            );
+
+
+            form.reset();
+
+
+            otherSourceField.style.display =
               "none";
-
-            progress.style.display =
-              "none";
-
-            success.classList.add(
-              "active"
-            );
-
-
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-
-
-          } catch (error) {
-
-            console.error(
-              "RELMUN registration error:",
-              error
-            );
-
-
-            errorBox.textContent =
-              "Something went wrong while submitting your registration. Please check your connection and try again.";
-
-            errorBox.classList.add(
-              "show"
-            );
 
 
             submitButton.disabled =
               false;
 
             submitButton.textContent =
-              originalText;
+              "Registration Submitted";
+
+          } else {
+
+            throw new Error(
+              result?.error ||
+              "The registration could not be submitted."
+            );
 
           }
 
+        } catch (error) {
+
+          console.error(
+            "Registration error:",
+            error
+          );
+
+
+          showMessage(
+            "Something went wrong while submitting your registration. Please try again.",
+            "error"
+          );
+
+
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            "Submit Registration";
+
         }
-      );
+
+      }
+    );
 
 
-      updateProgress();
+    /* =====================================================
+       PROTECT AGAINST DATE MANIPULATION / STALE PAGE
+       ===================================================== */
 
-    }
-  );
+    setInterval(
+      () => {
 
-</script>
+        if (
+          !registrationsOpen()
+        ) {
+
+          submitButton.disabled =
+            true;
+
+        }
+
+      },
+      5000
+    );
+
+  </script>
 
 
 </body>
