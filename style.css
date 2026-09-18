@@ -3,7 +3,105 @@
    Regional Engagement & Leadership Model United Nations
    MASTER DESIGN SYSTEM
    ========================================================= */
+/* =========================================================
+   RELMUN 2026 — TYPOGRAPHY SYSTEM
+   ========================================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+
+    /* RELMUN BRAND COLOURS */
+    --black: #080808;
+    --black-2: #0D0D0D;
+    --black-3: #121212;
+    --black-4: #181818;
+
+    --ivory: #F1ECE0;
+    --ivory-dim: rgba(241, 236, 224, 0.72);
+    --ivory-faint: rgba(241, 236, 224, 0.46);
+
+    --blue: #1846FF;
+    --blue-light: #4167FF;
+    --blue-dark: #1034C4;
+
+    --gold: #C79A2B;
+    --gold-light: #DFB84E;
+
+    --border: rgba(241, 236, 224, 0.11);
+    --border-blue: rgba(24, 70, 255, 0.35);
+    --border-gold: rgba(199, 154, 43, 0.30);
+
+    /* TYPOGRAPHY */
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Manrope", sans-serif;
+    --font-ui: "DM Sans", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+    --font-editorial: "Bodoni Moda", serif;
+
+    --container: 1240px;
+    --nav-height: 82px;
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-fast: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --shadow:
+        0 25px 80px rgba(0, 0, 0, 0.45);
+
+    --shadow-blue:
+        0 20px 60px rgba(24, 70, 255, 0.16);
+}
+
+
+/* =========================================================
+   BASE TYPOGRAPHY
+   ========================================================= */
+
+body {
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.055em;
+}
+
+button,
+.btn,
+.nav-links,
+.nav-register {
+    font-family: var(--font-ui);
+}
+
+.eyebrow,
+.section-kicker,
+.committee-number,
+.team-number,
+.eb-number,
+.hero-meta-label,
+.stat-label,
+.countdown-label,
+.footer-heading {
+    font-family: var(--font-mono);
+}
+
+.editorial {
+    font-family: var(--font-editorial);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}
+
+.mono {
+    font-family: var(--font-mono);
+}
 /* =========================================================
    01. ROOT / RESET
    ========================================================= */
