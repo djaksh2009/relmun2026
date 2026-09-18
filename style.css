@@ -1,157 +1,49 @@
-/* =========================================================
-   RELMUN '26
-   RELATIONS · ENGAGEMENT · LEADERSHIP
-   MASTER STYLESHEET
-   ========================================================= */
-
-
-/* =========================================================
-   01. ROOT
-   ========================================================= */
-
 :root {
-
   --black: #080808;
-  --black-soft: #0b0d11;
-
-  --navy: #07101b;
-  --navy-2: #0b1725;
-  --navy-3: #0e1d2e;
-
+  --black-2: #101010;
+  --black-3: #171717;
   --ivory: #f1ece0;
-  --ivory-soft: #cfc8b8;
-
+  --ivory-2: #d8d1c2;
   --blue: #1846ff;
-  --blue-light: #4770ff;
-
   --gold: #c79a2b;
-  --gold-light: #e1b63f;
-
-  --line: rgba(241, 236, 224, 0.14);
-  --line-blue: rgba(24, 70, 255, 0.28);
-
-  --muted: #7d8490;
-  --muted-light: #a5abb5;
-
-  --max-width: 1440px;
-
-  --nav-height: 82px;
-
-  --ease:
-    cubic-bezier(.22, 1, .36, 1);
-
-  --ease-soft:
-    cubic-bezier(.16, 1, .3, 1);
-
+  --muted: #8e8b84;
+  --line: rgba(241,236,224,.14);
+  --max: 1280px;
 }
 
-
-/* =========================================================
-   02. RESET
-   ========================================================= */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-
 
 html {
   scroll-behavior: smooth;
-  background: var(--black);
 }
-
 
 body {
-
-  min-height: 100vh;
-
-  background:
-    radial-gradient(
-      circle at 80% 15%,
-      rgba(24, 70, 255, .075),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 10% 65%,
-      rgba(199, 154, 43, .035),
-      transparent 25%
-    ),
-    linear-gradient(
-      135deg,
-      #05070a 0%,
-      #07101a 48%,
-      #05080d 100%
-    );
-
+  background: var(--black);
   color: var(--ivory);
-
-  font-family:
-    "Manrope",
-    Arial,
-    sans-serif;
-
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
   line-height: 1.6;
-
   overflow-x: hidden;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
-
-
-body::before {
-
-  content: "";
-
-  position: fixed;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  z-index: -1;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent 49.9%,
-      rgba(255,255,255,.015) 50%,
-      transparent 50.1%
-    );
-
-  opacity: .25;
-
-}
-
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-
 button,
 input,
-textarea,
 select {
   font: inherit;
 }
 
-
 button {
-  border: 0;
+  cursor: pointer;
 }
-
 
 ::selection {
   background: var(--blue);
@@ -159,2733 +51,1347 @@ button {
 }
 
 
-
-/* =========================================================
-   03. GRAIN
-   ========================================================= */
-
-.grain {
-
-  position: fixed;
-
-  inset: -50%;
-
-  width: 200%;
-  height: 200%;
-
-  pointer-events: none;
-
-  z-index: 999;
-
-  opacity: .035;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-
-  animation:
-    grainMove .22s steps(2) infinite;
-
-}
-
-
-@keyframes grainMove {
-
-  0% {
-    transform: translate(0, 0);
-  }
-
-  25% {
-    transform: translate(1%, -1%);
-  }
-
-  50% {
-    transform: translate(-1%, 1%);
-  }
-
-  75% {
-    transform: translate(1%, 1%);
-  }
-
-  100% {
-    transform: translate(-1%, -1%);
-  }
-
-}
-
-
-
-/* =========================================================
-   04. GLOBAL CONTAINER
-   ========================================================= */
-
-.section,
-.hero,
-footer {
-
-  width: min(
-    100%,
-    var(--max-width)
-  );
-
-  margin-inline: auto;
-
-}
-
-
-.section {
-
-  position: relative;
-
-  padding:
-    150px
-    48px;
-
-}
-
-
-.section::before {
-
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 48px;
-  right: 48px;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--line),
-      transparent
-    );
-
-}
-
-
-
-/* =========================================================
-   05. NAVIGATION
-   ========================================================= */
-
-header {
-
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-
-  z-index: 900;
-
-  border-bottom:
-    1px solid rgba(
-      241,
-      236,
-      224,
-      .08
-    );
-
-  background:
-    rgba(5, 9, 14, .78);
-
-  backdrop-filter:
-    blur(22px);
-
-  -webkit-backdrop-filter:
-    blur(22px);
-
-}
-
+/* NAVBAR */
 
 .navbar {
-
-  width: min(
-    100%,
-    1500px
-  );
-
-  height: var(--nav-height);
-
-  margin-inline: auto;
-
-  padding:
-    0 36px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-}
-
-
-.nav-logo {
-
-  width: 94px;
-
-  display: flex;
-
-  align-items: center;
-
-}
-
-
-.nav-logo img {
-
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   width: 100%;
-
-  height: auto;
-
-  object-fit: contain;
-
+  background: rgba(8,8,8,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
 }
 
+.nav-container {
+  max-width: var(--max);
+  margin: auto;
+  min-height: 78px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ivory);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.brand-text {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -.5px;
+}
+
+.brand-text strong {
+  font-size: 19px;
+}
+
+.brand-text small {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+}
 
 .nav-links {
-
   display: flex;
-
   align-items: center;
-
   gap: 34px;
-
 }
-
 
 .nav-links a {
-
-  position: relative;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 12px;
-
-  font-weight: 500;
-
-  letter-spacing: .15em;
-
-  color:
-    rgba(
-      241,
-      236,
-      224,
-      .72
-    );
-
-  transition:
-    color .25s ease,
-    transform .25s var(--ease);
-
+  color: #a8a49b;
+  font-size: 14px;
+  font-weight: 600;
+  transition: .2s ease;
 }
 
-
-.nav-links a::after {
-
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -8px;
-
-  width: 0;
-  height: 1px;
-
-  background: var(--gold);
-
-  transition:
-    width .3s var(--ease);
-
-}
-
-
-.nav-links a:hover {
-
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--ivory);
-
-  transform:
-    translateY(-1px);
-
 }
 
-
-.nav-links a:hover::after {
-  width: 100%;
+.nav-register {
+  padding: 11px 18px;
+  border: 1px solid var(--ivory);
+  font-size: 14px;
+  font-weight: 700;
+  transition: .25s ease;
 }
 
+.nav-register span {
+  margin-left: 7px;
+}
 
-.nav-links .nav-register {
-
-  padding:
-    14px
-    21px;
-
+.nav-register:hover,
+.active-btn {
+  background: var(--ivory);
   color: var(--black);
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold)
-    );
-
-  border: 1px solid
-    rgba(
-      225,
-      182,
-      63,
-      .7
-    );
-
-  transition:
-    transform .25s var(--ease),
-    box-shadow .25s ease;
-
 }
 
 
-.nav-links .nav-register::after {
-  display: none;
-}
-
-
-.nav-links .nav-register:hover {
-
-  color: var(--black);
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 10px 35px
-    rgba(
-      199,
-      154,
-      43,
-      .2
-    );
-
-}
-
-
-.nav-menu {
-  display: none;
-}
-
-
-
-/* =========================================================
-   06. HERO
-   ========================================================= */
+/* HERO */
 
 .hero {
-
-  min-height: 100vh;
-
   position: relative;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: space-between;
-
-  padding:
-    calc(var(--nav-height) + 70px)
-    48px
-    48px;
-
+  min-height: 720px;
+  max-width: 100%;
   overflow: hidden;
-
-}
-
-
-.hero::before {
-
-  content: "";
-
-  position: absolute;
-
-  width: 700px;
-  height: 700px;
-
-  right: -260px;
-  top: 90px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(24,70,255,.15),
-      rgba(24,70,255,.045) 32%,
-      transparent 70%
-    );
-
-  filter:
-    blur(15px);
-
-  pointer-events: none;
-
-}
-
-
-.hero::after {
-
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 45%;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(5,8,12,.9),
-      transparent
-    );
-
-}
-
-
-.hero-meta {
-
-  position: relative;
-
-  z-index: 2;
-
   display: flex;
-
-  justify-content: space-between;
-
-  gap: 30px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 11px;
-
-  letter-spacing: .13em;
-
-  color:
-    var(--muted-light);
-
 }
 
-
-.hero-meta span:first-child {
-
-  color:
-    var(--gold);
-
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: .35;
+  mask-image: linear-gradient(to bottom, black, transparent);
 }
 
-
-.hero-title {
-
-  position: relative;
-
-  z-index: 2;
-
-  margin-top: auto;
-  margin-bottom: auto;
-
-  padding-block: 50px;
-
-}
-
-
-.hero-line {
-
-  display: block;
-
-  width: fit-content;
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size:
-    clamp(
-      7rem,
-      17vw,
-      18rem
-    );
-
-  line-height: .76;
-
-  font-weight: 700;
-
-  letter-spacing:
-    -.085em;
-
-  color:
-    var(--ivory);
-
-  text-transform:
-    uppercase;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fffdf6 0%,
-      #d8d0bf 48%,
-      #8e877b 100%
-    );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  -webkit-text-fill-color:
-    transparent;
-
-  filter:
-    drop-shadow(
-      0 20px 50px
-      rgba(0,0,0,.35)
-    );
-
-}
-
-
-.hero-line-offset {
-
-  margin-left:
-    clamp(
-      45px,
-      12vw,
-      190px
-    );
-
-}
-
-
-.hero-year {
-
-  display: block;
-
-  margin-left:
-    clamp(
-      180px,
-      36vw,
-      540px
-    );
-
-  margin-top: 18px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size:
-    clamp(
-      2.2rem,
-      5vw,
-      5rem
-    );
-
-  letter-spacing:
-    .18em;
-
-  color:
-    var(--gold);
-
-}
-
-
-.hero-bottom {
-
-  position: relative;
-
-  z-index: 3;
-
-  display: flex;
-
-  align-items: flex-end;
-
-  justify-content: space-between;
-
-  gap: 40px;
-
-}
-
-
-.hero-bottom p {
-
-  max-width: 500px;
-
-  font-size:
-    clamp(
-      15px,
-      1.5vw,
-      20px
-    );
-
-  color:
-    var(--muted-light);
-
-}
-
-
-.hero-bottom strong {
-
-  color:
-    var(--ivory);
-
-  font-weight: 600;
-
-}
-
-
-.scroll-link {
-
-  flex-shrink: 0;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 11px;
-
-  letter-spacing: .12em;
-
-  color:
-    var(--ivory);
-
-  transition:
-    color .25s ease,
-    transform .25s var(--ease);
-
-}
-
-
-.scroll-link:hover {
-
-  color:
-    var(--gold);
-
-  transform:
-    translateX(5px);
-
-}
-
-
-
-/* =========================================================
-   07. SECTION LABELS
-   ========================================================= */
-
-.section-index {
-
-  margin-bottom: 65px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 11px;
-
-  font-weight: 500;
-
-  letter-spacing: .16em;
-
-  color:
-    var(--gold);
-
-}
-
-
-.section h2 {
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size:
-    clamp(
-      4rem,
-      9vw,
-      9.5rem
-    );
-
-  line-height: .86;
-
-  letter-spacing:
-    -.065em;
-
-  font-weight: 600;
-
-  color:
-    var(--ivory);
-
-}
-
-
-.section h2 em {
-
-  font-style: normal;
-
-  color:
-    transparent;
-
-  -webkit-text-stroke:
-    1px rgba(
-      241,
-      236,
-      224,
-      .45
-    );
-
-}
-
-
-.heading-row {
-
-  display: grid;
-
-  grid-template-columns:
-    1.2fr .8fr;
-
-  gap: 80px;
-
-  align-items: end;
-
-  margin-bottom: 80px;
-
-}
-
-
-.heading-row > p {
-
-  max-width: 430px;
-
-  justify-self: end;
-
-  color:
-    var(--muted-light);
-
-  font-size: 16px;
-
-  line-height: 1.8;
-
-}
-
-
-
-/* =========================================================
-   08. ABOUT
-   ========================================================= */
-
-.about-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    1.15fr .85fr;
-
-  gap: 100px;
-
-  align-items: end;
-
-}
-
-
-.about-copy {
-
-  max-width: 540px;
-
-}
-
-
-.large-copy {
-
-  font-size:
-    clamp(
-      20px,
-      2.2vw,
-      30px
-    );
-
-  line-height: 1.35;
-
-  color:
-    var(--ivory);
-
-  letter-spacing:
-    -.025em;
-
-}
-
-
-.about-copy > p + p {
-
-  margin-top: 35px;
-
-  font-size: 15px;
-
-  line-height: 1.9;
-
-  color:
-    var(--muted-light);
-
-}
-
-
-
-/* =========================================================
-   09. CONFERENCE GRID
-   ========================================================= */
-
-.conference-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  border-top:
-    1px solid var(--line);
-
-  border-left:
-    1px solid var(--line);
-
-}
-
-
-.conference-item {
-
-  min-height: 300px;
-
-  padding: 32px;
-
-  border-right:
-    1px solid var(--line);
-
-  border-bottom:
-    1px solid var(--line);
-
-  transition:
-    background .35s ease,
-    transform .35s var(--ease);
-
-}
-
-
-.conference-item:hover {
-
-  background:
-    rgba(
-      24,
-      70,
-      255,
-      .045
-    );
-
-}
-
-
-.conference-item span {
-
-  display: block;
-
-  margin-bottom: 80px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  color:
-    var(--gold);
-
-  font-size: 11px;
-
-}
-
-
-.conference-item h3 {
-
-  margin-bottom: 15px;
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size: 21px;
-
-  letter-spacing:
-    -.03em;
-
-}
-
-
-.conference-item p {
-
-  color:
-    var(--muted);
-
-  font-size: 12px;
-
-  line-height: 1.7;
-
-}
-
-
-
-/* =========================================================
-   10. COMMITTEES
-   ========================================================= */
-
-.committee-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  border-top:
-    1px solid var(--line);
-
-  border-left:
-    1px solid var(--line);
-
-}
-
-
-.committee-card {
-
-  position: relative;
-
-  min-height: 390px;
-
-  padding: 38px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: space-between;
-
-  border-right:
-    1px solid var(--line);
-
-  border-bottom:
-    1px solid var(--line);
-
-  overflow: hidden;
-
-  transition:
-    background .45s ease,
-    transform .45s var(--ease);
-
-}
-
-
-.committee-card::before {
-
+.hero-grid::after {
   content: "";
-
   position: absolute;
-
-  width: 300px;
-  height: 300px;
-
-  right: -130px;
-  bottom: -150px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(24,70,255,.18),
-      transparent 65%
-    );
-
-  transition:
-    transform .55s var(--ease);
-
-}
-
-
-.committee-card:hover {
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      .025
-    );
-
-}
-
-
-.committee-card:hover::before {
-
-  transform:
-    scale(1.5);
-
-}
-
-
-.committee-card .number {
-
-  position: relative;
-
-  z-index: 2;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 11px;
-
-  letter-spacing: .12em;
-
-  color:
-    var(--gold);
-
-}
-
-
-.committee-card h3 {
-
-  position: relative;
-
-  z-index: 2;
-
-  margin-top: auto;
-
-  margin-bottom: 20px;
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size:
-    clamp(
-      2.6rem,
-      4.2vw,
-      5.2rem
-    );
-
-  line-height: .85;
-
-  letter-spacing:
-    -.06em;
-
-  font-weight: 600;
-
-}
-
-
-.committee-card p {
-
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 440px;
-
-  color:
-    var(--muted-light);
-
-  font-size: 14px;
-
-  line-height: 1.7;
-
-}
-
-
-.text-link {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  margin-top: 35px;
-
-  padding-bottom: 8px;
-
-  border-bottom:
-    1px solid
-    var(--gold);
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 12px;
-
-  letter-spacing: .11em;
-
-  color:
-    var(--ivory);
-
-  transition:
-    gap .3s var(--ease),
-    color .25s ease;
-
-}
-
-
-.text-link:hover {
-
-  gap: 20px;
-
-  color:
-    var(--gold);
-
-}
-
-
-
-/* =========================================================
-   11. EXPERIENCE
-   ========================================================= */
-
-.experience-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  margin-top: 85px;
-
-  border-top:
-    1px solid var(--line);
-
-}
-
-
-.experience-card {
-
-  min-height: 310px;
-
-  padding:
-    32px;
-
-  border-right:
-    1px solid var(--line);
-
-  border-bottom:
-    1px solid var(--line);
-
-}
-
-
-.experience-card:first-child {
-
-  border-left:
-    1px solid var(--line);
-
-}
-
-
-.experience-card span {
-
-  display: block;
-
-  margin-bottom: 80px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  color:
-    var(--gold);
-
-  font-size: 11px;
-
-}
-
-
-.experience-card h3 {
-
-  margin-bottom: 16px;
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size: 28px;
-
-}
-
-
-.experience-card p {
-
-  max-width: 350px;
-
-  color:
-    var(--muted-light);
-
-  font-size: 14px;
-
-  line-height: 1.8;
-
-}
-
-
-
-/* =========================================================
-   12. TEAM
-   ========================================================= */
-
-.team-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  border-top:
-    1px solid var(--line);
-
-  border-left:
-    1px solid var(--line);
-
-}
-
-
-.person-card {
-
-  position: relative;
-
-  min-height: 330px;
-
-  padding: 30px;
-
-  border-right:
-    1px solid var(--line);
-
-  border-bottom:
-    1px solid var(--line);
-
-  overflow: hidden;
-
-}
-
-
-.person-number {
-
-  position: absolute;
-
+  width: 600px;
+  height: 600px;
+  background: var(--blue);
+  filter: blur(180px);
+  opacity: .12;
   top: 30px;
-  right: 30px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 10px;
-
-  color:
-    var(--muted);
-
+  right: 10%;
 }
 
-
-.avatar {
-
-  width: 92px;
-  height: 92px;
-
-  margin-bottom: 70px;
-
-  display: grid;
-
-  place-items: center;
-
-  border:
-    1px solid
-    rgba(
-      199,
-      154,
-      43,
-      .6
-    );
-
-  border-radius: 50%;
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size: 25px;
-
-  color:
-    var(--gold);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(
-        199,
-        154,
-        43,
-        .1
-      ),
-      transparent 65%
-    );
-
-}
-
-
-.person-card small {
-
-  display: block;
-
-  margin-bottom: 9px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 9px;
-
-  letter-spacing: .12em;
-
-  color:
-    var(--gold);
-
-}
-
-
-.person-card h3 {
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size:
-    clamp(
-      18px,
-      2vw,
-      24px
-    );
-
-  letter-spacing:
-    -.025em;
-
-}
-
-
-
-/* =========================================================
-   13. EXECUTIVE BOARD
-   ========================================================= */
-
-.split-heading {
-
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 100px;
-
-  align-items: end;
-
-  margin-bottom: 80px;
-
-}
-
-
-.split-heading > div {
-
-  max-width: 520px;
-
-}
-
-
-.split-heading > div > p + p {
-
-  margin-top: 25px;
-
-  color:
-    var(--muted);
-
-  font-size: 14px;
-
-}
-
-
-.eb-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  border-top:
-    1px solid var(--line);
-
-  border-left:
-    1px solid var(--line);
-
-}
-
-
-.eb-card {
-
-  min-height: 280px;
-
-  padding: 30px;
-
-  border-right:
-    1px solid var(--line);
-
-  border-bottom:
-    1px solid var(--line);
-
-  transition:
-    background .3s ease;
-
-}
-
-
-.eb-card:hover {
-
-  background:
-    rgba(
-      24,
-      70,
-      255,
-      .04
-    );
-
-}
-
-
-.eb-card > span {
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 11px;
-
-  letter-spacing: .15em;
-
-  color:
-    var(--gold);
-
-}
-
-
-.eb-card h3 {
-
-  margin-top: 70px;
-
-  margin-bottom: 15px;
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size: 22px;
-
-}
-
-
-.eb-card p {
-
-  color:
-    var(--muted);
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 10px;
-
-  line-height: 2;
-
-}
-
-
-
-/* =========================================================
-   14. REGISTRATION
-   ========================================================= */
-
-.register-section {
-
-  padding-top:
-    170px;
-
-  padding-bottom:
-    170px;
-
-}
-
-
-.register-panel {
-
+.hero-content {
+  width: min(var(--max), 100%);
+  margin: auto;
+  padding: 120px 80px 110px;
   position: relative;
-
-  padding:
-    clamp(
-      45px,
-      7vw,
-      100px
-    );
-
-  border:
-    1px solid
-    rgba(
-      199,
-      154,
-      43,
-      .35
-    );
-
-  background:
-    radial-gradient(
-      circle at 90% 0%,
-      rgba(
-        24,
-        70,
-        255,
-        .12
-      ),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      rgba(
-        255,
-        255,
-        255,
-        .025
-      ),
-      rgba(
-        255,
-        255,
-        255,
-        .005
-      )
-    );
-
-  overflow: hidden;
-
+  z-index: 2;
 }
-
-
-.register-panel::before {
-
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  right: 0;
-
-  width: 1px;
-  height: 100%;
-
-  background:
-    linear-gradient(
-      to bottom,
-      var(--gold),
-      transparent
-    );
-
-  opacity: .7;
-
-}
-
 
 .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
 
+.eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--blue);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(24,70,255,.8);
+}
+
+.hero h1 {
+  margin-top: 35px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(58px, 8.2vw, 125px);
+  line-height: .88;
+  letter-spacing: -6px;
+  font-weight: 700;
+}
+
+.hero-line {
   display: block;
-
-  margin-bottom: 35px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 11px;
-
-  letter-spacing: .16em;
-
-  color:
-    var(--gold);
-
 }
 
-
-.register-panel h2 {
-
-  margin-bottom: 35px;
-
+.accent-line {
+  color: var(--blue);
 }
 
-
-.registration-description {
-
-  max-width: 600px;
-
-  color:
-    var(--muted-light);
-
-  font-size: 16px;
-
+.hero-subtitle {
+  max-width: 570px;
+  margin-top: 35px;
+  color: #aaa69d;
+  font-size: 18px;
   line-height: 1.7;
-
 }
 
+.hero-actions {
+  margin-top: 38px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 14px;
+  transition: .25s ease;
+}
 
-/* =========================================================
-   15. COUNTDOWN
-   ========================================================= */
+.btn-primary {
+  background: var(--blue);
+  color: white;
+}
 
-#registrationCountdown {
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(24,70,255,.28);
+}
 
+.btn-secondary {
+  border-color: rgba(241,236,224,.3);
+  color: var(--ivory);
+}
+
+.btn-secondary:hover {
+  border-color: var(--ivory);
+  background: rgba(241,236,224,.06);
+}
+
+.btn.large {
+  min-height: 58px;
+  padding: 0 27px;
+  font-size: 15px;
+}
+
+.hero-note {
   margin-top: 65px;
-
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #77746e;
+  font-size: 11px;
+  letter-spacing: 1.3px;
 }
 
+.hero-note span {
+  color: var(--blue);
+  font-weight: 700;
+}
 
-.countdown-label {
+.hero-note strong {
+  color: var(--ivory-2);
+}
 
-  margin-bottom: 20px;
+.hero-side {
+  position: absolute;
+  right: 45px;
+  top: 115px;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #55534f;
+}
 
-  font-family:
-    "DM Mono",
-    monospace;
+.side-label {
+  writing-mode: vertical-rl;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
 
+.vertical-line {
+  flex: 1;
+  width: 1px;
+  background: var(--line);
+  margin: 25px 0;
+}
+
+.side-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   font-size: 10px;
-
-  letter-spacing: .16em;
-
-  color:
-    var(--gold);
-
 }
 
+
+/* EVENT STRIP */
+
+.event-strip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #0c0c0c;
+}
+
+.event-item {
+  padding: 26px 35px;
+  border-right: 1px solid var(--line);
+}
+
+.event-item:last-child {
+  border-right: none;
+}
+
+.event-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #6e6b65;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.event-item strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+}
+
+
+/* GENERAL SECTIONS */
+
+.section {
+  max-width: var(--max);
+  margin: auto;
+  padding: 125px 50px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 65px;
+}
+
+.section-number {
+  color: var(--blue);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.section-kicker {
+  color: #77746e;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 90px;
+}
+
+.about-grid h2,
+.section-title-row h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(45px, 5vw, 72px);
+  line-height: .98;
+  letter-spacing: -3px;
+}
+
+.about-grid h2 span,
+.section-title-row h2 span {
+  color: var(--blue);
+}
+
+.about-copy {
+  padding-top: 8px;
+}
+
+.about-copy p {
+  color: #9d9991;
+  font-size: 17px;
+  margin-bottom: 22px;
+}
+
+.text-link {
+  display: inline-flex;
+  gap: 12px;
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.text-link span {
+  color: var(--blue);
+}
+
+
+/* DARK SECTION */
+
+.dark-section {
+  max-width: none;
+  padding-left: max(50px, calc((100vw - var(--max)) / 2 + 50px));
+  padding-right: max(50px, calc((100vw - var(--max)) / 2 + 50px));
+  background: #0d0d0d;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.light .section-number {
+  color: var(--blue);
+}
+
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.outline-link {
+  border-bottom: 1px solid #444;
+  padding-bottom: 7px;
+  color: #a8a49b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.committee-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.committee-card {
+  position: relative;
+  min-height: 330px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(24,70,255,.12), transparent 35%),
+    #111;
+  transition: .3s ease;
+  overflow: hidden;
+}
+
+.committee-card::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: var(--blue);
+  left: 0;
+  top: 100%;
+  transition: .35s ease;
+}
+
+.committee-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(241,236,224,.28);
+}
+
+.committee-card:hover::after {
+  top: 0;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  color: #66635d;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+}
+
+.committee-card h3 {
+  margin-top: 105px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 52px;
+  letter-spacing: -2px;
+}
+
+.committee-card p {
+  color: #85817a;
+  font-size: 14px;
+}
+
+.card-arrow {
+  position: absolute;
+  right: 27px;
+  bottom: 25px;
+  font-size: 22px;
+  color: var(--blue);
+}
+
+
+/* CTA */
+
+.cta-section {
+  position: relative;
+  padding: 150px 30px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  width: 550px;
+  height: 300px;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  background: var(--blue);
+  opacity: .09;
+  filter: blur(130px);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-kicker {
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.cta-section h2 {
+  margin: 22px auto;
+  max-width: 750px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 6vw, 85px);
+  line-height: .95;
+  letter-spacing: -4px;
+}
+
+.cta-section h2 span {
+  color: var(--blue);
+}
+
+.cta-section p {
+  max-width: 520px;
+  margin: auto auto 35px;
+  color: #8c8982;
+}
+
+
+/* FOOTER */
+
+.footer {
+  padding: 70px 40px 25px;
+  background: #050505;
+}
+
+.footer-top {
+  max-width: var(--max);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.footer-logo > span:last-child {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.footer-logo strong {
+  font-size: 20px;
+}
+
+.footer-logo small {
+  color: var(--blue);
+}
+
+.footer-brand p {
+  max-width: 300px;
+  margin-top: 20px;
+  color: #69665f;
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 100px;
+}
+
+.footer-links > div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.footer-heading {
+  color: #55524d;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #a09c94;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  color: var(--ivory);
+}
+
+.footer-bottom {
+  max-width: var(--max);
+  margin: 65px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  color: #4d4b47;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+
+/* PAGE HERO */
+
+.page-hero {
+  padding: 110px 30px 90px;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 80% 40%, rgba(24,70,255,.1), transparent 35%),
+    #090909;
+}
+
+.page-hero-inner {
+  max-width: var(--max);
+  margin: auto;
+}
+
+.page-hero h1 {
+  margin-top: 28px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(65px, 10vw, 130px);
+  line-height: .9;
+  letter-spacing: -6px;
+}
+
+.page-hero h1 span {
+  color: var(--blue);
+}
+
+.page-hero p {
+  max-width: 570px;
+  margin-top: 28px;
+  color: #8f8b84;
+  font-size: 17px;
+}
+
+
+/* REGISTRATION */
+
+.registration-section {
+  padding: 90px 30px 130px;
+}
+
+.registration-layout {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 80px;
+}
+
+.registration-info h2 {
+  margin-top: 20px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 52px;
+  line-height: .98;
+  letter-spacing: -3px;
+}
+
+.registration-info h2 span {
+  color: var(--blue);
+}
+
+.registration-info > p {
+  margin-top: 25px;
+  color: #8d8982;
+}
+
+.info-line {
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.info-line span {
+  color: #5e5b56;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.info-line strong {
+  font-size: 12px;
+}
+
+.registration-lock {
+  margin-top: 30px;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lock-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.form-container {
+  min-width: 0;
+}
+
+.registration-locked {
+  padding: 50px;
+  border: 1px solid var(--line);
+  background: #0e0e0e;
+  text-align: center;
+}
+
+.lock-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 25px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.registration-locked h2 {
+  margin: 18px 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 35px;
+  line-height: 1.1;
+}
+
+.registration-locked h2 span {
+  color: var(--blue);
+}
+
+.registration-locked p {
+  max-width: 470px;
+  margin: auto;
+  color: #85817b;
+}
 
 .countdown {
-
   display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(100px, 1fr));
-
-  max-width: 760px;
-
-  border-top:
-    1px solid var(--line);
-
-  border-left:
-    1px solid var(--line);
-
-}
-
-
-.countdown-unit {
-
-  padding:
-    25px;
-
-  border-right:
-    1px solid var(--line);
-
-  border-bottom:
-    1px solid var(--line);
-
-}
-
-
-.countdown-unit strong {
-
-  display: block;
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size:
-    clamp(
-      2.5rem,
-      5vw,
-      4.5rem
-    );
-
-  line-height: 1;
-
-  font-weight: 500;
-
-  letter-spacing:
-    -.06em;
-
-}
-
-
-.countdown-unit span {
-
-  display: block;
-
-  margin-top: 12px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 9px;
-
-  letter-spacing: .13em;
-
-  color:
-    var(--muted);
-
-}
-
-
-.registration-options {
-
-  margin-top: 60px;
-
-}
-
-
-.registration-open-label {
-
-  margin-bottom: 10px;
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 12px;
-
-  letter-spacing: .14em;
-
-  color:
-    var(--gold);
-
-}
-
-
-.registration-options-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(5, 1fr);
-
-  margin-top: 30px;
-
-  border-top:
-    1px solid var(--line);
-
-  border-left:
-    1px solid var(--line);
-
-}
-
-
-.registration-option {
-
-  min-height: 100px;
-
-  padding: 24px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-align: center;
-
-  border-right:
-    1px solid var(--line);
-
-  border-bottom:
-    1px solid var(--line);
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 11px;
-
-  letter-spacing: .08em;
-
-  color:
-    var(--ivory);
-
-  transition:
-    background .3s ease,
-    color .3s ease,
-    transform .3s var(--ease);
-
-}
-
-
-.registration-option:hover {
-
-  background:
-    var(--blue);
-
-  color:
-    white;
-
-}
-
-
-.registration-option.featured {
-
-  background:
-    var(--gold);
-
-  color:
-    var(--black);
-
-  border-color:
-    rgba(
-      199,
-      154,
-      43,
-      .7
-    );
-
-}
-
-
-.registration-option.featured:hover {
-
-  background:
-    var(--gold-light);
-
-  color:
-    var(--black);
-
-}
-
-
-
-/* =========================================================
-   16. FAQ CTA
-   ========================================================= */
-
-.faq-cta {
-
-  display: flex;
-
-  align-items: flex-end;
-
-  justify-content: space-between;
-
-  gap: 50px;
-
-}
-
-
-
-/* =========================================================
-   17. FOOTER
-   ========================================================= */
-
-footer {
-
-  position: relative;
-
-  padding:
-    70px 48px 45px;
-
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr 1fr;
-
-  gap: 50px;
-
-  border-top:
-    1px solid var(--line);
-
-}
-
-
-.footer-logo img {
-
-  width: 120px;
-
-  height: auto;
-
-}
-
-
-.footer-middle {
-
-  display: flex;
-
-  flex-direction: column;
-
+  grid-template-columns: repeat(4,1fr);
   gap: 8px;
-
+  margin-top: 35px;
 }
 
-
-.footer-middle strong {
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size: 20px;
-
+.countdown div {
+  padding: 15px 5px;
+  background: #151515;
+  border: 1px solid var(--line);
 }
 
-
-.footer-middle span {
-
-  font-family:
-    "DM Mono",
-    monospace;
-
-  font-size: 9px;
-
-  letter-spacing: .1em;
-
-  color:
-    var(--muted);
-
+.countdown strong {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
 }
 
-
-.footer-contact {
-
-  margin-top: 15px;
-
-  color:
-    var(--gold) !important;
-
+.countdown span {
+  color: #5e5b55;
+  font-size: 8px;
+  letter-spacing: 1px;
 }
 
+.registration-form {
+  display: none;
+}
 
-.footer-right {
-
+.form-heading {
+  margin: 55px 0 25px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--line);
   display: flex;
+  gap: 18px;
+}
 
+.form-heading:first-child {
+  margin-top: 0;
+}
+
+.form-heading > span {
+  color: var(--blue);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.form-heading h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+}
+
+.form-heading p {
+  color: #68655f;
+  font-size: 12px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.field {
+  display: flex;
   flex-direction: column;
+  gap: 8px;
+}
 
-  align-items: flex-end;
+.field.full {
+  grid-column: 1 / -1;
+}
 
-  gap: 7px;
+.field label {
+  color: #aaa69d;
+  font-size: 12px;
+  font-weight: 600;
+}
 
-  font-family:
-    "DM Mono",
-    monospace;
+.field input,
+.field select {
+  width: 100%;
+  height: 52px;
+  padding: 0 15px;
+  background: #111;
+  border: 1px solid #292929;
+  color: var(--ivory);
+  outline: none;
+  transition: .2s ease;
+}
 
-  font-size: 10px;
+.field input::placeholder {
+  color: #55524d;
+}
 
-  letter-spacing: .07em;
+.field input:focus,
+.field select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(24,70,255,.08);
+}
 
-  color:
-    var(--muted);
+.field select {
+  cursor: pointer;
+}
 
+.form-submit {
+  margin-top: 45px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+}
+
+.form-submit p {
+  color: #66635e;
+  font-size: 11px;
+  margin-bottom: 18px;
+}
+
+.form-message {
+  margin-top: 20px;
+  padding: 15px;
+  display: none;
+  font-size: 13px;
+}
+
+.form-message.success {
+  display: block;
+  border: 1px solid rgba(80,200,120,.3);
+  background: rgba(80,200,120,.05);
+  color: #8bd3a5;
+}
+
+.form-message.error {
+  display: block;
+  border: 1px solid rgba(255,80,80,.3);
+  background: rgba(255,80,80,.05);
+  color: #ff9c9c;
 }
 
 
-.footer-right a {
+/* COMMITTEES PAGE */
 
+.committee-list {
+  max-width: var(--max);
+  margin: auto;
+  padding: 80px 30px 130px;
+}
+
+.committee-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px;
+  gap: 30px;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+  transition: .25s ease;
+}
+
+.committee-row:hover {
+  padding-left: 12px;
+}
+
+.committee-row-number {
+  color: var(--blue);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+}
+
+.committee-row h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(35px, 5vw, 60px);
+  letter-spacing: -2px;
+}
+
+.committee-row p {
+  color: #77746e;
+  margin-top: 5px;
+}
+
+.committee-row-arrow {
+  justify-self: end;
+  font-size: 25px;
+  color: var(--blue);
+}
+
+
+/* COMMITTEE DETAIL */
+
+.detail-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 90px 30px 130px;
+}
+
+.detail-back {
+  color: #77746e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.detail-back:hover {
+  color: var(--ivory);
+}
+
+.detail-title {
+  margin-top: 60px;
+}
+
+.detail-title .code {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.detail-title h1 {
   margin-top: 15px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(60px, 9vw, 115px);
+  line-height: .9;
+  letter-spacing: -6px;
+}
 
-  color:
-    var(--ivory);
+.detail-title p {
+  max-width: 700px;
+  margin-top: 25px;
+  color: #85817b;
+  font-size: 17px;
+}
 
-  transition:
-    color .25s ease;
+.detail-grid {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
 
+.detail-box {
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: #0d0d0d;
+}
+
+.detail-box h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.detail-box p {
+  color: #85817b;
+  font-size: 14px;
+}
+
+.agenda-box {
+  grid-column: 1 / -1;
+}
+
+.agenda-box .agenda {
+  color: var(--ivory);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
 }
 
 
-.footer-right a:hover {
+/* EB */
 
-  color:
-    var(--gold);
+.team-section {
+  max-width: var(--max);
+  margin: auto;
+  padding: 80px 30px 130px;
+}
 
+.team-category {
+  margin-bottom: 80px;
+}
+
+.team-category-title {
+  margin-bottom: 25px;
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+
+.team-card {
+  min-height: 220px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: #0d0d0d;
+  position: relative;
+  transition: .25s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(241,236,224,.3);
+}
+
+.team-card-number {
+  color: #55524d;
+  font-size: 10px;
+}
+
+.team-card h3 {
+  margin-top: 75px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+}
+
+.team-card p {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 4px;
 }
 
 
+/* FAQ */
 
-/* =========================================================
-   18. FOCUS STATES
-   ========================================================= */
+.faq-section {
+  max-width: 950px;
+  margin: auto;
+  padding: 80px 30px 130px;
+}
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
 
-  outline:
-    2px solid var(--gold);
+.faq-question {
+  width: 100%;
+  padding: 27px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  border: none;
+  background: transparent;
+  color: var(--ivory);
+  text-align: left;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
 
-  outline-offset: 4px;
+.faq-question span {
+  color: var(--blue);
+  font-size: 25px;
+  transition: transform .25s ease;
+}
 
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+}
+
+.faq-answer p {
+  padding: 0 50px 28px 0;
+  color: #85817b;
+  font-size: 14px;
+}
+
+.faq-item.open .faq-question span {
+  transform: rotate(45deg);
 }
 
 
+/* RESPONSIVE */
 
-/* =========================================================
-   19. SCROLLBAR
-   ========================================================= */
-
-::-webkit-scrollbar {
-
-  width: 8px;
-
-}
-
-
-::-webkit-scrollbar-track {
-
-  background:
-    var(--black);
-
-}
-
-
-::-webkit-scrollbar-thumb {
-
-  background:
-    #26303b;
-
-  border-radius: 20px;
-
-}
-
-
-::-webkit-scrollbar-thumb:hover {
-
-  background:
-    var(--gold);
-
-}
-
-
-
-/* =========================================================
-   20. RESPONSIVE — TABLET
-   ========================================================= */
-
-@media (max-width: 1050px) {
-
-
-  :root {
-    --nav-height: 74px;
-  }
-
-
-  .navbar {
-    padding-inline: 25px;
-  }
-
+@media (max-width: 900px) {
 
   .nav-links {
-    gap: 20px;
+    display: none;
   }
 
-
-  .nav-links a {
-    font-size: 10px;
+  .hero-content {
+    padding: 90px 30px;
   }
 
-
-  .section {
-    padding:
-      115px 30px;
+  .hero-side {
+    display: none;
   }
 
-
-  .section::before {
-    left: 30px;
-    right: 30px;
-  }
-
-
-  .hero {
-    padding:
-      calc(var(--nav-height) + 50px)
-      30px
-      35px;
-  }
-
-
-  .conference-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-
-  .team-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-
-  .eb-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-
-  .registration-options-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-
-  .registration-option:last-child {
-    grid-column:
-      1 / -1;
-  }
-
-
-  footer {
-    padding-inline: 30px;
-  }
-
-}
-
-
-
-/* =========================================================
-   21. RESPONSIVE — MOBILE
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-
-  :root {
-    --nav-height: 68px;
-  }
-
-
-  body {
-    font-size: 14px;
-  }
-
-
-  .navbar {
-    height:
-      var(--nav-height);
-
-    padding:
-      0 20px;
-  }
-
-
-  .nav-logo {
-    width: 82px;
-  }
-
-
-  .nav-menu {
-
-    position: relative;
-
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 6px;
-
-    background:
-      transparent;
-
-    cursor: pointer;
-
-    z-index: 1001;
-
-  }
-
-
-  .nav-menu span {
-
-    display: block;
-
-    width: 22px;
-    height: 1px;
-
-    background:
-      var(--ivory);
-
-    transition:
-      transform .3s var(--ease),
-      opacity .2s ease;
-
-  }
-
-
-  .nav-menu.active span:first-child {
-
-    transform:
-      translateY(3.5px)
-      rotate(45deg);
-
-  }
-
-
-  .nav-menu.active span:last-child {
-
-    transform:
-      translateY(-3.5px)
-      rotate(-45deg);
-
-  }
-
-
-  .nav-links {
-
-    position: fixed;
-
-    top: var(--nav-height);
-
-    right: 0;
-
-    width: 100%;
-
-    min-height:
-      calc(
-        100vh - var(--nav-height)
-      );
-
-    padding:
-      45px 25px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 25px;
-
-    background:
-      rgba(
-        5,
-        9,
-        14,
-        .98
-      );
-
-    border-top:
-      1px solid var(--line);
-
-    transform:
-      translateX(100%);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-      transform .45s var(--ease),
-      opacity .35s ease;
-
-  }
-
-
-  .nav-links.open {
-
-    transform:
-      translateX(0);
-
-    opacity: 1;
-
-    pointer-events: auto;
-
-  }
-
-
-  .nav-links a {
-
-    font-size: 13px;
-
-  }
-
-
-  .nav-links .nav-register {
-
-    margin-top: 10px;
-
-    padding:
-      15px 22px;
-
-  }
-
-
-  .section {
-
-    padding:
-      90px 20px;
-  }
-
-
-  .section::before {
-
-    left: 20px;
-    right: 20px;
-
-  }
-
-
-  .section-index {
-
-    margin-bottom: 45px;
-
-  }
-
-
-  .hero {
-
-    min-height:
-      100svh;
-
-    padding:
-      calc(var(--nav-height) + 30px)
-      20px
-      25px;
-
-  }
-
-
-  .hero-meta {
-
-    flex-direction:
-      column;
-
-    gap: 10px;
-
-    font-size: 9px;
-
-  }
-
-
-  .hero-title {
-
-    padding-block:
-      70px;
-
-  }
-
-
-  .hero-line {
-
-    font-size:
-      clamp(
-        5.2rem,
-        26vw,
-        9rem
-      );
-
-  }
-
-
-  .hero-line-offset {
-
-    margin-left:
-      30px;
-
-  }
-
-
-  .hero-year {
-
-    margin-left:
-      115px;
-
-    font-size:
-      2rem;
-
-  }
-
-
-  .hero-bottom {
-
-    flex-direction:
-      column;
-
-    align-items:
-      flex-start;
-
-    gap: 25px;
-
-  }
-
-
-  .hero-bottom p {
-
-    font-size: 14px;
-
-  }
-
-
-  .scroll-link {
-
-    font-size: 9px;
-
-  }
-
-
-  .heading-row,
   .about-grid,
-  .split-heading {
-
-    grid-template-columns:
-      1fr;
-
-    gap: 35px;
-
+  .registration-layout {
+    grid-template-columns: 1fr;
+    gap: 45px;
   }
 
-
-  .heading-row > p {
-
-    justify-self:
-      start;
-
+  .committee-preview,
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-
-  .section h2 {
-
-    font-size:
-      clamp(
-        3.8rem,
-        18vw,
-        7rem
-      );
-
+  .section {
+    padding: 90px 30px;
   }
 
-
-  .conference-grid,
-  .committee-grid,
-  .experience-grid,
-  .team-grid,
-  .eb-grid {
-
-    grid-template-columns:
-      1fr;
-
+  .footer-top {
+    flex-direction: column;
   }
 
+}
 
-  .conference-item {
+@media (max-width: 620px) {
 
-    min-height: 240px;
-
+  .nav-container {
+    min-height: 70px;
+    padding: 0 18px;
   }
 
-
-  .conference-item span {
-
-    margin-bottom: 55px;
-
+  .nav-register {
+    padding: 9px 12px;
   }
 
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-content {
+    padding: 80px 22px;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+    letter-spacing: -3px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-note {
+    flex-wrap: wrap;
+    margin-top: 45px;
+  }
+
+  .event-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .event-item {
+    padding: 20px;
+  }
+
+  .event-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .event-item:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section {
+    padding: 75px 22px;
+  }
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .about-grid h2,
+  .section-title-row h2 {
+    font-size: 43px;
+    letter-spacing: -2px;
+  }
+
+  .section-title-row {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .committee-preview,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 
   .committee-card {
-
-    min-height: 330px;
-
-    padding: 27px;
-
+    min-height: 290px;
   }
-
 
   .committee-card h3 {
-
-    font-size:
-      clamp(
-        2.7rem,
-        14vw,
-        4.5rem
-      );
-
+    margin-top: 80px;
   }
 
-
-  .experience-grid {
-
-    margin-top:
-      55px;
-
+  .cta-section {
+    padding: 100px 22px;
   }
 
-
-  .experience-card {
-
-    min-height: 250px;
-
+  .cta-section h2 {
+    font-size: 48px;
   }
 
-
-  .experience-card span {
-
-    margin-bottom:
-      55px;
-
+  .footer {
+    padding: 55px 22px 20px;
   }
 
-
-  .person-card {
-
-    min-height:
-      285px;
-
+  .footer-links {
+    gap: 55px;
   }
 
-
-  .avatar {
-
-    margin-bottom:
-      55px;
-
+  .footer-bottom {
+    flex-direction: column;
+    gap: 7px;
   }
 
-
-  .eb-card {
-
-    min-height:
-      235px;
-
+  .page-hero {
+    padding: 80px 22px;
   }
 
-
-  .eb-card h3 {
-
-    margin-top:
-      55px;
-
+  .page-hero h1 {
+    font-size: 65px;
+    letter-spacing: -4px;
   }
 
-
-  .register-panel {
-
-    padding:
-      40px 25px;
-
+  .registration-section {
+    padding: 65px 20px 90px;
   }
 
+  .registration-locked {
+    padding: 35px 20px;
+  }
 
   .countdown {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-
+    grid-template-columns: repeat(2,1fr);
   }
 
-
-  .countdown-unit {
-
-    padding:
-      20px;
-
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 
-
-  .countdown-unit strong {
-
-    font-size:
-      2.8rem;
-
+  .field.full {
+    grid-column: auto;
   }
 
-
-  .registration-options-grid {
-
-    grid-template-columns:
-      1fr;
-
+  .committee-list {
+    padding: 60px 22px 90px;
   }
 
-
-  .registration-option:last-child {
-
-    grid-column:
-      auto;
-
+  .committee-row {
+    grid-template-columns: 35px 1fr 30px;
+    gap: 15px;
+    padding: 30px 0;
   }
 
-
-  .registration-option {
-
-    min-height:
-      75px;
-
+  .committee-row h2 {
+    font-size: 34px;
   }
 
-
-  .faq-cta {
-
-    flex-direction:
-      column;
-
-    align-items:
-      flex-start;
-
+  .detail-container {
+    padding: 60px 22px 90px;
   }
 
-
-  footer {
-
-    padding:
-      55px 20px 35px;
-
-    grid-template-columns:
-      1fr;
-
-    gap: 35px;
-
+  .detail-title h1 {
+    font-size: 65px;
+    letter-spacing: -4px;
   }
 
-
-  .footer-right {
-
-    align-items:
-      flex-start;
-
+  .detail-grid {
+    grid-template-columns: 1fr;
+    margin-top: 55px;
   }
 
-}
-
-
-
-/* =========================================================
-   22. SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 430px) {
-
-
-  .hero-line {
-
-    font-size:
-      5rem;
-
-  }
-
-
-  .hero-line-offset {
-
-    margin-left:
-      22px;
-
-  }
-
-
-  .hero-year {
-
-    margin-left:
-      92px;
-
-    font-size:
-      1.7rem;
-
-  }
-
-
-  .countdown-unit {
-
-    padding:
-      17px 14px;
-
-  }
-
-
-  .countdown-unit strong {
-
-    font-size:
-      2.25rem;
-
-  }
-
-
-  .countdown-unit span {
-
-    font-size:
-      8px;
-
-  }
-
-
-  .register-panel h2 {
-
-    font-size:
-      4rem;
-
-  }
-
-
-  .committee-card {
-
-    min-height:
-      300px;
-
-  }
-
-
-}
-
-
-
-/* =========================================================
-   23. REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-
-    animation-duration:
-      .01ms !important;
-
-    animation-iteration-count:
-      1 !important;
-
-    transition-duration:
-      .01ms !important;
-
+  .agenda-box {
+    grid-column: auto;
   }
 
 }
