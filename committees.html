@@ -1,189 +1,695 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committees | RELMUN 2026</title>
 
-  <title>Committees | RELMUN '26</title>
+    <meta
+        name="description"
+        content="Explore the committees of RELMUN 2026 — UNSC, UNHRC and UNODC."
+    >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-  <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="navbar">
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-  <div class="nav-container">
+    <header class="site-header">
 
-    <a href="index.html" class="brand">
-      <span class="brand-mark">R</span>
+        <div class="container navbar">
 
-      <span class="brand-text">
-        <strong>RELMUN</strong>
-        <small>'26</small>
-      </span>
-    </a>
+            <a
+                href="index.html"
+                class="nav-brand"
+                aria-label="RELMUN 2026 Home"
+            >
+                <img
+                    src="relmun-logo.png"
+                    alt="RELMUN 2026"
+                >
+            </a>
 
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="committees.html" class="active">Committees</a>
-      <a href="eb.html">Executive Board</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-    <a href="register.html" class="nav-register">
-      Register <span>↗</span>
-    </a>
+            <nav
+                class="nav-links"
+                id="navLinks"
+                aria-label="Main navigation"
+            >
 
-  </div>
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
 
-</header>
+                <a
+                    href="committees.html"
+                    class="nav-link active"
+                >
+                    Committees
+                </a>
 
+                <a
+                    href="eb.html"
+                    class="nav-link"
+                >
+                    Executive Board
+                </a>
 
-<main>
+                <a
+                    href="register.html"
+                    class="nav-link"
+                >
+                    Register
+                </a>
 
-<section class="page-hero">
+                <a
+                    href="faq.html"
+                    class="nav-link"
+                >
+                    FAQ
+                </a>
 
-  <div class="page-hero-inner">
+                <a
+                    href="register.html"
+                    class="nav-register"
+                >
+                    Register
+                </a>
 
-    <div class="eyebrow">
-      <span class="eyebrow-dot"></span>
-      RELMUN '26 · COMMITTEES
-    </div>
+            </nav>
 
-    <h1>THE FLOOR<span>.</span></h1>
+        </div>
 
-    <p>
-      Three committees. Three distinct arenas for
-      diplomacy, negotiation and debate.
-    </p>
-
-  </div>
-
-</section>
-
-
-<section class="committee-list">
-
-
-  <a href="committee.html?committee=unsc" class="committee-row">
-
-    <span class="committee-row-number">01</span>
-
-    <div>
-      <h2>UNSC</h2>
-      <p>United Nations Security Council</p>
-    </div>
-
-    <span class="committee-row-arrow">↗</span>
-
-  </a>
-
-
-  <a href="committee.html?committee=unhrc" class="committee-row">
-
-    <span class="committee-row-number">02</span>
-
-    <div>
-      <h2>UNHRC</h2>
-      <p>United Nations Human Rights Council</p>
-    </div>
-
-    <span class="committee-row-arrow">↗</span>
-
-  </a>
-
-
-  <a href="committee.html?committee=unodc" class="committee-row">
-
-    <span class="committee-row-number">03</span>
-
-    <div>
-      <h2>UNODC</h2>
-      <p>United Nations Office on Drugs and Crime</p>
-    </div>
-
-    <span class="committee-row-arrow">↗</span>
-
-  </a>
+    </header>
 
 
-</section>
+    <main>
 
-</main>
+        <!-- =================================================
+             PAGE HERO
+             ================================================= -->
 
+        <section class="page-hero">
 
-<footer class="footer">
+            <div class="container">
 
-  <div class="footer-top">
+                <div class="page-hero-content animate-in">
 
-    <div class="footer-brand">
+                    <div class="eyebrow">
+                        RELMUN 2026
+                    </div>
 
-      <div class="footer-logo">
+                    <h1 class="page-title">
+                        The
+                        <span class="text-blue">
+                            Committees
+                        </span>
+                    </h1>
 
-        <span class="brand-mark">R</span>
+                    <p class="page-description">
+                        Three committees. Three distinct arenas for
+                        diplomacy, negotiation and international debate.
+                        Explore each committee before making your
+                        preferences during registration.
+                    </p>
 
-        <span>
-          <strong>RELMUN</strong>
-          <small>'26</small>
-        </span>
+                </div>
 
-      </div>
+            </div>
 
-      <p>
-        Regional Engagement & Leadership
-        Model United Nations.
-      </p>
-
-    </div>
-
-
-    <div class="footer-links">
-
-      <div>
-        <span class="footer-heading">EXPLORE</span>
-        <a href="index.html">Home</a>
-        <a href="eb.html">Executive Board</a>
-        <a href="faq.html">FAQ</a>
-        <a href="register.html">Registration</a>
-      </div>
-
-      <div>
-        <span class="footer-heading">CONNECT</span>
-
-        <a href="https://instagram.com/relmun.official"
-           target="_blank"
-           rel="noopener noreferrer">
-          Instagram ↗
-        </a>
-
-        <a href="mailto:akshithkabilan@gmail.com">
-          Email ↗
-        </a>
-      </div>
-
-    </div>
-
-  </div>
+        </section>
 
 
-  <div class="footer-bottom">
-    <span>© 2026 RELMUN</span>
-    <span>26–27 DECEMBER 2026 · ONLINE</span>
-    <span>RELMUN '26</span>
-  </div>
+        <!-- =================================================
+             COMMITTEES
+             ================================================= -->
 
-</footer>
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        Committee Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Find your
+                        <span class="text-blue">
+                            arena.
+                        </span>
+                    </h2>
+
+                    <p class="section-description">
+                        RELMUN 2026 features UNSC, UNHRC and UNODC.
+                        Each committee offers a different perspective
+                        on international cooperation and diplomacy.
+                    </p>
+
+                </div>
 
 
-<script src="script.js"></script>
+                <div class="card-grid card-grid-3">
+
+                    <!-- =====================================
+                         UNSC
+                         ===================================== -->
+
+                    <article class="card committee-card">
+
+                        <div>
+
+                            <div class="committee-code">
+                                Committee 01
+                            </div>
+
+                            <h2 class="committee-title">
+                                United Nations
+                                Security Council
+                            </h2>
+
+                            <p class="committee-agenda">
+                                Addressing the Escalating Crisis in the
+                                Strait of Hormuz and Its Implications
+                                for International Peace and Security.
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="committee.html?committee=unsc"
+                            class="card-link"
+                        >
+                            Explore UNSC
+                        </a>
+
+                    </article>
+
+
+                    <!-- =====================================
+                         UNHRC
+                         ===================================== -->
+
+                    <article class="card committee-card">
+
+                        <div>
+
+                            <div class="committee-code">
+                                Committee 02
+                            </div>
+
+                            <h2 class="committee-title">
+                                United Nations
+                                Human Rights Council
+                            </h2>
+
+                            <p class="committee-agenda">
+                                Examine the committee mandate,
+                                international human rights issues and
+                                the role of multilateral diplomacy.
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="committee.html?committee=unhrc"
+                            class="card-link"
+                        >
+                            Explore UNHRC
+                        </a>
+
+                    </article>
+
+
+                    <!-- =====================================
+                         UNODC
+                         ===================================== -->
+
+                    <article class="card committee-card">
+
+                        <div>
+
+                            <div class="committee-code">
+                                Committee 03
+                            </div>
+
+                            <h2 class="committee-title">
+                                United Nations Office
+                                on Drugs and Crime
+                            </h2>
+
+                            <p class="committee-agenda">
+                                Examine international cooperation
+                                against transnational crime and
+                                related challenges.
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="committee.html?committee=unodc"
+                            class="card-link"
+                        >
+                            Explore UNODC
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOW TO CHOOSE
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        Delegate Guide
+                    </div>
+
+                    <h2 class="section-title">
+                        Choose based on
+                        <span class="text-blue">
+                            your interests.
+                        </span>
+                    </h2>
+
+                    <p class="section-description">
+                        Your committee determines the type of debate,
+                        research and diplomacy you will experience.
+                    </p>
+
+                </div>
+
+
+                <div class="card-grid card-grid-3">
+
+                    <article class="card">
+
+                        <div class="card-number">
+                            01
+                        </div>
+
+                        <h3 class="card-title">
+                            Security & Diplomacy
+                        </h3>
+
+                        <p class="card-description">
+                            UNSC is centred around questions of
+                            international peace and security and
+                            high-stakes diplomatic decision-making.
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="card-number">
+                            02
+                        </div>
+
+                        <h3 class="card-title">
+                            Human Rights
+                        </h3>
+
+                        <p class="card-description">
+                            UNHRC focuses on international human rights
+                            discussions, policy and multilateral
+                            cooperation.
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="card-number">
+                            03
+                        </div>
+
+                        <h3 class="card-title">
+                            Transnational Issues
+                        </h3>
+
+                        <p class="card-description">
+                            UNODC addresses challenges involving
+                            international crime, cooperation and
+                            cross-border issues.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REGISTRATION CTA
+             ================================================= -->
+
+        <section class="cta">
+
+            <div class="container">
+
+                <div class="cta-inner">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            Ready?
+                        </div>
+
+                        <h2 class="cta-title">
+                            Pick your preferences
+                            <span class="text-blue">
+                                on 1 October.
+                            </span>
+                        </h2>
+
+                        <p class="cta-description">
+                            Delegate registrations for RELMUN 2026
+                            open on 1 October 2026.
+                        </p>
+
+                    </div>
+
+                    <div class="btn-row">
+
+                        <a
+                            href="register.html"
+                            class="btn btn-primary"
+                        >
+                            Registration
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        aria-label="RELMUN 2026 Home"
+                    >
+                        <img
+                            src="relmun-logo.png"
+                            alt="RELMUN 2026"
+                        >
+                    </a>
+
+                    <p class="footer-description">
+                        Regional Engagement & Leadership Model United
+                        Nations — an online conference taking place on
+                        26–27 December 2026.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Navigate
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a
+                            href="index.html"
+                            class="footer-link"
+                        >
+                            Home
+                        </a>
+
+                        <a
+                            href="committees.html"
+                            class="footer-link"
+                        >
+                            Committees
+                        </a>
+
+                        <a
+                            href="eb.html"
+                            class="footer-link"
+                        >
+                            Executive Board
+                        </a>
+
+                        <a
+                            href="register.html"
+                            class="footer-link"
+                        >
+                            Register
+                        </a>
+
+                        <a
+                            href="faq.html"
+                            class="footer-link"
+                        >
+                            FAQ
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Contact
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a
+                            href="https://www.instagram.com/relmun.official/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="footer-link"
+                        >
+                            Instagram — @relmun.official
+                        </a>
+
+                        <a
+                            href="mailto:akshithkabilan@gmail.com"
+                            class="footer-link"
+                        >
+                            akshithkabilan@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 RELMUN. All rights reserved.
+                </span>
+
+                <div class="social-links">
+
+                    <a
+                        href="https://www.instagram.com/relmun.official/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-link"
+                        aria-label="RELMUN Instagram"
+                    >
+                        IG
+                    </a>
+
+                    <a
+                        href="mailto:akshithkabilan@gmail.com"
+                        class="social-link"
+                        aria-label="Email RELMUN"
+                    >
+                        @
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+        (() => {
+            "use strict";
+
+            /* ---------------------------------------------
+               MOBILE NAVIGATION
+               --------------------------------------------- */
+
+            const menuToggle =
+                document.getElementById("menuToggle");
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+            if (menuToggle && navLinks) {
+
+                const closeMenu = () => {
+
+                    navLinks.classList.remove("open");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+
+                    document.body.classList.remove(
+                        "menu-open"
+                    );
+                };
+
+
+                const openMenu = () => {
+
+                    navLinks.classList.add("open");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Close navigation"
+                    );
+
+                    document.body.classList.add(
+                        "menu-open"
+                    );
+                };
+
+
+                menuToggle.addEventListener(
+                    "click",
+                    () => {
+
+                        if (
+                            navLinks.classList.contains(
+                                "open"
+                            )
+                        ) {
+                            closeMenu();
+                        } else {
+                            openMenu();
+                        }
+
+                    }
+                );
+
+
+                navLinks
+                    .querySelectorAll("a")
+                    .forEach((link) => {
+
+                        link.addEventListener(
+                            "click",
+                            closeMenu
+                        );
+
+                    });
+
+
+                window.addEventListener(
+                    "resize",
+                    () => {
+
+                        if (
+                            window.innerWidth > 700
+                        ) {
+                            closeMenu();
+                        }
+
+                    }
+                );
+
+            }
+
+        })();
+    </script>
 
 </body>
 </html>
+```
