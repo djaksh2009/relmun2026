@@ -3,20 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Register | RELMUN 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Register for RELMUN 2026, an online Model United Nations conference taking place on 26–27 December 2026."
+        content="Register for RELMUN 2026 — Regional Engagement & Leadership Model United Nations."
     >
+
+    <meta name="theme-color" content="#080808">
+
+    <title>Register — RELMUN 2026</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
@@ -25,942 +28,1189 @@
 
 <body>
 
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
-    <header class="site-header">
+<header class="site-header">
 
-        <div class="container navbar">
+    <nav class="navbar container" aria-label="Main navigation">
 
-            <a
-                href="index.html"
-                class="nav-brand"
-                aria-label="RELMUN 2026 Home"
+        <a
+            href="index.html"
+            class="nav-brand"
+            aria-label="RELMUN 2026 Home"
+        >
+            <span
+                style="
+                    color:#F1ECE0;
+                    font-family:'Space Grotesk',sans-serif;
+                    font-size:22px;
+                    font-weight:700;
+                    letter-spacing:-0.06em;
+                "
             >
-                <img
-                    src="relmun-logo.png"
-                    alt="RELMUN 2026"
-                >
+                RELMUN<span style="color:#1846FF;">26</span>
+            </span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="index.html" class="nav-link">
+                Home
             </a>
 
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                aria-controls="navLinks"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <a href="committees.html" class="nav-link">
+                Committees
+            </a>
 
-            <nav
-                class="nav-links"
-                id="navLinks"
-                aria-label="Main navigation"
-            >
+            <a href="eb.html" class="nav-link">
+                Executive Board
+            </a>
 
-                <a
-                    href="index.html"
-                    class="nav-link"
-                >
-                    Home
-                </a>
+            <a href="register.html" class="nav-link active">
+                Register
+            </a>
 
-                <a
-                    href="committees.html"
-                    class="nav-link"
-                >
-                    Committees
-                </a>
+            <a href="faq.html" class="nav-link">
+                FAQ
+            </a>
 
-                <a
-                    href="eb.html"
-                    class="nav-link"
-                >
-                    Executive Board
-                </a>
-
-                <a
-                    href="register.html"
-                    class="nav-link active"
-                >
-                    Register
-                </a>
-
-                <a
-                    href="faq.html"
-                    class="nav-link"
-                >
-                    FAQ
-                </a>
-
-                <a
-                    href="register.html"
-                    class="nav-register"
-                >
-                    Register
-                </a>
-
-            </nav>
+            <a href="register.html" class="nav-register">
+                REGISTER
+            </a>
 
         </div>
 
-    </header>
+    </nav>
+
+</header>
 
 
-    <main>
+<main>
 
-        <!-- =================================================
-             PAGE HERO
-             ================================================= -->
+<!-- =========================================================
+     REGISTRATION HERO
+     ========================================================= -->
 
-        <section class="page-hero">
+<section class="page-hero">
 
-            <div class="container">
+    <div class="container">
 
-                <div class="page-hero-content animate-in">
+        <span class="eyebrow">
+            RELMUN / 2026 / REGISTRATION
+        </span>
 
-                    <div class="eyebrow">
-                        RELMUN 2026
-                    </div>
+        <h1 class="page-title">
+            Secure your
+            <span style="color:#1846FF;">place.</span>
+        </h1>
 
-                    <h1 class="page-title">
-                        Delegate
-                        <span class="text-blue">Registration</span>
-                    </h1>
+        <p class="page-lead">
+            Delegate registrations for RELMUN 2026 open on
+            <strong style="color:#F1ECE0;">
+                1 October 2026.
+            </strong>
+        </p>
 
-                    <p class="page-description">
-                        Secure your place at RELMUN 2026. The conference
-                        takes place online on 26–27 December 2026.
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REGISTRATION STATUS
+     ========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div
+            id="registrationClosed"
+            class="registration-notice"
+            style="
+                display:none;
+                margin-bottom:40px;
+                padding:24px 28px;
+                border:1px solid rgba(199,154,43,.45);
+                background:rgba(199,154,43,.06);
+            "
+        >
+
+            <div
+                style="
+                    display:flex;
+                    gap:18px;
+                    align-items:flex-start;
+                "
+            >
+
+                <span
+                    style="
+                        color:#C79A2B;
+                        font-size:18px;
+                        line-height:1;
+                    "
+                >
+                    ×
+                </span>
+
+                <div>
+
+                    <strong
+                        style="
+                            display:block;
+                            color:#F1ECE0;
+                            margin-bottom:6px;
+                            font-size:15px;
+                        "
+                    >
+                        Registrations are not open yet.
+                    </strong>
+
+                    <p
+                        style="
+                            margin:0;
+                            color:rgba(241,236,224,.62);
+                            font-size:13px;
+                            line-height:1.6;
+                        "
+                    >
+                        Registrations open on
+                        <strong style="color:#F1ECE0;">
+                            1 October 2026
+                        </strong>.
+                        Please return after registration opens
+                        to submit your delegate application.
                     </p>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- =================================================
-             REGISTRATION SECTION
-             ================================================= -->
+        <div
+            id="registrationOpen"
+            style="display:none;"
+        >
 
-        <section class="section">
-
-            <div class="container">
-
-                <!-- Registration opening notice -->
-
-                <div
-                    class="registration-closed"
-                    id="registrationNotice"
-                >
-
-                    <div class="registration-closed-title">
-                        Registrations open on 1 October 2026.
-                    </div>
-
-                    <p class="registration-closed-text">
-                        The registration form will become available
-                        automatically on 1 October 2026.
-                    </p>
-
-                </div>
-
+            <div
+                style="
+                    display:grid;
+                    grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);
+                    gap:60px;
+                    align-items:start;
+                "
+            >
 
                 <!-- =================================================
                      FORM
                      ================================================= -->
 
-                <div
-                    class="card"
-                    id="registrationCard"
-                    style="margin-top: 22px;"
-                >
+                <div>
+
+                    <div style="margin-bottom:35px;">
+
+                        <span class="eyebrow">
+                            Delegate Application
+                        </span>
+
+                        <h2
+                            style="
+                                margin:0 0 12px;
+                                font-family:'Space Grotesk',sans-serif;
+                                font-size:clamp(32px,5vw,52px);
+                                line-height:1;
+                                letter-spacing:-.05em;
+                            "
+                        >
+                            Delegate
+                            <span style="color:#1846FF;">
+                                registration
+                            </span>
+                        </h2>
+
+                        <p
+                            style="
+                                max-width:600px;
+                                margin:0;
+                                color:rgba(241,236,224,.58);
+                                font-size:14px;
+                                line-height:1.7;
+                            "
+                        >
+                            Fill in your details carefully. Your
+                            committee preferences will be considered
+                            by the organizing team.
+                        </p>
+
+                    </div>
+
 
                     <form
                         id="registrationForm"
-                        class="form"
                         novalidate
                     >
 
-                        <!-- =========================================
-                             PERSONAL INFORMATION
-                             ========================================= -->
+                        <!-- Full name -->
 
-                        <div class="form-section">
+                        <div class="form-group">
 
-                            <h2 class="form-section-title">
-                                Personal Information
-                            </h2>
+                            <label for="fullName">
+                                Full Name
+                                <span aria-hidden="true">*</span>
+                            </label>
 
-                            <div class="form-grid">
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="fullName"
-                                        class="form-label"
-                                    >
-                                        Full Name
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        id="fullName"
-                                        name="fullName"
-                                        class="form-input"
-                                        placeholder="Enter your full name"
-                                        autocomplete="name"
-                                        required
-                                    >
-
-                                </div>
-
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="email"
-                                        class="form-label"
-                                    >
-                                        Email Address
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        class="form-input"
-                                        placeholder="you@example.com"
-                                        autocomplete="email"
-                                        required
-                                    >
-
-                                </div>
-
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="whatsapp"
-                                        class="form-label"
-                                    >
-                                        WhatsApp Number
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <input
-                                        type="tel"
-                                        id="whatsapp"
-                                        name="whatsapp"
-                                        class="form-input"
-                                        placeholder="Enter your WhatsApp number"
-                                        autocomplete="tel"
-                                        required
-                                    >
-
-                                </div>
-
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="city"
-                                        class="form-label"
-                                    >
-                                        City
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        id="city"
-                                        name="city"
-                                        class="form-input"
-                                        placeholder="Enter your city"
-                                        autocomplete="address-level2"
-                                        required
-                                    >
-
-                                </div>
-
-                            </div>
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                autocomplete="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
 
                         </div>
 
 
-                        <!-- =========================================
-                             MUN EXPERIENCE
-                             ========================================= -->
+                        <!-- Email -->
 
-                        <div class="form-section">
+                        <div class="form-group">
 
-                            <h2 class="form-section-title">
+                            <label for="email">
+                                Email Address
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                autocomplete="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- WhatsApp -->
+
+                        <div class="form-group">
+
+                            <label for="whatsapp">
+                                WhatsApp Number
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="whatsapp"
+                                name="whatsapp"
+                                autocomplete="tel"
+                                placeholder="Enter your WhatsApp number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- City -->
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                autocomplete="address-level2"
+                                placeholder="Enter your city"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- MUN Experience -->
+
+                        <div class="form-group">
+
+                            <label for="munExperience">
                                 MUN Experience
-                            </h2>
+                                <span aria-hidden="true">*</span>
+                            </label>
 
-                            <div class="form-grid">
-
-                                <div class="form-field full">
-
-                                    <label
-                                        for="munExperience"
-                                        class="form-label"
-                                    >
-                                        Previous MUN Experience
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <select
-                                        id="munExperience"
-                                        name="munExperience"
-                                        class="form-select"
-                                        required
-                                    >
-
-                                        <option
-                                            value=""
-                                            selected
-                                            disabled
-                                        >
-                                            Select your experience
-                                        </option>
-
-                                        <option value="None">
-                                            None
-                                        </option>
-
-                                        <option value="1-2">
-                                            1–2 conferences
-                                        </option>
-
-                                        <option value="3-5">
-                                            3–5 conferences
-                                        </option>
-
-                                        <option value="6-10">
-                                            6–10 conferences
-                                        </option>
-
-                                        <option value="10+">
-                                            More than 10 conferences
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- =========================================
-                             COMMITTEE PREFERENCES
-                             ========================================= -->
-
-                        <div class="form-section">
-
-                            <h2 class="form-section-title">
-                                Committee Preferences
-                            </h2>
-
-                            <p
-                                class="form-help"
-                                style="margin-bottom: 18px;"
+                            <select
+                                id="munExperience"
+                                name="munExperience"
+                                required
                             >
-                                Select your first, second and third
-                                committee preferences. Please use each
-                                committee only once.
-                            </p>
 
-                            <div class="form-grid-3">
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="committee1"
-                                        class="form-label"
-                                    >
-                                        First Preference
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <select
-                                        id="committee1"
-                                        name="committee1"
-                                        class="form-select committee-select"
-                                        required
-                                    >
-
-                                        <option
-                                            value=""
-                                            selected
-                                            disabled
-                                        >
-                                            Select
-                                        </option>
-
-                                        <option value="UNSC">
-                                            UNSC
-                                        </option>
-
-                                        <option value="UNHRC">
-                                            UNHRC
-                                        </option>
-
-                                        <option value="UNODC">
-                                            UNODC
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="committee2"
-                                        class="form-label"
-                                    >
-                                        Second Preference
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <select
-                                        id="committee2"
-                                        name="committee2"
-                                        class="form-select committee-select"
-                                        required
-                                    >
-
-                                        <option
-                                            value=""
-                                            selected
-                                            disabled
-                                        >
-                                            Select
-                                        </option>
-
-                                        <option value="UNSC">
-                                            UNSC
-                                        </option>
-
-                                        <option value="UNHRC">
-                                            UNHRC
-                                        </option>
-
-                                        <option value="UNODC">
-                                            UNODC
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="committee3"
-                                        class="form-label"
-                                    >
-                                        Third Preference
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <select
-                                        id="committee3"
-                                        name="committee3"
-                                        class="form-select committee-select"
-                                        required
-                                    >
-
-                                        <option
-                                            value=""
-                                            selected
-                                            disabled
-                                        >
-                                            Select
-                                        </option>
-
-                                        <option value="UNSC">
-                                            UNSC
-                                        </option>
-
-                                        <option value="UNHRC">
-                                            UNHRC
-                                        </option>
-
-                                        <option value="UNODC">
-                                            UNODC
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- =========================================
-                             PORTFOLIO PREFERENCES
-                             ========================================= -->
-
-                        <div class="form-section">
-
-                            <h2 class="form-section-title">
-                                Portfolio Preferences
-                            </h2>
-
-                            <p
-                                class="form-help"
-                                style="margin-bottom: 18px;"
-                            >
-                                Enter your preferred portfolios in the
-                                same order as your committee preferences.
-                            </p>
-
-                            <div class="form-grid-3">
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="portfolio1"
-                                        class="form-label"
-                                    >
-                                        First Portfolio
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        id="portfolio1"
-                                        name="portfolio1"
-                                        class="form-input"
-                                        placeholder="Preferred portfolio"
-                                        required
-                                    >
-
-                                </div>
-
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="portfolio2"
-                                        class="form-label"
-                                    >
-                                        Second Portfolio
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        id="portfolio2"
-                                        name="portfolio2"
-                                        class="form-input"
-                                        placeholder="Preferred portfolio"
-                                        required
-                                    >
-
-                                </div>
-
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="portfolio3"
-                                        class="form-label"
-                                    >
-                                        Third Portfolio
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        id="portfolio3"
-                                        name="portfolio3"
-                                        class="form-input"
-                                        placeholder="Preferred portfolio"
-                                        required
-                                    >
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- =========================================
-                             HOW DID YOU HEAR ABOUT US
-                             ========================================= -->
-
-                        <div class="form-section">
-
-                            <h2 class="form-section-title">
-                                About Your Registration
-                            </h2>
-
-                            <div class="form-grid">
-
-                                <div class="form-field">
-
-                                    <label
-                                        for="source"
-                                        class="form-label"
-                                    >
-                                        How did you hear about RELMUN?
-                                        <span class="form-required">
-                                            *
-                                        </span>
-                                    </label>
-
-                                    <select
-                                        id="source"
-                                        name="source"
-                                        class="form-select"
-                                        required
-                                    >
-
-                                        <option
-                                            value=""
-                                            selected
-                                            disabled
-                                        >
-                                            Select an option
-                                        </option>
-
-                                        <option value="Instagram">
-                                            Instagram
-                                        </option>
-
-                                        <option value="WhatsApp">
-                                            WhatsApp
-                                        </option>
-
-                                        <option value="School">
-                                            School
-                                        </option>
-
-                                        <option value="Friend">
-                                            Friend
-                                        </option>
-
-                                        <option value="MyMUN">
-                                            MyMUN
-                                        </option>
-
-                                        <option value="Gavelling">
-                                            Gavelling
-                                        </option>
-
-                                        <option value="ChampArena">
-                                            ChampArena
-                                        </option>
-
-                                        <option value="Other">
-                                            Other
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-
-                                <div
-                                    class="form-field"
-                                    id="otherSourceField"
-                                    style="display: none;"
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
                                 >
+                                    Select your experience
+                                </option>
 
-                                    <label
-                                        for="otherSource"
-                                        class="form-label"
-                                    >
-                                        Please specify
-                                    </label>
+                                <option value="First MUN">
+                                    First MUN
+                                </option>
 
-                                    <input
-                                        type="text"
-                                        id="otherSource"
-                                        name="otherSource"
-                                        class="form-input"
-                                        placeholder="Tell us how you found RELMUN"
-                                    >
+                                <option value="1-3 MUNs">
+                                    1–3 MUNs
+                                </option>
 
-                                </div>
+                                <option value="4-7 MUNs">
+                                    4–7 MUNs
+                                </option>
 
-                            </div>
+                                <option value="8+ MUNs">
+                                    8+ MUNs
+                                </option>
+
+                            </select>
 
                         </div>
 
 
-                        <!-- =========================================
-                             ACTIONS
-                             ========================================= -->
+                        <!-- =================================================
+                             COMMITTEE PREFERENCES
+                             ================================================= -->
 
-                        <div class="form-actions">
+                        <div
+                            style="
+                                margin:45px 0 25px;
+                                padding-top:30px;
+                                border-top:1px solid rgba(241,236,224,.12);
+                            "
+                        >
 
-                            <button
-                                type="submit"
-                                class="btn btn-primary"
-                                id="submitButton"
+                            <span class="eyebrow">
+                                Committee Preferences
+                            </span>
+
+                            <p
+                                style="
+                                    margin:0;
+                                    color:rgba(241,236,224,.55);
+                                    font-size:13px;
+                                    line-height:1.6;
+                                "
                             >
-                                Submit Registration
-                                <span aria-hidden="true">→</span>
-                            </button>
+                                Select three different committee
+                                preferences in order.
+                            </p>
 
-                            <a
-                                href="index.html"
-                                class="btn btn-secondary"
+                        </div>
+
+
+                        <!-- Preference 1 -->
+
+                        <div class="form-group">
+
+                            <label for="committee1">
+                                First Preference
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <select
+                                id="committee1"
+                                name="committee1"
+                                class="committee-select"
+                                required
                             >
-                                Back to Home
-                            </a>
+
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                >
+                                    Select committee
+                                </option>
+
+                                <option value="UNSC">
+                                    UNSC
+                                </option>
+
+                                <option value="UNODC">
+                                    UNODC
+                                </option>
+
+                                <option value="UNHRC">
+                                    UNHRC
+                                </option>
+
+                                <option value="AIPPM">
+                                    AIPPM
+                                </option>
+
+                                <option value="UNW">
+                                    UNW
+                                </option>
+
+                                <option value="IPLA">
+                                    IPLA
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Preference 2 -->
+
+                        <div class="form-group">
+
+                            <label for="committee2">
+                                Second Preference
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <select
+                                id="committee2"
+                                name="committee2"
+                                class="committee-select"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                >
+                                    Select committee
+                                </option>
+
+                                <option value="UNSC">
+                                    UNSC
+                                </option>
+
+                                <option value="UNODC">
+                                    UNODC
+                                </option>
+
+                                <option value="UNHRC">
+                                    UNHRC
+                                </option>
+
+                                <option value="AIPPM">
+                                    AIPPM
+                                </option>
+
+                                <option value="UNW">
+                                    UNW
+                                </option>
+
+                                <option value="IPLA">
+                                    IPLA
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Preference 3 -->
+
+                        <div class="form-group">
+
+                            <label for="committee3">
+                                Third Preference
+                                <span aria-hidden="true">*</span>
+                            </label>
+
+                            <select
+                                id="committee3"
+                                name="committee3"
+                                class="committee-select"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                >
+                                    Select committee
+                                </option>
+
+                                <option value="UNSC">
+                                    UNSC
+                                </option>
+
+                                <option value="UNODC">
+                                    UNODC
+                                </option>
+
+                                <option value="UNHRC">
+                                    UNHRC
+                                </option>
+
+                                <option value="AIPPM">
+                                    AIPPM
+                                </option>
+
+                                <option value="UNW">
+                                    UNW
+                                </option>
+
+                                <option value="IPLA">
+                                    IPLA
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             PORTFOLIO PREFERENCES
+                             ================================================= -->
+
+                        <div
+                            style="
+                                margin:45px 0 25px;
+                                padding-top:30px;
+                                border-top:1px solid rgba(241,236,224,.12);
+                            "
+                        >
+
+                            <span class="eyebrow">
+                                Portfolio Preferences
+                            </span>
+
+                            <p
+                                style="
+                                    margin:0;
+                                    color:rgba(241,236,224,.55);
+                                    font-size:13px;
+                                    line-height:1.6;
+                                "
+                            >
+                                Enter your preferred portfolio for
+                                each committee preference.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="portfolio1">
+                                Portfolio Preference 1
+                            </label>
+
+                            <input
+                                type="text"
+                                id="portfolio1"
+                                name="portfolio1"
+                                placeholder="Enter portfolio"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="portfolio2">
+                                Portfolio Preference 2
+                            </label>
+
+                            <input
+                                type="text"
+                                id="portfolio2"
+                                name="portfolio2"
+                                placeholder="Enter portfolio"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="portfolio3">
+                                Portfolio Preference 3
+                            </label>
+
+                            <input
+                                type="text"
+                                id="portfolio3"
+                                name="portfolio3"
+                                placeholder="Enter portfolio"
+                            >
+
+                        </div>
+
+
+                        <!-- =================================================
+                             SOURCE
+                             ================================================= -->
+
+                        <div
+                            style="
+                                margin:45px 0 25px;
+                                padding-top:30px;
+                                border-top:1px solid rgba(241,236,224,.12);
+                            "
+                        >
+
+                            <span class="eyebrow">
+                                How did you find us?
+                            </span>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="source">
+                                Source
+                            </label>
+
+                            <select
+                                id="source"
+                                name="source"
+                            >
+
+                                <option
+                                    value=""
+                                    selected
+                                >
+                                    Select an option
+                                </option>
+
+                                <option value="Instagram">
+                                    Instagram
+                                </option>
+
+                                <option value="MyMUN">
+                                    MyMUN
+                                </option>
+
+                                <option value="Gavelling">
+                                    Gavelling
+                                </option>
+
+                                <option value="Friend">
+                                    Friend
+                                </option>
+
+                                <option value="School">
+                                    School
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
 
                         </div>
 
 
                         <div
-                            class="form-status"
-                            id="formStatus"
-                            role="status"
-                            aria-live="polite"
-                        ></div>
+                            class="form-group"
+                            id="otherSourceGroup"
+                            style="display:none;"
+                        >
+
+                            <label for="otherSource">
+                                Please specify
+                            </label>
+
+                            <input
+                                type="text"
+                                id="otherSource"
+                                name="otherSource"
+                                placeholder="Tell us where you found RELMUN"
+                            >
+
+                        </div>
+
+
+                        <!-- =================================================
+                             SUBMISSION
+                             ================================================= -->
+
+                        <div
+                            style="
+                                margin-top:45px;
+                            "
+                        >
+
+                            <button
+                                type="submit"
+                                id="submitButton"
+                                class="btn btn-primary"
+                                style="
+                                    width:100%;
+                                    justify-content:center;
+                                    border:0;
+                                    cursor:pointer;
+                                "
+                            >
+                                <span id="submitText">
+                                    Submit Registration
+                                </span>
+
+                                <span
+                                    id="submitLoader"
+                                    style="display:none;"
+                                    aria-hidden="true"
+                                >
+                                    Submitting…
+                                </span>
+
+                                <span aria-hidden="true">
+                                    ↗
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <p
+                            style="
+                                margin:16px 0 0;
+                                color:rgba(241,236,224,.38);
+                                font-size:11px;
+                                line-height:1.6;
+                            "
+                        >
+                            By submitting this form, you confirm
+                            that the information provided is accurate.
+                        </p>
 
                     </form>
 
-                </div>
 
-            </div>
+                    <!-- Success -->
 
-        </section>
+                    <div
+                        id="successMessage"
+                        role="status"
+                        aria-live="polite"
+                        style="
+                            display:none;
+                            margin-top:25px;
+                            padding:25px;
+                            border:1px solid rgba(24,70,255,.55);
+                            background:rgba(24,70,255,.08);
+                        "
+                    >
 
+                        <strong
+                            style="
+                                display:block;
+                                color:#F1ECE0;
+                                margin-bottom:7px;
+                            "
+                        >
+                            Registration submitted successfully.
+                        </strong>
 
-        <!-- =================================================
-             CTA
-             ================================================= -->
-
-        <section class="cta">
-
-            <div class="container">
-
-                <div class="cta-inner">
-
-                    <div>
-
-                        <div class="eyebrow">
-                            Need Help?
-                        </div>
-
-                        <h2 class="cta-title">
-                            Have a question about
-                            <span class="text-blue">
-                                registration?
-                            </span>
-                        </h2>
-
-                        <p class="cta-description">
-                            Check our frequently asked questions or
-                            contact the RELMUN team directly.
+                        <p
+                            style="
+                                margin:0;
+                                color:rgba(241,236,224,.6);
+                                font-size:13px;
+                                line-height:1.6;
+                            "
+                        >
+                            Your application has been received.
+                            Please keep an eye on your email for
+                            further communication from the RELMUN team.
                         </p>
 
                     </div>
 
-                    <div class="btn-row">
 
-                        <a
-                            href="faq.html"
-                            class="btn btn-secondary"
-                        >
-                            View FAQ
-                        </a>
+                    <!-- Error -->
 
-                        <a
-                            href="mailto:akshithkabilan@gmail.com"
-                            class="btn btn-primary"
-                        >
-                            Email Us
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-
-    <footer class="site-footer">
-
-        <div class="container">
-
-            <div class="footer-main">
-
-                <div class="footer-brand">
-
-                    <a
-                        href="index.html"
-                        aria-label="RELMUN 2026 Home"
+                    <div
+                        id="errorMessage"
+                        role="alert"
+                        aria-live="assertive"
+                        style="
+                            display:none;
+                            margin-top:25px;
+                            padding:25px;
+                            border:1px solid rgba(199,154,43,.5);
+                            background:rgba(199,154,43,.07);
+                        "
                     >
-                        <img
-                            src="relmun-logo.png"
-                            alt="RELMUN 2026"
-                        >
-                    </a>
 
-                    <p class="footer-description">
-                        Regional Engagement & Leadership Model United
-                        Nations — an online conference taking place on
-                        26–27 December 2026.
-                    </p>
+                        <strong
+                            style="
+                                display:block;
+                                color:#F1ECE0;
+                                margin-bottom:7px;
+                            "
+                        >
+                            Submission could not be completed.
+                        </strong>
+
+                        <p
+                            id="errorText"
+                            style="
+                                margin:0;
+                                color:rgba(241,236,224,.6);
+                                font-size:13px;
+                                line-height:1.6;
+                            "
+                        >
+                            Please try again.
+                        </p>
+
+                    </div>
 
                 </div>
 
 
-                <div>
+                <!-- =================================================
+                     SIDEBAR
+                     ================================================= -->
 
-                    <div class="footer-title">
-                        Navigate
-                    </div>
+                <aside>
 
-                    <div class="footer-links">
+                    <div
+                        style="
+                            position:sticky;
+                            top:110px;
+                            padding:30px;
+                            background:#0D0D0D;
+                            border:1px solid rgba(241,236,224,.12);
+                        "
+                    >
 
-                        <a
-                            href="index.html"
-                            class="footer-link"
+                        <span class="eyebrow">
+                            RELMUN / 26
+                        </span>
+
+                        <h3
+                            style="
+                                margin:0 0 28px;
+                                color:#F1ECE0;
+                                font-family:'Space Grotesk',sans-serif;
+                                font-size:27px;
+                                line-height:1.05;
+                                letter-spacing:-.04em;
+                            "
                         >
-                            Home
-                        </a>
+                            Everything you
+                            need to know.
+                        </h3>
 
-                        <a
-                            href="committees.html"
-                            class="footer-link"
-                        >
-                            Committees
-                        </a>
 
-                        <a
-                            href="eb.html"
-                            class="footer-link"
+                        <div
+                            style="
+                                padding:20px 0;
+                                border-top:1px solid rgba(241,236,224,.12);
+                            "
                         >
-                            Executive Board
-                        </a>
 
-                        <a
-                            href="register.html"
-                            class="footer-link"
+                            <span
+                                style="
+                                    display:block;
+                                    color:rgba(241,236,224,.4);
+                                    font-size:9px;
+                                    font-weight:700;
+                                    letter-spacing:.14em;
+                                    text-transform:uppercase;
+                                    margin-bottom:8px;
+                                "
+                            >
+                                Conference
+                            </span>
+
+                            <strong
+                                style="
+                                    color:#F1ECE0;
+                                    font-size:14px;
+                                "
+                            >
+                                26–27 December 2026
+                            </strong>
+
+                        </div>
+
+
+                        <div
+                            style="
+                                padding:20px 0;
+                                border-top:1px solid rgba(241,236,224,.12);
+                            "
                         >
-                            Register
-                        </a>
+
+                            <span
+                                style="
+                                    display:block;
+                                    color:rgba(241,236,224,.4);
+                                    font-size:9px;
+                                    font-weight:700;
+                                    letter-spacing:.14em;
+                                    text-transform:uppercase;
+                                    margin-bottom:8px;
+                                "
+                            >
+                                Format
+                            </span>
+
+                            <strong
+                                style="
+                                    color:#F1ECE0;
+                                    font-size:14px;
+                                "
+                            >
+                                Online Conference
+                            </strong>
+
+                        </div>
+
+
+                        <div
+                            style="
+                                padding:20px 0;
+                                border-top:1px solid rgba(241,236,224,.12);
+                            "
+                        >
+
+                            <span
+                                style="
+                                    display:block;
+                                    color:rgba(241,236,224,.4);
+                                    font-size:9px;
+                                    font-weight:700;
+                                    letter-spacing:.14em;
+                                    text-transform:uppercase;
+                                    margin-bottom:8px;
+                                "
+                            >
+                                Registration
+                            </span>
+
+                            <strong
+                                style="
+                                    color:#F1ECE0;
+                                    font-size:14px;
+                                "
+                            >
+                                Free
+                            </strong>
+
+                        </div>
+
 
                         <a
                             href="faq.html"
-                            class="footer-link"
+                            style="
+                                display:inline-flex;
+                                align-items:center;
+                                gap:8px;
+                                margin-top:10px;
+                                color:#1846FF;
+                                font-size:12px;
+                                font-weight:700;
+                                text-decoration:none;
+                            "
                         >
-                            FAQ
+                            Read the FAQs →
                         </a>
 
                     </div>
 
-                </div>
-
-
-                <div>
-
-                    <div class="footer-title">
-                        Contact
-                    </div>
-
-                    <div class="footer-links">
-
-                        <a
-                            href="https://www.instagram.com/relmun.official/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="footer-link"
-                        >
-                            Instagram — @relmun.official
-                        </a>
-
-                        <a
-                            href="mailto:akshithkabilan@gmail.com"
-                            class="footer-link"
-                        >
-                            akshithkabilan@gmail.com
-                        </a>
-
-                    </div>
-
-                </div>
+                </aside>
 
             </div>
 
+        </div>
 
-            <div class="footer-bottom">
+    </div>
 
-                <span>
-                    © 2026 RELMUN. All rights reserved.
+</section>
+
+
+<!-- =========================================================
+     CLOSED STATE FALLBACK
+     ========================================================= -->
+
+<section
+    id="closedInfo"
+    class="section"
+    style="display:none;"
+>
+
+    <div class="container">
+
+        <div
+            style="
+                max-width:850px;
+                padding:55px;
+                background:#0D0D0D;
+                border:1px solid rgba(241,236,224,.12);
+            "
+        >
+
+            <span class="eyebrow">
+                Registration / Opening Date
+            </span>
+
+            <h2
+                style="
+                    margin:0 0 20px;
+                    font-family:'Space Grotesk',sans-serif;
+                    font-size:clamp(38px,6vw,70px);
+                    line-height:.95;
+                    letter-spacing:-.055em;
+                "
+            >
+                Registrations open on
+                <span style="color:#1846FF;">
+                    1 October 2026.
                 </span>
+            </h2>
 
-                <div class="social-links">
+            <p
+                style="
+                    max-width:600px;
+                    margin:0;
+                    color:rgba(241,236,224,.58);
+                    font-size:15px;
+                    line-height:1.8;
+                "
+            >
+                Delegate registration is currently closed.
+                The registration form will become available
+                automatically once registrations open.
+            </p>
 
-                    <a
-                        href="https://www.instagram.com/relmun.official/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-link"
-                        aria-label="RELMUN Instagram"
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html">
+
+                    <span
+                        style="
+                            display:block;
+                            color:#F1ECE0;
+                            font-family:'Space Grotesk',sans-serif;
+                            font-size:25px;
+                            font-weight:700;
+                            letter-spacing:-.06em;
+                        "
                     >
-                        IG
+                        RELMUN<span style="color:#1846FF;">26</span>
+                    </span>
+
+                </a>
+
+                <p class="footer-description">
+                    Regional Engagement & Leadership
+                    Model United Nations.
+                    26–27 December 2026.
+                    Online.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Navigate
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="index.html" class="footer-link">
+                        Home
                     </a>
+
+                    <a href="committees.html" class="footer-link">
+                        Committees
+                    </a>
+
+                    <a href="eb.html" class="footer-link">
+                        Executive Board
+                    </a>
+
+                    <a href="register.html" class="footer-link">
+                        Register
+                    </a>
+
+                    <a href="faq.html" class="footer-link">
+                        FAQ
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Contact
+                </div>
+
+                <div class="footer-links">
 
                     <a
                         href="mailto:akshithkabilan@gmail.com"
-                        class="social-link"
-                        aria-label="Email RELMUN"
+                        class="footer-link"
                     >
-                        @
+                        Email the team
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/relmun.official/"
+                        class="footer-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Instagram ↗
                     </a>
 
                 </div>
@@ -969,657 +1219,746 @@
 
         </div>
 
-    </footer>
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 RELMUN. All rights reserved.
+            </span>
+
+            <div class="social-links">
+
+                <a
+                    href="https://www.instagram.com/relmun.official/"
+                    class="social-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                >
+                    IG
+                </a>
+
+                <a
+                    href="mailto:akshithkabilan@gmail.com"
+                    class="social-link"
+                    aria-label="Email"
+                >
+                    @
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
+<!-- =========================================================
+     REGISTRATION JAVASCRIPT
+     ========================================================= -->
 
-    <script>
-        (() => {
-            "use strict";
+<script>
 
-            /* =================================================
-               CONFIGURATION
-               ================================================= */
+(function () {
 
-            const REGISTRATION_OPEN_DATE =
-                new Date(2026, 9, 1, 0, 0, 0);
-
-            const APPS_SCRIPT_ENDPOINT =
-                "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
+    "use strict";
 
 
-            /* =================================================
-               MOBILE NAVIGATION
-               ================================================= */
+    /* =========================================================
+       CONFIGURATION
+       ========================================================= */
 
-            const menuToggle =
-                document.getElementById("menuToggle");
+    const REGISTRATION_ENDPOINT =
+        "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
 
-            const navLinks =
-                document.getElementById("navLinks");
 
-            if (menuToggle && navLinks) {
+    /*
+        Registration opening moment.
 
-                const closeMenu = () => {
+        This is intentionally created in LOCAL browser time,
+        matching the user's local date/time rather than
+        hard-coding a UTC offset.
 
-                    navLinks.classList.remove("open");
+        Registration opens at the beginning of
+        1 October 2026.
+    */
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+    const REGISTRATION_OPEN_DATE =
+        new Date(
+            2026,
+            9,
+            1,
+            0,
+            0,
+            0,
+            0
+        );
 
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation"
-                    );
 
-                    document.body.classList.remove(
-                        "menu-open"
-                    );
-                };
+    /* =========================================================
+       ELEMENTS
+       ========================================================= */
 
-                const openMenu = () => {
+    const registrationOpen =
+        document.getElementById("registrationOpen");
 
-                    navLinks.classList.add("open");
+    const registrationClosed =
+        document.getElementById("registrationClosed");
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
+    const closedInfo =
+        document.getElementById("closedInfo");
 
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Close navigation"
-                    );
+    const registrationForm =
+        document.getElementById("registrationForm");
 
-                    document.body.classList.add(
-                        "menu-open"
-                    );
-                };
+    const submitButton =
+        document.getElementById("submitButton");
 
-                menuToggle.addEventListener(
-                    "click",
-                    () => {
+    const submitText =
+        document.getElementById("submitText");
 
-                        if (
-                            navLinks.classList.contains("open")
-                        ) {
-                            closeMenu();
-                        } else {
-                            openMenu();
-                        }
+    const submitLoader =
+        document.getElementById("submitLoader");
 
-                    }
+    const successMessage =
+        document.getElementById("successMessage");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+    const errorText =
+        document.getElementById("errorText");
+
+    const sourceSelect =
+        document.getElementById("source");
+
+    const otherSourceGroup =
+        document.getElementById("otherSourceGroup");
+
+    const committeeSelects =
+        document.querySelectorAll(".committee-select");
+
+
+    /* =========================================================
+       REGISTRATION STATE
+       ========================================================= */
+
+    let registrationIsOpen = false;
+
+    let submissionInProgress = false;
+
+
+    function checkRegistrationStatus() {
+
+        const now =
+            new Date();
+
+        registrationIsOpen =
+            now.getTime() >=
+            REGISTRATION_OPEN_DATE.getTime();
+
+
+        if (registrationIsOpen) {
+
+            if (registrationOpen) {
+                registrationOpen.style.display = "block";
+            }
+
+            if (registrationClosed) {
+                registrationClosed.style.display = "none";
+            }
+
+            if (closedInfo) {
+                closedInfo.style.display = "none";
+            }
+
+        } else {
+
+            if (registrationOpen) {
+                registrationOpen.style.display = "none";
+            }
+
+            if (registrationClosed) {
+                registrationClosed.style.display = "block";
+            }
+
+            if (closedInfo) {
+                closedInfo.style.display = "block";
+            }
+
+        }
+
+    }
+
+
+    checkRegistrationStatus();
+
+
+    /*
+        Re-check periodically so an already-open page can
+        transition automatically at the opening time.
+    */
+
+    setInterval(
+        checkRegistrationStatus,
+        30000
+    );
+
+
+    /* =========================================================
+       MOBILE NAVIGATION
+       ========================================================= */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    if (menuToggle && navLinks) {
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    navLinks.classList.toggle("open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
                 );
 
-                navLinks
-                    .querySelectorAll("a")
-                    .forEach((link) => {
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close navigation menu"
+                        : "Open navigation menu"
+                );
 
-                        link.addEventListener(
-                            "click",
-                            closeMenu
+                document.body.classList.toggle(
+                    "menu-open",
+                    isOpen
+                );
+
+            }
+        );
+
+
+        navLinks
+            .querySelectorAll("a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove("open");
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
                         );
 
-                    });
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation menu"
+                        );
 
-                window.addEventListener(
-                    "resize",
-                    () => {
-
-                        if (window.innerWidth > 700) {
-                            closeMenu();
-                        }
+                        document.body.classList.remove(
+                            "menu-open"
+                        );
 
                     }
                 );
-            }
+
+            });
+
+    }
 
 
-            /* =================================================
-               REGISTRATION DATE CHECK
-               ================================================= */
+    /* =========================================================
+       OTHER SOURCE FIELD
+       ========================================================= */
 
-            const registrationNotice =
-                document.getElementById(
-                    "registrationNotice"
-                );
+    if (sourceSelect && otherSourceGroup) {
 
-            const registrationCard =
-                document.getElementById(
-                    "registrationCard"
-                );
+        sourceSelect.addEventListener(
+            "change",
+            function () {
 
-            const registrationForm =
-                document.getElementById(
-                    "registrationForm"
-                );
+                const isOther =
+                    sourceSelect.value === "Other";
 
-            const submitButton =
-                document.getElementById(
-                    "submitButton"
-                );
-
-            const formStatus =
-                document.getElementById(
-                    "formStatus"
-                );
-
-
-            const isRegistrationOpen = () => {
-                return new Date() >= REGISTRATION_OPEN_DATE;
-            };
-
-
-            const showStatus = (
-                message,
-                type
-            ) => {
-
-                if (!formStatus) {
-                    return;
-                }
-
-                formStatus.textContent = message;
-
-                formStatus.className =
-                    "form-status show " + type;
-
-            };
-
-
-            const updateRegistrationState = () => {
-
-                if (!registrationForm) {
-                    return;
-                }
-
-                if (isRegistrationOpen()) {
-
-                    if (registrationNotice) {
-                        registrationNotice.innerHTML = `
-                            <div class="registration-closed-title">
-                                Registrations are now open.
-                            </div>
-
-                            <p class="registration-closed-text">
-                                Complete the form below to register
-                                for RELMUN 2026.
-                            </p>
-                        `;
-                    }
-
-                    registrationForm
-                        .querySelectorAll("input, select, textarea, button")
-                        .forEach((element) => {
-                            element.disabled = false;
-                        });
-
-                } else {
-
-                    if (registrationNotice) {
-                        registrationNotice.innerHTML = `
-                            <div class="registration-closed-title">
-                                Registrations open on 1 October 2026.
-                            </div>
-
-                            <p class="registration-closed-text">
-                                The registration form will become
-                                available automatically on 1 October 2026.
-                            </p>
-                        `;
-                    }
-
-                    registrationForm
-                        .querySelectorAll("input, select, textarea")
-                        .forEach((element) => {
-                            element.disabled = true;
-                        });
-
-                    if (submitButton) {
-                        submitButton.disabled = true;
-                    }
-
-                }
-
-            };
-
-            updateRegistrationState();
-
-
-            /* =================================================
-               OTHER SOURCE FIELD
-               ================================================= */
-
-            const sourceSelect =
-                document.getElementById("source");
-
-            const otherSourceField =
-                document.getElementById(
-                    "otherSourceField"
-                );
-
-            const otherSource =
-                document.getElementById(
-                    "otherSource"
-                );
-
-
-            const updateOtherSource = () => {
-
-                if (
-                    !sourceSelect ||
-                    !otherSourceField ||
-                    !otherSource
-                ) {
-                    return;
-                }
-
-                if (sourceSelect.value === "Other") {
-
-                    otherSourceField.style.display =
-                        "block";
-
-                    otherSource.required = true;
-
-                } else {
-
-                    otherSourceField.style.display =
-                        "none";
-
-                    otherSource.required = false;
-                    otherSource.value = "";
-
-                }
-
-            };
-
-
-            if (sourceSelect) {
-
-                sourceSelect.addEventListener(
-                    "change",
-                    updateOtherSource
-                );
-
-                updateOtherSource();
+                otherSourceGroup.style.display =
+                    isOther
+                        ? "block"
+                        : "none";
 
             }
+        );
+
+    }
 
 
-            /* =================================================
-               COMMITTEE PREFERENCE VALIDATION
-               ================================================= */
+    /* =========================================================
+       COMMITTEE DUPLICATE PREVENTION
+       ========================================================= */
 
-            const committeeSelects =
+    function updateCommitteeOptions() {
+
+        const selectedValues =
+            Array.from(
+                committeeSelects
+            )
+            .map(function (select) {
+                return select.value;
+            })
+            .filter(Boolean);
+
+
+        committeeSelects.forEach(
+            function (select) {
+
                 Array.from(
-                    document.querySelectorAll(
-                        ".committee-select"
-                    )
+                    select.options
+                )
+                .forEach(
+                    function (option) {
+
+                        if (!option.value) {
+                            return;
+                        }
+
+                        const selectedByAnother =
+                            selectedValues.includes(
+                                option.value
+                            ) &&
+                            option.value !== select.value;
+
+                        option.disabled =
+                            selectedByAnother;
+
+                    }
                 );
 
+            }
+        );
 
-            committeeSelects.forEach(
-                (select) => {
+    }
 
-                    select.addEventListener(
-                        "change",
-                        () => {
 
-                            const values =
-                                committeeSelects
-                                    .map(
-                                        (item) =>
-                                            item.value
-                                    )
-                                    .filter(Boolean);
+    committeeSelects.forEach(
+        function (select) {
 
-                            const duplicate =
-                                values.some(
-                                    (value, index) =>
-                                        values.indexOf(value) !== index
-                                );
-
-                            if (duplicate) {
-
-                                showStatus(
-                                    "Please choose three different committee preferences.",
-                                    "error"
-                                );
-
-                            } else {
-
-                                if (
-                                    formStatus &&
-                                    formStatus.classList.contains(
-                                        "error"
-                                    )
-                                ) {
-                                    formStatus.className =
-                                        "form-status";
-                                }
-
-                            }
-
-                        }
-                    );
-
-                }
+            select.addEventListener(
+                "change",
+                updateCommitteeOptions
             );
 
-
-            /* =================================================
-               FORM SUBMISSION
-               ================================================= */
-
-            if (registrationForm) {
-
-                registrationForm.addEventListener(
-                    "submit",
-                    async (event) => {
-
-                        event.preventDefault();
+        }
+    );
 
 
-                        /* -----------------------------------------
-                           SECONDARY DATE CHECK
-                           ----------------------------------------- */
+    /* =========================================================
+       MESSAGE HELPERS
+       ========================================================= */
 
-                        if (!isRegistrationOpen()) {
+    function hideMessages() {
 
-                            showStatus(
-                                "Registrations open on 1 October 2026.",
-                                "error"
-                            );
+        if (successMessage) {
+            successMessage.style.display = "none";
+        }
 
-                            return;
-                        }
+        if (errorMessage) {
+            errorMessage.style.display = "none";
+        }
 
-
-                        /* -----------------------------------------
-                           NATIVE FORM VALIDATION
-                           ----------------------------------------- */
-
-                        if (!registrationForm.checkValidity()) {
-
-                            registrationForm.reportValidity();
-
-                            showStatus(
-                                "Please complete all required fields before submitting.",
-                                "error"
-                            );
-
-                            return;
-                        }
+    }
 
 
-                        /* -----------------------------------------
-                           COMMITTEE DUPLICATE CHECK
-                           ----------------------------------------- */
+    function showError(message) {
 
-                        const committeeValues =
-                            committeeSelects.map(
-                                (select) =>
-                                    select.value
-                            );
+        if (errorText) {
+            errorText.textContent =
+                message;
+        }
 
-                        const uniqueCommittees =
-                            new Set(
-                                committeeValues
-                            );
+        if (errorMessage) {
+            errorMessage.style.display =
+                "block";
+        }
 
-                        if (
-                            uniqueCommittees.size !==
-                            committeeValues.length
-                        ) {
-
-                            showStatus(
-                                "Please select three different committee preferences.",
-                                "error"
-                            );
-
-                            return;
-                        }
+    }
 
 
-                        /* -----------------------------------------
-                           COLLECT FORM DATA
-                           ----------------------------------------- */
+    function setSubmitting(state) {
 
-                        const formData =
-                            new FormData(
-                                registrationForm
-                            );
+        submissionInProgress =
+            state;
 
-                        const payload = {
+        if (submitButton) {
+            submitButton.disabled =
+                state;
+        }
 
-                            fullName:
-                                String(
-                                    formData.get("fullName") || ""
-                                ).trim(),
+        if (submitText) {
+            submitText.style.display =
+                state
+                    ? "none"
+                    : "inline";
+        }
 
-                            email:
-                                String(
-                                    formData.get("email") || ""
-                                ).trim(),
+        if (submitLoader) {
+            submitLoader.style.display =
+                state
+                    ? "inline"
+                    : "none";
+        }
 
-                            whatsapp:
-                                String(
-                                    formData.get("whatsapp") || ""
-                                ).trim(),
-
-                            city:
-                                String(
-                                    formData.get("city") || ""
-                                ).trim(),
-
-                            munExperience:
-                                String(
-                                    formData.get("munExperience") || ""
-                                ).trim(),
-
-                            committee1:
-                                String(
-                                    formData.get("committee1") || ""
-                                ).trim(),
-
-                            committee2:
-                                String(
-                                    formData.get("committee2") || ""
-                                ).trim(),
-
-                            committee3:
-                                String(
-                                    formData.get("committee3") || ""
-                                ).trim(),
-
-                            portfolio1:
-                                String(
-                                    formData.get("portfolio1") || ""
-                                ).trim(),
-
-                            portfolio2:
-                                String(
-                                    formData.get("portfolio2") || ""
-                                ).trim(),
-
-                            portfolio3:
-                                String(
-                                    formData.get("portfolio3") || ""
-                                ).trim(),
-
-                            source:
-                                String(
-                                    formData.get("source") || ""
-                                ).trim(),
-
-                            otherSource:
-                                String(
-                                    formData.get("otherSource") || ""
-                                ).trim()
-
-                        };
+    }
 
 
-                        /* -----------------------------------------
-                           SUBMISSION LOCK
-                           ----------------------------------------- */
+    /* =========================================================
+       FORM SUBMISSION
+       ========================================================= */
 
-                        if (submitButton) {
+    if (registrationForm) {
 
-                            submitButton.disabled = true;
+        registrationForm.addEventListener(
+            "submit",
+            async function (event) {
 
-                            submitButton.innerHTML = `
-                                <span class="loading">
-                                    Submitting...
-                                </span>
-                            `;
-
-                        }
+                event.preventDefault();
 
 
-                        showStatus(
-                            "Submitting your registration...",
-                            "success"
+                /*
+                    First protection:
+                    frontend registration date check.
+                */
+
+                if (!registrationIsOpen) {
+
+                    showError(
+                        "Registrations open on 1 October 2026."
+                    );
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                    return;
+
+                }
+
+
+                /*
+                    Second protection:
+                    prevent accidental double-click /
+                    duplicate requests.
+                */
+
+                if (submissionInProgress) {
+                    return;
+                }
+
+
+                hideMessages();
+
+
+                /*
+                    Native browser validation.
+                */
+
+                if (!registrationForm.checkValidity()) {
+
+                    registrationForm.reportValidity();
+
+                    return;
+
+                }
+
+
+                const committee1 =
+                    document.getElementById("committee1").value;
+
+                const committee2 =
+                    document.getElementById("committee2").value;
+
+                const committee3 =
+                    document.getElementById("committee3").value;
+
+
+                /*
+                    Explicitly ensure all three committee
+                    preferences are different.
+                */
+
+                const committeeValues = [
+                    committee1,
+                    committee2,
+                    committee3
+                ];
+
+
+                const uniqueCommittees =
+                    new Set(
+                        committeeValues
+                    );
+
+
+                if (
+                    uniqueCommittees.size !==
+                    committeeValues.length
+                ) {
+
+                    showError(
+                        "Please select three different committee preferences."
+                    );
+
+                    return;
+
+                }
+
+
+                const formData =
+                    new FormData(
+                        registrationForm
+                    );
+
+
+                /*
+                    Preserve the exact backend field names.
+                */
+
+                const payload = {
+
+                    fullName:
+                        String(
+                            formData.get("fullName") || ""
+                        ).trim(),
+
+                    email:
+                        String(
+                            formData.get("email") || ""
+                        ).trim(),
+
+                    whatsapp:
+                        String(
+                            formData.get("whatsapp") || ""
+                        ).trim(),
+
+                    city:
+                        String(
+                            formData.get("city") || ""
+                        ).trim(),
+
+                    munExperience:
+                        String(
+                            formData.get("munExperience") || ""
+                        ).trim(),
+
+                    committee1:
+                        String(
+                            formData.get("committee1") || ""
+                        ).trim(),
+
+                    committee2:
+                        String(
+                            formData.get("committee2") || ""
+                        ).trim(),
+
+                    committee3:
+                        String(
+                            formData.get("committee3") || ""
+                        ).trim(),
+
+                    portfolio1:
+                        String(
+                            formData.get("portfolio1") || ""
+                        ).trim(),
+
+                    portfolio2:
+                        String(
+                            formData.get("portfolio2") || ""
+                        ).trim(),
+
+                    portfolio3:
+                        String(
+                            formData.get("portfolio3") || ""
+                        ).trim(),
+
+                    source:
+                        String(
+                            formData.get("source") || ""
+                        ).trim(),
+
+                    otherSource:
+                        String(
+                            formData.get("otherSource") || ""
+                        ).trim()
+
+                };
+
+
+                setSubmitting(true);
+
+
+                try {
+
+                    /*
+                        Apps Script web apps can respond with
+                        redirects. Using text() rather than assuming
+                        JSON prevents a successful Apps Script
+                        response from being incorrectly treated
+                        as a JSON parsing failure.
+                    */
+
+                    const response =
+                        await fetch(
+                            REGISTRATION_ENDPOINT,
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "text/plain;charset=utf-8"
+                                },
+
+                                body:
+                                    JSON.stringify(payload),
+
+                                redirect:
+                                    "follow"
+                            }
                         );
 
+
+                    const responseText =
+                        await response.text();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "The registration server returned an error."
+                        );
+
+                    }
+
+
+                    /*
+                        Try to understand JSON responses when the
+                        backend sends JSON, while still accepting a
+                        normal successful Apps Script response.
+                    */
+
+                    let serverResponse = null;
+
+
+                    if (responseText) {
 
                         try {
 
-                            const response =
-                                await fetch(
-                                    APPS_SCRIPT_ENDPOINT,
-                                    {
-                                        method: "POST",
-
-                                        headers: {
-                                            "Content-Type":
-                                                "text/plain;charset=utf-8"
-                                        },
-
-                                        body:
-                                            JSON.stringify(
-                                                payload
-                                            ),
-
-                                        redirect: "follow"
-                                    }
+                            serverResponse =
+                                JSON.parse(
+                                    responseText
                                 );
 
+                        } catch (parseError) {
 
-                            const responseText =
-                                await response.text();
-
-
-                            let result = null;
-
-                            try {
-
-                                result =
-                                    JSON.parse(
-                                        responseText
-                                    );
-
-                            } catch {
-                                result = null;
-                            }
-
-
-                            if (
-                                !response.ok
-                            ) {
-                                throw new Error(
-                                    "The registration server returned an error."
-                                );
-                            }
-
-
-                            if (
-                                result &&
-                                result.success === false
-                            ) {
-                                throw new Error(
-                                    result.message ||
-                                    "Registration was not accepted."
-                                );
-                            }
-
-
-                            /* -------------------------------------
-                               SUCCESS
-                               ------------------------------------- */
-
-                            registrationForm.reset();
-
-                            updateOtherSource();
-
-                            committeeSelects.forEach(
-                                (select) => {
-                                    select.value = "";
-                                }
-                            );
-
-                            showStatus(
-                                "Registration submitted successfully. Thank you for registering for RELMUN 2026!",
-                                "success"
-                            );
-
-
-                            if (submitButton) {
-
-                                submitButton.disabled =
-                                    false;
-
-                                submitButton.innerHTML = `
-                                    Registration Submitted
-                                    <span aria-hidden="true">✓</span>
-                                `;
-
-                            }
-
-
-                        } catch (error) {
-
-                            console.error(
-                                "RELMUN registration error:",
-                                error
-                            );
-
-
-                            showStatus(
-                                error &&
-                                error.message
-                                    ? error.message
-                                    : "Something went wrong while submitting your registration. Please try again.",
-                                "error"
-                            );
-
-
-                            if (submitButton) {
-
-                                submitButton.disabled =
-                                    false;
-
-                                submitButton.innerHTML = `
-                                    Submit Registration
-                                    <span aria-hidden="true">→</span>
-                                `;
-
-                            }
+                            /*
+                                Non-JSON Apps Script responses are
+                                allowed here as long as the HTTP
+                                request succeeded.
+                            */
 
                         }
 
                     }
-                );
+
+
+                    if (
+                        serverResponse &&
+                        serverResponse.success === false
+                    ) {
+
+                        throw new Error(
+                            serverResponse.message ||
+                            "The registration was rejected by the server."
+                        );
+
+                    }
+
+
+                    if (successMessage) {
+
+                        successMessage.style.display =
+                            "block";
+
+                    }
+
+
+                    registrationForm.reset();
+
+                    updateCommitteeOptions();
+
+                    if (otherSourceGroup) {
+                        otherSourceGroup.style.display =
+                            "none";
+                    }
+
+
+                    /*
+                        Keep the success state visible and avoid
+                        unexpectedly reloading the page.
+                    */
+
+                    window.scrollTo({
+                        top:
+                            successMessage
+                                ? successMessage.offsetTop - 100
+                                : 0,
+                        behavior:
+                            "smooth"
+                    });
+
+
+                } catch (error) {
+
+                    console.error(
+                        "RELMUN registration error:",
+                        error
+                    );
+
+
+                    showError(
+                        error &&
+                        error.message
+                            ? error.message
+                            : "Something went wrong while submitting your registration. Please try again."
+                    );
+
+
+                } finally {
+
+                    setSubmitting(false);
+
+                }
 
             }
+        );
 
-        })();
-    </script>
+    }
+
+
+})();
+
+</script>
 
 </body>
 </html>
