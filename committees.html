@@ -1,1216 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Committees — RELMUN '26</title>
-
-  <meta
-    name="description"
-    content="Explore the committees of RELMUN '26 — Relations, Engagement & Leadership Model United Nations."
-  >
+  <title>Committees | RELMUN '26</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #05080d;
-      --bg-2: #080d14;
-      --panel: #0b1119;
-      --panel-2: #0e151e;
+  <link rel="stylesheet" href="style.css">
 
-      --ivory: #f1ece0;
-      --muted: #8d98a6;
-
-      --blue: #1846ff;
-      --blue-light: #3d65ff;
-
-      --gold: #c79a2b;
-      --gold-light: #e2b941;
-
-      --border: rgba(241, 236, 224, 0.11);
-      --border-strong: rgba(241, 236, 224, 0.2);
-
-      --max-width: 1160px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(
-          circle at 12% 8%,
-          rgba(24, 70, 255, 0.13),
-          transparent 27%
-        ),
-        radial-gradient(
-          circle at 88% 28%,
-          rgba(199, 154, 43, 0.065),
-          transparent 24%
-        ),
-        var(--bg);
-
-      color: var(--ivory);
-      font-family: "Manrope", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      opacity: .18;
-
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.025) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.025) 1px,
-          transparent 1px
-        );
-
-      background-size: 70px 70px;
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black,
-          transparent 75%
-        );
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* =====================================================
-       NAVIGATION
-       ===================================================== */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      height: 76px;
-
-      background: rgba(5, 8, 13, .84);
-
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      width: min(
-        calc(100% - 48px),
-        1240px
-      );
-
-      height: 100%;
-      margin: auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-mark {
-      width: 35px;
-      height: 35px;
-
-      display: grid;
-      place-items: center;
-
-      border: 1px solid var(--gold);
-
-      color: var(--gold);
-
-      font-family: "DM Mono", monospace;
-      font-size: 12px;
-
-      transform: rotate(45deg);
-    }
-
-    .brand-mark span {
-      transform: rotate(-45deg);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-
-    .brand-name {
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      letter-spacing: 3px;
-    }
-
-    .brand-year {
-      margin-top: 5px;
-
-      color: var(--gold);
-
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 3px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-
-      font-family: "DM Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-    }
-
-    .nav-links a {
-      color: #aeb7c3;
-      transition: color .25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--ivory);
-    }
-
-    .nav-links .active {
-      color: var(--ivory);
-    }
-
-    .nav-register {
-      padding: 12px 19px;
-
-      background: var(--gold);
-      color: #07090c !important;
-
-      transition:
-        transform .25s ease,
-        background .25s ease;
-    }
-
-    .nav-register:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-
-    /* =====================================================
-       HERO
-       ===================================================== */
-
-    .hero {
-      width: min(
-        calc(100% - 48px),
-        var(--max-width)
-      );
-
-      margin: auto;
-
-      padding:
-        100px
-        0
-        80px;
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      margin-bottom: 24px;
-
-      color: var(--gold);
-
-      font-family: "DM Mono", monospace;
-      font-size: 11px;
-
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-
-      width: 34px;
-      height: 1px;
-
-      background: var(--gold);
-    }
-
-    .hero h1 {
-      max-width: 850px;
-
-      font-family: "Playfair Display", serif;
-
-      font-size: clamp(
-        58px,
-        9vw,
-        108px
-      );
-
-      line-height: .9;
-      letter-spacing: -4px;
-      font-weight: 500;
-    }
-
-    .hero h1 em {
-      color: var(--gold);
-      font-style: normal;
-    }
-
-    .hero-description {
-      max-width: 650px;
-
-      margin-top: 30px;
-
-      color: var(--muted);
-
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-
-      margin-top: 32px;
-    }
-
-    .meta-pill {
-      padding: 10px 14px;
-
-      border: 1px solid var(--border);
-
-      background: rgba(255,255,255,.018);
-
-      color: #a9b2bd;
-
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .meta-pill span {
-      color: var(--gold);
-    }
-
-    /* =====================================================
-       COMMITTEE SECTION
-       ===================================================== */
-
-    .committees {
-      width: min(
-        calc(100% - 48px),
-        var(--max-width)
-      );
-
-      margin: auto;
-
-      padding-bottom: 130px;
-    }
-
-    .section-intro {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-
-      gap: 30px;
-
-      margin-bottom: 35px;
-    }
-
-    .section-label {
-      color: var(--gold);
-
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .section-intro h2 {
-      margin-top: 10px;
-
-      font-family: "Playfair Display", serif;
-
-      font-size: 38px;
-      font-weight: 500;
-    }
-
-    .section-intro p {
-      max-width: 430px;
-
-      color: #6f7b88;
-
-      font-size: 12px;
-      line-height: 1.7;
-      text-align: right;
-    }
-
-    /* =====================================================
-       CARDS
-       ===================================================== */
-
-    .committee-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-      gap: 18px;
-    }
-
-    .committee-card {
-      position: relative;
-
-      min-height: 390px;
-
-      overflow: hidden;
-
-      display: flex;
-      flex-direction: column;
-
-      padding: 28px;
-
-      border: 1px solid var(--border);
-      border-radius: 15px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(15,22,31,.95),
-          rgba(7,11,17,.95)
-        );
-
-      transition:
-        transform .3s ease,
-        border-color .3s ease,
-        background .3s ease;
-    }
-
-    .committee-card::before {
-      content: "";
-
-      position: absolute;
-
-      width: 220px;
-      height: 220px;
-
-      top: -90px;
-      right: -90px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(24,70,255,.18),
-          transparent 68%
-        );
-
-      pointer-events: none;
-    }
-
-    .committee-card:hover {
-      transform: translateY(-7px);
-
-      border-color:
-        rgba(199,154,43,.35);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(17,25,36,.98),
-          rgba(7,11,17,.98)
-        );
-    }
-
-    .committee-number {
-      position: relative;
-      z-index: 1;
-
-      color: var(--gold);
-
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-
-      letter-spacing: 2px;
-    }
-
-    .committee-code {
-      position: relative;
-      z-index: 1;
-
-      margin-top: 55px;
-
-      color: rgba(241,236,224,.11);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 58px;
-      font-weight: 500;
-
-      letter-spacing: -4px;
-    }
-
-    .committee-card h3 {
-      position: relative;
-      z-index: 1;
-
-      margin-top: 15px;
-
-      font-family: "Playfair Display", serif;
-
-      font-size: 30px;
-      font-weight: 500;
-
-      line-height: 1.05;
-    }
-
-    .committee-card p {
-      position: relative;
-      z-index: 1;
-
-      margin-top: 15px;
-
-      color: #7f8b98;
-
-      font-size: 12px;
-      line-height: 1.75;
-    }
-
-    .committee-bottom {
-      position: relative;
-      z-index: 1;
-
-      margin-top: auto;
-      padding-top: 25px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      border-top: 1px solid var(--border);
-    }
-
-    .committee-type {
-      color: #65717e;
-
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .arrow {
-      width: 32px;
-      height: 32px;
-
-      display: grid;
-      place-items: center;
-
-      border: 1px solid var(--border);
-
-      color: var(--gold);
-
-      border-radius: 50%;
-
-      font-size: 14px;
-
-      transition:
-        background .25s ease,
-        color .25s ease;
-    }
-
-    .committee-card:hover .arrow {
-      background: var(--gold);
-      color: #05080d;
-    }
-
-    /* =====================================================
-       INFO STRIP
-       ===================================================== */
-
-    .info-strip {
-      margin-top: 55px;
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      border: 1px solid var(--border);
-
-      background: rgba(255,255,255,.015);
-    }
-
-    .info-item {
-      padding: 25px;
-
-      border-right: 1px solid var(--border);
-    }
-
-    .info-item:last-child {
-      border-right: none;
-    }
-
-    .info-item span {
-      display: block;
-
-      color: #5e6a77;
-
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-
-      margin-bottom: 8px;
-    }
-
-    .info-item strong {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* =====================================================
-       CTA
-       ===================================================== */
-
-    .cta {
-      width: min(
-        calc(100% - 48px),
-        var(--max-width)
-      );
-
-      margin:
-        0
-        auto
-        100px;
-
-      padding: 45px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 30px;
-
-      border:
-        1px solid
-        rgba(199,154,43,.22);
-
-      border-radius: 15px;
-
-      background:
-        linear-gradient(
-          105deg,
-          rgba(199,154,43,.07),
-          rgba(24,70,255,.045)
-        );
-    }
-
-    .cta-label {
-      color: var(--gold);
-
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .cta h2 {
-      margin-top: 9px;
-
-      font-family: "Playfair Display", serif;
-
-      font-size: 32px;
-      font-weight: 500;
-    }
-
-    .cta p {
-      margin-top: 8px;
-
-      color: #717d89;
-
-      font-size: 12px;
-    }
-
-    .cta-button {
-      flex: 0 0 auto;
-
-      padding: 15px 22px;
-
-      background: var(--gold);
-
-      color: #07090c;
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 10px;
-      font-weight: 500;
-
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-
-      transition:
-        transform .25s ease,
-        background .25s ease;
-    }
-
-    .cta-button:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-
-    /* =====================================================
-       FOOTER
-       ===================================================== */
-
-    footer {
-      padding: 35px 24px;
-
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      width: min(
-        100%,
-        var(--max-width)
-      );
-
-      margin: auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 20px;
-    }
-
-    .footer-logo {
-      font-family: "Playfair Display", serif;
-
-      font-size: 18px;
-      letter-spacing: 3px;
-
-      color: var(--gold);
-    }
-
-    .footer-copy {
-      color: #596572;
-
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-
-      letter-spacing: 1px;
-    }
-
-    /* =====================================================
-       RESPONSIVE
-       ===================================================== */
-
-    @media (max-width: 900px) {
-      .committee-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .section-intro {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .section-intro p {
-        text-align: left;
-      }
-
-      .cta {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 65px;
-      }
-
-      .committee-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .info-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .info-item {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .info-item:last-child {
-        border-bottom: none;
-      }
-
-      .cta {
-        padding: 30px 24px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .nav-inner {
-        width: calc(100% - 30px);
-      }
-
-      .hero,
-      .committees,
-      .cta {
-        width: calc(100% - 30px);
-      }
-
-      .hero {
-        padding:
-          55px
-          0
-          50px;
-      }
-
-      .hero h1 {
-        font-size: 56px;
-        letter-spacing: -2.5px;
-      }
-
-      .hero-description {
-        font-size: 14px;
-      }
-
-      .committee-card {
-        min-height: 360px;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- =====================================================
-       NAVBAR
-       ===================================================== -->
+<header class="navbar">
 
-  <header class="navbar">
+  <div class="nav-container">
 
-    <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">R</span>
 
-      <a
-        href="index.html"
-        class="brand"
-      >
+      <span class="brand-text">
+        <strong>RELMUN</strong>
+        <small>'26</small>
+      </span>
+    </a>
 
-        <div class="brand-mark">
-          <span>R</span>
-        </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="committees.html" class="active">Committees</a>
+      <a href="eb.html">Executive Board</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
 
-        <div class="brand-text">
+    <a href="register.html" class="nav-register">
+      Register <span>↗</span>
+    </a>
 
-          <div class="brand-name">
-            RELMUN
-          </div>
+  </div>
 
-          <div class="brand-year">
-            2026
-          </div>
-
-        </div>
-
-      </a>
+</header>
 
 
-      <nav class="nav-links">
+<main>
 
-        <a href="index.html">
-          HOME
-        </a>
+<section class="page-hero">
 
-        <a
-          href="committees.html"
-          class="active"
-        >
-          COMMITTEES
-        </a>
+  <div class="page-hero-inner">
 
-        <a href="eb.html">
-          EB
-        </a>
-
-        <a
-          href="register.html"
-          class="nav-register"
-        >
-          REGISTER
-        </a>
-
-      </nav>
-
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      RELMUN '26 · COMMITTEES
     </div>
 
-  </header>
+    <h1>THE FLOOR<span>.</span></h1>
 
+    <p>
+      Three committees. Three distinct arenas for
+      diplomacy, negotiation and debate.
+    </p>
 
-  <!-- =====================================================
-       HERO
-       ===================================================== -->
+  </div>
 
-  <main>
+</section>
 
-    <section class="hero">
 
-      <div class="eyebrow">
-        RELMUN '26 · COMMITTEES
-      </div>
+<section class="committee-list">
 
-      <h1>
-        Choose your<br>
-        <em>arena.</em>
-      </h1>
 
-      <p class="hero-description">
-        Three rooms. Three different diplomatic
-        environments. One conference built to push
-        delegates beyond ordinary debate.
-      </p>
+  <a href="committee.html?committee=unsc" class="committee-row">
 
-      <div class="hero-meta">
+    <span class="committee-row-number">01</span>
 
-        <div class="meta-pill">
-          <span>03</span>
-          &nbsp; Committees
-        </div>
+    <div>
+      <h2>UNSC</h2>
+      <p>United Nations Security Council</p>
+    </div>
 
-        <div class="meta-pill">
-          <span>26–27</span>
-          &nbsp; December 2026
-        </div>
+    <span class="committee-row-arrow">↗</span>
 
-        <div class="meta-pill">
-          <span>ONLINE</span>
-          &nbsp; Conference
-        </div>
+  </a>
 
-      </div>
 
-    </section>
+  <a href="committee.html?committee=unhrc" class="committee-row">
 
+    <span class="committee-row-number">02</span>
 
-    <!-- ===================================================
-         COMMITTEES
-         =================================================== -->
+    <div>
+      <h2>UNHRC</h2>
+      <p>United Nations Human Rights Council</p>
+    </div>
 
-    <section class="committees">
+    <span class="committee-row-arrow">↗</span>
 
-      <div class="section-intro">
+  </a>
 
-        <div>
 
-          <div class="section-label">
-            The rooms
-          </div>
+  <a href="committee.html?committee=unodc" class="committee-row">
 
-          <h2>
-            Committees
-          </h2>
+    <span class="committee-row-number">03</span>
 
-        </div>
+    <div>
+      <h2>UNODC</h2>
+      <p>United Nations Office on Drugs and Crime</p>
+    </div>
 
-        <p>
-          Explore the three committees featured at
-          RELMUN '26. Detailed agendas and background
-          material will be provided by the Secretariat.
-        </p>
+    <span class="committee-row-arrow">↗</span>
 
-      </div>
+  </a>
 
 
-      <div class="committee-grid">
+</section>
 
+</main>
 
-        <!-- ===============================================
-             UNSC
-             =============================================== -->
 
-        <article class="committee-card">
+<footer class="footer">
 
-          <div class="committee-number">
-            COMMITTEE 01
-          </div>
+  <div class="footer-top">
 
-          <div class="committee-code">
-            UNSC
-          </div>
-
-          <h3>
-            United Nations<br>
-            Security Council
-          </h3>
-
-          <p>
-            A high-stakes forum dealing with questions
-            surrounding international peace and security,
-            diplomacy and collective action.
-          </p>
-
-          <div class="committee-bottom">
-
-            <div class="committee-type">
-              Advanced · Crisis
-            </div>
-
-            <div class="arrow">
-              ↗
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- ===============================================
-             UNHRC
-             =============================================== -->
-
-        <article class="committee-card">
-
-          <div class="committee-number">
-            COMMITTEE 02
-          </div>
-
-          <div class="committee-code">
-            UNHRC
-          </div>
-
-          <h3>
-            United Nations<br>
-            Human Rights Council
-          </h3>
-
-          <p>
-            A forum focused on human rights, international
-            obligations, state responsibility and the
-            protection of fundamental freedoms.
-          </p>
-
-          <div class="committee-bottom">
-
-            <div class="committee-type">
-              Diplomatic · Policy
-            </div>
-
-            <div class="arrow">
-              ↗
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- ===============================================
-             UNODC
-             =============================================== -->
-
-        <article class="committee-card">
-
-          <div class="committee-number">
-            COMMITTEE 03
-          </div>
-
-          <div class="committee-code">
-            UNODC
-          </div>
-
-          <h3>
-            United Nations Office<br>
-            on Drugs & Crime
-          </h3>
-
-          <p>
-            A policy-oriented forum examining organised
-            crime, illicit trafficking, international
-            cooperation and criminal justice.
-          </p>
-
-          <div class="committee-bottom">
-
-            <div class="committee-type">
-              Policy · Strategy
-            </div>
-
-            <div class="arrow">
-              ↗
-            </div>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-
-      <!-- =================================================
-           INFO STRIP
-           ================================================= -->
-
-      <div class="info-strip">
-
-        <div class="info-item">
-
-          <span>
-            Format
-          </span>
-
-          <strong>
-            Entirely Online
-          </strong>
-
-        </div>
-
-
-        <div class="info-item">
-
-          <span>
-            Conference Dates
-          </span>
-
-          <strong>
-            26–27 December 2026
-          </strong>
-
-        </div>
-
-
-        <div class="info-item">
-
-          <span>
-            Registration
-          </span>
-
-          <strong>
-            Opens 1 October 2026
-          </strong>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         CTA
-         =================================================== -->
-
-    <section class="cta">
-
-      <div>
-
-        <div class="cta-label">
-          Ready to enter?
-        </div>
-
-        <h2>
-          Your seat starts here.
-        </h2>
-
-        <p>
-          Delegate registrations open on
-          1 October 2026.
-        </p>
-
-      </div>
-
-
-      <a
-        href="register.html"
-        class="cta-button"
-      >
-        View Registration
-      </a>
-
-    </section>
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-       ===================================================== -->
-
-  <footer>
-
-    <div class="footer-inner">
+    <div class="footer-brand">
 
       <div class="footer-logo">
-        RELMUN '26
+
+        <span class="brand-mark">R</span>
+
+        <span>
+          <strong>RELMUN</strong>
+          <small>'26</small>
+        </span>
+
       </div>
 
-      <div class="footer-copy">
-        RELATIONS · ENGAGEMENT · LEADERSHIP
-        &nbsp; / &nbsp;
-        26–27 DECEMBER 2026
+      <p>
+        Regional Engagement & Leadership
+        Model United Nations.
+      </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <div>
+        <span class="footer-heading">EXPLORE</span>
+        <a href="index.html">Home</a>
+        <a href="eb.html">Executive Board</a>
+        <a href="faq.html">FAQ</a>
+        <a href="register.html">Registration</a>
+      </div>
+
+      <div>
+        <span class="footer-heading">CONNECT</span>
+
+        <a href="https://instagram.com/relmun.official"
+           target="_blank"
+           rel="noopener noreferrer">
+          Instagram ↗
+        </a>
+
+        <a href="mailto:akshithkabilan@gmail.com">
+          Email ↗
+        </a>
       </div>
 
     </div>
 
-  </footer>
+  </div>
+
+
+  <div class="footer-bottom">
+    <span>© 2026 RELMUN</span>
+    <span>26–27 DECEMBER 2026 · ONLINE</span>
+    <span>RELMUN '26</span>
+  </div>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
