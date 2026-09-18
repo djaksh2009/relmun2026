@@ -2,865 +2,26 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta charset="UTF-8">
 
-  <title>Register — RELMUN '26</title>
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1.0"
+>
 
-  <meta
-    name="description"
-    content="Register for RELMUN '26 — Regional Engagement & Leadership Model United Nations."
-  >
+<title>Register — RELMUN '26</title>
 
-  <link
-    rel="icon"
-    href="relmun-logo.png"
-    type="image/png"
-  >
+<link
+  rel="icon"
+  href="relmun-logo.png"
+  type="image/png"
+>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
-
-  <style>
-
-    /* =====================================================
-       REGISTRATION PAGE
-       ===================================================== */
-
-    .registration-page {
-      min-height: 100vh;
-      padding: 150px 7vw 100px;
-
-      background:
-        radial-gradient(
-          circle at 80% 15%,
-          rgba(199,154,43,.06),
-          transparent 30%
-        ),
-        var(--navy);
-    }
-
-
-    .registration-header {
-      max-width: 1100px;
-      margin: 0 auto 70px;
-    }
-
-
-    .registration-header .eyebrow {
-      display: block;
-      margin-bottom: 20px;
-    }
-
-
-    .registration-header h1 {
-      margin: 0;
-
-      color: var(--ivory);
-
-      font-family: var(--display);
-
-      font-size:
-        clamp(55px, 9vw, 130px);
-
-      line-height: .82;
-
-      letter-spacing: -.07em;
-    }
-
-
-    .registration-header h1 em {
-      color: var(--gold-light);
-      font-style: italic;
-      font-weight: 400;
-    }
-
-
-    .registration-header p {
-      max-width: 650px;
-
-      margin-top: 35px;
-
-      color: var(--muted);
-
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-
-    /* =====================================================
-       PROGRESS
-       ===================================================== */
-
-    .registration-progress {
-      max-width: 1100px;
-
-      margin: 0 auto 55px;
-
-      display: flex;
-      align-items: center;
-
-      gap: 10px;
-    }
-
-
-    .progress-step {
-      flex: 1;
-
-      height: 3px;
-
-      background:
-        rgba(241,236,224,.12);
-
-      transition:
-        background .3s ease;
-    }
-
-
-    .progress-step.active {
-      background: var(--gold);
-    }
-
-
-    .progress-text {
-      margin-left: 15px;
-
-      color: var(--muted);
-
-      font-family: var(--mono);
-
-      font-size: 8px;
-
-      letter-spacing: .15em;
-
-      white-space: nowrap;
-    }
-
-
-    /* =====================================================
-       FORM
-       ===================================================== */
-
-    .registration-form {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-
-    .form-section {
-      display: none;
-
-      border-top:
-        1px solid var(--line);
-
-      padding-top: 35px;
-    }
-
-
-    .form-section.active {
-      display: block;
-
-      animation:
-        sectionIn .35s ease;
-    }
-
-
-    @keyframes sectionIn {
-
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
-
-    .form-section-number {
-      display: block;
-
-      margin-bottom: 12px;
-
-      color: var(--gold);
-
-      font-family: var(--mono);
-
-      font-size: 8px;
-
-      letter-spacing: .16em;
-    }
-
-
-    .form-section h2 {
-      margin: 0 0 12px;
-
-      color: var(--ivory);
-
-      font-family: var(--display);
-
-      font-size:
-        clamp(32px, 5vw, 65px);
-
-      line-height: .9;
-
-      letter-spacing: -.055em;
-    }
-
-
-    .form-section h2 em {
-      color: var(--gold-light);
-
-      font-style: italic;
-
-      font-weight: 400;
-    }
-
-
-    .section-description {
-      max-width: 650px;
-
-      margin-bottom: 45px;
-
-      color: var(--muted);
-
-      font-size: 13px;
-
-      line-height: 1.7;
-    }
-
-
-    /* =====================================================
-       FIELDS
-       ===================================================== */
-
-    .form-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 35px 25px;
-    }
-
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-    }
-
-
-    .form-field.full {
-      grid-column: 1 / -1;
-    }
-
-
-    .form-field label {
-      margin-bottom: 12px;
-
-      color: var(--ivory);
-
-      font-family: var(--mono);
-
-      font-size: 9px;
-
-      letter-spacing: .12em;
-    }
-
-
-    .required {
-      color: var(--gold);
-    }
-
-
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-
-      width: 100%;
-
-      box-sizing: border-box;
-
-      padding: 17px 16px;
-
-      border:
-        1px solid var(--line);
-
-      border-radius: 0;
-
-      outline: none;
-
-      background:
-        rgba(7,17,31,.7);
-
-      color: var(--ivory);
-
-      font-family: var(--body);
-
-      font-size: 13px;
-
-      transition:
-        border-color .25s ease,
-        background .25s ease;
-    }
-
-
-    .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color:
-        rgba(241,236,224,.3);
-    }
-
-
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus {
-
-      border-color:
-        var(--gold);
-
-      background:
-        rgba(7,17,31,.95);
-    }
-
-
-    .form-field textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-
-    .form-field select {
-      appearance: none;
-      cursor: pointer;
-    }
-
-
-    .form-field select option {
-      background: #07111f;
-      color: #f1ece0;
-    }
-
-
-    .field-note {
-      margin-top: 9px;
-
-      color: var(--muted);
-
-      font-family: var(--mono);
-
-      font-size: 7px;
-
-      letter-spacing: .05em;
-
-      line-height: 1.6;
-    }
-
-
-    /* =====================================================
-       PREFERENCES
-       ===================================================== */
-
-    .preference-block {
-      margin-bottom: 45px;
-    }
-
-
-    .preference-title {
-      margin-bottom: 22px;
-
-      color: var(--gold-light);
-
-      font-family: var(--mono);
-
-      font-size: 9px;
-
-      letter-spacing: .16em;
-    }
-
-
-    .preference-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 18px;
-    }
-
-
-    .preference-number {
-      display: block;
-
-      margin-bottom: 9px;
-
-      color: var(--muted);
-
-      font-family: var(--mono);
-
-      font-size: 7px;
-
-      letter-spacing: .12em;
-    }
-
-
-    /* =====================================================
-       CONFIRMATION
-       ===================================================== */
-
-    .confirmation-list {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 18px;
-
-      max-width: 850px;
-    }
-
-
-    .confirmation-item {
-      position: relative;
-
-      display: flex;
-
-      align-items: flex-start;
-
-      gap: 15px;
-
-      padding: 20px;
-
-      border:
-        1px solid var(--line);
-
-      background:
-        rgba(7,17,31,.5);
-
-      cursor: pointer;
-
-      transition:
-        border-color .25s ease,
-        background .25s ease;
-    }
-
-
-    .confirmation-item:hover {
-      border-color:
-        rgba(199,154,43,.4);
-    }
-
-
-    .confirmation-item input {
-      position: absolute;
-
-      opacity: 0;
-
-      pointer-events: none;
-    }
-
-
-    .custom-check {
-      width: 17px;
-      height: 17px;
-
-      flex:
-        0 0 17px;
-
-      border:
-        1px solid var(--muted);
-
-      position: relative;
-
-      margin-top: 2px;
-
-      transition:
-        all .25s ease;
-    }
-
-
-    .confirmation-item input:checked
-    + .custom-check {
-
-      border-color:
-        var(--gold);
-
-      background:
-        var(--gold);
-    }
-
-
-    .confirmation-item input:checked
-    + .custom-check::after {
-
-      content: "✓";
-
-      position: absolute;
-
-      inset: 0;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      color: #07111f;
-
-      font-size: 11px;
-
-      font-weight: 700;
-    }
-
-
-    .confirmation-text {
-      color: var(--ivory);
-
-      font-size: 12px;
-
-      line-height: 1.6;
-    }
-
-
-    /* =====================================================
-       NAVIGATION
-       ===================================================== */
-
-    .form-navigation {
-      display: flex;
-
-      justify-content:
-        space-between;
-
-      align-items: center;
-
-      margin-top: 55px;
-
-      padding-top: 30px;
-
-      border-top:
-        1px solid var(--line);
-    }
-
-
-    .form-button {
-
-      min-width: 150px;
-
-      padding: 16px 25px;
-
-      border:
-        1px solid var(--gold);
-
-      background: transparent;
-
-      color: var(--gold-light);
-
-      font-family: var(--mono);
-
-      font-size: 8px;
-
-      letter-spacing: .15em;
-
-      cursor: pointer;
-
-      transition:
-        background .25s ease,
-        color .25s ease,
-        opacity .25s ease;
-    }
-
-
-    .form-button:hover {
-
-      background:
-        var(--gold);
-
-      color:
-        #07111f;
-    }
-
-
-    .form-button.back {
-
-      border-color:
-        var(--line);
-
-      color:
-        var(--muted);
-    }
-
-
-    .form-button.back:hover {
-
-      border-color:
-        var(--gold);
-
-      color:
-        var(--gold-light);
-
-      background:
-        transparent;
-    }
-
-
-    .form-button.submit {
-
-      background:
-        var(--gold);
-
-      color:
-        #07111f;
-    }
-
-
-    .form-button.submit:hover {
-
-      background:
-        var(--gold-light);
-    }
-
-
-    .form-button:disabled {
-
-      opacity: .55;
-
-      cursor:
-        not-allowed;
-    }
-
-
-    /* =====================================================
-       SUCCESS
-       ===================================================== */
-
-    .registration-success {
-
-      display: none;
-
-      max-width: 800px;
-
-      margin: 0 auto;
-
-      padding: 70px 40px;
-
-      border-top:
-        1px solid var(--gold);
-
-      text-align: center;
-    }
-
-
-    .registration-success.active {
-
-      display: block;
-
-      animation:
-        sectionIn .5s ease;
-    }
-
-
-    .success-mark {
-
-      width: 65px;
-      height: 65px;
-
-      margin:
-        0 auto 30px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      border:
-        1px solid var(--gold);
-
-      border-radius: 50%;
-
-      color:
-        var(--gold-light);
-
-      font-size: 25px;
-    }
-
-
-    .registration-success h2 {
-
-      margin: 0;
-
-      color:
-        var(--ivory);
-
-      font-family:
-        var(--display);
-
-      font-size:
-        clamp(40px, 7vw, 80px);
-
-      line-height: .9;
-
-      letter-spacing: -.06em;
-    }
-
-
-    .registration-success h2 em {
-
-      color:
-        var(--gold-light);
-
-      font-style: italic;
-
-      font-weight: 400;
-    }
-
-
-    .registration-success p {
-
-      max-width: 550px;
-
-      margin:
-        30px auto 0;
-
-      color:
-        var(--muted);
-
-      font-size: 13px;
-
-      line-height: 1.8;
-    }
-
-
-    /* =====================================================
-       ERROR
-       ===================================================== */
-
-    .registration-error {
-
-      display: none;
-
-      margin-top: 25px;
-
-      padding: 16px 18px;
-
-      border:
-        1px solid rgba(255,80,80,.35);
-
-      color:
-        #ffb5b5;
-
-      background:
-        rgba(255,80,80,.05);
-
-      font-family:
-        var(--mono);
-
-      font-size: 8px;
-
-      letter-spacing: .04em;
-
-      line-height: 1.6;
-    }
-
-
-    .registration-error.show {
-      display: block;
-    }
-
-
-    /* =====================================================
-       MOBILE
-       ===================================================== */
-
-    @media (max-width: 700px) {
-
-      .registration-page {
-
-        padding:
-          120px 20px 70px;
-      }
-
-
-      .registration-header {
-
-        margin-bottom:
-          45px;
-      }
-
-
-      .registration-header h1 {
-
-        font-size:
-          clamp(55px, 18vw, 90px);
-      }
-
-
-      .registration-progress {
-
-        gap: 5px;
-      }
-
-
-      .progress-text {
-
-        display: none;
-      }
-
-
-      .form-grid {
-
-        grid-template-columns:
-          1fr;
-
-        gap: 25px;
-      }
-
-
-      .form-field.full {
-
-        grid-column:
-          auto;
-      }
-
-
-      .preference-grid {
-
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .form-navigation {
-
-        gap: 15px;
-      }
-
-
-      .form-button {
-
-        min-width: 0;
-
-        flex: 1;
-      }
-
-
-      .registration-success {
-
-        padding:
-          55px 15px;
-      }
-
-    }
-
-  </style>
+<link
+  rel="stylesheet"
+  href="style.css"
+>
 
 </head>
 
@@ -868,1424 +29,1182 @@
 <body>
 
 
-  <!-- =====================================================
-       NAVIGATION
-       ===================================================== -->
+<header>
 
-  <header>
+<nav class="navbar">
 
-    <nav class="navbar">
+<a
+  href="index.html"
+  class="nav-logo"
+>
+<img
+  src="relmun-logo.png"
+  alt="RELMUN '26"
+>
+</a>
 
-      <a
-        href="index.html"
-        class="nav-logo"
-      >
 
-        <img
-          src="relmun-logo.png"
-          alt="RELMUN '26"
-        >
+<div class="nav-links">
 
-      </a>
+<a href="index.html#about">ABOUT</a>
+<a href="committees.html">COMMITTEES</a>
+<a href="index.html#team">TEAM</a>
+<a href="index.html#eb">EB</a>
 
+<a
+  href="register.html"
+  class="nav-register"
+>
+REGISTER
+</a>
 
-      <div class="nav-links">
+<a href="faq.html">FAQ</a>
 
-        <a href="index.html#about">
-          ABOUT
-        </a>
+</div>
 
-        <a href="committees.html">
-          COMMITTEES
-        </a>
 
-        <a href="index.html#team">
-          TEAM
-        </a>
+<button
+  class="nav-menu"
+  aria-label="Open menu"
+>
+<span></span>
+<span></span>
+</button>
 
-        <a href="index.html#eb">
-          EB
-        </a>
+</nav>
 
-        <a
-          href="register.html"
-          class="nav-register"
-        >
-          REGISTER
-        </a>
+</header>
 
-      </div>
 
 
-      <button
-        class="nav-menu"
-        aria-label="Open menu"
-      >
+<main class="registration-page">
 
-        <span></span>
-        <span></span>
 
-      </button>
+<div class="registration-header">
 
-    </nav>
+<span class="eyebrow">
+RELMUN '26 · DELEGATE REGISTRATION
+</span>
 
-  </header>
+<h1>
+JOIN<br>
+<em>RELMUN.</em>
+</h1>
 
+<p>
+Register as a delegate for the Regional Engagement
+& Leadership Model United Nations.
+Please provide accurate information throughout
+the registration process.
+</p>
 
+</div>
 
-  <!-- =====================================================
-       MAIN
-       ===================================================== -->
 
-  <main class="registration-page">
 
+<div
+  class="registration-progress"
+  id="registrationProgress"
+>
 
-    <div class="registration-header">
+<div class="progress-step active"></div>
+<div class="progress-step"></div>
+<div class="progress-step"></div>
+<div class="progress-step"></div>
+<div class="progress-step"></div>
+<div class="progress-step"></div>
 
-      <span class="eyebrow">
-        RELMUN '26 · DELEGATE REGISTRATION
-      </span>
+<span
+  class="progress-text"
+  id="progressText"
+>
+SECTION 1 OF 6
+</span>
 
+</div>
 
-      <h1>
-        JOIN<br>
-        <em>RELMUN.</em>
-      </h1>
 
 
-      <p>
-        Register as a delegate for the Regional Engagement
-        & Leadership Model United Nations. Please provide
-        accurate information throughout the registration
-        process.
-      </p>
+<form
+  id="registrationForm"
+  class="registration-form"
+  novalidate
+>
 
-    </div>
 
+<!-- =====================================
+     SECTION 1
+===================================== -->
 
+<section
+  class="form-section active"
+  data-section="1"
+>
 
-    <!-- =====================================================
-         PROGRESS
-         ===================================================== -->
+<span class="form-section-number">
+SECTION 1 / 6
+</span>
 
-    <div
-      class="registration-progress"
-      id="registrationProgress"
-    >
+<h2>
+TELL US<br>
+<em>ABOUT YOU.</em>
+</h2>
 
-      <div
-        class="progress-step active"
-      ></div>
+<p class="section-description">
+Basic information for your delegate registration.
+</p>
 
-      <div
-        class="progress-step"
-      ></div>
 
-      <div
-        class="progress-step"
-      ></div>
+<div class="form-grid">
 
-      <div
-        class="progress-step"
-      ></div>
 
-      <div
-        class="progress-step"
-      ></div>
+<div class="form-field">
 
-      <div
-        class="progress-step"
-      ></div>
+<label for="fullName">
+FULL NAME <span class="required">*</span>
+</label>
 
-      <span
-        class="progress-text"
-        id="progressText"
-      >
-        SECTION 1 OF 6
-      </span>
+<input
+  id="fullName"
+  name="fullName"
+  type="text"
+  required
+  autocomplete="name"
+>
 
-    </div>
+</div>
 
 
+<div class="form-field">
 
-    <!-- =====================================================
-         FORM
-         ===================================================== -->
+<label for="email">
+EMAIL ADDRESS <span class="required">*</span>
+</label>
 
-    <form
-      class="registration-form"
-      id="registrationForm"
-      novalidate
-    >
+<input
+  id="email"
+  name="email"
+  type="email"
+  required
+  autocomplete="email"
+>
 
+</div>
 
-      <!-- SECTION 1 -->
 
-      <section
-        class="form-section active"
-        data-section="1"
-      >
+<div class="form-field">
 
-        <span class="form-section-number">
-          SECTION 1 / 6
-        </span>
+<label for="whatsapp">
+WHATSAPP NUMBER <span class="required">*</span>
+</label>
 
+<input
+  id="whatsapp"
+  name="whatsapp"
+  type="tel"
+  required
+  autocomplete="tel"
+>
 
-        <h2>
-          PERSONAL<br>
-          <em>INFORMATION.</em>
-        </h2>
+</div>
 
 
-        <p class="section-description">
-          Tell us a little about yourself so we can process
-          your delegate registration.
-        </p>
+<div class="form-field">
 
+<label for="location">
+COUNTRY / CITY <span class="required">*</span>
+</label>
 
-        <div class="form-grid">
+<input
+  id="location"
+  name="location"
+  type="text"
+  required
+>
 
+</div>
 
-          <div class="form-field">
 
-            <label for="fullName">
-              FULL NAME
-              <span class="required">*</span>
-            </label>
+</div>
 
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              placeholder="Enter your full name"
-              required
-            >
 
-          </div>
+<div class="form-navigation">
 
+<button
+  type="button"
+  class="form-button next-button"
+>
+NEXT · 02 →
+</button>
 
-          <div class="form-field">
+</div>
 
-            <label for="email">
-              EMAIL ADDRESS
-              <span class="required">*</span>
-            </label>
+</section>
 
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="you@example.com"
-              required
-            >
 
-          </div>
 
+<!-- =====================================
+     SECTION 2
+===================================== -->
 
-          <div class="form-field">
+<section
+  class="form-section"
+  data-section="2"
+>
 
-            <label for="whatsapp">
-              WHATSAPP NUMBER
-              <span class="required">*</span>
-            </label>
+<span class="form-section-number">
+SECTION 2 / 6
+</span>
 
-            <input
-              type="tel"
-              id="whatsapp"
-              name="whatsapp"
-              placeholder="+91 XXXXX XXXXX"
-              required
-            >
+<h2>
+YOUR<br>
+<em>PROFILE.</em>
+</h2>
 
-          </div>
+<p class="section-description">
+A little more information about you as a delegate.
+</p>
 
 
-          <div class="form-field">
+<div class="form-grid">
 
-            <label for="city">
-              COUNTRY / CITY
-              <span class="required">*</span>
-            </label>
 
-            <input
-              type="text"
-              id="city"
-              name="city"
-              placeholder="Country / City"
-              required
-            >
+<div class="form-field full">
 
-          </div>
+<label for="school">
+SCHOOL / INSTITUTION
+</label>
 
+<input
+  id="school"
+  name="school"
+  type="text"
+>
 
-        </div>
+</div>
 
 
-        <div class="form-navigation">
+<div class="form-field">
 
-          <span></span>
+<label for="age">
+AGE <span class="required">*</span>
+</label>
 
-          <button
-            type="button"
-            class="form-button next-button"
-          >
-            NEXT · 02 ↗
-          </button>
+<input
+  id="age"
+  name="age"
+  type="number"
+  min="10"
+  max="100"
+  required
+>
 
-        </div>
+</div>
 
-      </section>
 
+<div class="form-field">
 
+<label for="city">
+CITY <span class="required">*</span>
+</label>
 
-      <!-- SECTION 2 -->
+<input
+  id="city"
+  name="city"
+  type="text"
+  required
+>
 
-      <section
-        class="form-section"
-        data-section="2"
-      >
+</div>
 
-        <span class="form-section-number">
-          SECTION 2 / 6
-        </span>
 
+</div>
 
-        <h2>
-          MUN<br>
-          <em>EXPERIENCE.</em>
-        </h2>
 
+<div class="form-navigation">
 
-        <p class="section-description">
-          Help us understand your previous Model United
-          Nations experience.
-        </p>
+<button
+  type="button"
+  class="form-button previous-button"
+>
+← BACK
+</button>
 
+<button
+  type="button"
+  class="form-button next-button"
+>
+NEXT · 03 →
+</button>
 
-        <div class="form-grid">
+</div>
 
-          <div class="form-field full">
+</section>
 
-            <label for="munExperience">
 
-              HOW MANY MUNS HAVE YOU ATTENDED?
 
-              <span class="required">*</span>
+<!-- =====================================
+     SECTION 3
+===================================== -->
 
-            </label>
+<section
+  class="form-section"
+  data-section="3"
+>
 
-            <input
-              type="text"
-              id="munExperience"
-              name="munExperience"
-              placeholder="Enter the number of MUNs attended"
-              required
-            >
+<span class="form-section-number">
+SECTION 3 / 6
+</span>
 
-            <span class="field-note">
-              IF NONE, TYPE "-"
-            </span>
+<h2>
+MUN<br>
+<em>EXPERIENCE.</em>
+</h2>
 
-          </div>
+<p class="section-description">
+Tell us about your previous Model United Nations experience.
+</p>
 
-        </div>
 
+<div class="form-grid">
 
-        <div class="form-navigation">
+<div class="form-field full">
 
-          <button
-            type="button"
-            class="form-button back previous-button"
-          >
-            ← BACK
-          </button>
+<label for="experience">
+HOW MANY MUNs HAVE YOU ATTENDED?
+<span class="required">*</span>
+</label>
 
+<input
+  id="experience"
+  name="experience"
+  type="text"
+  placeholder="If none, type -"
+  required
+>
 
-          <button
-            type="button"
-            class="form-button next-button"
-          >
-            NEXT · 03 ↗
-          </button>
+</div>
 
-        </div>
 
-      </section>
+<div class="form-field full">
 
+<label for="experienceDetails">
+ANY RELEVANT EXPERIENCE
+</label>
 
+<textarea
+  id="experienceDetails"
+  name="experienceDetails"
+  placeholder="Optional"
+></textarea>
 
-      <!-- SECTION 3 -->
+</div>
 
-      <section
-        class="form-section"
-        data-section="3"
-      >
+</div>
 
-        <span class="form-section-number">
-          SECTION 3 / 6
-        </span>
 
+<div class="form-navigation">
 
-        <h2>
-          COMMITTEE &<br>
-          <em>PORTFOLIO.</em>
-        </h2>
+<button
+  type="button"
+  class="form-button previous-button"
+>
+← BACK
+</button>
 
+<button
+  type="button"
+  class="form-button next-button"
+>
+NEXT · 04 →
+</button>
 
-        <p class="section-description">
-          Select your preferred committees and enter your
-          preferred portfolios. Allotments are subject to
-          availability and the decision of the Secretariat.
-        </p>
+</div>
 
+</section>
 
-        <div class="preference-block">
 
-          <div class="preference-title">
-            COMMITTEE PREFERENCES
-          </div>
 
+<!-- =====================================
+     SECTION 4
+===================================== -->
 
-          <div class="preference-grid">
+<section
+  class="form-section"
+  data-section="4"
+>
 
+<span class="form-section-number">
+SECTION 4 / 6
+</span>
 
-            <div class="form-field">
+<h2>
+CHOOSE YOUR<br>
+<em>ARENAS.</em>
+</h2>
 
-              <span class="preference-number">
-                FIRST PREFERENCE
-              </span>
+<p class="section-description">
+Select your committee preferences and enter the
+country/portfolio you would like to represent.
+</p>
 
-              <select
-                id="committee1"
-                name="committee1"
-                required
-              >
 
-                <option
-                  value=""
-                  selected
-                  disabled
-                >
-                  SELECT COMMITTEE
-                </option>
+<div class="form-grid">
 
-                <option value="UNSC">
-                  UNSC
-                </option>
 
-                <option value="UNHRC">
-                  UNHRC
-                </option>
+<div class="form-field full">
 
-                <option value="UNODC">
-                  UNODC
-                </option>
+<label for="committee1">
+FIRST COMMITTEE PREFERENCE
+<span class="required">*</span>
+</label>
 
-                <option value="AIPPM">
-                  AIPPM
-                </option>
+<select
+  id="committee1"
+  name="committee1"
+  required
+>
 
-                <option value="IPLA">
-                  IPLA
-                </option>
+<option value="" selected disabled>
+SELECT COMMITTEE
+</option>
 
-                <option value="UNW">
-                  UNW
-                </option>
+<option value="UNSC">UNSC</option>
+<option value="UNHRC">UNHRC</option>
+<option value="UNODC">UNODC</option>
+<option value="AIPPM">AIPPM</option>
+<option value="IPLA">IPLA</option>
+<option value="UNW">UNW</option>
 
-              </select>
+</select>
 
-            </div>
+</div>
 
 
-            <div class="form-field">
+<div class="form-field full">
 
-              <span class="preference-number">
-                SECOND PREFERENCE
-              </span>
+<label for="committee2">
+SECOND COMMITTEE PREFERENCE
+<span class="required">*</span>
+</label>
 
-              <select
-                id="committee2"
-                name="committee2"
-                required
-              >
+<select
+  id="committee2"
+  name="committee2"
+  required
+>
 
-                <option
-                  value=""
-                  selected
-                  disabled
-                >
-                  SELECT COMMITTEE
-                </option>
+<option value="" selected disabled>
+SELECT COMMITTEE
+</option>
 
-                <option value="UNSC">
-                  UNSC
-                </option>
+<option value="UNSC">UNSC</option>
+<option value="UNHRC">UNHRC</option>
+<option value="UNODC">UNODC</option>
+<option value="AIPPM">AIPPM</option>
+<option value="IPLA">IPLA</option>
+<option value="UNW">UNW</option>
 
-                <option value="UNHRC">
-                  UNHRC
-                </option>
+</select>
 
-                <option value="UNODC">
-                  UNODC
-                </option>
+</div>
 
-                <option value="AIPPM">
-                  AIPPM
-                </option>
 
-                <option value="IPLA">
-                  IPLA
-                </option>
+<div class="form-field full">
 
-                <option value="UNW">
-                  UNW
-                </option>
+<label for="committee3">
+THIRD COMMITTEE PREFERENCE
+<span class="required">*</span>
+</label>
 
-              </select>
+<select
+  id="committee3"
+  name="committee3"
+  required
+>
 
-            </div>
+<option value="" selected disabled>
+SELECT COMMITTEE
+</option>
 
+<option value="UNSC">UNSC</option>
+<option value="UNHRC">UNHRC</option>
+<option value="UNODC">UNODC</option>
+<option value="AIPPM">AIPPM</option>
+<option value="IPLA">IPLA</option>
+<option value="UNW">UNW</option>
 
-            <div class="form-field">
+</select>
 
-              <span class="preference-number">
-                THIRD PREFERENCE
-              </span>
+</div>
 
-              <select
-                id="committee3"
-                name="committee3"
-                required
-              >
+</div>
 
-                <option
-                  value=""
-                  selected
-                  disabled
-                >
-                  SELECT COMMITTEE
-                </option>
 
-                <option value="UNSC">
-                  UNSC
-                </option>
 
-                <option value="UNHRC">
-                  UNHRC
-                </option>
+<div class="preference-grid">
 
-                <option value="UNODC">
-                  UNODC
-                </option>
 
-                <option value="AIPPM">
-                  AIPPM
-                </option>
+<div class="preference-box">
 
-                <option value="IPLA">
-                  IPLA
-                </option>
+<label>
+FIRST PORTFOLIO / COUNTRY
+</label>
 
-                <option value="UNW">
-                  UNW
-                </option>
+<input
+  type="text"
+  name="portfolio1"
+  placeholder="Enter your choice"
+>
 
-              </select>
+</div>
 
-            </div>
 
-          </div>
+<div class="preference-box">
 
-        </div>
+<label>
+SECOND PORTFOLIO / COUNTRY
+</label>
 
+<input
+  type="text"
+  name="portfolio2"
+  placeholder="Enter your choice"
+>
 
+</div>
 
-        <div class="preference-block">
 
-          <div class="preference-title">
-            PORTFOLIO PREFERENCES
-          </div>
+<div class="preference-box">
 
+<label>
+THIRD PORTFOLIO / COUNTRY
+</label>
 
-          <div class="preference-grid">
+<input
+  type="text"
+  name="portfolio3"
+  placeholder="Enter your choice"
+>
 
+</div>
 
-            <div class="form-field">
 
-              <span class="preference-number">
-                FIRST PORTFOLIO
-              </span>
+</div>
 
-              <input
-                type="text"
-                id="portfolio1"
-                name="portfolio1"
-                placeholder="Enter your preference"
-                required
-              >
 
-            </div>
+<div class="form-navigation">
 
+<button
+  type="button"
+  class="form-button previous-button"
+>
+← BACK
+</button>
 
-            <div class="form-field">
+<button
+  type="button"
+  class="form-button next-button"
+>
+NEXT · 05 →
+</button>
 
-              <span class="preference-number">
-                SECOND PORTFOLIO
-              </span>
+</div>
 
-              <input
-                type="text"
-                id="portfolio2"
-                name="portfolio2"
-                placeholder="Enter your preference"
-                required
-              >
+</section>
 
-            </div>
 
 
-            <div class="form-field">
+<!-- =====================================
+     SECTION 5
+===================================== -->
 
-              <span class="preference-number">
-                THIRD PORTFOLIO
-              </span>
+<section
+  class="form-section"
+  data-section="5"
+>
 
-              <input
-                type="text"
-                id="portfolio3"
-                name="portfolio3"
-                placeholder="Enter your preference"
-                required
-              >
+<span class="form-section-number">
+SECTION 5 / 6
+</span>
 
-            </div>
+<h2>
+HOW DID YOU<br>
+<em>FIND US?</em>
+</h2>
 
-          </div>
+<p class="section-description">
+Tell us how you came across RELMUN '26.
+</p>
 
 
-          <span class="field-note">
-            ENTER THE COUNTRY / PORTFOLIO YOU WOULD LIKE
-            TO BE CONSIDERED FOR.
-          </span>
+<div class="form-grid">
 
-        </div>
+<div class="form-field full">
 
+<label for="source">
+HOW DID YOU HEAR ABOUT RELMUN '26?
+<span class="required">*</span>
+</label>
 
-        <div class="form-navigation">
+<select
+  id="source"
+  name="source"
+  required
+>
 
-          <button
-            type="button"
-            class="form-button back previous-button"
-          >
-            ← BACK
-          </button>
+<option value="" selected disabled>
+SELECT AN OPTION
+</option>
 
+<option value="Instagram">
+Instagram
+</option>
 
-          <button
-            type="button"
-            class="form-button next-button"
-          >
-            NEXT · 04 ↗
-          </button>
+<option value="MyMUN">
+MyMUN
+</option>
 
-        </div>
+<option value="Gavelling">
+Gavelling
+</option>
 
-      </section>
+<option value="ChampArena">
+ChampArena
+</option>
 
+<option value="Google">
+Google
+</option>
 
+<option value="Friend">
+Friend
+</option>
 
-      <!-- SECTION 4 -->
+<option value="School">
+School
+</option>
 
-      <section
-        class="form-section"
-        data-section="4"
-      >
+<option value="Other">
+Other
+</option>
 
-        <span class="form-section-number">
-          SECTION 4 / 6
-        </span>
+</select>
 
+</div>
 
-        <h2>
-          HOW DID YOU<br>
-          <em>FIND US?</em>
-        </h2>
 
+<div
+  class="form-field full"
+  id="otherSourceField"
+  style="display:none;"
+>
 
-        <p class="section-description">
-          Tell us how you came across RELMUN '26.
-        </p>
+<label for="otherSource">
+OTHER
+</label>
 
+<input
+  id="otherSource"
+  name="otherSource"
+  type="text"
+>
 
-        <div class="form-grid">
+</div>
 
 
-          <div class="form-field full">
+</div>
 
-            <label for="source">
 
-              HOW DID YOU HEAR ABOUT RELMUN '26?
+<div class="form-navigation">
 
-              <span class="required">*</span>
+<button
+  type="button"
+  class="form-button previous-button"
+>
+← BACK
+</button>
 
-            </label>
+<button
+  type="button"
+  class="form-button next-button"
+>
+NEXT · 06 →
+</button>
 
+</div>
 
-            <select
-              id="source"
-              name="source"
-              required
-            >
+</section>
 
-              <option
-                value=""
-                selected
-                disabled
-              >
-                SELECT AN OPTION
-              </option>
 
-              <option value="Instagram">
-                Instagram
-              </option>
 
-              <option value="MyMUN">
-                MyMUN
-              </option>
+<!-- =====================================
+     SECTION 6
+===================================== -->
 
-              <option value="Gavelling">
-                Gavelling
-              </option>
+<section
+  class="form-section"
+  data-section="6"
+>
 
-              <option value="ChampArena">
-                ChampArena
-              </option>
+<span class="form-section-number">
+SECTION 6 / 6
+</span>
 
-              <option value="Friend / School">
-                Friend / School
-              </option>
+<h2>
+FINAL<br>
+<em>CHECK.</em>
+</h2>
 
-              <option value="Other">
-                Other
-              </option>
+<p class="section-description">
+Please confirm each statement before submitting.
+</p>
 
-            </select>
 
-          </div>
+<div class="confirmation-list">
 
 
-          <div
-            class="form-field full"
-            id="otherSourceField"
-            style="display:none;"
-          >
+<label class="confirmation-item">
 
-            <label for="otherSource">
-              OTHER
-            </label>
+<input
+  type="checkbox"
+  name="accurate"
+  required
+>
 
-            <input
-              type="text"
-              id="otherSource"
-              name="otherSource"
-              placeholder="Tell us how you heard about RELMUN"
-            >
+<span class="custom-check"></span>
 
-          </div>
+<span class="confirmation-text">
+I confirm that the information provided above
+is accurate.
+</span>
 
-        </div>
+</label>
 
 
-        <div class="form-navigation">
+<label class="confirmation-item">
 
-          <button
-            type="button"
-            class="form-button back previous-button"
-          >
-            ← BACK
-          </button>
+<input
+  type="checkbox"
+  name="allotment"
+  required
+>
 
+<span class="custom-check"></span>
 
-          <button
-            type="button"
-            class="form-button next-button"
-          >
-            NEXT · 05 ↗
-          </button>
+<span class="confirmation-text">
+I understand that committee and portfolio allotments
+are subject to availability and the decision of
+the Secretariat.
+</span>
 
-        </div>
+</label>
 
-      </section>
 
+<label class="confirmation-item">
 
+<input
+  type="checkbox"
+  name="codeOfConduct"
+  required
+>
 
-      <!-- SECTION 5 -->
+<span class="custom-check"></span>
 
-      <section
-        class="form-section"
-        data-section="5"
-      >
+<span class="confirmation-text">
+I agree to abide by the Rules of Procedure and
+Code of Conduct of RELMUN '26.
+</span>
 
-        <span class="form-section-number">
-          SECTION 5 / 6
-        </span>
+</label>
 
 
-        <h2>
-          FINAL<br>
-          <em>CONFIRMATION.</em>
-        </h2>
+</div>
 
 
-        <p class="section-description">
-          Please review and confirm the following before
-          submitting your registration.
-        </p>
+<div
+  id="registrationError"
+  class="registration-error"
+></div>
 
 
-        <div class="confirmation-list">
+<div class="form-navigation">
 
+<button
+  type="button"
+  class="form-button previous-button"
+>
+← BACK
+</button>
 
-          <label class="confirmation-item">
+<button
+  type="submit"
+  class="form-button submit"
+  id="submitButton"
+>
+SUBMIT REGISTRATION ↗
+</button>
 
-            <input
-              type="checkbox"
-              name="accurate"
-              id="accurate"
-              required
-            >
+</div>
 
-            <span class="custom-check"></span>
+</section>
 
-            <span class="confirmation-text">
 
-              I confirm that the information provided above
-              is accurate.
+</form>
 
-            </span>
 
-          </label>
 
+<section
+  id="registrationSuccess"
+  class="registration-success"
+>
 
-          <label class="confirmation-item">
+<div class="success-mark">
+✓
+</div>
 
-            <input
-              type="checkbox"
-              name="allotment"
-              id="allotment"
-              required
-            >
+<h2>
+REGISTRATION<br>
+<em>RECEIVED.</em>
+</h2>
 
-            <span class="custom-check"></span>
+<p>
+Thank you for registering for RELMUN '26.
+Your registration has been submitted to the Secretariat.
+</p>
 
-            <span class="confirmation-text">
+<a
+  href="index.html"
+  class="button"
+>
+RETURN TO RELMUN ↗
+</a>
 
-              I understand that committee and portfolio
-              allotments are subject to availability and
-              the decision of the Secretariat.
+</section>
 
-            </span>
 
-          </label>
+</main>
 
 
-          <label class="confirmation-item">
 
-            <input
-              type="checkbox"
-              name="codeOfConduct"
-              id="codeOfConduct"
-              required
-            >
+<footer>
 
-            <span class="custom-check"></span>
+<div class="footer-logo">
+<img
+  src="relmun-logo.png"
+  alt="RELMUN"
+>
+</div>
 
-            <span class="confirmation-text">
+<div class="footer-middle">
+<strong>RELMUN '26</strong>
+<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+</div>
 
-              I agree to abide by the Rules of Procedure
-              and Code of Conduct of RELMUN '26.
+<div class="footer-right">
+<span>26—27 DECEMBER 2026</span>
+<span>© 2026 RELMUN</span>
+</div>
 
-            </span>
+</footer>
 
-          </label>
 
+<div id="relmun-chatbot"></div>
 
-        </div>
 
+<script src="script.js"></script>
 
-        <div
-          class="registration-error"
-          id="registrationError"
-        ></div>
 
+<script>
 
-        <div class="form-navigation">
+const GOOGLE_SHEETS_URL =
+"https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
 
-          <button
-            type="button"
-            class="form-button back previous-button"
-          >
-            ← BACK
-          </button>
 
+const form =
+document.getElementById("registrationForm");
 
-          <button
-            type="submit"
-            class="form-button submit"
-            id="submitButton"
-          >
-            SUBMIT REGISTRATION ↗
-          </button>
+const sections =
+document.querySelectorAll(".form-section");
 
-        </div>
+const progressSteps =
+document.querySelectorAll(".progress-step");
 
-      </section>
+const progressText =
+document.getElementById("progressText");
 
+const success =
+document.getElementById("registrationSuccess");
 
-    </form>
+const errorBox =
+document.getElementById("registrationError");
 
+const submitButton =
+document.getElementById("submitButton");
 
+const source =
+document.getElementById("source");
 
-    <!-- =====================================================
-         SUCCESS
-         ===================================================== -->
+const otherSourceField =
+document.getElementById("otherSourceField");
 
-    <section
-      class="registration-success"
-      id="registrationSuccess"
-    >
+let currentSection = 1;
 
-      <div class="success-mark">
-        ✓
-      </div>
 
 
-      <h2>
-        REGISTRATION<br>
-        <em>RECEIVED.</em>
-      </h2>
+/* =====================================
+   SECTION CONTROL
+===================================== */
 
+function showSection(number){
 
-      <p>
-        Thank you for registering for RELMUN '26.
-        Your registration has been successfully submitted
-        to the Secretariat.
-      </p>
+  currentSection = number;
 
+  sections.forEach(section => {
 
-      <a
-        href="index.html"
-        class="form-button"
-        style="
-          display:inline-block;
-          margin-top:35px;
-          text-decoration:none;
-        "
-      >
-        RETURN TO RELMUN ↗
-      </a>
+    section.classList.toggle(
+      "active",
+      Number(section.dataset.section) === number
+    );
 
-    </section>
+  });
 
 
-  </main>
+  progressSteps.forEach((step,index) => {
 
+    step.classList.toggle(
+      "active",
+      index < number
+    );
 
+  });
 
-  <!-- =====================================================
-       JAVASCRIPT
-       ===================================================== -->
 
-  <script>
+  progressText.textContent =
+    `SECTION ${number} OF 6`;
 
-    const GOOGLE_SHEETS_URL =
-      "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
+}
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      () => {
 
 
-        const sections =
-          document.querySelectorAll(
-            ".form-section"
-          );
+function validateSection(){
 
+  const section =
+    document.querySelector(
+      `.form-section[data-section="${currentSection}"]`
+    );
 
-        const progressSteps =
-          document.querySelectorAll(
-            ".progress-step"
-          );
+  if(!section) return true;
 
+  const fields =
+    section.querySelectorAll(
+      "input, select, textarea"
+    );
 
-        const progressText =
-          document.getElementById(
-            "progressText"
-          );
+  for(const field of fields){
 
+    if(
+      !field.checkValidity()
+    ){
 
-        const form =
-          document.getElementById(
-            "registrationForm"
-          );
+      field.reportValidity();
 
+      return false;
+    }
 
-        const success =
-          document.getElementById(
-            "registrationSuccess"
-          );
+  }
 
+  return true;
+}
 
-        const progress =
-          document.getElementById(
-            "registrationProgress"
-          );
 
 
-        const source =
-          document.getElementById(
-            "source"
-          );
+/* =====================================
+   NEXT
+===================================== */
 
+document.querySelectorAll(".next-button")
+.forEach(button => {
 
-        const otherSourceField =
-          document.getElementById(
-            "otherSourceField"
-          );
+  button.addEventListener("click", () => {
 
+    if(!validateSection()) return;
 
-        const otherSource =
-          document.getElementById(
-            "otherSource"
-          );
+    if(currentSection < 6){
 
+      showSection(currentSection + 1);
 
-        const submitButton =
-          document.getElementById(
-            "submitButton"
-          );
+    }
 
+  });
 
-        const errorBox =
-          document.getElementById(
-            "registrationError"
-          );
+});
 
 
-        let currentSection = 1;
 
+/* =====================================
+   BACK
+===================================== */
 
-        /* ================================================
-           PROGRESS
-           ================================================ */
+document.querySelectorAll(".previous-button")
+.forEach(button => {
 
-        function updateProgress() {
+  button.addEventListener("click", () => {
 
-          progressSteps.forEach(
-            (step, index) => {
+    if(currentSection > 1){
 
-              step.classList.toggle(
-                "active",
-                index < currentSection
-              );
+      showSection(currentSection - 1);
 
-            }
-          );
+    }
 
+  });
 
-          progressText.textContent =
-            `SECTION ${currentSection} OF 6`;
+});
 
-        }
 
 
+/* =====================================
+   OTHER SOURCE
+===================================== */
 
-        /* ================================================
-           SHOW SECTION
-           ================================================ */
+if(source){
 
-        function showSection(number) {
+  source.addEventListener("change", () => {
 
-          currentSection = number;
+    if(source.value === "Other"){
 
+      otherSourceField.style.display =
+        "block";
 
-          sections.forEach(
-            (section) => {
+    }else{
 
-              section.classList.toggle(
-                "active",
-                Number(
-                  section.dataset.section
-                ) === number
-              );
+      otherSourceField.style.display =
+        "none";
 
-            }
-          );
+    }
 
+  });
 
-          updateProgress();
+}
 
 
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
 
-        }
+/* =====================================
+   SUBMIT
+===================================== */
 
+form.addEventListener("submit", async event => {
 
+  event.preventDefault();
 
-        /* ================================================
-           VALIDATE SECTION
-           ================================================ */
+  if(!validateSection()) return;
 
-        function validateSection() {
 
-          const section =
-            document.querySelector(
-              `.form-section[data-section="${currentSection}"]`
-            );
+  errorBox.classList.remove("show");
+  errorBox.textContent = "";
 
 
-          const fields =
-            section.querySelectorAll(
-              "input, select, textarea"
-            );
+  const data =
+    Object.fromEntries(
+      new FormData(form).entries()
+    );
 
 
-          for (
-            const field of fields
-          ) {
+  data.accurate =
+    document.querySelector(
+      '[name="accurate"]'
+    ).checked ? "Yes" : "No";
 
-            if (
-              !field.checkValidity()
-            ) {
 
-              field.reportValidity();
+  data.allotment =
+    document.querySelector(
+      '[name="allotment"]'
+    ).checked ? "Yes" : "No";
 
-              return false;
 
-            }
+  data.codeOfConduct =
+    document.querySelector(
+      '[name="codeOfConduct"]'
+    ).checked ? "Yes" : "No";
 
-          }
 
+  data.timestamp =
+    new Date().toISOString();
 
-          return true;
 
-        }
+  submitButton.disabled = true;
 
+  submitButton.textContent =
+    "SUBMITTING...";
 
 
-        /* ================================================
-           NEXT
-           ================================================ */
+  try{
 
-        document
-          .querySelectorAll(
-            ".next-button"
-          )
-          .forEach(
-            (button) => {
+    /*
+      URLSearchParams avoids a JSON preflight
+      and works with Google Apps Script
+      when the endpoint reads e.parameter.
+    */
 
-              button.addEventListener(
-                "click",
-                () => {
+    const body =
+      new URLSearchParams(data);
 
-                  if (
-                    !validateSection()
-                  ) {
 
-                    return;
-
-                  }
-
-
-                  if (
-                    currentSection < 5
-                  ) {
-
-                    showSection(
-                      currentSection + 1
-                    );
-
-                  }
-
-                }
-              );
-
-            }
-          );
-
-
-
-        /* ================================================
-           BACK
-           ================================================ */
-
-        document
-          .querySelectorAll(
-            ".previous-button"
-          )
-          .forEach(
-            (button) => {
-
-              button.addEventListener(
-                "click",
-                () => {
-
-                  if (
-                    currentSection > 1
-                  ) {
-
-                    showSection(
-                      currentSection - 1
-                    );
-
-                  }
-
-                }
-              );
-
-            }
-          );
-
-
-
-        /* ================================================
-           OTHER SOURCE
-           ================================================ */
-
-        source.addEventListener(
-          "change",
-          () => {
-
-            if (
-              source.value === "Other"
-            ) {
-
-              otherSourceField.style.display =
-                "flex";
-
-            } else {
-
-              otherSourceField.style.display =
-                "none";
-
-              otherSource.value = "";
-
-            }
-
-          }
-        );
-
-
-
-        /* ================================================
-           SUBMIT
-           ================================================ */
-
-        form.addEventListener(
-          "submit",
-          async (event) => {
-
-            event.preventDefault();
-
-
-            errorBox.classList.remove(
-              "show"
-            );
-
-
-            if (
-              !validateSection()
-            ) {
-
-              return;
-
-            }
-
-
-            const formData =
-              new FormData(form);
-
-
-            const registrationData = {
-
-              fullName:
-                formData.get(
-                  "fullName"
-                ) || "",
-
-              email:
-                formData.get(
-                  "email"
-                ) || "",
-
-              whatsapp:
-                formData.get(
-                  "whatsapp"
-                ) || "",
-
-              city:
-                formData.get(
-                  "city"
-                ) || "",
-
-              munExperience:
-                formData.get(
-                  "munExperience"
-                ) || "",
-
-              committee1:
-                formData.get(
-                  "committee1"
-                ) || "",
-
-              committee2:
-                formData.get(
-                  "committee2"
-                ) || "",
-
-              committee3:
-                formData.get(
-                  "committee3"
-                ) || "",
-
-              portfolio1:
-                formData.get(
-                  "portfolio1"
-                ) || "",
-
-              portfolio2:
-                formData.get(
-                  "portfolio2"
-                ) || "",
-
-              portfolio3:
-                formData.get(
-                  "portfolio3"
-                ) || "",
-
-              source:
-                formData.get(
-                  "source"
-                ) || "",
-
-              otherSource:
-                formData.get(
-                  "otherSource"
-                ) || ""
-
-            };
-
-
-            const originalText =
-              submitButton.textContent;
-
-
-            submitButton.disabled =
-              true;
-
-
-            submitButton.textContent =
-              "SUBMITTING...";
-
-
-            try {
-
-              /*
-               * Google Apps Script Web Apps
-               * accept the request below.
-               */
-
-              await fetch(
-                GOOGLE_SHEETS_URL,
-                {
-
-                  method: "POST",
-
-                  mode: "no-cors",
-
-                  headers: {
-                    "Content-Type":
-                      "text/plain;charset=utf-8"
-                  },
-
-                  body:
-                    JSON.stringify(
-                      registrationData
-                    )
-
-                }
-              );
-
-
-              /*
-               * no-cors means the browser
-               * cannot read the response,
-               * but the request itself is
-               * sent to Apps Script.
-               */
-
-              form.style.display =
-                "none";
-
-
-              progress.style.display =
-                "none";
-
-
-              success.classList.add(
-                "active"
-              );
-
-
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-              });
-
-
-            } catch (error) {
-
-              console.error(
-                "RELMUN registration error:",
-                error
-              );
-
-
-              errorBox.textContent =
-                "Something went wrong while submitting your registration. Please check your connection and try again.";
-
-
-              errorBox.classList.add(
-                "show"
-              );
-
-
-              submitButton.disabled =
-                false;
-
-
-              submitButton.textContent =
-                originalText;
-
-            }
-
-          }
-        );
-
-
-        updateProgress();
-
+    await fetch(
+      GOOGLE_SHEETS_URL,
+      {
+        method:"POST",
+        mode:"no-cors",
+        body
       }
     );
 
-  </script>
 
+    form.style.display =
+      "none";
+
+    document
+      .getElementById("registrationProgress")
+      .style.display = "none";
+
+    success.classList.add("show");
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+
+  }catch(error){
+
+    console.error(error);
+
+    errorBox.textContent =
+      "We couldn't submit your registration. Please check your connection and try again.";
+
+    errorBox.classList.add("show");
+
+
+    submitButton.disabled =
+      false;
+
+    submitButton.textContent =
+      "SUBMIT REGISTRATION ↗";
+
+  }
+
+});
+
+</script>
+
+
+<script src="chatbot.js"></script>
 
 </body>
-
 </html>
