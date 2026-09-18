@@ -1,107 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-  <title>Committee | RELMUN '26</title>
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1.0"
+>
 
-  <link rel="stylesheet" href="style.css">
+<title>Committee — RELMUN '26</title>
+
+<link
+  rel="icon"
+  href="relmun-logo.png"
+  type="image/png"
+>
+
+<link
+  rel="stylesheet"
+  href="style.css"
+>
 
 </head>
 
+
 <body>
 
-  <header class="site-header">
 
-    <a href="index.html" class="site-logo">
-      <img src="relmun-logo.png" alt="RELMUN '26">
-    </a>
+<header>
 
-    <nav class="nav-links">
+<nav class="navbar">
 
-      <a href="index.html#about">ABOUT</a>
-
-      <a href="committees.html">
-        COMMITTEES
-      </a>
-
-      <a href="index.html#conference">
-        CONFERENCE
-      </a>
-
-      <a href="index.html#team">
-        TEAM
-      </a>
-
-      <a href="index.html#eb">
-        EB
-      </a>
-
-      <a href="#" class="nav-register js-register">
-        REGISTER
-      </a>
-
-    </nav>
-
-    <button
-      class="menu-toggle"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-  </header>
+<a
+  href="index.html"
+  class="nav-logo"
+>
+<img
+  src="relmun-logo.png"
+  alt="RELMUN '26"
+>
+</a>
 
 
-  <!-- IMPORTANT:
-       script.js ONLY renders the committee here -->
-  <main id="committeePage"></main>
+<div class="nav-links">
+
+<a href="index.html#about">
+ABOUT
+</a>
+
+<a href="committees.html">
+COMMITTEES
+</a>
+
+<a href="index.html#team">
+TEAM
+</a>
+
+<a href="index.html#eb">
+EB
+</a>
+
+<a
+  href="register.html"
+  class="nav-register"
+>
+REGISTER
+</a>
+
+<a href="faq.html">
+FAQ
+</a>
+
+</div>
 
 
-  <div id="relmun-chatbot"></div>
+<button
+  class="nav-menu"
+  aria-label="Open menu"
+>
+<span></span>
+<span></span>
+</button>
+
+</nav>
+
+</header>
 
 
-  <div
-    class="modal"
-    id="registrationModal"
-    aria-hidden="true"
-  >
 
-    <div class="modal-inner">
+<main>
 
-      <button
-        class="js-close-modal modal-close"
-      >
-        ×
-      </button>
+<section class="committee-detail">
 
-      <span class="eyebrow">
-        RELMUN '26
-      </span>
+<div class="detail-top">
 
-      <h2>
-        DELEGATE<br>
-        <em>REGISTRATION.</em>
-      </h2>
+<div>
 
-      <p>
-        Delegate registrations are coming soon.
-      </p>
-
-      <div class="coming">
-        COMING SOON
-      </div>
-
-    </div>
-
-  </div>
+<span
+  class="detail-code"
+  id="committeeCode"
+>
+COMMITTEE
+</span>
 
 
-  <script src="script.js"></script>
-  <script src="chatbot.js"></script>
+<h1
+  class="detail-title"
+  id="committeeTitle"
+>
+COMMITTEE.
+</h1>
+
+
+<p
+  class="detail-subtitle"
+  id="committeeDescription"
+>
+Loading committee information...
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="detail-grid">
+
+
+<div class="detail-box">
+
+<h3>
+MANDATE
+</h3>
+
+<p id="committeeMandate">
+Loading...
+</p>
+
+</div>
+
+
+<div class="detail-box">
+
+<h3>
+FORMAT
+</h3>
+
+<p id="committeeFormat">
+Delegates will participate in committee debate,
+negotiation and moderated discussion.
+</p>
+
+</div>
+
+
+<div class="detail-box">
+
+<h3>
+AGENDA
+</h3>
+
+<p id="committeeAgenda">
+Committee-specific agenda information will be
+announced by the Secretariat.
+</p>
+
+</div>
+
+
+<div class="detail-box">
+
+<h3>
+EXECUTIVE BOARD
+</h3>
+
+<p id="committeeEB">
+Committee-specific Executive Board profiles
+will be announced soon.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div style="margin-top:70px;display:flex;gap:15px;flex-wrap:wrap;">
+
+<a
+  href="committees.html"
+  class="button"
+>
+← ALL COMMITTEES
+</a>
+
+<a
+  href="register.html"
+  class="button"
+>
+REGISTER ↗
+</a>
+
+</div>
+
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+<div class="footer-logo">
+<img
+  src="relmun-logo.png"
+  alt="RELMUN"
+>
+</div>
+
+<div class="footer-middle">
+<strong>RELMUN '26</strong>
+<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+</div>
+
+<div class="footer-right">
+<span>26—27 DECEMBER 2026</span>
+<span>© 2026 RELMUN</span>
+</div>
+
+</footer>
+
+
+<div id="relmun-chatbot"></div>
+
+<script src="script.js"></script>
+
+
+<script>
+
+const committees = {
+
+  unsc: {
+    code: "01 / UNSC",
+    title: "SECURITY COUNCIL.",
+    description:
+      "The United Nations Security Council focuses on international peace and security, diplomacy, negotiation and high-level decision-making.",
+    mandate:
+      "International peace and security, diplomacy, negotiation and collective decision-making.",
+    agenda:
+      "Committee-specific agenda information will be announced by the Secretariat."
+  },
+
+  unhrc: {
+    code: "02 / UNHRC",
+    title: "HUMAN RIGHTS.",
+    description:
+      "The United Nations Human Rights Council focuses on international human rights, cooperation and multilateral action.",
+    mandate:
+      "International human rights, cooperation and multilateral action.",
+    agenda:
+      "Committee-specific agenda information will be announced by the Secretariat."
+  },
+
+  unodc: {
+    code: "03 / UNODC",
+    title: "DRUGS & CRIME.",
+    description:
+      "The United Nations Office on Drugs and Crime focuses on international cooperation against drugs, organised crime and related transnational challenges.",
+    mandate:
+      "International cooperation against drugs, organised crime, corruption and related transnational challenges.",
+    agenda:
+      "Committee-specific agenda information will be announced by the Secretariat."
+  },
+
+  aippm: {
+    code: "04 / AIPPM",
+    title: "POLITICAL PARTIES.",
+    description:
+      "The All India Political Parties Meet brings parliamentary debate, political negotiation and deliberation into the conference.",
+    mandate:
+      "Political negotiation, parliamentary debate and deliberation on matters of national importance.",
+    agenda:
+      "Committee-specific agenda information will be announced by the Secretariat."
+  },
+
+  ipla: {
+    code: "05 / IPLA",
+    title: "IPL AUCTION.",
+    description:
+      "The Indian Premier League Auction is a strategic committee environment built around bidding, team management and decision-making.",
+    mandate:
+      "Strategic bidding, team management, financial decisions and competition.",
+    agenda:
+      "Committee-specific rules and auction information will be announced by the Secretariat."
+  },
+
+  unw: {
+    code: "06 / UN WOMEN",
+    title: "UN WOMEN.",
+    description:
+      "UN Women focuses on advancing gender equality and the empowerment of women and girls through international cooperation and policy development.",
+    mandate:
+      "Gender equality, empowerment and multilateral action.",
+    agenda:
+      "Committee-specific agenda information will be announced by the Secretariat."
+  }
+
+};
+
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const key =
+  (params.get("committee") || "unsc").toLowerCase();
+
+const committee =
+  committees[key] || committees.unsc;
+
+
+document.getElementById("committeeCode").textContent =
+  committee.code;
+
+document.getElementById("committeeTitle").textContent =
+  committee.title;
+
+document.getElementById("committeeDescription").textContent =
+  committee.description;
+
+document.getElementById("committeeMandate").textContent =
+  committee.mandate;
+
+document.getElementById("committeeAgenda").textContent =
+  committee.agenda;
+
+
+document.title =
+  `${committee.code.split("/")[1]?.trim() || "Committee"} — RELMUN '26`;
+
+</script>
+
+
+<script src="chatbot.js"></script>
 
 </body>
 </html>
