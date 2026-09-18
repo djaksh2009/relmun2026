@@ -2,42 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Register — RELMUN '26</title>
 
   <meta
     name="description"
-    content="Register for RELMUN '26 — Relations, Engagement & Leadership Model United Nations."
+    content="Register as a delegate for RELMUN '26."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Clean modern font pairing -->
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap"
     rel="stylesheet"
   >
 
   <style>
-
-    /* =====================================================
-       RELMUN '26 — REGISTER
-       ===================================================== */
-
     :root {
       --bg: #05080d;
-      --bg-2: #080d14;
       --panel: #0b1119;
       --panel-2: #0e151e;
 
       --ivory: #f1ece0;
-      --muted: #8d98a6;
+      --muted: #8b96a3;
+      --muted-2: #64707d;
 
       --blue: #1846ff;
       --blue-light: #3d65ff;
@@ -45,16 +35,14 @@
       --gold: #c79a2b;
       --gold-light: #e2b941;
 
-      --border: rgba(241, 236, 224, 0.11);
-      --border-strong: rgba(241, 236, 224, 0.2);
+      --danger: #ef767a;
+      --success: #65d6a0;
 
-      --danger: #ff6262;
-      --success: #66d99b;
+      --border: rgba(241,236,224,.11);
+      --border-strong: rgba(241,236,224,.20);
 
-      --radius: 16px;
-      --max-width: 1120px;
+      --max: 1160px;
     }
-
 
     * {
       box-sizing: border-box;
@@ -62,24 +50,23 @@
       padding: 0;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
       min-height: 100vh;
+
       background:
         radial-gradient(
-          circle at 15% 5%,
-          rgba(24, 70, 255, 0.11),
+          circle at 10% 5%,
+          rgba(24,70,255,.12),
           transparent 28%
         ),
         radial-gradient(
-          circle at 85% 20%,
-          rgba(199, 154, 43, 0.07),
-          transparent 24%
+          circle at 90% 30%,
+          rgba(199,154,43,.06),
+          transparent 25%
         ),
         var(--bg);
 
@@ -91,25 +78,25 @@
       text-rendering: optimizeLegibility;
     }
 
-
     body::before {
       content: "";
 
       position: fixed;
       inset: 0;
 
+      z-index: -1;
       pointer-events: none;
 
-      opacity: 0.18;
+      opacity: .16;
 
       background-image:
         linear-gradient(
-          rgba(255,255,255,0.025) 1px,
+          rgba(255,255,255,.025) 1px,
           transparent 1px
         ),
         linear-gradient(
           90deg,
-          rgba(255,255,255,0.025) 1px,
+          rgba(255,255,255,.025) 1px,
           transparent 1px
         );
 
@@ -119,31 +106,20 @@
         linear-gradient(
           to bottom,
           black,
-          transparent 75%
+          transparent 80%
         );
-
-      z-index: -1;
     }
-
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-
     button,
     input,
-    textarea,
     select {
       font: inherit;
     }
-
-
-    button {
-      cursor: pointer;
-    }
-
 
     /* =====================================================
        NAVBAR
@@ -152,26 +128,17 @@
     .navbar {
       position: sticky;
       top: 0;
-
-      width: 100%;
+      z-index: 1000;
 
       height: 76px;
 
-      display: flex;
-      align-items: center;
+      background: rgba(5,8,13,.86);
 
-      z-index: 1000;
-
-      background:
-        rgba(5, 8, 13, 0.82);
+      border-bottom: 1px solid var(--border);
 
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-
-      border-bottom:
-        1px solid var(--border);
     }
-
 
     .nav-inner {
       width: min(
@@ -179,6 +146,7 @@
         1240px
       );
 
+      height: 100%;
       margin: auto;
 
       display: flex;
@@ -186,22 +154,20 @@
       justify-content: space-between;
     }
 
-
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-
     .brand-mark {
       width: 35px;
       height: 35px;
 
-      border: 1px solid var(--gold);
-
       display: grid;
       place-items: center;
+
+      border: 1px solid var(--gold);
 
       color: var(--gold);
 
@@ -211,25 +177,24 @@
       transform: rotate(45deg);
     }
 
-
     .brand-mark span {
       transform: rotate(-45deg);
     }
 
-
     .brand-text {
       display: flex;
       flex-direction: column;
+
       line-height: 1;
     }
 
-
     .brand-name {
       font-family: "Playfair Display", serif;
+
       font-size: 22px;
+
       letter-spacing: 3px;
     }
-
 
     .brand-year {
       margin-top: 5px;
@@ -237,35 +202,37 @@
       color: var(--gold);
 
       font-family: "DM Mono", monospace;
+
       font-size: 9px;
 
       letter-spacing: 3px;
     }
 
-
     .nav-links {
       display: flex;
       align-items: center;
+
       gap: 30px;
 
       font-family: "DM Mono", monospace;
+
       font-size: 11px;
 
       letter-spacing: 1.4px;
+
       text-transform: uppercase;
     }
 
-
     .nav-links a {
       color: #aeb7c3;
+
       transition: color .25s ease;
     }
 
-
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links .active {
       color: var(--ivory);
     }
-
 
     .nav-register {
       padding: 12px 19px;
@@ -274,13 +241,10 @@
 
       color: #07090c !important;
 
-      font-weight: 500;
-
       transition:
         transform .25s ease,
         background .25s ease;
     }
-
 
     .nav-register:hover {
       background: var(--gold-light);
@@ -288,137 +252,95 @@
       transform: translateY(-2px);
     }
 
-
     /* =====================================================
-       HERO
+       PAGE HEADER
        ===================================================== */
 
-    .hero {
+    .page-header {
       width: min(
         calc(100% - 48px),
-        var(--max-width)
+        var(--max)
       );
 
       margin: auto;
 
       padding:
-        90px
+        85px
         0
-        65px;
+        45px;
     }
-
 
     .eyebrow {
       display: flex;
       align-items: center;
       gap: 12px;
 
-      margin-bottom: 24px;
-
       color: var(--gold);
 
       font-family: "DM Mono", monospace;
-      font-size: 12px;
+
+      font-size: 11px;
 
       letter-spacing: 2px;
+
       text-transform: uppercase;
     }
-
 
     .eyebrow::before {
       content: "";
 
-      width: 32px;
+      width: 34px;
       height: 1px;
 
       background: var(--gold);
     }
 
-
-    .hero h1 {
+    .page-header h1 {
       max-width: 850px;
+
+      margin-top: 23px;
 
       font-family: "Playfair Display", serif;
 
       font-size: clamp(
-        54px,
+        58px,
         8vw,
-        94px
+        92px
       );
 
-      line-height: .94;
+      line-height: .92;
+
+      letter-spacing: -3.5px;
 
       font-weight: 500;
-
-      letter-spacing: -3px;
     }
 
-
-    .hero h1 em {
+    .page-header h1 em {
       color: var(--gold);
+
       font-style: normal;
     }
 
-
-    .hero-description {
+    .page-header p {
       max-width: 650px;
 
-      margin-top: 28px;
+      margin-top: 25px;
 
       color: var(--muted);
 
-      font-size: 17px;
-      line-height: 1.75;
+      font-size: 15px;
+
+      line-height: 1.8;
     }
-
-
-    .open-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-
-      margin-top: 30px;
-
-      padding: 11px 15px;
-
-      border:
-        1px solid
-        rgba(199,154,43,.3);
-
-      background:
-        rgba(199,154,43,.05);
-
-      color: #d7c28b;
-
-      font-family: "DM Mono", monospace;
-      font-size: 11px;
-
-      letter-spacing: 1px;
-    }
-
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: var(--gold);
-
-      box-shadow:
-        0 0 12px
-        rgba(199,154,43,.65);
-    }
-
 
     /* =====================================================
-       FORM AREA
+       REGISTRATION CONTAINER
        ===================================================== */
 
     .registration-wrap {
       width: min(
         calc(100% - 48px),
-        var(--max-width)
+        var(--max)
       );
 
       margin: auto;
@@ -426,713 +348,81 @@
       padding-bottom: 120px;
     }
 
-
-    .registration-grid {
-      display: grid;
-
-      grid-template-columns:
-        250px
-        minmax(0, 1fr);
-
-      gap: 70px;
-
-      align-items: start;
-    }
-
-
-    .side-info {
-      position: sticky;
-      top: 110px;
-    }
-
-
-    .side-label {
-      color: var(--gold);
-
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-
-      letter-spacing: 2px;
-      text-transform: uppercase;
-
-      margin-bottom: 16px;
-    }
-
-
-    .side-info h2 {
-      font-family: "Playfair Display", serif;
-
-      font-size: 30px;
-      line-height: 1.1;
-
-      font-weight: 500;
-    }
-
-
-    .side-info p {
-      margin-top: 18px;
-
-      color: var(--muted);
-
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-
-    .side-line {
-      width: 100%;
-      height: 1px;
-
-      margin: 28px 0;
-
-      background: var(--border);
-    }
-
-
-    .side-meta {
-      display: grid;
-      gap: 17px;
-    }
-
-
-    .meta-item span {
-      display: block;
-
-      color: #65707d;
-
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-
-      margin-bottom: 5px;
-    }
-
-
-    .meta-item strong {
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-
-    /* =====================================================
-       FORM
-       ===================================================== */
-
-    .form-card {
-      padding: 36px;
-
-      border:
-        1px solid var(--border);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(14,21,30,.96),
-          rgba(8,13,20,.96)
-        );
-
-      border-radius: var(--radius);
-
-      box-shadow:
-        0 30px 90px
-        rgba(0,0,0,.25);
-    }
-
-
-    .form-section {
-      padding-bottom: 38px;
-      margin-bottom: 38px;
-
-      border-bottom:
-        1px solid var(--border);
-    }
-
-
-    .form-section:last-of-type {
-      border-bottom: none;
-
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-
-    .section-heading {
-      display: flex;
-      align-items: flex-start;
-      gap: 17px;
-
-      margin-bottom: 27px;
-    }
-
-
-    .section-number {
-      flex: 0 0 auto;
-
-      width: 35px;
-      height: 35px;
-
-      display: grid;
-      place-items: center;
+    .form-shell {
+      overflow: hidden;
 
       border:
         1px solid
-        rgba(199,154,43,.45);
-
-      color: var(--gold);
-
-      font-family: "DM Mono", monospace;
-      font-size: 11px;
-    }
-
-
-    .section-heading h3 {
-      font-size: 19px;
-      font-weight: 700;
-
-      letter-spacing: -.2px;
-    }
-
-
-    .section-heading p {
-      margin-top: 4px;
-
-      color: #697583;
-
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-
-    .fields {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-      gap: 22px;
-    }
-
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
-
-    .field label {
-      color: #c5ccd4;
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 11px;
-
-      letter-spacing: .6px;
-
-      text-transform: uppercase;
-    }
-
-
-    .required {
-      color: var(--gold);
-    }
-
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-
-      min-height: 53px;
-
-      padding:
-        0
-        16px;
-
-      border:
-        1px solid
-        rgba(241,236,224,.13);
-
-      outline: none;
-
-      border-radius: 8px;
-
-      background:
-        rgba(255,255,255,.025);
-
-      color: var(--ivory);
-
-      font-size: 14px;
-
-      transition:
-        border-color .2s ease,
-        background .2s ease,
-        box-shadow .2s ease;
-    }
-
-
-    .field textarea {
-      min-height: 110px;
-
-      padding: 15px;
-
-      resize: vertical;
-    }
-
-
-    .field input::placeholder,
-    .field textarea::placeholder {
-      color: #596572;
-    }
-
-
-    .field input:hover,
-    .field textarea:hover,
-    .field select:hover {
-      border-color:
-        rgba(241,236,224,.25);
-    }
-
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      border-color:
-        rgba(24,70,255,.8);
-
-      background:
-        rgba(24,70,255,.035);
-
-      box-shadow:
-        0 0 0 3px
-        rgba(24,70,255,.09);
-    }
-
-
-    .field select {
-      appearance: none;
-
-      background-image:
-        linear-gradient(45deg, transparent 50%, #7c8793 50%),
-        linear-gradient(135deg, #7c8793 50%, transparent 50%);
-
-      background-position:
-        calc(100% - 19px) 23px,
-        calc(100% - 14px) 23px;
-
-      background-size:
-        5px 5px,
-        5px 5px;
-
-      background-repeat: no-repeat;
-    }
-
-
-    .field select option {
-      background: #0b1119;
-      color: var(--ivory);
-    }
-
-
-    .field-note {
-      color: #606c79;
-
-      font-size: 11px;
-      line-height: 1.5;
-    }
-
-
-    /* =====================================================
-       PREFERENCE NUMBERS
-       ===================================================== */
-
-    .preference {
-      position: relative;
-    }
-
-
-    .preference-badge {
-      position: absolute;
-
-      left: 11px;
-      bottom: 12px;
-
-      width: 29px;
-      height: 29px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 5px;
-
-      background:
-        rgba(24,70,255,.14);
-
-      color: #8ea4ff;
-
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-
-      pointer-events: none;
-    }
-
-
-    .preference input {
-      padding-left: 53px;
-    }
-
-
-    /* =====================================================
-       CHECKBOXES
-       ===================================================== */
-
-    .confirmations {
-      display: grid;
-      gap: 15px;
-
-      margin-top: 5px;
-    }
-
-
-    .check-row {
-      position: relative;
-
-      display: flex;
-      align-items: flex-start;
-      gap: 13px;
-
-      padding: 15px;
-
-      border:
-        1px solid
-        rgba(241,236,224,.08);
-
-      border-radius: 8px;
-
-      background:
-        rgba(255,255,255,.018);
-
-      cursor: pointer;
-
-      transition:
-        border-color .2s ease,
-        background .2s ease;
-    }
-
-
-    .check-row:hover {
-      border-color:
-        rgba(241,236,224,.17);
-
-      background:
-        rgba(255,255,255,.03);
-    }
-
-
-    .check-row input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-
-    .check-box {
-      flex: 0 0 auto;
-
-      width: 20px;
-      height: 20px;
-
-      margin-top: 1px;
-
-      border:
-        1px solid
-        #4c5661;
-
-      border-radius: 4px;
-
-      display: grid;
-      place-items: center;
-    }
-
-
-    .check-box::after {
-      content: "✓";
-
-      color: #05080d;
-
-      font-size: 12px;
-      font-weight: 800;
-
-      opacity: 0;
-    }
-
-
-    .check-row input:checked
-    + .check-box {
-      background: var(--gold);
-
-      border-color: var(--gold);
-    }
-
-
-    .check-row input:checked
-    + .check-box::after {
-      opacity: 1;
-    }
-
-
-    .check-text {
-      color: #9ea8b3;
-
-      font-size: 12px;
-      line-height: 1.65;
-    }
-
-
-    .check-text strong {
-      color: var(--ivory);
-      font-weight: 600;
-    }
-
-
-    /* =====================================================
-       SUBMIT
-       ===================================================== */
-
-    .submit-area {
-      margin-top: 35px;
-    }
-
-
-    .submit-button {
-      width: 100%;
-
-      min-height: 62px;
-
-      border: none;
-      border-radius: 8px;
-
-      background:
-        linear-gradient(
-          110deg,
-          var(--gold),
-          var(--gold-light)
-        );
-
-      color: #07090c;
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 12px;
-      font-weight: 600;
-
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-
-      transition:
-        transform .2s ease,
-        filter .2s ease,
-        opacity .2s ease;
-    }
-
-
-    .submit-button:hover:not(:disabled) {
-      transform: translateY(-2px);
-
-      filter:
-        brightness(1.08);
-    }
-
-
-    .submit-button:disabled {
-      cursor: not-allowed;
-      opacity: .5;
-    }
-
-
-    .submit-note {
-      margin-top: 13px;
-
-      color: #596572;
-
-      text-align: center;
-
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-
-      letter-spacing: .7px;
-      line-height: 1.6;
-    }
-
-
-    /* =====================================================
-       MESSAGES
-       ===================================================== */
-
-    .form-message {
-      display: none;
-
-      padding: 17px 18px;
-
-      margin-bottom: 25px;
-
-      border-radius: 8px;
-
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-
-    .form-message.show {
-      display: block;
-    }
-
-
-    .form-message.error {
-      border:
-        1px solid
-        rgba(255,98,98,.3);
-
-      background:
-        rgba(255,98,98,.06);
-
-      color: #ff9a9a;
-    }
-
-
-    .form-message.success {
-      border:
-        1px solid
-        rgba(102,217,155,.3);
-
-      background:
-        rgba(102,217,155,.06);
-
-      color: #9ae7bb;
-    }
-
-
-    /* =====================================================
-       LOCK SCREEN
-       ===================================================== */
-
-    .registration-lock {
-      position: fixed;
-
-      inset: 0;
-
-      z-index: 9999;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 25px;
-
-      background:
-        rgba(3,6,10,.95);
-
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-    }
-
-
-    .registration-lock.hidden {
-      display: none;
-    }
-
-
-    .lock-box {
-      width: min(
-        100%,
-        520px
-      );
-
-      padding: 50px 40px;
-
-      text-align: center;
-
-      border:
-        1px solid
-        rgba(199,154,43,.28);
+        var(--border);
 
       border-radius: 18px;
 
       background:
         linear-gradient(
           145deg,
-          #0c121a,
-          #070b11
+          rgba(13,20,29,.98),
+          rgba(7,11,17,.98)
         );
 
       box-shadow:
-        0 35px 100px
-        rgba(0,0,0,.5);
+        0 25px 80px rgba(0,0,0,.22);
     }
 
+    /* =====================================================
+       REGISTRATION CLOSED
+       ===================================================== */
 
-    .lock-symbol {
-      width: 55px;
-      height: 55px;
+    .registration-closed {
+      display: none;
 
-      margin:
-        0
-        auto
-        25px;
+      padding: 55px;
+
+      text-align: center;
+    }
+
+    .closed-icon {
+      width: 64px;
+      height: 64px;
+
+      margin: 0 auto 25px;
 
       display: grid;
       place-items: center;
 
       border:
         1px solid
-        rgba(199,154,43,.5);
-
-      color: var(--gold);
-
-      font-size: 21px;
+        rgba(199,154,43,.3);
 
       border-radius: 50%;
-    }
 
-
-    .lock-kicker {
       color: var(--gold);
 
       font-family: "DM Mono", monospace;
-      font-size: 10px;
 
-      letter-spacing: 2px;
-
-      margin-bottom: 14px;
+      font-size: 20px;
     }
 
-
-    .lock-box h2 {
+    .registration-closed h2 {
       font-family: "Playfair Display", serif;
 
       font-size: 38px;
+
       font-weight: 500;
     }
 
+    .registration-closed p {
+      max-width: 550px;
 
-    .lock-box p {
-      margin-top: 16px;
+      margin: 15px auto 0;
 
       color: var(--muted);
 
       font-size: 14px;
-      line-height: 1.7;
+
+      line-height: 1.8;
     }
 
-
-    .lock-date {
+    .opening-date {
       display: inline-block;
 
       margin-top: 25px;
@@ -1143,65 +433,748 @@
         1px solid
         rgba(199,154,43,.25);
 
-      color: var(--ivory);
+      color: var(--gold);
 
       font-family: "DM Mono", monospace;
+
       font-size: 11px;
 
       letter-spacing: 1px;
     }
 
-
-    .lock-countdown {
-      margin-top: 25px;
-
-      color: #667280;
-
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-
-      letter-spacing: 1px;
-    }
-
-
     /* =====================================================
-       FOOTER
+       FORM
        ===================================================== */
 
-    footer {
-      border-top:
-        1px solid var(--border);
-
-      padding:
-        35px 24px;
+    #registrationForm {
+      display: block;
     }
 
-
-    .footer-inner {
-      width: min(
-        100%,
-        var(--max-width)
-      );
-
-      margin: auto;
+    .form-top {
+      padding: 30px 36px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
       gap: 20px;
+
+      border-bottom: 1px solid var(--border);
+
+      background:
+        rgba(255,255,255,.012);
     }
 
-
-    .footer-copy {
-      color: #596572;
+    .form-top-label {
+      color: var(--gold);
 
       font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      letter-spacing: 1.8px;
+
+      text-transform: uppercase;
+    }
+
+    .form-top-title {
+      margin-top: 7px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 27px;
+
+      font-weight: 500;
+    }
+
+    .form-status {
+      padding: 9px 13px;
+
+      border:
+        1px solid
+        rgba(101,214,160,.18);
+
+      color: var(--success);
+
+      font-family: "DM Mono", monospace;
+
       font-size: 9px;
 
       letter-spacing: 1px;
+
+      text-transform: uppercase;
     }
 
+    .form-content {
+      padding: 40px 36px;
+    }
+
+    .section {
+      padding-bottom: 42px;
+
+      margin-bottom: 42px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type {
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      border-bottom: none;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+
+      gap: 15px;
+
+      margin-bottom: 25px;
+    }
+
+    .section-number {
+      flex: 0 0 auto;
+
+      width: 30px;
+      height: 30px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid
+        rgba(199,154,43,.3);
+
+      color: var(--gold);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      border-radius: 50%;
+    }
+
+    .section-heading h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 27px;
+
+      font-weight: 500;
+    }
+
+    .section-heading p {
+      margin-top: 4px;
+
+      color: var(--muted-2);
+
+      font-size: 11px;
+
+      line-height: 1.6;
+    }
+
+    /* =====================================================
+       INPUT GRID
+       ===================================================== */
+
+    .input-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 21px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+
+      min-width: 0;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      margin-bottom: 9px;
+
+      color: #b7c0ca;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 11px;
+
+      letter-spacing: .5px;
+    }
+
+    .required {
+      color: var(--gold);
+    }
+
+    input,
+    select {
+      width: 100%;
+
+      min-height: 50px;
+
+      padding: 13px 15px;
+
+      border:
+        1px solid
+        var(--border-strong);
+
+      outline: none;
+
+      border-radius: 7px;
+
+      background:
+        rgba(0,0,0,.22);
+
+      color: var(--ivory);
+
+      font-size: 14px;
+
+      transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+    }
+
+    input::placeholder {
+      color: #53606c;
+    }
+
+    input:hover,
+    select:hover {
+      border-color:
+        rgba(241,236,224,.3);
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--gold);
+
+      background:
+        rgba(199,154,43,.025);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(199,154,43,.07);
+    }
+
+    select {
+      appearance: none;
+
+      cursor: pointer;
+
+      background-image:
+        linear-gradient(45deg, transparent 50%, #87919c 50%),
+        linear-gradient(135deg, #87919c 50%, transparent 50%);
+
+      background-position:
+        calc(100% - 19px) 21px,
+        calc(100% - 14px) 21px;
+
+      background-size:
+        5px 5px,
+        5px 5px;
+
+      background-repeat: no-repeat;
+    }
+
+    select option {
+      background: #0b1119;
+
+      color: var(--ivory);
+    }
+
+    .hint {
+      margin-top: 7px;
+
+      color: #5d6975;
+
+      font-size: 10px;
+
+      line-height: 1.5;
+    }
+
+    /* =====================================================
+       COMMITTEE CHOICES
+       ===================================================== */
+
+    .preference-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+    .preference-box {
+      padding: 18px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 9px;
+
+      background:
+        rgba(255,255,255,.012);
+    }
+
+    .preference-box .pref-number {
+      color: var(--gold);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 12px;
+    }
+
+    .preference-box select {
+      min-height: 52px;
+    }
+
+    /* =====================================================
+       COUNTRY PORTFOLIO
+       ===================================================== */
+
+    .country-note {
+      margin-bottom: 20px;
+
+      padding: 14px 16px;
+
+      border-left:
+        2px solid
+        var(--gold);
+
+      background:
+        rgba(199,154,43,.045);
+
+      color: #87929e;
+
+      font-size: 11px;
+
+      line-height: 1.7;
+    }
+
+    .country-note strong {
+      color: var(--ivory);
+
+      font-weight: 600;
+    }
+
+    /* =====================================================
+       SOURCE
+       ===================================================== */
+
+    .source-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 12px;
+    }
+
+    .source-option {
+      position: relative;
+    }
+
+    .source-option input {
+      position: absolute;
+
+      opacity: 0;
+
+      pointer-events: none;
+    }
+
+    .source-option label {
+      min-height: 53px;
+
+      margin: 0;
+
+      padding: 14px 16px;
+
+      display: flex;
+
+      align-items: center;
+
+      cursor: pointer;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 7px;
+
+      background:
+        rgba(255,255,255,.012);
+
+      color: #9ba5af;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 12px;
+
+      letter-spacing: 0;
+
+      transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease;
+    }
+
+    .source-option label:hover {
+      border-color:
+        rgba(241,236,224,.25);
+    }
+
+    .source-option input:checked + label {
+      border-color:
+        rgba(199,154,43,.55);
+
+      background:
+        rgba(199,154,43,.07);
+
+      color: var(--ivory);
+    }
+
+    #otherSourceWrap {
+      display: none;
+
+      margin-top: 15px;
+    }
+
+    /* =====================================================
+       CHECKBOXES
+       ===================================================== */
+
+    .confirmations {
+      display: flex;
+      flex-direction: column;
+
+      gap: 13px;
+    }
+
+    .check-row {
+      position: relative;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 12px;
+
+      padding: 15px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 8px;
+
+      background:
+        rgba(255,255,255,.012);
+
+      cursor: pointer;
+    }
+
+    .check-row input {
+      position: absolute;
+
+      opacity: 0;
+
+      pointer-events: none;
+    }
+
+    .fake-check {
+      flex: 0 0 auto;
+
+      width: 19px;
+      height: 19px;
+
+      margin-top: 1px;
+
+      border:
+        1px solid
+        #58636f;
+
+      border-radius: 4px;
+
+      transition:
+        background .2s ease,
+        border-color .2s ease;
+    }
+
+    .check-row input:checked + .fake-check {
+      border-color: var(--gold);
+
+      background:
+        var(--gold);
+
+      position: relative;
+    }
+
+    .check-row input:checked + .fake-check::after {
+      content: "";
+
+      position: absolute;
+
+      left: 5px;
+      top: 2px;
+
+      width: 6px;
+      height: 10px;
+
+      border:
+        solid #07090c;
+
+      border-width:
+        0
+        2px
+        2px
+        0;
+
+      transform: rotate(45deg);
+    }
+
+    .check-text {
+      color: #89949f;
+
+      font-size: 12px;
+
+      line-height: 1.65;
+    }
+
+    .check-text strong {
+      color: #c5ccd3;
+
+      font-weight: 600;
+    }
+
+    /* =====================================================
+       SUBMIT
+       ===================================================== */
+
+    .submit-area {
+      margin-top: 38px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+    .submit-note {
+      max-width: 510px;
+
+      color: #606c78;
+
+      font-size: 10px;
+
+      line-height: 1.7;
+    }
+
+    .submit-button {
+      flex: 0 0 auto;
+
+      min-width: 190px;
+
+      min-height: 53px;
+
+      padding: 14px 23px;
+
+      border: none;
+
+      border-radius: 6px;
+
+      background: var(--gold);
+
+      color: #07090c;
+
+      cursor: pointer;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
+
+      transition:
+        transform .25s ease,
+        background .25s ease,
+        opacity .25s ease;
+    }
+
+    .submit-button:hover {
+      background: var(--gold-light);
+
+      transform: translateY(-2px);
+    }
+
+    .submit-button:disabled {
+      opacity: .55;
+
+      cursor: not-allowed;
+
+      transform: none;
+    }
+
+    /* =====================================================
+       MESSAGE
+       ===================================================== */
+
+    .form-message {
+      display: none;
+
+      margin-top: 20px;
+
+      padding: 16px;
+
+      border-radius: 7px;
+
+      font-size: 12px;
+
+      line-height: 1.6;
+    }
+
+    .form-message.success {
+      display: block;
+
+      border:
+        1px solid
+        rgba(101,214,160,.25);
+
+      background:
+        rgba(101,214,160,.055);
+
+      color: #9ae2be;
+    }
+
+    .form-message.error {
+      display: block;
+
+      border:
+        1px solid
+        rgba(239,118,122,.25);
+
+      background:
+        rgba(239,118,122,.055);
+
+      color: #f0a2a5;
+    }
+
+    /* =====================================================
+       SUCCESS SCREEN
+       ===================================================== */
+
+    .success-screen {
+      display: none;
+
+      padding: 70px 40px;
+
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+
+      margin: 0 auto 25px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid
+        rgba(101,214,160,.35);
+
+      border-radius: 50%;
+
+      color: var(--success);
+
+      font-size: 25px;
+    }
+
+    .success-screen h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 42px;
+
+      font-weight: 500;
+    }
+
+    .success-screen p {
+      max-width: 580px;
+
+      margin: 15px auto 0;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+    .success-home {
+      display: inline-block;
+
+      margin-top: 28px;
+
+      padding: 14px 20px;
+
+      background: var(--gold);
+
+      color: #07090c;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      letter-spacing: 1.2px;
+
+      text-transform: uppercase;
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+      padding: 35px 24px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      width: min(
+        100%,
+        var(--max)
+      );
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
 
     .footer-logo {
       color: var(--gold);
@@ -1209,209 +1182,132 @@
       font-family: "Playfair Display", serif;
 
       font-size: 18px;
+
       letter-spacing: 3px;
     }
 
+    .footer-copy {
+      color: #596572;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      letter-spacing: 1px;
+    }
 
     /* =====================================================
        RESPONSIVE
        ===================================================== */
 
-    @media (max-width: 850px) {
+    @media (max-width: 800px) {
 
-      .nav-links {
-        display: none;
-      }
-
-
-      .hero {
-        padding-top: 65px;
-      }
-
-
-      .registration-grid {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-      }
-
-
-      .side-info {
-        position: static;
-      }
-
-
-      .side-line {
-        margin: 20px 0;
-      }
-
-
-      .side-meta {
-        grid-template-columns:
-          repeat(3, 1fr);
-      }
-
-    }
-
-
-    @media (max-width: 620px) {
-
-      .nav-inner {
-        width:
-          calc(100% - 30px);
-      }
-
-
-      .navbar {
-        height: 68px;
-      }
-
-
-      .brand-name {
-        font-size: 18px;
-      }
-
-
-      .hero,
-      .registration-wrap {
-        width:
-          calc(100% - 30px);
-      }
-
-
-      .hero {
-        padding:
-          55px
-          0
-          45px;
-      }
-
-
-      .hero h1 {
-        font-size: 54px;
-
-        letter-spacing: -2px;
-      }
-
-
-      .hero-description {
-        font-size: 14px;
-      }
-
-
-      .form-card {
-        padding: 22px 17px;
-      }
-
-
-      .fields {
+      .input-grid,
+      .preference-grid {
         grid-template-columns: 1fr;
       }
-
 
       .field.full {
         grid-column: auto;
       }
 
+      .submit-area {
+        align-items: flex-start;
 
-      .side-meta {
+        flex-direction: column;
+      }
+
+      .submit-button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .source-grid {
         grid-template-columns: 1fr;
       }
 
-
-      .section-heading {
-        gap: 12px;
-      }
-
-
-      .section-heading h3 {
-        font-size: 17px;
-      }
-
-
-      .lock-box {
-        padding:
-          38px
-          22px;
-      }
-
-
-      .lock-box h2 {
-        font-size: 31px;
-      }
-
-
-      .footer-inner {
-        flex-direction: column;
+      .form-top {
         align-items: flex-start;
+
+        flex-direction: column;
       }
 
+      .form-content {
+        padding: 30px 22px;
+      }
+
+      .form-top {
+        padding: 25px 22px;
+      }
+
+      .registration-closed {
+        padding: 45px 25px;
+      }
     }
 
+    @media (max-width: 520px) {
+
+      .nav-inner {
+        width: calc(100% - 30px);
+      }
+
+      .page-header,
+      .registration-wrap {
+        width: calc(100% - 30px);
+      }
+
+      .page-header {
+        padding:
+          55px
+          0
+          35px;
+      }
+
+      .page-header h1 {
+        font-size: 56px;
+
+        letter-spacing: -2.5px;
+      }
+
+      .page-header p {
+        font-size: 14px;
+      }
+
+      .registration-closed h2,
+      .success-screen h2 {
+        font-size: 34px;
+      }
+
+      .success-screen {
+        padding: 55px 25px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 
-
 <body>
 
-
   <!-- =====================================================
-       REGISTRATION LOCK
-       ===================================================== -->
-
-  <div
-    class="registration-lock"
-    id="registrationLock"
-  >
-
-    <div class="lock-box">
-
-      <div class="lock-symbol">
-        ◇
-      </div>
-
-      <div class="lock-kicker">
-        RELMUN '26 · DELEGATE REGISTRATION
-      </div>
-
-      <h2>
-        Registrations aren't open yet.
-      </h2>
-
-      <p>
-        Delegate registrations for RELMUN '26
-        officially open on
-        <strong>1 October 2026</strong>.
-      </p>
-
-      <div class="lock-date">
-        01 · 10 · 2026
-      </div>
-
-      <div
-        class="lock-countdown"
-        id="lockCountdown"
-      >
-        CALCULATING...
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =====================================================
-       NAVBAR
+       NAVIGATION
        ===================================================== -->
 
   <header class="navbar">
 
     <div class="nav-inner">
 
-      <a
-        href="index.html"
-        class="brand"
-      >
+      <a href="index.html" class="brand">
 
         <div class="brand-mark">
           <span>R</span>
@@ -1448,7 +1344,7 @@
 
         <a
           href="register.html"
-          class="nav-register"
+          class="nav-register active"
         >
           REGISTER
         </a>
@@ -1461,138 +1357,109 @@
 
 
   <!-- =====================================================
-       HERO
+       HEADER
        ===================================================== -->
 
   <main>
 
-    <section class="hero">
+    <section class="page-header">
 
       <div class="eyebrow">
-        Delegate Registration · 2026
+        RELMUN '26 · DELEGATE REGISTRATION
       </div>
 
       <h1>
-        Enter the room.<br>
-        <em>Make your mark.</em>
+        Take your<br>
+        <em>seat.</em>
       </h1>
 
-      <p class="hero-description">
-        Register for RELMUN '26 — a two-day online
-        Model United Nations conference built around
-        diplomacy, engagement and leadership.
+      <p>
+        Register to participate in RELMUN '26.
+        Delegate registrations officially open on
+        <strong>1 October 2026</strong>.
       </p>
-
-      <div class="open-status">
-
-        <span class="status-dot"></span>
-
-        REGISTRATIONS OPEN
-        <span id="openDateText">
-          1 OCTOBER 2026
-        </span>
-
-      </div>
 
     </section>
 
 
-    <!-- =================================================
-         REGISTRATION
-         ================================================= -->
+    <!-- ===================================================
+         FORM
+         =================================================== -->
 
     <section class="registration-wrap">
 
-      <div class="registration-grid">
+      <div class="form-shell">
 
 
-        <!-- SIDE INFORMATION -->
+        <!-- ===============================================
+             CLOSED MESSAGE
+             =============================================== -->
 
-        <aside class="side-info">
+        <div
+          class="registration-closed"
+          id="registrationClosed"
+        >
 
-          <div class="side-label">
-            Before you begin
+          <div class="closed-icon">
+            //
           </div>
 
           <h2>
-            Your delegate profile.
+            Registrations aren't open yet.
           </h2>
 
           <p>
-            Fill in your details carefully. Your
-            committee and portfolio preferences help
-            the Secretariat understand where you would
-            like to participate.
+            Delegate registrations for RELMUN '26
+            officially open on 1 October 2026.
+            Come back then to secure your place.
           </p>
 
-          <div class="side-line"></div>
+          <div class="opening-date">
+            OPENING · 01 OCTOBER 2026
+          </div>
 
-          <div class="side-meta">
+        </div>
 
-            <div class="meta-item">
 
-              <span>
-                Conference
-              </span>
+        <!-- ===============================================
+             REGISTRATION FORM
+             =============================================== -->
 
-              <strong>
+        <form
+          id="registrationForm"
+          novalidate
+        >
+
+
+          <div class="form-top">
+
+            <div>
+
+              <div class="form-top-label">
+                Delegate Registration
+              </div>
+
+              <div class="form-top-title">
                 RELMUN '26
-              </strong>
+              </div>
 
             </div>
 
-
-            <div class="meta-item">
-
-              <span>
-                Format
-              </span>
-
-              <strong>
-                Online
-              </strong>
-
-            </div>
-
-
-            <div class="meta-item">
-
-              <span>
-                Dates
-              </span>
-
-              <strong>
-                26–27 Dec 2026
-              </strong>
-
+            <div class="form-status">
+              ● Registration Form
             </div>
 
           </div>
 
-        </aside>
+
+          <div class="form-content">
 
 
-        <!-- FORM -->
+            <!-- ===========================================
+                 SECTION 01 — PERSONAL
+                 =========================================== -->
 
-        <div class="form-card">
-
-          <div
-            class="form-message"
-            id="formMessage"
-          ></div>
-
-
-          <form
-            id="registrationForm"
-            novalidate
-          >
-
-
-            <!-- =========================================
-                 SECTION 01
-                 ========================================= -->
-
-            <div class="form-section">
+            <section class="section">
 
               <div class="section-heading">
 
@@ -1602,12 +1469,12 @@
 
                 <div>
 
-                  <h3>
-                    Personal Information
-                  </h3>
+                  <h2>
+                    Personal Details
+                  </h2>
 
                   <p>
-                    Tell us who you are.
+                    Tell us how we can reach you.
                   </p>
 
                 </div>
@@ -1615,9 +1482,10 @@
               </div>
 
 
-              <div class="fields">
+              <div class="input-grid">
 
-                <div class="field full">
+
+                <div class="field">
 
                   <label for="fullName">
                     Full Name
@@ -1674,7 +1542,7 @@
                 </div>
 
 
-                <div class="field full">
+                <div class="field">
 
                   <label for="city">
                     Country / City
@@ -1685,27 +1553,24 @@
                     type="text"
                     id="city"
                     name="city"
-                    placeholder="e.g. India / Bengaluru"
+                    placeholder="e.g. Bengaluru, India"
+                    autocomplete="address-level2"
                     required
                   >
 
-                  <div class="field-note">
-                    Enter any country and city you are
-                    representing from.
-                  </div>
-
                 </div>
+
 
               </div>
 
-            </div>
+            </section>
 
 
-            <!-- =========================================
-                 SECTION 02
-                 ========================================= -->
+            <!-- ===========================================
+                 SECTION 02 — EXPERIENCE
+                 =========================================== -->
 
-            <div class="form-section">
+            <section class="section">
 
               <div class="section-heading">
 
@@ -1715,12 +1580,13 @@
 
                 <div>
 
-                  <h3>
+                  <h2>
                     MUN Experience
-                  </h3>
+                  </h2>
 
                   <p>
-                    A little about your previous conferences.
+                    Your experience helps us understand
+                    your delegate background.
                   </p>
 
                 </div>
@@ -1728,9 +1594,9 @@
               </div>
 
 
-              <div class="fields">
+              <div class="input-grid">
 
-                <div class="field full">
+                <div class="field">
 
                   <label for="munExperience">
                     How many MUNs have you attended?
@@ -1741,27 +1607,27 @@
                     type="text"
                     id="munExperience"
                     name="munExperience"
-                    placeholder="e.g. 5 — or type '-' if none"
+                    placeholder='Enter a number, or "-" if none'
                     required
                   >
 
-                  <div class="field-note">
+                  <div class="hint">
                     If you have never attended an MUN,
-                    simply type "-".
+                    type "-".
                   </div>
 
                 </div>
 
               </div>
 
-            </div>
+            </section>
 
 
-            <!-- =========================================
-                 SECTION 03
-                 ========================================= -->
+            <!-- ===========================================
+                 SECTION 03 — COMMITTEE
+                 =========================================== -->
 
-            <div class="form-section">
+            <section class="section">
 
               <div class="section-heading">
 
@@ -1771,13 +1637,13 @@
 
                 <div>
 
-                  <h3>
-                    Committee & Portfolio Preferences
-                  </h3>
+                  <h2>
+                    Committee Preferences
+                  </h2>
 
                   <p>
-                    Choose your preferred committees and
-                    portfolios.
+                    Select your preferred committees
+                    in order of preference.
                   </p>
 
                 </div>
@@ -1785,145 +1651,130 @@
               </div>
 
 
-              <div class="fields">
+              <div class="preference-grid">
 
 
-                <!-- COMMITTEE 1 -->
+                <div class="preference-box">
 
-                <div class="field full preference">
-
-                  <label for="committee1">
-                    First Committee Preference
-                    <span class="required">*</span>
-                  </label>
-
-                  <span class="preference-badge">
-                    01
-                  </span>
-
-                  <input
-                    type="text"
-                    id="committee1"
-                    name="committee1"
-                    placeholder="Enter your first committee preference"
-                    required
-                  >
-
-                </div>
-
-
-                <!-- COMMITTEE 2 -->
-
-                <div class="field full preference">
-
-                  <label for="committee2">
-                    Second Committee Preference
-                    <span class="required">*</span>
-                  </label>
-
-                  <span class="preference-badge">
-                    02
-                  </span>
-
-                  <input
-                    type="text"
-                    id="committee2"
-                    name="committee2"
-                    placeholder="Enter your second committee preference"
-                    required
-                  >
-
-                </div>
-
-
-                <!-- COMMITTEE 3 -->
-
-                <div class="field full preference">
-
-                  <label for="committee3">
-                    Third Committee Preference
-                    <span class="required">*</span>
-                  </label>
-
-                  <span class="preference-badge">
-                    03
-                  </span>
-
-                  <input
-                    type="text"
-                    id="committee3"
-                    name="committee3"
-                    placeholder="Enter your third committee preference"
-                    required
-                  >
-
-                </div>
-
-
-                <!-- PORTFOLIOS -->
-
-                <div class="field">
-
-                  <label for="portfolio1">
-                    First Portfolio Preference
-                  </label>
-
-                  <input
-                    type="text"
-                    id="portfolio1"
-                    name="portfolio1"
-                    placeholder="Enter preferred country / portfolio"
-                  >
-
-                </div>
-
-
-                <div class="field">
-
-                  <label for="portfolio2">
-                    Second Portfolio Preference
-                  </label>
-
-                  <input
-                    type="text"
-                    id="portfolio2"
-                    name="portfolio2"
-                    placeholder="Enter preferred country / portfolio"
-                  >
-
-                </div>
-
-
-                <div class="field full">
-
-                  <label for="portfolio3">
-                    Third Portfolio Preference
-                  </label>
-
-                  <input
-                    type="text"
-                    id="portfolio3"
-                    name="portfolio3"
-                    placeholder="Enter preferred country / portfolio"
-                  >
-
-                  <div class="field-note">
-                    Portfolio options will be finalized by
-                    the Secretariat later.
+                  <div class="pref-number">
+                    First Preference
                   </div>
 
+                  <select
+                    id="committee1"
+                    name="committee1"
+                    required
+                  >
+
+                    <option
+                      value=""
+                      selected
+                      disabled
+                    >
+                      Select committee
+                    </option>
+
+                    <option value="UNSC">
+                      United Nations Security Council
+                    </option>
+
+                    <option value="UNHRC">
+                      United Nations Human Rights Council
+                    </option>
+
+                    <option value="UNODC">
+                      United Nations Office on Drugs and Crime
+                    </option>
+
+                  </select>
+
                 </div>
+
+
+                <div class="preference-box">
+
+                  <div class="pref-number">
+                    Second Preference
+                  </div>
+
+                  <select
+                    id="committee2"
+                    name="committee2"
+                    required
+                  >
+
+                    <option
+                      value=""
+                      selected
+                      disabled
+                    >
+                      Select committee
+                    </option>
+
+                    <option value="UNSC">
+                      United Nations Security Council
+                    </option>
+
+                    <option value="UNHRC">
+                      United Nations Human Rights Council
+                    </option>
+
+                    <option value="UNODC">
+                      United Nations Office on Drugs and Crime
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="preference-box">
+
+                  <div class="pref-number">
+                    Third Preference
+                  </div>
+
+                  <select
+                    id="committee3"
+                    name="committee3"
+                    required
+                  >
+
+                    <option
+                      value=""
+                      selected
+                      disabled
+                    >
+                      Select committee
+                    </option>
+
+                    <option value="UNSC">
+                      United Nations Security Council
+                    </option>
+
+                    <option value="UNHRC">
+                      United Nations Human Rights Council
+                    </option>
+
+                    <option value="UNODC">
+                      United Nations Office on Drugs and Crime
+                    </option>
+
+                  </select>
+
+                </div>
+
 
               </div>
 
-            </div>
+            </section>
 
 
-            <!-- =========================================
-                 SECTION 04
-                 ========================================= -->
+            <!-- ===========================================
+                 SECTION 04 — PORTFOLIO
+                 =========================================== -->
 
-            <div class="form-section">
+            <section class="section">
 
               <div class="section-heading">
 
@@ -1933,12 +1784,13 @@
 
                 <div>
 
-                  <h3>
-                    Registration Details
-                  </h3>
+                  <h2>
+                    Portfolio Preferences
+                  </h2>
 
                   <p>
-                    Help us understand how you found us.
+                    You may enter any country / portfolio
+                    you wish to be considered for.
                   </p>
 
                 </div>
@@ -1946,95 +1798,82 @@
               </div>
 
 
-              <div class="fields">
+              <div class="country-note">
+                <strong>Portfolio selection:</strong>
+                Type the country or portfolio you would
+                like to represent. Portfolio allotments are
+                subject to availability and Secretariat
+                discretion.
+              </div>
 
-                <div class="field full">
 
-                  <label for="source">
-                    How did you hear about RELMUN '26?
+              <div class="input-grid">
+
+
+                <div class="field">
+
+                  <label for="portfolio1">
+                    First Portfolio Preference
                     <span class="required">*</span>
-                  </label>
-
-                  <select
-                    id="source"
-                    name="source"
-                    required
-                  >
-
-                    <option
-                      value=""
-                      selected
-                      disabled
-                    >
-                      Select an option
-                    </option>
-
-                    <option value="Instagram">
-                      Instagram
-                    </option>
-
-                    <option value="MyMUN">
-                      MyMUN
-                    </option>
-
-                    <option value="Gavelling">
-                      Gavelling
-                    </option>
-
-                    <option value="WhatsApp">
-                      WhatsApp
-                    </option>
-
-                    <option value="Friend / Delegate">
-                      Friend / Delegate
-                    </option>
-
-                    <option value="School">
-                      School
-                    </option>
-
-                    <option value="Google">
-                      Google / Search
-                    </option>
-
-                    <option value="Other">
-                      Other
-                    </option>
-
-                  </select>
-
-                </div>
-
-
-                <div
-                  class="field full"
-                  id="otherSourceField"
-                  style="display:none;"
-                >
-
-                  <label for="otherSource">
-                    Other
                   </label>
 
                   <input
                     type="text"
-                    id="otherSource"
-                    name="otherSource"
-                    placeholder="Tell us how you heard about RELMUN"
+                    id="portfolio1"
+                    name="portfolio1"
+                    placeholder="Enter any country / portfolio"
+                    required
                   >
 
                 </div>
 
+
+                <div class="field">
+
+                  <label for="portfolio2">
+                    Second Portfolio Preference
+                    <span class="required">*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="portfolio2"
+                    name="portfolio2"
+                    placeholder="Enter any country / portfolio"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="field">
+
+                  <label for="portfolio3">
+                    Third Portfolio Preference
+                    <span class="required">*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="portfolio3"
+                    name="portfolio3"
+                    placeholder="Enter any country / portfolio"
+                    required
+                  >
+
+                </div>
+
+
               </div>
 
-            </div>
+            </section>
 
 
-            <!-- =========================================
-                 SECTION 05
-                 ========================================= -->
+            <!-- ===========================================
+                 SECTION 05 — SOURCE
+                 =========================================== -->
 
-            <div class="form-section">
+            <section class="section">
 
               <div class="section-heading">
 
@@ -2044,13 +1883,183 @@
 
                 <div>
 
-                  <h3>
+                  <h2>
+                    Registration
+                  </h2>
+
+                  <p>
+                    One final detail before submission.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="field">
+
+                <label>
+                  How did you hear about RELMUN '26?
+                  <span class="required">*</span>
+                </label>
+
+
+                <div class="source-grid">
+
+
+                  <div class="source-option">
+
+                    <input
+                      type="radio"
+                      id="sourceInstagram"
+                      name="source"
+                      value="Instagram"
+                      required
+                    >
+
+                    <label for="sourceInstagram">
+                      Instagram
+                    </label>
+
+                  </div>
+
+
+                  <div class="source-option">
+
+                    <input
+                      type="radio"
+                      id="sourceWhatsApp"
+                      name="source"
+                      value="WhatsApp"
+                    >
+
+                    <label for="sourceWhatsApp">
+                      WhatsApp
+                    </label>
+
+                  </div>
+
+
+                  <div class="source-option">
+
+                    <input
+                      type="radio"
+                      id="sourceFriend"
+                      name="source"
+                      value="Friend / Delegate"
+                    >
+
+                    <label for="sourceFriend">
+                      Friend / Delegate
+                    </label>
+
+                  </div>
+
+
+                  <div class="source-option">
+
+                    <input
+                      type="radio"
+                      id="sourceSchool"
+                      name="source"
+                      value="School / MUN"
+                    >
+
+                    <label for="sourceSchool">
+                      School / MUN
+                    </label>
+
+                  </div>
+
+
+                  <div class="source-option">
+
+                    <input
+                      type="radio"
+                      id="sourceMyMUN"
+                      name="source"
+                      value="MyMUN"
+                    >
+
+                    <label for="sourceMyMUN">
+                      MyMUN
+                    </label>
+
+                  </div>
+
+
+                  <div class="source-option">
+
+                    <input
+                      type="radio"
+                      id="sourceGavelling"
+                      name="source"
+                      value="Gavelling"
+                    >
+
+                    <label for="sourceGavelling">
+                      Gavelling
+                    </label>
+
+                  </div>
+
+
+                  <div class="source-option">
+
+                    <input
+                      type="radio"
+                      id="sourceOther"
+                      name="source"
+                      value="Other"
+                    >
+
+                    <label for="sourceOther">
+                      Other
+                    </label>
+
+                  </div>
+
+
+                </div>
+
+
+                <div id="otherSourceWrap">
+
+                  <input
+                    type="text"
+                    id="otherSource"
+                    name="otherSource"
+                    placeholder="Tell us where you heard about RELMUN"
+                  >
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- ===========================================
+                 SECTION 06 — CONFIRMATION
+                 =========================================== -->
+
+            <section class="section">
+
+              <div class="section-heading">
+
+                <div class="section-number">
+                  06
+                </div>
+
+                <div>
+
+                  <h2>
                     Confirmation
-                  </h3>
+                  </h2>
 
                   <p>
                     Please confirm the following before
-                    submitting.
+                    submitting your registration.
                   </p>
 
                 </div>
@@ -2065,16 +2074,15 @@
 
                   <input
                     type="checkbox"
-                    name="confirmAccuracy"
-                    id="confirmAccuracy"
+                    id="confirmAccurate"
                     required
                   >
 
-                  <span class="check-box"></span>
+                  <span class="fake-check"></span>
 
                   <span class="check-text">
-                    I confirm that the information provided
-                    above is <strong>accurate and complete</strong>.
+                    I confirm that the information
+                    provided above is accurate.
                   </span>
 
                 </label>
@@ -2084,18 +2092,17 @@
 
                   <input
                     type="checkbox"
-                    name="confirmAllotment"
                     id="confirmAllotment"
                     required
                   >
 
-                  <span class="check-box"></span>
+                  <span class="fake-check"></span>
 
                   <span class="check-text">
-                    I understand that committee and portfolio
-                    allotments are subject to
-                    <strong>availability and the decision of
-                    the Secretariat</strong>.
+                    I understand that committee and
+                    portfolio allotments are subject to
+                    availability and the decision of the
+                    Secretariat.
                   </span>
 
                 </label>
@@ -2105,27 +2112,33 @@
 
                   <input
                     type="checkbox"
-                    name="confirmROP"
-                    id="confirmROP"
+                    id="confirmRules"
                     required
                   >
 
-                  <span class="check-box"></span>
+                  <span class="fake-check"></span>
 
                   <span class="check-text">
                     I agree to abide by the
-                    <strong>Rules of Procedure and Code of
-                    Conduct of RELMUN '26</strong>.
+                    <strong>Rules of Procedure</strong>
+                    and
+                    <strong>Code of Conduct</strong>
+                    of RELMUN '26.
                   </span>
 
                 </label>
 
+
               </div>
 
 
-              <!-- SUBMIT -->
-
               <div class="submit-area">
+
+                <div class="submit-note">
+                  By submitting this form, your registration
+                  details will be securely sent to the RELMUN
+                  Secretariat for processing.
+                </div>
 
                 <button
                   type="submit"
@@ -2135,20 +2148,57 @@
                   Submit Registration
                 </button>
 
-                <div class="submit-note">
-                  By submitting this form, your information
-                  will be securely sent to the RELMUN
-                  Secretariat.
-                </div>
-
               </div>
 
-            </div>
+
+              <div
+                class="form-message"
+                id="formMessage"
+              ></div>
 
 
-          </form>
+            </section>
+
+
+          </div>
+
+        </form>
+
+
+        <!-- ===============================================
+             SUCCESS
+             =============================================== -->
+
+        <div
+          class="success-screen"
+          id="successScreen"
+        >
+
+          <div class="success-icon">
+            ✓
+          </div>
+
+          <h2>
+            Registration received.
+          </h2>
+
+          <p>
+            Your RELMUN '26 delegate registration has
+            been submitted successfully. The Secretariat
+            will process your preferences and communicate
+            further details through the contact information
+            provided.
+          </p>
+
+          <a
+            href="index.html"
+            class="success-home"
+          >
+            Return Home
+          </a>
 
         </div>
+
 
       </div>
 
@@ -2186,35 +2236,35 @@
 
   <script>
 
-    /* =====================================================
-       CONFIGURATION
-       ===================================================== */
+    /*
+     * RELMUN '26
+     * Google Apps Script Web App
+     */
 
-    const APPS_SCRIPT_URL =
+    const SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
 
 
-    const REGISTRATION_OPEN =
-      new Date("2026-10-01T00:00:00+05:30");
+    /*
+     * Registration opening date
+     *
+     * 1 October 2026
+     *
+     * Uses the visitor's local browser date.
+     */
+
+    const REGISTRATION_OPEN_DATE =
+      new Date("2026-10-01T00:00:00");
 
 
-    /* =====================================================
-       ELEMENTS
-       ===================================================== */
-
-    const registrationLock =
-      document.getElementById(
-        "registrationLock"
-      );
-
-    const lockCountdown =
-      document.getElementById(
-        "lockCountdown"
-      );
-
-    const form =
+    const registrationForm =
       document.getElementById(
         "registrationForm"
+      );
+
+    const registrationClosed =
+      document.getElementById(
+        "registrationClosed"
       );
 
     const submitButton =
@@ -2227,243 +2277,218 @@
         "formMessage"
       );
 
-    const source =
+    const successScreen =
       document.getElementById(
-        "source"
+        "successScreen"
       );
 
-    const otherSourceField =
+    const otherSourceWrap =
       document.getElementById(
-        "otherSourceField"
+        "otherSourceWrap"
+      );
+
+    const otherSource =
+      document.getElementById(
+        "otherSource"
       );
 
 
-    /* =====================================================
-       REGISTRATION STATUS
-       ===================================================== */
+    /*
+     * Check registration status.
+     */
 
-    function registrationsOpen() {
+    function checkRegistrationStatus() {
 
-      return new Date() >=
-        REGISTRATION_OPEN;
+      const now = new Date();
 
+      if (now < REGISTRATION_OPEN_DATE) {
+
+        registrationForm.style.display =
+          "none";
+
+        registrationClosed.style.display =
+          "block";
+
+        return false;
+      }
+
+      registrationForm.style.display =
+        "block";
+
+      registrationClosed.style.display =
+        "none";
+
+      return true;
     }
 
 
-    function updateRegistrationStatus() {
+    /*
+     * Initial check.
+     */
 
-      if (registrationsOpen()) {
-
-        registrationLock
-          .classList.add("hidden");
-
-        submitButton.disabled =
-          false;
-
-        return;
-
-      }
+    checkRegistrationStatus();
 
 
-      registrationLock
-        .classList.remove("hidden");
+    /*
+     * Other source field.
+     */
 
-      submitButton.disabled =
-        true;
+    document
+      .querySelectorAll(
+        'input[name="source"]'
+      )
+      .forEach(function(radio) {
 
-    }
+        radio.addEventListener(
+          "change",
+          function() {
 
+            if (
+              this.value === "Other"
+            ) {
 
-    /* =====================================================
-       COUNTDOWN
-       ===================================================== */
+              otherSourceWrap.style.display =
+                "block";
 
-    function updateLockCountdown() {
+              otherSource.required = true;
 
-      if (registrationsOpen()) {
+            } else {
 
-        lockCountdown.textContent =
-          "REGISTRATIONS ARE NOW OPEN";
+              otherSourceWrap.style.display =
+                "none";
 
-        updateRegistrationStatus();
+              otherSource.required = false;
 
-        return;
+              otherSource.value = "";
 
-      }
+            }
 
-
-      const now =
-        new Date();
-
-      let difference =
-        REGISTRATION_OPEN -
-        now;
-
-
-      const days =
-        Math.floor(
-          difference /
-          (1000 * 60 * 60 * 24)
+          }
         );
 
-
-      difference %=
-        1000 * 60 * 60 * 24;
-
-
-      const hours =
-        Math.floor(
-          difference /
-          (1000 * 60 * 60)
-        );
-
-
-      difference %=
-        1000 * 60 * 60;
-
-
-      const minutes =
-        Math.floor(
-          difference /
-          (1000 * 60)
-        );
-
-
-      const seconds =
-        Math.floor(
-          (difference %
-            (1000 * 60)) /
-          1000
-        );
-
-
-      lockCountdown.textContent =
-        `${days} DAYS · ` +
-        `${String(hours).padStart(2, "0")} HRS · ` +
-        `${String(minutes).padStart(2, "0")} MIN · ` +
-        `${String(seconds).padStart(2, "0")} SEC`;
-
-    }
-
-
-    updateRegistrationStatus();
-
-    updateLockCountdown();
-
-    setInterval(
-      updateLockCountdown,
-      1000
-    );
-
-
-    /* =====================================================
-       OTHER SOURCE
-       ===================================================== */
-
-    source.addEventListener(
-      "change",
-      () => {
-
-        if (
-          source.value === "Other"
-        ) {
-
-          otherSourceField.style.display =
-            "flex";
-
-        } else {
-
-          otherSourceField.style.display =
-            "none";
-
-        }
-
-      }
-    );
-
-
-    /* =====================================================
-       MESSAGE
-       ===================================================== */
-
-    function showMessage(
-      message,
-      type
-    ) {
-
-      formMessage.textContent =
-        message;
-
-      formMessage.className =
-        "form-message show " +
-        type;
-
-      window.scrollTo({
-        top:
-          formMessage.getBoundingClientRect()
-            .top +
-          window.scrollY -
-          110,
-        behavior: "smooth"
       });
 
-    }
 
+    /*
+     * Submit registration.
+     */
 
-    /* =====================================================
-       FORM SUBMISSION
-       ===================================================== */
-
-    form.addEventListener(
+    registrationForm.addEventListener(
       "submit",
-      async (event) => {
+      async function(event) {
 
         event.preventDefault();
 
 
-        /* -----------------------------------------------
-           HARD DATE CHECK
-           ----------------------------------------------- */
+        /*
+         * Never allow submission before
+         * 1 October 2026.
+         */
 
-        if (
-          !registrationsOpen()
-        ) {
-
-          updateRegistrationStatus();
-
-          showMessage(
-            "Registrations open on 1 October 2026.",
-            "error"
-          );
+        if (!checkRegistrationStatus()) {
 
           return;
-
         }
 
 
-        /* -----------------------------------------------
-           BROWSER VALIDATION
-           ----------------------------------------------- */
+        /*
+         * Browser validation.
+         */
 
         if (
-          !form.checkValidity()
+          !registrationForm.checkValidity()
         ) {
 
-          form.reportValidity();
-
-          showMessage(
-            "Please complete all required fields before submitting.",
-            "error"
-          );
+          registrationForm.reportValidity();
 
           return;
-
         }
 
 
-        /* -----------------------------------------------
-           COLLECT DATA
-           ----------------------------------------------- */
+        /*
+         * Prevent duplicate clicks.
+         */
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+          "Submitting...";
+
+        formMessage.className =
+          "form-message";
+
+        formMessage.textContent =
+          "";
+
+
+        /*
+         * Read committee values.
+         */
+
+        const committee1 =
+          document.getElementById(
+            "committee1"
+          ).value;
+
+        const committee2 =
+          document.getElementById(
+            "committee2"
+          ).value;
+
+        const committee3 =
+          document.getElementById(
+            "committee3"
+          ).value;
+
+
+        /*
+         * Prevent the same committee
+         * being selected multiple times.
+         */
+
+        const committees = [
+          committee1,
+          committee2,
+          committee3
+        ];
+
+
+        const uniqueCommittees =
+          new Set(committees);
+
+
+        if (
+          uniqueCommittees.size !== 3
+        ) {
+
+          formMessage.className =
+            "form-message error";
+
+          formMessage.textContent =
+            "Please select three different committee preferences.";
+
+          submitButton.disabled = false;
+
+          submitButton.textContent =
+            "Submit Registration";
+
+          return;
+        }
+
+
+        /*
+         * Source.
+         */
+
+        const selectedSource =
+          document.querySelector(
+            'input[name="source"]:checked'
+          );
+
+
+        /*
+         * Build payload.
+         */
 
         const data = {
 
@@ -2493,19 +2518,13 @@
             ).value.trim(),
 
           committee1:
-            document.getElementById(
-              "committee1"
-            ).value.trim(),
+            committee1,
 
           committee2:
-            document.getElementById(
-              "committee2"
-            ).value.trim(),
+            committee2,
 
           committee3:
-            document.getElementById(
-              "committee3"
-            ).value.trim(),
+            committee3,
 
           portfolio1:
             document.getElementById(
@@ -2523,50 +2542,32 @@
             ).value.trim(),
 
           source:
-            document.getElementById(
-              "source"
-            ).value,
+            selectedSource
+              ? selectedSource.value
+              : "",
 
           otherSource:
-            document.getElementById(
-              "otherSource"
-            ).value.trim()
+            otherSource.value.trim()
 
         };
-
-
-        /* -----------------------------------------------
-           SUBMIT STATE
-           ----------------------------------------------- */
-
-        submitButton.disabled =
-          true;
-
-        submitButton.textContent =
-          "Submitting Registration…";
-
-        formMessage.className =
-          "form-message";
 
 
         try {
 
           /*
-           * IMPORTANT:
-           *
-           * Do NOT set Content-Type to
-           * application/json here.
-           *
-           * Apps Script can receive the JSON body
-           * through e.postData.contents while avoiding
-           * an unnecessary CORS preflight.
+           * Send to Google Apps Script.
            */
 
           const response =
             await fetch(
-              APPS_SCRIPT_URL,
+              SCRIPT_URL,
               {
                 method: "POST",
+
+                headers: {
+                  "Content-Type":
+                    "text/plain;charset=utf-8"
+                },
 
                 body:
                   JSON.stringify(data)
@@ -2574,59 +2575,52 @@
             );
 
 
+          /*
+           * Apps Script returns JSON.
+           */
+
           const result =
             await response.json();
 
 
           if (
             result &&
-            result.success
+            result.success === true
           ) {
 
-            showMessage(
-              "Registration submitted successfully. The RELMUN Secretariat has received your details.",
-              "success"
-            );
-
-
-            form.reset();
-
-
-            otherSourceField.style.display =
+            registrationForm.style.display =
               "none";
 
+            successScreen.style.display =
+              "block";
 
-            submitButton.disabled =
-              false;
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
 
-            submitButton.textContent =
-              "Registration Submitted";
-
-          } else {
-
-            throw new Error(
-              result?.error ||
-              "The registration could not be submitted."
-            );
-
+            return;
           }
+
+
+          throw new Error(
+            result && result.error
+              ? result.error
+              : "Registration could not be submitted."
+          );
+
 
         } catch (error) {
 
-          console.error(
-            "Registration error:",
-            error
-          );
+          console.error(error);
 
+          formMessage.className =
+            "form-message error";
 
-          showMessage(
-            "Something went wrong while submitting your registration. Please try again.",
-            "error"
-          );
+          formMessage.textContent =
+            "Something went wrong while submitting your registration. Please check your connection and try again.";
 
-
-          submitButton.disabled =
-            false;
+          submitButton.disabled = false;
 
           submitButton.textContent =
             "Submit Registration";
@@ -2636,29 +2630,7 @@
       }
     );
 
-
-    /* =====================================================
-       PROTECT AGAINST DATE MANIPULATION / STALE PAGE
-       ===================================================== */
-
-    setInterval(
-      () => {
-
-        if (
-          !registrationsOpen()
-        ) {
-
-          submitButton.disabled =
-            true;
-
-        }
-
-      },
-      5000
-    );
-
   </script>
-
 
 </body>
 </html>
