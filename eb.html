@@ -1,864 +1,495 @@
-```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Executive Board and Organizing Committee of RELMUN 2026."
-    >
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <meta name="theme-color" content="#080808">
+<title>Team & Executive Board — RELMUN 2026</title>
 
-    <title>Team — RELMUN 2026</title>
+<link rel="icon" href="relmun-logo.png" type="image/png">
+<link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
-
 <header class="site-header">
 
-    <nav class="navbar container" aria-label="Main navigation">
+<nav class="navbar container">
 
-        <a
-            href="index.html"
-            class="nav-brand"
-            aria-label="RELMUN 2026 Home"
-        >
-            <span
-                style="
-                    color:#F1ECE0;
-                    font-family:'Space Grotesk',sans-serif;
-                    font-size:22px;
-                    font-weight:700;
-                    letter-spacing:-0.06em;
-                "
-            >
-                RELMUN<span style="color:#1846FF;">26</span>
-            </span>
-        </a>
+<a class="nav-logo" href="index.html">
+<img src="relmun-logo.png" alt="RELMUN 2026">
+</a>
 
+<button
+class="menu-toggle"
+id="menuToggle"
+aria-label="Open menu"
+aria-expanded="false"
+>
+<span></span>
+<span></span>
+<span></span>
+</button>
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-            aria-controls="navLinks"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+<div class="nav-links" id="navLinks">
 
+<a class="nav-link" href="index.html">
+Home
+</a>
 
-        <div class="nav-links" id="navLinks">
+<a class="nav-link" href="committees.html">
+Committees
+</a>
 
-            <a
-                href="index.html"
-                class="nav-link"
-            >
-                Home
-            </a>
+<a class="nav-link active" href="eb.html">
+Executive Board
+</a>
 
-            <a
-                href="committees.html"
-                class="nav-link"
-            >
-                Committees
-            </a>
+<a class="nav-link" href="register.html">
+Register
+</a>
 
-            <a
-                href="eb.html"
-                class="nav-link active"
-            >
-                Executive Board
-            </a>
+<a class="nav-link" href="faq.html">
+FAQ
+</a>
 
-            <a
-                href="register.html"
-                class="nav-link"
-            >
-                Register
-            </a>
+<a class="nav-register" href="register.html">
+REGISTER
+</a>
 
-            <a
-                href="faq.html"
-                class="nav-link"
-            >
-                FAQ
-            </a>
+</div>
 
-            <a
-                href="register.html"
-                class="nav-register"
-            >
-                REGISTER
-            </a>
-
-        </div>
-
-    </nav>
+</nav>
 
 </header>
 
 
-<!-- =========================================================
-     MAIN
-     ========================================================= -->
-
 <main>
 
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
-
-    <section class="page-hero">
-
-        <div class="container">
-
-            <span class="eyebrow">
-                RELMUN / 2026 / TEAM
-            </span>
-
-            <h1 class="page-title">
-                The people
-                <span style="color:#1846FF;">
-                    behind RELMUN.
-                </span>
-            </h1>
-
-            <p class="page-lead">
-                Meet the Executive Board and Organizing Committee
-                working behind the scenes to bring RELMUN 2026
-                together.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         EXECUTIVE BOARD
-         ===================================================== -->
-
-    <section class="section">
-
-        <div class="container">
-
-            <div style="margin-bottom:40px;">
-
-                <span class="eyebrow">
-                    01 / EXECUTIVE BOARD
-                </span>
-
-                <h2
-                    style="
-                        margin:0 0 15px;
-                        color:#F1ECE0;
-                        font-family:'Space Grotesk',sans-serif;
-                        font-size:clamp(34px,5vw,58px);
-                        line-height:.98;
-                        letter-spacing:-.055em;
-                    "
-                >
-                    Executive
-                    <span style="color:#1846FF;">
-                        Board
-                    </span>
-                </h2>
-
-                <p
-                    style="
-                        max-width:650px;
-                        margin:0;
-                        color:rgba(241,236,224,.56);
-                        font-size:14px;
-                        line-height:1.8;
-                    "
-                >
-                    The Executive Board will guide committee
-                    proceedings, moderate debate and ensure that
-                    delegates experience a structured and engaging
-                    conference.
-                </p>
-
-            </div>
-
-
-            <!-- =================================================
-                 EB MEMBERS
-                 
-                 IMPORTANT:
-                 Keep the existing EB members from the project here.
-                 Do not put Aashi or Madhav in this section.
-                 ================================================= -->
-
-            <div
-                id="executiveBoardGrid"
-                style="
-                    display:grid;
-                    grid-template-columns:repeat(3,minmax(0,1fr));
-                    gap:18px;
-                "
-            >
-
-                <!--
-                    Existing Executive Board members belong here.
-
-                    The previous version of this page incorrectly
-                    removed existing members. Their exact names,
-                    positions and committee assignments should be
-                    retained from the existing project.
-
-                    This empty state is intentional rather than
-                    inventing people or positions.
-                -->
-
-                <div
-                    id="ebEmptyState"
-                    style="
-                        grid-column:1/-1;
-                        padding:45px;
-                        background:#0D0D0D;
-                        border:1px solid rgba(241,236,224,.12);
-                    "
-                >
-
-                    <span class="eyebrow">
-                        EXECUTIVE BOARD
-                    </span>
-
-                    <p
-                        style="
-                            max-width:650px;
-                            margin:0;
-                            color:rgba(241,236,224,.52);
-                            font-size:14px;
-                            line-height:1.8;
-                        "
-                    >
-                        Executive Board profiles will appear here
-                        using the existing RELMUN team information.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         ORGANIZING COMMITTEE
-         ===================================================== -->
-
-    <section
-        class="section"
-        style="
-            padding-top:20px;
-        "
-    >
-
-        <div class="container">
-
-            <div style="margin-bottom:40px;">
-
-                <span class="eyebrow">
-                    02 / ORGANIZING COMMITTEE
-                </span>
-
-                <h2
-                    style="
-                        margin:0 0 15px;
-                        color:#F1ECE0;
-                        font-family:'Space Grotesk',sans-serif;
-                        font-size:clamp(34px,5vw,58px);
-                        line-height:.98;
-                        letter-spacing:-.055em;
-                    "
-                >
-                    Organizing
-                    <span style="color:#C79A2B;">
-                        Committee
-                    </span>
-                </h2>
-
-                <p
-                    style="
-                        max-width:650px;
-                        margin:0;
-                        color:rgba(241,236,224,.56);
-                        font-size:14px;
-                        line-height:1.8;
-                    "
-                >
-                    The organizing team handles the planning,
-                    delegate experience, coordination and operations
-                    that keep RELMUN moving.
-                </p>
-
-            </div>
-
-
-            <div
-                style="
-                    display:grid;
-                    grid-template-columns:repeat(3,minmax(0,1fr));
-                    gap:18px;
-                "
-            >
-
-                <!-- =================================================
-                     AASHI
-                     ================================================= -->
-
-                <article
-                    class="team-card"
-                    style="
-                        position:relative;
-                        min-height:290px;
-                        padding:30px;
-                        background:#0D0D0D;
-                        border:1px solid rgba(241,236,224,.12);
-                        overflow:hidden;
-                    "
-                >
-
-                    <div
-                        style="
-                            position:absolute;
-                            top:0;
-                            right:0;
-                            width:90px;
-                            height:90px;
-                            border-top:1px solid rgba(199,154,43,.7);
-                            border-right:1px solid rgba(199,154,43,.7);
-                        "
-                    ></div>
-
-
-                    <div
-                        style="
-                            width:62px;
-                            height:62px;
-                            display:flex;
-                            align-items:center;
-                            justify-content:center;
-                            margin-bottom:45px;
-                            border:1px solid rgba(199,154,43,.45);
-                            color:#C79A2B;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:19px;
-                            font-weight:700;
-                        "
-                    >
-                        AK
-                    </div>
-
-
-                    <span
-                        style="
-                            display:block;
-                            margin-bottom:9px;
-                            color:#C79A2B;
-                            font-size:9px;
-                            font-weight:700;
-                            letter-spacing:.15em;
-                            text-transform:uppercase;
-                        "
-                    >
-                        Chief Advisor
-                    </span>
-
-
-                    <h3
-                        style="
-                            margin:0;
-                            color:#F1ECE0;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:25px;
-                            line-height:1.1;
-                            letter-spacing:-.035em;
-                        "
-                    >
-                        Aashi Kushwaha
-                    </h3>
-
-                </article>
-
-
-                <!-- =================================================
-                     MADHAV
-                     ================================================= -->
-
-                <article
-                    class="team-card"
-                    style="
-                        position:relative;
-                        min-height:290px;
-                        padding:30px;
-                        background:#0D0D0D;
-                        border:1px solid rgba(241,236,224,.12);
-                        overflow:hidden;
-                    "
-                >
-
-                    <div
-                        style="
-                            position:absolute;
-                            top:0;
-                            right:0;
-                            width:90px;
-                            height:90px;
-                            border-top:1px solid rgba(24,70,255,.7);
-                            border-right:1px solid rgba(24,70,255,.7);
-                        "
-                    ></div>
-
-
-                    <div
-                        style="
-                            width:62px;
-                            height:62px;
-                            display:flex;
-                            align-items:center;
-                            justify-content:center;
-                            margin-bottom:45px;
-                            border:1px solid rgba(24,70,255,.5);
-                            color:#1846FF;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:19px;
-                            font-weight:700;
-                        "
-                    >
-                        MB
-                    </div>
-
-
-                    <span
-                        style="
-                            display:block;
-                            margin-bottom:9px;
-                            color:#1846FF;
-                            font-size:9px;
-                            font-weight:700;
-                            letter-spacing:.15em;
-                            text-transform:uppercase;
-                        "
-                    >
-                        USG — Delegate Affairs
-                    </span>
-
-
-                    <h3
-                        style="
-                            margin:0;
-                            color:#F1ECE0;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:25px;
-                            line-height:1.1;
-                            letter-spacing:-.035em;
-                        "
-                    >
-                        Madhav Bhardwaj
-                    </h3>
-
-                </article>
-
-
-                <!-- =================================================
-                     SPACE FOR EXISTING ORGANIZING TEAM
-                     ================================================= -->
-
-                <!--
-                    Do NOT delete existing organizing committee
-                    members from your current website.
-
-                    Add their exact existing cards here.
-                -->
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CONTACT / CTA
-         ===================================================== -->
-
-    <section class="section">
-
-        <div class="container">
-
-            <div
-                style="
-                    position:relative;
-                    overflow:hidden;
-                    padding:50px;
-                    background:#0D0D0D;
-                    border:1px solid rgba(241,236,224,.12);
-                "
-            >
-
-                <div
-                    style="
-                        position:absolute;
-                        top:0;
-                        right:0;
-                        width:180px;
-                        height:180px;
-                        border-top:1px solid rgba(24,70,255,.5);
-                        border-right:1px solid rgba(24,70,255,.5);
-                        pointer-events:none;
-                    "
-                ></div>
-
-
-                <span class="eyebrow">
-                    RELMUN / CONTACT
-                </span>
-
-
-                <h2
-                    style="
-                        max-width:700px;
-                        margin:0 0 18px;
-                        color:#F1ECE0;
-                        font-family:'Space Grotesk',sans-serif;
-                        font-size:clamp(32px,5vw,55px);
-                        line-height:1;
-                        letter-spacing:-.05em;
-                    "
-                >
-                    Have a question for
-                    the team?
-                </h2>
-
-
-                <p
-                    style="
-                        max-width:620px;
-                        margin:0 0 28px;
-                        color:rgba(241,236,224,.55);
-                        font-size:14px;
-                        line-height:1.8;
-                    "
-                >
-                    Get in touch with the RELMUN organizing team
-                    before the conference.
-                </p>
-
-
-                <div
-                    style="
-                        display:flex;
-                        flex-wrap:wrap;
-                        gap:12px;
-                    "
-                >
-
-                    <a
-                        href="mailto:akshithkabilan@gmail.com"
-                        class="btn btn-primary"
-                    >
-                        Email the team
-                        <span aria-hidden="true">↗</span>
-                    </a>
-
-
-                    <a
-                        href="https://www.instagram.com/relmun.official/"
-                        class="btn btn-secondary"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Instagram
-                        <span aria-hidden="true">↗</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
+
+<section class="page-hero">
+
+<div class="container">
+
+<span class="eyebrow">
+RELMUN / 2026 / PEOPLE
+</span>
+
+<h1 class="page-title">
+THE<br>
+<em>PEOPLE.</em>
+</h1>
+
+<p class="page-lead">
+The Secretariat and Organizing Committee shape the conference
+behind the scenes; the Executive Board leads each committee room.
+</p>
+
+</div>
+
+</section>
+
+
+<section
+class="section"
+id="organizing"
+>
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-index">
+01 / ORGANIZING COMMITTEE
+</span>
+
+<span class="section-line"></span>
+
+<span class="section-caption">
+SECRETARIAT
+</span>
+
+</div>
+
+
+<div class="team-grid">
+
+
+<article class="team-card">
+
+<span class="team-role">
+SECRETARY-GENERAL
+</span>
+
+<h3>
+AKSHITH<br>
+KABILAN
+</h3>
+
+</article>
+
+
+<article class="team-card">
+
+<span class="team-role">
+DEPUTY SECRETARY-GENERAL
+</span>
+
+<h3>
+S.<br>
+SHREYAAAS
+</h3>
+
+</article>
+
+
+<article class="team-card">
+
+<span class="team-role">
+DIRECTOR GENERAL
+</span>
+
+<h3>
+LAASYA<br>
+VIKRAM
+</h3>
+
+</article>
+
+
+<article class="team-card">
+
+<span class="team-role">
+HEAD OF ADMINISTRATION
+</span>
+
+<h3>
+ABIMAYUR<br>
+R
+</h3>
+
+</article>
+
+
+<article class="team-card">
+
+<span class="team-role">
+CHIEF ADVISOR
+</span>
+
+<h3>
+AASHI<br>
+KUSHWAHA
+</h3>
+
+</article>
+
+
+<article class="team-card">
+
+<span class="team-role">
+USG — DELEGATE AFFAIRS
+</span>
+
+<h3>
+MADHAV<br>
+BHARDWAJ
+</h3>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="section-index">
+02 / EXECUTIVE BOARD
+</span>
+
+<span class="section-line"></span>
+
+<span class="section-caption">
+THE DAIS
+</span>
+
+</div>
+
+
+<div class="eb-layout">
+
+<div>
+
+<span class="eyebrow">
+EXECUTIVE BOARD
+</span>
+
+<h2>
+LEAD<br>
+THE <em>ROOM.</em>
+</h2>
+
+</div>
+
+
+<div class="eb-content">
+
+<p class="large-copy">
+Committee leadership will be announced officially
+by the Secretariat.
+</p>
+
+<p>
+The public RELMUN site currently does not contain
+confirmed Chair, Vice Chair or Moderator names.
+No unannounced names are being invented.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="eb-grid">
+
+
+<article class="eb-card">
+
+<span>UNSC</span>
+
+<h3>
+CHAIR · TBA
+</h3>
+
+<p>
+VICE CHAIR · TBA<br>
+MODERATOR · TBA
+</p>
+
+</article>
+
+
+<article class="eb-card">
+
+<span>UNHRC</span>
+
+<h3>
+CHAIR · TBA
+</h3>
+
+<p>
+VICE CHAIR · TBA<br>
+MODERATOR · TBA
+</p>
+
+</article>
+
+
+<article class="eb-card">
+
+<span>UNODC</span>
+
+<h3>
+CHAIR · TBA
+</h3>
+
+<p>
+VICE CHAIR · TBA<br>
+MODERATOR · TBA
+</p>
+
+</article>
+
+
+<article class="eb-card">
+
+<span>AIPPM</span>
+
+<h3>
+CHAIR · TBA
+</h3>
+
+<p>
+VICE CHAIR · TBA<br>
+MODERATOR · TBA
+</p>
+
+</article>
+
+
+<article class="eb-card">
+
+<span>UNW</span>
+
+<h3>
+CHAIR · TBA
+</h3>
+
+<p>
+VICE CHAIR · TBA<br>
+MODERATOR · TBA
+</p>
+
+</article>
+
+
+<article class="eb-card">
+
+<span>IPLA</span>
+
+<h3>
+CHAIR · TBA
+</h3>
+
+<p>
+VICE CHAIR · TBA<br>
+MODERATOR · TBA
+</p>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
 
 </main>
 
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
 <footer class="site-footer">
 
-    <div class="container">
+<div class="container">
 
-        <div class="footer-main">
+<div class="footer-main">
 
-            <div class="footer-brand">
+<div>
 
-                <a href="index.html">
+<a href="index.html">
+<img
+class="footer-logo"
+src="relmun-logo.png"
+alt="RELMUN 2026"
+>
+</a>
 
-                    <span
-                        style="
-                            display:block;
-                            color:#F1ECE0;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:25px;
-                            font-weight:700;
-                            letter-spacing:-.06em;
-                        "
-                    >
-                        RELMUN<span style="color:#1846FF;">26</span>
-                    </span>
+<p class="footer-description">
+26–27 December 2026 · Online.
+</p>
 
-                </a>
+</div>
 
 
-                <p class="footer-description">
-                    Regional Engagement & Leadership
-                    Model United Nations.
-                    26–27 December 2026.
-                    Online.
-                </p>
+<div>
 
-            </div>
+<div class="footer-title">
+NAVIGATE
+</div>
 
+<div class="footer-links">
 
-            <div>
+<a class="footer-link" href="index.html">
+Home
+</a>
 
-                <div class="footer-title">
-                    Navigate
-                </div>
+<a class="footer-link" href="committees.html">
+Committees
+</a>
 
-                <div class="footer-links">
+<a class="footer-link" href="register.html">
+Register
+</a>
 
-                    <a
-                        href="index.html"
-                        class="footer-link"
-                    >
-                        Home
-                    </a>
+<a class="footer-link" href="faq.html">
+FAQ
+</a>
 
-                    <a
-                        href="committees.html"
-                        class="footer-link"
-                    >
-                        Committees
-                    </a>
+</div>
 
-                    <a
-                        href="eb.html"
-                        class="footer-link"
-                    >
-                        Executive Board
-                    </a>
-
-                    <a
-                        href="register.html"
-                        class="footer-link"
-                    >
-                        Register
-                    </a>
-
-                    <a
-                        href="faq.html"
-                        class="footer-link"
-                    >
-                        FAQ
-                    </a>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <div>
+<div>
 
-                <div class="footer-title">
-                    Contact
-                </div>
+<div class="footer-title">
+CONTACT
+</div>
 
-                <div class="footer-links">
+<div class="footer-links">
 
-                    <a
-                        href="mailto:akshithkabilan@gmail.com"
-                        class="footer-link"
-                    >
-                        Email the team
-                    </a>
+<a
+class="footer-link"
+href="https://www.instagram.com/relmun.official/"
+target="_blank"
+rel="noopener"
+>
+Instagram ↗
+</a>
 
-                    <a
-                        href="https://www.instagram.com/relmun.official/"
-                        class="footer-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Instagram ↗
-                    </a>
+<a
+class="footer-link"
+href="mailto:akshithkabilan@gmail.com"
+>
+Email ↗
+</a>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 RELMUN. All rights reserved.
-            </span>
+</div>
 
 
-            <div class="social-links">
+<div class="footer-bottom">
 
-                <a
-                    href="https://www.instagram.com/relmun.official/"
-                    class="social-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                >
-                    IG
-                </a>
+<span>
+© 2026 RELMUN
+</span>
 
+<div class="social-links">
 
-                <a
-                    href="mailto:akshithkabilan@gmail.com"
-                    class="social-link"
-                    aria-label="Email"
-                >
-                    @
-                </a>
+<a
+class="social-link"
+href="https://www.instagram.com/relmun.official/"
+target="_blank"
+rel="noopener"
+>
+IG
+</a>
 
-            </div>
+<a
+class="social-link"
+href="mailto:akshithkabilan@gmail.com"
+>
+@
+</a>
 
-        </div>
+</div>
 
-    </div>
+</div>
+
+</div>
 
 </footer>
 
 
-<!-- =========================================================
-     MOBILE NAVIGATION
-     ========================================================= -->
+<div id="relmun-chatbot"></div>
 
-<script>
-
-(function () {
-
-    "use strict";
-
-
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const navLinks =
-        document.getElementById("navLinks");
-
-
-    if (!menuToggle || !navLinks) {
-        return;
-    }
-
-
-    menuToggle.addEventListener(
-        "click",
-        function () {
-
-            const isOpen =
-                navLinks.classList.toggle("open");
-
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
-            );
-
-
-            document.body.classList.toggle(
-                "menu-open",
-                isOpen
-            );
-
-        }
-    );
-
-
-    navLinks
-        .querySelectorAll("a")
-        .forEach(
-            function (link) {
-
-                link.addEventListener(
-                    "click",
-                    function () {
-
-                        navLinks.classList.remove(
-                            "open"
-                        );
-
-
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-
-                        menuToggle.setAttribute(
-                            "aria-label",
-                            "Open navigation menu"
-                        );
-
-
-                        document.body.classList.remove(
-                            "menu-open"
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-})();
-
-</script>
+<script src="script.js"></script>
+<script src="chatbot.js"></script>
 
 </body>
 </html>
-```
