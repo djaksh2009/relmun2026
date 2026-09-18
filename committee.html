@@ -1,1073 +1,457 @@
-```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Committee information for RELMUN 2026."
-    >
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <meta name="theme-color" content="#080808">
+<title>Committee — RELMUN 2026</title>
 
-    <title>Committee — RELMUN 2026</title>
+<link rel="icon" href="relmun-logo.png" type="image/png">
+<link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
-
 <header class="site-header">
 
-    <nav class="navbar container" aria-label="Main navigation">
+<nav class="navbar container">
 
-        <a
-            href="index.html"
-            class="nav-brand"
-            aria-label="RELMUN 2026 Home"
-        >
-            <span
-                style="
-                    color:#F1ECE0;
-                    font-family:'Space Grotesk',sans-serif;
-                    font-size:22px;
-                    font-weight:700;
-                    letter-spacing:-0.06em;
-                "
-            >
-                RELMUN<span style="color:#1846FF;">26</span>
-            </span>
-        </a>
+<a class="nav-logo" href="index.html">
+<img src="relmun-logo.png" alt="RELMUN 2026">
+</a>
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-            aria-controls="navLinks"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+<button
+class="menu-toggle"
+id="menuToggle"
+aria-label="Open menu"
+aria-expanded="false"
+>
+<span></span>
+<span></span>
+<span></span>
+</button>
 
-        <div class="nav-links" id="navLinks">
+<div class="nav-links" id="navLinks">
 
-            <a
-                href="index.html"
-                class="nav-link"
-            >
-                Home
-            </a>
+<a class="nav-link" href="index.html">
+Home
+</a>
 
-            <a
-                href="committees.html"
-                class="nav-link active"
-            >
-                Committees
-            </a>
+<a class="nav-link active" href="committees.html">
+Committees
+</a>
 
-            <a
-                href="eb.html"
-                class="nav-link"
-            >
-                Executive Board
-            </a>
+<a class="nav-link" href="eb.html">
+Executive Board
+</a>
 
-            <a
-                href="register.html"
-                class="nav-link"
-            >
-                Register
-            </a>
+<a class="nav-link" href="register.html">
+Register
+</a>
 
-            <a
-                href="faq.html"
-                class="nav-link"
-            >
-                FAQ
-            </a>
+<a class="nav-link" href="faq.html">
+FAQ
+</a>
 
-            <a
-                href="register.html"
-                class="nav-register"
-            >
-                REGISTER
-            </a>
+<a class="nav-register" href="register.html">
+REGISTER
+</a>
 
-        </div>
+</div>
 
-    </nav>
+</nav>
 
 </header>
 
 
-<!-- =========================================================
-     MAIN
-     ========================================================= -->
+<main>
 
-<main id="committeePage">
-
-    <!-- =====================================================
-         INVALID / UNKNOWN COMMITTEE
-         ===================================================== -->
-
-    <section
-        id="invalidCommittee"
-        class="page-hero"
-        style="display:none;"
-    >
+<section class="detail-hero">
 
-        <div class="container">
+<div class="container" style="display:contents">
 
-            <span class="eyebrow">
-                RELMUN / 2026 / ERROR
-            </span>
-
-            <h1 class="page-title">
-                Committee
-                <span style="color:#1846FF;">
-                    not found.
-                </span>
-            </h1>
-
-            <p class="page-lead">
-                The committee you are looking for does not
-                exist in the RELMUN 2026 conference.
-            </p>
-
-            <div style="margin-top:30px;">
-
-                <a
-                    href="committees.html"
-                    class="btn btn-primary"
-                >
-                    View all committees
-                    <span aria-hidden="true">↗</span>
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         COMMITTEE HERO
-         ===================================================== -->
-
-    <section
-        id="committeeHero"
-        class="page-hero"
-        style="display:none;"
-    >
-
-        <div class="container">
-
-            <span
-                id="committeeEyebrow"
-                class="eyebrow"
-            >
-                RELMUN / 2026 / COMMITTEE
-            </span>
-
-            <h1
-                id="committeeTitle"
-                class="page-title"
-            >
-                Committee
-            </h1>
-
-            <p
-                id="committeeDescription"
-                class="page-lead"
-            >
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         COMMITTEE INFORMATION
-         ===================================================== -->
-
-    <section
-        id="committeeContent"
-        class="section"
-        style="display:none;"
-    >
-
-        <div class="container">
-
-            <div
-                style="
-                    display:grid;
-                    grid-template-columns:minmax(0,1.4fr) minmax(260px,.6fr);
-                    gap:60px;
-                    align-items:start;
-                "
-            >
-
-                <!-- Main content -->
-
-                <div>
-
-                    <span class="eyebrow">
-                        Committee Overview
-                    </span>
-
-                    <h2
-                        id="overviewTitle"
-                        style="
-                            margin:0 0 20px;
-                            color:#F1ECE0;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:clamp(32px,5vw,55px);
-                            line-height:1;
-                            letter-spacing:-.055em;
-                        "
-                    >
-                        Enter the room.
-                    </h2>
-
-                    <p
-                        id="overviewText"
-                        style="
-                            max-width:720px;
-                            margin:0;
-                            color:rgba(241,236,224,.6);
-                            font-size:15px;
-                            line-height:1.85;
-                        "
-                    >
-                    </p>
-
-
-                    <!-- Agenda -->
-
-                    <div
-                        id="agendaSection"
-                        style="
-                            margin-top:55px;
-                            padding-top:35px;
-                            border-top:1px solid rgba(241,236,224,.12);
-                        "
-                    >
-
-                        <span class="eyebrow">
-                            Agenda
-                        </span>
-
-                        <h3
-                            style="
-                                margin:0 0 16px;
-                                color:#F1ECE0;
-                                font-family:'Space Grotesk',sans-serif;
-                                font-size:30px;
-                                letter-spacing:-.04em;
-                            "
-                        >
-                            What will be debated?
-                        </h3>
-
-                        <div
-                            id="agendaText"
-                            style="
-                                padding:25px;
-                                background:#0D0D0D;
-                                border:1px solid rgba(241,236,224,.12);
-                            "
-                        >
-
-                            <p
-                                style="
-                                    margin:0;
-                                    color:rgba(241,236,224,.62);
-                                    font-size:14px;
-                                    line-height:1.8;
-                                "
-                            >
-                                The detailed agenda and background
-                                material will be communicated by the
-                                RELMUN organizing team.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- CTA -->
-
-                    <div style="margin-top:45px;">
-
-                        <a
-                            href="register.html"
-                            class="btn btn-primary"
-                        >
-                            Register as a delegate
-                            <span aria-hidden="true">↗</span>
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Sidebar -->
-
-                <aside>
-
-                    <div
-                        style="
-                            position:sticky;
-                            top:110px;
-                            background:#0D0D0D;
-                            border:1px solid rgba(241,236,224,.12);
-                            padding:30px;
-                        "
-                    >
-
-                        <span class="eyebrow">
-                            Committee
-                        </span>
-
-                        <div
-                            id="sidebarCode"
-                            style="
-                                color:#F1ECE0;
-                                font-family:'Space Grotesk',sans-serif;
-                                font-size:48px;
-                                font-weight:700;
-                                line-height:1;
-                                letter-spacing:-.06em;
-                                margin:5px 0 30px;
-                            "
-                        >
-                            —
-                        </div>
-
-
-                        <div
-                            style="
-                                padding:18px 0;
-                                border-top:1px solid rgba(241,236,224,.12);
-                            "
-                        >
-
-                            <span
-                                style="
-                                    display:block;
-                                    margin-bottom:7px;
-                                    color:rgba(241,236,224,.38);
-                                    font-size:9px;
-                                    font-weight:700;
-                                    letter-spacing:.15em;
-                                    text-transform:uppercase;
-                                "
-                            >
-                                Conference
-                            </span>
-
-                            <strong
-                                style="
-                                    color:#F1ECE0;
-                                    font-size:13px;
-                                "
-                            >
-                                RELMUN 2026
-                            </strong>
-
-                        </div>
-
-
-                        <div
-                            style="
-                                padding:18px 0;
-                                border-top:1px solid rgba(241,236,224,.12);
-                            "
-                        >
-
-                            <span
-                                style="
-                                    display:block;
-                                    margin-bottom:7px;
-                                    color:rgba(241,236,224,.38);
-                                    font-size:9px;
-                                    font-weight:700;
-                                    letter-spacing:.15em;
-                                    text-transform:uppercase;
-                                "
-                            >
-                                Dates
-                            </span>
-
-                            <strong
-                                style="
-                                    color:#F1ECE0;
-                                    font-size:13px;
-                                "
-                            >
-                                26–27 December 2026
-                            </strong>
-
-                        </div>
-
-
-                        <div
-                            style="
-                                padding:18px 0;
-                                border-top:1px solid rgba(241,236,224,.12);
-                            "
-                        >
-
-                            <span
-                                style="
-                                    display:block;
-                                    margin-bottom:7px;
-                                    color:rgba(241,236,224,.38);
-                                    font-size:9px;
-                                    font-weight:700;
-                                    letter-spacing:.15em;
-                                    text-transform:uppercase;
-                                "
-                            >
-                                Format
-                            </span>
-
-                            <strong
-                                style="
-                                    color:#F1ECE0;
-                                    font-size:13px;
-                                "
-                            >
-                                Online
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </aside>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         NAVIGATION BETWEEN PAGES
-         ===================================================== -->
-
-    <section
-        id="committeeNavigation"
-        class="section"
-        style="display:none;"
-    >
-
-        <div class="container">
-
-            <div
-                style="
-                    display:flex;
-                    justify-content:space-between;
-                    align-items:center;
-                    gap:20px;
-                    padding-top:30px;
-                    border-top:1px solid rgba(241,236,224,.12);
-                "
-            >
-
-                <a
-                    href="committees.html"
-                    style="
-                        color:#F1ECE0;
-                        text-decoration:none;
-                        font-size:13px;
-                        font-weight:700;
-                    "
-                >
-                    ← All committees
-                </a>
-
-                <a
-                    href="register.html"
-                    style="
-                        color:#1846FF;
-                        text-decoration:none;
-                        font-size:13px;
-                        font-weight:700;
-                    "
-                >
-                    Register →
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
+<div>
+
+<span
+id="kicker"
+class="detail-kicker"
+></span>
+
+<h1 id="title"></h1>
+
+<p id="desc"></p>
+
+
+<div class="detail-actions">
+
+<a
+class="btn btn-primary"
+href="register.html"
+>
+SET AS PREFERENCE ↗
+</a>
+
+<a
+class="btn btn-secondary"
+href="committees.html"
+>
+ALL COMMITTEES →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="detail-side">
+
+<div>
+
+<small>
+COMMITTEE
+</small>
+
+<strong id="short"></strong>
+
+</div>
+
+
+<div>
+
+<small>
+AGENDA
+</small>
+
+<strong>
+TO BE ANNOUNCED
+</strong>
+
+</div>
+
+
+<div>
+
+<small>
+FORMAT
+</small>
+
+<strong>
+ONLINE
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="detail-content">
+
+<div class="container">
+
+<div class="detail-grid">
+
+
+<article class="detail-card">
+
+<span class="detail-kicker">
+01 / ABOUT THE ROOM
+</span>
+
+<h2 id="aboutTitle">
+THE COMMITTEE
+</h2>
+
+<p id="aboutText"></p>
+
+</article>
+
+
+<article class="detail-card">
+
+<span class="detail-kicker">
+02 / EXECUTIVE BOARD
+</span>
+
+<h2>
+THE DAIS
+</h2>
+
+<p>
+Committee-specific Chair, Vice Chair and Moderator
+details will be displayed once officially announced.
+</p>
+
+</article>
+
+
+<article class="detail-card">
+
+<span class="detail-kicker">
+03 / DELEGATES
+</span>
+
+<h2>
+PREFERENCES
+</h2>
+
+<p>
+Portfolio lists will be added later. During registration,
+delegates may enter preferred countries or portfolios.
+</p>
+
+</article>
+
+
+<article class="detail-card">
+
+<span class="detail-kicker">
+04 / STATUS
+</span>
+
+<h2>
+STAY<br>
+UPDATED.
+</h2>
+
+<p>
+Official committee information will be updated here
+as it is announced by RELMUN.
+</p>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
 
 </main>
 
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
 <footer class="site-footer">
 
-    <div class="container">
+<div class="container">
 
-        <div class="footer-main">
+<div class="footer-main">
 
-            <div class="footer-brand">
+<div>
 
-                <a href="index.html">
+<a href="index.html">
+<img
+class="footer-logo"
+src="relmun-logo.png"
+alt="RELMUN 2026"
+>
+</a>
 
-                    <span
-                        style="
-                            display:block;
-                            color:#F1ECE0;
-                            font-family:'Space Grotesk',sans-serif;
-                            font-size:25px;
-                            font-weight:700;
-                            letter-spacing:-.06em;
-                        "
-                    >
-                        RELMUN<span style="color:#1846FF;">26</span>
-                    </span>
+<p class="footer-description">
+26–27 December 2026 · Online.
+</p>
 
-                </a>
-
-                <p class="footer-description">
-                    Regional Engagement & Leadership
-                    Model United Nations.
-                    26–27 December 2026.
-                    Online.
-                </p>
-
-            </div>
+</div>
 
 
-            <div>
+<div>
 
-                <div class="footer-title">
-                    Navigate
-                </div>
+<div class="footer-title">
+NAVIGATE
+</div>
 
-                <div class="footer-links">
+<div class="footer-links">
 
-                    <a href="index.html" class="footer-link">
-                        Home
-                    </a>
+<a class="footer-link" href="index.html">
+Home
+</a>
 
-                    <a href="committees.html" class="footer-link">
-                        Committees
-                    </a>
+<a class="footer-link" href="committees.html">
+Committees
+</a>
 
-                    <a href="eb.html" class="footer-link">
-                        Executive Board
-                    </a>
+<a class="footer-link" href="eb.html">
+Executive Board
+</a>
 
-                    <a href="register.html" class="footer-link">
-                        Register
-                    </a>
+<a class="footer-link" href="register.html">
+Register
+</a>
 
-                    <a href="faq.html" class="footer-link">
-                        FAQ
-                    </a>
+<a class="footer-link" href="faq.html">
+FAQ
+</a>
 
-                </div>
+</div>
 
-            </div>
-
-
-            <div>
-
-                <div class="footer-title">
-                    Contact
-                </div>
-
-                <div class="footer-links">
-
-                    <a
-                        href="mailto:akshithkabilan@gmail.com"
-                        class="footer-link"
-                    >
-                        Email the team
-                    </a>
-
-                    <a
-                        href="https://www.instagram.com/relmun.official/"
-                        class="footer-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Instagram ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="footer-bottom">
+<div>
 
-            <span>
-                © 2026 RELMUN. All rights reserved.
-            </span>
+<div class="footer-title">
+CONTACT
+</div>
 
-            <div class="social-links">
+<div class="footer-links">
 
-                <a
-                    href="https://www.instagram.com/relmun.official/"
-                    class="social-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                >
-                    IG
-                </a>
+<a
+class="footer-link"
+href="https://www.instagram.com/relmun.official/"
+target="_blank"
+rel="noopener"
+>
+Instagram ↗
+</a>
 
-                <a
-                    href="mailto:akshithkabilan@gmail.com"
-                    class="social-link"
-                    aria-label="Email"
-                >
-                    @
-                </a>
+<a
+class="footer-link"
+href="mailto:akshithkabilan@gmail.com"
+>
+Email ↗
+</a>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 RELMUN
+</span>
+
+<div class="social-links">
+
+<a
+class="social-link"
+href="https://www.instagram.com/relmun.official/"
+target="_blank"
+rel="noopener"
+>
+IG
+</a>
+
+<a
+class="social-link"
+href="mailto:akshithkabilan@gmail.com"
+>
+@
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </footer>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
+<div id="relmun-chatbot"></div>
+
+<script src="script.js"></script>
+<script src="chatbot.js"></script>
+
 
 <script>
 
-(function () {
+const committees = {
 
-    "use strict";
+unsc:{
+code:'UNSC',
+name:'SECURITY<br>COUNCIL.',
+desc:'International peace and security, diplomacy and high-level decision-making.',
+about:'The United Nations Security Council focuses on international peace and security and provides a forum for high-level diplomatic decision-making.'
+},
 
+unhrc:{
+code:'UNHRC',
+name:'HUMAN<br>RIGHTS.',
+desc:'International human rights, cooperation and multilateral dialogue.',
+about:'The United Nations Human Rights Council provides a forum for discussion and cooperation on international human rights issues.'
+},
 
-    /* =========================================================
-       COMMITTEE DATA
-       =========================================================
+unodc:{
+code:'UNODC',
+name:'DRUGS<br>& CRIME.',
+desc:'International cooperation against drugs, organised crime and related challenges.',
+about:'The United Nations Office on Drugs and Crime addresses international cooperation relating to drugs, organised crime and related transnational challenges.'
+},
 
-       IMPORTANT:
-       Only committees confirmed for RELMUN 2026 are included.
+aippm:{
+code:'AIPPM',
+name:'POLITICAL<br>PARTIES.',
+desc:'Parliamentary-style debate, negotiation and deliberation on matters of national importance.',
+about:'The All India Political Parties Meet is structured around parliamentary-style political negotiation, debate and deliberation on matters of national importance.'
+},
 
-       Detailed agendas are deliberately NOT invented here.
-       Add the exact existing agenda text when it is available.
-    */
+unw:{
+code:'UNW',
+name:'UN<br>WOMEN.',
+desc:'Gender equality and the empowerment of women through policy-focused dialogue.',
+about:'UN Women focuses on gender equality and the empowerment of women through international cooperation and policy-focused dialogue.'
+},
 
-    const committees = {
+ipla:{
+code:'IPLA',
+name:'IPL<br>AUCTION.',
+desc:'Strategic bidding, squad planning and high-pressure decision-making.',
+about:'The Indian Premier League Auction places participants in a strategic auction environment involving bidding, squad planning and decision-making.'
+}
 
-        UNSC: {
+};
 
-            code: "UNSC",
 
-            category: "01 / SECURITY",
+const key =
+new URLSearchParams(
+location.search
+).get('committee') || 'unsc';
 
-            accent: "blue",
 
-            title: "United Nations Security Council",
+const c =
+committees[key] ||
+committees.unsc;
 
-            shortTitle: "UNSC",
 
-            description:
-                "A high-stakes forum focused on questions of international peace and security.",
+document.title =
+c.code + ' — RELMUN 2026';
 
-            overview:
-                "The United Nations Security Council provides delegates with a platform to engage with matters concerning international peace and security. Delegates will be expected to negotiate, build consensus and respond to developments through diplomatic discussion.",
 
-            agenda:
-                ""
+document.getElementById('kicker')
+.textContent =
+'RELMUN 2026 · ' + c.code;
 
-        },
 
+document.getElementById('title')
+.innerHTML =
+c.name;
 
-        UNODC: {
 
-            code: "UNODC",
+document.getElementById('desc')
+.textContent =
+c.desc;
 
-            category: "02 / CRIME & JUSTICE",
 
-            accent: "gold",
+document.getElementById('short')
+.textContent =
+c.code;
 
-            title: "United Nations Office on Drugs and Crime",
 
-            shortTitle: "UNODC",
-
-            description:
-                "A forum addressing transnational crime, illicit drugs and international cooperation.",
-
-            overview:
-                "The United Nations Office on Drugs and Crime brings delegates together to discuss international challenges surrounding transnational crime, illicit drugs and cooperation between states.",
-
-            agenda:
-                ""
-
-        },
-
-
-        UNHRC: {
-
-            code: "UNHRC",
-
-            category: "03 / HUMAN RIGHTS",
-
-            accent: "blue",
-
-            title: "United Nations Human Rights Council",
-
-            shortTitle: "UNHRC",
-
-            description:
-                "A forum examining human rights questions and international mechanisms for addressing them.",
-
-            overview:
-                "The United Nations Human Rights Council provides a forum for delegates to discuss human rights concerns, examine international responses and negotiate solutions through multilateral diplomacy.",
-
-            agenda:
-                ""
-
-        },
-
-
-        AIPPM: {
-
-            code: "AIPPM",
-
-            category: "04 / INDIAN POLITICS",
-
-            accent: "gold",
-
-            title: "All India Political Parties Meet",
-
-            shortTitle: "AIPPM",
-
-            description:
-                "A parliamentary-style forum centred on Indian political discourse and policymaking.",
-
-            overview:
-                "The All India Political Parties Meet places delegates within an Indian political setting, requiring discussion, negotiation and strategic engagement around matters of national policy and political discourse.",
-
-            agenda:
-                ""
-
-        },
-
-
-        UNW: {
-
-            code: "UNW",
-
-            category: "05 / GENDER EQUALITY",
-
-            accent: "blue",
-
-            title: "UN Women",
-
-            shortTitle: "UNW",
-
-            description:
-                "A forum examining gender equality and the empowerment of women and girls.",
-
-            overview:
-                "UN Women provides delegates with a platform to discuss issues surrounding gender equality, women's empowerment and international efforts addressing related challenges.",
-
-            agenda:
-                ""
-
-        },
-
-
-        IPLA: {
-
-            code: "IPLA",
-
-            category: "06 / SPORTS AUCTION",
-
-            accent: "gold",
-
-            title: "IPLA",
-
-            shortTitle: "IPLA",
-
-            description:
-                "A dynamic IPL auction simulation centred on strategy, negotiation and team-building.",
-
-            overview:
-                "IPLA is a simulation built around the strategic environment of an IPL-style auction. Delegates will engage with bidding, negotiation, decision-making and team-building within the committee's auction format.",
-
-            agenda:
-                ""
-
-        }
-
-    };
-
-
-    /* =========================================================
-       ELEMENTS
-       ========================================================= */
-
-    const committeeHero =
-        document.getElementById("committeeHero");
-
-    const committeeContent =
-        document.getElementById("committeeContent");
-
-    const committeeNavigation =
-        document.getElementById("committeeNavigation");
-
-    const invalidCommittee =
-        document.getElementById("invalidCommittee");
-
-    const committeeEyebrow =
-        document.getElementById("committeeEyebrow");
-
-    const committeeTitle =
-        document.getElementById("committeeTitle");
-
-    const committeeDescription =
-        document.getElementById("committeeDescription");
-
-    const overviewTitle =
-        document.getElementById("overviewTitle");
-
-    const overviewText =
-        document.getElementById("overviewText");
-
-    const agendaText =
-        document.getElementById("agendaText");
-
-    const sidebarCode =
-        document.getElementById("sidebarCode");
-
-
-    /* =========================================================
-       READ QUERY PARAMETER
-       ========================================================= */
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const committeeParameter =
-        params.get("committee");
-
-
-    const committeeKey =
-        committeeParameter
-            ? committeeParameter
-                .trim()
-                .toUpperCase()
-            : "";
-
-
-    const committee =
-        committees[committeeKey];
-
-
-    /* =========================================================
-       RENDER COMMITTEE
-       ========================================================= */
-
-    if (!committee) {
-
-        invalidCommittee.style.display =
-            "block";
-
-        document.title =
-            "Committee Not Found — RELMUN 2026";
-
-    } else {
-
-        committeeHero.style.display =
-            "block";
-
-        committeeContent.style.display =
-            "block";
-
-        committeeNavigation.style.display =
-            "block";
-
-
-        committeeEyebrow.textContent =
-            "RELMUN / 2026 / " +
-            committee.category;
-
-
-        committeeTitle.innerHTML =
-            committee.title +
-            ' <span style="color:#1846FF;">' +
-            committee.shortTitle +
-            '</span>';
-
-
-        committeeDescription.textContent =
-            committee.description;
-
-
-        overviewTitle.textContent =
-            "Enter the " +
-            committee.shortTitle +
-            " room.";
-
-
-        overviewText.textContent =
-            committee.overview;
-
-
-        sidebarCode.textContent =
-            committee.shortTitle;
-
-
-        /*
-            Only display an agenda if actual agenda
-            information exists in the data.
-
-            This prevents us from pretending that
-            placeholder information is an official agenda.
-        */
-
-        if (committee.agenda.trim()) {
-
-            agendaText.innerHTML =
-                '<p style="' +
-                'margin:0;' +
-                'color:rgba(241,236,224,.62);' +
-                'font-size:14px;' +
-                'line-height:1.8;' +
-                '">' +
-                committee.agenda +
-                '</p>';
-
-        }
-
-
-        document.title =
-            committee.shortTitle +
-            " — RELMUN 2026";
-
-    }
-
-
-    /* =========================================================
-       MOBILE NAVIGATION
-       ========================================================= */
-
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const navLinks =
-        document.getElementById("navLinks");
-
-
-    if (menuToggle && navLinks) {
-
-        menuToggle.addEventListener(
-            "click",
-            function () {
-
-                const isOpen =
-                    navLinks.classList.toggle("open");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    isOpen
-                        ? "Close navigation menu"
-                        : "Open navigation menu"
-                );
-
-                document.body.classList.toggle(
-                    "menu-open",
-                    isOpen
-                );
-
-            }
-        );
-
-
-        navLinks
-            .querySelectorAll("a")
-            .forEach(
-                function (link) {
-
-                    link.addEventListener(
-                        "click",
-                        function () {
-
-                            navLinks.classList.remove(
-                                "open"
-                            );
-
-                            menuToggle.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-
-                            menuToggle.setAttribute(
-                                "aria-label",
-                                "Open navigation menu"
-                            );
-
-                            document.body.classList.remove(
-                                "menu-open"
-                            );
-
-                        }
-                    );
-
-                }
-            );
-
-    }
-
-
-})();
+document.getElementById('aboutText')
+.textContent =
+c.about;
 
 </script>
 
 </body>
 </html>
-```
