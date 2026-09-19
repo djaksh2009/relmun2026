@@ -1513,3 +1513,98 @@ footer{
 .team-card.team-featured:hover {
     background: #080808 !important;
 }
+/* =========================================
+   REX MESSAGE FORMATTING
+========================================= */
+
+#relmun-chatbot .rex-message-text strong {
+    color: #f1ece0 !important;
+    font-weight: 800 !important;
+}
+
+#relmun-chatbot .rex-message-text em {
+    color: #c79a2b !important;
+    font-style: italic !important;
+}
+
+#relmun-chatbot .rex-message-text a {
+    color: #8fa5ff !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+}
+
+#relmun-chatbot .rex-heading {
+    margin: 10px 0 6px !important;
+    color: #f1ece0 !important;
+    font-weight: 800 !important;
+}
+
+#relmun-chatbot .rex-heading-1 {
+    font-size: 18px !important;
+}
+
+#relmun-chatbot .rex-heading-2 {
+    font-size: 16px !important;
+}
+
+#relmun-chatbot .rex-heading-3 {
+    font-size: 14px !important;
+}
+
+#relmun-chatbot .rex-bullet,
+#relmun-chatbot .rex-numbered {
+    display: flex !important;
+    gap: 8px !important;
+    margin: 5px 0 !important;
+}
+
+#relmun-chatbot .rex-bullet > span,
+#relmun-chatbot .rex-numbered > span {
+    flex: 0 0 auto !important;
+    color: #c79a2b !important;
+    font-weight: 800 !important;
+}
+
+#relmun-chatbot .rex-code {
+    margin: 8px 0 !important;
+    padding: 10px !important;
+    overflow-x: auto !important;
+
+    background: #050505 !important;
+    border: 1px solid rgba(241,236,224,.12) !important;
+
+    color: #f1ece0 !important;
+    font-family: monospace !important;
+    font-size: 11px !important;
+}
+
+#relmun-chatbot .rex-message-text code {
+    padding: 2px 4px !important;
+
+    background: rgba(241,236,224,.08) !important;
+
+    color: #c79a2b !important;
+    font-family: monospace !important;
+}
+
+#relmun-chatbot .rex-thinking span {
+    animation: rex-dot 1.2s infinite !important;
+}
+
+#relmun-chatbot .rex-thinking span:nth-child(2) {
+    animation-delay: .2s !important;
+}
+
+#relmun-chatbot .rex-thinking span:nth-child(3) {
+    animation-delay: .4s !important;
+}
+
+@keyframes rex-dot {
+    0%, 60%, 100% {
+        opacity: .25;
+    }
+
+    30% {
+        opacity: 1;
+    }
+}
