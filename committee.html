@@ -1,179 +1,152 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Committee | RELMUN 2026</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Committee — RELMUN '26</title>
+<link rel="icon" href="relmun-logo.png">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="navbar">
-  <div class="nav-container">
-
-    <a href="index.html" class="brand">
-      <div class="brand-mark">R</div>
-      <div class="brand-text">
-        <strong>RELMUN</strong>
-        <small>2026</small>
-      </div>
-    </a>
-
-    <button class="nav-toggle">☰</button>
-
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="committees.html" class="active">Committees</a>
-      <a href="eb.html">Executive Board</a>
-      <a href="register.html" class="nav-register">Register</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-
-  </div>
+<header>
+<nav class="navbar">
+<a class="nav-logo" href="index.html"><img src="relmun-logo.png" alt="RELMUN '26"></a>
+<button class="nav-menu" id="navMenu"><span></span><span></span></button>
+<div class="nav-links" id="navLinks">
+<a href="index.html#about">ABOUT</a>
+<a href="committees.html">COMMITTEES</a>
+<a href="index.html#team">TEAM</a>
+<a href="eb.html">EB</a>
+<a href="faq.html">FAQ</a>
+<a href="register.html" class="nav-register">REGISTER ↗</a>
+</div>
+</nav>
 </header>
 
-<main>
+<main class="detail-page">
 
-<section class="section" style="padding-top:180px;">
+<section class="detail-hero">
+<div>
+<span class="detail-kicker" id="kicker"></span>
+<h1 id="title"></h1>
+<p id="desc"></p>
 
-  <div class="detail-header">
+<div class="detail-actions">
+<a class="btn btn-gold" href="register.html">SET AS PREFERENCE ↗</a>
+<a class="btn btn-outline" href="committees.html">ALL COMMITTEES →</a>
+</div>
+</div>
 
-    <span class="detail-code" id="committeeCode">COMMITTEE</span>
+<div class="detail-side">
+<div><small>COMMITTEE</small><strong id="short"></strong></div>
+<div><small>FORMAT</small><strong>ONLINE</strong></div>
+<div><small>DATES</small><strong>26—27 DEC 2026</strong></div>
+</div>
+</section>
 
-    <h1 class="detail-title" id="committeeTitle">
-      Committee
-    </h1>
+<section class="detail-content">
+<div class="detail-grid">
 
-    <p class="detail-intro" id="committeeIntro"></p>
+<article class="detail-card">
+<span class="detail-kicker">01 / ABOUT</span>
+<h2 id="aboutTitle"></h2>
+<p id="aboutText"></p>
+</article>
 
-  </div>
+<article class="detail-card">
+<span class="detail-kicker">02 / EXECUTIVE BOARD</span>
+<h2>DAIS</h2>
+<p>Chair, Vice Chair and Moderator details will be announced by the Secretariat.</p>
+</article>
 
-  <div class="section-inner detail-grid">
+<article class="detail-card">
+<span class="detail-kicker">03 / DELEGATES</span>
+<h2>PORTFOLIOS</h2>
+<p>Portfolio information will be announced through the official RELMUN channels.</p>
+</article>
 
-    <div class="detail-box">
-      <h3>FORMAT</h3>
-      <p id="formatText"></p>
-    </div>
+<article class="detail-card">
+<span class="detail-kicker">04 / STATUS</span>
+<h2>STAY TUNED.</h2>
+<p>Official committee information will be updated here as announcements are made.</p>
+</article>
 
-    <div class="detail-box">
-      <h3>FOCUS</h3>
-      <p id="focusText"></p>
-    </div>
-
-    <div class="detail-box">
-      <h3>EXPERIENCE</h3>
-      <p id="experienceText"></p>
-    </div>
-
-  </div>
-
-  <div class="section-inner" style="margin-top:50px;">
-    <a href="committees.html" class="btn btn-secondary">← All Committees</a>
-    <a href="register.html" class="btn btn-primary">Register →</a>
-  </div>
-
+</div>
 </section>
 
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-
-    <div class="footer-top">
-      <div class="brand">
-        <div class="brand-mark">R</div>
-        <div class="brand-text">
-          <strong>RELMUN</strong>
-          <small>2026</small>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <a href="https://www.instagram.com/relmun.official/" target="_blank">Instagram</a>
-        <a href="mailto:akshithkabilan@gmail.com">Email</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 RELMUN</span>
-      <span>26–27 DECEMBER 2026</span>
-    </div>
-
-  </div>
+<footer>
+<div class="footer-logo"><img src="relmun-logo.png" alt="RELMUN '26"></div>
+<div class="footer-middle"><strong>RELMUN '26</strong><span>RELATIONS · ENGAGEMENT · LEADERSHIP</span></div>
+<div class="footer-right"><span>26—27 DECEMBER 2026</span><span>ONLINE CONFERENCE</span></div>
 </footer>
 
-<script src="chatbot.js"></script>
+<div id="relmun-chatbot"></div>
 
 <script>
-const committees = {
-  UNSC: {
-    title: "United Nations Security Council",
-    intro: "A high-pressure diplomatic environment focused on international peace and security, where every decision can have far-reaching consequences.",
-    format: "Security Council simulation",
-    focus: "International peace, security and crisis diplomacy.",
-    experience: "Best suited for delegates interested in strategic diplomacy and fast-moving debate."
-  },
-
-  UNHRC: {
-    title: "United Nations Human Rights Council",
-    intro: "A forum centred around international human rights, accountability and the diplomatic mechanisms used to address global challenges.",
-    format: "Human rights council simulation",
-    focus: "Human rights, accountability and international cooperation.",
-    experience: "Ideal for delegates who enjoy policy-heavy discussion and diplomatic negotiation."
-  },
-
-  UNODC: {
-    title: "United Nations Office on Drugs and Crime",
-    intro: "A committee exploring international cooperation against transnational crime, organised crime and illicit activity.",
-    format: "Specialised UN simulation",
-    focus: "Crime prevention, drugs and international cooperation.",
-    experience: "Suited for delegates who enjoy research-driven policy debate."
-  },
-
-  AIPPM: {
-    title: "All India Political Parties Meet",
-    intro: "A political simulation centred around Indian political discourse, competing ideologies and parliamentary strategy.",
-    format: "Indian political simulation",
-    focus: "Domestic politics, legislation and parliamentary debate.",
-    experience: "Suited for delegates who enjoy political strategy and dynamic floor debate."
-  },
-
-  UNW: {
-    title: "UN Women",
-    intro: "A forum focused on advancing gender equality, empowerment and international development.",
-    format: "United Nations simulation",
-    focus: "Gender equality, empowerment and development.",
-    experience: "Ideal for delegates interested in social policy and international development."
-  },
-
-  IPLA: {
-    title: "IPL Auction",
-    intro: "A fast-paced auction simulation where strategy, valuation and decision-making collide.",
-    format: "Auction simulation",
-    focus: "Team building, bidding strategy and management.",
-    experience: "Designed for participants who enjoy competitive, high-speed simulations."
-  }
+const committees={
+unsc:{
+short:"UNSC",
+title:"SECURITY COUNCIL",
+desc:"A high-level committee focused on international peace and security, diplomacy and consequential decision making.",
+about:"SECURITY & PEACE",
+aboutText:"The United Nations Security Council provides a setting for delegates to navigate international crises, negotiate with competing interests and formulate collective responses."
+},
+unhrc:{
+short:"UNHRC",
+title:"HUMAN RIGHTS",
+desc:"A multilateral room centred on international human rights, cooperation and policy.",
+about:"HUMAN RIGHTS",
+aboutText:"Delegates examine human-rights challenges and negotiate solutions through structured multilateral diplomacy."
+},
+unodc:{
+short:"UNODC",
+title:"DRUGS & CRIME",
+desc:"A committee addressing international cooperation against drugs, organised crime and related challenges.",
+about:"DRUGS & CRIME",
+aboutText:"Delegates work through international cooperation, policy and negotiation surrounding organised crime and drug-related challenges."
+},
+aippm:{
+short:"AIPPM",
+title:"POLITICAL PARTIES",
+desc:"A parliamentary environment built around political negotiation, debate and national policy.",
+about:"PARLIAMENTARY DEBATE",
+aboutText:"AIPPM places delegates in a political environment where negotiation, argumentation and parliamentary strategy shape the room."
+},
+unw:{
+short:"UNW",
+title:"UN WOMEN",
+desc:"A committee focused on gender equality, empowerment and international policy discussion.",
+about:"GENDER EQUALITY",
+aboutText:"Delegates discuss international approaches to gender equality, empowerment and related policy priorities."
+},
+ipla:{
+short:"IPLA",
+title:"IPL AUCTION",
+desc:"A strategic auction room built around bidding, team management and high-pressure decision making.",
+about:"IPL AUCTION",
+aboutText:"Delegates compete through strategy, valuation and negotiation as they manage their teams through an IPL-style auction."
+}
 };
 
-const params = new URLSearchParams(window.location.search);
-const code = (params.get("committee") || "UNSC").toUpperCase();
+const key=new URLSearchParams(location.search).get("committee")||"unsc";
+const c=committees[key]||committees.unsc;
 
-const committee = committees[code] || committees.UNSC;
+document.getElementById("kicker").textContent="RELMUN '26 · "+c.short;
+document.getElementById("title").innerHTML=c.title.replace(" ","<br>");
+document.getElementById("desc").textContent=c.desc;
+document.getElementById("short").textContent=c.short;
+document.getElementById("aboutTitle").textContent=c.about;
+document.getElementById("aboutText").textContent=c.aboutText;
 
-document.title = `${code} | RELMUN 2026`;
-
-document.getElementById("committeeCode").textContent = code;
-document.getElementById("committeeTitle").textContent = committee.title;
-document.getElementById("committeeIntro").textContent = committee.intro;
-document.getElementById("formatText").textContent = committee.format;
-document.getElementById("focusText").textContent = committee.focus;
-document.getElementById("experienceText").textContent = committee.experience;
-
-document.querySelector(".nav-toggle")?.addEventListener("click", () => {
-  document.querySelector(".nav-links").classList.toggle("open");
+document.getElementById("navMenu").addEventListener("click",()=>{
+document.getElementById("navLinks").classList.toggle("open");
 });
 </script>
 
+<script src="chatbot.js"></script>
 </body>
 </html>
