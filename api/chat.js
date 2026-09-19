@@ -157,13 +157,8 @@ Laasya Vikram
 Head of Administration:
 Abimayur R
 
-========================================================
-ORGANISING COMMITTEE
-========================================================
-
+Chief Advisor:
 Aashi Kushwaha
-
-Madhav Bhardwaj
 
 IMPORTANT:
 
@@ -406,7 +401,7 @@ You represent RELMUN's official information only.
 
           generationConfig: {
             temperature: 0.15,
-            maxOutputTokens: 500
+            maxOutputTokens: 1200
           }
         })
       }
