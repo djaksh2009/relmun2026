@@ -1,2000 +1,240 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
-  <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1"
-  >
-
-  <title>Register — RELMUN '26</title>
-
-  <link
-    rel="icon"
-    href="relmun-logo.png"
-    type="image/png"
-  >
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register — RELMUN '26</title>
+<link rel="icon" href="relmun-logo.png">
+<link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
-
 <header>
+<nav class="navbar">
 
-  <nav class="navbar">
+<a class="nav-logo" href="index.html">
+<img src="relmun-logo.png" alt="RELMUN '26">
+</a>
 
-    <a
-      class="nav-logo"
-      href="index.html"
-    >
+<button class="nav-menu" id="navMenu">
+<span></span><span></span>
+</button>
 
-      <img
-        src="relmun-logo.png"
-        alt="RELMUN '26"
-      >
+<div class="nav-links" id="navLinks">
+<a href="index.html#about">ABOUT</a>
+<a href="committees.html">COMMITTEES</a>
+<a href="index.html#team">TEAM</a>
+<a href="index.html#eb">EB</a>
+<a href="faq.html">FAQ</a>
+<a href="register.html" class="nav-register">REGISTER</a>
+</div>
 
-    </a>
-
-
-    <button
-      class="nav-menu"
-      id="navMenu"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-
-      <span></span>
-      <span></span>
-
-    </button>
-
-
-    <div
-      class="nav-links"
-      id="navLinks"
-    >
-
-      <a href="index.html#about">
-        ABOUT
-      </a>
-
-      <a href="committees.html">
-        COMMITTEES
-      </a>
-
-      <a href="index.html#team">
-        TEAM
-      </a>
-
-      <a href="index.html#eb">
-        EB
-      </a>
-
-      <a
-        href="faq.html"
-      >
-        FAQ
-      </a>
-
-      <a
-        href="register.html"
-        class="nav-register"
-      >
-        REGISTER
-      </a>
-
-    </div>
-
-  </nav>
-
+</nav>
 </header>
 
 
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main class="registration-page">
 
+<div class="registration-header">
 
-  <!-- ===================================================
-       REGISTRATION HEADER
-  ==================================================== -->
+<span class="eyebrow">
+RELMUN '26 · DELEGATE REGISTRATION
+</span>
 
-  <div class="registration-header">
+<h1>JOIN<br><em>RELMUN.</em></h1>
 
-    <span class="eyebrow">
-      RELMUN '26 · DELEGATE REGISTRATION
-    </span>
+<p>
+Registrations open on
+<strong>1 October 2026 at 00:00 IST.</strong>
+</p>
 
+</div>
 
-    <h1>
-      JOIN<br>
-      <em>RELMUN.</em>
-    </h1>
 
+<div id="registrationLock" class="registration-lock">
 
-    <p id="registrationDescription">
+<span class="eyebrow">REGISTRATION WINDOW</span>
 
-      Registration opens on
-      <strong>
-        1 October 2026 at 00:00 IST
-      </strong>.
+<h2>
+OPENING<br><em>01 OCTOBER.</em>
+</h2>
 
-      Until then, registration remains closed.
+<p>
+Delegate registration is currently closed.
+Registration links will appear automatically when
+the registration window opens.
+</p>
 
-    </p>
+<div class="lock-countdown" id="lockCountdown">
+00 : 00 : 00 : 00
+</div>
 
-  </div>
+</div>
 
 
+<div id="registrationOptions" class="registration-options">
 
-  <!-- ===================================================
-       REGISTRATION COUNTDOWN
-  ==================================================== -->
+<div class="registration-open-label">
+REGISTRATIONS ARE NOW OPEN
+</div>
 
-  <div
-    id="registrationLock"
-    class="registration-lock"
-  >
+<p class="registration-description">
+Choose your preferred registration platform.
+</p>
 
-    <span class="eyebrow">
-      REGISTRATION WINDOW
-    </span>
+<div class="registration-options-grid">
 
+<a class="registration-option featured"
+href="https://champarena.co.in/e/relmun2026"
+target="_blank"
+rel="noopener noreferrer">
+CHAMPARENA ↗
+</a>
 
-    <h2>
-      OPENING
-      <em>01 OCTOBER.</em>
-    </h2>
+<a class="registration-option"
+href="https://relmun2026.vercel.app/">
+RELMUN WEBSITE ↗
+</a>
 
+<a class="registration-option"
+href="https://mymun.com/conferences/relmun-2026"
+target="_blank"
+rel="noopener noreferrer">
+MYMUN ↗
+</a>
 
-    <p>
+<a class="registration-option"
+href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
+target="_blank"
+rel="noopener noreferrer">
+GAVELLING ↗
+</a>
 
-      Delegate registrations for RELMUN '26
-      will open on 1 October 2026.
+<a class="registration-option"
+href="https://forms.gle/AncgvgJnFyHaC3qM8"
+target="_blank"
+rel="noopener noreferrer">
+GOOGLE FORM ↗
+</a>
 
-      Until then, registration is unavailable.
+</div>
 
-    </p>
-
-
-    <div
-      class="lock-countdown"
-      id="lockCountdown"
-    >
-      00 : 00 : 00 : 00
-    </div>
-
-  </div>
-
-
-
-  <!-- ===================================================
-       REGISTRATION OPTIONS
-
-       Hidden until 1 October 2026.
-  ==================================================== -->
-
-  <section
-    id="registrationOptions"
-    class="registration-options"
-    style="display:none;"
-  >
-
-    <div class="registration-open-label">
-
-      REGISTRATIONS ARE NOW OPEN
-
-    </div>
-
-
-    <p class="registration-description">
-
-      Choose your preferred registration platform
-      for RELMUN '26.
-
-    </p>
-
-
-    <div class="registration-options-grid">
-
-
-      <!-- ===============================================
-           CHAMPARENA
-      ================================================ -->
-
-      <a
-        class="registration-option featured"
-        href="https://champarena.co.in/e/relmun2026"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        CHAMPARENA ↗
-
-      </a>
-
-
-
-      <!-- ===============================================
-           RELMUN WEBSITE
-      ================================================ -->
-
-      <a
-        class="registration-option"
-        href="https://relmun2026.vercel.app/"
-      >
-
-        RELMUN WEBSITE ↗
-
-      </a>
-
-
-
-      <!-- ===============================================
-           MYMUN
-      ================================================ -->
-
-      <a
-        class="registration-option"
-        href="https://mymun.com/conferences/relmun-2026"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        MYMUN ↗
-
-      </a>
-
-
-
-      <!-- ===============================================
-           GAVELLING
-      ================================================ -->
-
-      <a
-        class="registration-option"
-        href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        GAVELLING ↗
-
-      </a>
-
-
-
-      <!-- ===============================================
-           GOOGLE FORM
-      ================================================ -->
-
-      <a
-        class="registration-option"
-        href="https://forms.gle/AncgvgJnFyHaC3qM8"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        GOOGLE FORM ↗
-
-      </a>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ===================================================
-       ORIGINAL REGISTRATION FORM
-
-       IMPORTANT:
-       This remains in the code so the existing
-       functionality is preserved.
-
-       It is completely hidden before registration opens
-       and becomes available only after 1 October.
-  ==================================================== -->
-
-  <form
-    id="registrationForm"
-    class="registration-form"
-    novalidate
-    style="display:none;"
-  >
-
-
-    <!-- =================================================
-         PROGRESS
-    ================================================== -->
-
-    <div
-      class="registration-progress"
-      id="registrationProgress"
-    >
-
-      <div
-        class="progress-step active"
-      ></div>
-
-      <div
-        class="progress-step"
-      ></div>
-
-      <div
-        class="progress-step"
-      ></div>
-
-      <div
-        class="progress-step"
-      ></div>
-
-      <div
-        class="progress-step"
-      ></div>
-
-      <div
-        class="progress-step"
-      ></div>
-
-
-      <span
-        class="progress-text"
-        id="progressText"
-      >
-        SECTION 1 OF 6
-      </span>
-
-    </div>
-
-
-
-    <!-- =================================================
-         SECTION 1
-    ================================================== -->
-
-    <section
-      class="form-section active"
-      data-section="1"
-    >
-
-      <span class="form-section-number">
-        01 / PERSONAL DETAILS
-      </span>
-
-
-      <h2>
-        WHO ARE<br>
-        <em>YOU?</em>
-      </h2>
-
-
-      <div class="form-grid">
-
-
-        <div class="form-field full">
-
-          <label for="fullName">
-            FULL NAME *
-          </label>
-
-          <input
-            id="fullName"
-            name="fullName"
-            required
-            autocomplete="name"
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="email">
-            EMAIL ADDRESS *
-          </label>
-
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            autocomplete="email"
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="whatsapp">
-            WHATSAPP NUMBER *
-          </label>
-
-          <input
-            id="whatsapp"
-            name="whatsapp"
-            required
-            autocomplete="tel"
-          >
-
-        </div>
-
-
-        <div class="form-field full">
-
-          <label for="city">
-            COUNTRY / CITY *
-          </label>
-
-          <input
-            id="city"
-            name="city"
-            required
-            placeholder="e.g. Bengaluru, India"
-          >
-
-        </div>
-
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <span></span>
-
-        <button
-          type="button"
-          class="form-button next"
-        >
-          CONTINUE →
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         SECTION 2
-    ================================================== -->
-
-    <section
-      class="form-section"
-      data-section="2"
-    >
-
-      <span class="form-section-number">
-        02 / PROFILE
-      </span>
-
-
-      <h2>
-        YOUR<br>
-        <em>PROFILE.</em>
-      </h2>
-
-
-      <div class="form-grid">
-
-
-        <div class="form-field full">
-
-          <label for="school">
-            SCHOOL / INSTITUTION (OPTIONAL)
-          </label>
-
-          <input
-            id="school"
-            name="school"
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="grade">
-            GRADE / YEAR (OPTIONAL)
-          </label>
-
-          <input
-            id="grade"
-            name="grade"
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="age">
-            AGE (OPTIONAL)
-          </label>
-
-          <input
-            id="age"
-            name="age"
-            type="number"
-            min="1"
-            max="100"
-          >
-
-        </div>
-
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button secondary prev"
-        >
-          ← BACK
-        </button>
-
-
-        <button
-          type="button"
-          class="form-button next"
-        >
-          CONTINUE →
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         SECTION 3
-    ================================================== -->
-
-    <section
-      class="form-section"
-      data-section="3"
-    >
-
-      <span class="form-section-number">
-        03 / MUN EXPERIENCE
-      </span>
-
-
-      <h2>
-        YOUR<br>
-        <em>EXPERIENCE.</em>
-      </h2>
-
-
-      <div class="form-field">
-
-        <label for="munExperience">
-
-          HOW MANY MUNs HAVE YOU ATTENDED?
-          IF NONE, TYPE “-” *
-
-        </label>
-
-        <input
-          id="munExperience"
-          name="munExperience"
-          required
-        >
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button secondary prev"
-        >
-          ← BACK
-        </button>
-
-
-        <button
-          type="button"
-          class="form-button next"
-        >
-          CONTINUE →
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         SECTION 4
-    ================================================== -->
-
-    <section
-      class="form-section"
-      data-section="4"
-    >
-
-      <span class="form-section-number">
-        04 / COMMITTEE & PORTFOLIO PREFERENCES
-      </span>
-
-
-      <h2>
-        CHOOSE YOUR<br>
-        <em>ARENA.</em>
-      </h2>
-
-
-      <div class="preference-grid">
-
-
-        <div class="form-field">
-
-          <label for="committee1">
-            FIRST COMMITTEE *
-          </label>
-
-          <select
-            id="committee1"
-            name="committee1"
-            required
-          >
-
-            <option value="">
-              SELECT
-            </option>
-
-            <option>
-              UNSC
-            </option>
-
-            <option>
-              UNHRC
-            </option>
-
-            <option>
-              UNODC
-            </option>
-
-            <option>
-              AIPPM
-            </option>
-
-            <option>
-              IPLA
-            </option>
-
-            <option>
-              UN Women
-            </option>
-
-          </select>
-
-        </div>
-
-
-
-        <div class="form-field">
-
-          <label for="committee2">
-            SECOND COMMITTEE *
-          </label>
-
-          <select
-            id="committee2"
-            name="committee2"
-            required
-          >
-
-            <option value="">
-              SELECT
-            </option>
-
-            <option>
-              UNSC
-            </option>
-
-            <option>
-              UNHRC
-            </option>
-
-            <option>
-              UNODC
-            </option>
-
-            <option>
-              AIPPM
-            </option>
-
-            <option>
-              IPLA
-            </option>
-
-            <option>
-              UN Women
-            </option>
-
-          </select>
-
-        </div>
-
-
-
-        <div class="form-field">
-
-          <label for="committee3">
-            THIRD COMMITTEE *
-          </label>
-
-          <select
-            id="committee3"
-            name="committee3"
-            required
-          >
-
-            <option value="">
-              SELECT
-            </option>
-
-            <option>
-              UNSC
-            </option>
-
-            <option>
-              UNHRC
-            </option>
-
-            <option>
-              UNODC
-            </option>
-
-            <option>
-              AIPPM
-            </option>
-
-            <option>
-              IPLA
-            </option>
-
-            <option>
-              UN Women
-            </option>
-
-          </select>
-
-        </div>
-
-
-      </div>
-
-
-      <p class="registration-description">
-
-        Portfolio lists will be added later.
-        For now, enter the country or portfolio
-        you would like for each preference.
-
-      </p>
-
-
-      <div class="preference-grid">
-
-
-        <div class="form-field">
-
-          <label for="portfolio1">
-            FIRST PORTFOLIO *
-          </label>
-
-          <input
-            id="portfolio1"
-            name="portfolio1"
-            required
-            placeholder="Country / portfolio"
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="portfolio2">
-            SECOND PORTFOLIO *
-          </label>
-
-          <input
-            id="portfolio2"
-            name="portfolio2"
-            required
-            placeholder="Country / portfolio"
-          >
-
-        </div>
-
-
-        <div class="form-field">
-
-          <label for="portfolio3">
-            THIRD PORTFOLIO *
-          </label>
-
-          <input
-            id="portfolio3"
-            name="portfolio3"
-            required
-            placeholder="Country / portfolio"
-          >
-
-        </div>
-
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button secondary prev"
-        >
-          ← BACK
-        </button>
-
-
-        <button
-          type="button"
-          class="form-button next"
-        >
-          CONTINUE →
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         SECTION 5
-    ================================================== -->
-
-    <section
-      class="form-section"
-      data-section="5"
-    >
-
-      <span class="form-section-number">
-        05 / REGISTRATION
-      </span>
-
-
-      <h2>
-        ONE LAST<br>
-        <em>THING.</em>
-      </h2>
-
-
-      <div class="form-grid">
-
-
-        <div class="form-field full">
-
-          <label for="source">
-            HOW DID YOU HEAR ABOUT RELMUN '26? *
-          </label>
-
-          <select
-            id="source"
-            name="source"
-            required
-          >
-
-            <option value="">
-              SELECT
-            </option>
-
-            <option>
-              Instagram
-            </option>
-
-            <option>
-              MyMUN
-            </option>
-
-            <option>
-              Gavelling
-            </option>
-
-            <option>
-              ChampArena
-            </option>
-
-            <option>
-              School / Institution
-            </option>
-
-            <option>
-              Friend / Delegate
-            </option>
-
-            <option>
-              WhatsApp
-            </option>
-
-            <option>
-              Other
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div
-          class="form-field full"
-          id="otherSourceField"
-        >
-
-          <label for="otherSource">
-            OTHER
-          </label>
-
-          <input
-            id="otherSource"
-            name="otherSource"
-            placeholder="Optional"
-          >
-
-        </div>
-
-
-      </div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button secondary prev"
-        >
-          ← BACK
-        </button>
-
-
-        <button
-          type="button"
-          class="form-button next"
-        >
-          CONTINUE →
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         SECTION 6
-    ================================================== -->
-
-    <section
-      class="form-section"
-      data-section="6"
-    >
-
-      <span class="form-section-number">
-        06 / CONFIRMATION
-      </span>
-
-
-      <h2>
-        CONFIRM<br>
-        <em>YOUR ENTRY.</em>
-      </h2>
-
-
-      <label class="check-row">
-
-        <input
-          type="checkbox"
-          name="confirmAccuracy"
-          required
-        >
-
-        <span>
-          I confirm that the information provided above
-          is accurate.
-        </span>
-
-      </label>
-
-
-      <label class="check-row">
-
-        <input
-          type="checkbox"
-          name="confirmAllotment"
-          required
-        >
-
-        <span>
-          I understand that committee and portfolio
-          allotments are subject to availability and
-          the decision of the Secretariat.
-        </span>
-
-      </label>
-
-
-      <label class="check-row">
-
-        <input
-          type="checkbox"
-          name="confirmRules"
-          required
-        >
-
-        <span>
-          I agree to abide by the Rules of Procedure
-          and Code of Conduct of RELMUN '26.
-        </span>
-
-      </label>
-
-
-      <div
-        id="registrationError"
-        class="registration-error"
-      ></div>
-
-
-      <div class="form-navigation">
-
-        <button
-          type="button"
-          class="form-button secondary prev"
-        >
-          ← BACK
-        </button>
-
-
-        <button
-          type="submit"
-          class="form-button"
-          id="submitButton"
-        >
-          SUBMIT REGISTRATION ↗
-        </button>
-
-      </div>
-
-    </section>
-
-
-  </form>
-
-
-
-  <!-- ===================================================
-       SUCCESS
-  ==================================================== -->
-
-  <div
-    id="registrationSuccess"
-    class="registration-success"
-  >
-
-    <span class="eyebrow">
-      REGISTRATION RECEIVED
-    </span>
-
-
-    <h2>
-      YOU'RE<br>
-      <em>IN.</em>
-    </h2>
-
-
-    <p>
-
-      Your registration has been submitted successfully.
-      Please keep your details for future communication
-      from the Secretariat.
-
-    </p>
-
-
-    <a
-      class="btn btn-gold"
-      href="index.html"
-    >
-      RETURN TO RELMUN ↗
-    </a>
-
-  </div>
-
+</div>
 
 </main>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
+<div class="footer-logo">
+<img src="relmun-logo.png" alt="RELMUN '26">
+</div>
 
-  <div class="footer-logo">
+<div class="footer-middle">
+<strong>RELMUN '26</strong>
+<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+<a href="https://www.instagram.com/relmun.official/" target="_blank">@RELMUN.OFFICIAL ↗</a>
+</div>
 
-    <a href="index.html">
-
-      <img
-        src="relmun-logo.png"
-        alt="RELMUN '26"
-      >
-
-    </a>
-
-  </div>
-
-
-  <div class="footer-middle">
-
-    <strong>
-      RELMUN '26
-    </strong>
-
-    <span>
-      Relations · Engagement · Leadership
-    </span>
-
-    <span>
-      @relmun.official
-    </span>
-
-  </div>
-
-
-  <div class="footer-right">
-
-    <span>
-      26–27 DECEMBER 2026
-    </span>
-
-    <span>
-      ONLINE CONFERENCE
-    </span>
-
-    <span>
-      © 2026 RELMUN
-    </span>
-
-  </div>
-
+<div class="footer-right">
+<span>26—27 DECEMBER 2026</span>
+<span>ONLINE CONFERENCE</span>
+<a href="mailto:akshithkabilan@gmail.com">AKSHITHKABILAN@GMAIL.COM ↗</a>
+</div>
 
 </footer>
 
 
-
-<!-- =====================================================
-     SCRIPTS
-===================================================== -->
+<div id="relmun-chatbot"></div>
 
 <script src="script.js"></script>
-
+<script src="chatbot.js"></script>
 
 <script>
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
+(() => {
 
+const OPEN_TIME =
+new Date("2026-10-01T00:00:00+05:30").getTime();
 
-    /* ===================================================
-       REGISTRATION OPENING DATE
+const lock =
+document.getElementById("registrationLock");
 
-       1 October 2026
-       00:00 IST
-    =================================================== */
+const options =
+document.getElementById("registrationOptions");
 
-    const registrationDate =
-      new Date(
-        "2026-10-01T00:00:00+05:30"
-      ).getTime();
+const clock =
+document.getElementById("lockCountdown");
 
 
-    const registrationLock =
-      document.getElementById(
-        "registrationLock"
-      );
+function pad(value){
+return String(value).padStart(2,"0");
+}
 
 
-    const registrationOptions =
-      document.getElementById(
-        "registrationOptions"
-      );
+function update(){
 
+const difference =
+OPEN_TIME - Date.now();
 
-    const registrationForm =
-      document.getElementById(
-        "registrationForm"
-      );
 
+/* CLOSED */
 
-    const registrationProgress =
-      document.getElementById(
-        "registrationProgress"
-      );
+if(difference > 0){
 
+lock.style.display = "block";
+options.classList.remove("open");
 
-    const lockCountdown =
-      document.getElementById(
-        "lockCountdown"
-      );
+const seconds =
+Math.floor(difference / 1000);
 
+const days =
+Math.floor(seconds / 86400);
 
-    const registrationDescription =
-      document.getElementById(
-        "registrationDescription"
-      );
+const hours =
+Math.floor((seconds % 86400) / 3600);
 
+const minutes =
+Math.floor((seconds % 3600) / 60);
 
-    const registrationSuccess =
-      document.getElementById(
-        "registrationSuccess"
-      );
+const secs =
+seconds % 60;
 
+clock.textContent =
+`${pad(days)} : ${pad(hours)} : ${pad(minutes)} : ${pad(secs)}`;
 
-    const registrationError =
-      document.getElementById(
-        "registrationError"
-      );
+return;
 
+}
 
-    const submitButton =
-      document.getElementById(
-        "submitButton"
-      );
 
+/* OPEN */
 
-    /* ===================================================
-       GOOGLE APPS SCRIPT
-    =================================================== */
+lock.style.display = "none";
+options.classList.add("open");
 
-    const GOOGLE_SHEETS_URL =
-      "https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
+}
 
 
-    /* ===================================================
-       HELPERS
-    =================================================== */
+update();
 
-    function pad(number) {
+setInterval(update,1000);
 
-      return String(number)
-        .padStart(2, "0");
 
-    }
+const menu =
+document.getElementById("navMenu");
 
+const nav =
+document.getElementById("navLinks");
 
-    /* ===================================================
-       SHOW REGISTRATION OPTIONS
-    =================================================== */
+menu?.addEventListener("click",()=>{
+nav.classList.toggle("open");
+});
 
-    function openRegistration() {
-
-
-      if (registrationLock) {
-
-        registrationLock.style.display =
-          "none";
-
-      }
-
-
-      if (registrationOptions) {
-
-        registrationOptions.style.display =
-          "block";
-
-      }
-
-
-      /*
-       * The actual website form is preserved,
-       * but not displayed alongside the five
-       * external registration options.
-       *
-       * Users choosing the website option are
-       * taken to the deployed RELMUN site.
-       */
-
-      if (registrationForm) {
-
-        registrationForm.style.display =
-          "none";
-
-      }
-
-
-      if (registrationProgress) {
-
-        registrationProgress.style.display =
-          "none";
-
-      }
-
-
-      if (registrationDescription) {
-
-        registrationDescription.innerHTML =
-          "Delegate registrations for RELMUN '26 are now open. Choose your preferred registration platform below.";
-
-      }
-
-    }
-
-
-    /* ===================================================
-       KEEP REGISTRATION LOCKED
-    =================================================== */
-
-    function lockRegistration() {
-
-
-      const difference =
-        registrationDate -
-        Date.now();
-
-
-      if (difference <= 0) {
-
-        openRegistration();
-
-        return;
-
-      }
-
-
-      if (registrationLock) {
-
-        registrationLock.style.display =
-          "block";
-
-      }
-
-
-      if (registrationOptions) {
-
-        registrationOptions.style.display =
-          "none";
-
-      }
-
-
-      if (registrationForm) {
-
-        registrationForm.style.display =
-          "none";
-
-      }
-
-
-      if (registrationProgress) {
-
-        registrationProgress.style.display =
-          "none";
-
-      }
-
-
-      const totalSeconds =
-        Math.floor(
-          difference / 1000
-        );
-
-
-      const days =
-        Math.floor(
-          totalSeconds / 86400
-        );
-
-
-      const hours =
-        Math.floor(
-          (totalSeconds % 86400) /
-          3600
-        );
-
-
-      const minutes =
-        Math.floor(
-          (totalSeconds % 3600) /
-          60
-        );
-
-
-      const seconds =
-        totalSeconds % 60;
-
-
-      if (lockCountdown) {
-
-        lockCountdown.textContent =
-          `${pad(days)} : ${pad(hours)} : ${pad(minutes)} : ${pad(seconds)}`;
-
-      }
-
-    }
-
-
-    /* ===================================================
-       INITIAL STATE
-    =================================================== */
-
-    lockRegistration();
-
-
-    setInterval(
-      lockRegistration,
-      1000
-    );
-
-
-    /* ===================================================
-       FORM NAVIGATION
-
-       Preserved so the actual RELMUN form still
-       works if you later decide to expose it.
-    =================================================== */
-
-    const sections =
-      Array.from(
-        document.querySelectorAll(
-          ".form-section"
-        )
-      );
-
-
-    const progressSteps =
-      Array.from(
-        document.querySelectorAll(
-          ".progress-step"
-        )
-      );
-
-
-    const progressText =
-      document.getElementById(
-        "progressText"
-      );
-
-
-    let currentSection = 1;
-
-
-    function showSection(number) {
-
-
-      if (
-        number < 1 ||
-        number > sections.length
-      ) {
-
-        return;
-
-      }
-
-
-      sections.forEach(
-        function (section) {
-
-          section.classList.toggle(
-            "active",
-            Number(
-              section.dataset.section
-            ) === number
-          );
-
-        }
-      );
-
-
-      progressSteps.forEach(
-        function (step, index) {
-
-          step.classList.toggle(
-            "active",
-            index < number
-          );
-
-        }
-      );
-
-
-      if (progressText) {
-
-        progressText.textContent =
-          `SECTION ${number} OF ${sections.length}`;
-
-      }
-
-
-      currentSection =
-        number;
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }
-
-
-    function validateSection() {
-
-
-      const section =
-        document.querySelector(
-          `.form-section[data-section="${currentSection}"]`
-        );
-
-
-      if (!section) {
-
-        return false;
-
-      }
-
-
-      const fields =
-        section.querySelectorAll(
-          "input, select, textarea"
-        );
-
-
-      for (
-        const field of fields
-      ) {
-
-
-        if (
-          !field.checkValidity()
-        ) {
-
-          field.reportValidity();
-
-          return false;
-
-        }
-
-      }
-
-
-      return true;
-
-    }
-
-
-    document
-      .querySelectorAll(".next")
-      .forEach(
-        function (button) {
-
-          button.addEventListener(
-            "click",
-            function () {
-
-              if (
-                !validateSection()
-              ) {
-
-                return;
-
-              }
-
-
-              if (
-                currentSection <
-                sections.length
-              ) {
-
-                showSection(
-                  currentSection + 1
-                );
-
-              }
-
-            }
-          );
-
-        }
-      );
-
-
-    document
-      .querySelectorAll(".prev")
-      .forEach(
-        function (button) {
-
-          button.addEventListener(
-            "click",
-            function () {
-
-              if (
-                currentSection > 1
-              ) {
-
-                showSection(
-                  currentSection - 1
-                );
-
-              }
-
-            }
-          );
-
-        }
-      );
-
-
-    /* ===================================================
-       OTHER SOURCE
-    =================================================== */
-
-    const source =
-      document.getElementById(
-        "source"
-      );
-
-
-    const otherSourceField =
-      document.getElementById(
-        "otherSourceField"
-      );
-
-
-    const otherSource =
-      document.getElementById(
-        "otherSource"
-      );
-
-
-    if (
-      source &&
-      otherSourceField &&
-      otherSource
-    ) {
-
-
-      source.addEventListener(
-        "change",
-        function () {
-
-
-          if (
-            source.value === "Other"
-          ) {
-
-            otherSourceField.style.display =
-              "flex";
-
-          } else {
-
-            otherSourceField.style.display =
-              "none";
-
-            otherSource.value =
-              "";
-
-          }
-
-        }
-      );
-
-    }
-
-
-    /* ===================================================
-       SUBMIT
-
-       The frontend additionally blocks submission
-       before the opening date.
-    =================================================== */
-
-    const form =
-      document.getElementById(
-        "registrationForm"
-      );
-
-
-    if (form) {
-
-
-      form.addEventListener(
-        "submit",
-        async function (event) {
-
-          event.preventDefault();
-
-
-          /* ---------------------------------------------
-             DATE PROTECTION
-          --------------------------------------------- */
-
-          if (
-            Date.now() <
-            registrationDate
-          ) {
-
-            registrationError.textContent =
-              "Registrations open on 1 October 2026.";
-
-            registrationError.classList.add(
-              "show"
-            );
-
-            return;
-
-          }
-
-
-          registrationError.classList.remove(
-            "show"
-          );
-
-
-          if (
-            !validateSection()
-          ) {
-
-            return;
-
-          }
-
-
-          const formData =
-            new FormData(form);
-
-
-          const registrationData = {
-
-            fullName:
-              formData.get(
-                "fullName"
-              ) || "",
-
-
-            email:
-              formData.get(
-                "email"
-              ) || "",
-
-
-            whatsapp:
-              formData.get(
-                "whatsapp"
-              ) || "",
-
-
-            city:
-              formData.get(
-                "city"
-              ) || "",
-
-
-            munExperience:
-              formData.get(
-                "munExperience"
-              ) || "",
-
-
-            committee1:
-              formData.get(
-                "committee1"
-              ) || "",
-
-
-            committee2:
-              formData.get(
-                "committee2"
-              ) || "",
-
-
-            committee3:
-              formData.get(
-                "committee3"
-              ) || "",
-
-
-            portfolio1:
-              formData.get(
-                "portfolio1"
-              ) || "",
-
-
-            portfolio2:
-              formData.get(
-                "portfolio2"
-              ) || "",
-
-
-            portfolio3:
-              formData.get(
-                "portfolio3"
-              ) || "",
-
-
-            source:
-              formData.get(
-                "source"
-              ) || "",
-
-
-            otherSource:
-              formData.get(
-                "otherSource"
-              ) || ""
-
-          };
-
-
-          const originalText =
-            submitButton.textContent;
-
-
-          submitButton.disabled =
-            true;
-
-
-          submitButton.textContent =
-            "SUBMITTING...";
-
-
-          try {
-
-
-            const response =
-              await fetch(
-                GOOGLE_SHEETS_URL,
-                {
-
-                  method: "POST",
-
-                  headers: {
-                    "Content-Type":
-                      "text/plain;charset=utf-8"
-                  },
-
-                  body:
-                    JSON.stringify(
-                      registrationData
-                    )
-
-                }
-              );
-
-
-            const result =
-              await response.json();
-
-
-            if (
-              !result.success
-            ) {
-
-              throw new Error(
-                result.error ||
-                "Registration could not be submitted."
-              );
-
-            }
-
-
-            form.style.display =
-              "none";
-
-
-            if (registrationProgress) {
-
-              registrationProgress.style.display =
-                "none";
-
-            }
-
-
-            if (registrationOptions) {
-
-              registrationOptions.style.display =
-                "none";
-
-            }
-
-
-            if (registrationSuccess) {
-
-              registrationSuccess.classList.add(
-                "active"
-              );
-
-            }
-
-
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
-
-
-          } catch (error) {
-
-
-            console.error(
-              "RELMUN registration error:",
-              error
-            );
-
-
-            registrationError.textContent =
-              error.message ||
-              "Something went wrong while submitting your registration. Please check your connection and try again.";
-
-
-            registrationError.classList.add(
-              "show"
-            );
-
-
-            submitButton.disabled =
-              false;
-
-
-            submitButton.textContent =
-              originalText;
-
-          }
-
-        }
-      );
-
-    }
-
-
-  }
-
-);
+})();
 
 </script>
 
-
 </body>
-
 </html>
