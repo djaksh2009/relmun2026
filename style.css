@@ -1128,3 +1128,238 @@ footer{
     bottom:16px!important;
   }
 }
+/* =========================================
+   RELMUN — UNIFIED TEAM CARDS
+========================================= */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(241, 236, 224, 0.14);
+  border: 1px solid rgba(241, 236, 224, 0.14);
+}
+
+.team-card {
+  position: relative;
+  min-height: 360px;
+  padding: 34px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(14, 41, 153, 0.18),
+      transparent 42%
+    ),
+    #080808;
+
+  color: #f1ece0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.team-card:hover {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(14, 41, 153, 0.65),
+      transparent 55%
+    ),
+    #0a0a0a;
+}
+
+/* subtle blue sweep */
+
+.team-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -50% auto;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: #0e2999;
+
+  opacity: 0;
+  filter: blur(90px);
+
+  transition: opacity 0.4s ease;
+
+  pointer-events: none;
+}
+
+.team-card:hover::after {
+  opacity: 0.2;
+}
+
+/* TOP */
+
+.team-card-top {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.team-number {
+  color: #c79a2b;
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.team-role {
+  color: rgba(241, 236, 224, 0.5);
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  text-align: right;
+}
+
+/* AVATAR */
+
+.team-avatar {
+  position: relative;
+  z-index: 2;
+
+  width: 82px;
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(241, 236, 224, 0.25);
+
+  color: #f1ece0;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.team-card:hover .team-avatar {
+  border-color: #c79a2b;
+  background: rgba(14, 41, 153, 0.45);
+}
+
+/* INFO */
+
+.team-info {
+  position: relative;
+  z-index: 2;
+}
+
+.team-info h3 {
+  margin: 0;
+
+  color: #f1ece0;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(25px, 3vw, 42px);
+  font-weight: 900;
+
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+
+  text-transform: uppercase;
+}
+
+.team-info p {
+  margin: 12px 0 0;
+
+  color: #c79a2b;
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+/* BOTTOM LINE */
+
+.team-card-line {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c79a2b,
+      rgba(199, 154, 43, 0)
+    );
+
+  transform-origin: left;
+
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-card-line {
+  transform: scaleX(0.55);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card {
+    min-height: 330px;
+    padding: 28px;
+  }
+
+  .team-info h3 {
+    font-size: 30px;
+  }
+}
