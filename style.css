@@ -1655,3 +1655,60 @@ footer{
   padding: 2px 4px;
   background: rgba(241,236,224,.08);
 }
+/* =========================================
+   REX — RESPONSE TEXT
+========================================= */
+
+.relmun-message.bot {
+    white-space: normal !important;
+    line-height: 1.65 !important;
+}
+
+/* Bold text */
+.relmun-message.bot strong {
+    font-weight: 800 !important;
+    color: #f1ece0 !important;
+}
+
+/* Italic */
+.relmun-message.bot em {
+    color: #c79a2b !important;
+    font-style: italic !important;
+}
+
+/* Bullets */
+.relmun-message.bot .rex-bullet {
+    display: block !important;
+    margin: 5px 0 !important;
+    padding-left: 4px !important;
+}
+
+/* Numbered lists */
+.relmun-message.bot .rex-numbered {
+    display: block !important;
+    margin: 5px 0 !important;
+}
+
+.relmun-message.bot .rex-numbered span {
+    color: #c79a2b !important;
+    font-weight: 800 !important;
+}
+
+/* Headings */
+.relmun-message.bot .rex-heading {
+    display: block !important;
+    margin: 9px 0 5px !important;
+    color: #f1ece0 !important;
+    font-weight: 800 !important;
+}
+
+/* Links */
+.relmun-message.bot a {
+    color: #0e2999 !important;
+    text-decoration: underline !important;
+}
+
+/* Don't let long answers overflow */
+.relmun-message.bot {
+    overflow-wrap: anywhere !important;
+}
