@@ -1363,3 +1363,41 @@ footer{
     font-size: 30px;
   }
 }
+/* FORCE ALL TEAM CARDS TO USE THE SAME UI */
+
+.team-card,
+.team-card:first-child,
+.team-card.featured,
+.team-card.leadership,
+.team-member,
+.team-member:first-child {
+  background: #080808 !important;
+  color: #f1ece0 !important;
+}
+
+.team-card:hover,
+.team-card:first-child:hover,
+.team-card.featured:hover,
+.team-card.leadership:hover {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(14, 41, 153, 0.18),
+      transparent 42%
+    ),
+    #080808 !important;
+}
+
+.team-card h3,
+.team-card:first-child h3,
+.team-card.featured h3,
+.team-card.leadership h3 {
+  color: #f1ece0 !important;
+}
+
+.team-card p,
+.team-card:first-child p,
+.team-card.featured p,
+.team-card.leadership p {
+  color: #c79a2b !important;
+}
