@@ -1,201 +1,349 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register | RELMUN 2026</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register — RELMUN '26</title>
+<link rel="icon" href="relmun-logo.png">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="navbar">
-  <div class="nav-container">
+<header>
+<nav class="navbar">
+<a class="nav-logo" href="index.html"><img src="relmun-logo.png" alt="RELMUN '26"></a>
 
-    <a href="index.html" class="brand">
-      <div class="brand-mark">R</div>
-      <div class="brand-text">
-        <strong>RELMUN</strong>
-        <small>2026</small>
-      </div>
-    </a>
+<button class="nav-menu" id="navMenu" aria-label="Open navigation">
+<span></span><span></span>
+</button>
 
-    <button class="nav-toggle">☰</button>
-
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="committees.html">Committees</a>
-      <a href="eb.html">Executive Board</a>
-      <a href="register.html" class="active nav-register">Register</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-
-  </div>
+<div class="nav-links" id="navLinks">
+<a href="index.html#about">ABOUT</a>
+<a href="committees.html">COMMITTEES</a>
+<a href="index.html#team">TEAM</a>
+<a href="eb.html">EB</a>
+<a href="faq.html">FAQ</a>
+<a href="register.html" class="nav-register">REGISTER ↗</a>
+</div>
+</nav>
 </header>
 
-<main>
+<main class="registration-page">
 
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-kicker">REGISTRATION / 2026</span>
-    <h1>Choose your<br><span>registration route.</span></h1>
-  </div>
+<div class="registration-header">
+<span class="eyebrow">RELMUN '26 · DELEGATE REGISTRATION</span>
+<h1>JOIN<br><em>RELMUN.</em></h1>
+<p>
+Delegate registrations open on <strong>1 October 2026.</strong>
+Choose your preferred registration platform once the window opens.
+</p>
+</div>
+
+<section class="registration-lock" id="registrationStatus">
+
+<span class="eyebrow">REGISTRATION WINDOW</span>
+
+<h2 id="statusTitle">REGISTRATIONS OPEN IN</h2>
+
+<p id="statusText">
+Delegate registration is currently closed.
+Registration opens on 1 October 2026.
+</p>
+
+<div class="lock-countdown" id="lockCountdown">
+00 : 00 : 00 : 00
+</div>
+
+<div class="registration-portals" id="portalGrid">
+
+<a class="registration-option locked" data-registration-link href="https://forms.gle/AncgvgJnFyHaC3qM8" target="_blank" rel="noopener">
+🔒 GOOGLE FORMS
+</a>
+
+<a class="registration-option locked" data-registration-link href="https://mymun.com/conferences/relmun-2026" target="_blank" rel="noopener">
+🔒 MYMUN
+</a>
+
+<a class="registration-option locked" data-registration-link href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr" target="_blank" rel="noopener">
+🔒 GAVELLING
+</a>
+
+<a class="registration-option locked" data-registration-link href="https://champarena.co.in/e/relmun2026" target="_blank" rel="noopener">
+🔒 CHAMPARENA
+</a>
+
+<a class="registration-option locked" data-registration-link href="#website-registration">
+🔒 WEBSITE
+</a>
+
+</div>
 </section>
 
-<section class="section">
+<section class="website-form" id="website-registration">
 
-  <div class="section-inner">
+<div class="eyebrow">RELMUN WEBSITE REGISTRATION</div>
+<h2>REGISTER<br><em>DIRECTLY.</em></h2>
 
-    <span class="section-kicker">REGISTRATION STATUS</span>
+<form id="registrationForm" novalidate>
 
-    <h2 class="section-title">
-      Registrations open<br>
-      <span>1 October 2026.</span>
-    </h2>
+<div class="form-grid">
 
-    <p class="section-copy">
-      Delegate registrations are currently closed.
-      From 1 October, choose whichever registration platform
-      is most convenient for you.
-    </p>
+<div class="form-field full">
+<label>FULL NAME *</label>
+<input name="fullName" required>
+</div>
 
-    <div class="countdown" style="margin-top:45px;">
-      <div><strong id="days">00</strong><span>DAYS</span></div>
-      <div><strong id="hours">00</strong><span>HOURS</span></div>
-      <div><strong id="minutes">00</strong><span>MINUTES</span></div>
-      <div><strong id="seconds">00</strong><span>SECONDS</span></div>
-    </div>
+<div class="form-field">
+<label>EMAIL *</label>
+<input name="email" type="email" required>
+</div>
 
-    <div id="registrationMessage"
-         style="margin-top:25px;color:#C79A2B;font-family:'DM Mono',monospace;font-size:11px;">
-      Registrations open on 1 October 2026.
-    </div>
+<div class="form-field">
+<label>WHATSAPP *</label>
+<input name="whatsapp" required>
+</div>
 
-    <div class="registration-options" id="registrationOptions">
+<div class="form-field full">
+<label>CITY *</label>
+<input name="city" required>
+</div>
 
-      <a
-        href="https://forms.gle/AncgvgJnFyHaC3qM8"
-        target="_blank"
-        class="registration-option">
-        <div>
-          <h3>Google Form</h3>
-          <p>Register directly through the official form.</p>
-        </div>
-        <span class="btn btn-primary">Open →</span>
-      </a>
+<div class="form-field full">
+<label>MUN EXPERIENCE *</label>
+<select name="munExperience" required>
+<option value="">SELECT</option>
+<option>FIRST TIME</option>
+<option>1–3 CONFERENCES</option>
+<option>4–10 CONFERENCES</option>
+<option>10+ CONFERENCES</option>
+</select>
+</div>
 
-      <a
-        href="https://mymun.com/conferences/relmun-2026"
-        target="_blank"
-        class="registration-option">
-        <div>
-          <h3>MyMUN</h3>
-          <p>Register through the MyMUN conference listing.</p>
-        </div>
-        <span class="btn btn-primary">Open →</span>
-      </a>
+<div class="form-field">
+<label>COMMITTEE PREFERENCE 1 *</label>
+<select name="committee1" required>
+<option value="">SELECT</option>
+<option>UNSC</option>
+<option>UNHRC</option>
+<option>UNODC</option>
+<option>AIPPM</option>
+<option>UNW</option>
+<option>IPLA</option>
+</select>
+</div>
 
-      <a
-        href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
-        target="_blank"
-        class="registration-option">
-        <div>
-          <h3>Gavelling</h3>
-          <p>Register through the Gavelling listing.</p>
-        </div>
-        <span class="btn btn-primary">Open →</span>
-      </a>
+<div class="form-field">
+<label>COMMITTEE PREFERENCE 2 *</label>
+<select name="committee2" required>
+<option value="">SELECT</option>
+<option>UNSC</option>
+<option>UNHRC</option>
+<option>UNODC</option>
+<option>AIPPM</option>
+<option>UNW</option>
+<option>IPLA</option>
+</select>
+</div>
 
-      <a
-        href="https://champarena.co.in/e/relmun2026"
-        target="_blank"
-        class="registration-option">
-        <div>
-          <h3>ChampArena</h3>
-          <p>Register through the ChampArena event page.</p>
-        </div>
-        <span class="btn btn-primary">Open →</span>
-      </a>
+<div class="form-field">
+<label>COMMITTEE PREFERENCE 3 *</label>
+<select name="committee3" required>
+<option value="">SELECT</option>
+<option>UNSC</option>
+<option>UNHRC</option>
+<option>UNODC</option>
+<option>AIPPM</option>
+<option>UNW</option>
+<option>IPLA</option>
+</select>
+</div>
 
-    </div>
+<div class="form-field">
+<label>PORTFOLIO 1 *</label>
+<input name="portfolio1" required>
+</div>
 
-  </div>
+<div class="form-field">
+<label>PORTFOLIO 2 *</label>
+<input name="portfolio2" required>
+</div>
 
+<div class="form-field">
+<label>PORTFOLIO 3 *</label>
+<input name="portfolio3" required>
+</div>
+
+<div class="form-field">
+<label>HOW DID YOU HEAR ABOUT RELMUN? *</label>
+<select name="source" id="source" required>
+<option value="">SELECT</option>
+<option>INSTAGRAM</option>
+<option>MYMUN</option>
+<option>GAVELLING</option>
+<option>CHAMPARENA</option>
+<option>FRIEND</option>
+<option>OTHER</option>
+</select>
+</div>
+
+<div class="form-field" id="otherSourceField" style="display:none">
+<label>OTHER SOURCE</label>
+<input name="otherSource" id="otherSource">
+</div>
+
+</div>
+
+<div style="margin-top:30px">
+<button class="form-button" id="submitButton" type="submit">
+SUBMIT REGISTRATION ↗
+</button>
+</div>
+
+<div class="registration-error" id="registrationError"></div>
+
+</form>
 </section>
 
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-
-      <div class="brand">
-        <div class="brand-mark">R</div>
-        <div class="brand-text">
-          <strong>RELMUN</strong>
-          <small>2026</small>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <a href="https://www.instagram.com/relmun.official/" target="_blank">Instagram</a>
-        <a href="mailto:akshithkabilan@gmail.com">Email</a>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 RELMUN</span>
-      <span>ONLINE CONFERENCE · 26–27 DECEMBER 2026</span>
-    </div>
-  </div>
+<footer>
+<div class="footer-logo"><img src="relmun-logo.png" alt="RELMUN '26"></div>
+<div class="footer-middle">
+<strong>RELMUN '26</strong>
+<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+</div>
+<div class="footer-right">
+<span>26—27 DECEMBER 2026</span>
+<span>ONLINE CONFERENCE</span>
+<span>akshithkabilan@gmail.com</span>
+</div>
 </footer>
 
-<script src="chatbot.js"></script>
+<div id="relmun-chatbot"></div>
 
 <script>
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
+const OPEN_DATE=new Date("2026-10-01T00:00:00+05:30");
+const API_URL="https://script.google.com/macros/s/AKfycbzZdzXXrt20_x-9NcLAIDmeqo45e9FUzfhNsXKX__uvuZb_CAkfPgLOSz_AUNSeNjtUYw/exec";
 
-navToggle?.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
-});
+const countdown=document.getElementById("lockCountdown");
+const statusTitle=document.getElementById("statusTitle");
+const statusText=document.getElementById("statusText");
+const portals=document.querySelectorAll("[data-registration-link]");
+const websiteForm=document.querySelector(".website-form");
 
-const openDate = new Date("2026-10-01T00:00:00");
-const conferenceDate = new Date("2026-12-26T00:00:00");
+function isOpen(){
+  return new Date()>=OPEN_DATE;
+}
 
-function updateRegistration() {
-  const now = new Date();
+function updateRegistration(){
+  if(isOpen()){
+    statusTitle.textContent="REGISTRATIONS ARE OPEN";
+    statusText.textContent="Choose your preferred registration platform below.";
+    countdown.style.display="none";
 
-  const target = now < openDate ? openDate : conferenceDate;
-  let difference = target - now;
+    portals.forEach(link=>{
+      link.classList.remove("locked");
+      const text=link.textContent.trim().replace(/^🔒\s*/,"");
+      link.textContent=text+" ↗";
+    });
+  }else{
+    const diff=OPEN_DATE-new Date();
+    const days=Math.floor(diff/86400000);
+    const hours=Math.floor(diff%86400000/3600000);
+    const mins=Math.floor(diff%3600000/60000);
+    const secs=Math.floor(diff%60000/1000);
 
-  if (difference < 0) difference = 0;
-
-  const days = Math.floor(difference / 86400000);
-  const hours = Math.floor((difference / 3600000) % 24);
-  const minutes = Math.floor((difference / 60000) % 60);
-  const seconds = Math.floor((difference / 1000) % 60);
-
-  document.getElementById("days").textContent = String(days).padStart(2,"0");
-  document.getElementById("hours").textContent = String(hours).padStart(2,"0");
-  document.getElementById("minutes").textContent = String(minutes).padStart(2,"0");
-  document.getElementById("seconds").textContent = String(seconds).padStart(2,"0");
-
-  const message = document.getElementById("registrationMessage");
-
-  if (now < openDate) {
-    message.textContent = "Registrations open on 1 October 2026.";
-    message.style.color = "#C79A2B";
-  } else {
-    message.textContent = "Registrations are now open.";
-    message.style.color = "#1846FF";
+    countdown.textContent=
+      String(days).padStart(2,"0")+" : "+
+      String(hours).padStart(2,"0")+" : "+
+      String(mins).padStart(2,"0")+" : "+
+      String(secs).padStart(2,"0");
   }
 }
 
+portals.forEach(link=>{
+  link.addEventListener("click",e=>{
+    if(!isOpen()){
+      e.preventDefault();
+    }
+  });
+});
+
+document.querySelector('[href="#website-registration"]').addEventListener("click",e=>{
+  if(!isOpen()) e.preventDefault();
+});
+
+const source=document.getElementById("source");
+source.addEventListener("change",()=>{
+  document.getElementById("otherSourceField").style.display=
+    source.value==="OTHER"?"block":"none";
+});
+
+document.getElementById("registrationForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+
+  const error=document.getElementById("registrationError");
+  const button=document.getElementById("submitButton");
+
+  if(!isOpen()){
+    error.textContent="Delegate registrations open on 1 October 2026.";
+    error.classList.add("show");
+    return;
+  }
+
+  if(!e.target.checkValidity()){
+    e.target.reportValidity();
+    return;
+  }
+
+  button.disabled=true;
+  button.textContent="SUBMITTING…";
+  error.classList.remove("show");
+
+  try{
+    const data=Object.fromEntries(new FormData(e.target).entries());
+
+    const response=await fetch(API_URL,{
+      method:"POST",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(data)
+    });
+
+    const result=await response.json();
+
+    if(!result.success){
+      throw new Error(result.error||"Registration failed.");
+    }
+
+    e.target.innerHTML=`
+      <div style="padding:50px 0">
+        <span class="eyebrow">SUCCESS</span>
+        <h2 style="margin-top:25px">REGISTRATION<br><em>RECEIVED.</em></h2>
+        <p style="margin-top:25px">Your registration has been submitted successfully.</p>
+        <p style="margin-top:12px">Registration ID: <strong>${result.registrationId||"RELMUN26"}</strong></p>
+      </div>
+    `;
+  }catch(err){
+    error.textContent=err.message||"Something went wrong. Please try again.";
+    error.classList.add("show");
+    button.disabled=false;
+    button.textContent="SUBMIT REGISTRATION ↗";
+  }
+});
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const menu=document.getElementById("navMenu");
+  const links=document.getElementById("navLinks");
+  menu?.addEventListener("click",()=>{
+    links.classList.toggle("open");
+  });
+});
+
 updateRegistration();
-setInterval(updateRegistration, 1000);
+setInterval(updateRegistration,1000);
 </script>
 
+<script src="chatbot.js"></script>
 </body>
 </html>
