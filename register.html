@@ -1,239 +1,200 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Register — RELMUN '26</title>
-<link rel="icon" href="relmun-logo.png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | RELMUN 2026</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-<nav class="navbar">
+<header class="navbar">
+  <div class="nav-container">
 
-<a class="nav-logo" href="index.html">
-<img src="relmun-logo.png" alt="RELMUN '26">
-</a>
+    <a href="index.html" class="brand">
+      <div class="brand-mark">R</div>
+      <div class="brand-text">
+        <strong>RELMUN</strong>
+        <small>2026</small>
+      </div>
+    </a>
 
-<button class="nav-menu" id="navMenu">
-<span></span><span></span>
-</button>
+    <button class="nav-toggle">☰</button>
 
-<div class="nav-links" id="navLinks">
-<a href="index.html#about">ABOUT</a>
-<a href="committees.html">COMMITTEES</a>
-<a href="index.html#team">TEAM</a>
-<a href="index.html#eb">EB</a>
-<a href="faq.html">FAQ</a>
-<a href="register.html" class="nav-register">REGISTER</a>
-</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="committees.html">Committees</a>
+      <a href="eb.html">Executive Board</a>
+      <a href="register.html" class="active nav-register">Register</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
 
-</nav>
+  </div>
 </header>
 
+<main>
 
-<main class="registration-page">
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-kicker">REGISTRATION / 2026</span>
+    <h1>Choose your<br><span>registration route.</span></h1>
+  </div>
+</section>
 
-<div class="registration-header">
+<section class="section">
 
-<span class="eyebrow">
-RELMUN '26 · DELEGATE REGISTRATION
-</span>
+  <div class="section-inner">
 
-<h1>JOIN<br><em>RELMUN.</em></h1>
+    <span class="section-kicker">REGISTRATION STATUS</span>
 
-<p>
-Registrations open on
-<strong>1 October 2026 at 00:00 IST.</strong>
-</p>
+    <h2 class="section-title">
+      Registrations open<br>
+      <span>1 October 2026.</span>
+    </h2>
 
-</div>
+    <p class="section-copy">
+      Delegate registrations are currently closed.
+      From 1 October, choose whichever registration platform
+      is most convenient for you.
+    </p>
 
+    <div class="countdown" style="margin-top:45px;">
+      <div><strong id="days">00</strong><span>DAYS</span></div>
+      <div><strong id="hours">00</strong><span>HOURS</span></div>
+      <div><strong id="minutes">00</strong><span>MINUTES</span></div>
+      <div><strong id="seconds">00</strong><span>SECONDS</span></div>
+    </div>
 
-<div id="registrationLock" class="registration-lock">
+    <div id="registrationMessage"
+         style="margin-top:25px;color:#C79A2B;font-family:'DM Mono',monospace;font-size:11px;">
+      Registrations open on 1 October 2026.
+    </div>
 
-<span class="eyebrow">REGISTRATION WINDOW</span>
+    <div class="registration-options" id="registrationOptions">
 
-<h2>
-OPENING<br><em>01 OCTOBER.</em>
-</h2>
+      <a
+        href="https://forms.gle/AncgvgJnFyHaC3qM8"
+        target="_blank"
+        class="registration-option">
+        <div>
+          <h3>Google Form</h3>
+          <p>Register directly through the official form.</p>
+        </div>
+        <span class="btn btn-primary">Open →</span>
+      </a>
 
-<p>
-Delegate registration is currently closed.
-Registration links will appear automatically when
-the registration window opens.
-</p>
+      <a
+        href="https://mymun.com/conferences/relmun-2026"
+        target="_blank"
+        class="registration-option">
+        <div>
+          <h3>MyMUN</h3>
+          <p>Register through the MyMUN conference listing.</p>
+        </div>
+        <span class="btn btn-primary">Open →</span>
+      </a>
 
-<div class="lock-countdown" id="lockCountdown">
-00 : 00 : 00 : 00
-</div>
+      <a
+        href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
+        target="_blank"
+        class="registration-option">
+        <div>
+          <h3>Gavelling</h3>
+          <p>Register through the Gavelling listing.</p>
+        </div>
+        <span class="btn btn-primary">Open →</span>
+      </a>
 
-</div>
+      <a
+        href="https://champarena.co.in/e/relmun2026"
+        target="_blank"
+        class="registration-option">
+        <div>
+          <h3>ChampArena</h3>
+          <p>Register through the ChampArena event page.</p>
+        </div>
+        <span class="btn btn-primary">Open →</span>
+      </a>
 
+    </div>
 
-<div id="registrationOptions" class="registration-options">
+  </div>
 
-<div class="registration-open-label">
-REGISTRATIONS ARE NOW OPEN
-</div>
-
-<p class="registration-description">
-Choose your preferred registration platform.
-</p>
-
-<div class="registration-options-grid">
-
-<a class="registration-option featured"
-href="https://champarena.co.in/e/relmun2026"
-target="_blank"
-rel="noopener noreferrer">
-CHAMPARENA ↗
-</a>
-
-<a class="registration-option"
-href="https://relmun2026.vercel.app/">
-RELMUN WEBSITE ↗
-</a>
-
-<a class="registration-option"
-href="https://mymun.com/conferences/relmun-2026"
-target="_blank"
-rel="noopener noreferrer">
-MYMUN ↗
-</a>
-
-<a class="registration-option"
-href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
-target="_blank"
-rel="noopener noreferrer">
-GAVELLING ↗
-</a>
-
-<a class="registration-option"
-href="https://forms.gle/AncgvgJnFyHaC3qM8"
-target="_blank"
-rel="noopener noreferrer">
-GOOGLE FORM ↗
-</a>
-
-</div>
-
-</div>
+</section>
 
 </main>
 
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
 
-<footer>
+      <div class="brand">
+        <div class="brand-mark">R</div>
+        <div class="brand-text">
+          <strong>RELMUN</strong>
+          <small>2026</small>
+        </div>
+      </div>
 
-<div class="footer-logo">
-<img src="relmun-logo.png" alt="RELMUN '26">
-</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/relmun.official/" target="_blank">Instagram</a>
+        <a href="mailto:akshithkabilan@gmail.com">Email</a>
+      </div>
 
-<div class="footer-middle">
-<strong>RELMUN '26</strong>
-<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
-<a href="https://www.instagram.com/relmun.official/" target="_blank">@RELMUN.OFFICIAL ↗</a>
-</div>
+    </div>
 
-<div class="footer-right">
-<span>26—27 DECEMBER 2026</span>
-<span>ONLINE CONFERENCE</span>
-<a href="mailto:akshithkabilan@gmail.com">AKSHITHKABILAN@GMAIL.COM ↗</a>
-</div>
-
+    <div class="footer-bottom">
+      <span>© 2026 RELMUN</span>
+      <span>ONLINE CONFERENCE · 26–27 DECEMBER 2026</span>
+    </div>
+  </div>
 </footer>
 
-
-<div id="relmun-chatbot"></div>
-
-<script src="script.js"></script>
 <script src="chatbot.js"></script>
 
 <script>
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
 
-(() => {
-
-const OPEN_TIME =
-new Date("2026-10-01T00:00:00+05:30").getTime();
-
-const lock =
-document.getElementById("registrationLock");
-
-const options =
-document.getElementById("registrationOptions");
-
-const clock =
-document.getElementById("lockCountdown");
-
-
-function pad(value){
-return String(value).padStart(2,"0");
-}
-
-
-function update(){
-
-const difference =
-OPEN_TIME - Date.now();
-
-
-/* CLOSED */
-
-if(difference > 0){
-
-lock.style.display = "block";
-options.classList.remove("open");
-
-const seconds =
-Math.floor(difference / 1000);
-
-const days =
-Math.floor(seconds / 86400);
-
-const hours =
-Math.floor((seconds % 86400) / 3600);
-
-const minutes =
-Math.floor((seconds % 3600) / 60);
-
-const secs =
-seconds % 60;
-
-clock.textContent =
-`${pad(days)} : ${pad(hours)} : ${pad(minutes)} : ${pad(secs)}`;
-
-return;
-
-}
-
-
-/* OPEN */
-
-lock.style.display = "none";
-options.classList.add("open");
-
-}
-
-
-update();
-
-setInterval(update,1000);
-
-
-const menu =
-document.getElementById("navMenu");
-
-const nav =
-document.getElementById("navLinks");
-
-menu?.addEventListener("click",()=>{
-nav.classList.toggle("open");
+navToggle?.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
 });
 
-})();
+const openDate = new Date("2026-10-01T00:00:00");
+const conferenceDate = new Date("2026-12-26T00:00:00");
 
+function updateRegistration() {
+  const now = new Date();
+
+  const target = now < openDate ? openDate : conferenceDate;
+  let difference = target - now;
+
+  if (difference < 0) difference = 0;
+
+  const days = Math.floor(difference / 86400000);
+  const hours = Math.floor((difference / 3600000) % 24);
+  const minutes = Math.floor((difference / 60000) % 60);
+  const seconds = Math.floor((difference / 1000) % 60);
+
+  document.getElementById("days").textContent = String(days).padStart(2,"0");
+  document.getElementById("hours").textContent = String(hours).padStart(2,"0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2,"0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2,"0");
+
+  const message = document.getElementById("registrationMessage");
+
+  if (now < openDate) {
+    message.textContent = "Registrations open on 1 October 2026.";
+    message.style.color = "#C79A2B";
+  } else {
+    message.textContent = "Registrations are now open.";
+    message.style.color = "#1846FF";
+  }
+}
+
+updateRegistration();
+setInterval(updateRegistration, 1000);
 </script>
 
 </body>
