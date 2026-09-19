@@ -1,149 +1,68 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Committee — RELMUN 2026</title>
-
-<link rel="icon" href="relmun-logo.png" type="image/png">
+<title>Committee — RELMUN '26</title>
+<link rel="icon" href="relmun-logo.png">
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<header class="site-header">
+<header>
+<nav class="navbar">
+<a class="nav-logo" href="index.html"><img src="relmun-logo.png" alt="RELMUN '26"></a>
 
-<nav class="navbar container">
-
-<a class="nav-logo" href="index.html">
-<img src="relmun-logo.png" alt="RELMUN 2026">
-</a>
-
-<button
-class="menu-toggle"
-id="menuToggle"
-aria-label="Open menu"
-aria-expanded="false"
->
-<span></span>
-<span></span>
-<span></span>
+<button class="nav-menu" id="navMenu">
+<span></span><span></span>
 </button>
 
 <div class="nav-links" id="navLinks">
-
-<a class="nav-link" href="index.html">
-Home
-</a>
-
-<a class="nav-link active" href="committees.html">
-Committees
-</a>
-
-<a class="nav-link" href="eb.html">
-Executive Board
-</a>
-
-<a class="nav-link" href="register.html">
-Register
-</a>
-
-<a class="nav-link" href="faq.html">
-FAQ
-</a>
-
-<a class="nav-register" href="register.html">
-REGISTER
-</a>
-
+<a href="index.html#about">ABOUT</a>
+<a href="committees.html">COMMITTEES</a>
+<a href="index.html#team">TEAM</a>
+<a href="index.html#eb">EB</a>
+<a href="faq.html">FAQ</a>
+<a href="register.html" class="nav-register">REGISTER</a>
 </div>
-
 </nav>
-
 </header>
 
-
-<main>
+<main class="detail-page">
 
 <section class="detail-hero">
 
-<div class="container" style="display:contents">
-
 <div>
 
-<span
-id="kicker"
-class="detail-kicker"
-></span>
+<span id="kicker" class="detail-kicker"></span>
 
 <h1 id="title"></h1>
 
 <p id="desc"></p>
 
-
 <div class="detail-actions">
-
-<a
-class="btn btn-primary"
-href="register.html"
->
-SET AS PREFERENCE ↗
-</a>
-
-<a
-class="btn btn-secondary"
-href="committees.html"
->
-ALL COMMITTEES →
-</a>
-
+<a class="btn btn-gold" href="register.html">SET AS PREFERENCE ↗</a>
+<a class="btn btn-outline" href="committees.html">ALL COMMITTEES →</a>
 </div>
 
 </div>
-
 
 <div class="detail-side">
 
 <div>
-
-<small>
-COMMITTEE
-</small>
-
+<small>COMMITTEE</small>
 <strong id="short"></strong>
-
 </div>
-
 
 <div>
-
-<small>
-AGENDA
-</small>
-
-<strong>
-TO BE ANNOUNCED
-</strong>
-
+<small>AGENDA</small>
+<strong>TO BE ANNOUNCED</strong>
 </div>
-
 
 <div>
-
-<small>
-FORMAT
-</small>
-
-<strong>
-ONLINE
-</strong>
-
-</div>
-
+<small>FORMAT</small>
+<strong>ONLINE</strong>
 </div>
 
 </div>
@@ -153,82 +72,31 @@ ONLINE
 
 <section class="detail-content">
 
-<div class="container">
-
 <div class="detail-grid">
 
-
 <article class="detail-card">
-
-<span class="detail-kicker">
-01 / ABOUT THE ROOM
-</span>
-
-<h2 id="aboutTitle">
-THE COMMITTEE
-</h2>
-
+<span class="detail-kicker">01 / ABOUT THE ROOM</span>
+<h2>THE COMMITTEE</h2>
 <p id="aboutText"></p>
-
 </article>
-
 
 <article class="detail-card">
-
-<span class="detail-kicker">
-02 / EXECUTIVE BOARD
-</span>
-
-<h2>
-THE DAIS
-</h2>
-
-<p>
-Committee-specific Chair, Vice Chair and Moderator
-details will be displayed once officially announced.
-</p>
-
+<span class="detail-kicker">02 / EXECUTIVE BOARD</span>
+<h2>DAIS</h2>
+<p>Chair, Vice Chair and Moderator details will be announced by the Secretariat.</p>
 </article>
-
 
 <article class="detail-card">
-
-<span class="detail-kicker">
-03 / DELEGATES
-</span>
-
-<h2>
-PREFERENCES
-</h2>
-
-<p>
-Portfolio lists will be added later. During registration,
-delegates may enter preferred countries or portfolios.
-</p>
-
+<span class="detail-kicker">03 / DELEGATES</span>
+<h2>PORTFOLIOS</h2>
+<p>Portfolio lists will be announced later. Delegates may enter their preferred country or portfolio during registration.</p>
 </article>
-
 
 <article class="detail-card">
-
-<span class="detail-kicker">
-04 / STATUS
-</span>
-
-<h2>
-STAY<br>
-UPDATED.
-</h2>
-
-<p>
-Official committee information will be updated here
-as it is announced by RELMUN.
-</p>
-
+<span class="detail-kicker">04 / STATUS</span>
+<h2>STAY TUNED.</h2>
+<p>Official committee information will be updated here as it is announced by RELMUN.</p>
 </article>
-
-
-</div>
 
 </div>
 
@@ -236,220 +104,85 @@ as it is announced by RELMUN.
 
 </main>
 
-
-<footer class="site-footer">
-
-<div class="container">
-
-<div class="footer-main">
-
-<div>
-
-<a href="index.html">
-<img
-class="footer-logo"
-src="relmun-logo.png"
-alt="RELMUN 2026"
->
-</a>
-
-<p class="footer-description">
-26–27 December 2026 · Online.
-</p>
-
+<footer>
+<div class="footer-logo"><img src="relmun-logo.png" alt="RELMUN '26"></div>
+<div class="footer-middle">
+<strong>RELMUN '26</strong>
+<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
 </div>
-
-
-<div>
-
-<div class="footer-title">
-NAVIGATE
+<div class="footer-right">
+<span>26—27 DECEMBER 2026</span>
+<span>ONLINE CONFERENCE</span>
+<a href="mailto:akshithkabilan@gmail.com">EMAIL ↗</a>
 </div>
-
-<div class="footer-links">
-
-<a class="footer-link" href="index.html">
-Home
-</a>
-
-<a class="footer-link" href="committees.html">
-Committees
-</a>
-
-<a class="footer-link" href="eb.html">
-Executive Board
-</a>
-
-<a class="footer-link" href="register.html">
-Register
-</a>
-
-<a class="footer-link" href="faq.html">
-FAQ
-</a>
-
-</div>
-
-</div>
-
-
-<div>
-
-<div class="footer-title">
-CONTACT
-</div>
-
-<div class="footer-links">
-
-<a
-class="footer-link"
-href="https://www.instagram.com/relmun.official/"
-target="_blank"
-rel="noopener"
->
-Instagram ↗
-</a>
-
-<a
-class="footer-link"
-href="mailto:akshithkabilan@gmail.com"
->
-Email ↗
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="footer-bottom">
-
-<span>
-© 2026 RELMUN
-</span>
-
-<div class="social-links">
-
-<a
-class="social-link"
-href="https://www.instagram.com/relmun.official/"
-target="_blank"
-rel="noopener"
->
-IG
-</a>
-
-<a
-class="social-link"
-href="mailto:akshithkabilan@gmail.com"
->
-@
-</a>
-
-</div>
-
-</div>
-
-</div>
-
 </footer>
-
 
 <div id="relmun-chatbot"></div>
 
 <script src="script.js"></script>
 <script src="chatbot.js"></script>
 
-
 <script>
 
-const committees = {
+const committees={
 
 unsc:{
-code:'UNSC',
-name:'SECURITY<br>COUNCIL.',
-desc:'International peace and security, diplomacy and high-level decision-making.',
-about:'The United Nations Security Council focuses on international peace and security and provides a forum for high-level diplomatic decision-making.'
+code:"UNSC",
+name:"SECURITY<br>COUNCIL.",
+desc:"International peace and security, diplomacy and high-level decision-making.",
+about:"The United Nations Security Council focuses on international peace and security and provides a forum for high-level diplomatic decision-making."
 },
 
 unhrc:{
-code:'UNHRC',
-name:'HUMAN<br>RIGHTS.',
-desc:'International human rights, cooperation and multilateral dialogue.',
-about:'The United Nations Human Rights Council provides a forum for discussion and cooperation on international human rights issues.'
+code:"UNHRC",
+name:"HUMAN<br>RIGHTS.",
+desc:"International human rights, cooperation and policy-focused multilateral debate.",
+about:"The United Nations Human Rights Council provides a forum for discussion and cooperation on international human rights issues."
 },
 
 unodc:{
-code:'UNODC',
-name:'DRUGS<br>& CRIME.',
-desc:'International cooperation against drugs, organised crime and related challenges.',
-about:'The United Nations Office on Drugs and Crime addresses international cooperation relating to drugs, organised crime and related transnational challenges.'
+code:"UNODC",
+name:"DRUGS &<br>CRIME.",
+desc:"International cooperation against drugs, organised crime and related challenges.",
+about:"The United Nations Office on Drugs and Crime addresses international cooperation relating to drugs, organised crime and related transnational challenges."
 },
 
 aippm:{
-code:'AIPPM',
-name:'POLITICAL<br>PARTIES.',
-desc:'Parliamentary-style debate, negotiation and deliberation on matters of national importance.',
-about:'The All India Political Parties Meet is structured around parliamentary-style political negotiation, debate and deliberation on matters of national importance.'
-},
-
-unw:{
-code:'UNW',
-name:'UN<br>WOMEN.',
-desc:'Gender equality and the empowerment of women through policy-focused dialogue.',
-about:'UN Women focuses on gender equality and the empowerment of women through international cooperation and policy-focused dialogue.'
+code:"AIPPM",
+name:"POLITICAL<br>PARTIES.",
+desc:"Political negotiation, parliamentary debate and national policy deliberation.",
+about:"The All India Political Parties Meet is structured around parliamentary-style political negotiation, debate and deliberation on matters of national importance."
 },
 
 ipla:{
-code:'IPLA',
-name:'IPL<br>AUCTION.',
-desc:'Strategic bidding, squad planning and high-pressure decision-making.',
-about:'The Indian Premier League Auction places participants in a strategic auction environment involving bidding, squad planning and decision-making.'
+code:"IPLA",
+name:"IPL<br>AUCTION.",
+desc:"Strategic bidding, team management and high-pressure decision-making in an IPL auction room.",
+about:"The Indian Premier League Auction places delegates in a strategic auction environment involving bidding, squad planning and decision-making."
+},
+
+unw:{
+code:"UN WOMEN",
+name:"UN<br>WOMEN.",
+desc:"Advancing gender equality and the empowerment of women through international cooperation and policy-focused dialogue.",
+about:"UN Women focuses on gender equality and the empowerment of women through international cooperation and policy-focused dialogue."
 }
 
 };
 
+const key=new URLSearchParams(location.search).get("committee")||"unsc";
+const c=committees[key]||committees.unsc;
 
-const key =
-new URLSearchParams(
-location.search
-).get('committee') || 'unsc';
+document.title=`${c.code} — RELMUN '26`;
+document.getElementById("kicker").textContent=`RELMUN '26 · ${c.code}`;
+document.getElementById("title").innerHTML=c.name;
+document.getElementById("desc").textContent=c.desc;
+document.getElementById("short").textContent=c.code;
+document.getElementById("aboutText").textContent=c.about;
 
-
-const c =
-committees[key] ||
-committees.unsc;
-
-
-document.title =
-c.code + ' — RELMUN 2026';
-
-
-document.getElementById('kicker')
-.textContent =
-'RELMUN 2026 · ' + c.code;
-
-
-document.getElementById('title')
-.innerHTML =
-c.name;
-
-
-document.getElementById('desc')
-.textContent =
-c.desc;
-
-
-document.getElementById('short')
-.textContent =
-c.code;
-
-
-document.getElementById('aboutText')
-.textContent =
-c.about;
+document.getElementById("navMenu")?.addEventListener("click",()=>{
+document.getElementById("navLinks").classList.toggle("open");
+});
 
 </script>
 
