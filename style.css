@@ -1491,3 +1491,7 @@ footer{
         grid-template-columns: 1fr !important;
     }
 }
+.team-card.team-featured,
+.team-card.team-featured:hover {
+    background: #080808 !important;
+}
