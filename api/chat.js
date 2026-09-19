@@ -1,354 +1,479 @@
+// api/chat.js
+
 const lastRequests = new Map();
+const COOLDOWN_MS = 1500;
 
-const COOLDOWN_MS = 2500;
+export default async function handler(req, res) {
 
+  if (req.method !== "POST") {
+    return res.status(405).json({
+      error: "Method not allowed"
+    });
+  }
 
-export default async function handler(
-req,
-res
-){
+  try {
 
-if(req.method !== 'POST'){
+    const apiKey = process.env.GEMINI_API_KEY;
 
-return res
-.status(405)
-.json({
-error:'Method not allowed'
-});
+    if (!apiKey) {
+      return res.status(500).json({
+        error: "RELMUN AI is temporarily unavailable."
+      });
+    }
 
-}
+    let body = req.body;
 
+    if (typeof body === "string") {
+      try {
+        body = JSON.parse(body);
+      } catch {
+        return res.status(400).json({
+          error: "Invalid request."
+        });
+      }
+    }
 
-try{
+    const message =
+      typeof body?.message === "string"
+        ? body.message.trim()
+        : "";
 
-const apiKey =
-process.env.GEMINI_API_KEY;
+    if (!message) {
+      return res.status(400).json({
+        error: "Please enter a question."
+      });
+    }
 
+    if (message.length > 1000) {
+      return res.status(400).json({
+        error: "Please keep your question under 1000 characters."
+      });
+    }
 
-if(!apiKey){
+    /* =====================================================
+       BASIC RATE LIMIT
+    ===================================================== */
 
-return res
-.status(500)
-.json({
-error:'REX is temporarily unavailable.'
-});
+    const forwarded = req.headers["x-forwarded-for"];
 
-}
+    const ip =
+      typeof forwarded === "string"
+        ? forwarded.split(",")[0].trim()
+        : req.socket?.remoteAddress || "unknown";
 
+    const now = Date.now();
+    const previous = lastRequests.get(ip);
 
-let body =
-req.body;
+    if (
+      previous &&
+      now - previous < COOLDOWN_MS
+    ) {
+      return res.status(429).json({
+        error: "REX needs a moment. Please try again."
+      });
+    }
 
+    lastRequests.set(ip, now);
 
-if(typeof body === 'string'){
+    /* =====================================================
+       OFFICIAL RELMUN KNOWLEDGE
+    ===================================================== */
 
-try{
+    const systemPrompt = `
 
-body =
-JSON.parse(body);
+You are REX — the official information assistant for RELMUN 2026.
 
-}catch{
+Your job is to answer questions about RELMUN accurately, naturally
+and helpfully.
 
-return res
-.status(400)
-.json({
-error:'Invalid request.'
-});
+You are NOT a general-purpose AI assistant.
 
-}
+========================================================
+OFFICIAL CONFERENCE INFORMATION
+========================================================
 
-}
+Conference:
+RELMUN 2026
 
+Full name:
+Regional Engagement & Leadership Model United Nations
 
-const message =
-typeof body?.message === 'string'
-? body.message.trim()
-: '';
+Dates:
+26–27 December 2026
 
+Format:
+Online conference
 
-if(!message){
+Registration:
+Delegate registrations OPEN on 1 OCTOBER 2026.
 
-return res
-.status(400)
-.json({
-error:'Please enter a message.'
-});
+Registration is currently NOT OPEN.
 
-}
+When asked whether registration is open, say clearly:
 
+"Delegate registrations open on 1 October 2026."
 
-if(message.length > 1000){
+Do NOT say merely "coming soon".
 
-return res
-.status(400)
-.json({
-error:
-'Please keep your message under 1000 characters.'
-});
+========================================================
+COMMITTEES
+========================================================
 
-}
+There are SIX committees:
 
+1. UNSC
+United Nations Security Council
 
-/* BASIC RATE LIMIT */
+2. UNHRC
+United Nations Human Rights Council
 
-const forwarded =
-req.headers['x-forwarded-for'];
+3. UNODC
+United Nations Office on Drugs and Crime
 
+4. AIPPM
+All India Political Parties Meet
 
-const ip =
-typeof forwarded === 'string'
-? forwarded.split(',')[0].trim()
-: (
-req.socket?.remoteAddress ||
-'unknown'
-);
+5. UNW
+United Nations Women / UN Women
 
+6. IPLA
+Indian Premier League Auction
 
-const now =
-Date.now();
+Never say that RELMUN has only three committees.
 
+========================================================
+SECRETARIAT / LEADERSHIP
+========================================================
 
-const previous =
-lastRequests.get(ip);
+Secretary-General:
+Akshith Kabilan
 
+Deputy Secretary-General:
+S. Shreyaas
 
-if(
-previous &&
-now - previous < COOLDOWN_MS
-){
+Director-General:
+Laasya Vikram
 
-return res
-.status(429)
-.json({
-error:
-`REX needs a second. Please try again in ${Math.ceil(
-(
-COOLDOWN_MS -
-(now - previous)
-) / 1000
-)}s.`
-});
+Head of Administration:
+Abimayur R
 
-}
+========================================================
+ORGANISING COMMITTEE
+========================================================
 
+Aashi Kushwaha
 
-lastRequests.set(
-ip,
-now
-);
+Madhav Bhardwaj
 
+IMPORTANT:
 
-/* REX SYSTEM PROMPT */
+Aashi Kushwaha and Madhav Bhardwaj are members of the
+Organising Committee.
 
-const systemPrompt = `
+Do NOT describe them as Executive Board members.
 
-You are REX, the official information assistant for RELMUN 2026.
+Do NOT place the Organising Committee inside the Executive Board.
 
-Your ONLY job is to provide factual information about RELMUN
-and officially announced conference information.
+========================================================
+EXECUTIVE BOARD
+========================================================
 
-Do not act as a general-purpose assistant.
+The Executive Board is separate from the Organising Committee.
 
+If a user asks about a specific EB member whose information
+has not been officially provided to you, say:
 
-OFFICIAL INFORMATION:
+"That information hasn't been announced by RELMUN yet."
 
-- Full name:
-  Regional Engagement & Leadership Model United Nations.
+Never invent EB members.
 
-- Dates:
-  26–27 December 2026.
+========================================================
+REGISTRATION OPTIONS
+========================================================
 
-- Format:
-  Online conference.
+Once delegate registrations open, delegates can register through:
 
-- Delegate registration opens:
-  1 October 2026 at 00:00 IST.
+1. RELMUN Website
+2. MyMUN
+3. Gavelling
+4. ChampArena
+5. Official Google Form
 
-- Registration:
-  Free.
+Official links:
 
-- Registration options after opening:
-  RELMUN website,
-  ChampArena,
-  MyMUN,
-  Gavelling,
-  official Google Form.
+RELMUN Website:
+https://relmun2026.vercel.app/
 
-- Committees:
-  UNSC,
-  UNHRC,
-  UNODC,
-  AIPPM,
-  UNW,
-  IPLA.
+Google Form:
+https://forms.gle/AncgvgJnFyHaC3qM8
 
-- UNW:
-  UN Women.
+MyMUN:
+https://mymun.com/conferences/relmun-2026
 
-- IPLA:
-  Indian Premier League Auction.
+Gavelling:
+https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr
 
-- Certificates:
-  Provided to participants.
+ChampArena:
+https://champarena.co.in/e/relmun2026
 
-- Portfolio lists:
-  Will be added later.
+IMPORTANT:
 
-- Instagram:
-  https://www.instagram.com/relmun.official/
+Before 1 October 2026, registration is NOT OPEN.
 
-- Email:
-  akshithkabilan@gmail.com.
+If someone asks how to register before opening,
+tell them registration opens on 1 October 2026.
 
+========================================================
+CERTIFICATES
+========================================================
 
-ORGANIZING COMMITTEE:
+Certificates will be provided to participants.
 
-- Akshith Kabilan — Secretary-General.
-- S. Shreyaas — Deputy Secretary-General.
-- Laasya Vikram — Director General.
-- Abimayur R — Head of Administration.
-- Aashi Kushwaha — Chief Advisor.
-- Madhav Bhardwaj — USG — Delegate Affairs.
+Do not invent specific certificate categories unless officially announced.
 
+========================================================
+CONTACT
+========================================================
 
-EXECUTIVE BOARD:
+Instagram:
+@relmun.official
 
-Committee-specific EB names are not currently announced
-on the public site.
+Email:
+akshithkabilan@gmail.com
 
-Do not invent names.
+========================================================
+WHAT REX SHOULD ANSWER
+========================================================
 
+You can answer questions about:
 
-ROLE LIMITS:
+- RELMUN
+- Conference dates
+- Conference format
+- Registration
+- Registration opening date
+- Registration platforms
+- Registration links
+- Committees
+- Committee abbreviations
+- Secretariat
+- Organising Committee
+- Executive Board
+- Certificates
+- Official contact information
+- Other officially announced RELMUN information
 
-Answer only RELMUN questions.
+========================================================
+CONVERSATION STYLE
+========================================================
 
-Do not write:
-- speeches
-- position papers
-- resolutions
-- clauses
-- lobbying plans
-- debate arguments
-- other MUN work a delegate could submit
-  or directly use.
+Be natural.
 
-If asked for those things, say that you can only provide
-RELMUN information.
+Do not sound robotic.
 
-Never invent missing information.
+Do not repeat the entire conference description every time.
 
-If asked about registration before 1 October,
-clearly state that registrations open on 1 October 2026.
+Answer exactly what the user asked.
 
-Keep replies concise and natural.
+Examples:
+
+User:
+"When is RELMUN?"
+
+Answer:
+"RELMUN 2026 takes place online on 26–27 December 2026."
+
+User:
+"When do registrations open?"
+
+Answer:
+"Delegate registrations open on 1 October 2026."
+
+User:
+"How many committees?"
+
+Answer:
+"Six: UNSC, UNHRC, UNODC, AIPPM, UNW and IPLA."
+
+User:
+"Who is the secretary general?"
+
+Answer:
+"Akshith Kabilan is the Secretary-General of RELMUN 2026."
+
+User:
+"Who are Aashi and Madhav?"
+
+Answer:
+"Aashi Kushwaha and Madhav Bhardwaj are part of the Organising Committee."
+
+User:
+"Can I register now?"
+
+Answer:
+"Not yet. Delegate registrations open on 1 October 2026."
+
+User:
+"Where can I register?"
+
+Answer:
+"Once registrations open on 1 October, you'll be able to register through the RELMUN website, MyMUN, Gavelling, ChampArena or the official Google Form."
+
+========================================================
+UNKNOWN INFORMATION
+========================================================
+
+NEVER invent RELMUN information.
+
+If something isn't in these instructions, say:
+
+"That hasn't been officially announced by RELMUN yet."
+
+Do not guess names, agendas, allotments, fees, EB positions,
+committee agendas, awards, schedules or other information.
+
+========================================================
+MUN WORK RESTRICTION
+========================================================
+
+REX is an INFORMATION ASSISTANT.
+
+Do not write delegate speeches, GSL speeches, position papers,
+resolutions, clauses, lobbying strategies, negotiation strategies,
+country arguments or other MUN submissions.
+
+If asked, say:
+
+"I'm REX, RELMUN's information assistant, so I can't prepare
+delegate submissions. I can help with information about RELMUN,
+its committees, registration or the organising team."
+
+========================================================
+STYLE
+========================================================
+
+Be concise.
+
+Be friendly.
+
+Be confident when the information is official.
+
+Do not use excessive emojis.
+
+Do not make up information.
+
+Do not say "I think" when official information is available.
+
+You are REX.
+You represent RELMUN's official information only.
 
 `;
 
+    /* =====================================================
+       GEMINI REQUEST
+    ===================================================== */
 
-const response =
-await fetch(
-'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent',
-{
-method:'POST',
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent",
+      {
+        method: "POST",
 
-headers:{
-'Content-Type':
-'application/json',
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": apiKey
+        },
 
-'x-goog-api-key':
-apiKey
-},
+        body: JSON.stringify({
+          system_instruction: {
+            parts: [
+              {
+                text: systemPrompt
+              }
+            ]
+          },
 
-body:JSON.stringify({
+          contents: [
+            {
+              role: "user",
 
-system_instruction:{
-parts:[
-{
-text:systemPrompt
-}
-]
-},
+              parts: [
+                {
+                  text: message
+                }
+              ]
+            }
+          ],
 
-contents:[
-{
-role:'user',
+          generationConfig: {
+            temperature: 0.15,
+            maxOutputTokens: 500
+          }
+        })
+      }
+    );
 
-parts:[
-{
-text:message
-}
-]
-}
-],
+    const data = await response.json();
 
-generationConfig:{
-temperature:.2,
-maxOutputTokens:500
-}
+    /* =====================================================
+       ERROR HANDLING
+    ===================================================== */
 
-})
-}
-);
+    if (!response.ok) {
 
+      console.error("REX / Gemini error:", data);
 
-const data =
-await response.json();
+      if (response.status === 429) {
+        return res.status(429).json({
+          error: "REX is receiving too many requests right now. Try again shortly."
+        });
+      }
 
+      if (
+        response.status === 401 ||
+        response.status === 403
+      ) {
+        return res.status(500).json({
+          error: "REX is temporarily unavailable."
+        });
+      }
 
-if(!response.ok){
+      return res.status(500).json({
+        error: "REX couldn't connect right now. Please try again."
+      });
+    }
 
-return res
-.status(
-response.status === 429
-? 429
-: 500
-)
-.json({
-error:
-data?.error?.message ||
-'Gemini API error'
-});
+    /* =====================================================
+       EXTRACT ANSWER
+    ===================================================== */
 
-}
+    const answer =
+      data?.candidates?.[0]?.content?.parts
+        ?.map(part => part.text || "")
+        .join("")
+        .trim();
 
+    if (!answer) {
 
-const answer =
-data
-?.candidates?.[0]
-?.content
-?.parts?.[0]
-?.text;
+      console.error(
+        "REX returned no answer:",
+        JSON.stringify(data, null, 2)
+      );
 
+      return res.status(500).json({
+        error: "REX couldn't generate a response right now."
+      });
+    }
 
-if(!answer){
+    return res.status(200).json({
+      answer
+    });
 
-return res
-.status(500)
-.json({
-error:
-'REX returned no response.'
-});
+  } catch (error) {
 
-}
+    console.error("REX server error:", error);
 
-
-return res
-.status(200)
-.json({
-answer
-});
-
-
-}catch(error){
-
-return res
-.status(500)
-.json({
-error:
-'REX is temporarily unavailable.'
-});
-
-}
-
+    return res.status(500).json({
+      error: "REX is having trouble connecting right now."
+    });
+  }
 }
