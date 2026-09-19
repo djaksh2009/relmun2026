@@ -1608,3 +1608,50 @@ footer{
         opacity: 1;
     }
 }
+/* REX MESSAGE FORMATTING */
+
+.relmun-message .relmun-markdown strong {
+  color: #f1ece0;
+  font-weight: 800;
+}
+
+.relmun-message .relmun-markdown em {
+  color: #c79a2b;
+  font-style: italic;
+}
+
+.relmun-message .relmun-markdown a {
+  color: #0e2999;
+  text-decoration: underline;
+}
+
+.relmun-message .rex-bullet {
+  margin: 4px 0;
+}
+
+.relmun-message .rex-numbered {
+  margin: 4px 0;
+}
+
+.relmun-message .rex-numbered span {
+  color: #c79a2b;
+  font-weight: 800;
+}
+
+.relmun-message .rex-heading {
+  margin: 8px 0 5px;
+  color: #f1ece0;
+  font-weight: 800;
+}
+
+.relmun-message .rex-code {
+  padding: 8px;
+  overflow-x: auto;
+  background: #050505;
+  border: 1px solid rgba(241,236,224,.12);
+}
+
+.relmun-message .relmun-markdown code {
+  padding: 2px 4px;
+  background: rgba(241,236,224,.08);
+}
