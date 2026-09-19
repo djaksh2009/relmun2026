@@ -1401,3 +1401,90 @@ footer{
 .team-card.leadership p {
   color: #c79a2b !important;
 }
+/* =========================================
+   TEAM — FINAL UNIFIED GRID
+   3 CARDS PER ROW / SAME COLOUR
+========================================= */
+
+.team-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1px !important;
+    background: rgba(241, 236, 224, 0.14) !important;
+}
+
+/* EVERY TEAM CARD — SAME BACKGROUND */
+.team-grid .team-card,
+.team-grid .team-card:first-child,
+.team-grid .team-card:nth-child(2),
+.team-grid .team-card:nth-child(3),
+.team-grid .team-card:nth-child(4),
+.team-grid .team-card:nth-child(5),
+.team-grid .team-card:nth-child(6) {
+    background: #080808 !important;
+    color: #f1ece0 !important;
+}
+
+/* REMOVE THE BLUE SPECIAL CARD */
+.team-grid .team-card:first-child {
+    background: #080808 !important;
+}
+
+/* SAME HOVER FOR EVERY CARD */
+.team-grid .team-card:hover,
+.team-grid .team-card:first-child:hover {
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(14, 41, 153, 0.20),
+            transparent 45%
+        ),
+        #080808 !important;
+}
+
+/* SAME NAME COLOUR */
+.team-grid .team-card h3,
+.team-grid .team-card:first-child h3 {
+    color: #f1ece0 !important;
+}
+
+/* SAME ROLE COLOUR */
+.team-grid .team-card p,
+.team-grid .team-card:first-child p {
+    color: #c79a2b !important;
+}
+
+/* SAME AVATAR */
+.team-grid .team-card .team-avatar,
+.team-grid .team-card:first-child .team-avatar {
+    background: transparent !important;
+    border-color: rgba(241, 236, 224, 0.25) !important;
+}
+
+/* SAME AVATAR HOVER */
+.team-grid .team-card:hover .team-avatar {
+    background: rgba(14, 41, 153, 0.35) !important;
+    border-color: #c79a2b !important;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+    .team-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
