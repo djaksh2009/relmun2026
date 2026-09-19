@@ -2155,3 +2155,508 @@ footer {
         display: none;
     }
 }
+/* =========================================================
+   RELMUN REGISTRATION PLATFORM OPTIONS
+========================================================= */
+
+.registration-platforms {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+
+    background: var(--border);
+    border: 1px solid var(--border);
+
+    margin-top: 48px;
+}
+
+
+.registration-platform {
+    position: relative;
+
+    min-height: 110px;
+
+    padding: 25px 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        70px
+        minmax(0, 1fr)
+        50px;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: var(--black-2);
+
+    color: var(--ivory);
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition:
+        background 0.3s var(--ease),
+        padding 0.3s var(--ease),
+        transform 0.3s var(--ease);
+}
+
+
+.registration-platform::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 70, 255, 0.13),
+            transparent 48%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s var(--ease);
+}
+
+
+.registration-platform::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: var(--blue);
+
+    transform:
+        scaleY(0);
+
+    transform-origin: bottom;
+
+    transition:
+        transform 0.35s var(--ease);
+}
+
+
+.registration-platform:hover {
+    background: #101010;
+
+    padding-left: 38px;
+}
+
+
+.registration-platform:hover::before {
+    opacity: 1;
+}
+
+
+.registration-platform:hover::after {
+    transform: scaleY(1);
+}
+
+
+.platform-number {
+    position: relative;
+
+    z-index: 1;
+
+    color: var(--gold);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+}
+
+
+.platform-content {
+    position: relative;
+
+    z-index: 1;
+
+    min-width: 0;
+}
+
+
+.platform-name {
+    color: var(--ivory);
+
+    font-family: var(--font-display);
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.035em;
+}
+
+
+.platform-description {
+    margin-top: 7px;
+
+    color: var(--ivory-faint);
+
+    font-family: var(--font-body);
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+}
+
+
+.platform-arrow {
+    position: relative;
+
+    z-index: 1;
+
+    color: var(--blue);
+
+    font-family: var(--font-ui);
+
+    font-size: 1.55rem;
+
+    line-height: 1;
+
+    transition:
+        color 0.3s var(--ease),
+        transform 0.3s var(--ease);
+}
+
+
+.registration-platform:hover .platform-arrow {
+    color: var(--gold);
+
+    transform:
+        translate(5px, -5px);
+}
+
+
+
+/* =========================================================
+   REGISTRATION COUNTDOWN
+========================================================= */
+
+.registration-countdown-wrap {
+    position: relative;
+}
+
+
+.countdown {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(90px, 1fr));
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+
+.countdown-item {
+    position: relative;
+
+    min-height: 125px;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #0B0B0B
+        );
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+}
+
+
+.countdown-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 35px;
+    height: 2px;
+
+    background: var(--blue);
+}
+
+
+.countdown-item::after {
+    content: "";
+
+    position: absolute;
+
+    right: -25px;
+    bottom: -25px;
+
+    width: 70px;
+    height: 70px;
+
+    border: 1px solid var(--border-gold);
+
+    transform: rotate(45deg);
+}
+
+
+.countdown-number {
+    position: relative;
+
+    z-index: 1;
+
+    color: var(--ivory);
+
+    font-family: var(--font-display);
+
+    font-size: clamp(2rem, 4vw, 3.4rem);
+
+    font-weight: 700;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.07em;
+}
+
+
+.countdown-label {
+    position: relative;
+
+    z-index: 1;
+
+    margin-top: 12px;
+
+    color: var(--gold);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.62rem;
+
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+}
+
+
+.countdown-note {
+    margin-top: 24px;
+}
+
+
+
+/* =========================================================
+   REGISTRATION LAYOUT
+========================================================= */
+
+.register-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 0.8fr)
+        minmax(400px, 1.2fr);
+
+    gap: clamp(40px, 8vw, 110px);
+
+    align-items: center;
+}
+
+
+.register-info h2 {
+    margin-top: 15px;
+
+    max-width: 620px;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(
+        2.4rem,
+        5vw,
+        4.7rem
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -0.065em;
+}
+
+
+.register-info p {
+    max-width: 550px;
+
+    margin-top: 25px;
+
+    color: var(--ivory-dim);
+
+    font-family: var(--font-body);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+
+.registration-note {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    margin-top: 30px;
+
+    padding: 18px 20px;
+
+    border-left: 2px solid var(--gold);
+
+    background:
+        rgba(199, 154, 43, 0.045);
+}
+
+
+.registration-note strong {
+    color: var(--gold);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.registration-note span {
+    color: var(--ivory);
+
+    font-family: var(--font-body);
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .register-layout {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .countdown {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .countdown-item {
+        min-height: 110px;
+    }
+
+
+    .registration-platform {
+        grid-template-columns:
+            45px
+            minmax(0, 1fr)
+            30px;
+
+        padding: 21px;
+
+        gap: 12px;
+    }
+
+
+    .registration-platform:hover {
+        padding-left: 25px;
+    }
+
+
+    .platform-name {
+        font-size: 1.08rem;
+    }
+
+
+    .platform-description {
+        font-size: 0.72rem;
+    }
+
+
+    .platform-arrow {
+        font-size: 1.3rem;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .countdown {
+        gap: 7px;
+    }
+
+
+    .countdown-item {
+        min-height: 100px;
+
+        padding: 15px;
+    }
+
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+
+    .countdown-label {
+        font-size: 0.56rem;
+    }
+
+
+    .registration-platform {
+        grid-template-columns:
+            35px
+            minmax(0, 1fr)
+            25px;
+
+        padding: 18px;
+    }
+
+}
