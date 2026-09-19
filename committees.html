@@ -1,142 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Committees | RELMUN 2026</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Committees — RELMUN '26</title>
+<link rel="icon" href="relmun-logo.png">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="navbar">
-  <div class="nav-container">
+<header>
+<nav class="navbar">
+<a class="nav-logo" href="index.html"><img src="relmun-logo.png" alt="RELMUN '26"></a>
+<button class="nav-menu" id="navMenu"><span></span><span></span></button>
 
-    <a href="index.html" class="brand">
-      <div class="brand-mark">R</div>
-      <div class="brand-text">
-        <strong>RELMUN</strong>
-        <small>2026</small>
-      </div>
-    </a>
-
-    <button class="nav-toggle">☰</button>
-
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="committees.html" class="active">Committees</a>
-      <a href="eb.html">Executive Board</a>
-      <a href="register.html" class="nav-register">Register</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-
-  </div>
+<div class="nav-links" id="navLinks">
+<a href="index.html#about">ABOUT</a>
+<a href="committees.html">COMMITTEES</a>
+<a href="index.html#team">TEAM</a>
+<a href="eb.html">EB</a>
+<a href="faq.html">FAQ</a>
+<a href="register.html" class="nav-register">REGISTER ↗</a>
+</div>
+</nav>
 </header>
 
-<main>
+<main class="detail-page">
 
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-kicker">RELMUN 2026 / SIX COMMITTEES</span>
-    <h1>Choose your<br><span>battlefield.</span></h1>
-  </div>
+<section class="detail-hero">
+<div>
+<span class="detail-kicker">RELMUN '26 · COMMITTEES</span>
+<h1>SIX<br><em>ARENAS.</em></h1>
+<p>Six distinct committee experiences. Explore the mandate, format and focus of every room.</p>
+</div>
+
+<div class="detail-side">
+<div><small>01</small><strong>UNSC</strong></div>
+<div><small>02</small><strong>UNHRC</strong></div>
+<div><small>03</small><strong>UNODC</strong></div>
+<div><small>04</small><strong>AIPPM</strong></div>
+<div><small>05</small><strong>UNW</strong></div>
+<div><small>06</small><strong>IPLA</strong></div>
+</div>
 </section>
 
-<section class="section committee-list">
+<section class="detail-content">
 
-  <div class="section-inner">
+<div class="committee-grid">
 
-    <a href="committee.html?committee=UNSC" class="committee-row">
-      <span class="committee-row-number">01</span>
-      <div>
-        <h2>UNSC</h2>
-        <p>United Nations Security Council — international peace and security.</p>
-      </div>
-      <span class="committee-row-arrow">↗</span>
-    </a>
+<a class="committee-card" href="committee.html?committee=unsc">
+<span class="number">01 / UNSC</span>
+<h3>SECURITY<br>COUNCIL</h3>
+<p>International peace and security, diplomacy and high-level decision making.</p>
+<div class="card-footer"><span>EXPLORE</span><span>↗</span></div>
+</a>
 
-    <a href="committee.html?committee=UNHRC" class="committee-row">
-      <span class="committee-row-number">02</span>
-      <div>
-        <h2>UNHRC</h2>
-        <p>United Nations Human Rights Council — rights, accountability and diplomacy.</p>
-      </div>
-      <span class="committee-row-arrow">↗</span>
-    </a>
+<a class="committee-card" href="committee.html?committee=unhrc">
+<span class="number">02 / UNHRC</span>
+<h3>HUMAN<br>RIGHTS</h3>
+<p>International human rights, cooperation and policy-focused multilateral debate.</p>
+<div class="card-footer"><span>EXPLORE</span><span>↗</span></div>
+</a>
 
-    <a href="committee.html?committee=UNODC" class="committee-row">
-      <span class="committee-row-number">03</span>
-      <div>
-        <h2>UNODC</h2>
-        <p>United Nations Office on Drugs and Crime — international crime and cooperation.</p>
-      </div>
-      <span class="committee-row-arrow">↗</span>
-    </a>
+<a class="committee-card" href="committee.html?committee=unodc">
+<span class="number">03 / UNODC</span>
+<h3>DRUGS<br>& CRIME</h3>
+<p>International cooperation against drugs, organised crime and related challenges.</p>
+<div class="card-footer"><span>EXPLORE</span><span>↗</span></div>
+</a>
 
-    <a href="committee.html?committee=AIPPM" class="committee-row">
-      <span class="committee-row-number">04</span>
-      <div>
-        <h2>AIPPM</h2>
-        <p>All India Political Parties Meet — Indian politics, policy and parliamentary debate.</p>
-      </div>
-      <span class="committee-row-arrow">↗</span>
-    </a>
+<a class="committee-card" href="committee.html?committee=aippm">
+<span class="number">04 / AIPPM</span>
+<h3>POLITICAL<br>PARTIES</h3>
+<p>Political negotiation, parliamentary debate and national policy deliberation.</p>
+<div class="card-footer"><span>EXPLORE</span><span>↗</span></div>
+</a>
 
-    <a href="committee.html?committee=UNW" class="committee-row">
-      <span class="committee-row-number">05</span>
-      <div>
-        <h2>UNW</h2>
-        <p>UN Women — gender equality, empowerment and development.</p>
-      </div>
-      <span class="committee-row-arrow">↗</span>
-    </a>
+<a class="committee-card" href="committee.html?committee=unw">
+<span class="number">05 / UNW</span>
+<h3>UN<br>WOMEN</h3>
+<p>Gender equality, empowerment and international policy discussion.</p>
+<div class="card-footer"><span>EXPLORE</span><span>↗</span></div>
+</a>
 
-    <a href="committee.html?committee=IPLA" class="committee-row">
-      <span class="committee-row-number">06</span>
-      <div>
-        <h2>IPLA</h2>
-        <p>IPL Auction — a competitive auction-room simulation.</p>
-      </div>
-      <span class="committee-row-arrow">↗</span>
-    </a>
+<a class="committee-card" href="committee.html?committee=ipla">
+<span class="number">06 / IPLA</span>
+<h3>IPL<br>AUCTION</h3>
+<p>Strategic bidding, team management and high-pressure decision making.</p>
+<div class="card-footer"><span>EXPLORE</span><span>↗</span></div>
+</a>
 
-  </div>
+</div>
 
 </section>
-
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="brand">
-        <div class="brand-mark">R</div>
-        <div class="brand-text">
-          <strong>RELMUN</strong>
-          <small>2026</small>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <a href="https://www.instagram.com/relmun.official/" target="_blank">Instagram</a>
-        <a href="mailto:akshithkabilan@gmail.com">Email</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 RELMUN</span>
-      <span>26–27 DECEMBER 2026</span>
-    </div>
-  </div>
+<footer>
+<div class="footer-logo"><img src="relmun-logo.png" alt="RELMUN '26"></div>
+<div class="footer-middle"><strong>RELMUN '26</strong><span>RELATIONS · ENGAGEMENT · LEADERSHIP</span></div>
+<div class="footer-right"><span>26—27 DECEMBER 2026</span><span>ONLINE CONFERENCE</span></div>
 </footer>
 
-<script src="chatbot.js"></script>
-
+<div id="relmun-chatbot"></div>
 <script>
-document.querySelector(".nav-toggle")?.addEventListener("click", () => {
-  document.querySelector(".nav-links").classList.toggle("open");
-});
+const menu=document.getElementById("navMenu");
+const links=document.getElementById("navLinks");
+menu?.addEventListener("click",()=>links.classList.toggle("open"));
 </script>
-
+<script src="chatbot.js"></script>
 </body>
 </html>
