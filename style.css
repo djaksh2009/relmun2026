@@ -1505,3 +1505,11 @@ footer{
     ),
     #0b0b0b !important;
 }
+/* =========================================
+   TEAM CARD — MATCH SECRETARY-GENERAL
+   ========================================= */
+
+.team-card.team-featured,
+.team-card.team-featured:hover {
+    background: #080808 !important;
+}
