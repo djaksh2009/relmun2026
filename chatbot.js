@@ -1,14 +1,6 @@
 (() => {
-
-  const root =
-    document.getElementById("relmun-chatbot");
-
+  const root = document.getElementById('relmun-chatbot');
   if (!root) return;
-
-
-  /* =========================================================
-     CHATBOT HTML
-  ========================================================= */
 
   root.innerHTML = `
     <button
@@ -24,9 +16,7 @@
       id="rexWindow"
       aria-hidden="true"
     >
-
       <div class="relmun-chat-header">
-
         <div class="relmun-chat-title">
           <strong>REX</strong>
           <span>RELMUN '26 INFORMATION ASSISTANT</span>
@@ -39,37 +29,23 @@
         >
           ×
         </button>
-
       </div>
-
 
       <div
         class="relmun-chat-messages"
         id="rexMessages"
       >
-
         <div class="relmun-message bot">
-          <div class="relmun-markdown">
-            Hi. I'm <strong>REX</strong>, RELMUN '26's
-            information assistant.
-
-            <br><br>
-
-            Ask me about the conference,
-            committees, registration,
-            the team, or anything
-            officially announced.
-          </div>
+          Hi. I'm REX, RELMUN '26's information assistant.
+          Ask me about the conference, committees, registration,
+          EB or anything officially announced.
         </div>
-
       </div>
-
 
       <form
         class="relmun-chat-form"
         id="rexForm"
       >
-
         <input
           id="rexInput"
           autocomplete="off"
@@ -78,115 +54,65 @@
           maxlength="1000"
         >
 
-        <button
-          type="submit"
-          aria-label="Send"
-        >
-          →
-        </button>
-
+        <button type="submit">→</button>
       </form>
-
     </div>
   `;
 
+  const open = document.getElementById('rexOpen');
+  const win = document.getElementById('rexWindow');
+  const close = document.getElementById('rexClose');
+  const messages = document.getElementById('rexMessages');
+  const form = document.getElementById('rexForm');
+  const input = document.getElementById('rexInput');
 
-  /* =========================================================
-     ELEMENTS
-  ========================================================= */
-
-  const open =
-    document.getElementById("rexOpen");
-
-  const win =
-    document.getElementById("rexWindow");
-
-  const close =
-    document.getElementById("rexClose");
-
-  const messages =
-    document.getElementById("rexMessages");
-
-  const form =
-    document.getElementById("rexForm");
-
-  const input =
-    document.getElementById("rexInput");
-
-
-  /* =========================================================
-     ESCAPE HTML
-     Prevents Gemini text from injecting HTML.
-  ========================================================= */
-
+  /*
+   * Escape HTML so Gemini cannot inject HTML/JS.
+   */
   function escapeHTML(text) {
-
     return String(text)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
-
-  /* =========================================================
-     REX MARKDOWN FORMATTER
-  ========================================================= */
-
+  /*
+   * Convert Gemini's Markdown into displayable HTML.
+   *
+   * Supports:
+   * **bold**
+   * *italic*
+   * - bullets
+   * • bullets
+   * 1. numbered lists
+   * # headings
+   * [text](url)
+   * line breaks
+   */
   function formatRexMessage(text) {
+    let html = escapeHTML(text);
 
-    let html =
-      escapeHTML(text);
-
-
-    /* -----------------------------------------
-       CODE BLOCKS
-    ----------------------------------------- */
-
+    // Markdown links
     html = html.replace(
-      /```([\s\S]*?)```/g,
-      '<pre class="rex-code">$1</pre>'
+      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
     );
 
-
-    /* -----------------------------------------
-       INLINE CODE
-    ----------------------------------------- */
-
-    html = html.replace(
-      /`([^`\n]+)`/g,
-      "<code>$1</code>"
-    );
-
-
-    /* -----------------------------------------
-       BOLD
-       **text**
-    ----------------------------------------- */
-
+    // Bold
     html = html.replace(
       /\*\*(.+?)\*\*/g,
-      "<strong>$1</strong>"
+      '<strong>$1</strong>'
     );
 
-
-    /* -----------------------------------------
-       ITALIC
-       *text*
-    ----------------------------------------- */
-
+    // Italic
     html = html.replace(
       /(^|[^*])\*([^*\n]+)\*(?!\*)/g,
-      "$1<em>$2</em>"
+      '$1<em>$2</em>'
     );
 
-
-    /* -----------------------------------------
-       HEADINGS
-    ----------------------------------------- */
-
+    // Headings
     html = html.replace(
       /^###\s+(.+)$/gm,
       '<div class="rex-heading">$1</div>'
@@ -202,99 +128,37 @@
       '<div class="rex-heading">$1</div>'
     );
 
-
-    /* -----------------------------------------
-       BULLET POINTS
-       - item
-       * item
-       • item
-    ----------------------------------------- */
-
+    // Bullet points
     html = html.replace(
-      /^[ \t]*(?:[-*•])\s+(.+)$/gm,
+      /^[ \t]*(?:[-•])\s+(.+)$/gm,
       '<div class="rex-bullet">• $1</div>'
     );
 
-
-    /* -----------------------------------------
-       NUMBERED LISTS
-    ----------------------------------------- */
-
+    // Numbered lists
     html = html.replace(
       /^[ \t]*(\d+)\.\s+(.+)$/gm,
       '<div class="rex-numbered"><span>$1.</span> $2</div>'
     );
 
-
-    /* -----------------------------------------
-       MARKDOWN LINKS
-    ----------------------------------------- */
-
-    html = html.replace(
-      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
-      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
-    );
-
-
-    /* -----------------------------------------
-       BARE URLS
-    ----------------------------------------- */
-
-    html = html.replace(
-      /(^|[\s>])(https?:\/\/[^\s<]+)/g,
-      '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>'
-    );
-
-
-    /* -----------------------------------------
-       LINE BREAKS
-    ----------------------------------------- */
-
-    html = html.replace(
-      /\n/g,
-      "<br>"
-    );
-
+    // Convert line breaks
+    html = html.replace(/\n/g, '<br>');
 
     return html;
-
   }
 
-
-  /* =========================================================
-     ADD MESSAGE
-  ========================================================= */
-
+  /*
+   * Add a message.
+   */
   const add = (text, who) => {
+    const d = document.createElement('div');
 
-    const d =
-      document.createElement("div");
+    d.className = `relmun-message ${who}`;
 
-    d.className =
-      `relmun-message ${who}`;
-
-
-    const content =
-      document.createElement("div");
-
-    content.className =
-      "relmun-markdown";
-
-
-    if (who === "bot") {
-
-      content.innerHTML =
-        formatRexMessage(text);
-
+    if (who === 'bot') {
+      d.innerHTML = formatRexMessage(text);
     } else {
-
-      content.textContent =
-        text;
-
+      d.textContent = text;
     }
-
-
-    d.appendChild(content);
 
     messages.appendChild(d);
 
@@ -302,236 +166,155 @@
       messages.scrollHeight;
 
     return d;
-
   };
 
-
-  /* =========================================================
-     OPEN / CLOSE
-  ========================================================= */
-
+  /*
+   * Open REX.
+   */
   open.onclick = () => {
-
-    const v =
-      win.classList.toggle("open");
+    const v = win.classList.toggle('open');
 
     open.setAttribute(
-      "aria-expanded",
+      'aria-expanded',
       v
     );
 
     win.setAttribute(
-      "aria-hidden",
+      'aria-hidden',
       !v
     );
 
     if (v) {
       input.focus();
     }
-
   };
 
-
+  /*
+   * Close REX.
+   */
   close.onclick = () => {
-
-    win.classList.remove("open");
+    win.classList.remove('open');
 
     open.setAttribute(
-      "aria-expanded",
-      "false"
+      'aria-expanded',
+      'false'
     );
 
     win.setAttribute(
-      "aria-hidden",
-      "true"
+      'aria-hidden',
+      'true'
     );
-
   };
 
-
-  /* =========================================================
-     ESC KEY
-  ========================================================= */
-
+  /*
+   * Escape key closes REX.
+   */
   document.addEventListener(
-    "keydown",
+    'keydown',
     (event) => {
-
       if (
-        event.key === "Escape" &&
-        win.classList.contains("open")
+        event.key === 'Escape' &&
+        win.classList.contains('open')
       ) {
-
         close.click();
-
       }
-
     }
   );
 
+  /*
+   * Submit question.
+   */
+  form.onsubmit = async (e) => {
+    e.preventDefault();
 
-  /* =========================================================
-     SEND MESSAGE
-  ========================================================= */
+    const q = input.value.trim();
 
-  form.onsubmit =
-    async (e) => {
+    if (!q) return;
 
-      e.preventDefault();
+    input.value = '';
 
+    // User message
+    add(q, 'user');
 
-      const q =
-        input.value.trim();
+    // Typing indicator
+    const typing =
+      document.createElement('div');
 
+    typing.className =
+      'relmun-message bot';
 
-      if (!q) return;
+    typing.textContent =
+      'REX is checking…';
 
+    messages.appendChild(typing);
 
-      input.value = "";
+    messages.scrollTop =
+      messages.scrollHeight;
 
+    input.disabled = true;
 
-      /* User message */
+    try {
+      const r = await fetch(
+        '/api/chat',
+        {
+          method: 'POST',
 
-      add(
-        q,
-        "user"
+          headers: {
+            'Content-Type':
+              'application/json'
+          },
+
+          body: JSON.stringify({
+            message: q
+          })
+        }
       );
 
-
-      /* Typing indicator */
-
-      const typing =
-        document.createElement("div");
-
-      typing.className =
-        "relmun-message bot";
-
-
-      const typingContent =
-        document.createElement("div");
-
-      typingContent.className =
-        "relmun-markdown";
-
-      typingContent.textContent =
-        "REX is checking…";
-
-
-      typing.appendChild(
-        typingContent
-      );
-
-      messages.appendChild(
-        typing
-      );
-
-      messages.scrollTop =
-        messages.scrollHeight;
-
-
-      input.disabled = true;
-
+      let data;
 
       try {
-
-        const r =
-          await fetch(
-            "/api/chat",
-            {
-              method: "POST",
-
-              headers: {
-                "Content-Type":
-                  "application/json"
-              },
-
-              body: JSON.stringify({
-                message: q
-              })
-            }
-          );
-
-
-        let data;
-
-        try {
-
-          data =
-            await r.json();
-
-        } catch {
-
-          throw new Error(
-            "Invalid response from REX."
-          );
-
-        }
-
-
-        if (!r.ok) {
-
-          throw new Error(
-            data?.error ||
-            "Request failed"
-          );
-
-        }
-
-
-        /* Remove typing */
-
-        typing.remove();
-
-
-        /* Get answer */
-
-        const answer =
-          typeof data?.answer === "string"
-            ? data.answer.trim()
-            : "";
-
-
-        if (!answer) {
-
-          add(
-            "I don't have an answer for that right now. Please try again.",
-            "bot"
-          );
-
-        } else {
-
-          add(
-            answer,
-            "bot"
-          );
-
-        }
-
-
-      } catch (err) {
-
-        console.error(
-          "REX error:",
-          err
+        data = await r.json();
+      } catch {
+        throw new Error(
+          'Invalid response from REX.'
         );
-
-
-        typing.remove();
-
-
-        add(
-          "I’m having trouble connecting right now. Please try again, or contact @relmun.official / akshithkabilan@gmail.com.",
-          "bot"
-        );
-
-      } finally {
-
-        input.disabled = false;
-
-        input.focus();
-
       }
 
-    };
+      if (!r.ok) {
+        throw new Error(
+          data.error ||
+          'Request failed'
+        );
+      }
+
+      typing.remove();
+
+      const answer =
+        typeof data.answer === 'string'
+          ? data.answer.trim()
+          : '';
+
+      if (answer) {
+        add(answer, 'bot');
+      } else {
+        add(
+          'I do not have that information yet. Please try again.',
+          'bot'
+        );
+      }
+
+    } catch (err) {
+      console.error(
+        'REX error:',
+        err
+      );
+
+      typing.textContent =
+        'I’m having trouble connecting right now. Please try again, or contact @relmun.official / akshithkabilan@gmail.com.';
+    }
+
+    input.disabled = false;
+    input.focus();
+  };
 
 })();
