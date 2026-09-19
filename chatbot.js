@@ -6,7 +6,6 @@
 
   /* =========================================================
      REX — RELMUN 2026 INFORMATION ASSISTANT
-     Self-contained styles so global website CSS cannot break it.
   ========================================================= */
 
   root.innerHTML = `
@@ -14,7 +13,7 @@
       type="button"
       id="rexOpen"
       class="rex-launcher"
-      aria-label="Open REX information assistant"
+      aria-label="Open REX"
       aria-expanded="false"
     >
       <span class="rex-launcher-star">✦</span>
@@ -79,6 +78,7 @@
       </div>
 
       <form id="rexForm" class="rex-form">
+
         <input
           id="rexInput"
           type="text"
@@ -95,6 +95,7 @@
         >
           ↑
         </button>
+
       </form>
 
       <div class="rex-footer">
@@ -106,565 +107,131 @@
   `;
 
   /* =========================================================
-     SELF-CONTAINED CSS
+     MARKDOWN FORMATTER
+     Converts Gemini Markdown into actual HTML.
   ========================================================= */
 
-  const style = document.createElement("style");
-
-  style.textContent = `
-    /* ---------- ROOT ---------- */
-
-    #relmun-chatbot,
-    #relmun-chatbot * {
-      box-sizing: border-box;
-    }
-
-    #relmun-chatbot {
-      position: relative;
-      z-index: 2147483000;
-      font-family:
-        Inter,
-        Manrope,
-        Arial,
-        Helvetica,
-        sans-serif;
-    }
-
-    /* ---------- FLOATING LAUNCHER ---------- */
-
-    #relmun-chatbot .rex-launcher {
-      position: fixed !important;
-      right: 28px !important;
-      bottom: 28px !important;
-
-      width: auto !important;
-      min-width: 104px !important;
-      height: 52px !important;
-
-      padding: 0 20px !important;
-      margin: 0 !important;
-
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 9px !important;
-
-      border: 1px solid rgba(199,154,43,.75) !important;
-      border-radius: 4px !important;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(14,41,153,.96),
-          rgba(8,8,8,.98)
-        ) !important;
-
-      color: #f1ece0 !important;
-
-      font-family:
-        Inter,
-        Manrope,
-        Arial,
-        sans-serif !important;
-
-      font-size: 13px !important;
-      font-weight: 800 !important;
-      letter-spacing: .18em !important;
-      line-height: 1 !important;
-
-      cursor: pointer !important;
-
-      box-shadow:
-        0 12px 40px rgba(0,0,0,.45),
-        0 0 0 1px rgba(255,255,255,.03) inset !important;
-
-      transition:
-        transform .25s ease,
-        background .25s ease,
-        box-shadow .25s ease !important;
-    }
-
-    #relmun-chatbot .rex-launcher:hover {
-      transform: translateY(-3px) !important;
-
-      background:
-        linear-gradient(
-          135deg,
-          #0e2999,
-          #111111
-        ) !important;
-
-      box-shadow:
-        0 18px 50px rgba(0,0,0,.55),
-        0 0 25px rgba(14,41,153,.22) !important;
-    }
-
-    #relmun-chatbot .rex-launcher-star {
-      color: #c79a2b !important;
-      font-size: 18px !important;
-      line-height: 1 !important;
-    }
-
-    /* ---------- CHAT WINDOW ---------- */
-
-    #relmun-chatbot .rex-window {
-      position: fixed !important;
-
-      right: 28px !important;
-      bottom: 94px !important;
-
-      width: min(430px, calc(100vw - 32px)) !important;
-      height: min(650px, calc(100vh - 125px)) !important;
-      min-height: 480px !important;
-
-      display: flex !important;
-      flex-direction: column !important;
-
-      overflow: hidden !important;
-
-      background:
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(14,41,153,.28),
-          transparent 34%
-        ),
-        linear-gradient(
-          145deg,
-          #0a0a0b 0%,
-          #080808 55%,
-          #0b1025 100%
-        ) !important;
-
-      border: 1px solid rgba(241,236,224,.16) !important;
-
-      border-radius: 8px !important;
-
-      box-shadow:
-        0 30px 100px rgba(0,0,0,.7),
-        0 0 0 1px rgba(199,154,43,.06) inset !important;
-
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-
-      transform:
-        translateY(20px)
-        scale(.97) !important;
-
-      transform-origin: bottom right !important;
-
-      transition:
-        opacity .25s ease,
-        transform .25s ease,
-        visibility .25s ease !important;
-    }
-
-    #relmun-chatbot .rex-window.open {
-      opacity: 1 !important;
-      visibility: visible !important;
-      pointer-events: auto !important;
-      transform:
-        translateY(0)
-        scale(1) !important;
-    }
-
-    /* ---------- HEADER ---------- */
-
-    #relmun-chatbot .rex-header {
-      flex: 0 0 auto !important;
-
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-
-      min-height: 78px !important;
-      padding: 17px 18px !important;
-
-      border-bottom: 1px solid rgba(241,236,224,.1) !important;
-
-      background:
-        rgba(0,0,0,.25) !important;
-    }
-
-    #relmun-chatbot .rex-brand {
-      min-width: 0 !important;
-    }
-
-    #relmun-chatbot .rex-brand-main {
-      display: flex !important;
-      align-items: center !important;
-      gap: 9px !important;
-
-      color: #f1ece0 !important;
-    }
-
-    #relmun-chatbot .rex-brand-main strong {
-      font-family:
-        Inter,
-        Arial,
-        sans-serif !important;
-
-      font-size: 19px !important;
-      font-weight: 900 !important;
-      letter-spacing: .08em !important;
-      color: #f1ece0 !important;
-    }
-
-    #relmun-chatbot .rex-dot {
-      width: 7px !important;
-      height: 7px !important;
-
-      border-radius: 50% !important;
-
-      background: #c79a2b !important;
-
-      box-shadow:
-        0 0 10px rgba(199,154,43,.7) !important;
-    }
-
-    #relmun-chatbot .rex-brand-sub {
-      margin-top: 5px !important;
-
-      color: rgba(241,236,224,.5) !important;
-
-      font-size: 8px !important;
-      font-weight: 700 !important;
-      letter-spacing: .17em !important;
-      text-transform: uppercase !important;
-    }
-
-    #relmun-chatbot .rex-close {
-      width: 34px !important;
-      height: 34px !important;
-
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-
-      padding: 0 !important;
-      margin: 0 !important;
-
-      border: 1px solid rgba(241,236,224,.18) !important;
-      border-radius: 3px !important;
-
-      background: transparent !important;
-      color: #f1ece0 !important;
-
-      font-family: Arial, sans-serif !important;
-      font-size: 23px !important;
-      font-weight: 300 !important;
-      line-height: 1 !important;
-
-      cursor: pointer !important;
-    }
-
-    #relmun-chatbot .rex-close:hover {
-      background: #0e2999 !important;
-      border-color: #0e2999 !important;
-    }
-
-    /* ---------- INTRO ---------- */
-
-    #relmun-chatbot .rex-intro {
-      flex: 0 0 auto !important;
-
-      padding: 22px 22px 16px !important;
-    }
-
-    #relmun-chatbot .rex-intro-number {
-      margin-bottom: 12px !important;
-
-      color: #c79a2b !important;
-
-      font-size: 9px !important;
-      font-weight: 800 !important;
-      letter-spacing: .25em !important;
-      text-transform: uppercase !important;
-    }
-
-    #relmun-chatbot .rex-intro h2 {
-      margin: 0 !important;
-
-      color: #f1ece0 !important;
-
-      font-family:
-        Inter,
-        Arial,
-        sans-serif !important;
-
-      font-size: clamp(30px, 7vw, 42px) !important;
-      font-weight: 900 !important;
-      letter-spacing: -.045em !important;
-      line-height: .94 !important;
-    }
-
-    #relmun-chatbot .rex-intro h2 em {
-      color: #c79a2b !important;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif !important;
-
-      font-weight: 400 !important;
-      letter-spacing: -.04em !important;
-    }
-
-    #relmun-chatbot .rex-intro p {
-      max-width: 370px !important;
-
-      margin: 15px 0 0 !important;
-
-      color: rgba(241,236,224,.62) !important;
-
-      font-size: 12px !important;
-      line-height: 1.65 !important;
-    }
-
-    /* ---------- MESSAGES ---------- */
-
-    #relmun-chatbot .rex-messages {
-      flex: 1 1 auto !important;
-
-      min-height: 0 !important;
-
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-
-      padding: 10px 18px 18px !important;
-
-      scrollbar-width: thin !important;
-      scrollbar-color:
-        rgba(199,154,43,.5)
-        transparent !important;
-    }
-
-    #relmun-chatbot .rex-messages::-webkit-scrollbar {
-      width: 4px !important;
-    }
-
-    #relmun-chatbot .rex-messages::-webkit-scrollbar-track {
-      background: transparent !important;
-    }
-
-    #relmun-chatbot .rex-messages::-webkit-scrollbar-thumb {
-      background: rgba(199,154,43,.5) !important;
-    }
-
-    #relmun-chatbot .rex-message {
-      max-width: 88% !important;
-
-      margin: 0 0 13px !important;
-      padding: 12px 14px !important;
-
-      border-radius: 3px !important;
-
-      font-size: 12px !important;
-      line-height: 1.6 !important;
-
-      overflow-wrap: anywhere !important;
-      word-break: break-word !important;
-    }
-
-    #relmun-chatbot .rex-message.rex-bot {
-      margin-right: auto !important;
-
-      border-left: 2px solid #c79a2b !important;
-
-      background:
-        rgba(241,236,224,.055) !important;
-
-      color: #f1ece0 !important;
-    }
-
-    #relmun-chatbot .rex-message.rex-user {
-      margin-left: auto !important;
-
-      background:
-        #0e2999 !important;
-
-      color: #ffffff !important;
-    }
-
-    #relmun-chatbot .rex-message-label {
-      margin-bottom: 5px !important;
-
-      color: #c79a2b !important;
-
-      font-size: 8px !important;
-      font-weight: 900 !important;
-      letter-spacing: .2em !important;
-      text-transform: uppercase !important;
-    }
-
-    #relmun-chatbot .rex-message.rex-user .rex-message-label {
-      color: rgba(255,255,255,.65) !important;
-    }
-
-    #relmun-chatbot .rex-message-text {
-      white-space: pre-wrap !important;
-    }
-
-    /* ---------- FORM ---------- */
-
-    #relmun-chatbot .rex-form {
-      flex: 0 0 auto !important;
-
-      display: flex !important;
-      align-items: stretch !important;
-
-      gap: 8px !important;
-
-      margin: 0 18px 12px !important;
-      padding: 7px !important;
-
-      border: 1px solid rgba(241,236,224,.15) !important;
-      border-radius: 4px !important;
-
-      background:
-        rgba(0,0,0,.38) !important;
-    }
-
-    #relmun-chatbot .rex-form input {
-      flex: 1 1 auto !important;
-
-      min-width: 0 !important;
-      width: auto !important;
-      height: 42px !important;
-
-      padding: 0 11px !important;
-      margin: 0 !important;
-
-      border: 0 !important;
-      outline: none !important;
-
-      background: transparent !important;
-
-      color: #f1ece0 !important;
-
-      font-family:
-        Inter,
-        Arial,
-        sans-serif !important;
-
-      font-size: 12px !important;
-      line-height: 42px !important;
-    }
-
-    #relmun-chatbot .rex-form input::placeholder {
-      color: rgba(241,236,224,.35) !important;
-    }
-
-    #relmun-chatbot .rex-send {
-      flex: 0 0 44px !important;
-
-      width: 44px !important;
-      height: 42px !important;
-
-      padding: 0 !important;
-      margin: 0 !important;
-
-      border: 0 !important;
-      border-radius: 2px !important;
-
-      background: #0e2999 !important;
-      color: #ffffff !important;
-
-      font-family: Arial, sans-serif !important;
-      font-size: 20px !important;
-      font-weight: 700 !important;
-      line-height: 1 !important;
-
-      cursor: pointer !important;
-
-      transition:
-        background .2s ease,
-        transform .2s ease !important;
-    }
-
-    #relmun-chatbot .rex-send:hover {
-      background: #173bc4 !important;
-      transform: translateY(-1px) !important;
-    }
-
-    #relmun-chatbot .rex-send:disabled {
-      opacity: .45 !important;
-      cursor: not-allowed !important;
-    }
-
-    /* ---------- FOOTER ---------- */
-
-    #relmun-chatbot .rex-footer {
-      flex: 0 0 auto !important;
-
-      display: flex !important;
-      justify-content: space-between !important;
-      gap: 10px !important;
-
-      padding: 0 20px 15px !important;
-
-      color: rgba(241,236,224,.27) !important;
-
-      font-size: 7px !important;
-      font-weight: 800 !important;
-      letter-spacing: .17em !important;
-    }
-
-    /* ---------- MOBILE ---------- */
-
-    @media (max-width: 600px) {
-
-      #relmun-chatbot .rex-launcher {
-        right: 16px !important;
-        bottom: 16px !important;
-
-        min-width: 58px !important;
-        width: 58px !important;
-        height: 58px !important;
-
-        padding: 0 !important;
-
-        border-radius: 50% !important;
-      }
-
-      #relmun-chatbot .rex-launcher span:last-child {
-        display: none !important;
-      }
-
-      #relmun-chatbot .rex-launcher-star {
-        font-size: 22px !important;
-      }
-
-      #relmun-chatbot .rex-window {
-        right: 12px !important;
-        bottom: 84px !important;
-
-        width: calc(100vw - 24px) !important;
-        height: calc(100vh - 105px) !important;
-        min-height: 0 !important;
-
-        border-radius: 7px !important;
-      }
-    }
-
-    @media (max-height: 650px) and (min-width: 601px) {
-      #relmun-chatbot .rex-window {
-        height: calc(100vh - 105px) !important;
-        min-height: 0 !important;
-      }
-
-      #relmun-chatbot .rex-intro {
-        padding-top: 15px !important;
-        padding-bottom: 10px !important;
-      }
-
-      #relmun-chatbot .rex-intro h2 {
-        font-size: 30px !important;
-      }
-    }
-  `;
-
-  document.head.appendChild(style);
+  function escapeHTML(value) {
+    return value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function formatRexMessage(text) {
+    if (!text) return "";
+
+    let output = escapeHTML(String(text));
+
+    /*
+      Code blocks
+    */
+    output = output.replace(
+      /```([\s\S]*?)```/g,
+      '<pre class="rex-code"><code>$1</code></pre>'
+    );
+
+    /*
+      Inline code
+    */
+    output = output.replace(
+      /`([^`]+)`/g,
+      "<code>$1</code>"
+    );
+
+    /*
+      Bold
+      **text**
+    */
+    output = output.replace(
+      /\*\*(.+?)\*\*/g,
+      "<strong>$1</strong>"
+    );
+
+    /*
+      Italic
+      *text*
+    */
+    output = output.replace(
+      /(^|[^*])\*([^*\n]+)\*(?!\*)/g,
+      "$1<em>$2</em>"
+    );
+
+    /*
+      Headings
+      ### Heading
+      ## Heading
+      # Heading
+    */
+    output = output.replace(
+      /^###\s+(.+)$/gm,
+      '<div class="rex-heading rex-heading-3">$1</div>'
+    );
+
+    output = output.replace(
+      /^##\s+(.+)$/gm,
+      '<div class="rex-heading rex-heading-2">$1</div>'
+    );
+
+    output = output.replace(
+      /^#\s+(.+)$/gm,
+      '<div class="rex-heading rex-heading-1">$1</div>'
+    );
+
+    /*
+      Bullet points
+      - item
+      * item
+      • item
+    */
+    output = output.replace(
+      /^[ \t]*(?:[-*•])\s+(.+)$/gm,
+      '<div class="rex-bullet"><span>•</span><div>$1</div></div>'
+    );
+
+    /*
+      Numbered lists
+    */
+    output = output.replace(
+      /^[ \t]*(\d+)\.\s+(.+)$/gm,
+      '<div class="rex-numbered"><span>$1.</span><div>$2</div></div>'
+    );
+
+    /*
+      Links
+      Markdown:
+      [text](url)
+    */
+    output = output.replace(
+      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+    );
+
+    /*
+      Bare URLs
+    */
+    output = output.replace(
+      /(^|[\s>])(https?:\/\/[^\s<]+)/g,
+      '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>'
+    );
+
+    /*
+      Line breaks.
+    */
+    output = output.replace(/\n/g, "<br>");
+
+    /*
+      Remove <br> immediately around block elements.
+    */
+    output = output
+      .replace(/(<div class="rex-(?:bullet|numbered|heading)[^>]*>.*?<\/div>)<br>/g, "$1")
+      .replace(/<br>(<div class="rex-(?:bullet|numbered|heading)[^>]*>)/g, "$1")
+      .replace(/(<\/pre>)<br>/g, "$1");
+
+    return output;
+  }
 
   /* =========================================================
      ELEMENTS
@@ -688,7 +255,9 @@
     openButton.setAttribute("aria-expanded", "true");
     windowEl.setAttribute("aria-hidden", "false");
 
-    setTimeout(() => input.focus(), 150);
+    setTimeout(() => {
+      input.focus();
+    }, 120);
   }
 
   function closeRex() {
@@ -701,7 +270,6 @@
   openButton.addEventListener("click", openRex);
   closeButton.addEventListener("click", closeRex);
 
-  /* Close with Escape */
   document.addEventListener("keydown", (event) => {
     if (
       event.key === "Escape" &&
@@ -712,37 +280,45 @@
   });
 
   /* =========================================================
-     MESSAGE HELPERS
+     ADD MESSAGE
   ========================================================= */
 
   function addMessage(text, type) {
-    const message = document.createElement("div");
 
-    message.className =
-      `rex-message rex-${type}`;
+    const message = document.createElement("div");
+    message.className = `rex-message rex-${type}`;
 
     const label = document.createElement("div");
-
     label.className = "rex-message-label";
-    label.textContent =
-      type === "user" ? "YOU" : "REX";
+    label.textContent = type === "user" ? "YOU" : "REX";
 
     const body = document.createElement("div");
-
     body.className = "rex-message-text";
-    body.textContent = text;
+
+    if (type === "bot") {
+      body.innerHTML = formatRexMessage(text);
+    } else {
+      body.textContent = text;
+    }
 
     message.appendChild(label);
     message.appendChild(body);
 
     messages.appendChild(message);
 
-    messages.scrollTop = messages.scrollHeight;
+    requestAnimationFrame(() => {
+      messages.scrollTop = messages.scrollHeight;
+    });
 
     return message;
   }
 
+  /* =========================================================
+     TYPING INDICATOR
+  ========================================================= */
+
   function addTyping() {
+
     const message = document.createElement("div");
 
     message.className =
@@ -750,13 +326,21 @@
 
     const label = document.createElement("div");
 
-    label.className = "rex-message-label";
+    label.className =
+      "rex-message-label";
+
     label.textContent = "REX";
 
     const body = document.createElement("div");
 
-    body.className = "rex-message-text";
-    body.textContent = "REX is checking…";
+    body.className =
+      "rex-message-text";
+
+    body.innerHTML = `
+      <span class="rex-thinking">
+        REX is thinking<span>.</span><span>.</span><span>.</span>
+      </span>
+    `;
 
     message.appendChild(label);
     message.appendChild(body);
@@ -769,67 +353,103 @@
   }
 
   /* =========================================================
-     API
+     SEND MESSAGE
   ========================================================= */
 
   form.addEventListener("submit", async (event) => {
+
     event.preventDefault();
 
     const question = input.value.trim();
 
     if (!question) return;
 
+    /*
+      Immediately show user's message.
+    */
+
+    addMessage(question, "user");
+
     input.value = "";
     input.disabled = true;
     sendButton.disabled = true;
 
-    addMessage(question, "user");
-
     const typing = addTyping();
 
     try {
+
       const response = await fetch("/api/chat", {
+
         method: "POST",
 
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
 
         body: JSON.stringify({
           message: question
         })
+
       });
 
-      let data;
+      let data = null;
 
       try {
         data = await response.json();
       } catch {
-        throw new Error("Invalid server response.");
+        throw new Error(
+          "REX returned an invalid response."
+        );
       }
 
       if (!response.ok) {
+
         throw new Error(
-          data?.error || "REX could not respond."
+          data?.error ||
+          `REX request failed (${response.status}).`
+        );
+
+      }
+
+      /*
+        Support both:
+        { answer: "..." }
+        and
+        { response: "..." }
+      */
+
+      const answer =
+        typeof data?.answer === "string"
+          ? data.answer
+          : typeof data?.response === "string"
+            ? data.response
+            : "";
+
+      if (!answer.trim()) {
+        throw new Error(
+          "REX returned an empty answer."
         );
       }
 
       typing.remove();
 
       addMessage(
-        data?.answer ||
-        "I don't have that information yet.",
+        answer.trim(),
         "bot"
       );
 
     } catch (error) {
 
-      console.error("REX error:", error);
+      console.error(
+        "REX error:",
+        error
+      );
 
       typing.remove();
 
       addMessage(
-        "I'm having trouble connecting right now. Please try again, or contact @relmun.official.",
+        "I'm having trouble connecting right now. Please try again in a moment.",
         "bot"
       );
 
@@ -839,7 +459,9 @@
       sendButton.disabled = false;
 
       input.focus();
+
     }
+
   });
 
 })();
