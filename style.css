@@ -1,6 +1,3 @@
-.team-grid .team-card:first-child {
-    background: #080808 !important;
-}
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
 
 :root{
@@ -73,6 +70,7 @@ img{
   background:var(--gold);
   color:var(--black);
 }
+
 
 /* ---------------- NAV ---------------- */
 
@@ -165,6 +163,7 @@ header{
   margin:5px auto;
   background:var(--ivory);
 }
+
 
 /* ---------------- GLOBAL ---------------- */
 
@@ -270,6 +269,7 @@ p{
 .text-link:hover{
   color:var(--gold);
 }
+
 
 /* ---------------- HERO ---------------- */
 
@@ -384,6 +384,7 @@ p{
   color:var(--gold);
 }
 
+
 /* ---------------- ABOUT / CONTENT ---------------- */
 
 .about-grid,
@@ -485,6 +486,7 @@ p{
   color:var(--gold);
 }
 
+
 /* ---------------- COMMITTEES ---------------- */
 
 .committee-grid{
@@ -548,6 +550,7 @@ p{
   letter-spacing:.12em;
 }
 
+
 /* ---------------- PEOPLE ---------------- */
 
 .person-card{
@@ -555,7 +558,7 @@ p{
 }
 
 .person-card.featured{
-  background:;
+  background:#0b0b0b;
 }
 
 .avatar{
@@ -583,6 +586,7 @@ p{
   font-size:24px;
   letter-spacing:-.035em;
 }
+
 
 /* ---------------- DETAIL PAGES ---------------- */
 
@@ -683,6 +687,7 @@ p{
   gap:12px;
   margin-top:35px;
 }
+
 
 /* ---------------- REGISTER ---------------- */
 
@@ -862,6 +867,7 @@ p{
   display:block;
 }
 
+
 /* ---------------- FAQ ---------------- */
 
 .faq-list{
@@ -906,6 +912,7 @@ p{
   max-height:300px;
 }
 
+
 /* ---------------- FOOTER ---------------- */
 
 footer{
@@ -943,12 +950,8 @@ footer{
   text-align:right;
 }
 
-/* ---------------- CHATBOT VISIBILITY ---------------- */
 
-/*
-  chatbot.js creates these elements dynamically.
-  These rules intentionally don't replace its functionality.
-*/
+/* ---------------- CHATBOT VISIBILITY ---------------- */
 
 #relmun-chatbot{
   position:fixed!important;
@@ -978,9 +981,11 @@ footer{
   z-index:100001!important;
 }
 
+
 /* ---------------- MOBILE ---------------- */
 
 @media(max-width:900px){
+
   header{
     padding:12px;
   }
@@ -1088,6 +1093,7 @@ footer{
 }
 
 @media(max-width:600px){
+
   .section{
     padding:100px 20px;
   }
@@ -1131,343 +1137,335 @@ footer{
     bottom:16px!important;
   }
 }
+
+
 /* =========================================
    RELMUN — UNIFIED TEAM CARDS
 ========================================= */
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  background: rgba(241, 236, 224, 0.14);
-  border: 1px solid rgba(241, 236, 224, 0.14);
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;
+  background:rgba(241,236,224,.14);
+  border:1px solid rgba(241,236,224,.14);
 }
 
-.team-card {
-  position: relative;
-  min-height: 360px;
-  padding: 34px;
-  overflow: hidden;
+.team-card{
+  position:relative;
+  min-height:360px;
+  padding:34px;
+  overflow:hidden;
 
   background:
     radial-gradient(
       circle at 100% 0%,
-      rgba(14, 41, 153, 0.18),
+      rgba(14,41,153,.18),
       transparent 42%
     ),
     #080808;
 
-  color: #f1ece0;
+  color:#f1ece0;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 
   transition:
-    background 0.35s ease,
-    transform 0.35s ease;
+    background .35s ease,
+    transform .35s ease;
 }
 
-.team-card:hover {
+.team-card:hover{
   background:
     radial-gradient(
       circle at 100% 0%,
-      rgba(14, 41, 153, 0.65),
+      rgba(14,41,153,.65),
       transparent 55%
     ),
     #0a0a0a;
 }
 
-/* subtle blue sweep */
+.team-card::after{
+  content:"";
+  position:absolute;
+  inset:auto -20% -50% auto;
 
-.team-card::after {
-  content: "";
-  position: absolute;
-  inset: auto -20% -50% auto;
+  width:280px;
+  height:280px;
 
-  width: 280px;
-  height: 280px;
+  border-radius:50%;
 
-  border-radius: 50%;
+  background:#0e2999;
 
-  background: #0e2999;
+  opacity:0;
+  filter:blur(90px);
 
-  opacity: 0;
-  filter: blur(90px);
+  transition:opacity .4s ease;
 
-  transition: opacity 0.4s ease;
-
-  pointer-events: none;
+  pointer-events:none;
 }
 
-.team-card:hover::after {
-  opacity: 0.2;
+.team-card:hover::after{
+  opacity:.2;
 }
 
-/* TOP */
+.team-card-top{
+  position:relative;
+  z-index:2;
 
-.team-card-top {
-  position: relative;
-  z-index: 2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 20px;
+  gap:20px;
 }
 
-.team-number {
-  color: #c79a2b;
+.team-number{
+  color:#c79a2b;
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family:"IBM Plex Mono",monospace;
 
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.2em;
 }
 
-.team-role {
-  color: rgba(241, 236, 224, 0.5);
+.team-role{
+  color:rgba(241,236,224,.5);
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family:"IBM Plex Mono",monospace;
 
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
 
-  text-align: right;
+  text-align:right;
 }
 
-/* AVATAR */
+.team-avatar{
+  position:relative;
+  z-index:2;
 
-.team-avatar {
-  position: relative;
-  z-index: 2;
+  width:82px;
+  height:82px;
 
-  width: 82px;
-  height: 82px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border:1px solid rgba(241,236,224,.25);
 
-  border: 1px solid rgba(241, 236, 224, 0.25);
+  color:#f1ece0;
 
-  color: #f1ece0;
+  font-family:Inter,Arial,sans-serif;
 
-  font-family:
-    Inter,
-    Arial,
-    sans-serif;
-
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:-.04em;
 
   transition:
-    border-color 0.3s ease,
-    background 0.3s ease;
+    border-color .3s ease,
+    background .3s ease;
 }
 
-.team-card:hover .team-avatar {
-  border-color: #c79a2b;
-  background: rgba(14, 41, 153, 0.45);
+.team-card:hover .team-avatar{
+  border-color:#c79a2b;
+  background:rgba(14,41,153,.45);
 }
 
-/* INFO */
-
-.team-info {
-  position: relative;
-  z-index: 2;
+.team-info{
+  position:relative;
+  z-index:2;
 }
 
-.team-info h3 {
-  margin: 0;
+.team-info h3{
+  margin:0;
 
-  color: #f1ece0;
+  color:#f1ece0;
 
-  font-family:
-    Inter,
-    Arial,
-    sans-serif;
+  font-family:Inter,Arial,sans-serif;
 
-  font-size: clamp(25px, 3vw, 42px);
-  font-weight: 900;
+  font-size:clamp(25px,3vw,42px);
+  font-weight:900;
 
-  letter-spacing: -0.055em;
-  line-height: 0.95;
+  letter-spacing:-.055em;
+  line-height:.95;
 
-  text-transform: uppercase;
+  text-transform:uppercase;
 }
 
-.team-info p {
-  margin: 12px 0 0;
+.team-info p{
+  margin:12px 0 0;
 
-  color: #c79a2b;
+  color:#c79a2b;
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family:"IBM Plex Mono",monospace;
 
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.2em;
 
-  text-transform: uppercase;
+  text-transform:uppercase;
 }
 
-/* BOTTOM LINE */
+.team-card-line{
+  position:relative;
+  z-index:2;
 
-.team-card-line {
-  position: relative;
-  z-index: 2;
-
-  width: 100%;
-  height: 1px;
+  width:100%;
+  height:1px;
 
   background:
     linear-gradient(
       90deg,
       #c79a2b,
-      rgba(199, 154, 43, 0)
+      rgba(199,154,43,0)
     );
 
-  transform-origin: left;
+  transform-origin:left;
 
-  transition: transform 0.4s ease;
+  transition:transform .4s ease;
 }
 
-.team-card:hover .team-card-line {
-  transform: scaleX(0.55);
+.team-card:hover .team-card-line{
+  transform:scaleX(.55);
 }
+
 
 /* =========================================
-   MOBILE
+   TEAM CARD — MOBILE
 ========================================= */
 
-@media (max-width: 800px) {
+@media(max-width:800px){
 
-  .team-grid {
-    grid-template-columns: 1fr;
+  .team-grid{
+    grid-template-columns:1fr;
   }
 
-  .team-card {
-    min-height: 330px;
-    padding: 28px;
+  .team-card{
+    min-height:330px;
+    padding:28px;
   }
 
-  .team-info h3 {
-    font-size: 30px;
+  .team-info h3{
+    font-size:30px;
   }
 }
-/* FORCE ALL TEAM CARDS TO USE THE SAME UI */
+
+
+/* =========================================
+   FORCE ALL TEAM CARDS TO USE SAME UI
+========================================= */
 
 .team-card,
 .team-card:first-child,
 .team-card.featured,
 .team-card.leadership,
 .team-member,
-.team-member:first-child {
-  background: #080808 !important;
-  color: #f1ece0 !important;
+.team-member:first-child{
+  background:#080808!important;
+  color:#f1ece0!important;
 }
 
 .team-card:hover,
 .team-card:first-child:hover,
 .team-card.featured:hover,
-.team-card.leadership:hover {
+.team-card.leadership:hover{
   background:
     radial-gradient(
       circle at 100% 0%,
-      rgba(14, 41, 153, 0.18),
+      rgba(14,41,153,.18),
       transparent 42%
     ),
-    #080808 !important;
+    #080808!important;
 }
 
 .team-card h3,
 .team-card:first-child h3,
 .team-card.featured h3,
-.team-card.leadership h3 {
-  color: #f1ece0 !important;
+.team-card.leadership h3{
+  color:#f1ece0!important;
 }
 
 .team-card p,
 .team-card:first-child p,
 .team-card.featured p,
-.team-card.leadership p {
-  color: #c79a2b !important;
+.team-card.leadership p{
+  color:#c79a2b!important;
 }
+
+
 /* =========================================
    TEAM — FINAL UNIFIED GRID
    3 CARDS PER ROW / SAME COLOUR
 ========================================= */
 
-.team-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 1px !important;
-    background: rgba(241, 236, 224, 0.14) !important;
+.team-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:1px!important;
+  background:rgba(241,236,224,.14)!important;
 }
 
 /* EVERY TEAM CARD — SAME BACKGROUND */
+
 .team-grid .team-card,
 .team-grid .team-card:first-child,
 .team-grid .team-card:nth-child(2),
 .team-grid .team-card:nth-child(3),
 .team-grid .team-card:nth-child(4),
 .team-grid .team-card:nth-child(5),
-.team-grid .team-card:nth-child(6) {
-    background: #080808 !important;
-    color: #f1ece0 !important;
+.team-grid .team-card:nth-child(6){
+  background:#080808!important;
+  color:#f1ece0!important;
 }
 
-/* REMOVE THE BLUE SPECIAL CARD */
-.team-grid .team-card:first-child {
-    background: #080808 !important;
+.team-grid .team-card:first-child{
+  background:#080808!important;
 }
 
-/* SAME HOVER FOR EVERY CARD */
+/* SAME HOVER */
+
 .team-grid .team-card:hover,
-.team-grid .team-card:first-child:hover {
-    background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(14, 41, 153, 0.20),
-            transparent 45%
-        ),
-        #080808 !important;
+.team-grid .team-card:first-child:hover{
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(14,41,153,.20),
+      transparent 45%
+    ),
+    #080808!important;
 }
 
 /* SAME NAME COLOUR */
+
 .team-grid .team-card h3,
-.team-grid .team-card:first-child h3 {
-    color: #f1ece0 !important;
+.team-grid .team-card:first-child h3{
+  color:#f1ece0!important;
 }
 
 /* SAME ROLE COLOUR */
+
 .team-grid .team-card p,
-.team-grid .team-card:first-child p {
-    color: #c79a2b !important;
+.team-grid .team-card:first-child p{
+  color:#c79a2b!important;
 }
 
 /* SAME AVATAR */
+
 .team-grid .team-card .team-avatar,
-.team-grid .team-card:first-child .team-avatar {
-    background: transparent !important;
-    border-color: rgba(241, 236, 224, 0.25) !important;
+.team-grid .team-card:first-child .team-avatar{
+  background:transparent!important;
+  border-color:rgba(241,236,224,.25)!important;
 }
 
 /* SAME AVATAR HOVER */
-.team-grid .team-card:hover .team-avatar {
-    background: rgba(14, 41, 153, 0.35) !important;
-    border-color: #c79a2b !important;
+
+.team-grid .team-card:hover .team-avatar{
+  background:rgba(14,41,153,.35)!important;
+  border-color:#c79a2b!important;
 }
 
 
@@ -1475,10 +1473,11 @@ footer{
    TABLET
 ========================================= */
 
-@media (max-width: 1000px) {
-    .team-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
+@media(max-width:1000px){
+
+  .team-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
 }
 
 
@@ -1486,266 +1485,257 @@ footer{
    MOBILE
 ========================================= */
 
-@media (max-width: 650px) {
-    .team-grid {
-        grid-template-columns: 1fr !important;
-    }
+@media(max-width:650px){
+
+  .team-grid{
+    grid-template-columns:1fr!important;
+  }
 }
-.team-card.team-featured,
-.team-card.team-featured:hover {
-    background: #080808 !important;
-}
-.team-card.team-featured,
-.team-card.team-featured:hover {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(14, 41, 153, 0.11),
-      transparent 45%
-    ),
-    #0b0b0b !important;
-}
+
+
 /* =========================================
-   TEAM CARD — MATCH SECRETARY-GENERAL
-   ========================================= */
+   FEATURED TEAM CARD — SAME AS OTHERS
+========================================= */
 
 .team-card.team-featured,
-.team-card.team-featured:hover {
-    background: #080808 !important;
+.team-card.team-featured:hover{
+  background:#080808!important;
 }
+
+
 /* =========================================
    REX MESSAGE FORMATTING
 ========================================= */
 
-#relmun-chatbot .rex-message-text strong {
-    color: #f1ece0 !important;
-    font-weight: 800 !important;
+#relmun-chatbot .rex-message-text strong{
+  color:#f1ece0!important;
+  font-weight:800!important;
 }
 
-#relmun-chatbot .rex-message-text em {
-    color: #c79a2b !important;
-    font-style: italic !important;
+#relmun-chatbot .rex-message-text em{
+  color:#c79a2b!important;
+  font-style:italic!important;
 }
 
-#relmun-chatbot .rex-message-text a {
-    color: #8fa5ff !important;
-    text-decoration: underline !important;
-    text-underline-offset: 3px !important;
+#relmun-chatbot .rex-message-text a{
+  color:#8fa5ff!important;
+  text-decoration:underline!important;
+  text-underline-offset:3px!important;
 }
 
-#relmun-chatbot .rex-heading {
-    margin: 10px 0 6px !important;
-    color: #f1ece0 !important;
-    font-weight: 800 !important;
+#relmun-chatbot .rex-heading{
+  margin:10px 0 6px!important;
+  color:#f1ece0!important;
+  font-weight:800!important;
 }
 
-#relmun-chatbot .rex-heading-1 {
-    font-size: 18px !important;
+#relmun-chatbot .rex-heading-1{
+  font-size:18px!important;
 }
 
-#relmun-chatbot .rex-heading-2 {
-    font-size: 16px !important;
+#relmun-chatbot .rex-heading-2{
+  font-size:16px!important;
 }
 
-#relmun-chatbot .rex-heading-3 {
-    font-size: 14px !important;
+#relmun-chatbot .rex-heading-3{
+  font-size:14px!important;
 }
 
 #relmun-chatbot .rex-bullet,
-#relmun-chatbot .rex-numbered {
-    display: flex !important;
-    gap: 8px !important;
-    margin: 5px 0 !important;
+#relmun-chatbot .rex-numbered{
+  display:flex!important;
+  gap:8px!important;
+  margin:5px 0!important;
 }
 
 #relmun-chatbot .rex-bullet > span,
-#relmun-chatbot .rex-numbered > span {
-    flex: 0 0 auto !important;
-    color: #c79a2b !important;
-    font-weight: 800 !important;
+#relmun-chatbot .rex-numbered > span{
+  flex:0 0 auto!important;
+  color:#c79a2b!important;
+  font-weight:800!important;
 }
 
-#relmun-chatbot .rex-code {
-    margin: 8px 0 !important;
-    padding: 10px !important;
-    overflow-x: auto !important;
+#relmun-chatbot .rex-code{
+  margin:8px 0!important;
+  padding:10px!important;
+  overflow-x:auto!important;
 
-    background: #050505 !important;
-    border: 1px solid rgba(241,236,224,.12) !important;
+  background:#050505!important;
+  border:1px solid rgba(241,236,224,.12)!important;
 
-    color: #f1ece0 !important;
-    font-family: monospace !important;
-    font-size: 11px !important;
+  color:#f1ece0!important;
+  font-family:monospace!important;
+  font-size:11px!important;
 }
 
-#relmun-chatbot .rex-message-text code {
-    padding: 2px 4px !important;
+#relmun-chatbot .rex-message-text code{
+  padding:2px 4px!important;
 
-    background: rgba(241,236,224,.08) !important;
+  background:rgba(241,236,224,.08)!important;
 
-    color: #c79a2b !important;
-    font-family: monospace !important;
+  color:#c79a2b!important;
+  font-family:monospace!important;
 }
 
-#relmun-chatbot .rex-thinking span {
-    animation: rex-dot 1.2s infinite !important;
+#relmun-chatbot .rex-thinking span{
+  animation:rex-dot 1.2s infinite!important;
 }
 
-#relmun-chatbot .rex-thinking span:nth-child(2) {
-    animation-delay: .2s !important;
+#relmun-chatbot .rex-thinking span:nth-child(2){
+  animation-delay:.2s!important;
 }
 
-#relmun-chatbot .rex-thinking span:nth-child(3) {
-    animation-delay: .4s !important;
+#relmun-chatbot .rex-thinking span:nth-child(3){
+  animation-delay:.4s!important;
 }
 
-@keyframes rex-dot {
-    0%, 60%, 100% {
-        opacity: .25;
-    }
+@keyframes rex-dot{
+  0%,60%,100%{
+    opacity:.25;
+  }
 
-    30% {
-        opacity: 1;
-    }
+  30%{
+    opacity:1;
+  }
 }
+
+
 /* REX MESSAGE FORMATTING */
 
-.relmun-message .relmun-markdown strong {
-  color: #f1ece0;
-  font-weight: 800;
+.relmun-message .relmun-markdown strong{
+  color:#f1ece0;
+  font-weight:800;
 }
 
-.relmun-message .relmun-markdown em {
-  color: #c79a2b;
-  font-style: italic;
+.relmun-message .relmun-markdown em{
+  color:#c79a2b;
+  font-style:italic;
 }
 
-.relmun-message .relmun-markdown a {
-  color: #0e2999;
-  text-decoration: underline;
+.relmun-message .relmun-markdown a{
+  color:#0e2999;
+  text-decoration:underline;
 }
 
-.relmun-message .rex-bullet {
-  margin: 4px 0;
+.relmun-message .rex-bullet{
+  margin:4px 0;
 }
 
-.relmun-message .rex-numbered {
-  margin: 4px 0;
+.relmun-message .rex-numbered{
+  margin:4px 0;
 }
 
-.relmun-message .rex-numbered span {
-  color: #c79a2b;
-  font-weight: 800;
+.relmun-message .rex-numbered span{
+  color:#c79a2b;
+  font-weight:800;
 }
 
-.relmun-message .rex-heading {
-  margin: 8px 0 5px;
-  color: #f1ece0;
-  font-weight: 800;
+.relmun-message .rex-heading{
+  margin:8px 0 5px;
+  color:#f1ece0;
+  font-weight:800;
 }
 
-.relmun-message .rex-code {
-  padding: 8px;
-  overflow-x: auto;
-  background: #050505;
-  border: 1px solid rgba(241,236,224,.12);
+.relmun-message .rex-code{
+  padding:8px;
+  overflow-x:auto;
+  background:#050505;
+  border:1px solid rgba(241,236,224,.12);
 }
 
-.relmun-message .relmun-markdown code {
-  padding: 2px 4px;
-  background: rgba(241,236,224,.08);
+.relmun-message .relmun-markdown code{
+  padding:2px 4px;
+  background:rgba(241,236,224,.08);
 }
+
+
 /* =========================================
    REX — RESPONSE TEXT
 ========================================= */
 
-.relmun-message.bot {
-    white-space: normal !important;
-    line-height: 1.65 !important;
+.relmun-message.bot{
+  white-space:normal!important;
+  line-height:1.65!important;
 }
 
-/* Bold text */
-.relmun-message.bot strong {
-    font-weight: 800 !important;
-    color: #f1ece0 !important;
+.relmun-message.bot strong{
+  font-weight:800!important;
+  color:#f1ece0!important;
 }
 
-/* Italic */
-.relmun-message.bot em {
-    color: #c79a2b !important;
-    font-style: italic !important;
+.relmun-message.bot em{
+  color:#c79a2b!important;
+  font-style:italic!important;
 }
 
-/* Bullets */
-.relmun-message.bot .rex-bullet {
-    display: block !important;
-    margin: 5px 0 !important;
-    padding-left: 4px !important;
+.relmun-message.bot .rex-bullet{
+  display:block!important;
+  margin:5px 0!important;
+  padding-left:4px!important;
 }
 
-/* Numbered lists */
-.relmun-message.bot .rex-numbered {
-    display: block !important;
-    margin: 5px 0 !important;
+.relmun-message.bot .rex-numbered{
+  display:block!important;
+  margin:5px 0!important;
 }
 
-.relmun-message.bot .rex-numbered span {
-    color: #c79a2b !important;
-    font-weight: 800 !important;
+.relmun-message.bot .rex-numbered span{
+  color:#c79a2b!important;
+  font-weight:800!important;
 }
 
-/* Headings */
-.relmun-message.bot .rex-heading {
-    display: block !important;
-    margin: 9px 0 5px !important;
-    color: #f1ece0 !important;
-    font-weight: 800 !important;
+.relmun-message.bot .rex-heading{
+  display:block!important;
+  margin:9px 0 5px!important;
+  color:#f1ece0!important;
+  font-weight:800!important;
 }
 
-/* Links */
-.relmun-message.bot a {
-    color: #0e2999 !important;
-    text-decoration: underline !important;
+.relmun-message.bot a{
+  color:#0e2999!important;
+  text-decoration:underline!important;
 }
 
-/* Don't let long answers overflow */
-.relmun-message.bot {
-    overflow-wrap: anywhere !important;
+.relmun-message.bot{
+  overflow-wrap:anywhere!important;
 }
+
+
 /* =====================================================
    REX — UI + RESPONSE FIX
-   ===================================================== */
+===================================================== */
 
-#relmun-chatbot {
-  position: relative;
-  z-index: 999999;
+#relmun-chatbot{
+  position:relative;
+  z-index:999999;
 }
 
-/* Floating button */
 
-#relmun-chatbot .relmun-chat-button {
-  position: fixed;
-  right: 28px;
-  bottom: 28px;
-  z-index: 999999;
+/* FLOATING BUTTON */
 
-  display: flex;
-  align-items: center;
-  gap: 8px;
+#relmun-chatbot .relmun-chat-button{
+  position:fixed;
+  right:28px;
+  bottom:28px;
+  z-index:999999;
 
-  border: 1px solid rgba(241, 236, 224, 0.25);
-  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  gap:8px;
 
-  padding: 13px 20px;
+  border:1px solid rgba(241,236,224,.25);
+  border-radius:999px;
 
-  background: #080808;
-  color: #f1ece0;
+  padding:13px 20px;
 
-  font-family: inherit;
-  font-weight: 800;
-  letter-spacing: .08em;
+  background:#080808;
+  color:#f1ece0;
 
-  cursor: pointer;
+  font-family:inherit;
+  font-weight:800;
+  letter-spacing:.08em;
+
+  cursor:pointer;
 
   box-shadow:
     0 15px 45px rgba(0,0,0,.35);
@@ -1756,46 +1746,47 @@ footer{
     background .25s ease;
 }
 
-#relmun-chatbot .relmun-chat-button:hover {
-  transform: translateY(-3px);
-  border-color: #c79a2b;
-  background: #0e2999;
+#relmun-chatbot .relmun-chat-button:hover{
+  transform:translateY(-3px);
+  border-color:#c79a2b;
+  background:#0e2999;
 }
 
-/* Window */
 
-#relmun-chatbot .relmun-chat-window {
-  position: fixed;
+/* WINDOW */
 
-  right: 28px;
-  bottom: 90px;
+#relmun-chatbot .relmun-chat-window{
+  position:fixed;
 
-  width: min(420px, calc(100vw - 32px));
-  height: min(650px, calc(100vh - 120px));
+  right:28px;
+  bottom:90px;
 
-  z-index: 1000000;
+  width:min(420px,calc(100vw - 32px));
+  height:min(650px,calc(100vh - 120px));
 
-  display: flex;
-  flex-direction: column;
+  z-index:1000000;
 
-  overflow: hidden;
+  display:flex;
+  flex-direction:column;
 
-  background: #080808;
-  color: #f1ece0;
+  overflow:hidden;
 
-  border: 1px solid rgba(241,236,224,.16);
+  background:#080808;
+  color:#f1ece0;
+
+  border:1px solid rgba(241,236,224,.16);
 
   box-shadow:
     0 30px 100px rgba(0,0,0,.55);
 
-  opacity: 0;
-  visibility: hidden;
+  opacity:0;
+  visibility:hidden;
 
   transform:
     translateY(15px)
     scale(.97);
 
-  pointer-events: none;
+  pointer-events:none;
 
   transition:
     opacity .22s ease,
@@ -1803,25 +1794,26 @@ footer{
     visibility .22s ease;
 }
 
-#relmun-chatbot .relmun-chat-window.open {
-  opacity: 1;
-  visibility: visible;
+#relmun-chatbot .relmun-chat-window.open{
+  opacity:1;
+  visibility:visible;
 
   transform:
     translateY(0)
     scale(1);
 
-  pointer-events: auto;
+  pointer-events:auto;
 }
 
-/* Header */
 
-#relmun-chatbot .relmun-chat-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* HEADER */
 
-  padding: 18px 20px;
+#relmun-chatbot .relmun-chat-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:18px 20px;
 
   background:
     linear-gradient(
@@ -1834,412 +1826,430 @@ footer{
     1px solid rgba(241,236,224,.14);
 }
 
-#relmun-chatbot .relmun-chat-title {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+#relmun-chatbot .relmun-chat-title{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
 }
 
-#relmun-chatbot .relmun-chat-title strong {
-  font-size: 20px;
-  color: #f1ece0;
+#relmun-chatbot .relmun-chat-title strong{
+  font-size:20px;
+  color:#f1ece0;
 }
 
-#relmun-chatbot .relmun-chat-title span {
-  font-size: 9px;
-  letter-spacing: .14em;
-  color: rgba(241,236,224,.65);
+#relmun-chatbot .relmun-chat-title span{
+  font-size:9px;
+  letter-spacing:.14em;
+  color:rgba(241,236,224,.65);
 }
 
-#relmun-chatbot .relmun-chat-close {
-  border: 0;
-  background: transparent;
+#relmun-chatbot .relmun-chat-close{
+  border:0;
+  background:transparent;
 
-  color: #f1ece0;
+  color:#f1ece0;
 
-  font-size: 28px;
-  line-height: 1;
+  font-size:28px;
+  line-height:1;
 
-  cursor: pointer;
+  cursor:pointer;
 
-  opacity: .7;
+  opacity:.7;
 }
 
-#relmun-chatbot .relmun-chat-close:hover {
-  opacity: 1;
-  color: #c79a2b;
+#relmun-chatbot .relmun-chat-close:hover{
+  opacity:1;
+  color:#c79a2b;
 }
 
-/* Messages */
 
-#relmun-chatbot .relmun-chat-messages {
-  flex: 1;
+/* MESSAGES */
 
-  overflow-y: auto;
+#relmun-chatbot .relmun-chat-messages{
+  flex:1;
 
-  padding: 20px;
+  overflow-y:auto;
 
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  padding:20px;
 
-  scrollbar-width: thin;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+
+  scrollbar-width:thin;
 }
 
-/* Message */
 
-#relmun-chatbot .relmun-message {
-  max-width: 88%;
+/* MESSAGE */
 
-  padding: 12px 14px;
+#relmun-chatbot .relmun-message{
+  max-width:88%;
 
-  font-size: 13px;
-  line-height: 1.6;
+  padding:12px 14px;
 
-  overflow-wrap: anywhere;
+  font-size:13px;
+  line-height:1.6;
+
+  overflow-wrap:anywhere;
 }
 
-#relmun-chatbot .relmun-message.bot {
-  align-self: flex-start;
+#relmun-chatbot .relmun-message.bot{
+  align-self:flex-start;
 
-  background: #111111;
+  background:#111111;
 
   border:
     1px solid rgba(241,236,224,.10);
 
-  color: #dcd7cc;
+  color:#dcd7cc;
 }
 
-#relmun-chatbot .relmun-message.user {
-  align-self: flex-end;
+#relmun-chatbot .relmun-message.user{
+  align-self:flex-end;
 
-  background: #0e2999;
+  background:#0e2999;
 
-  color: #fff;
+  color:#fff;
 
   border:
     1px solid rgba(255,255,255,.12);
 }
 
-/* REX formatting */
 
-#relmun-chatbot .relmun-message strong {
-  color: #f1ece0;
-  font-weight: 800;
+/* REX FORMATTING */
+
+#relmun-chatbot .relmun-message strong{
+  color:#f1ece0;
+  font-weight:800;
 }
 
-#relmun-chatbot .relmun-message em {
-  color: #c79a2b;
+#relmun-chatbot .relmun-message em{
+  color:#c79a2b;
 }
 
-#relmun-chatbot .rex-heading {
-  margin: 8px 0 5px;
+#relmun-chatbot .rex-heading{
+  margin:8px 0 5px;
 
-  color: #f1ece0;
+  color:#f1ece0;
 
-  font-weight: 800;
-  font-size: 14px;
+  font-weight:800;
+  font-size:14px;
 }
 
-#relmun-chatbot .rex-list-item {
-  display: flex;
-  gap: 8px;
+#relmun-chatbot .rex-list-item{
+  display:flex;
+  gap:8px;
 
-  margin: 4px 0;
+  margin:4px 0;
 }
 
-#relmun-chatbot .rex-list-item > span {
-  flex: 0 0 auto;
+#relmun-chatbot .rex-list-item > span{
+  flex:0 0 auto;
 
-  color: #c79a2b;
-  font-weight: 800;
+  color:#c79a2b;
+  font-weight:800;
 }
 
-#relmun-chatbot .relmun-message a {
-  color: #8fa5ff;
-  text-decoration: underline;
+#relmun-chatbot .relmun-message a{
+  color:#8fa5ff;
+  text-decoration:underline;
 }
 
-/* Form */
 
-#relmun-chatbot .relmun-chat-form {
-  display: flex;
-  gap: 8px;
+/* FORM */
 
-  padding: 14px;
+#relmun-chatbot .relmun-chat-form{
+  display:flex;
+  gap:8px;
+
+  padding:14px;
 
   border-top:
     1px solid rgba(241,236,224,.12);
 
-  background: #080808;
+  background:#080808;
 }
 
-#relmun-chatbot .relmun-chat-form input {
-  min-width: 0;
-  flex: 1;
+#relmun-chatbot .relmun-chat-form input{
+  min-width:0;
+  flex:1;
 
   border:
     1px solid rgba(241,236,224,.16);
 
-  background: #111111;
+  background:#111111;
 
-  color: #f1ece0;
+  color:#f1ece0;
 
-  padding: 12px 14px;
+  padding:12px 14px;
 
-  outline: none;
+  outline:none;
 
-  font-family: inherit;
+  font-family:inherit;
 }
 
-#relmun-chatbot .relmun-chat-form input:focus {
-  border-color: #0e2999;
+#relmun-chatbot .relmun-chat-form input:focus{
+  border-color:#0e2999;
 }
 
-#relmun-chatbot .relmun-chat-form button {
-  width: 45px;
+#relmun-chatbot .relmun-chat-form button{
+  width:45px;
 
-  border: 0;
+  border:0;
 
-  background: #0e2999;
+  background:#0e2999;
 
-  color: #f1ece0;
+  color:#f1ece0;
 
-  font-size: 20px;
+  font-size:20px;
 
-  cursor: pointer;
+  cursor:pointer;
 }
 
-#relmun-chatbot .relmun-chat-form button:hover {
-  background: #c79a2b;
-  color: #080808;
+#relmun-chatbot .relmun-chat-form button:hover{
+  background:#c79a2b;
+  color:#080808;
 }
 
-/* Mobile */
 
-@media (max-width: 600px) {
+/* =====================================================
+   CHATBOT MOBILE
+===================================================== */
 
-  #relmun-chatbot .relmun-chat-window {
-    right: 12px;
-    bottom: 80px;
+@media(max-width:600px){
 
+  #relmun-chatbot .relmun-chat-window{
+    right:12px;
+    bottom:80px;
+  }
 
 }
-    /* =========================================================
-   TEAM GROUP HEADINGS
+
+
+/* =========================================================
+   TEAM — SUB-DIVISION HEADERS
 ========================================================= */
 
-.team-subheading {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.team-subheading{
+  width:100%;
+  position:relative;
 
-  width: 100%;
-  margin: 75px 0 35px;
-  padding-bottom: 18px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  grid-template-rows:auto auto;
 
-  position: relative;
+  column-gap:24px;
+  row-gap:8px;
 
-  border-bottom: 1px solid rgba(255,255,255,0.16);
-  box-sizing: border-box;
+  margin:75px 0 38px;
+  padding:0 0 22px;
+
+  border-bottom:1px solid rgba(241,236,224,.16);
+
+  box-sizing:border-box;
 }
 
 
 /* NUMBER */
 
-.team-subheading > span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.team-subheading > span{
+  grid-column:1;
+  grid-row:1 / span 2;
 
-  width: 32px;
-  height: 32px;
+  width:46px;
+  height:46px;
 
-  flex-shrink: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  border: 1px solid #C79A2B;
+  margin-top:3px;
 
-  color: #C79A2B;
+  border:1px solid #C79A2B;
 
-  font-family: "DM Mono", monospace;
-  font-size: 9px;
-  letter-spacing: .12em;
+  color:#C79A2B;
+
+  font-family:"DM Mono",monospace;
+  font-size:10px;
+  font-weight:500;
+
+  letter-spacing:.12em;
 }
 
 
-/* HEADING */
+/* SMALL LABEL */
 
-.team-subheading h3 {
-  margin: 0;
-  padding: 0;
+.team-subheading::before{
+  content:"ORGANISING COMMITTEE";
 
-  color: #F1ECE0;
+  grid-column:2;
+  grid-row:1;
 
-  font-family: "Manrope", sans-serif;
-  font-size: clamp(30px, 4vw, 48px);
-  font-weight: 800;
+  display:block;
 
-  line-height: 1;
-  letter-spacing: -.045em;
+  color:#C79A2B;
 
-  text-transform: uppercase;
+  font-family:"DM Mono",monospace;
+  font-size:9px;
+  font-weight:500;
+
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+
+/* CORE / SECRETARIAT */
+
+.team-subheading h3{
+  grid-column:2;
+  grid-row:2;
+
+  margin:0;
+  padding:0;
+
+  color:#F1ECE0;
+
+  font-family:"Manrope",sans-serif;
+
+  font-size:clamp(38px,5vw,68px);
+  font-weight:800;
+
+  line-height:.9;
+  letter-spacing:-.06em;
+
+  text-transform:uppercase;
 }
 
 
 /* GOLD ACCENT */
 
-.team-subheading h3::before {
-  content: "";
+.team-subheading::after{
+  content:"";
 
-  display: inline-block;
+  position:absolute;
 
-  width: 32px;
-  height: 2px;
+  left:0;
+  bottom:-1px;
 
-  margin-right: 16px;
-  margin-bottom: 10px;
+  width:90px;
+  height:2px;
 
-  background: #C79A2B;
+  background:#C79A2B;
 }
 
 
-/* FIRST HEADING */
+/* FIRST GROUP */
 
-.heading-row + .team-subheading {
-  margin-top: 55px;
+.heading-row + .team-subheading{
+  margin-top:65px;
 }
 
 
-/* SECRETARIAT HEADING */
+/* SECOND GROUP */
 
-.team-grid + .team-subheading {
-  margin-top: 100px;
+.team-grid + .team-subheading{
+  margin-top:110px;
 }
 
 
 /* CARDS AFTER HEADING */
 
-.team-subheading + .team-grid {
-  margin-top: 0;
+.team-subheading + .team-grid{
+  margin-top:0;
 }
 
 
 /* =========================================================
-   CONTACT DETAILS
+   TEAM — MOBILE
 ========================================================= */
 
-.contact-list {
-  display: grid;
-  gap: 18px;
-  margin-top: 5px;
-}
+@media(max-width:700px){
 
-.contact-list p {
-  margin: 0;
-}
+  .team-subheading{
+    grid-template-columns:auto 1fr;
 
-.contact-list strong {
-  display: block;
+    column-gap:14px;
+    row-gap:6px;
 
-  margin-bottom: 4px;
+    margin:55px 0 28px;
+    padding-bottom:17px;
+  }
 
-  color: #C79A2B;
+  .team-subheading > span{
+    width:34px;
+    height:34px;
+    font-size:8px;
+  }
 
-  font-family: "DM Mono", monospace;
-  font-size: 9px;
-  font-weight: 500;
+  .team-subheading::before{
+    font-size:8px;
+    letter-spacing:.14em;
+  }
 
-  letter-spacing: .13em;
-}
+  .team-subheading h3{
+    font-size:34px;
+  }
 
-.contact-list a {
-  color: #F1ECE0;
+  .team-subheading::after{
+    width:60px;
+  }
 
-  font-family: "DM Mono", monospace;
-  font-size: 12px;
-  letter-spacing: .04em;
+  .team-grid + .team-subheading{
+    margin-top:75px;
+  }
 
-  text-decoration: none;
-
-  transition: color .25s ease;
-}
-
-.contact-list a:hover {
-  color: #C79A2B;
 }
 
 
 /* =========================================================
-   MOBILE
+   FINAL TEAM CARD CONSISTENCY
 ========================================================= */
 
-@media (max-width: 700px) {
-
-  .team-subheading {
-    gap: 12px;
-
-    margin-top: 55px;
-    margin-bottom: 25px;
-
-    padding-bottom: 14px;
-  }
-
-  .team-subheading > span {
-    width: 28px;
-    height: 28px;
-    font-size: 8px;
-  }
-
-  .team-subheading h3 {
-    font-size: 28px;
-  }
-
-  .team-subheading h3::before {
-    width: 20px;
-
-    margin-right: 10px;
-    margin-bottom: 6px;
-  }
-
-  .team-grid + .team-subheading {
-    margin-top: 70px;
-  }
-
-  .contact-list {
-    gap: 16px;
-  }
-
+.team-grid .team-card,
+.team-grid .team-card:first-child,
+.team-grid .team-card:nth-child(2),
+.team-grid .team-card:nth-child(3),
+.team-grid .team-card:nth-child(4),
+.team-grid .team-card:nth-child(5),
+.team-grid .team-card:nth-child(6),
+.team-card.team-featured,
+.person-card.featured{
+  background:#080808!important;
+  color:#f1ece0!important;
 }
 
-  .team-subheading {
-    gap: 14px;
+.team-grid .team-card:hover,
+.team-grid .team-card:first-child:hover,
+.team-card.team-featured:hover,
+.person-card.featured:hover{
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(14,41,153,.20),
+      transparent 45%
+    ),
+    #080808!important;
+}
 
-    margin-top: 60px;
-    margin-bottom: 25px;
+.team-grid .team-card h3,
+.team-grid .team-card:first-child h3,
+.team-card.team-featured h3{
+  color:#f1ece0!important;
+}
 
-    padding-bottom: 14px;
-  }
+.team-grid .team-card p,
+.team-grid .team-card:first-child p,
+.team-card.team-featured p{
+  color:#c79a2b!important;
+}
 
-  .team-subheading::before {
-    width: 20px;
-  }
+.team-grid .team-card .team-avatar,
+.team-grid .team-card:first-child .team-avatar{
+  background:transparent!important;
+  border-color:rgba(241,236,224,.25)!important;
+}
 
-  .team-subheading > span {
-    min-width: 26px;
-    height: 26px;
-    font-size: 8px;
-  }
-
-  .team-subheading h3 {
-    font-size: 28px;
-  }
-
-  .team-grid + .team-subheading {
-    margin-top: 70px;
-  }
-
-  .contact-list {
-    gap: 16px;
-  }
-
+.team-grid .team-card:hover .team-avatar{
+  background:rgba(14,41,153,.35)!important;
+  border-color:#c79a2b!important;
 }
