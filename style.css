@@ -2027,54 +2027,73 @@ footer{
 }
 /* TEAM GROUP HEADINGS */
 
+/* =========================================
+   TEAM GROUP HEADINGS
+========================================= */
+
 .team-subheading {
   display: flex;
-  align-items: baseline;
-  gap: 18px;
-  margin: 70px 0 24px;
-  border-bottom: 1px solid rgba(255,255,255,.15);
-  padding-bottom: 14px;
+  align-items: center;
+  gap: 20px;
+  margin: 80px 0 35px;
+  position: relative;
+}
+
+.team-subheading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.16);
 }
 
 .team-subheading span {
-  font-size: 11px;
-  letter-spacing: .14em;
-  opacity: .5;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  opacity: 0.45;
+  white-space: nowrap;
 }
 
 .team-subheading h3 {
   margin: 0;
-  font-size: 14px;
-  letter-spacing: .16em;
-  font-weight: 600;
+  font-size: clamp(24px, 3vw, 42px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .team-subheading + .team-grid {
   margin-top: 0;
 }
 
-.contact-list {
-  display: grid;
-  gap: 18px;
+.heading-row + .team-subheading {
+  margin-top: 55px;
 }
 
-.contact-list p {
-  margin: 0;
+.team-grid + .team-subheading {
+  margin-top: 100px;
 }
 
-.contact-list strong {
-  font-size: 11px;
-  letter-spacing: .1em;
-}
-
-.contact-list a {
-  text-decoration: none;
-}
 
 @media (max-width: 700px) {
 
   .team-subheading {
-    margin-top: 50px;
+    gap: 12px;
+    margin: 55px 0 25px;
+  }
+
+  .team-subheading h3 {
+    font-size: 24px;
+  }
+
+  .team-subheading span {
+    font-size: 9px;
+  }
+
+  .team-grid + .team-subheading {
+    margin-top: 65px;
   }
 
 }
