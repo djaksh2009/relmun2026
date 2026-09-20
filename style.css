@@ -2025,3 +2025,56 @@ footer{
 
 
 }
+/* TEAM GROUP HEADINGS */
+
+.team-subheading {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin: 70px 0 24px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  padding-bottom: 14px;
+}
+
+.team-subheading span {
+  font-size: 11px;
+  letter-spacing: .14em;
+  opacity: .5;
+}
+
+.team-subheading h3 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: .16em;
+  font-weight: 600;
+}
+
+.team-subheading + .team-grid {
+  margin-top: 0;
+}
+
+.contact-list {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-list p {
+  margin: 0;
+}
+
+.contact-list strong {
+  font-size: 11px;
+  letter-spacing: .1em;
+}
+
+.contact-list a {
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+
+  .team-subheading {
+    margin-top: 50px;
+  }
+
+}
