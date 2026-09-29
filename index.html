@@ -3,32 +3,159 @@
 
 <head>
 
-  <meta charset="utf-8">
+<meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
 
-  <title>
-    RELMUN '26 — Regional Engagement & Leadership Model United Nations
-  </title>
+<title>
+RELMUN '26 — Regional Engagement & Leadership Model United Nations
+</title>
 
-  <meta
-    name="description"
-    content="RELMUN '26 — 26–27 December 2026. Online Model United Nations conference."
-  >
+<meta
+  name="description"
+  content="RELMUN '26 — 26–27 December 2026. Online Model United Nations conference."
+>
 
-  <link
-    rel="icon"
-    href="relmun-logo.png"
-    type="image/png"
-  >
+<link
+  rel="icon"
+  href="relmun-logo.png"
+  type="image/png"
+>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+<link
+  rel="stylesheet"
+  href="style.css"
+>
+
+
+<!-- =======================================================
+     COUNTDOWN — INLINE SAFE STYLES
+======================================================= -->
+
+<style>
+
+.relm-countdown {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(65px, 1fr));
+
+  gap: 1px;
+
+  width: min(100%, 520px);
+
+  margin-top: 30px;
+
+  background: rgba(241,236,224,.12);
+
+  border: 1px solid rgba(241,236,224,.12);
+
+}
+
+.relm-countdown-item {
+
+  min-width: 0;
+
+  padding: 15px 12px;
+
+  background: rgba(8,8,8,.72);
+
+  text-align: center;
+
+}
+
+.relm-countdown-number {
+
+  display: block;
+
+  color: var(--ivory);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size:
+    clamp(22px, 3vw, 34px);
+
+  line-height: 1;
+
+  letter-spacing: -.04em;
+
+  font-weight: 500;
+
+}
+
+.relm-countdown-label {
+
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--gold);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: .16em;
+
+}
+
+.relm-countdown-status {
+
+  margin-top: 12px;
+
+  color: var(--muted);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: .13em;
+
+}
+
+@media (max-width: 600px) {
+
+  .relm-countdown {
+
+    width: 100%;
+
+    grid-template-columns:
+      repeat(4, 1fr);
+
+  }
+
+  .relm-countdown-item {
+
+    padding:
+      12px 5px;
+
+  }
+
+  .relm-countdown-number {
+
+    font-size: 21px;
+
+  }
+
+  .relm-countdown-label {
+
+    font-size: 6px;
+
+  }
+
+}
+
+</style>
 
 </head>
 
@@ -81,64 +208,62 @@
 
 <header>
 
-  <nav class="navbar">
+<nav class="navbar">
 
-    <a
-      class="nav-logo"
-      href="index.html"
-      aria-label="RELMUN '26 Home"
+  <a
+    class="nav-logo"
+    href="index.html"
+  >
+
+    <img
+      src="relmun-logo.png"
+      alt="RELMUN '26"
     >
 
-      <img
-        src="relmun-logo.png"
-        alt="RELMUN '26"
-      >
+  </a>
 
+
+  <button
+    class="nav-menu"
+    id="navMenu"
+    aria-label="Open navigation"
+    aria-expanded="false"
+  >
+
+    <span></span>
+    <span></span>
+
+  </button>
+
+
+  <div
+    class="nav-links"
+    id="navLinks"
+  >
+
+    <a href="#about">
+      ABOUT
     </a>
 
+    <a href="committees.html">
+      COMMITTEES
+    </a>
 
-    <button
-      class="nav-menu"
-      id="navMenu"
-      aria-label="Open navigation"
-      aria-expanded="false"
-      type="button"
-    >
+    <a href="#team">
+      TEAM
+    </a>
 
-      <span></span>
-      <span></span>
+    <a href="eb.html">
+      EB
+    </a>
 
-    </button>
+    <a href="faq.html">
+      FAQ
+    </a>
 
+  </div>
 
-    <div
-      class="nav-links"
-      id="navLinks"
-    >
-
-      <a href="#about">
-        ABOUT
-      </a>
-
-      <a href="committees.html">
-        COMMITTEES
-      </a>
-
-      <a href="#team">
-        TEAM
-      </a>
-
-      <a href="eb.html">
-        EB
-      </a>
-
-      <a href="faq.html">
-        FAQ
-      </a>
-
-    </div>
-
-  </nav>
+</nav>
 
 </header>
 
@@ -156,6 +281,7 @@
   data-scene="01"
 >
 
+
   <div class="hero-meta">
 
     <span>
@@ -167,6 +293,7 @@
     </span>
 
   </div>
+
 
 
   <div class="hero-title">
@@ -186,17 +313,106 @@
   </div>
 
 
+
   <div class="hero-bottom">
 
-    <p>
+    <div>
 
-      A two-day online conference built around
+      <p>
 
-      <strong>
-        diplomacy, strategy, engagement and leadership.
-      </strong>
+        A two-day online conference built around
 
-    </p>
+        <strong>
+          diplomacy, strategy, engagement and leadership.
+        </strong>
+
+      </p>
+
+
+      <!-- =================================================
+           COUNTDOWN
+      ================================================= -->
+
+      <div
+        class="relm-countdown"
+        id="relmCountdown"
+        aria-label="Countdown to RELMUN '26"
+      >
+
+        <div class="relm-countdown-item">
+
+          <span
+            class="relm-countdown-number"
+            id="countdownDays"
+          >
+            00
+          </span>
+
+          <span class="relm-countdown-label">
+            DAYS
+          </span>
+
+        </div>
+
+
+        <div class="relm-countdown-item">
+
+          <span
+            class="relm-countdown-number"
+            id="countdownHours"
+          >
+            00
+          </span>
+
+          <span class="relm-countdown-label">
+            HOURS
+          </span>
+
+        </div>
+
+
+        <div class="relm-countdown-item">
+
+          <span
+            class="relm-countdown-number"
+            id="countdownMinutes"
+          >
+            00
+          </span>
+
+          <span class="relm-countdown-label">
+            MINUTES
+          </span>
+
+        </div>
+
+
+        <div class="relm-countdown-item">
+
+          <span
+            class="relm-countdown-number"
+            id="countdownSeconds"
+          >
+            00
+          </span>
+
+          <span class="relm-countdown-label">
+            SECONDS
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="relm-countdown-status"
+        id="countdownStatus"
+      >
+        COUNTDOWN TO RELMUN '26
+      </div>
+
+    </div>
 
 
     <a
@@ -207,6 +423,7 @@
     </a>
 
   </div>
+
 
 </section>
 
@@ -409,8 +626,6 @@
   <div class="committee-grid">
 
 
-    <!-- UNSC -->
-
     <a
       class="committee-card"
       href="committee.html?committee=unsc"
@@ -447,8 +662,6 @@
     </a>
 
 
-
-    <!-- UNHRC -->
 
     <a
       class="committee-card"
@@ -487,8 +700,6 @@
 
 
 
-    <!-- UNODC -->
-
     <a
       class="committee-card"
       href="committee.html?committee=unodc"
@@ -525,8 +736,6 @@
     </a>
 
 
-
-    <!-- AIPPM -->
 
     <a
       class="committee-card"
@@ -565,8 +774,6 @@
 
 
 
-    <!-- UN WOMEN -->
-
     <a
       class="committee-card"
       href="committee.html?committee=unw"
@@ -603,8 +810,6 @@
     </a>
 
 
-
-    <!-- IPLA -->
 
     <a
       class="committee-card"
@@ -791,8 +996,6 @@
 
 
 
-  <!-- CORE -->
-
   <div class="team-subheading">
 
     <span>
@@ -900,8 +1103,6 @@
   </div>
 
 
-
-  <!-- SECRETARIAT -->
 
   <div class="team-subheading">
 
@@ -1160,6 +1361,7 @@
   id="munflow"
 >
 
+
   <div class="section-index">
     07 / TECHNOLOGY PARTNER
   </div>
@@ -1216,22 +1418,6 @@
       </p>
 
 
-      <!--
-        ADD THE MUNFLOW WEBSITE URL HERE
-        WHEN YOU RECEIVE IT.
-
-        Example:
-
-        <a
-          href="https://example.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          VISIT MUNFLOW ↗
-        </a>
-      -->
-
-
       <span class="partner-status">
         PARTNER WEBSITE COMING SOON
       </span>
@@ -1253,6 +1439,7 @@
   class="section scroll-scene scene-contact"
   data-scene="09"
 >
+
 
   <div class="section-index">
     08 / CONTACT
@@ -1382,7 +1569,7 @@
         class="btn btn-outline"
         href="https://www.instagram.com/relmun.official/"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener"
       >
         INSTAGRAM ↗
       </a>
@@ -1458,7 +1645,7 @@
 
 
 <!-- =======================================================
-     REX CHATBOT CONTAINER
+     CHATBOT
 ======================================================= -->
 
 <div
@@ -1547,6 +1734,171 @@ document.addEventListener(
 
   }
 );
+
+</script>
+
+
+
+<!-- =======================================================
+     COUNTDOWN SCRIPT
+======================================================= -->
+
+<script>
+
+(() => {
+
+  const daysEl =
+    document.getElementById(
+      "countdownDays"
+    );
+
+  const hoursEl =
+    document.getElementById(
+      "countdownHours"
+    );
+
+  const minutesEl =
+    document.getElementById(
+      "countdownMinutes"
+    );
+
+  const secondsEl =
+    document.getElementById(
+      "countdownSeconds"
+    );
+
+  const statusEl =
+    document.getElementById(
+      "countdownStatus"
+    );
+
+
+  if (
+    !daysEl ||
+    !hoursEl ||
+    !minutesEl ||
+    !secondsEl
+  ) {
+    return;
+  }
+
+
+  /*
+    RELMUN '26
+    26 December 2026
+
+    No timezone is hard-coded here.
+    The countdown uses the visitor's local
+    browser timezone.
+  */
+
+  const target =
+    new Date(
+      "2026-12-26T00:00:00"
+    ).getTime();
+
+
+  const pad =
+    value =>
+      String(value).padStart(
+        2,
+        "0"
+      );
+
+
+  const updateCountdown = () => {
+
+    const now =
+      Date.now();
+
+    let difference =
+      target - now;
+
+
+    if (difference <= 0) {
+
+      daysEl.textContent = "00";
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
+
+
+      if (statusEl) {
+
+        statusEl.textContent =
+          "RELMUN '26 IS HERE";
+
+      }
+
+      return;
+
+    }
+
+
+    const days =
+      Math.floor(
+        difference /
+        (1000 * 60 * 60 * 24)
+      );
+
+
+    difference %=
+      (1000 * 60 * 60 * 24);
+
+
+    const hours =
+      Math.floor(
+        difference /
+        (1000 * 60 * 60)
+      );
+
+
+    difference %=
+      (1000 * 60 * 60);
+
+
+    const minutes =
+      Math.floor(
+        difference /
+        (1000 * 60)
+      );
+
+
+    const seconds =
+      Math.floor(
+        (difference %
+          (1000 * 60)) /
+        1000
+      );
+
+
+    daysEl.textContent =
+      String(days).padStart(
+        2,
+        "0"
+      );
+
+    hoursEl.textContent =
+      pad(hours);
+
+    minutesEl.textContent =
+      pad(minutes);
+
+    secondsEl.textContent =
+      pad(seconds);
+
+  };
+
+
+  updateCountdown();
+
+
+  setInterval(
+    updateCountdown,
+    1000
+  );
+
+})();
 
 </script>
 
