@@ -3,32 +3,32 @@
 
 <head>
 
-<meta charset="utf-8">
+  <meta charset="utf-8">
 
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1"
->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
-<title>
-RELMUN '26 — Regional Engagement & Leadership Model United Nations
-</title>
+  <title>
+    RELMUN '26 — Regional Engagement & Leadership Model United Nations
+  </title>
 
-<meta
-  name="description"
-  content="RELMUN '26 — 26–27 December 2026. Online Model United Nations conference."
->
+  <meta
+    name="description"
+    content="RELMUN '26 — 26–27 December 2026. Online Model United Nations conference."
+  >
 
-<link
-  rel="icon"
-  href="relmun-logo.png"
-  type="image/png"
->
+  <link
+    rel="icon"
+    href="relmun-logo.png"
+    type="image/png"
+  >
 
-<link
-  rel="stylesheet"
-  href="style.css"
->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
 </head>
 
@@ -74,72 +74,73 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 ></div>
 
 
-
 <!-- =======================================================
      NAVIGATION
 ======================================================= -->
 
 <header>
 
-<nav class="navbar">
+  <nav class="navbar">
 
-  <a
-    class="nav-logo"
-    href="index.html"
-  >
-
-    <img
-      src="relmun-logo.png"
-      alt="RELMUN '26"
+    <a
+      class="nav-logo"
+      href="index.html"
+      aria-label="RELMUN '26 home"
     >
 
-  </a>
+      <img
+        src="relmun-logo.png"
+        alt="RELMUN '26"
+      >
 
-
-  <button
-    class="nav-menu"
-    id="navMenu"
-    aria-label="Open navigation"
-    aria-expanded="false"
-  >
-
-    <span></span>
-    <span></span>
-
-  </button>
-
-
-  <div
-    class="nav-links"
-    id="navLinks"
-  >
-
-    <a href="#about">
-      ABOUT
     </a>
 
-    <a href="committees.html">
-      COMMITTEES
-    </a>
 
-    <a href="#team">
-      TEAM
-    </a>
+    <button
+      class="nav-menu"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="navLinks"
+    >
 
-    <a href="eb.html">
-      EB
-    </a>
+      <span></span>
+      <span></span>
 
-    <a href="faq.html">
-      FAQ
-    </a>
+    </button>
 
-  </div>
 
-</nav>
+    <div
+      class="nav-links"
+      id="navLinks"
+    >
+
+      <a href="#about">
+        ABOUT
+      </a>
+
+      <a href="committees.html">
+        COMMITTEES
+      </a>
+
+      <a href="#team">
+        TEAM
+      </a>
+
+      <a href="eb.html">
+        EB
+      </a>
+
+      <a href="faq.html">
+        FAQ
+      </a>
+
+    </div>
+
+  </nav>
 
 </header>
-
 
 
 <main>
@@ -168,7 +169,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   </div>
 
 
-
   <div class="hero-title">
 
     <span class="hero-line">
@@ -184,7 +184,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </span>
 
   </div>
-
 
 
   <div class="hero-bottom">
@@ -211,7 +210,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 
 
 </section>
-
 
 
 <!-- =======================================================
@@ -270,7 +268,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 </section>
 
 
-
 <!-- =======================================================
      SCENE 03 — CONFERENCE
 ======================================================= -->
@@ -306,7 +303,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article class="conference-item">
 
       <span>
@@ -323,7 +319,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </p>
 
     </article>
-
 
 
     <article class="conference-item">
@@ -343,7 +338,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article class="conference-item">
 
       <span>
@@ -361,11 +355,115 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 
     </article>
 
+  </div>
+
+
+  <!-- =====================================================
+       REGISTRATION COUNTDOWN
+  ====================================================== -->
+
+  <div class="registration-block">
+
+    <div class="registration-heading">
+
+      <span class="section-index">
+        REGISTRATION
+      </span>
+
+      <h3>
+        DELEGATE REGISTRATIONS
+        <em>OPEN SOON.</em>
+      </h3>
+
+      <p
+        id="registrationDescription"
+      >
+        Delegate registrations open on
+        <strong>1 October 2026</strong>.
+        Registration fee:
+        <strong>₹200</strong>.
+      </p>
+
+    </div>
+
+
+    <div
+      class="registration-countdown"
+      id="registrationCountdown"
+      aria-label="Countdown until delegate registration opens"
+    >
+
+      <div class="countdown-unit">
+
+        <strong id="countdownDays">
+          00
+        </strong>
+
+        <span>
+          DAYS
+        </span>
+
+      </div>
+
+
+      <div class="countdown-divider">
+        :
+      </div>
+
+
+      <div class="countdown-unit">
+
+        <strong id="countdownHours">
+          00
+        </strong>
+
+        <span>
+          HOURS
+        </span>
+
+      </div>
+
+
+      <div class="countdown-divider">
+        :
+      </div>
+
+
+      <div class="countdown-unit">
+
+        <strong id="countdownMinutes">
+          00
+        </strong>
+
+        <span>
+          MINUTES
+        </span>
+
+      </div>
+
+
+      <div class="countdown-divider">
+        :
+      </div>
+
+
+      <div class="countdown-unit">
+
+        <strong id="countdownSeconds">
+          00
+        </strong>
+
+        <span>
+          SECONDS
+        </span>
+
+      </div>
+
+    </div>
 
   </div>
 
 </section>
-
 
 
 <!-- =======================================================
@@ -376,7 +474,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   class="section scroll-scene scene-committees"
   data-scene="04"
 >
-
 
   <div class="section-index">
     03 / COMMITTEES
@@ -408,7 +505,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   </div>
 
 
-
   <div class="committee-grid">
 
 
@@ -434,7 +530,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         diplomacy and high-level decision making.
       </p>
 
-
       <div class="card-footer">
 
         <span>
@@ -448,7 +543,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </div>
 
     </a>
-
 
 
     <!-- UNHRC -->
@@ -473,7 +567,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         and policy-focused debate.
       </p>
 
-
       <div class="card-footer">
 
         <span>
@@ -487,7 +580,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </div>
 
     </a>
-
 
 
     <!-- UNODC -->
@@ -512,7 +604,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         organised crime and related challenges.
       </p>
 
-
       <div class="card-footer">
 
         <span>
@@ -526,7 +617,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </div>
 
     </a>
-
 
 
     <!-- AIPPM -->
@@ -551,7 +641,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         and national policy deliberation.
       </p>
 
-
       <div class="card-footer">
 
         <span>
@@ -565,7 +654,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </div>
 
     </a>
-
 
 
     <!-- UN WOMEN -->
@@ -590,7 +678,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         international policy discussions.
       </p>
 
-
       <div class="card-footer">
 
         <span>
@@ -604,7 +691,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </div>
 
     </a>
-
 
 
     <!-- IPLA -->
@@ -629,7 +715,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         and high-pressure decision making.
       </p>
 
-
       <div class="card-footer">
 
         <span>
@@ -643,7 +728,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </div>
 
     </a>
-
 
   </div>
 
@@ -659,9 +743,7 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     VIEW ALL SIX COMMITTEES →
   </a>
 
-
 </section>
-
 
 
 <!-- =======================================================
@@ -672,7 +754,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   class="section scroll-scene"
   data-scene="05"
 >
-
 
   <div class="section-index">
     04 / THE EXPERIENCE
@@ -689,7 +770,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </em>
 
   </h2>
-
 
 
   <div class="experience-grid">
@@ -713,7 +793,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article class="experience-card">
 
       <span>
@@ -730,7 +809,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </p>
 
     </article>
-
 
 
     <article class="experience-card">
@@ -750,11 +828,9 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 
     </article>
 
-
   </div>
 
 </section>
-
 
 
 <!-- =======================================================
@@ -766,7 +842,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   class="section scroll-scene"
   data-scene="06"
 >
-
 
   <div class="section-index">
     05 / ORGANISING COMMITTEE
@@ -795,7 +870,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   </div>
 
 
-
   <!-- CORE -->
 
   <div class="team-subheading">
@@ -809,7 +883,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </h3>
 
   </div>
-
 
 
   <div class="team-grid">
@@ -836,7 +909,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article class="person-card">
 
       <span class="person-number">
@@ -856,7 +928,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </h3>
 
     </article>
-
 
 
     <article class="person-card">
@@ -880,7 +951,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article class="person-card">
 
       <span class="person-number">
@@ -901,9 +971,7 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 
     </article>
 
-
   </div>
-
 
 
   <!-- SECRETARIAT -->
@@ -919,7 +987,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </h3>
 
   </div>
-
 
 
   <div class="team-grid">
@@ -946,7 +1013,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article class="person-card">
 
       <span class="person-number">
@@ -967,11 +1033,9 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 
     </article>
 
-
   </div>
 
 </section>
-
 
 
 <!-- =======================================================
@@ -982,7 +1046,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   class="section scroll-scene"
   data-scene="07"
 >
-
 
   <div class="section-index">
     06 / EXECUTIVE BOARD
@@ -1014,7 +1077,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   </div>
 
 
-
   <div class="eb-grid">
 
 
@@ -1037,7 +1099,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article>
 
       <span>
@@ -1055,7 +1116,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </p>
 
     </article>
-
 
 
     <article>
@@ -1077,7 +1137,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article>
 
       <span>
@@ -1095,7 +1154,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </p>
 
     </article>
-
 
 
     <article>
@@ -1117,7 +1175,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </article>
 
 
-
     <article>
 
       <span>
@@ -1136,7 +1193,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 
     </article>
 
-
   </div>
 
 
@@ -1151,9 +1207,7 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     VIEW EXECUTIVE BOARD →
   </a>
 
-
 </section>
-
 
 
 <!-- =======================================================
@@ -1166,9 +1220,8 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   id="munflow"
 >
 
-
   <div class="section-index">
-    07 / TECHNOLOGY PARTNER
+    07 / TECHNOLOGY &amp; PLATFORM PARTNER
   </div>
 
 
@@ -1201,7 +1254,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   </div>
 
 
-
   <div
     class="munflow-panel"
     id="munflow-link"
@@ -1224,31 +1276,23 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 
 
       <!--
-        ADD THE MUNFLOW WEBSITE URL HERE
-        WHEN YOU RECEIVE IT.
-
-        Example:
-
-        <a
-          href="https://example.com"
-          target="_blank"
-          rel="noopener"
-        >
-          VISIT MUNFLOW ↗
-        </a>
+        MUNFLOW WEBSITE URL WILL BE ADDED
+        WHEN PROVIDED.
       -->
 
-      <span class="partner-status">
-        PARTNER WEBSITE COMING SOON
-      </span>
+      <a
+        href="#"
+        class="text-link"
+        data-munflow-link
+      >
+        PARTNER WEBSITE COMING SOON ↗
+      </a>
 
     </div>
 
   </div>
 
-
 </section>
-
 
 
 <!-- =======================================================
@@ -1260,14 +1304,12 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   data-scene="09"
 >
 
-
   <div class="section-index">
     08 / CONTACT
   </div>
 
 
   <div class="heading-row">
-
 
     <h2>
 
@@ -1279,7 +1321,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
       </em>
 
     </h2>
-
 
 
     <div>
@@ -1307,7 +1348,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         </p>
 
 
-
         <p>
 
           <strong>
@@ -1321,7 +1361,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
           </a>
 
         </p>
-
 
 
         <p>
@@ -1339,7 +1378,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         </p>
 
 
-
         <p>
 
           <strong>
@@ -1353,7 +1391,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
           </a>
 
         </p>
-
 
 
         <p>
@@ -1389,22 +1426,19 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
         class="btn btn-outline"
         href="https://www.instagram.com/relmun.official/"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         INSTAGRAM ↗
       </a>
 
     </div>
 
-
   </div>
-
 
 </section>
 
 
 </main>
-
 
 
 <!-- =======================================================
@@ -1424,7 +1458,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
   </div>
 
 
-
   <div class="footer-middle">
 
     <strong>
@@ -1440,7 +1473,6 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
     </span>
 
   </div>
-
 
 
   <div class="footer-right">
@@ -1463,120 +1495,158 @@ RELMUN '26 — Regional Engagement & Leadership Model United Nations
 </footer>
 
 
-
-<!-- =======================================================
-     CHATBOT
-======================================================= -->
-
-<div
-  id="relmun-chatbot"
-></div>
-
-
-
-<!-- =======================================================
-     NAVIGATION SCRIPT
-======================================================= -->
-
-<script>
-
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    const menu =
-      document.getElementById(
-        "navMenu"
-      );
-
-    const links =
-      document.getElementById(
-        "navLinks"
-      );
-
-
-    if (
-      menu &&
-      links
-    ) {
-
-      menu.addEventListener(
-        "click",
-        () => {
-
-          links.classList.toggle(
-            "open"
-          );
-
-
-          const isOpen =
-            links.classList.contains(
-              "open"
-            );
-
-
-          menu.setAttribute(
-            "aria-expanded",
-            isOpen
-          );
-
-        }
-      );
-
-
-      links
-        .querySelectorAll(
-          'a[href^="#"]'
-        )
-        .forEach(
-          link => {
-
-            link.addEventListener(
-              "click",
-              () => {
-
-                links.classList.remove(
-                  "open"
-                );
-
-                menu.setAttribute(
-                  "aria-expanded",
-                  "false"
-                );
-
-              }
-            );
-
-          }
-        );
-
-    }
-
-  }
-);
-
-</script>
-
-
-
-<!-- =======================================================
-     CINEMATIC SCROLL CONTROLLER
-======================================================= -->
-
-<script
-  src="scroll-experience.js"
-></script>
-
-
-
 <!-- =======================================================
      REX CHATBOT
 ======================================================= -->
 
-<script
-  src="chatbot.js"
-></script>
+<div
+  class="rex-chatbot"
+  id="relmun-chatbot"
+>
 
+  <div
+    class="rex-chat-window"
+    id="rexChatWindow"
+  >
+
+    <div class="rex-chat-header">
+
+      <div>
+
+        <span class="rex-status-dot"></span>
+
+        <strong>
+          REX
+        </strong>
+
+        <small>
+          RELMUN '26 ASSISTANT
+        </small>
+
+      </div>
+
+      <button
+        type="button"
+        class="rex-close"
+        id="rexClose"
+        aria-label="Close REX"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="rex-chat-messages"
+      id="rexChatMessages"
+      aria-live="polite"
+    >
+
+      <div class="rex-message rex">
+
+        <strong>
+          Hey! 👋
+        </strong>
+
+        <br>
+
+        I'm <strong>REX</strong>, the official
+        RELMUN '26 assistant.
+
+        <br><br>
+
+        Ask me anything about the conference,
+        committees, team, EB or MUNFLOW.
+
+      </div>
+
+    </div>
+
+
+    <div class="rex-quick-actions">
+
+      <button
+        type="button"
+        data-rex-question="Tell me more about RELMUN 2026"
+      >
+        ABOUT RELMUN
+      </button>
+
+      <button
+        type="button"
+        data-rex-question="What committees are there?"
+      >
+        COMMITTEES
+      </button>
+
+      <button
+        type="button"
+        data-rex-question="Who is the Secretary-General?"
+      >
+        SECRETARY-GENERAL
+      </button>
+
+      <button
+        type="button"
+        data-rex-question="Who is MUNFLOW?"
+      >
+        MUNFLOW
+      </button>
+
+    </div>
+
+
+    <form
+      class="rex-chat-form"
+      id="rexChatForm"
+    >
+
+      <input
+        type="text"
+        id="rexChatInput"
+        placeholder="Ask REX something..."
+        autocomplete="off"
+        aria-label="Message REX"
+      >
+
+      <button
+        type="submit"
+        id="rexChatSend"
+        aria-label="Send message"
+      >
+        ↑
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <button
+    class="rex-launcher"
+    id="rexLauncher"
+    type="button"
+    aria-label="Open REX assistant"
+    aria-expanded="false"
+  >
+
+    <span class="rex-launcher-dot"></span>
+
+    <span>
+      REX
+    </span>
+
+  </button>
+
+</div>
+
+
+<!-- =======================================================
+     SCRIPTS
+======================================================= -->
+
+<script src="script.js"></script>
 
 </body>
 
