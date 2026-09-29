@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>RELMUN '26 — Under Maintenance</title>
+  <meta
+    name="description"
+    content="RELMUN '26 — Relations · Engagement · Leadership"
+  >
 
   <link rel="icon" href="relmun-logo.png" type="image/png">
 
@@ -20,11 +24,16 @@
   <style>
     :root {
       --black: #080808;
+      --black2: #0d0d0d;
       --ivory: #f1ece0;
+      --muted: rgba(241, 236, 224, 0.58);
+      --faint: rgba(241, 236, 224, 0.18);
       --blue: #1846ff;
+      --blue2: #315aff;
       --gold: #c79a2b;
       --line: rgba(241, 236, 224, 0.12);
-      --muted: rgba(241, 236, 224, 0.55);
+
+      --ease: cubic-bezier(.16, 1, .3, 1);
     }
 
     * {
@@ -39,362 +48,282 @@
       min-height: 100%;
       background: var(--black);
       color: var(--ivory);
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      overflow: hidden;
     }
 
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Background */
+    /* =========================================
+       BACKGROUND
+    ========================================= */
+
     .background {
       position: fixed;
       inset: 0;
       overflow: hidden;
       pointer-events: none;
+      z-index: 0;
     }
 
     .orb {
       position: absolute;
-      width: 500px;
-      height: 500px;
+      width: 600px;
+      height: 600px;
       border-radius: 50%;
-      background: var(--blue);
-      filter: blur(180px);
-      opacity: 0.12;
+      filter: blur(190px);
+      pointer-events: none;
     }
 
     .orb.one {
-      top: -250px;
-      left: -150px;
+      top: -320px;
+      left: -200px;
+      background: var(--blue);
+      opacity: .13;
     }
 
     .orb.two {
-      right: -250px;
-      bottom: -250px;
-      opacity: 0.08;
+      right: -320px;
+      bottom: -320px;
+      background: var(--blue);
+      opacity: .09;
     }
 
-    /* Grain */
+    /* =========================================
+       GRAIN
+    ========================================= */
+
     .grain {
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      opacity: 0.035;
       z-index: 20;
+      pointer-events: none;
+      opacity: .035;
+      mix-blend-mode: soft-light;
 
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* Main */
+    /* =========================================
+       DECORATIVE FRAME
+    ========================================= */
+
+    .frame-line {
+      position: fixed;
+      background: var(--line);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .frame-top,
+    .frame-bottom {
+      left: 32px;
+      right: 32px;
+      height: 1px;
+    }
+
+    .frame-top {
+      top: 32px;
+    }
+
+    .frame-bottom {
+      bottom: 32px;
+    }
+
+    .frame-left,
+    .frame-right {
+      top: 32px;
+      bottom: 32px;
+      width: 1px;
+    }
+
+    .frame-left {
+      left: 32px;
+    }
+
+    .frame-right {
+      right: 32px;
+    }
+
+    /* =========================================
+       MAIN
+    ========================================= */
+
     .maintenance {
-      width: min(900px, 88vw);
-      text-align: center;
       position: relative;
       z-index: 5;
+
+      width: min(1500px, 88vw);
+      min-height: 100vh;
+
+      margin: auto;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
     }
+
+    /* =========================================
+       LOGO
+    ========================================= */
 
     .logo {
       width: 82px;
-      margin: 0 auto 60px;
+      height: auto;
+
+      margin-bottom: 55px;
+
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateY(-25px);
     }
+
+    /* =========================================
+       EYEBROW
+    ========================================= */
 
     .eyebrow {
       font-family: monospace;
       font-size: 9px;
-      letter-spacing: 0.22em;
+      letter-spacing: .24em;
       color: var(--gold);
-      margin-bottom: 25px;
+
+      margin-bottom: 28px;
+
       opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* =========================================
+       MASSIVE TITLE
+    ========================================= */
+
+    .title-wrap {
+      width: 100%;
+      overflow: visible;
     }
 
     h1 {
-      font-size: clamp(70px, 13vw, 170px);
-      line-height: 0.78;
-      letter-spacing: -0.09em;
+      font-size: clamp(90px, 16vw, 220px);
+      line-height: .72;
+      letter-spacing: -.095em;
       font-weight: 800;
+
+      white-space: nowrap;
+
       opacity: 0;
+      transform: translateY(60px) scale(.94);
     }
 
-    h1 span {
+    h1 .blue {
       color: var(--blue);
     }
 
+    /* =========================================
+       DESCRIPTION
+    ========================================= */
+
     .description {
-      max-width: 550px;
-      margin: 45px auto 0;
+      max-width: 650px;
+
+      margin: 55px auto 0;
+
       color: var(--muted);
-      font-size: 14px;
+
+      font-size: 15px;
       line-height: 1.8;
+
       opacity: 0;
+      transform: translateY(25px);
     }
 
+    /* =========================================
+       STATUS
+    ========================================= */
+
     .status {
-      margin: 45px auto 0;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 12px 18px;
+
+      margin-top: 42px;
+
+      padding: 13px 19px;
+
       border: 1px solid var(--line);
+
+      background: rgba(8, 8, 8, .35);
+
       font-family: monospace;
       font-size: 8px;
-      letter-spacing: 0.14em;
+      letter-spacing: .16em;
+
       color: var(--muted);
+
       opacity: 0;
+      transform: translateY(25px);
     }
 
     .status-dot {
       width: 6px;
       height: 6px;
+
       border-radius: 50%;
+
       background: var(--gold);
-      box-shadow: 0 0 15px rgba(199, 154, 43, 0.6);
+
+      box-shadow:
+        0 0 8px rgba(199, 154, 43, .8),
+        0 0 20px rgba(199, 154, 43, .35);
+
+      animation: pulse 1.8s ease-in-out infinite;
     }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: .45;
+        transform: scale(.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
 
     .footer {
       position: fixed;
-      bottom: 28px;
+
       left: 0;
+      bottom: 55px;
+
       width: 100%;
+
       text-align: center;
-      color: rgba(241, 236, 224, 0.3);
+
+      color: rgba(241, 236, 224, .3);
+
       font-family: monospace;
       font-size: 7px;
-      letter-spacing: 0.14em;
+      letter-spacing: .15em;
+
       z-index: 5;
+
       opacity: 0;
     }
 
-    /* Decorative lines */
-    .line {
-      position: fixed;
-      background: var(--line);
-      pointer-events: none;
-    }
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
 
-    .line.horizontal {
-      width: 100%;
-      height: 1px;
-      left: 0;
-    }
-
-    .line.top {
-      top: 32px;
-    }
-
-    .line.bottom {
-      bottom: 32px;
-    }
-
-    .line.vertical {
-      height: 100%;
-      width: 1px;
-      top: 0;
-    }
-
-    .line.left {
-      left: 32px;
-    }
-
-    .line.right {
-      right: 32px;
-    }
-
-    @media (max-width: 700px) {
-      .logo {
-        width: 65px;
-        margin-bottom: 45px;
-      }
-
-      h1 {
-        font-size: 22vw;
-      }
-
-      .description {
-        font-size: 12px;
-        margin-top: 35px;
-      }
-
-      .status {
-        margin-top: 35px;
-      }
-
-      .line.left {
-        left: 15px;
-      }
-
-      .line.right {
-        right: 15px;
-      }
-
-      .line.top {
-        top: 15px;
-      }
-
-      .line.bottom {
-        bottom: 15px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="background">
-    <div class="orb one"></div>
-    <div class="orb two"></div>
-  </div>
-
-  <div class="grain"></div>
-
-  <div class="line horizontal top"></div>
-  <div class="line horizontal bottom"></div>
-  <div class="line vertical left"></div>
-  <div class="line vertical right"></div>
-
-  <main class="maintenance">
-
-    <img
-      src="relmun-logo.png"
-      alt="RELMUN '26"
-      class="logo"
-      id="logo"
-    >
-
-    <div class="eyebrow" id="eyebrow">
-      RELMUN '26 · OFFICIAL WEBSITE
-    </div>
-
-    <h1 id="title">
-      UNDER<br>
-      <span>MAINTENANCE.</span>
-    </h1>
-
-    <p class="description" id="description">
-      The RELMUN '26 website is currently being updated.
-      We're working behind the scenes to bring you the next version
-      of the conference experience.
-    </p>
-
-    <div class="status" id="status">
-      <span class="status-dot"></span>
-      SYSTEM UPDATE IN PROGRESS
-    </div>
-
-  </main>
-
-  <div class="footer" id="footer">
-    RELATIONS · ENGAGEMENT · LEADERSHIP
-    &nbsp; · &nbsp;
-    26—27 DECEMBER 2026
-  </div>
-
-  <script>
-    gsap.set("#logo", {
-      opacity: 0,
-      y: -20
-    });
-
-    gsap.set("#eyebrow", {
-      opacity: 0,
-      y: 20
-    });
-
-    gsap.set("#title", {
-      opacity: 0,
-      y: 50,
-      scale: 0.94
-    });
-
-    gsap.set("#description", {
-      opacity: 0,
-      y: 25
-    });
-
-    gsap.set("#status", {
-      opacity: 0,
-      y: 20
-    });
-
-    gsap.set("#footer", {
-      opacity: 0
-    });
-
-    const tl = gsap.timeline({
-      defaults: {
-        ease: "power4.out"
-      }
-    });
-
-    tl.to("#logo", {
-      opacity: 1,
-      y: 0,
-      duration: 1
-    })
-
-    .to("#eyebrow", {
-      opacity: 1,
-      y: 0,
-      duration: 0.8
-    }, "-=0.5")
-
-    .to("#title", {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 1.2
-    }, "-=0.4")
-
-    .to("#description", {
-      opacity: 1,
-      y: 0,
-      duration: 0.9
-    }, "-=0.55")
-
-    .to("#status", {
-      opacity: 1,
-      y: 0,
-      duration: 0.8
-    }, "-=0.45")
-
-    .to("#footer", {
-      opacity: 1,
-      duration: 0.8
-    }, "-=0.3");
-
-    /* Subtle floating background movement */
-    gsap.to(".orb.one", {
-      x: 100,
-      y: 80,
-      duration: 8,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-
-    gsap.to(".orb.two", {
-      x: -100,
-      y: -80,
-      duration: 10,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-
-    /* Subtle title breathing */
-    gsap.to("#title", {
-      scale: 1.015,
-      duration: 4,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-  </script>
-
-</body>
-</html>
+    @media (max-width: 1000px
