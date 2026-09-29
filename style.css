@@ -2824,5 +2824,380 @@ footer{
 
   #relmun-chatbot .rex-input-area button {
     width: 56px;
+
+    /* =========================================================
+   RELMUN '26 — TEAM DIVISIONS
+   CORE / SECRETARIAT
+========================================================= */
+
+.team-subheading {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin: 95px 0 38px;
+  padding: 0 0 20px;
+
+  border-bottom: 1px solid rgba(241,236,224,.14);
+}
+
+
+/* NUMBER */
+
+.team-subheading > span {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(199,154,43,.55);
+
+  color: var(--gold);
+
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+
+/* GOLD ACCENT */
+
+.team-subheading::before {
+  content: "";
+
+  width: 35px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--gold);
+}
+
+
+/* HEADING */
+
+.team-subheading h3 {
+  margin: 0;
+
+  color: var(--ivory);
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(32px, 4.5vw, 62px);
+
+  font-weight: 800;
+
+  line-height: .9;
+
+  letter-spacing: -.06em;
+
+  text-transform: uppercase;
+}
+
+
+/* RIGHT SIDE LINE */
+
+.team-subheading::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    rgba(241,236,224,.14),
+    transparent
+  );
+}
+
+
+/* FIRST GROUP */
+
+.heading-row + .team-subheading {
+  margin-top: 70px;
+}
+
+
+/* SECOND GROUP */
+
+.team-grid + .team-subheading {
+  margin-top: 115px;
+}
+
+
+/* CARDS DIRECTLY AFTER DIVISION */
+
+.team-subheading + .team-grid {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   MUNFLOW — TECHNOLOGY & PLATFORM PARTNER
+========================================================= */
+
+/*
+   Targets the section containing #munflow-link.
+   No HTML change required.
+*/
+
+section:has(#munflow-link) {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(14,41,153,.18),
+      transparent 34%
+    );
+}
+
+
+/* Decorative frame */
+
+section:has(#munflow-link)::after {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(14,41,153,.32);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+/* Partner label */
+
+section:has(#munflow-link) .large-copy {
+  color: var(--gold);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+}
+
+
+/* Partner description */
+
+section:has(#munflow-link) .heading-row > div {
+  position: relative;
+  z-index: 2;
+
+  padding: 35px;
+
+  border: 1px solid rgba(241,236,224,.13);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14,41,153,.16),
+      rgba(8,8,8,.92)
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.28);
+}
+
+
+/* MUNFLOW name */
+
+section:has(#munflow-link) .heading-row > div::before {
+  content: "MUNFLOW";
+
+  display: block;
+
+  margin-bottom: 25px;
+
+  color: var(--ivory);
+
+  font-size: clamp(38px, 5vw, 72px);
+
+  font-weight: 800;
+
+  line-height: .9;
+
+  letter-spacing: -.065em;
+}
+
+
+/* Partner button */
+
+section:has(#munflow-link) #munflow-link {
+  margin-top: 8px;
+
+  border-color: rgba(199,154,43,.55);
+
+  color: var(--gold);
+}
+
+section:has(#munflow-link) #munflow-link:hover {
+  background: var(--gold);
+
+  border-color: var(--gold);
+
+  color: var(--black);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-list {
+  display: grid;
+
+  gap: 18px;
+
+  margin-top: 5px;
+}
+
+.contact-list p {
+  margin: 0;
+
+  color: var(--muted);
+}
+
+.contact-list strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--gold);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: .13em;
+
+  text-transform: uppercase;
+}
+
+.contact-list a {
+  color: var(--ivory);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 12px;
+
+  letter-spacing: .04em;
+
+  transition: .25s var(--ease);
+}
+
+.contact-list a:hover {
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   REMOVE OLD REGISTER BUTTON STYLING
+   Registration has been removed from the website.
+========================================================= */
+
+.nav-links .nav-register {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  /* ---------------- TEAM ---------------- */
+
+  .team-subheading {
+    gap: 11px;
+
+    margin: 65px 0 25px;
+
+    padding-bottom: 14px;
+  }
+
+  .team-subheading > span {
+    width: 28px;
+    height: 28px;
+
+    font-size: 8px;
+  }
+
+  .team-subheading::before {
+    width: 18px;
+  }
+
+  .team-subheading h3 {
+    font-size: 29px;
+
+    letter-spacing: -.045em;
+  }
+
+  .team-subheading::after {
+    min-width: 20px;
+  }
+
+  .team-grid + .team-subheading {
+    margin-top: 70px;
+  }
+
+
+  /* ---------------- MUNFLOW ---------------- */
+
+  section:has(#munflow-link) .heading-row {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  section:has(#munflow-link) .heading-row > div {
+    padding: 25px;
+  }
+
+  section:has(#munflow-link) .heading-row > div::before {
+    font-size: 42px;
+  }
+
+  section:has(#munflow-link)::after {
+    width: 250px;
+    height: 250px;
+
+    right: -130px;
+  }
+
+
+  /* ---------------- CONTACT ---------------- */
+
+  .contact-list {
+    gap: 15px;
+  }
+
+}
   }
 }
