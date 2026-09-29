@@ -2519,3 +2519,900 @@ footer {
   }
 
 }
+/* =========================================================
+   REX — RELMUN CHATBOT
+========================================================= */
+
+#relmun-chatbot {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 200;
+  font-family:
+    "Manrope",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   LAUNCHER
+========================================================= */
+
+.rex-launcher {
+
+  position: relative;
+
+  width: 64px;
+  height: 64px;
+
+  border: 1px solid
+    rgba(241,236,224,.22);
+
+  background:
+    rgba(8,8,8,.92);
+
+  backdrop-filter:
+    blur(18px);
+
+  color: var(--ivory);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: .12em;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.45);
+
+  transition:
+    transform .4s var(--ease),
+    border-color .4s ease,
+    background .4s ease,
+    opacity .3s ease;
+
+}
+
+
+.rex-launcher:hover {
+
+  transform:
+    translateY(-5px);
+
+  border-color:
+    var(--blue);
+
+  background:
+    rgba(24,70,255,.12);
+
+}
+
+
+.rex-launcher.hidden {
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    scale(.8);
+
+}
+
+
+.rex-dot {
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    var(--blue);
+
+  box-shadow:
+    0 0 12px
+    rgba(24,70,255,.8);
+
+  animation:
+    rexPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes rexPulse {
+
+  0%,
+  100% {
+    opacity: .55;
+    transform: scale(.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+
+}
+
+
+/* =========================================================
+   WINDOW
+========================================================= */
+
+.rex-window {
+
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width:
+    min(390px, calc(100vw - 30px));
+
+  height:
+    min(600px, calc(100vh - 40px));
+
+  background:
+    rgba(8,8,8,.96);
+
+  border:
+    1px solid
+    rgba(241,236,224,.16);
+
+  backdrop-filter:
+    blur(30px);
+
+  box-shadow:
+    0 30px 100px
+    rgba(0,0,0,.65);
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(25px)
+    scale(.96);
+
+  transform-origin:
+    bottom right;
+
+  transition:
+    opacity .4s var(--ease),
+    transform .5s var(--ease),
+    visibility .4s;
+
+}
+
+
+.rex-window.open {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.rex-header {
+
+  min-height: 75px;
+
+  padding:
+    18px 20px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+
+
+.rex-header > div {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+
+.rex-label {
+
+  color: var(--gold);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: .15em;
+
+}
+
+
+.rex-header strong {
+
+  font-size: 22px;
+
+  letter-spacing: -.06em;
+
+}
+
+
+.rex-close {
+
+  width: 32px;
+  height: 32px;
+
+  border:
+    1px solid var(--line);
+
+  background:
+    transparent;
+
+  color: var(--ivory);
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  line-height: 1;
+
+  transition:
+    border-color .3s ease,
+    background .3s ease;
+
+}
+
+
+.rex-close:hover {
+
+  border-color:
+    var(--blue);
+
+  background:
+    rgba(24,70,255,.12);
+
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.rex-status {
+
+  padding:
+    11px 20px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  color:
+    var(--muted);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: .1em;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+}
+
+
+.rex-status span {
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    #35d07f;
+
+  box-shadow:
+    0 0 8px
+    rgba(53,208,127,.7);
+
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.rex-messages {
+
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding:
+    20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(241,236,224,.2)
+    transparent;
+
+}
+
+
+.rex-message {
+
+  max-width: 88%;
+
+  animation:
+    rexMessageIn .35s var(--ease)
+    both;
+
+}
+
+
+@keyframes rexMessageIn {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+.rex-message-content {
+
+  padding:
+    13px 15px;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+
+}
+
+
+.rex-message.rex {
+
+  align-self:
+    flex-start;
+
+}
+
+
+.rex-message.rex
+.rex-message-content {
+
+  background:
+    rgba(241,236,224,.055);
+
+  border:
+    1px solid var(--line);
+
+}
+
+
+.rex-message.user {
+
+  align-self:
+    flex-end;
+
+}
+
+
+.rex-message.user
+.rex-message-content {
+
+  background:
+    var(--blue);
+
+  color:
+    white;
+
+}
+
+
+/* =========================================================
+   REX CONTENT
+========================================================= */
+
+.rex-message-content p {
+
+  margin:
+    0 0 9px;
+
+}
+
+
+.rex-message-content p:last-child {
+
+  margin-bottom:
+    0;
+
+}
+
+
+.rex-message-content h3,
+.rex-message-content h4,
+.rex-message-content h5 {
+
+  margin:
+    0 0 10px;
+
+  color:
+    var(--ivory);
+
+}
+
+
+.rex-message-content h3 {
+
+  font-size: 18px;
+
+}
+
+
+.rex-message-content h4 {
+
+  font-size: 15px;
+
+}
+
+
+.rex-message-content h5 {
+
+  font-size: 13px;
+
+}
+
+
+.rex-message-content strong {
+
+  color:
+    var(--ivory);
+
+}
+
+
+.rex-message-content ul {
+
+  margin:
+    7px 0 10px;
+
+  padding-left:
+    19px;
+
+}
+
+
+.rex-message-content li {
+
+  margin-bottom:
+    5px;
+
+}
+
+
+.rex-message-content code {
+
+  padding:
+    2px 5px;
+
+  background:
+    rgba(24,70,255,.15);
+
+  color:
+    var(--blue-bright);
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 10px;
+
+}
+
+
+/* =========================================================
+   SUGGESTIONS
+========================================================= */
+
+.rex-suggestions {
+
+  display: flex;
+
+  gap: 6px;
+
+  padding:
+    10px 15px;
+
+  overflow-x: auto;
+
+  border-top:
+    1px solid var(--line);
+
+  scrollbar-width: none;
+
+}
+
+
+.rex-suggestions::-webkit-scrollbar {
+
+  display:
+    none;
+
+}
+
+
+.rex-suggestions button {
+
+  flex:
+    0 0 auto;
+
+  padding:
+    8px 10px;
+
+  border:
+    1px solid var(--line);
+
+  background:
+    transparent;
+
+  color:
+    var(--muted);
+
+  cursor:
+    pointer;
+
+  font-family:
+    "DM Mono",
+    monospace;
+
+  font-size: 6px;
+
+  letter-spacing: .1em;
+
+  transition:
+    color .25s ease,
+    border-color .25s ease,
+    background .25s ease;
+
+}
+
+
+.rex-suggestions button:hover {
+
+  color:
+    var(--ivory);
+
+  border-color:
+    var(--blue);
+
+  background:
+    rgba(24,70,255,.1);
+
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.rex-input-area {
+
+  min-height:
+    62px;
+
+  padding:
+    10px;
+
+  border-top:
+    1px solid var(--line);
+
+  display:
+    flex;
+
+  gap:
+    8px;
+
+}
+
+
+.rex-input-area input {
+
+  flex:
+    1;
+
+  min-width:
+    0;
+
+  border:
+    1px solid var(--line);
+
+  outline:
+    none;
+
+  background:
+    rgba(241,236,224,.035);
+
+  color:
+    var(--ivory);
+
+  padding:
+    12px;
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    11px;
+
+}
+
+
+.rex-input-area input::placeholder {
+
+  color:
+    rgba(241,236,224,.3);
+
+}
+
+
+.rex-input-area input:focus {
+
+  border-color:
+    rgba(24,70,255,.65);
+
+}
+
+
+.rex-input-area button {
+
+  width:
+    44px;
+
+  border:
+    1px solid var(--blue);
+
+  background:
+    var(--blue);
+
+  color:
+    white;
+
+  cursor:
+    pointer;
+
+  font-size:
+    17px;
+
+  transition:
+    background .25s ease,
+    transform .25s ease;
+
+}
+
+
+.rex-input-area button:hover {
+
+  background:
+    var(--blue-bright);
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+/* =========================================================
+   TYPING
+========================================================= */
+
+.typing-message
+.rex-message-content {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    4px;
+
+  min-height:
+    38px;
+
+}
+
+
+.typing-dot {
+
+  width:
+    5px;
+
+  height:
+    5px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--muted);
+
+  animation:
+    typingBounce 1s
+    infinite ease-in-out;
+
+}
+
+
+.typing-dot:nth-child(2) {
+
+  animation-delay:
+    .15s;
+
+}
+
+
+.typing-dot:nth-child(3) {
+
+  animation-delay:
+    .3s;
+
+}
+
+
+@keyframes typingBounce {
+
+  0%,
+  60%,
+  100% {
+    transform:
+      translateY(0);
+    opacity:
+      .35;
+  }
+
+  30% {
+    transform:
+      translateY(-4px);
+    opacity:
+      1;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE REX
+========================================================= */
+
+@media (max-width: 600px) {
+
+  #relmun-chatbot {
+
+    right:
+      15px;
+
+    bottom:
+      15px;
+
+  }
+
+
+  .rex-launcher {
+
+    width:
+      58px;
+
+    height:
+      58px;
+
+  }
+
+
+  .rex-window {
+
+    position:
+      fixed;
+
+    right:
+      10px;
+
+    bottom:
+      10px;
+
+    width:
+      calc(100vw - 20px);
+
+    height:
+      min(620px, calc(100vh - 20px));
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .rex-window,
+  .rex-message,
+  .rex-dot,
+  .typing-dot {
+
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+
+  }
+
+}
