@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>RELMUN '26 — Under Maintenance</title>
-  <meta
-    name="description"
-    content="RELMUN '26 — Relations · Engagement · Leadership"
-  >
+  <meta name="description" content="RELMUN '26 is currently undergoing maintenance.">
 
   <link rel="icon" href="relmun-logo.png" type="image/png">
 
@@ -26,14 +22,12 @@
       --black: #080808;
       --black2: #0d0d0d;
       --ivory: #f1ece0;
-      --muted: rgba(241, 236, 224, 0.58);
-      --faint: rgba(241, 236, 224, 0.18);
+      --muted: rgba(241,236,224,.58);
+      --line: rgba(241,236,224,.12);
       --blue: #1846ff;
       --blue2: #315aff;
       --gold: #c79a2b;
-      --line: rgba(241, 236, 224, 0.12);
-
-      --ease: cubic-bezier(.16, 1, .3, 1);
+      --ease: cubic-bezier(.16,1,.3,1);
     }
 
     * {
@@ -42,58 +36,48 @@
       padding: 0;
     }
 
-    html,
-    body {
+    html, body {
       width: 100%;
       min-height: 100%;
       background: var(--black);
       color: var(--ivory);
-    }
-
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
       overflow: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* =========================================
-       BACKGROUND
-    ========================================= */
+    body {
+      cursor: none;
+    }
 
-    .background {
+    ::selection {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    /* Background */
+    #space {
       position: fixed;
       inset: 0;
-      overflow: hidden;
-      pointer-events: none;
       z-index: 0;
-    }
-
-    .orb {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      filter: blur(190px);
       pointer-events: none;
     }
 
-    .orb.one {
-      top: -320px;
-      left: -200px;
-      background: var(--blue);
-      opacity: .13;
+    #space canvas {
+      width: 100%;
+      height: 100%;
     }
 
-    .orb.two {
-      right: -320px;
-      bottom: -320px;
-      background: var(--blue);
-      opacity: .09;
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(24,70,255,.075), transparent 38%),
+        radial-gradient(circle at 20% 80%, rgba(199,154,43,.035), transparent 30%),
+        linear-gradient(180deg, rgba(8,8,8,.15), rgba(8,8,8,.65));
     }
-
-    /* =========================================
-       GRAIN
-    ========================================= */
 
     .grain {
       position: fixed;
@@ -102,228 +86,660 @@
       pointer-events: none;
       opacity: .035;
       mix-blend-mode: soft-light;
-
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* =========================================
-       DECORATIVE FRAME
-    ========================================= */
-
-    .frame-line {
+    /* Cursor */
+    .cursor-dot {
       position: fixed;
-      background: var(--line);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ivory);
       pointer-events: none;
-      z-index: 10;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
     }
 
-    .frame-top,
-    .frame-bottom {
-      left: 32px;
-      right: 32px;
-      height: 1px;
+    .cursor-ring {
+      position: fixed;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(241,236,224,.55);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition:
+        width .45s var(--ease),
+        height .45s var(--ease),
+        border-color .35s ease,
+        background .35s ease;
     }
 
-    .frame-top {
-      top: 32px;
+    .cursor-ring.active {
+      width: 68px;
+      height: 68px;
+      border-color: var(--blue);
+      background: rgba(24,70,255,.08);
     }
 
-    .frame-bottom {
-      bottom: 32px;
-    }
-
-    .frame-left,
-    .frame-right {
-      top: 32px;
-      bottom: 32px;
-      width: 1px;
-    }
-
-    .frame-left {
-      left: 32px;
-    }
-
-    .frame-right {
-      right: 32px;
-    }
-
-    /* =========================================
-       MAIN
-    ========================================= */
-
+    /* Main */
     .maintenance {
       position: relative;
       z-index: 5;
-
-      width: min(1500px, 88vw);
-      min-height: 100vh;
-
-      margin: auto;
-
+      width: 100%;
+      height: 100svh;
+      min-height: 600px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-
-      text-align: center;
+      padding: 40px;
     }
 
-    /* =========================================
-       LOGO
-    ========================================= */
-
-    .logo {
-      width: 82px;
-      height: auto;
-
-      margin-bottom: 55px;
-
-      opacity: 0;
-      transform: translateY(-25px);
-    }
-
-    /* =========================================
-       EYEBROW
-    ========================================= */
-
-    .eyebrow {
+    .topbar {
+      position: absolute;
+      top: 30px;
+      left: 5vw;
+      right: 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
       font-family: monospace;
       font-size: 9px;
-      letter-spacing: .24em;
-      color: var(--gold);
-
-      margin-bottom: 28px;
-
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    /* =========================================
-       MASSIVE TITLE
-    ========================================= */
-
-    .title-wrap {
-      width: 100%;
-      overflow: visible;
-    }
-
-    h1 {
-      font-size: clamp(90px, 16vw, 220px);
-      line-height: .72;
-      letter-spacing: -.095em;
-      font-weight: 800;
-
-      white-space: nowrap;
-
-      opacity: 0;
-      transform: translateY(60px) scale(.94);
-    }
-
-    h1 .blue {
-      color: var(--blue);
-    }
-
-    /* =========================================
-       DESCRIPTION
-    ========================================= */
-
-    .description {
-      max-width: 650px;
-
-      margin: 55px auto 0;
-
+      letter-spacing: .16em;
       color: var(--muted);
-
-      font-size: 15px;
-      line-height: 1.8;
-
-      opacity: 0;
-      transform: translateY(25px);
     }
 
-    /* =========================================
-       STATUS
-    ========================================= */
+    .logo {
+      width: 78px;
+      height: auto;
+      object-fit: contain;
+    }
 
     .status {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      margin-top: 42px;
-
-      padding: 13px 19px;
-
-      border: 1px solid var(--line);
-
-      background: rgba(8, 8, 8, .35);
-
-      font-family: monospace;
-      font-size: 8px;
-      letter-spacing: .16em;
-
-      color: var(--muted);
-
-      opacity: 0;
-      transform: translateY(25px);
+      gap: 9px;
     }
 
     .status-dot {
       width: 6px;
       height: 6px;
-
       border-radius: 50%;
-
       background: var(--gold);
-
-      box-shadow:
-        0 0 8px rgba(199, 154, 43, .8),
-        0 0 20px rgba(199, 154, 43, .35);
-
-      animation: pulse 1.8s ease-in-out infinite;
+      box-shadow: 0 0 16px rgba(199,154,43,.7);
+      animation: pulse 1.8s infinite ease-in-out;
     }
 
     @keyframes pulse {
-      0%,
-      100% {
-        opacity: .45;
-        transform: scale(.8);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.15);
-      }
+      0%,100% { opacity: .45; transform: scale(.8); }
+      50% { opacity: 1; transform: scale(1); }
     }
 
-    /* =========================================
-       FOOTER
-    ========================================= */
-
-    .footer {
-      position: fixed;
-
-      left: 0;
-      bottom: 55px;
-
-      width: 100%;
-
+    .content {
+      width: min(1180px, 88vw);
       text-align: center;
+      position: relative;
+    }
 
-      color: rgba(241, 236, 224, .3);
-
+    .eyebrow {
       font-family: monospace;
-      font-size: 7px;
-      letter-spacing: .15em;
+      font-size: 10px;
+      letter-spacing: .25em;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
 
-      z-index: 5;
+    .title-wrap {
+      position: relative;
+      display: inline-block;
+    }
 
+    .title {
+      font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(72px, 13vw, 190px);
+      line-height: .78;
+      letter-spacing: -.085em;
+      font-weight: 900;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .title .blue {
+      color: var(--blue);
+      display: block;
+    }
+
+    .glitch {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
       opacity: 0;
     }
 
-    /* =========================================
-       RESPONSIVE
-    ========================================= */
+    .sub {
+      margin: 42px auto 0;
+      max-width: 590px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
 
-    @media (max-width: 1000px
+    .sub strong {
+      color: var(--ivory);
+      font-weight: 600;
+    }
+
+    /* Countdown */
+    .countdown-label {
+      margin-top: 48px;
+      color: var(--gold);
+      font-family: monospace;
+      font-size: 9px;
+      letter-spacing: .2em;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: clamp(18px, 4vw, 55px);
+      margin-top: 18px;
+    }
+
+    .unit {
+      min-width: 80px;
+    }
+
+    .unit strong {
+      display: block;
+      font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: .85;
+      letter-spacing: -.07em;
+    }
+
+    .unit span {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: monospace;
+      font-size: 8px;
+      letter-spacing: .15em;
+    }
+
+    .open-message {
+      display: none;
+      margin-top: 42px;
+      color: var(--gold);
+      font-family: monospace;
+      font-size: 10px;
+      letter-spacing: .16em;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 32px;
+      left: 5vw;
+      right: 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      color: var(--muted);
+      font-family: monospace;
+      font-size: 8px;
+      letter-spacing: .12em;
+    }
+
+    .bottom-right {
+      text-align: right;
+    }
+
+    .line {
+      position: absolute;
+      left: 5vw;
+      right: 5vw;
+      bottom: 22px;
+      height: 1px;
+      background: var(--line);
+      transform-origin: left;
+    }
+
+    .enter-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 35px;
+      padding: 14px 20px;
+      border: 1px solid var(--line);
+      color: var(--ivory);
+      font-family: monospace;
+      font-size: 8px;
+      letter-spacing: .16em;
+      transition: .4s var(--ease);
+      cursor: none;
+    }
+
+    .enter-button:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 700px) {
+      body {
+        cursor: auto;
+      }
+
+      .cursor-dot,
+      .cursor-ring {
+        display: none;
+      }
+
+      .maintenance {
+        padding: 25px;
+      }
+
+      .topbar {
+        top: 20px;
+        left: 7vw;
+        right: 7vw;
+      }
+
+      .logo {
+        width: 65px;
+      }
+
+      .topbar span:last-child {
+        display: none;
+      }
+
+      .title {
+        font-size: 22vw;
+      }
+
+      .sub {
+        font-size: 12px;
+        line-height: 1.7;
+        margin-top: 30px;
+      }
+
+      .countdown {
+        gap: 12px;
+      }
+
+      .unit {
+        min-width: 55px;
+      }
+
+      .unit strong {
+        font-size: 34px;
+      }
+
+      .unit span {
+        font-size: 7px;
+      }
+
+      .bottom {
+        left: 7vw;
+        right: 7vw;
+        bottom: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .bottom-right {
+        text-align: left;
+      }
+
+      .line {
+        left: 7vw;
+        right: 7vw;
+        bottom: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="space"></div>
+  <div class="overlay"></div>
+  <div class="grain"></div>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <main class="maintenance">
+
+    <div class="topbar">
+      <a href="#" class="magnetic">
+        <img src="relmun-logo.png" class="logo" alt="RELMUN '26">
+      </a>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        WEBSITE UNDER MAINTENANCE
+      </div>
+    </div>
+
+    <section class="content">
+
+      <div class="eyebrow">RELMUN '26 · 26—27 DECEMBER 2026 · ONLINE</div>
+
+      <div class="title-wrap">
+        <h1 class="title">
+          WE'LL BE
+          <span class="blue">BACK.</span>
+        </h1>
+      </div>
+
+      <p class="sub">
+        The <strong>RELMUN '26</strong> website is currently undergoing
+        maintenance as we prepare the next version of the conference experience.
+        <br>
+        We'll be back shortly.
+      </p>
+
+      <div id="countdownWrap">
+        
+
+        <div class="countdown">
+          <div class="unit">
+            <strong id="days">00</strong>
+            <span>DAYS</span>
+          </div>
+
+          <div class="unit">
+            <strong id="hours">00</strong>
+            <span>HOURS</span>
+          </div>
+
+          <div class="unit">
+            <strong id="minutes">00</strong>
+            <span>MINUTES</span>
+          </div>
+
+          <div class="unit">
+            <strong id="seconds">00</strong>
+            <span>SECONDS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="open-message" id="openMessage">
+        WEBSITE MAINTENANCE IN PROGRESS · STAY TUNED
+      </div>
+
+      <a href="mailto:akshithkabilan@gmail.com" class="enter-button magnetic">
+        CONTACT RELMUN <i data-lucide="arrow-up-right" size="13"></i>
+      </a>
+
+    </section>
+
+    <div class="bottom">
+      <div>
+        RELATIONS · ENGAGEMENT · LEADERSHIP
+      </div>
+
+      <div class="bottom-right">
+        <div>RELMUN '26</div>
+        <div>26—27 DECEMBER 2026</div>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    lucide.createIcons();
+
+    /* -----------------------------
+       Cursor
+    ----------------------------- */
+    const dot = document.querySelector(".cursor-dot");
+    const ring = document.querySelector(".cursor-ring");
+
+    let mouseX = innerWidth / 2;
+    let mouseY = innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      gsap.to(dot, {
+        x: mouseX,
+        y: mouseY,
+        duration: .08,
+        overwrite: true,
+        ease: "power2.out"
+      });
+    });
+
+    gsap.ticker.add(() => {
+      ringX += (mouseX - ringX) * .14;
+      ringY += (mouseY - ringY) * .14;
+
+      gsap.set(ring, {
+        x: ringX,
+        y: ringY
+      });
+    });
+
+    document.querySelectorAll("a, button, .magnetic").forEach((el) => {
+      el.addEventListener("mouseenter", () => ring.classList.add("active"));
+      el.addEventListener("mouseleave", () => ring.classList.remove("active"));
+    });
+
+    /* -----------------------------
+       Magnetic button
+    ----------------------------- */
+    document.querySelectorAll(".magnetic").forEach((el) => {
+      el.addEventListener("mousemove", (e) => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width / 2);
+        const y = e.clientY - (r.top + r.height / 2);
+
+        gsap.to(el, {
+          x: x * .16,
+          y: y * .16,
+          duration: .35,
+          ease: "power3.out",
+          overwrite: true
+        });
+      });
+
+      el.addEventListener("mouseleave", () => {
+        gsap.to(el, {
+          x: 0,
+          y: 0,
+          duration: .65,
+          ease: "elastic.out(1,.45)"
+        });
+      });
+    });
+
+    /* -----------------------------
+       Countdown
+       Change this date whenever
+       you want the milestone to be.
+    ----------------------------- */
+    const target = new Date("October 1, 2026 00:00:00").getTime();
+
+    function updateCountdown() {
+      const distance = target - Date.now();
+
+      if (distance <= 0) {
+        document.getElementById("countdownWrap").style.display = "none";
+        document.getElementById("openMessage").style.display = "block";
+        return;
+      }
+
+      const days = Math.floor(distance / 86400000);
+      const hours = Math.floor((distance % 86400000) / 3600000);
+      const minutes = Math.floor((distance % 3600000) / 60000);
+      const seconds = Math.floor((distance % 60000) / 1000);
+
+      document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    /* -----------------------------
+       Three.js particle background
+    ----------------------------- */
+    const space = document.getElementById("space");
+
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true
+    });
+
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(innerWidth, innerHeight);
+    space.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+      60,
+      innerWidth / innerHeight,
+      .1,
+      1000
+    );
+
+    camera.position.z = 5;
+
+    const geometry = new THREE.BufferGeometry();
+    const count = 1400;
+    const positions = new Float32Array(count * 3);
+
+    for (let i = 0; i < count * 3; i += 3) {
+      positions[i] = (Math.random() - .5) * 18;
+      positions[i + 1] = (Math.random() - .5) * 12;
+      positions[i + 2] = (Math.random() - .5) * 12;
+    }
+
+    geometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(positions, 3)
+    );
+
+    const material = new THREE.PointsMaterial({
+      color: 0x315aff,
+      size: .018,
+      transparent: true,
+      opacity: .52
+    });
+
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    function render() {
+      particles.rotation.y += .0002;
+      particles.rotation.x += .000035;
+      renderer.render(scene, camera);
+      requestAnimationFrame(render);
+    }
+
+    render();
+
+    window.addEventListener("resize", () => {
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    });
+
+    /* -----------------------------
+       Intro animation
+    ----------------------------- */
+    const tl = gsap.timeline({
+      defaults: {
+        ease: "power4.out"
+      }
+    });
+
+    tl.from(".topbar", {
+      y: -30,
+      opacity: 0,
+      duration: 1
+    })
+    .from(".eyebrow", {
+      y: 30,
+      opacity: 0,
+      duration: .8
+    }, "-=.5")
+    .from(".title", {
+      y: 100,
+      opacity: 0,
+      scale: .9,
+      duration: 1.2
+    }, "-=.55")
+    .from(".sub", {
+      y: 35,
+      opacity: 0,
+      duration: .8
+    }, "-=.7")
+    .from(".countdown-label, .countdown, .enter-button", {
+      y: 25,
+      opacity: 0,
+      stagger: .08,
+      duration: .7
+    }, "-=.45")
+    .from(".bottom, .line", {
+      opacity: 0,
+      duration: .7
+    }, "-=.4");
+
+    /* Subtle title glitch */
+    const title = document.querySelector(".title");
+
+    setInterval(() => {
+      gsap.timeline()
+        .to(title, {
+          x: -3,
+          duration: .045,
+          ease: "none"
+        })
+        .to(title, {
+          x: 3,
+          duration: .045,
+          ease: "none"
+        })
+        .to(title, {
+          x: 0,
+          duration: .06,
+          ease: "none"
+        });
+    }, 5200);
+  </script>
+
+
+</body>
+</html>
