@@ -82,7 +82,6 @@ button{
   color:white;
 }
 
-
 /* =========================================================
    CANVAS
 ========================================================= */
@@ -100,7 +99,6 @@ button{
   opacity:.72;
 }
 
-
 /* =========================================================
    GRAIN
 ========================================================= */
@@ -112,10 +110,8 @@ button{
   pointer-events:none;
   opacity:.035;
   mix-blend-mode:soft-light;
-
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-
 
 /* =========================================================
    CURSOR
@@ -141,7 +137,6 @@ button{
   pointer-events:none;
   z-index:9998;
   transform:translate(-50%,-50%);
-
   transition:
     width .5s var(--ease),
     height .5s var(--ease),
@@ -162,7 +157,6 @@ button{
     display:none;
   }
 }
-
 
 /* =========================================================
    NAV
@@ -221,7 +215,6 @@ button{
   height:42px;
 }
 
-
 /* =========================================================
    PROGRESS
 ========================================================= */
@@ -232,7 +225,6 @@ button{
   top:50%;
   transform:translateY(-50%);
   z-index:400;
-
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -260,7 +252,6 @@ button{
   font-size:8px;
   letter-spacing:.1em;
 }
-
 
 /* =========================================================
    GLOBAL
@@ -295,7 +286,6 @@ button{
   color:var(--blue);
 }
 
-
 /* =========================================================
    HERO
 ========================================================= */
@@ -312,13 +302,10 @@ button{
   top:120px;
   left:7vw;
   right:7vw;
-
   display:flex;
   justify-content:space-between;
-
   border-bottom:1px solid var(--line);
   padding-bottom:18px;
-
   font-family:monospace;
   font-size:8px;
   letter-spacing:.15em;
@@ -347,7 +334,6 @@ button{
   position:absolute;
   right:3vw;
   bottom:-5vw;
-
   color:var(--blue);
   font-size:clamp(60px,9vw,130px);
   letter-spacing:-.08em;
@@ -358,7 +344,6 @@ button{
   bottom:45px;
   left:7vw;
   right:7vw;
-
   display:flex;
   justify-content:space-between;
   align-items:end;
@@ -370,7 +355,6 @@ button{
   line-height:1.7;
   font-size:13px;
 }
-
 
 /* =========================================================
    SCENE INTRO
@@ -384,7 +368,6 @@ button{
   height:100vh;
   position:sticky;
   top:0;
-
   display:flex;
   align-items:center;
 }
@@ -401,7 +384,6 @@ button{
   font-size:15px;
 }
 
-
 /* =========================================================
    CONFERENCE
 ========================================================= */
@@ -414,7 +396,6 @@ button{
   height:100vh;
   position:sticky;
   top:0;
-
   display:flex;
   align-items:center;
 }
@@ -430,15 +411,12 @@ button{
   min-width:330px;
   height:420px;
   padding:35px;
-
   border:1px solid var(--line);
   background:rgba(8,8,8,.72);
   backdrop-filter:blur(10px);
-
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-
   transform-style:preserve-3d;
 }
 
@@ -459,7 +437,6 @@ button{
   font-size:8px;
   line-height:1.8;
 }
-
 
 /* =========================================================
    COMMITTEES
@@ -483,11 +460,9 @@ button{
 .committee{
   min-height:430px;
   padding:35px;
-
   background:rgba(8,8,8,.9);
   position:relative;
   overflow:hidden;
-
   transform-style:preserve-3d;
   transition:border-color .4s ease;
 }
@@ -496,14 +471,12 @@ button{
   content:"";
   position:absolute;
   inset:0;
-
   background:
     radial-gradient(
       circle at var(--mx,50%) var(--my,50%),
       rgba(24,70,255,.22),
       transparent 35%
     );
-
   opacity:0;
   transition:.4s ease;
 }
@@ -516,7 +489,6 @@ button{
   position:relative;
   z-index:2;
   height:100%;
-
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -541,7 +513,6 @@ button{
   line-height:1.7;
 }
 
-
 /* =========================================================
    EXPERIENCE
 ========================================================= */
@@ -554,7 +525,6 @@ button{
   height:100vh;
   position:sticky;
   top:0;
-
   display:flex;
   align-items:center;
 }
@@ -567,7 +537,6 @@ button{
 
 .exp-word{
   position:absolute;
-
   font-size:clamp(90px,15vw,220px);
   font-weight:800;
   letter-spacing:-.1em;
@@ -592,7 +561,6 @@ button{
   opacity:.7;
 }
 
-
 /* =========================================================
    TEAM
 ========================================================= */
@@ -605,8 +573,244 @@ button{
   margin-bottom:100px;
 }
 
+.team-category{
+  margin-bottom:80px;
+}
+
+.team-category:last-child{
+  margin-bottom:0;
+}
+
+.team-category-label{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  margin-bottom:25px;
+  font-family:monospace;
+  font-size:9px;
+  letter-spacing:.16em;
+  color:var(--gold);
+}
+
+.team-category-label::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:var(--line);
+}
+
 .team-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:1px;
-  background:var(--
+  background:var(--line);
+}
+
+.person{
+  min-height:360px;
+  padding:28px;
+  background:var(--black);
+  position:relative;
+  overflow:hidden;
+  transition:background .5s ease;
+}
+
+.person:hover{
+  background:#0b0f1f;
+}
+
+.person .initials{
+  width:80px;
+  height:80px;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--blue);
+  font-size:20px;
+  font-weight:800;
+}
+
+.person small{
+  position:absolute;
+  bottom:65px;
+  left:28px;
+  color:var(--gold);
+  font-family:monospace;
+  font-size:7px;
+  letter-spacing:.12em;
+}
+
+.person h3{
+  position:absolute;
+  bottom:28px;
+  left:28px;
+  font-size:22px;
+  letter-spacing:-.04em;
+}
+
+/* =========================================================
+   EB
+========================================================= */
+
+.eb{
+  padding:15vh 0;
+}
+
+.eb-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  margin-top:90px;
+}
+
+.eb-card{
+  min-height:270px;
+  padding:30px;
+  background:var(--black);
+  transition:.4s ease;
+}
+
+.eb-card:hover{
+  background:#0b0f1f;
+}
+
+.eb-card span{
+  color:var(--gold);
+  font-family:monospace;
+  font-size:8px;
+}
+
+.eb-card h3{
+  margin-top:90px;
+  font-size:22px;
+}
+
+.eb-card p{
+  margin-top:14px;
+  color:var(--muted);
+  font-family:monospace;
+  font-size:8px;
+  line-height:1.8;
+}
+
+/* =========================================================
+   REGISTRATION
+========================================================= */
+
+.registration{
+  height:180vh;
+}
+
+.registration-sticky{
+  height:100vh;
+  position:sticky;
+  top:0;
+  display:flex;
+  align-items:center;
+}
+
+.registration-panel{
+  width:100%;
+  min-height:650px;
+  padding:70px;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(
+      circle at 75% 50%,
+      rgba(24,70,255,.16),
+      transparent 40%
+    ),
+    rgba(13,13,13,.8);
+  position:relative;
+  overflow:hidden;
+}
+
+.registration-panel::after{
+  content:"RELMUN";
+  position:absolute;
+  right:-5vw;
+  bottom:-3vw;
+  font-size:20vw;
+  line-height:.6;
+  font-weight:800;
+  letter-spacing:-.1em;
+  color:rgba(24,70,255,.035);
+  pointer-events:none;
+}
+
+.registration-panel h2{
+  margin-top:30px;
+}
+
+.registration-description{
+  max-width:500px;
+  color:var(--muted);
+  margin-top:30px;
+  line-height:1.7;
+}
+
+.countdown-label{
+  margin-top:55px;
+  font-family:monospace;
+  color:var(--gold);
+  font-size:8px;
+  letter-spacing:.15em;
+}
+
+.countdown{
+  display:flex;
+  gap:25px;
+  margin-top:15px;
+}
+
+.countdown-unit{
+  display:flex;
+  flex-direction:column;
+}
+
+.countdown-unit strong{
+  font-size:clamp(40px,6vw,80px);
+  line-height:.8;
+  letter-spacing:-.07em;
+}
+
+.countdown-unit span{
+  margin-top:12px;
+  font-family:monospace;
+  font-size:7px;
+  color:var(--muted);
+}
+
+.registration-options{
+  display:none;
+  margin-top:45px;
+}
+
+.registration-open-label{
+  color:var(--gold);
+  font-family:monospace;
+  font-size:9px;
+  letter-spacing:.14em;
+}
+
+.registration-options-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  margin-top:20px;
+  background:var(--line);
+}
+
+.registration-option{
+  padding:22px;
+  background:var(--black);
+  font-family:monospace;
+  font-size:8px;
+  letter-spacing:.1em;
+  transition:.4s var(--ease);
+}
+
+.registration-option:hover{
+  background
