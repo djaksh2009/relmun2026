@@ -791,8 +791,7 @@ Ask away — I'm REX.`;
      http://127.0.0.1:8000/chat
   */
 
-  const API_URL =
-    "http://127.0.0.1:8000/chat";
+const API_URL = "https://relmun-rex-backend.onrender.com/chat";
 
 
   async function getResponse(question) {
