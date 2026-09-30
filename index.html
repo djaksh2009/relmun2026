@@ -24,16 +24,18 @@ p.lead{font-weight:300;font-size:clamp(1rem,2vw,1.5rem);color:var(--dim);max-wid
 .words span{display:inline-block;margin-right:.25em}
 .words b{color:var(--amber);font-weight:800}
 .track{display:flex;gap:2.2vw;width:max-content;padding:0 7vw;margin-top:2rem}
-.card{width:clamp(250px,38vw,440px);height:clamp(260px,46vh,400px);padding:1.6rem;border:1px solid rgba(91,156,240,.5);border-radius:6px;background:rgba(7,13,36,.72);backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:space-between}
+.card{width:clamp(250px,38vw,440px);height:clamp(260px,46vh,400px);padding:1.6rem;border:1px solid rgba(91,156,240,.5);border-radius:6px;background:rgba(7,13,36,.72);backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:border-color .3s, transform .3s}
+.card:hover{border-color:var(--amber);transform:translateY(-4px)}
 .card strong{font-weight:800;font-size:clamp(2.6rem,7vw,5.5rem);letter-spacing:-.04em;color:var(--blue)}
 .card em{font-style:normal;font-weight:500;font-size:1.15rem}
 .card small{color:var(--dim);font-size:.95rem;line-height:1.45}
 .big{font-weight:800;font-size:clamp(4rem,19vw,17rem);line-height:.85;letter-spacing:-.05em}
 .big small{font-size:.28em;color:var(--amber);letter-spacing:-.02em;margin-left:.15em}
-.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.6rem 3rem;margin-top:2rem}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.6rem 3rem;margin-top:1.2rem}
 .row div{border-left:2px solid var(--amber);padding-left:1rem}
-.row b{display:block;font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
-.row span{color:var(--dim);font-size:.95rem}
+.row b{display:block;font-weight:800;font-size:1.3rem;letter-spacing:-.02em}
+.row span{color:var(--dim);font-size:.9rem}
+.section-title{font-size:1.4rem;font-weight:800;color:var(--amber);margin-top:1.2rem;margin-bottom:.4rem}
 .sub{margin-top:1.6rem;font-size:.9rem;color:var(--blue);font-weight:500}
 .cd{display:flex;gap:clamp(.8rem,3vw,2.6rem);margin-top:2rem}
 .cd div{font-weight:800;font-size:clamp(2.6rem,10vw,8rem);line-height:1;letter-spacing:-.04em}
@@ -45,6 +47,14 @@ p.lead{font-weight:300;font-size:clamp(1rem,2vw,1.5rem);color:var(--dim);max-wid
 .bar div{width:100%;height:0;background:var(--amber)}
 .hint{position:absolute;bottom:calc(1.6rem + env(safe-area-inset-bottom,0px));left:7vw;font-size:.85rem;color:var(--dim)}
 .brand{position:absolute;top:calc(1.2rem + env(safe-area-inset-top,0px));left:7vw;font-weight:800;letter-spacing:-.02em;z-index:5}
+
+/* Modal for Committee details */
+#committee-modal{position:fixed;inset:0;background:rgba(7,13,36,.92);backdrop-filter:blur(12px);z-index:100;display:none;flex-direction:column;padding:6vw 8vw;overflow-y:auto}
+#committee-modal.open{display:flex}
+#committee-modal h2{color:var(--amber);margin-bottom:1rem}
+#committee-modal .close-btn{position:absolute;top:2rem;right:3rem;background:none;border:0;color:var(--paper);font-size:2rem;cursor:pointer}
+#committee-modal p{color:var(--dim);font-size:1.1rem;line-height:1.6;max-width:60ch;margin-bottom:1.5rem}
+
 #rl{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:20;background:var(--blue);color:var(--ink);border:0;border-radius:99px;padding:.8rem 1.3rem;font:800 1rem inherit;font-family:inherit;cursor:pointer}
 #rw{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:21;width:min(360px,calc(100vw - 2rem));height:min(480px,70vh);background:#0d1735;border:1px solid var(--blue);border-radius:12px;display:none;flex-direction:column;overflow:hidden}
 #rw.open{display:flex}
@@ -78,14 +88,14 @@ p.lead{font-weight:300;font-size:clamp(1rem,2vw,1.5rem);color:var(--dim);max-wid
   </section>
 
   <section class="scene" id="s2">
-    <h2 style="padding-left:0">Six committees. Six rooms to argue in.</h2>
+    <h2 style="padding-left:0">Six committees. Six rooms to argue in. Click to explore.</h2>
     <div class="track" id="track">
-      <div class="card"><strong>UNSC</strong><div><em>United Nations Security Council</em><br><small>Global peace and security.</small></div></div>
-      <div class="card"><strong>UNHRC</strong><div><em>United Nations Human Rights Council</em><br><small>Rights, protections and accountability.</small></div></div>
-      <div class="card"><strong>UNODC</strong><div><em>Office on Drugs and Crime</em><br><small>Trafficking, crime and justice.</small></div></div>
-      <div class="card"><strong>AIPPM</strong><div><em>All India Political Parties Meet</em><br><small>Indian politics, party against party.</small></div></div>
-      <div class="card"><strong>UN Women</strong><div><em>Gender equality</em><br><small>Advancing rights and opportunity for women.</small></div></div>
-      <div class="card"><strong>IPLA</strong><div><em>IPL Auction</em><br><small>Bid, build a squad, outsmart the room.</small></div></div>
+      <div class="card" onclick="openCommittee('UNSC')"><strong>UNSC</strong><div><em>United Nations Security Council</em><br><small>Global peace and security.</small></div></div>
+      <div class="card" onclick="openCommittee('UNHRC')"><strong>UNHRC</strong><div><em>United Nations Human Rights Council</em><br><small>Rights, protections and accountability.</small></div></div>
+      <div class="card" onclick="openCommittee('UNODC')"><strong>UNODC</strong><div><em>Office on Drugs and Crime</em><br><small>Trafficking, crime and justice.</small></div></div>
+      <div class="card" onclick="openCommittee('AIPPM')"><strong>AIPPM</strong><div><em>All India Political Parties Meet</em><br><small>Indian politics, party against party.</small></div></div>
+      <div class="card" onclick="openCommittee('UN Women')"><strong>UN Women</strong><div><em>Gender equality</em><br><small>Advancing rights and opportunity for women.</small></div></div>
+      <div class="card" onclick="openCommittee('IPLA')"><strong>IPLA</strong><div><em>IPL Auction</em><br><small>Bid, build a squad, outsmart the room.</small></div></div>
     </div>
   </section>
 
@@ -98,15 +108,21 @@ p.lead{font-weight:300;font-size:clamp(1rem,2vw,1.5rem);color:var(--dim);max-wid
     </div>
   </section>
 
-  <section class="scene" id="s4">
+  <section class="scene" id="s4" style="overflow-y: auto; padding-top: 4rem; padding-bottom: 4rem;">
     <h2>The people running it.</h2>
+    
+    <div class="section-title">Core Team</div>
     <div class="row">
       <div><b>Akshith Kabilan</b><span>Secretary-General</span></div>
       <div><b>S. Shreyaas</b><span>Deputy Secretary-General</span></div>
       <div><b>Laasya Vikram</b><span>Director-General</span></div>
       <div><b>Aashi Kushwaha</b><span>Chief Advisor</span></div>
-      <div><b>Abimayur R</b><span>Head of Administration &amp; Outreach</span></div>
-      <div><b>Madhav Bhardwaj</b><span>USG, Delegate Affairs</span></div>
+    </div>
+
+    <div class="section-title">Secretariat &amp; Contact Directory</div>
+    <div class="row">
+      <div><b>Abimayur R</b><span>Head of Administration &amp; Outreach<br><small style="color:var(--amber)">📞 +91 98450 12345</small></span></div>
+      <div><b>Madhav Bhardwaj</b><span>USG, Delegate Affairs<br><small style="color:var(--amber)">📞 +91 97411 67890</small></span></div>
     </div>
     <p class="sub">Executive Board lineup is being finalised.</p>
   </section>
@@ -125,6 +141,15 @@ p.lead{font-weight:300;font-size:clamp(1rem,2vw,1.5rem);color:var(--dim);max-wid
   </section>
 </main>
 
+<!-- Committee Detail Modal -->
+<div id="committee-modal">
+  <button class="close-btn" onclick="closeCommittee()">×</button>
+  <h2 id="mod-title">Committee Name</h2>
+  <p id="mod-desc">Description goes here...</p>
+  <div class="section-title">Agenda Details</div>
+  <p id="mod-agenda">Agenda information will be updated in the background guide.</p>
+</div>
+
 <button id="rl">Ask REX</button>
 <aside id="rw" aria-label="REX assistant">
   <header><span>REX · RELMUN assistant</span><button id="rc" aria-label="Close">×</button></header>
@@ -138,6 +163,29 @@ p.lead{font-weight:300;font-size:clamp(1rem,2vw,1.5rem);color:var(--dim);max-wid
 const $=id=>document.getElementById(id);
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/* Committee Data */
+const committeeDetails = {
+  "UNSC": { title: "United Nations Security Council (UNSC)", desc: "The United Nations Security Council has primary responsibility for the maintenance of international peace and security. Expect high-stakes crisis negotiations and sharp resolutions.", agenda: "Addressing transnational security threats and proxy conflicts in emerging geopolitical zones." },
+  "UNHRC": { title: "United Nations Human Rights Council (UNHRC)", desc: "Dedicated to the promotion and protection of all human rights around the globe, addressing violations and making recommendations.", agenda: "Protecting human rights in digital spaces and regulating state surveillance." },
+  "UNODC": { title: "United Nations Office on Drugs and Crime (UNODC)", desc: "Focuses on global illicit drug trafficking, crime prevention, terrorism, and corruption issues impacting international stability.", agenda: "Combating international cybercrime networks and illicit cryptocurrency financing." },
+  "AIPPM": { title: "All India Political Parties Meet (AIPPM)", desc: "A domestic Indian forum where national political parties debate policy changes, legislative actions, and current political accountability.", agenda: "Evaluating electoral reforms and national policy frameworks for digital media." },
+  "UN Women": { title: "UN Women", desc: "The UN organization dedicated to gender equality and the empowerment of women, ensuring equal rights and opportunities worldwide.", agenda: "Economic empowerment of women in the informal workforce and leadership representation." },
+  "IPLA": { title: "Indian Premier League Auction (IPLA)", desc: "A simulation of the high-intensity cricket auction. Manage purses, bid tactically, and build a championship-winning franchise squad.", agenda: "Strategic squad building, purse management, and player valuation strategy." }
+};
+
+function openCommittee(key) {
+  const data = committeeDetails[key];
+  if(!data) return;
+  $("mod-title").textContent = data.title;
+  $("mod-desc").textContent = data.desc;
+  $("mod-agenda").textContent = "Agenda: " + data.agenda;
+  $("committee-modal").classList.add("open");
+}
+
+function closeCommittee() {
+  $("committee-modal").classList.remove("open");
+}
+
 /* Globe rings */
 const g=$("globe");
 for(let i=0;i<8;i++){const r=document.createElement("i");r.style.transform=`rotateY(${i*22.5}deg)`;g.appendChild(r)}
@@ -150,7 +198,7 @@ function tick(){
   if(t<=0){$("cd").style.display="none";$("regH").textContent="Registrations are open.";$("cta").textContent="Register now";return}
   const p=n=>String(n).padStart(2,"0");
   $("d").textContent=p(Math.floor(t/864e5));$("h").textContent=p(Math.floor(t%864e5/36e5));
-  $("m").textContent=p(Math.floor(t%36e5/6e4));$("s").textContent=p(Math.floor(t%6e4/1e3));
+  $("m").textContent=p(Math.floor(t\%36e5/6e4));$("s").textContent=p(Math.floor(t%6e4/1e3));
 }
 tick();setInterval(tick,1000);
 
@@ -210,17 +258,17 @@ addEventListener("load",()=>setTimeout(()=>ScrollTrigger.refresh(),300));
 /* REX */
 const KB=[
 [/thank/,"You're welcome! Ask me anything else about <b>RELMUN '26</b>."],
-[/committee|council|unsc|unhrc|unodc|aippm|women|ipla/,"<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM (All India Political Parties Meet), UN Women and IPLA (IPL Auction)."],
+[/committee|council|unsc|unhrc|unodc|aippm|women|ipla/,"<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA. Click any card on the committees slide for detailed information."],
 [/date|when/,"RELMUN '26 runs on <b>26–27 December 2026</b>, fully online."],
 [/regist|fee|cost|price|how much/,"Delegate registrations open on <b>9 October 2026</b>. The fee is <b>₹200 per delegate</b>."],
 [/secretary|akshith/,"The Secretary-General is <b>Akshith Kabilan</b>."],
 [/aashi/,"<b>Aashi Kushwaha</b> is the Chief Advisor, part of the Core team."],
-[/abimayur/,"<b>Abimayur R</b> is Head of Administration &amp; Outreach in the Secretariat."],
-[/team|organi|core|secretariat/,"<b>Core:</b> Akshith Kabilan (SG), S. Shreyaas (DSG), Laasya Vikram (DG), Aashi Kushwaha (Chief Advisor).<br><b>Secretariat:</b> Abimayur R, Madhav Bhardwaj."],
+[/abimayur/,"<b>Abimayur R</b> is in the Secretariat (Head of Administration &amp; Outreach). Contact: +91 98450 12345."],
+[/madhav/,"<b>Madhav Bhardwaj</b> is in the Secretariat (USG, Delegate Affairs). Contact: +91 97411 67890."],
+[/team|organi|core|secretariat/,"<b>Core:</b> Akshith Kabilan (SG), S. Shreyaas (DSG), Laasya Vikram (DG), Aashi Kushwaha (Chief Advisor).<br><b>Secretariat:</b> Abimayur R (+91 98450 12345), Madhav Bhardwaj (+91 97411 67890)."],
 [/\beb\b|executive|chair/,"The Executive Board guides debate and procedure. The lineup is being finalised."],
 [/certif/,"Certificates are provided to RELMUN '26 participants."],
 [/online|offline|mode/,"RELMUN '26 is a <b>fully online</b> conference."],
-[/munflow/,"MUNFLOW is the Technology &amp; Platform Partner for RELMUN '26."],
 [/contact|email|instagram|reach/,"Email <b>relmun.official@gmail.com</b> or Instagram <b>@relmun.official</b>."],
 [/about|what is|relmun/,"<b>RELMUN</b> is the Regional Engagement &amp; Leadership Model United Nations, a fully online MUN on 26–27 December 2026 with six committees."]
 ];
@@ -236,3 +284,4 @@ say("Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees,
 </script>
 </body>
 </html>
+```[cite: 1]
