@@ -33,9 +33,13 @@ html,body{
   overflow-x:hidden;
 }
 
-body{min-height:100vh;}
+body{
+  min-height:100vh;
+}
 
-button,input{font-family:inherit;}
+button,input{
+  font-family:inherit;
+}
 
 .stage{
   position:relative;
@@ -96,7 +100,9 @@ h1{
   letter-spacing:-.055em;
 }
 
-h1 span{display:inline-block;}
+h1 span{
+  display:inline-block;
+}
 
 h1 .o{
   color:transparent;
@@ -247,11 +253,17 @@ p.lead{
   font-weight:500;
 }
 
-/* TEAM */
+/* =========================================
+   TEAM
+========================================= */
 
-.team-heading{margin-bottom:1.4rem;}
+.team-heading{
+  margin-bottom:1.4rem;
+}
 
-.team-group{width:min(100%,1000px);}
+.team-group{
+  width:min(100%,1000px);
+}
 
 .team-section-label{
   margin-top:1rem;
@@ -304,13 +316,22 @@ p.lead{
 .team-divider{
   width:min(100%,1000px);
   height:1px;
-  background:rgba(91,156,240,.28);
-  margin:1.35rem 0 .3rem;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(91,156,240,.65),
+    transparent
+  );
+  margin:1.6rem 0 .5rem;
 }
 
-/* REGISTRATION */
+/* =========================================
+   REGISTRATION
+========================================= */
 
-.registration-scene{justify-content:center;}
+.registration-scene{
+  justify-content:center;
+}
 
 .cd{
   display:flex;
@@ -352,11 +373,17 @@ input:focus-visible{
   outline-offset:3px;
 }
 
-/* CONTACT */
+/* =========================================
+   CONTACT
+========================================= */
 
-.contact-scene{justify-content:center;}
+.contact-scene{
+  justify-content:center;
+}
 
-.contact-wrap{width:min(100%,1050px);}
+.contact-wrap{
+  width:min(100%,1050px);
+}
 
 .contact-kicker{
   color:var(--amber);
@@ -366,7 +393,9 @@ input:focus-visible{
   margin-bottom:.8rem;
 }
 
-.contact-title{max-width:12ch;}
+.contact-title{
+  max-width:12ch;
+}
 
 .contact-note{
   color:var(--dim);
@@ -403,7 +432,10 @@ input:focus-visible{
   background:rgba(15,27,59,.8);
 }
 
-.contact-person b{display:block;font-size:1rem;}
+.contact-person b{
+  display:block;
+  font-size:1rem;
+}
 
 .contact-person span{
   display:block;
@@ -466,7 +498,9 @@ input:focus-visible{
   margin-top:.2rem;
 }
 
-/* HUD */
+/* =========================================
+   HUD
+========================================= */
 
 .hud{
   position:absolute;
@@ -512,7 +546,9 @@ input:focus-visible{
   z-index:5;
 }
 
-/* REX */
+/* =========================================
+   REX
+========================================= */
 
 #rl{
   position:fixed;
@@ -544,7 +580,9 @@ input:focus-visible{
   box-shadow:0 25px 80px rgba(0,0,0,.4);
 }
 
-#rw.open{display:flex;}
+#rw.open{
+  display:flex;
+}
 
 #rw header{
   padding:.8rem 1rem;
@@ -609,7 +647,9 @@ input:focus-visible{
   cursor:pointer;
 }
 
-/* COMMITTEE DETAIL */
+/* =========================================
+   COMMITTEE DETAIL
+========================================= */
 
 #committeePage{
   position:fixed;
@@ -623,14 +663,16 @@ input:focus-visible{
   opacity:0;
 }
 
-#committeePage.open{display:block;}
+#committeePage.open{
+  display:block;
+}
 
 .committee-inner{
   min-height:100%;
   padding:
     max(2rem,env(safe-area-inset-top))
     7vw
-    max(3rem,env(safe-area-inset-bottom));
+    max(4rem,env(safe-area-inset-bottom));
   position:relative;
 }
 
@@ -681,86 +723,50 @@ input:focus-visible{
 
 .committee-description{
   margin-top:1.5rem;
-  max-width:750px;
+  max-width:720px;
   color:var(--dim);
   font-size:1.1rem;
   line-height:1.7;
 }
 
-/* NEW COMMITTEE CONTENT */
+/* AGENDA */
 
-.committee-content{
-  width:min(100%,1050px);
+.agenda-block{
   margin-top:3rem;
-}
-
-.committee-block{
+  max-width:1000px;
   border-top:1px solid var(--line);
-  padding:1.4rem 0;
+  padding-top:1.5rem;
 }
 
-.committee-block-label{
+.agenda-label{
   color:var(--amber);
-  font-size:.7rem;
-  font-weight:800;
+  font-size:.72rem;
   letter-spacing:.18em;
-  margin-bottom:.75rem;
+  font-weight:800;
 }
 
-.committee-agenda{
-  font-size:clamp(1.1rem,2.2vw,1.65rem);
-  line-height:1.45;
+.agenda-text{
+  margin-top:.8rem;
+  font-size:clamp(1.1rem,2vw,1.45rem);
+  line-height:1.5;
   max-width:900px;
 }
 
-.committee-freeze{
-  color:var(--paper);
-  font-size:1rem;
+.freeze-date{
+  margin-top:.8rem;
+  color:var(--blue);
+  font-size:.85rem;
+  font-weight:700;
 }
 
-.committee-freeze span{
-  color:var(--dim);
-}
-
-.committee-eb{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(220px,1fr));
-  gap:1rem;
-}
-
-.eb-card{
-  border:1px solid var(--line);
-  padding:1.2rem;
-  background:rgba(7,13,36,.5);
-}
-
-.eb-card b{
-  display:block;
-  font-size:1rem;
-}
-
-.eb-card span{
-  display:block;
-  color:var(--dim);
-  font-size:.8rem;
-  margin-top:.3rem;
-}
-
-.coming-soon{
-  display:inline-flex;
-  border:1px solid var(--line);
-  padding:.7rem 1rem;
-  color:var(--dim);
-  font-size:.8rem;
-  letter-spacing:.08em;
-}
+/* INFO */
 
 .committee-info{
   display:grid;
   grid-template-columns:repeat(3,minmax(150px,1fr));
   gap:1rem;
   max-width:900px;
-  margin-top:3rem;
+  margin-top:2.5rem;
 }
 
 .committee-info-box{
@@ -776,7 +782,75 @@ input:focus-visible{
   margin-bottom:.5rem;
 }
 
-.committee-info-box strong{font-size:1rem;}
+.committee-info-box strong{
+  font-size:1rem;
+}
+
+/* EXECUTIVE BOARD */
+
+.eb-section{
+  max-width:900px;
+  margin-top:3rem;
+}
+
+.eb-heading{
+  color:var(--amber);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  font-weight:800;
+}
+
+.eb-card{
+  margin-top:1rem;
+  border:1px solid var(--line);
+  background:rgba(7,13,36,.55);
+  padding:1.2rem;
+}
+
+.eb-card strong{
+  display:block;
+  font-size:1rem;
+}
+
+.eb-card span{
+  display:block;
+  color:var(--dim);
+  margin-top:.3rem;
+  font-size:.85rem;
+}
+
+.eb-coming{
+  color:var(--dim);
+  font-size:.9rem;
+}
+
+/* DOCUMENTS */
+
+.documents-section{
+  max-width:900px;
+  margin-top:2rem;
+}
+
+.documents-heading{
+  color:var(--amber);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  font-weight:800;
+}
+
+.document-box{
+  margin-top:1rem;
+  border:1px dashed rgba(91,156,240,.45);
+  padding:1.3rem;
+  color:var(--dim);
+  background:rgba(7,13,36,.35);
+}
+
+.document-box strong{
+  color:var(--paper);
+}
+
+/* CONTACT */
 
 .contact-strip{
   margin-top:3rem;
@@ -836,9 +910,20 @@ input:focus-visible{
   margin-top:.3rem;
 }
 
+.committee-register{
+  display:inline-block;
+  margin-top:2rem;
+  padding:1rem 1.6rem;
+  background:var(--amber);
+  color:var(--ink);
+  border-radius:99px;
+  text-decoration:none;
+  font-weight:800;
+}
+
 .committee-back{
   display:inline-block;
-  margin-top:3rem;
+  margin-top:1.5rem;
   padding:.9rem 1.5rem;
   border:1px solid var(--blue);
   color:var(--paper);
@@ -852,7 +937,9 @@ input:focus-visible{
   color:var(--ink);
 }
 
-/* PHONE CHOICE */
+/* =========================================
+   PHONE CHOICE
+========================================= */
 
 .contact-choice{
   position:fixed;
@@ -935,7 +1022,9 @@ input:focus-visible{
   transform:translateY(-3px);
 }
 
-/* RESPONSIVE */
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media(max-width:900px){
 
@@ -954,14 +1043,17 @@ input:focus-visible{
   .committee-info{
     grid-template-columns:1fr 1fr;
   }
-
 }
 
 @media(max-width:640px){
 
-  .hud{display:none;}
+  .hud{
+    display:none;
+  }
 
-  .card{height:44vh;}
+  .card{
+    height:44vh;
+  }
 
   #s4{
     justify-content:flex-start;
@@ -1021,7 +1113,9 @@ input:focus-visible{
     font-size:clamp(2.2rem,10vw,4rem);
   }
 
-  .contact-note{font-size:.9rem;}
+  .contact-note{
+    font-size:.9rem;
+  }
 
   .contact-people{
     grid-template-columns:1fr;
@@ -1034,7 +1128,9 @@ input:focus-visible{
     padding:.9rem;
   }
 
-  .contact-person small{margin-top:.6rem;}
+  .contact-person small{
+    margin-top:.6rem;
+  }
 
   .contact-main-links{
     grid-template-columns:1fr;
@@ -1056,10 +1152,6 @@ input:focus-visible{
     padding-top:5rem;
   }
 
-  .committee-eb{
-    grid-template-columns:1fr;
-  }
-
   .contact-links{
     grid-template-columns:1fr;
   }
@@ -1067,7 +1159,6 @@ input:focus-visible{
   .contact-choice-buttons{
     grid-template-columns:1fr;
   }
-
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1084,13 +1175,14 @@ input:focus-visible{
     opacity:1;
   }
 
-  .globe{display:none;}
+  .globe{
+    display:none;
+  }
 
   .track{
     flex-wrap:wrap;
     width:auto;
   }
-
 }
 
 </style>
@@ -1113,7 +1205,9 @@ input:focus-visible{
 </div>
 
 
-<!-- HERO -->
+<!-- =========================================
+     01 — HERO
+========================================= -->
 
 <section class="scene on" id="s0">
 
@@ -1134,7 +1228,9 @@ input:focus-visible{
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================================
+     02 — ABOUT
+========================================= -->
 
 <section class="scene" id="s1">
 
@@ -1156,7 +1252,9 @@ input:focus-visible{
 </section>
 
 
-<!-- COMMITTEES -->
+<!-- =========================================
+     03 — COMMITTEES
+========================================= -->
 
 <section class="scene" id="s2">
 
@@ -1188,7 +1286,7 @@ input:focus-visible{
     <div class="card committee-card" data-committee="UNODC">
       <strong>UNODC</strong>
       <div>
-        <em>Office on Drugs and Crime</em><br>
+        <em>United Nations Office on Drugs and Crime</em><br>
         <small>Trafficking, crime and justice.</small>
         <span class="open-label">OPEN COMMITTEE ↗</span>
       </div>
@@ -1198,7 +1296,7 @@ input:focus-visible{
       <strong>AIPPM</strong>
       <div>
         <em>All India Political Parties Meet</em><br>
-        <small>Indian politics, party against party.</small>
+        <small>Indian politics and parliamentary debate.</small>
         <span class="open-label">OPEN COMMITTEE ↗</span>
       </div>
     </div>
@@ -1207,7 +1305,7 @@ input:focus-visible{
       <strong>UN Women</strong>
       <div>
         <em>UN Women</em><br>
-        <small>Advancing rights and opportunity for women.</small>
+        <small>Gender equality and women's empowerment.</small>
         <span class="open-label">OPEN COMMITTEE ↗</span>
       </div>
     </div>
@@ -1226,7 +1324,9 @@ input:focus-visible{
 </section>
 
 
-<!-- CONFERENCE -->
+<!-- =========================================
+     04 — CONFERENCE
+========================================= -->
 
 <section class="scene" id="s3">
 
@@ -1256,7 +1356,9 @@ input:focus-visible{
 </section>
 
 
-<!-- TEAM -->
+<!-- =========================================
+     05 — TEAM
+========================================= -->
 
 <section class="scene" id="s4">
 
@@ -1323,7 +1425,9 @@ input:focus-visible{
 </section>
 
 
-<!-- REGISTRATION -->
+<!-- =========================================
+     06 — REGISTRATION
+========================================= -->
 
 <section class="scene registration-scene" id="s5">
 
@@ -1360,7 +1464,6 @@ input:focus-visible{
   </div>
 
   <div>
-
     <a
       class="cta"
       id="cta"
@@ -1368,7 +1471,6 @@ input:focus-visible{
     >
       Email us to register
     </a>
-
   </div>
 
   <p class="sub">
@@ -1379,7 +1481,9 @@ input:focus-visible{
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================================
+     07 — CONTACT
+========================================= -->
 
 <section class="scene contact-scene" id="s6">
 
@@ -1477,7 +1581,9 @@ input:focus-visible{
 </main>
 
 
-<!-- COMMITTEE DETAIL PAGE -->
+<!-- =========================================
+     COMMITTEE DETAIL PAGE
+========================================= -->
 
 <section id="committeePage">
 
@@ -1508,68 +1614,26 @@ input:focus-visible{
     </p>
 
 
-    <!-- AGENDA / EB / DOCUMENTS -->
+    <!-- AGENDA -->
 
-    <div class="committee-content">
+    <div class="agenda-block">
 
-      <div class="committee-block">
-
-        <div class="committee-block-label">
-          AGENDA
-        </div>
-
-        <div class="committee-agenda" id="committeeAgenda">
-          The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan
-        </div>
-
+      <div class="agenda-label">
+        AGENDA
       </div>
 
-
-      <div class="committee-block" id="freezeBlock">
-
-        <div class="committee-block-label">
-          FREEZE DATE
-        </div>
-
-        <div class="committee-freeze" id="committeeFreeze">
-          <span>Freeze Date:</span> 5 September 1972
-        </div>
-
+      <div class="agenda-text" id="committeeAgenda">
+        The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan
       </div>
 
-
-      <div class="committee-block">
-
-        <div class="committee-block-label">
-          EXECUTIVE BOARD
-        </div>
-
-        <div class="committee-eb" id="committeeEB">
-
-          <div class="eb-card">
-            <b>Coming Soon</b>
-            <span>Executive Board details will be announced.</span>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="committee-block">
-
-        <div class="committee-block-label">
-          COMMITTEE DOCUMENTS
-        </div>
-
-        <div class="coming-soon">
-          DOCUMENTS COMING SOON
-        </div>
-
+      <div class="freeze-date" id="committeeFreeze">
+        Freeze Date: 5 September 1972
       </div>
 
     </div>
 
+
+    <!-- BASIC INFO -->
 
     <div class="committee-info">
 
@@ -1590,6 +1654,52 @@ input:focus-visible{
 
     </div>
 
+
+    <!-- EXECUTIVE BOARD -->
+
+    <div class="eb-section">
+
+      <div class="eb-heading">
+        EXECUTIVE BOARD
+      </div>
+
+      <div class="eb-card" id="committeeEB">
+        <strong>Executive Board details coming soon.</strong>
+        <span>
+          The appointed Executive Board for this committee will be announced here.
+        </span>
+      </div>
+
+    </div>
+
+
+    <!-- COMMITTEE DOCUMENTS -->
+
+    <div class="documents-section">
+
+      <div class="documents-heading">
+        COMMITTEE DOCUMENTS
+      </div>
+
+      <div class="document-box">
+        <strong>Documents coming soon.</strong><br>
+        Background guides, committee documents and other resources will be published here.
+      </div>
+
+    </div>
+
+
+    <!-- COMMITTEE REGISTRATION -->
+
+    <a
+      class="committee-register"
+      href="mailto:relmun.official@gmail.com?subject=RELMUN%20'26%20Committee%20Registration"
+    >
+      REGISTER FOR RELMUN ↗
+    </a>
+
+
+    <!-- COMMITTEE CONTACT -->
 
     <div class="contact-strip">
 
@@ -1621,6 +1731,7 @@ input:focus-visible{
 
     </div>
 
+
     <a href="#" class="committee-back" id="committeeBack">
       ← BACK TO RELMUN
     </a>
@@ -1630,7 +1741,9 @@ input:focus-visible{
 </section>
 
 
-<!-- PHONE / WHATSAPP CHOICE -->
+<!-- =========================================
+     PHONE / WHATSAPP CHOICE
+========================================= -->
 
 <div id="contactChoice" class="contact-choice">
 
@@ -1678,7 +1791,9 @@ input:focus-visible{
 </div>
 
 
-<!-- REX -->
+<!-- =========================================
+     REX
+========================================= -->
 
 <button id="rl">
   Ask REX
@@ -1725,12 +1840,12 @@ input:focus-visible{
 const $ = id => document.getElementById(id);
 
 const reduce =
-  matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 
-/* GLOBE */
+/* =========================================
+   GLOBE
+========================================= */
 
 const g = $("globe");
 
@@ -1761,12 +1876,12 @@ for(let i=0;i<8;i++){
 });
 
 
-/* COUNTDOWN */
+/* =========================================
+   COUNTDOWN
+========================================= */
 
 const target =
-  new Date(
-    "2026-10-09T00:00:00+05:30"
-  ).getTime();
+  new Date("2026-10-09T00:00:00+05:30").getTime();
 
 function tick(){
 
@@ -1803,10 +1918,13 @@ function tick(){
 }
 
 tick();
+
 setInterval(tick,1000);
 
 
-/* MAIN GSAP */
+/* =========================================
+   MAIN GSAP EXPERIENCE
+========================================= */
 
 if(!reduce){
 
@@ -1833,6 +1951,7 @@ if(!reduce){
         }
 
         sp.appendChild(l);
+
         letters.push(l);
 
       });
@@ -1869,10 +1988,15 @@ if(!reduce){
       scrollTrigger:{
 
         trigger:"#stage",
+
         start:"top top",
+
         end:"+=1750%",
+
         pin:true,
+
         scrub:1,
+
         anticipatePin:1,
 
         onUpdate:s=>{
@@ -1883,8 +2007,11 @@ if(!reduce){
               Math.floor(s.progress*7)
             );
 
-          $("cur").textContent=i+1;
-          $("fill").style.height=s.progress*100+"%";
+          $("cur").textContent =
+            i+1;
+
+          $("fill").style.height =
+            s.progress*100+"%";
 
         }
 
@@ -1897,7 +2024,9 @@ if(!reduce){
 
     tl.set(
       el,
-      {className:"scene on"},
+      {
+        className:"scene on"
+      },
       t
     );
 
@@ -1935,7 +2064,9 @@ if(!reduce){
 
     tl.set(
       el,
-      {className:"scene"},
+      {
+        className:"scene"
+      },
       t+.7
     );
 
@@ -1952,6 +2083,8 @@ if(!reduce){
     0
   );
 
+
+  /* HERO → ABOUT */
 
   hide(sc[0],1);
 
@@ -1988,6 +2121,8 @@ if(!reduce){
 
   hide(sc[1],4.6);
 
+
+  /* ABOUT → COMMITTEES */
 
   tl.to(
     g,
@@ -2028,6 +2163,8 @@ if(!reduce){
   hide(sc[2],9.8);
 
 
+  /* COMMITTEES → CONFERENCE */
+
   tl.to(
     g,
     {
@@ -2053,6 +2190,8 @@ if(!reduce){
   hide(sc[3],12.5);
 
 
+  /* CONFERENCE → TEAM */
+
   tl.to(
     g,
     {
@@ -2074,6 +2213,8 @@ if(!reduce){
 
   show(sc[4],13.3);
 
+
+  /* TEAM */
 
   tl.from(
     "#s4 .team-heading",
@@ -2110,6 +2251,8 @@ if(!reduce){
   );
 
 
+  /* TEAM → REGISTRATION */
+
   hide(sc[4],18.2);
 
   tl.to(
@@ -2134,10 +2277,14 @@ if(!reduce){
 
   tl.to(
     {},
-    {duration:2.8},
+    {
+      duration:2.8
+    },
     19
   );
 
+
+  /* REGISTRATION → CONTACT */
 
   hide(sc[5],21.8);
 
@@ -2163,6 +2310,8 @@ if(!reduce){
 
   show(sc[6],22.6);
 
+
+  /* CONTACT ANIMATION */
 
   tl.from(
     "#s6 .contact-kicker",
@@ -2218,6 +2367,8 @@ if(!reduce){
   );
 
 
+  /* MAGNETIC CTA */
+
   const c=$("cta");
 
   c.addEventListener("mousemove",e=>{
@@ -2254,56 +2405,119 @@ if(!reduce){
 }
 
 
-/* COMMITTEE DATA */
+/* =========================================
+   COMMITTEE DATA
+========================================= */
 
 const committees={
 
   "UNSC":{
     title:"United Nations Security Council",
-    description:"Global peace and security.",
-    agenda:"The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan",
-    freeze:"5 September 1972"
+
+    description:
+      "The principal United Nations body responsible for addressing threats to international peace and security.",
+
+    agenda:
+      "The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan",
+
+    freeze:
+      "Freeze Date: 5 September 1972",
+
+    eb:
+      "Executive Board details coming soon."
   },
+
 
   "UNHRC":{
     title:"United Nations Human Rights Council",
-    description:"Rights, protections and accountability.",
-    agenda:"Addressing Psychological Torture, Coercive Interrogation, and Inhumane Treatment in Detention Systems",
-    freeze:null
+
+    description:
+      "A forum focused on the promotion and protection of human rights and addressing violations around the world.",
+
+    agenda:
+      "Addressing Psychological Torture, Coercive Interrogation, and Inhumane Treatment in Detention Systems",
+
+    freeze:
+      "",
+
+    eb:
+      "Executive Board details coming soon."
   },
+
 
   "UNODC":{
     title:"United Nations Office on Drugs and Crime",
-    description:"Trafficking, crime and justice.",
-    agenda:"Combating the Rise of Transnational Organized Crime Enabled by Digital Technologies, with Special Emphasis on Online Scam Networks and Illicit Financial Flows",
-    freeze:null
+
+    description:
+      "A committee focused on international cooperation against organized crime, trafficking and illicit financial activity.",
+
+    agenda:
+      "Combating the Rise of Transnational Organized Crime Enabled by Digital Technologies, with Special Emphasis on Online Scam Networks and Illicit Financial Flows",
+
+    freeze:
+      "",
+
+    eb:
+      "Executive Board details coming soon."
   },
+
 
   "AIPPM":{
     title:"All India Political Parties Meet",
-    description:"Indian politics, party against party.",
-    agenda:"Re-evaluating the Reservation System: Affirmative Action, Socio-Economic Criteria, and Creamy Layer Implementation",
-    freeze:null
+
+    description:
+      "A parliamentary-style committee centred on Indian political affairs, policy debate and negotiation between political parties.",
+
+    agenda:
+      "Re-evaluating the Reservation System: Affirmative Action, Socio-Economic Criteria, and Creamy Layer Implementation",
+
+    freeze:
+      "",
+
+    eb:
+      "Executive Board details coming soon."
   },
+
 
   "UN Women":{
     title:"UN Women",
-    description:"Gender equality and advancing rights and opportunity for women.",
-    agenda:"TBA",
-    freeze:null
+
+    description:
+      "A forum addressing gender equality, women's rights and the advancement of opportunities for women.",
+
+    agenda:
+      "Agenda to be announced",
+
+    freeze:
+      "",
+
+    eb:
+      "Executive Board details coming soon."
   },
+
 
   "IPLA":{
     title:"IPL Auction",
-    description:"Bid, build a squad, and outsmart the room.",
-    agenda:"The Indian Premier League Auction",
-    freeze:null
+
+    description:
+      "A competitive simulation of the Indian Premier League auction, where delegates bid, strategise and build their squads.",
+
+    agenda:
+      "The Indian Premier League Auction",
+
+    freeze:
+      "",
+
+    eb:
+      "Executive Board details coming soon."
   }
 
 };
 
 
-/* COMMITTEE PAGE */
+/* =========================================
+   COMMITTEE PAGE
+========================================= */
 
 const committeePage=$("committeePage");
 
@@ -2314,24 +2528,27 @@ function openCommittee(code){
   if(!data)return;
 
   $("committeeCode").textContent=code;
+
   $("committeeTitle").textContent=data.title;
-  $("committeeDescription").textContent=data.description;
-  $("committeeAgenda").textContent=data.agenda;
 
-  const freezeBlock=$("freezeBlock");
+  $("committeeDescription").textContent=
+    data.description;
 
-  if(data.freeze){
+  $("committeeAgenda").textContent=
+    data.agenda;
 
-    freezeBlock.style.display="block";
+  $("committeeFreeze").textContent=
+    data.freeze;
 
-    $("committeeFreeze").innerHTML =
-      `<span>Freeze Date:</span> ${data.freeze}`;
+  $("committeeFreeze").style.display =
+    data.freeze ? "block" : "none";
 
-  }else{
-
-    freezeBlock.style.display="none";
-
-  }
+  $("committeeEB").innerHTML=`
+    <strong>${data.eb}</strong>
+    <span>
+      The appointed Executive Board for this committee will be announced here.
+    </span>
+  `;
 
   committeePage.classList.add("open");
 
@@ -2358,7 +2575,7 @@ function openCommittee(code){
       {
         opacity:1,
         y:0,
-        stagger:.07,
+        stagger:.06,
         duration:.5,
         delay:.12,
         ease:"power3.out"
@@ -2372,6 +2589,7 @@ function openCommittee(code){
   }
 
 }
+
 
 function closeCommittee(){
 
@@ -2403,6 +2621,7 @@ function closeCommittee(){
 
 }
 
+
 document
   .querySelectorAll(".committee-card")
   .forEach(card=>{
@@ -2418,11 +2637,13 @@ document
 
   });
 
+
 $("committeeClose")
   .addEventListener(
     "click",
     closeCommittee
   );
+
 
 $("committeeBack")
   .addEventListener(
@@ -2432,6 +2653,7 @@ $("committeeBack")
       closeCommittee();
     }
   );
+
 
 document.addEventListener(
   "keydown",
@@ -2448,98 +2670,250 @@ document.addEventListener(
 );
 
 
-/* REX */
+/* =========================================
+   REX — KNOWLEDGE BASE
+========================================= */
+
+/*
+   IMPORTANT:
+   Specific intents are checked BEFORE
+   generic words such as "when", "date",
+   "contact", etc.
+*/
 
 const KB=[
 
-  [
-    /thank/,
-    "You're welcome! Ask me anything else about <b>RELMUN '26</b>."
-  ],
+  /* REGISTRATION — MUST COME FIRST */
 
-  [
-    /committee|council|unsc|unhrc|unodc|aippm|women|ipla/,
-    "<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA."
-  ],
+  {
+    test:q =>
+      /(where|how|link|place).*(register|registration|registrations)/i.test(q)
+      ||
+      /(register|registration|registrations).*(where|how|link|place)/i.test(q),
 
-  [
-    /agenda/,
-    "You can click any committee card to view its agenda, freeze date where applicable, Executive Board information and committee documents."
-  ],
+    answer:
+      "Delegate registrations open on <b>9 October 2026</b>. The delegate fee is <b>₹200 per delegate</b>. The registration link will be made available when registrations open."
+  },
 
-  [
-    /date|when/,
-    "RELMUN '26 runs on <b>26–27 December 2026</b>, fully online."
-  ],
+  {
+    test:q =>
+      /(when|what date|date).*(register|registration|registrations).*(open|start)/i.test(q)
+      ||
+      /(register|registration|registrations).*(open|start).*(when|what date)/i.test(q),
 
-  [
-    /regist|fee|cost|price|how much/,
-    "Delegate registrations open on <b>9 October 2026</b>. The delegate fee is <b>₹200 per delegate</b>."
-  ],
+    answer:
+      "Delegate registrations open on <b>9 October 2026</b>."
+  },
 
-  [
-    /secretary|akshith/,
-    "The Secretary-General is <b>Akshith Kabilan</b>, part of the Core team."
-  ],
+  {
+    test:q =>
+      /(registration|register|registrations|fee|cost|price|delegate fee)/i.test(q),
 
-  [
-    /shreyaas/,
-    "<b>S. Shreyaas</b> is the Deputy Secretary-General and is part of the <b>Core</b> team."
-  ],
+    answer:
+      "Delegate registrations open on <b>9 October 2026</b>. The delegate fee is <b>₹200 per delegate</b>. The registration link will be published when registrations open."
+  },
 
-  [
-    /laasya/,
-    "<b>Laasya Vikram</b> is the Director-General and is part of the <b>Core</b> team."
-  ],
 
-  [
-    /aashi/,
-    "<b>Aashi Kushwaha</b> is the Chief Advisor and is part of the <b>Core</b> team."
-  ],
+  /* COMMITTEES */
 
-  [
-    /abimayur/,
-    "<b>Abimayur R</b> is Head of Administration &amp; Outreach and is part of the <b>Secretariat</b>."
-  ],
+  {
+    test:q =>
+      /\b(unsc|security council)\b/i.test(q),
 
-  [
-    /madhav/,
-    "<b>Madhav Bhardwaj</b> is USG, Delegate Affairs and is part of the <b>Secretariat</b>."
-  ],
+    answer:
+      "<b>UNSC</b> — United Nations Security Council.<br><br><b>Agenda:</b> The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan.<br><b>Freeze Date:</b> 5 September 1972."
+  },
 
-  [
-    /team|organi|core|secretariat/,
-    "<b>Core:</b> Akshith Kabilan, S. Shreyaas, Laasya Vikram and Aashi Kushwaha.<br><br><b>Secretariat:</b> Abimayur R and Madhav Bhardwaj."
-  ],
+  {
+    test:q =>
+      /\b(unhrc|human rights council)\b/i.test(q),
 
-  [
-    /certif/,
-    "Certificates are provided to RELMUN '26 participants."
-  ],
+    answer:
+      "<b>UNHRC</b> — United Nations Human Rights Council.<br><br><b>Agenda:</b> Addressing Psychological Torture, Coercive Interrogation, and Inhumane Treatment in Detention Systems."
+  },
 
-  [
-    /online|offline|mode/,
-    "RELMUN '26 is a <b>fully online</b> conference."
-  ],
+  {
+    test:q =>
+      /\b(unodc|drugs and crime|organized crime)\b/i.test(q),
 
-  [
-    /munflow/,
-    "MUNFLOW is the Technology &amp; Platform Partner for RELMUN '26."
-  ],
+    answer:
+      "<b>UNODC</b> — United Nations Office on Drugs and Crime.<br><br><b>Agenda:</b> Combating the Rise of Transnational Organized Crime Enabled by Digital Technologies, with Special Emphasis on Online Scam Networks and Illicit Financial Flows."
+  },
 
-  [
-    /contact|email|instagram|reach/,
-    "For official enquiries, email <b>relmun.official@gmail.com</b> or contact <b>@relmun.official</b> on Instagram."
-  ],
+  {
+    test:q =>
+      /\b(aippm|political parties|reservation system|creamy layer)\b/i.test(q),
 
-  [
-    /about|what is|relmun/,
-    "<b>RELMUN</b> is the Regional Engagement &amp; Leadership Model United Nations, a fully online MUN on 26–27 December 2026 with six committees."
-  ]
+    answer:
+      "<b>AIPPM</b> — All India Political Parties Meet.<br><br><b>Agenda:</b> Re-evaluating the Reservation System: Affirmative Action, Socio-Economic Criteria, and Creamy Layer Implementation."
+  },
+
+  {
+    test:q =>
+      /\b(un women|unwomen|women committee)\b/i.test(q),
+
+    answer:
+      "<b>UN Women</b>.<br><br><b>Agenda:</b> To be announced."
+  },
+
+  {
+    test:q =>
+      /\b(ipla|ipl auction|ipl)\b/i.test(q),
+
+    answer:
+      "<b>IPLA</b> — IPL Auction.<br><br><b>Agenda:</b> The Indian Premier League Auction."
+  },
+
+  {
+    test:q =>
+      /\b(committees|committee|councils)\b/i.test(q),
+
+    answer:
+      "<b>RELMUN '26 has six committees:</b> UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA."
+  },
+
+
+  /* DATE */
+
+  {
+    test:q =>
+      /(when|what date|date).*(relmun|conference|mun|event)/i.test(q)
+      ||
+      /(relmun|conference|mun|event).*(when|date)/i.test(q),
+
+    answer:
+      "RELMUN '26 takes place on <b>26–27 December 2026</b> and is fully online."
+  },
+
+
+  /* TEAM */
+
+  {
+    test:q =>
+      /\b(secretary[- ]general|akshith)\b/i.test(q),
+
+    answer:
+      "The Secretary-General is <b>Akshith Kabilan</b>, part of the <b>Core</b> team."
+  },
+
+  {
+    test:q =>
+      /\b(shreyaas|deputy secretary)\b/i.test(q),
+
+    answer:
+      "<b>S. Shreyaas</b> is the Deputy Secretary-General and is part of the <b>Core</b> team."
+  },
+
+  {
+    test:q =>
+      /\b(laasya|director[- ]general)\b/i.test(q),
+
+    answer:
+      "<b>Laasya Vikram</b> is the Director-General and is part of the <b>Core</b> team."
+  },
+
+  {
+    test:q =>
+      /\b(aashi|chief advisor)\b/i.test(q),
+
+    answer:
+      "<b>Aashi Kushwaha</b> is the Chief Advisor and is part of the <b>Core</b> team."
+  },
+
+  {
+    test:q =>
+      /\b(abimayur)\b/i.test(q),
+
+    answer:
+      "<b>Abimayur R</b> is Head of Administration &amp; Outreach and is part of the <b>Secretariat</b>."
+  },
+
+  {
+    test:q =>
+      /\b(madhav)\b/i.test(q),
+
+    answer:
+      "<b>Madhav Bhardwaj</b> is USG, Delegate Affairs and is part of the <b>Secretariat</b>."
+  },
+
+  {
+    test:q =>
+      /\b(team|organising team|organization|core|secretariat)\b/i.test(q),
+
+    answer:
+      "<b>Core:</b> Akshith Kabilan, S. Shreyaas, Laasya Vikram and Aashi Kushwaha.<br><br><b>Secretariat:</b> Abimayur R and Madhav Bhardwaj."
+  },
+
+
+  /* CONFERENCE */
+
+  {
+    test:q =>
+      /\b(online|offline|mode|virtual)\b/i.test(q),
+
+    answer:
+      "RELMUN '26 is a <b>fully online</b> conference."
+  },
+
+  {
+    test:q =>
+      /\b(certificate|certificates)\b/i.test(q),
+
+    answer:
+      "Certificates are provided to RELMUN '26 participants."
+  },
+
+  {
+    test:q =>
+      /\b(munflow|technology|platform partner)\b/i.test(q),
+
+    answer:
+      "MUNFLOW is the Technology &amp; Platform Partner for RELMUN '26."
+  },
+
+
+  /* CONTACT */
+
+  {
+    test:q =>
+      /\b(contact|email|instagram|reach|enquiry|enquiries)\b/i.test(q),
+
+    answer:
+      "For official enquiries, email <b>relmun.official@gmail.com</b> or visit <b>@relmun.official</b> on Instagram."
+  },
+
+
+  /* ABOUT */
+
+  {
+    test:q =>
+      /\b(about|what is relmun|what's relmun|relmun)\b/i.test(q),
+
+    answer:
+      "<b>RELMUN</b> stands for Regional Engagement &amp; Leadership Model United Nations. It is a fully online MUN taking place on <b>26–27 December 2026</b> with six committees."
+  },
+
+  {
+    test:q =>
+      /\b(hi|hello|hey|yo|sup)\b/i.test(q),
+
+    answer:
+      "Hey! 👋 I'm <b>REX</b>, the RELMUN '26 assistant. Ask me about committees, agendas, registration, dates, the team or contact details."
+  },
+
+  {
+    test:q =>
+      /\b(thank|thanks|thx)\b/i.test(q),
+
+    answer:
+      "You're welcome! Ask me anything else about <b>RELMUN '26</b>."
+  }
 
 ];
 
+
 const rm=$("rm");
+
 
 function say(t,c){
 
@@ -2555,20 +2929,30 @@ function say(t,c){
 
 }
 
+
 $("rl").onclick=()=>{
 
   $("rw").classList.add("open");
+
   $("rl").style.display="none";
+
   $("ri").focus();
 
 };
 
+
 $("rc").onclick=()=>{
 
   $("rw").classList.remove("open");
+
   $("rl").style.display="block";
 
 };
+
+
+/* =========================================
+   REX RESPONSE ENGINE
+========================================= */
 
 $("rf").onsubmit=e=>{
 
@@ -2586,32 +2970,57 @@ $("rf").onsubmit=e=>{
 
   $("ri").value="";
 
-  const hit=KB.find(
-    k=>k[0].test(q.toLowerCase())
-  );
+  /*
+     Find the FIRST SPECIFIC matching intent.
+     This fixes:
+     "when does registration open?"
+     being incorrectly answered by
+     the generic "when/date" rule.
+  */
+
+  const hit =
+    KB.find(
+      item => item.test(q)
+    );
+
 
   setTimeout(
+
     ()=>say(
+
       hit
-        ? hit[1]
-        : "I can help with <b>RELMUN</b>, dates, committees, registration, the Core, Secretariat, certificates and contact details."
+        ? hit.answer
+        : "I can help with <b>RELMUN</b>, registration, dates, committees, agendas, the Core, Secretariat, certificates and contact details."
+
     ),
+
     250
+
   );
 
 };
 
+
 say(
-  "Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees, registration, the Core, Secretariat or anything about the conference."
+  "Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees, agendas, registration, the Core, Secretariat or anything about the conference."
 );
 
 
-/* PHONE → CALL / WHATSAPP */
+/* =========================================
+   PHONE → CALL / WHATSAPP
+========================================= */
 
 const contactChoice=$("contactChoice");
-const contactChoiceNumber=$("contactChoiceNumber");
-const callChoice=$("callChoice");
-const whatsappChoice=$("whatsappChoice");
+
+const contactChoiceNumber=
+  $("contactChoiceNumber");
+
+const callChoice=
+  $("callChoice");
+
+const whatsappChoice=
+  $("whatsappChoice");
+
 
 document
   .querySelectorAll(".phone-link")
@@ -2623,12 +3032,17 @@ document
 
         e.preventDefault();
 
-        const phone=link.dataset.phone;
-        const display=link.dataset.display;
+        const phone=
+          link.dataset.phone;
 
-        contactChoiceNumber.textContent=display;
+        const display=
+          link.dataset.display;
 
-        callChoice.href=`tel:${phone}`;
+        contactChoiceNumber.textContent=
+          display;
+
+        callChoice.href=
+          `tel:${phone}`;
 
         const whatsappNumber=
           phone.replace(/\D/g,"");
@@ -2643,6 +3057,7 @@ document
 
   });
 
+
 $("contactChoiceClose")
   .addEventListener(
     "click",
@@ -2651,16 +3066,20 @@ $("contactChoiceClose")
     }
   );
 
+
 contactChoice.addEventListener(
   "click",
   e=>{
 
     if(e.target===contactChoice){
+
       contactChoice.classList.remove("open");
+
     }
 
   }
 );
+
 
 document.addEventListener(
   "keydown",
@@ -2670,7 +3089,9 @@ document.addEventListener(
       e.key==="Escape" &&
       contactChoice.classList.contains("open")
     ){
+
       contactChoice.classList.remove("open");
+
     }
 
   }
