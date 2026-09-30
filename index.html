@@ -202,57 +202,60 @@ function tick(){
 }
 tick();setInterval(tick,1000);
 
-if(!reduce){
-gsap.registerPlugin(ScrollTrigger);
+if(!reduce && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
+  gsap.registerPlugin(ScrollTrigger);
 
-/* Intro: the one orchestrated moment */
-const letters=[];
-document.querySelectorAll("#title span").forEach(sp=>{
-  const txt=sp.textContent;sp.textContent="";
-  [...txt].forEach(c=>{const l=document.createElement("span");l.textContent=c;if(sp.classList.contains("o"))l.className="o";sp.appendChild(l);letters.push(l)});
-});
-gsap.from(letters,{yPercent:120,rotateX:-90,opacity:0,stagger:.06,duration:1.2,ease:"power4.out"});
-gsap.from("#s0 .lead",{opacity:0,y:20,delay:.9,duration:1});
+  /* Intro: the one orchestrated moment */
+  const letters=[];
+  document.querySelectorAll("#title span").forEach(sp=>{
+    const txt=sp.textContent;sp.textContent="";
+    [...txt].forEach(c=>{const l=document.createElement("span");l.textContent=c;if(sp.classList.contains("o"))l.className="o";sp.appendChild(l);letters.push(l)});
+  });
+  gsap.from(letters,{yPercent:120,rotateX:-90,opacity:0,stagger:.06,duration:1.2,ease:"power4.out"});
+  gsap.from("#s0 .lead",{opacity:0,y:20,delay:.9,duration:1});
 
-/* Scroll-locked master timeline */
-const sc=[...document.querySelectorAll(".scene")];
-const tl=gsap.timeline({defaults:{ease:"none"},scrollTrigger:{trigger:"#stage",start:"top top",end:"+=1000%",pin:true,scrub:1,anticipatePin:1,
-  onUpdate:s=>{const i=Math.min(5,Math.floor(s.progress*6));$("cur").textContent=i+1;$("fill").style.height=s.progress*100+"%"}}});
-const show=(el,t)=>{tl.set(el,{className:"scene on"},t).fromTo(el,{opacity:0,y:70,filter:"blur(14px)"},{opacity:1,y:0,filter:"blur(0px)",duration:.7},t)};
-const hide=(el,t)=>{tl.to(el,{opacity:0,y:-70,filter:"blur(14px)",duration:.7},t).set(el,{className:"scene"},t+.7)};
+  /* Scroll-locked master timeline */
+  const sc=[...document.querySelectorAll(".scene")];
+  const tl=gsap.timeline({defaults:{ease:"none"},scrollTrigger:{trigger:"#stage",start:"top top",end:"+=1000%",pin:true,scrub:1,anticipatePin:1,
+    onUpdate:s=>{const i=Math.min(5,Math.floor(s.progress*6));$("cur").textContent=i+1;$("fill").style.height=s.progress*100+"%"}}});
+  const show=(el,t)=>{tl.set(el,{className:"scene on"},t).fromTo(el,{opacity:0,y:70,filter:"blur(14px)"},{opacity:1,y:0,filter:"blur(0px)",duration:.7},t)};
+  const hide=(el,t)=>{tl.to(el,{opacity:0,y:-70,filter:"blur(14px)",duration:.7},t).set(el,{className:"scene"},t+.7)};
 
-tl.to(g,{rotationY:900,rotationX:25,duration:16},0);
-tl.to(g,{scale:1,duration:.1},0);
-hide(sc[0],1);
-tl.to(g,{scale:1.7,duration:1.2},1);tl.to("#stage",{backgroundColor:"#0b1a4d",duration:1},1);
+  tl.to(g,{rotationY:900,rotationX:25,duration:16},0);
+  tl.to(g,{scale:1,duration:.1},0);
+  hide(sc[0],1);
+  tl.to(g,{scale:1.7,duration:1.2},1);tl.to("#stage",{backgroundColor:"#0b1a4d",duration:1},1);
 
-show(sc[1],2);
-tl.from("#words span",{opacity:.08,y:30,stagger:.25,duration:.5},2.3);
-hide(sc[1],4.6);
+  show(sc[1],2);
+  tl.from("#words span",{opacity:.08,y:30,stagger:.25,duration:.5},2.3);
+  hide(sc[1],4.6);
 
-tl.to(g,{scale:.9,x:"-25vw",duration:1.2},4.6);tl.to("#stage",{backgroundColor:"#070d24",duration:1},4.6);
-show(sc[2],5.4);
-const track=$("track");
-tl.to(track,{x:()=>-(track.scrollWidth-innerWidth+innerWidth*.07),duration:3.4},6.2);
-hide(sc[2],9.8);
+  tl.to(g,{scale:.9,x:"-25vw",duration:1.2},4.6);tl.to("#stage",{backgroundColor:"#070d24",duration:1},4.6);
+  show(sc[2],5.4);
+  const track=$("track");
+  tl.to(track,{x:()=>-(track.scrollWidth-innerWidth+innerWidth*.07),duration:3.4},6.2);
+  hide(sc[2],9.8);
 
-tl.to(g,{scale:2.4,x:0,y:"18vh",duration:1.2},9.8);tl.to("#stage",{backgroundColor:"#2a1a05",duration:1},9.8);
-show(sc[3],10.6);
-hide(sc[3],12.2);
+  tl.to(g,{scale:2.4,x:0,y:"18vh",duration:1.2},9.8);tl.to("#stage",{backgroundColor:"#2a1a05",duration:1},9.8);
+  show(sc[3],10.6);
+  hide(sc[3],12.2);
 
-tl.to(g,{scale:1.1,y:0,duration:1.2},12.2);tl.to("#stage",{backgroundColor:"#0a1230",duration:1},12.2);
-show(sc[4],13);
-hide(sc[4],14.6);
+  tl.to(g,{scale:1.1,y:0,duration:1.2},12.2);tl.to("#stage",{backgroundColor:"#0a1230",duration:1},12.2);
+  show(sc[4],13);
+  hide(sc[4],14.6);
 
-tl.to(g,{scale:1.5,duration:1.2},14.6);tl.to("#stage",{backgroundColor:"#0b1a4d",duration:1},14.6);
-show(sc[5],15.4);
-tl.to({},{duration:1.6},15.4);
+  tl.to(g,{scale:1.5,duration:1.2},14.6);tl.to("#stage",{backgroundColor:"#0b1a4d",duration:1},14.6);
+  show(sc[5],15.4);
+  tl.to({},{duration:1.6},15.4);
 
-/* Magnetic CTA */
-const c=$("cta");
-c.addEventListener("mousemove",e=>{const r=c.getBoundingClientRect();gsap.to(c,{x:(e.clientX-r.left-r.width/2)*.25,y:(e.clientY-r.top-r.height/2)*.25,duration:.3})});
-c.addEventListener("mouseleave",()=>gsap.to(c,{x:0,y:0,duration:.7,ease:"elastic.out(1,.4)"}));
-addEventListener("load",()=>setTimeout(()=>ScrollTrigger.refresh(),300));
+  /* Magnetic CTA */
+  const c=$("cta");
+  c.addEventListener("mousemove",e=>{const r=c.getBoundingClientRect();gsap.to(c,{x:(e.clientX-r.left-r.width/2)*.25,y:(e.clientY-r.top-r.height/2)*.25,duration:.3})});
+  c.addEventListener("mouseleave",()=>gsap.to(c,{x:0,y:0,duration:.7,ease:"elastic.out(1,.4)"}));
+  addEventListener("load",()=>setTimeout(()=>ScrollTrigger.refresh(),300));
+} else {
+  // Fallback if GSAP/ScrollTrigger fails to load: show all sections so page is fully functional
+  document.querySelectorAll('.scene').forEach(s => s.classList.add('on'));
 }
 
 /* REX */
@@ -284,4 +287,3 @@ say("Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees,
 </script>
 </body>
 </html>
-```[cite: 1]
