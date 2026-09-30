@@ -3,21 +3,620 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>FAQ — RELMUN '26</title>
+
 <link rel="icon" href="relmun-logo.png">
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================================================
+   RELMUN FAQ — STANDALONE
+========================================================= */
+
+:root{
+  --black:#080808;
+  --black2:#0d0d0d;
+  --ivory:#f1ece0;
+  --muted:rgba(241,236,224,.58);
+  --faint:rgba(241,236,224,.18);
+  --blue:#1846ff;
+  --gold:#c79a2b;
+  --line:rgba(241,236,224,.12);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  background:var(--black);
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(24,70,255,.08),
+      transparent 35%
+    ),
+    var(--black);
+
+  color:var(--ivory);
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:999;
+  opacity:.025;
+
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:500;
+}
+
+.navbar{
+  width:100%;
+  padding:22px 4vw;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:linear-gradient(
+    to bottom,
+    rgba(8,8,8,.88),
+    rgba(8,8,8,.35),
+    transparent
+  );
+
+  backdrop-filter:blur(10px);
+}
+
+.nav-logo img{
+  width:76px;
+  display:block;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
+
+.nav-links a{
+  font-family:monospace;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.18em;
+
+  color:var(--ivory);
+  opacity:.58;
+
+  transition:
+    opacity .3s ease,
+    color .3s ease,
+    transform .3s ease;
+}
+
+.nav-links a:hover{
+  opacity:1;
+  color:var(--blue);
+  transform:translateY(-2px);
+}
+
+.nav-register{
+  padding:11px 15px;
+  border:1px solid var(--line);
+}
+
+.nav-menu{
+  display:none;
+
+  width:42px;
+  height:42px;
+
+  background:rgba(8,8,8,.8);
+  border:1px solid var(--line);
+
+  cursor:pointer;
+}
+
+.nav-menu span{
+  display:block;
+  width:17px;
+  height:1px;
+  margin:5px auto;
+  background:var(--ivory);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.detail-page{
+  min-height:100vh;
+}
+
+.detail-hero{
+  min-height:75vh;
+
+  width:min(1400px,86vw);
+  margin:0 auto;
+
+  padding-top:170px;
+  padding-bottom:100px;
+
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:80px;
+
+  align-items:end;
+
+  border-bottom:1px solid var(--line);
+}
+
+.detail-kicker{
+  display:block;
+
+  margin-bottom:30px;
+
+  color:var(--gold);
+
+  font-family:monospace;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.2em;
+}
+
+.detail-hero h1{
+  font-size:clamp(75px,12vw,175px);
+  line-height:.76;
+
+  font-weight:800;
+  letter-spacing:-.09em;
+
+  color:var(--ivory);
+}
+
+.detail-hero h1 em{
+  color:var(--blue);
+  font-style:normal;
+}
+
+.detail-hero p{
+  max-width:620px;
+
+  margin-top:45px;
+
+  color:var(--muted);
+
+  font-size:14px;
+  line-height:1.8;
+}
+
+.detail-side{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+
+  padding-bottom:5px;
+}
+
+.detail-side div{
+  padding-bottom:20px;
+  border-bottom:1px solid var(--line);
+
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.detail-side small{
+  color:var(--gold);
+
+  font-family:monospace;
+  font-size:8px;
+  letter-spacing:.16em;
+}
+
+.detail-side strong{
+  font-size:13px;
+  letter-spacing:.04em;
+}
+
+
+/* =========================================================
+   FAQ CONTENT
+========================================================= */
+
+.detail-content{
+  width:min(1100px,86vw);
+  margin:0 auto;
+
+  padding:120px 0 150px;
+}
+
+.faq-list{
+  border-top:1px solid var(--line);
+}
+
+.faq-item{
+  border-bottom:1px solid var(--line);
+}
+
+.faq-question{
+  width:100%;
+
+  padding:30px 5px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:none;
+  border:0;
+
+  color:var(--ivory);
+
+  text-align:left;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size:clamp(17px,2vw,25px);
+  font-weight:700;
+
+  letter-spacing:-.03em;
+
+  cursor:pointer;
+
+  transition:
+    color .35s ease,
+    padding-left .35s var(--ease);
+}
+
+.faq-question span{
+  width:35px;
+  height:35px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid var(--line);
+
+  color:var(--gold);
+
+  font-family:monospace;
+  font-size:17px;
+
+  transition:
+    transform .5s var(--ease),
+    background .4s ease,
+    color .4s ease;
+}
+
+.faq-question:hover{
+  color:var(--blue);
+  padding-left:12px;
+}
+
+.faq-item.open .faq-question{
+  color:var(--blue);
+}
+
+.faq-item.open .faq-question span{
+  transform:rotate(180deg);
+  background:var(--blue);
+  border-color:var(--blue);
+  color:white;
+}
+
+.faq-answer{
+  display:grid;
+  grid-template-rows:0fr;
+
+  transition:
+    grid-template-rows .6s var(--ease);
+}
+
+.faq-answer p{
+  min-height:0;
+  overflow:hidden;
+
+  max-width:850px;
+
+  color:var(--muted);
+
+  font-size:14px;
+  line-height:1.9;
+
+  opacity:0;
+  transform:translateY(-12px);
+
+  transition:
+    opacity .4s ease,
+    transform .6s var(--ease);
+}
+
+.faq-item.open .faq-answer{
+  grid-template-rows:1fr;
+}
+
+.faq-item.open .faq-answer p{
+  padding:
+    0
+    60px
+    32px
+    5px;
+
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+
+  padding:17px 24px;
+
+  border:1px solid var(--line);
+
+  font-family:monospace;
+  font-size:8px;
+  font-weight:700;
+
+  letter-spacing:.15em;
+
+  transition:
+    background .4s var(--ease),
+    border-color .4s var(--ease),
+    transform .4s var(--ease);
+}
+
+.btn-gold{
+  color:var(--ivory);
+}
+
+.btn-gold:hover{
+  background:var(--gold);
+  border-color:var(--gold);
+  color:#080808;
+  transform:translateY(-4px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  min-height:230px;
+
+  padding:55px 7vw;
+
+  border-top:1px solid var(--line);
+
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+
+  align-items:center;
+}
+
+.footer-logo img{
+  width:90px;
+}
+
+.footer-middle{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-middle strong{
+  font-size:17px;
+}
+
+.footer-middle span,
+.footer-right span{
+  color:var(--muted);
+
+  font-family:monospace;
+  font-size:7px;
+
+  letter-spacing:.1em;
+}
+
+.footer-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+}
+
+
+/* =========================================================
+   REX
+========================================================= */
+
+#relmun-chatbot{
+  position:fixed;
+  right:28px;
+  bottom:28px;
+  z-index:800;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
+
+  .navbar{
+    padding:18px 6vw;
+  }
+
+  .nav-logo img{
+    width:65px;
+  }
+
+  .nav-menu{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+
+    top:78px;
+    right:6vw;
+
+    width:220px;
+
+    padding:20px;
+
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+
+    background:rgba(8,8,8,.96);
+    border:1px solid var(--line);
+
+    opacity:0;
+    pointer-events:none;
+
+    transform:translateY(-10px);
+
+    transition:
+      opacity .35s ease,
+      transform .35s var(--ease);
+  }
+
+  .nav-links.open{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+  }
+
+  .nav-links a{
+    padding:14px 5px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .detail-hero{
+    min-height:auto;
+
+    padding-top:150px;
+    padding-bottom:70px;
+
+    grid-template-columns:1fr;
+    gap:55px;
+  }
+
+  .detail-hero h1{
+    font-size:19vw;
+  }
+
+  .detail-hero p{
+    margin-top:30px;
+  }
+
+  .detail-side{
+    gap:15px;
+  }
+
+  .detail-content{
+    padding:80px 0 100px;
+  }
+
+  .faq-question{
+    padding:24px 0;
+    font-size:17px;
+  }
+
+  .faq-question span{
+    flex-shrink:0;
+    margin-left:20px;
+  }
+
+  .faq-item.open .faq-answer p{
+    padding:
+      0
+      30px
+      28px
+      0;
+  }
+
+  footer{
+    grid-template-columns:1fr;
+    gap:40px;
+    padding:50px 7vw;
+  }
+
+  .footer-right{
+    align-items:flex-start;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
+
 <header>
+
 <nav class="navbar">
 
 <a class="nav-logo" href="index.html">
 <img src="relmun-logo.png" alt="RELMUN '26">
 </a>
 
-<button class="nav-menu" id="navMenu">
+<button class="nav-menu" id="navMenu" aria-label="Open menu">
 <span></span>
 <span></span>
 </button>
@@ -25,18 +624,36 @@
 <div class="nav-links" id="navLinks">
 
 <a href="index.html#about">ABOUT</a>
-<a href="committees.html">COMMITTEES</a>
-<a href="index.html#team">TEAM</a>
-<a href="eb.html">EB</a>
-<a href="faq.html">FAQ</a>
 
-<a href="register.html" class="nav-register">
+<a href="committees.html">
+COMMITTEES
+</a>
+
+<a href="index.html#team">
+TEAM
+</a>
+
+<a href="eb.html">
+EB
+</a>
+
+<a href="faq.html">
+FAQ
+</a>
+
+<a
+href="register.html"
+class="nav-register"
+>
 REGISTER ↗
 </a>
 
 </div>
+
 </nav>
+
 </header>
+
 
 
 <main class="detail-page">
@@ -44,16 +661,19 @@ REGISTER ↗
 
 <section class="detail-hero">
 
+
 <div>
 
 <span class="detail-kicker">
 RELMUN '26 · FAQ
 </span>
 
+
 <h1>
 COMMON<br>
 <em>QUESTIONS.</em>
 </h1>
+
 
 <p>
 Everything currently announced about RELMUN '26,
@@ -63,22 +683,48 @@ registration and the conference.
 </div>
 
 
+
 <div class="detail-side">
 
-<div>
-<small>DATES</small>
-<strong>26—27 DEC 2026</strong>
-</div>
 
 <div>
-<small>FORMAT</small>
-<strong>ONLINE</strong>
+
+<small>
+DATES
+</small>
+
+<strong>
+26—27 DEC 2026
+</strong>
+
 </div>
 
+
 <div>
-<small>REGISTRATION</small>
-<strong>09 OCT 2026</strong>
+
+<small>
+FORMAT
+</small>
+
+<strong>
+ONLINE
+</strong>
+
 </div>
+
+
+<div>
+
+<small>
+REGISTRATION
+</small>
+
+<strong>
+09 OCT 2026
+</strong>
+
+</div>
+
 
 </div>
 
@@ -95,9 +741,13 @@ registration and the conference.
 <div class="faq-item">
 
 <button class="faq-question">
+
 WHAT IS RELMUN?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
@@ -116,9 +766,13 @@ built around diplomacy, debate, engagement and leadership.
 <div class="faq-item">
 
 <button class="faq-question">
+
 WHEN IS RELMUN 2026?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
@@ -135,9 +789,13 @@ RELMUN '26 takes place on 26–27 December 2026.
 <div class="faq-item">
 
 <button class="faq-question">
+
 IS THE CONFERENCE ONLINE?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
@@ -155,9 +813,13 @@ conference.
 <div class="faq-item">
 
 <button class="faq-question">
+
 WHEN DO REGISTRATIONS OPEN?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
@@ -174,9 +836,13 @@ Delegate registrations open on 9 October 2026.
 <div class="faq-item">
 
 <button class="faq-question">
+
 HOW MUCH IS REGISTRATION?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
@@ -193,9 +859,13 @@ Delegate registration for RELMUN '26 is ₹200 per delegate.
 <div class="faq-item">
 
 <button class="faq-question">
+
 WHICH COMMITTEES ARE AVAILABLE?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
@@ -213,16 +883,20 @@ UN Women and IPLA.
 <div class="faq-item">
 
 <button class="faq-question">
+
 HOW DO I REGISTER?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
 <p>
-From 9 October 2026, delegates can choose from the
-available official registration platforms listed on
-the RELMUN registration page.
+From 9 October 2026, delegates can choose from
+the available official registration platforms listed
+on the RELMUN registration page.
 </p>
 
 </div>
@@ -234,9 +908,13 @@ the RELMUN registration page.
 <div class="faq-item">
 
 <button class="faq-question">
+
 WILL CERTIFICATES BE PROVIDED?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
@@ -253,15 +931,21 @@ Certificates are provided to participants.
 <div class="faq-item">
 
 <button class="faq-question">
+
 HOW CAN I CONTACT THE TEAM?
+
 <span>+</span>
+
 </button>
+
 
 <div class="faq-answer">
 
 <p>
-Email the Secretariat at akshithkabilan@gmail.com
-or contact RELMUN through @relmun.official on Instagram.
+Email the Secretariat at
+akshithkabilan@gmail.com
+or contact RELMUN through
+@relmun.official on Instagram.
 </p>
 
 </div>
@@ -292,6 +976,7 @@ CONTACT THE SECRETARIAT ↗
 
 <footer>
 
+
 <div class="footer-logo">
 
 <img
@@ -304,7 +989,9 @@ alt="RELMUN '26"
 
 <div class="footer-middle">
 
-<strong>RELMUN '26</strong>
+<strong>
+RELMUN '26
+</strong>
 
 <span>
 RELATIONS · ENGAGEMENT · LEADERSHIP
@@ -325,6 +1012,7 @@ ONLINE CONFERENCE
 
 </div>
 
+
 </footer>
 
 
@@ -335,16 +1023,26 @@ ONLINE CONFERENCE
 
 <script>
 
-document
-.getElementById("navMenu")
-.addEventListener("click",()=>{
+/* =========================================================
+   MOBILE NAV
+========================================================= */
 
-document
-.getElementById("navLinks")
-.classList.toggle("open");
+const navMenu =
+document.getElementById("navMenu");
+
+const navLinks =
+document.getElementById("navLinks");
+
+navMenu.addEventListener("click",()=>{
+
+navLinks.classList.toggle("open");
 
 });
 
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
 
 document
 .querySelectorAll(".faq-question")
@@ -352,36 +1050,39 @@ document
 
 button.addEventListener("click",()=>{
 
-const item=button.parentElement;
+const item =
+button.parentElement;
 
-const open=item.classList.contains("open");
+const wasOpen =
+item.classList.contains("open");
 
 
 document
 .querySelectorAll(".faq-item")
-.forEach(i=>{
+.forEach(other=>{
 
-i.classList.remove("open");
+other.classList.remove("open");
 
-});
+const symbol =
+other.querySelector(".faq-question span");
 
-
-document
-.querySelectorAll(".faq-question span")
-.forEach(s=>{
-
-s.textContent="+";
+if(symbol){
+symbol.textContent="+";
+}
 
 });
 
 
-if(!open){
+if(!wasOpen){
 
 item.classList.add("open");
 
-button
-.querySelector("span")
-.textContent="−";
+const symbol =
+button.querySelector("span");
+
+if(symbol){
+symbol.textContent="−";
+}
 
 }
 
@@ -389,8 +1090,55 @@ button
 
 });
 
-</script>
 
+/* =========================================================
+   SIMPLE SCROLL REVEAL
+========================================================= */
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+
+document
+.querySelectorAll(".faq-item,.detail-side div,.btn")
+.forEach((element,index)=>{
+
+element.style.opacity="0";
+
+element.style.transform="translateY(25px)";
+
+element.style.transition=
+`opacity .8s cubic-bezier(.16,1,.3,1) ${index*.035}s,
+ transform .8s cubic-bezier(.16,1,.3,1) ${index*.035}s`;
+
+observer.observe(element);
+
+});
+
+
+/* =========================================================
+   CHATBOT
+========================================================= */
+
+</script>
 
 <script src="chatbot.js"></script>
 
