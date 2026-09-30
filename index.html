@@ -33,13 +33,9 @@ html,body{
   overflow-x:hidden;
 }
 
-body{
-  min-height:100vh;
-}
+body{min-height:100vh;}
 
-button,input{
-  font-family:inherit;
-}
+button,input{font-family:inherit;}
 
 .stage{
   position:relative;
@@ -100,9 +96,7 @@ h1{
   letter-spacing:-.055em;
 }
 
-h1 span{
-  display:inline-block;
-}
+h1 span{display:inline-block;}
 
 h1 .o{
   color:transparent;
@@ -253,17 +247,11 @@ p.lead{
   font-weight:500;
 }
 
-/* =========================================
-   TEAM
-========================================= */
+/* TEAM */
 
-.team-heading{
-  margin-bottom:1.4rem;
-}
+.team-heading{margin-bottom:1.4rem;}
 
-.team-group{
-  width:min(100%,1000px);
-}
+.team-group{width:min(100%,1000px);}
 
 .team-section-label{
   margin-top:1rem;
@@ -320,13 +308,9 @@ p.lead{
   margin:1.35rem 0 .3rem;
 }
 
-/* =========================================
-   REGISTRATION
-========================================= */
+/* REGISTRATION */
 
-.registration-scene{
-  justify-content:center;
-}
+.registration-scene{justify-content:center;}
 
 .cd{
   display:flex;
@@ -368,17 +352,11 @@ input:focus-visible{
   outline-offset:3px;
 }
 
-/* =========================================
-   CONTACT
-========================================= */
+/* CONTACT */
 
-.contact-scene{
-  justify-content:center;
-}
+.contact-scene{justify-content:center;}
 
-.contact-wrap{
-  width:min(100%,1050px);
-}
+.contact-wrap{width:min(100%,1050px);}
 
 .contact-kicker{
   color:var(--amber);
@@ -388,9 +366,7 @@ input:focus-visible{
   margin-bottom:.8rem;
 }
 
-.contact-title{
-  max-width:12ch;
-}
+.contact-title{max-width:12ch;}
 
 .contact-note{
   color:var(--dim);
@@ -427,10 +403,7 @@ input:focus-visible{
   background:rgba(15,27,59,.8);
 }
 
-.contact-person b{
-  display:block;
-  font-size:1rem;
-}
+.contact-person b{display:block;font-size:1rem;}
 
 .contact-person span{
   display:block;
@@ -493,9 +466,7 @@ input:focus-visible{
   margin-top:.2rem;
 }
 
-/* =========================================
-   HUD
-========================================= */
+/* HUD */
 
 .hud{
   position:absolute;
@@ -541,9 +512,7 @@ input:focus-visible{
   z-index:5;
 }
 
-/* =========================================
-   REX
-========================================= */
+/* REX */
 
 #rl{
   position:fixed;
@@ -575,9 +544,7 @@ input:focus-visible{
   box-shadow:0 25px 80px rgba(0,0,0,.4);
 }
 
-#rw.open{
-  display:flex;
-}
+#rw.open{display:flex;}
 
 #rw header{
   padding:.8rem 1rem;
@@ -642,9 +609,7 @@ input:focus-visible{
   cursor:pointer;
 }
 
-/* =========================================
-   COMMITTEE DETAIL
-========================================= */
+/* COMMITTEE DETAIL */
 
 #committeePage{
   position:fixed;
@@ -658,9 +623,7 @@ input:focus-visible{
   opacity:0;
 }
 
-#committeePage.open{
-  display:block;
-}
+#committeePage.open{display:block;}
 
 .committee-inner{
   min-height:100%;
@@ -718,10 +681,78 @@ input:focus-visible{
 
 .committee-description{
   margin-top:1.5rem;
-  max-width:650px;
+  max-width:750px;
   color:var(--dim);
   font-size:1.1rem;
   line-height:1.7;
+}
+
+/* NEW COMMITTEE CONTENT */
+
+.committee-content{
+  width:min(100%,1050px);
+  margin-top:3rem;
+}
+
+.committee-block{
+  border-top:1px solid var(--line);
+  padding:1.4rem 0;
+}
+
+.committee-block-label{
+  color:var(--amber);
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.18em;
+  margin-bottom:.75rem;
+}
+
+.committee-agenda{
+  font-size:clamp(1.1rem,2.2vw,1.65rem);
+  line-height:1.45;
+  max-width:900px;
+}
+
+.committee-freeze{
+  color:var(--paper);
+  font-size:1rem;
+}
+
+.committee-freeze span{
+  color:var(--dim);
+}
+
+.committee-eb{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(220px,1fr));
+  gap:1rem;
+}
+
+.eb-card{
+  border:1px solid var(--line);
+  padding:1.2rem;
+  background:rgba(7,13,36,.5);
+}
+
+.eb-card b{
+  display:block;
+  font-size:1rem;
+}
+
+.eb-card span{
+  display:block;
+  color:var(--dim);
+  font-size:.8rem;
+  margin-top:.3rem;
+}
+
+.coming-soon{
+  display:inline-flex;
+  border:1px solid var(--line);
+  padding:.7rem 1rem;
+  color:var(--dim);
+  font-size:.8rem;
+  letter-spacing:.08em;
 }
 
 .committee-info{
@@ -745,9 +776,7 @@ input:focus-visible{
   margin-bottom:.5rem;
 }
 
-.committee-info-box strong{
-  font-size:1rem;
-}
+.committee-info-box strong{font-size:1rem;}
 
 .contact-strip{
   margin-top:3rem;
@@ -823,9 +852,7 @@ input:focus-visible{
   color:var(--ink);
 }
 
-/* =========================================
-   PHONE CHOICE
-========================================= */
+/* PHONE CHOICE */
 
 .contact-choice{
   position:fixed;
@@ -908,9 +935,7 @@ input:focus-visible{
   transform:translateY(-3px);
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
@@ -929,17 +954,14 @@ input:focus-visible{
   .committee-info{
     grid-template-columns:1fr 1fr;
   }
+
 }
 
 @media(max-width:640px){
 
-  .hud{
-    display:none;
-  }
+  .hud{display:none;}
 
-  .card{
-    height:44vh;
-  }
+  .card{height:44vh;}
 
   #s4{
     justify-content:flex-start;
@@ -999,9 +1021,7 @@ input:focus-visible{
     font-size:clamp(2.2rem,10vw,4rem);
   }
 
-  .contact-note{
-    font-size:.9rem;
-  }
+  .contact-note{font-size:.9rem;}
 
   .contact-people{
     grid-template-columns:1fr;
@@ -1014,9 +1034,7 @@ input:focus-visible{
     padding:.9rem;
   }
 
-  .contact-person small{
-    margin-top:.6rem;
-  }
+  .contact-person small{margin-top:.6rem;}
 
   .contact-main-links{
     grid-template-columns:1fr;
@@ -1038,6 +1056,10 @@ input:focus-visible{
     padding-top:5rem;
   }
 
+  .committee-eb{
+    grid-template-columns:1fr;
+  }
+
   .contact-links{
     grid-template-columns:1fr;
   }
@@ -1045,6 +1067,7 @@ input:focus-visible{
   .contact-choice-buttons{
     grid-template-columns:1fr;
   }
+
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1061,14 +1084,13 @@ input:focus-visible{
     opacity:1;
   }
 
-  .globe{
-    display:none;
-  }
+  .globe{display:none;}
 
   .track{
     flex-wrap:wrap;
     width:auto;
   }
+
 }
 
 </style>
@@ -1090,9 +1112,8 @@ input:focus-visible{
   <span>7</span>
 </div>
 
-<!-- =========================================
-     01 — HERO
-========================================= -->
+
+<!-- HERO -->
 
 <section class="scene on" id="s0">
 
@@ -1112,9 +1133,8 @@ input:focus-visible{
 
 </section>
 
-<!-- =========================================
-     02 — ABOUT
-========================================= -->
+
+<!-- ABOUT -->
 
 <section class="scene" id="s1">
 
@@ -1135,9 +1155,8 @@ input:focus-visible{
 
 </section>
 
-<!-- =========================================
-     03 — COMMITTEES
-========================================= -->
+
+<!-- COMMITTEES -->
 
 <section class="scene" id="s2">
 
@@ -1187,7 +1206,7 @@ input:focus-visible{
     <div class="card committee-card" data-committee="UN Women">
       <strong>UN Women</strong>
       <div>
-        <em>Gender equality</em><br>
+        <em>UN Women</em><br>
         <small>Advancing rights and opportunity for women.</small>
         <span class="open-label">OPEN COMMITTEE ↗</span>
       </div>
@@ -1206,9 +1225,8 @@ input:focus-visible{
 
 </section>
 
-<!-- =========================================
-     04 — CONFERENCE
-========================================= -->
+
+<!-- CONFERENCE -->
 
 <section class="scene" id="s3">
 
@@ -1237,17 +1255,14 @@ input:focus-visible{
 
 </section>
 
-<!-- =========================================
-     05 — TEAM
-========================================= -->
+
+<!-- TEAM -->
 
 <section class="scene" id="s4">
 
   <h2 class="team-heading">
     The people running it.
   </h2>
-
-  <!-- CORE -->
 
   <div class="team-group">
 
@@ -1283,8 +1298,6 @@ input:focus-visible{
 
   <div class="team-divider"></div>
 
-  <!-- SECRETARIAT -->
-
   <div class="team-group">
 
     <div class="team-section-label">
@@ -1309,9 +1322,8 @@ input:focus-visible{
 
 </section>
 
-<!-- =========================================
-     06 — REGISTRATION
-========================================= -->
+
+<!-- REGISTRATION -->
 
 <section class="scene registration-scene" id="s5">
 
@@ -1366,9 +1378,8 @@ input:focus-visible{
 
 </section>
 
-<!-- =========================================
-     07 — CONTACT
-========================================= -->
+
+<!-- CONTACT -->
 
 <section class="scene contact-scene" id="s6">
 
@@ -1465,9 +1476,8 @@ input:focus-visible{
 
 </main>
 
-<!-- =========================================
-     COMMITTEE DETAIL PAGE
-========================================= -->
+
+<!-- COMMITTEE DETAIL PAGE -->
 
 <section id="committeePage">
 
@@ -1497,6 +1507,70 @@ input:focus-visible{
       Global peace and security.
     </p>
 
+
+    <!-- AGENDA / EB / DOCUMENTS -->
+
+    <div class="committee-content">
+
+      <div class="committee-block">
+
+        <div class="committee-block-label">
+          AGENDA
+        </div>
+
+        <div class="committee-agenda" id="committeeAgenda">
+          The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan
+        </div>
+
+      </div>
+
+
+      <div class="committee-block" id="freezeBlock">
+
+        <div class="committee-block-label">
+          FREEZE DATE
+        </div>
+
+        <div class="committee-freeze" id="committeeFreeze">
+          <span>Freeze Date:</span> 5 September 1972
+        </div>
+
+      </div>
+
+
+      <div class="committee-block">
+
+        <div class="committee-block-label">
+          EXECUTIVE BOARD
+        </div>
+
+        <div class="committee-eb" id="committeeEB">
+
+          <div class="eb-card">
+            <b>Coming Soon</b>
+            <span>Executive Board details will be announced.</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="committee-block">
+
+        <div class="committee-block-label">
+          COMMITTEE DOCUMENTS
+        </div>
+
+        <div class="coming-soon">
+          DOCUMENTS COMING SOON
+        </div>
+
+      </div>
+
+    </div>
+
+
     <div class="committee-info">
 
       <div class="committee-info-box">
@@ -1515,6 +1589,7 @@ input:focus-visible{
       </div>
 
     </div>
+
 
     <div class="contact-strip">
 
@@ -1554,9 +1629,8 @@ input:focus-visible{
 
 </section>
 
-<!-- =========================================
-     PHONE / WHATSAPP CHOICE
-========================================= -->
+
+<!-- PHONE / WHATSAPP CHOICE -->
 
 <div id="contactChoice" class="contact-choice">
 
@@ -1603,9 +1677,8 @@ input:focus-visible{
 
 </div>
 
-<!-- =========================================
-     REX
-========================================= -->
+
+<!-- REX -->
 
 <button id="rl">
   Ask REX
@@ -1643,6 +1716,7 @@ input:focus-visible{
 
 </aside>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -1656,9 +1730,7 @@ const reduce =
   ).matches;
 
 
-/* =========================================
-   GLOBE
-========================================= */
+/* GLOBE */
 
 const g = $("globe");
 
@@ -1689,9 +1761,7 @@ for(let i=0;i<8;i++){
 });
 
 
-/* =========================================
-   COUNTDOWN
-========================================= */
+/* COUNTDOWN */
 
 const target =
   new Date(
@@ -1733,13 +1803,10 @@ function tick(){
 }
 
 tick();
-
 setInterval(tick,1000);
 
 
-/* =========================================
-   MAIN GSAP EXPERIENCE
-========================================= */
+/* MAIN GSAP */
 
 if(!reduce){
 
@@ -1766,7 +1833,6 @@ if(!reduce){
         }
 
         sp.appendChild(l);
-
         letters.push(l);
 
       });
@@ -1803,15 +1869,10 @@ if(!reduce){
       scrollTrigger:{
 
         trigger:"#stage",
-
         start:"top top",
-
         end:"+=1750%",
-
         pin:true,
-
         scrub:1,
-
         anticipatePin:1,
 
         onUpdate:s=>{
@@ -1822,11 +1883,8 @@ if(!reduce){
               Math.floor(s.progress*7)
             );
 
-          $("cur").textContent =
-            i+1;
-
-          $("fill").style.height =
-            s.progress*100+"%";
+          $("cur").textContent=i+1;
+          $("fill").style.height=s.progress*100+"%";
 
         }
 
@@ -1839,9 +1897,7 @@ if(!reduce){
 
     tl.set(
       el,
-      {
-        className:"scene on"
-      },
+      {className:"scene on"},
       t
     );
 
@@ -1879,16 +1935,12 @@ if(!reduce){
 
     tl.set(
       el,
-      {
-        className:"scene"
-      },
+      {className:"scene"},
       t+.7
     );
 
   };
 
-
-  /* GLOBE */
 
   tl.to(
     g,
@@ -1900,8 +1952,6 @@ if(!reduce){
     0
   );
 
-
-  /* HERO → ABOUT */
 
   hide(sc[0],1);
 
@@ -1938,8 +1988,6 @@ if(!reduce){
 
   hide(sc[1],4.6);
 
-
-  /* ABOUT → COMMITTEES */
 
   tl.to(
     g,
@@ -1980,8 +2028,6 @@ if(!reduce){
   hide(sc[2],9.8);
 
 
-  /* COMMITTEES → CONFERENCE */
-
   tl.to(
     g,
     {
@@ -2007,8 +2053,6 @@ if(!reduce){
   hide(sc[3],12.5);
 
 
-  /* CONFERENCE → TEAM */
-
   tl.to(
     g,
     {
@@ -2030,8 +2074,6 @@ if(!reduce){
 
   show(sc[4],13.3);
 
-
-  /* TEAM ANIMATION */
 
   tl.from(
     "#s4 .team-heading",
@@ -2068,8 +2110,6 @@ if(!reduce){
   );
 
 
-  /* TEAM → REGISTRATION */
-
   hide(sc[4],18.2);
 
   tl.to(
@@ -2092,17 +2132,12 @@ if(!reduce){
 
   show(sc[5],19);
 
-
   tl.to(
     {},
-    {
-      duration:2.8
-    },
+    {duration:2.8},
     19
   );
 
-
-  /* REGISTRATION → CONTACT */
 
   hide(sc[5],21.8);
 
@@ -2128,8 +2163,6 @@ if(!reduce){
 
   show(sc[6],22.6);
 
-
-  /* CONTACT ANIMATION */
 
   tl.from(
     "#s6 .contact-kicker",
@@ -2185,8 +2218,6 @@ if(!reduce){
   );
 
 
-  /* MAGNETIC CTA */
-
   const c=$("cta");
 
   c.addEventListener("mousemove",e=>{
@@ -2223,48 +2254,56 @@ if(!reduce){
 }
 
 
-/* =========================================
-   COMMITTEE DATA
-========================================= */
+/* COMMITTEE DATA */
 
 const committees={
 
   "UNSC":{
     title:"United Nations Security Council",
-    description:"Global peace and security."
+    description:"Global peace and security.",
+    agenda:"The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan",
+    freeze:"5 September 1972"
   },
 
   "UNHRC":{
     title:"United Nations Human Rights Council",
-    description:"Rights, protections and accountability."
+    description:"Rights, protections and accountability.",
+    agenda:"Addressing Psychological Torture, Coercive Interrogation, and Inhumane Treatment in Detention Systems",
+    freeze:null
   },
 
   "UNODC":{
     title:"United Nations Office on Drugs and Crime",
-    description:"Trafficking, crime and justice."
+    description:"Trafficking, crime and justice.",
+    agenda:"Combating the Rise of Transnational Organized Crime Enabled by Digital Technologies, with Special Emphasis on Online Scam Networks and Illicit Financial Flows",
+    freeze:null
   },
 
   "AIPPM":{
     title:"All India Political Parties Meet",
-    description:"Indian politics, party against party."
+    description:"Indian politics, party against party.",
+    agenda:"Re-evaluating the Reservation System: Affirmative Action, Socio-Economic Criteria, and Creamy Layer Implementation",
+    freeze:null
   },
 
   "UN Women":{
     title:"UN Women",
-    description:"Gender equality and advancing rights and opportunity for women."
+    description:"Gender equality and advancing rights and opportunity for women.",
+    agenda:"TBA",
+    freeze:null
   },
 
   "IPLA":{
     title:"IPL Auction",
-    description:"Bid, build a squad, and outsmart the room."
+    description:"Bid, build a squad, and outsmart the room.",
+    agenda:"The Indian Premier League Auction",
+    freeze:null
   }
 
 };
 
 
-/* =========================================
-   COMMITTEE PAGE
-========================================= */
+/* COMMITTEE PAGE */
 
 const committeePage=$("committeePage");
 
@@ -2277,6 +2316,22 @@ function openCommittee(code){
   $("committeeCode").textContent=code;
   $("committeeTitle").textContent=data.title;
   $("committeeDescription").textContent=data.description;
+  $("committeeAgenda").textContent=data.agenda;
+
+  const freezeBlock=$("freezeBlock");
+
+  if(data.freeze){
+
+    freezeBlock.style.display="block";
+
+    $("committeeFreeze").innerHTML =
+      `<span>Freeze Date:</span> ${data.freeze}`;
+
+  }else{
+
+    freezeBlock.style.display="none";
+
+  }
 
   committeePage.classList.add("open");
 
@@ -2393,9 +2448,7 @@ document.addEventListener(
 );
 
 
-/* =========================================
-   REX
-========================================= */
+/* REX */
 
 const KB=[
 
@@ -2407,6 +2460,11 @@ const KB=[
   [
     /committee|council|unsc|unhrc|unodc|aippm|women|ipla/,
     "<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA."
+  ],
+
+  [
+    /agenda/,
+    "You can click any committee card to view its agenda, freeze date where applicable, Executive Board information and committee documents."
   ],
 
   [
@@ -2500,9 +2558,7 @@ function say(t,c){
 $("rl").onclick=()=>{
 
   $("rw").classList.add("open");
-
   $("rl").style.display="none";
-
   $("ri").focus();
 
 };
@@ -2510,7 +2566,6 @@ $("rl").onclick=()=>{
 $("rc").onclick=()=>{
 
   $("rw").classList.remove("open");
-
   $("rl").style.display="block";
 
 };
@@ -2551,9 +2606,7 @@ say(
 );
 
 
-/* =========================================
-   PHONE → CALL / WHATSAPP
-========================================= */
+/* PHONE → CALL / WHATSAPP */
 
 const contactChoice=$("contactChoice");
 const contactChoiceNumber=$("contactChoiceNumber");
