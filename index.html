@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
 <title>RELMUN '26</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --ink:#070d24;
   --paper:#eaf0fb;
@@ -38,6 +40,10 @@ body{
 button,input{
   font-family:inherit;
 }
+
+/* =========================================================
+   MAIN STAGE
+========================================================= */
 
 .stage{
   position:relative;
@@ -91,11 +97,15 @@ button,input{
   opacity:1;
 }
 
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
 h1{
-  font-weight:700;
+  font-weight:500;
   font-size:clamp(3.2rem,17vw,15rem);
   line-height:.86;
-  letter-spacing:-.055em;
+  letter-spacing:-.07em;
 }
 
 h1 span{
@@ -108,10 +118,10 @@ h1 .o{
 }
 
 h2{
-  font-weight:700;
+  font-weight:600;
   font-size:clamp(2rem,6.4vw,5.6rem);
   line-height:.98;
-  letter-spacing:-.04em;
+  letter-spacing:-.05em;
   max-width:16ch;
 }
 
@@ -139,8 +149,12 @@ p.lead{
 
 .words b{
   color:var(--amber);
-  font-weight:800;
+  font-weight:700;
 }
+
+/* =========================================================
+   COMMITTEE CARDS
+========================================================= */
 
 .track{
   display:flex;
@@ -175,13 +189,20 @@ p.lead{
   box-shadow:
     0 0 0 1px rgba(255,180,46,.15),
     0 20px 60px rgba(0,0,0,.3);
+  transform:translateY(-10px) rotateX(2deg);
 }
 
 .card strong{
-  font-weight:800;
+  font-weight:700;
   font-size:clamp(2.6rem,7vw,5.5rem);
   letter-spacing:-.06em;
   color:var(--blue);
+  transition:color .35s ease,transform .35s ease;
+}
+
+.card:hover strong{
+  color:var(--amber);
+  transform:translateX(7px);
 }
 
 .card em{
@@ -205,8 +226,12 @@ p.lead{
   font-weight:800;
 }
 
+/* =========================================================
+   CONFERENCE
+========================================================= */
+
 .big{
-  font-weight:800;
+  font-weight:700;
   font-size:clamp(4rem,19vw,17rem);
   line-height:.85;
   letter-spacing:-.07em;
@@ -233,7 +258,7 @@ p.lead{
 
 .row b{
   display:block;
-  font-weight:800;
+  font-weight:700;
   font-size:1.5rem;
   letter-spacing:-.02em;
 }
@@ -243,23 +268,35 @@ p.lead{
   font-size:.95rem;
 }
 
-.sub{
-  margin-top:1.6rem;
-  font-size:.9rem;
-  color:var(--blue);
-  font-weight:500;
-}
+/* =========================================================
+   TEAM
+========================================================= */
 
 .team-heading{
-  margin-bottom:.5rem;
+  margin-bottom:.4rem;
 }
 
 .team-section-label{
-  margin-top:1.8rem;
+  margin-top:2.2rem;
   color:var(--amber);
   font-size:.72rem;
   font-weight:800;
-  letter-spacing:.18em;
+  letter-spacing:.22em;
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+.team-section-label::after{
+  content:"";
+  height:1px;
+  width:min(280px,25vw);
+  background:linear-gradient(
+    90deg,
+    rgba(255,180,46,.8),
+    transparent
+  );
 }
 
 .team-grid{
@@ -269,33 +306,72 @@ p.lead{
   margin-top:.9rem;
 }
 
+.team-grid.secretariat{
+  grid-template-columns:repeat(2,minmax(200px,320px));
+}
+
 .team-person{
+  position:relative;
+  overflow:hidden;
   border:1px solid var(--line);
-  padding:1rem;
-  background:rgba(7,13,36,.55);
+  padding:1.25rem;
+  min-height:100px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(91,156,240,.07),
+      rgba(7,13,36,.7)
+    );
   transition:
-    transform .35s ease,
+    transform .45s cubic-bezier(.2,.8,.2,1),
     border-color .35s ease,
-    background .35s ease;
+    background .35s ease,
+    box-shadow .35s ease;
+}
+
+.team-person::before{
+  content:"";
+  position:absolute;
+  inset:-100%;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 35%,
+      rgba(255,180,46,.13) 50%,
+      transparent 65%
+    );
+  transform:translateX(-40%);
+  transition:transform .7s ease;
+}
+
+.team-person:hover::before{
+  transform:translateX(40%);
 }
 
 .team-person:hover{
-  transform:translateY(-7px);
+  transform:translateY(-9px) scale(1.015);
   border-color:var(--amber);
-  background:rgba(15,27,59,.8);
+  background:rgba(15,27,59,.9);
+  box-shadow:0 18px 45px rgba(0,0,0,.3);
 }
 
 .team-person b{
   display:block;
+  position:relative;
   font-size:1rem;
-  margin-bottom:.3rem;
+  margin-bottom:.35rem;
 }
 
 .team-person span{
+  position:relative;
   color:var(--dim);
   font-size:.78rem;
-  line-height:1.35;
+  line-height:1.4;
 }
+
+/* =========================================================
+   COUNTDOWN / CTA
+========================================================= */
 
 .cd{
   display:flex;
@@ -304,7 +380,7 @@ p.lead{
 }
 
 .cd div{
-  font-weight:800;
+  font-weight:700;
   font-size:clamp(2.6rem,10vw,8rem);
   line-height:1;
   letter-spacing:-.04em;
@@ -336,6 +412,17 @@ input:focus-visible{
   outline:3px solid var(--blue);
   outline-offset:3px;
 }
+
+.sub{
+  margin-top:1.6rem;
+  font-size:.9rem;
+  color:var(--blue);
+  font-weight:500;
+}
+
+/* =========================================================
+   HUD
+========================================================= */
 
 .hud{
   position:absolute;
@@ -375,17 +462,22 @@ input:focus-visible{
   position:absolute;
   top:calc(1.2rem + env(safe-area-inset-top,0px));
   left:7vw;
-  font-weight:500;
-  letter-spacing:.18em;
-  font-size:.95rem;
+  font-weight:400;
+  letter-spacing:.24em;
+  font-size:.85rem;
   z-index:5;
+  color:rgba(234,240,251,.8);
 }
+
+/* =========================================================
+   REX
+========================================================= */
 
 #rl{
   position:fixed;
   right:1rem;
   bottom:calc(1rem + env(safe-area-inset-bottom,0px));
-  z-index:50;
+  z-index:150;
   background:var(--blue);
   color:var(--ink);
   border:0;
@@ -394,13 +486,20 @@ input:focus-visible{
   font:800 1rem inherit;
   font-family:inherit;
   cursor:pointer;
+  box-shadow:0 10px 35px rgba(0,0,0,.3);
+  transition:transform .25s ease,background .25s ease;
+}
+
+#rl:hover{
+  transform:translateY(-4px);
+  background:var(--amber);
 }
 
 #rw{
   position:fixed;
   right:1rem;
   bottom:calc(1rem + env(safe-area-inset-bottom,0px));
-  z-index:51;
+  z-index:151;
   width:min(380px,calc(100vw - 2rem));
   height:min(500px,70vh);
   background:#0d1735;
@@ -479,16 +578,20 @@ input:focus-visible{
   cursor:pointer;
 }
 
-/* =========================================
-   COMMITTEE DETAIL OVERLAY
-========================================= */
+/* =========================================================
+   COMMITTEE DETAIL
+========================================================= */
 
 #committeePage{
   position:fixed;
   inset:0;
   z-index:100;
   background:
-    radial-gradient(circle at 75% 20%,rgba(91,156,240,.13),transparent 35%),
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(91,156,240,.13),
+      transparent 35%
+    ),
     #070d24;
   display:none;
   overflow-y:auto;
@@ -504,7 +607,7 @@ input:focus-visible{
   padding:
     max(2rem,env(safe-area-inset-top))
     7vw
-    max(3rem,env(safe-area-inset-bottom));
+    max(4rem,env(safe-area-inset-bottom));
   position:relative;
 }
 
@@ -522,11 +625,13 @@ input:focus-visible{
   font-size:1.5rem;
   cursor:pointer;
   backdrop-filter:blur(10px);
+  transition:.3s ease;
 }
 
 .committee-close:hover{
   border-color:var(--amber);
   color:var(--amber);
+  transform:rotate(90deg);
 }
 
 .committee-kicker{
@@ -540,7 +645,7 @@ input:focus-visible{
 .committee-code{
   font-size:clamp(4rem,14vw,12rem);
   line-height:.8;
-  font-weight:800;
+  font-weight:700;
   letter-spacing:-.07em;
   color:var(--blue);
 }
@@ -555,17 +660,21 @@ input:focus-visible{
 
 .committee-description{
   margin-top:1.5rem;
-  max-width:650px;
+  max-width:700px;
   color:var(--dim);
   font-size:1.1rem;
   line-height:1.7;
 }
 
+/* =========================================================
+   COMMITTEE INFO
+========================================================= */
+
 .committee-info{
   display:grid;
-  grid-template-columns:repeat(3,minmax(150px,1fr));
+  grid-template-columns:repeat(4,minmax(150px,1fr));
   gap:1rem;
-  max-width:900px;
+  max-width:1100px;
   margin-top:3rem;
 }
 
@@ -586,31 +695,100 @@ input:focus-visible{
   font-size:1rem;
 }
 
-.committee-back{
-  display:inline-block;
-  margin-top:3rem;
-  padding:.9rem 1.5rem;
-  border:1px solid var(--blue);
-  color:var(--paper);
-  text-decoration:none;
-  border-radius:99px;
-  transition:.3s ease;
+/* =========================================================
+   COMMITTEE DETAIL GRID
+========================================================= */
+
+.committee-details{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  max-width:1100px;
+  margin-top:2rem;
 }
 
-.committee-back:hover{
-  background:var(--blue);
-  color:var(--ink);
-}
-
-/* =========================================
-   CONTACT DETAIL
-========================================= */
-
-.contact-strip{
-  margin-top:3rem;
+.detail-box{
+  position:relative;
+  overflow:hidden;
+  min-height:150px;
   padding:1.4rem;
   border:1px solid var(--line);
-  max-width:900px;
+  background:rgba(7,13,36,.55);
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+.detail-box::after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  right:-50px;
+  bottom:-50px;
+  border-radius:50%;
+  background:rgba(91,156,240,.1);
+  transition:.4s ease;
+}
+
+.detail-box:hover{
+  transform:translateY(-6px);
+  border-color:var(--amber);
+  background:rgba(15,27,59,.75);
+}
+
+.detail-box:hover::after{
+  transform:scale(2);
+}
+
+.detail-box small{
+  position:relative;
+  z-index:2;
+  display:block;
+  color:var(--amber);
+  font-size:.7rem;
+  letter-spacing:.17em;
+  font-weight:800;
+  margin-bottom:.8rem;
+}
+
+.detail-box h3{
+  position:relative;
+  z-index:2;
+  font-size:1.4rem;
+  font-weight:600;
+  margin-bottom:.5rem;
+}
+
+.detail-box p{
+  position:relative;
+  z-index:2;
+  color:var(--dim);
+  line-height:1.5;
+  font-size:.9rem;
+}
+
+.coming-soon{
+  display:inline-block;
+  margin-top:.8rem;
+  padding:.3rem .55rem;
+  border:1px solid rgba(255,180,46,.35);
+  color:var(--amber);
+  font-size:.65rem;
+  letter-spacing:.1em;
+  font-weight:800;
+}
+
+/* =========================================================
+   COMMITTEE CONTACT
+========================================================= */
+
+.contact-strip{
+  margin-top:2rem;
+  padding:1.4rem;
+  border:1px solid var(--line);
+  max-width:1100px;
   background:rgba(7,13,36,.5);
 }
 
@@ -624,28 +802,83 @@ input:focus-visible{
 
 .contact-strip p{
   color:var(--dim);
-  line-height:1.6;
+  line-height:1.7;
 }
 
 .contact-strip a{
   color:var(--paper);
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+.contact-people{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+  margin-top:1.2rem;
+}
 
-@media(max-width:900px){
+.contact-person{
+  padding-top:.8rem;
+  border-top:1px solid rgba(91,156,240,.3);
+}
+
+.contact-person b{
+  display:block;
+  color:var(--paper);
+  font-size:.9rem;
+}
+
+.contact-person span{
+  display:block;
+  color:var(--dim);
+  font-size:.76rem;
+  margin-top:.25rem;
+}
+
+.contact-person a{
+  display:block;
+  margin-top:.35rem;
+  color:var(--blue);
+  text-decoration:none;
+  font-size:.78rem;
+}
+
+.committee-back{
+  display:inline-block;
+  margin-top:2.5rem;
+  padding:.9rem 1.5rem;
+  border:1px solid var(--blue);
+  color:var(--paper);
+  text-decoration:none;
+  border-radius:99px;
+  transition:.3s ease;
+}
+
+.committee-back:hover{
+  background:var(--blue);
+  color:var(--ink);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
   .team-grid{
-    grid-template-columns:repeat(2,minmax(140px,1fr));
+    grid-template-columns:repeat(2,minmax(150px,1fr));
   }
 
   .committee-info{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .contact-people{
+    grid-template-columns:repeat(2,1fr);
   }
 }
 
 @media(max-width:640px){
+
   .hud{
     display:none;
   }
@@ -654,13 +887,20 @@ input:focus-visible{
     height:44vh;
   }
 
-  .team-grid{
+  .team-grid,
+  .team-grid.secretariat{
     grid-template-columns:1fr;
-    max-height:38vh;
-    overflow:auto;
   }
 
   .committee-info{
+    grid-template-columns:1fr;
+  }
+
+  .committee-details{
+    grid-template-columns:1fr;
+  }
+
+  .contact-people{
     grid-template-columns:1fr;
   }
 
@@ -683,9 +923,14 @@ input:focus-visible{
   .cd div{
     font-size:clamp(2rem,12vw,4rem);
   }
+
+  .track{
+    gap:5vw;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
+
   .stage{
     height:auto;
     overflow:visible;
@@ -707,6 +952,7 @@ input:focus-visible{
     width:auto;
   }
 }
+
 </style>
 </head>
 
@@ -719,13 +965,15 @@ input:focus-visible{
 
   <div class="hud">
     <span id="cur">1</span>
-    <div class="bar"><div id="fill"></div></div>
+    <div class="bar">
+      <div id="fill"></div>
+    </div>
     <span>6</span>
   </div>
 
-  <!-- ===============================
+  <!-- =====================================================
        01 — HERO
-  ================================ -->
+  ====================================================== -->
 
   <section class="scene on" id="s0">
 
@@ -744,9 +992,9 @@ input:focus-visible{
   </section>
 
 
-  <!-- ===============================
+  <!-- =====================================================
        02 — ABOUT
-  ================================ -->
+  ====================================================== -->
 
   <section class="scene" id="s1">
 
@@ -768,9 +1016,9 @@ input:focus-visible{
   </section>
 
 
-  <!-- ===============================
+  <!-- =====================================================
        03 — COMMITTEES
-  ================================ -->
+  ====================================================== -->
 
   <section class="scene" id="s2">
 
@@ -802,7 +1050,7 @@ input:focus-visible{
       <div class="card committee-card" data-committee="UNODC">
         <strong>UNODC</strong>
         <div>
-          <em>Office on Drugs and Crime</em><br>
+          <em>United Nations Office on Drugs and Crime</em><br>
           <small>Trafficking, crime and justice.</small>
           <span class="open-label">OPEN COMMITTEE ↗</span>
         </div>
@@ -820,8 +1068,8 @@ input:focus-visible{
       <div class="card committee-card" data-committee="UN Women">
         <strong>UN Women</strong>
         <div>
-          <em>Gender equality</em><br>
-          <small>Advancing rights and opportunity for women.</small>
+          <em>UN Women</em><br>
+          <small>Gender equality and opportunity.</small>
           <span class="open-label">OPEN COMMITTEE ↗</span>
         </div>
       </div>
@@ -840,9 +1088,9 @@ input:focus-visible{
   </section>
 
 
-  <!-- ===============================
+  <!-- =====================================================
        04 — CONFERENCE
-  ================================ -->
+  ====================================================== -->
 
   <section class="scene" id="s3">
 
@@ -872,9 +1120,9 @@ input:focus-visible{
   </section>
 
 
-  <!-- ===============================
+  <!-- =====================================================
        05 — TEAM
-  ================================ -->
+  ====================================================== -->
 
   <section class="scene" id="s4">
 
@@ -883,6 +1131,7 @@ input:focus-visible{
     </h2>
 
     <!-- CORE FIRST -->
+
     <div class="team-section-label">
       CORE
     </div>
@@ -911,12 +1160,14 @@ input:focus-visible{
 
     </div>
 
+
     <!-- SECRETARIAT -->
+
     <div class="team-section-label">
       SECRETARIAT
     </div>
 
-    <div class="team-grid">
+    <div class="team-grid secretariat">
 
       <div class="team-person">
         <b>Abimayur R</b>
@@ -933,9 +1184,9 @@ input:focus-visible{
   </section>
 
 
-  <!-- ===============================
+  <!-- =====================================================
        06 — REGISTRATION
-  ================================ -->
+  ====================================================== -->
 
   <section class="scene" id="s5">
 
@@ -990,9 +1241,9 @@ input:focus-visible{
 </main>
 
 
-<!-- =========================================
+<!-- =========================================================
      COMMITTEE DETAIL PAGE
-========================================= -->
+========================================================= -->
 
 <section id="committeePage">
 
@@ -1022,6 +1273,9 @@ input:focus-visible{
       Global peace and security.
     </p>
 
+
+    <!-- BASIC INFO -->
+
     <div class="committee-info">
 
       <div class="committee-info-box">
@@ -1039,23 +1293,167 @@ input:focus-visible{
         <strong>26–27 DEC 2026</strong>
       </div>
 
+      <div class="committee-info-box">
+        <small>DELEGATE FEE</small>
+        <strong>₹200</strong>
+      </div>
+
     </div>
+
+
+    <!-- DETAILED INFORMATION -->
+
+    <div class="committee-details">
+
+      <div class="detail-box">
+
+        <small>AGENDA</small>
+
+        <h3 id="committeeAgenda">
+          Coming Soon
+        </h3>
+
+        <p>
+          The official agenda for this committee
+          will be announced by the RELMUN Secretariat.
+        </p>
+
+        <span class="coming-soon">
+          COMING SOON
+        </span>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <small>EXECUTIVE BOARD</small>
+
+        <h3>
+          Coming Soon
+        </h3>
+
+        <p>
+          The Executive Board lineup for this
+          committee will be announced shortly.
+        </p>
+
+        <span class="coming-soon">
+          COMING SOON
+        </span>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <small>BACKGROUND GUIDE</small>
+
+        <h3>
+          Coming Soon
+        </h3>
+
+        <p>
+          The official background guide will be
+          made available once released by the committee.
+        </p>
+
+        <span class="coming-soon">
+          COMING SOON
+        </span>
+
+      </div>
+
+
+      <div class="detail-box">
+
+        <small>COMMITTEE INFORMATION</small>
+
+        <h3>
+          Delegate Resources
+        </h3>
+
+        <p>
+          Procedure, portfolio information,
+          committee-specific resources and other
+          delegate material will be published here.
+        </p>
+
+        <span class="coming-soon">
+          UPDATES SOON
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- CONTACT -->
 
     <div class="contact-strip">
 
-      <strong>COMMITTEE / CONFERENCE CONTACT</strong>
+      <strong>
+        RELMUN SECRETARIAT · OFFICIAL CONTACT
+      </strong>
 
       <p>
-        For registration and official conference enquiries:
-        <br><br>
+        For registration, committee and conference
+        enquiries, contact the RELMUN team:
+      </p>
+
+
+      <div class="contact-people">
+
+        <div class="contact-person">
+          <b>Akshith Kabilan</b>
+          <span>Secretary-General</span>
+          <a href="tel:+919843451257">
+            +91 98434 51257
+          </a>
+        </div>
+
+        <div class="contact-person">
+          <b>S. Shreyaas</b>
+          <span>Deputy Secretary-General</span>
+          <a href="tel:+919176776643">
+            +91 91767 76643
+          </a>
+        </div>
+
+        <div class="contact-person">
+          <b>Laasya Vikram</b>
+          <span>Director-General</span>
+          <a href="tel:+918884804856">
+            +91 88848 04856
+          </a>
+        </div>
+
+        <div class="contact-person">
+          <b>Aashi Kushwaha</b>
+          <span>Chief Advisor</span>
+          <a href="tel:+917388291118">
+            +91 73882 91118
+          </a>
+        </div>
+
+      </div>
+
+      <p style="margin-top:1.4rem">
+
+        Email:
         <a href="mailto:relmun.official@gmail.com">
           relmun.official@gmail.com
         </a>
+
         <br>
-        Instagram: <b>@relmun.official</b>
+
+        Instagram:
+        <b>@relmun.official</b>
+
       </p>
 
     </div>
+
 
     <a href="#" class="committee-back" id="committeeBack">
       ← BACK TO RELMUN
@@ -1066,9 +1464,9 @@ input:focus-visible{
 </section>
 
 
-<!-- =========================================
+<!-- =========================================================
      REX
-========================================= -->
+========================================================= -->
 
 <button id="rl">
   Ask REX
@@ -1084,12 +1482,17 @@ input:focus-visible{
   <div id="rm" aria-live="polite"></div>
 
   <form id="rf">
+
     <input
       id="ri"
       placeholder="Ask about RELMUN"
       autocomplete="off"
     >
-    <button>Send</button>
+
+    <button>
+      Send
+    </button>
+
   </form>
 
 </aside>
@@ -1098,26 +1501,40 @@ input:focus-visible{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
+
 <script>
 
+/* =========================================================
+   HELPERS
+========================================================= */
+
 const $ = id => document.getElementById(id);
-const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const reduce =
+  matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 
-/* =========================================
+/* =========================================================
    GLOBE
-========================================= */
+========================================================= */
 
 const g = $("globe");
 
 for(let i=0;i<8;i++){
+
   const r=document.createElement("i");
-  r.style.transform=`rotateY(${i*22.5}deg)`;
+
+  r.style.transform=
+    `rotateY(${i*22.5}deg)`;
+
   g.appendChild(r);
+
 }
 
 [-.6,-.3,0,.3,.6].forEach(v=>{
+
   const r=document.createElement("i");
+
   r.className="lat";
 
   const s=Math.sqrt(1-v*v);
@@ -1126,12 +1543,13 @@ for(let i=0;i<8;i++){
     `translateY(${v*50}%) rotateX(90deg) scale(${s})`;
 
   g.appendChild(r);
+
 });
 
 
-/* =========================================
+/* =========================================================
    COUNTDOWN
-========================================= */
+========================================================= */
 
 const target =
   new Date("2026-10-09T00:00:00+05:30").getTime();
@@ -1143,13 +1561,19 @@ function tick(){
   if(t<=0){
 
     $("cd").style.display="none";
-    $("regH").textContent="Registrations are open.";
-    $("cta").textContent="Register now";
+
+    $("regH").textContent=
+      "Registrations are open.";
+
+    $("cta").textContent=
+      "Register now";
 
     return;
+
   }
 
-  const p=n=>String(n).padStart(2,"0");
+  const p=n =>
+    String(n).padStart(2,"0");
 
   $("d").textContent=
     p(Math.floor(t/864e5));
@@ -1162,15 +1586,17 @@ function tick(){
 
   $("s").textContent=
     p(Math.floor(t%6e4/1e3));
+
 }
 
 tick();
+
 setInterval(tick,1000);
 
 
-/* =========================================
+/* =========================================================
    MAIN GSAP EXPERIENCE
-========================================= */
+========================================================= */
 
 if(!reduce){
 
@@ -1178,28 +1604,31 @@ if(!reduce){
 
   const letters=[];
 
-  document.querySelectorAll("#title span").forEach(sp=>{
+  document
+    .querySelectorAll("#title span")
+    .forEach(sp=>{
 
-    const txt=sp.textContent;
+      const txt=sp.textContent;
 
-    sp.textContent="";
+      sp.textContent="";
 
-    [...txt].forEach(c=>{
+      [...txt].forEach(c=>{
 
-      const l=document.createElement("span");
+        const l=document.createElement("span");
 
-      l.textContent=c;
+        l.textContent=c;
 
-      if(sp.classList.contains("o"))
-        l.className="o";
+        if(sp.classList.contains("o"))
+          l.className="o";
 
-      sp.appendChild(l);
+        sp.appendChild(l);
 
-      letters.push(l);
+        letters.push(l);
+
+      });
 
     });
 
-  });
 
   gsap.from(letters,{
     yPercent:120,
@@ -1209,6 +1638,7 @@ if(!reduce){
     duration:1.2,
     ease:"power4.out"
   });
+
 
   gsap.from("#s0 .lead",{
     opacity:0,
@@ -1251,6 +1681,7 @@ if(!reduce){
           s.progress*100+"%";
 
       }
+
     }
 
   });
@@ -1315,6 +1746,7 @@ if(!reduce){
     0
   );
 
+
   tl.to(
     g,
     {
@@ -1324,6 +1756,8 @@ if(!reduce){
     0
   );
 
+
+  /* HERO */
 
   hide(sc[0],1);
 
@@ -1346,6 +1780,8 @@ if(!reduce){
   );
 
 
+  /* ABOUT */
+
   show(sc[1],2);
 
   tl.from(
@@ -1361,6 +1797,8 @@ if(!reduce){
 
   hide(sc[1],4.6);
 
+
+  /* COMMITTEES */
 
   tl.to(
     g,
@@ -1384,6 +1822,23 @@ if(!reduce){
 
   show(sc[2],5.4);
 
+
+  /* COMMITTEE CARD EFFECT */
+
+  tl.from(
+    "#s2 .card",
+    {
+      opacity:0,
+      y:80,
+      rotateY:25,
+      stagger:.12,
+      duration:.55,
+      ease:"power3.out"
+    },
+    5.65
+  );
+
+
   const track=$("track");
 
   tl.to(
@@ -1401,6 +1856,8 @@ if(!reduce){
 
   hide(sc[2],9.8);
 
+
+  /* CONFERENCE */
 
   tl.to(
     g,
@@ -1425,8 +1882,23 @@ if(!reduce){
 
   show(sc[3],10.6);
 
+
+  tl.from(
+    "#s3 .row div",
+    {
+      opacity:0,
+      x:-35,
+      stagger:.18,
+      duration:.5
+    },
+    10.9
+  );
+
+
   hide(sc[3],12.2);
 
+
+  /* TEAM */
 
   tl.to(
     g,
@@ -1450,35 +1922,44 @@ if(!reduce){
 
   show(sc[4],13);
 
-  /*
-    TEAM EFFECTS
-  */
+
+  /* TEAM LABEL EFFECT */
 
   tl.from(
     "#s4 .team-section-label",
     {
       opacity:0,
-      x:-40,
-      stagger:.2,
-      duration:.4
+      x:-50,
+      clipPath:"inset(0 100% 0 0)",
+      stagger:.3,
+      duration:.6,
+      ease:"power3.out"
     },
-    13.2
+    13.15
   );
+
+
+  /* CORE + SECRETARIAT CARDS */
 
   tl.from(
     "#s4 .team-person",
     {
       opacity:0,
-      y:40,
-      rotateX:-20,
-      stagger:.15,
-      duration:.45
+      y:50,
+      rotateX:-25,
+      scale:.92,
+      stagger:.13,
+      duration:.5,
+      ease:"power3.out"
     },
     13.3
   );
 
+
   hide(sc[4],14.6);
 
+
+  /* REGISTRATION */
 
   tl.to(
     g,
@@ -1501,16 +1982,34 @@ if(!reduce){
 
   show(sc[5],15.4);
 
-  tl.to(
-    {},
+
+  tl.from(
+    "#s5 .cd div",
     {
-      duration:1.6
+      opacity:0,
+      y:35,
+      stagger:.1,
+      duration:.45
     },
-    15.4
+    15.65
   );
 
 
-  /* MAGNETIC CTA */
+  tl.from(
+    "#s5 .cta",
+    {
+      opacity:0,
+      scale:.7,
+      duration:.6,
+      ease:"back.out(1.7)"
+    },
+    16
+  );
+
+
+  /* =====================================================
+     MAGNETIC CTA
+  ====================================================== */
 
   const c=$("cta");
 
@@ -1528,6 +2027,7 @@ if(!reduce){
 
     }
   );
+
 
   c.addEventListener(
     "mouseleave",
@@ -1553,50 +2053,70 @@ if(!reduce){
 }
 
 
-/* =========================================
+/* =========================================================
    COMMITTEE DATA
-========================================= */
+========================================================= */
 
 const committees={
 
   "UNSC":{
     title:"United Nations Security Council",
-    description:"Global peace and security."
+    description:
+      "The United Nations Security Council focuses on international peace and security, conflict, diplomacy and collective action.",
+    agenda:
+      "Agenda Coming Soon"
   },
 
   "UNHRC":{
     title:"United Nations Human Rights Council",
-    description:"Rights, protections and accountability."
+    description:
+      "A forum focused on human rights, protections, accountability and international responses to rights-related challenges.",
+    agenda:
+      "Agenda Coming Soon"
   },
 
   "UNODC":{
     title:"United Nations Office on Drugs and Crime",
-    description:"Trafficking, crime and justice."
+    description:
+      "A committee dealing with organised crime, trafficking, drugs, criminal justice and international cooperation.",
+    agenda:
+      "Agenda Coming Soon"
   },
 
   "AIPPM":{
     title:"All India Political Parties Meet",
-    description:"Indian politics, party against party."
+    description:
+      "A parliamentary-style Indian political committee where delegates represent political parties and debate matters of national importance.",
+    agenda:
+      "Agenda Coming Soon"
   },
 
   "UN Women":{
     title:"UN Women",
-    description:"Gender equality and advancing rights and opportunity for women."
+    description:
+      "A committee focused on gender equality, women's rights, empowerment and advancing opportunities for women.",
+    agenda:
+      "Agenda Coming Soon"
   },
 
   "IPLA":{
     title:"IPL Auction",
-    description:"Bid, build a squad, and outsmart the room."
+    description:
+      "A simulation-style committee where delegates build teams through bidding, strategy, squad construction and negotiation.",
+    agenda:
+      "Agenda Coming Soon"
   }
 
 };
 
 
-/* =========================================
-   COMMITTEE PAGE OPEN/CLOSE
-========================================= */
+/* =========================================================
+   COMMITTEE OPEN / CLOSE
+========================================================= */
 
-const committeePage=$("committeePage");
+const committeePage=
+  $("committeePage");
+
 
 function openCommittee(code){
 
@@ -1604,7 +2124,9 @@ function openCommittee(code){
 
   if(!data) return;
 
-  $("committeeCode").textContent=code;
+
+  $("committeeCode").textContent=
+    code;
 
   $("committeeTitle").textContent=
     data.title;
@@ -1612,9 +2134,14 @@ function openCommittee(code){
   $("committeeDescription").textContent=
     data.description;
 
+  $("committeeAgenda").textContent=
+    data.agenda;
+
+
   committeePage.classList.add("open");
 
   document.body.style.overflow="hidden";
+
 
   if(!reduce){
 
@@ -1630,6 +2157,7 @@ function openCommittee(code){
       }
     );
 
+
     gsap.fromTo(
       ".committee-inner > *",
       {
@@ -1639,7 +2167,7 @@ function openCommittee(code){
       {
         opacity:1,
         y:0,
-        stagger:.07,
+        stagger:.065,
         duration:.5,
         delay:.12,
         ease:"power3.out"
@@ -1666,8 +2194,11 @@ function closeCommittee(){
         duration:.3,
         ease:"power2.in",
         onComplete:()=>{
+
           committeePage.classList.remove("open");
+
           document.body.style.overflow="";
+
         }
       }
     );
@@ -1675,6 +2206,7 @@ function closeCommittee(){
   }else{
 
     committeePage.classList.remove("open");
+
     document.body.style.overflow="";
 
   }
@@ -1682,54 +2214,63 @@ function closeCommittee(){
 }
 
 
-document.querySelectorAll(".committee-card")
-.forEach(card=>{
+/* =========================================================
+   COMMITTEE CARD LISTENERS
+========================================================= */
 
-  card.addEventListener(
-    "click",
-    ()=>{
-      openCommittee(
-        card.dataset.committee
-      );
-    }
-  );
+document
+  .querySelectorAll(".committee-card")
+  .forEach(card=>{
 
-});
+    card.addEventListener(
+      "click",
+      ()=>{
+        openCommittee(
+          card.dataset.committee
+        );
+      }
+    );
+
+  });
 
 
 $("committeeClose")
-.addEventListener(
-  "click",
-  closeCommittee
-);
+  .addEventListener(
+    "click",
+    closeCommittee
+  );
 
 
 $("committeeBack")
-.addEventListener(
-  "click",
-  e=>{
-    e.preventDefault();
-    closeCommittee();
-  }
-);
+  .addEventListener(
+    "click",
+    e=>{
+      e.preventDefault();
+      closeCommittee();
+    }
+  );
 
 
 document.addEventListener(
   "keydown",
   e=>{
+
     if(
       e.key==="Escape" &&
       committeePage.classList.contains("open")
     ){
+
       closeCommittee();
+
     }
+
   }
 );
 
 
-/* =========================================
-   REX
-========================================= */
+/* =========================================================
+   REX KNOWLEDGE BASE
+========================================================= */
 
 const KB=[
 
@@ -1738,74 +2279,112 @@ const KB=[
     "You're welcome! Ask me anything else about <b>RELMUN '26</b>."
   ],
 
+
   [
     /committee|council|unsc|unhrc|unodc|aippm|women|ipla/,
-    "<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM (All India Political Parties Meet), UN Women and IPLA (IPL Auction). Click any committee card on the main page to open its detailed view."
+    "<b>RELMUN '26 has six committees:</b> UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA. Click any committee card to open its detailed page, including agenda, Executive Board, background guide and other delegate information."
   ],
+
 
   [
     /date|when/,
-    "RELMUN '26 runs on <b>26–27 December 2026</b>, fully online."
+    "RELMUN '26 takes place on <b>26–27 December 2026</b> and is fully online."
   ],
+
 
   [
     /regist|fee|cost|price|how much/,
     "Delegate registrations open on <b>9 October 2026</b>. The delegate fee is <b>₹200 per delegate</b>."
   ],
 
+
   [
     /secretary|akshith/,
-    "The Secretary-General is <b>Akshith Kabilan</b>, part of the Core team."
+    "The Secretary-General is <b>Akshith Kabilan</b>. He is part of the <b>Core</b> team. Contact: <b>+91 98434 51257</b>."
   ],
+
+
+  [
+    /shreyaas|deputy/,
+    "<b>S. Shreyaas</b> is the Deputy Secretary-General and is part of the <b>Core</b> team. Contact: <b>+91 91767 76643</b>."
+  ],
+
+
+  [
+    /laasya|director/,
+    "<b>Laasya Vikram</b> is the Director-General and is part of the <b>Core</b> team. Contact: <b>+91 88848 04856</b>."
+  ],
+
 
   [
     /aashi/,
-    "<b>Aashi Kushwaha</b> is the Chief Advisor and is part of the <b>Core</b> team."
+    "<b>Aashi Kushwaha</b> is the Chief Advisor and is part of the <b>Core</b> team. Contact: <b>+91 73882 91118</b>."
   ],
+
 
   [
     /abimayur/,
     "<b>Abimayur R</b> is Head of Administration &amp; Outreach and is part of the <b>Secretariat</b>."
   ],
 
+
   [
     /madhav/,
     "<b>Madhav Bhardwaj</b> is USG, Delegate Affairs and is part of the <b>Secretariat</b>."
   ],
+
 
   [
     /team|organi|core|secretariat/,
     "<b>Core:</b> Akshith Kabilan (Secretary-General), S. Shreyaas (Deputy Secretary-General), Laasya Vikram (Director-General), Aashi Kushwaha (Chief Advisor).<br><br><b>Secretariat:</b> Abimayur R (Head of Administration &amp; Outreach), Madhav Bhardwaj (USG, Delegate Affairs)."
   ],
 
+
   [
     /\beb\b|executive|chair/,
-    "The Executive Board guides debate and procedure. The lineup is being finalised."
+    "The Executive Board lineup for each committee is <b>coming soon</b>. It will be published on the relevant committee detail page."
   ],
+
+
+  [
+    /agenda|topic/,
+    "Committee agendas are currently <b>coming soon</b>. Once released, they will appear on each committee's detailed page."
+  ],
+
+
+  [
+    /background|guide/,
+    "Background guides are currently <b>coming soon</b>. They will be made available through the relevant committee page once released."
+  ],
+
 
   [
     /certif/,
     "Certificates are provided to RELMUN '26 participants."
   ],
 
+
   [
     /online|offline|mode/,
     "RELMUN '26 is a <b>fully online</b> conference."
   ],
+
 
   [
     /munflow/,
     "MUNFLOW is the Technology &amp; Platform Partner for RELMUN '26."
   ],
 
+
   [
-    /contact|email|instagram|reach/,
-    "For official enquiries, email <b>relmun.official@gmail.com</b> or contact <b>@relmun.official</b> on Instagram."
+    /contact|email|instagram|reach|phone|number/,
+    "For official enquiries, email <b>relmun.official@gmail.com</b> or contact <b>@relmun.official</b> on Instagram. Provided direct contacts: Akshith Kabilan — <b>+91 98434 51257</b>; S. Shreyaas — <b>+91 91767 76643</b>; Laasya Vikram — <b>+91 88848 04856</b>; Aashi Kushwaha — <b>+91 73882 91118</b>."
   ],
+
 
   [
     /about|what is|relmun/,
-    "<b>RELMUN</b> is the Regional Engagement &amp; Leadership Model United Nations, a fully online MUN on 26–27 December 2026 with six committees."
+    "<b>RELMUN</b> is the Regional Engagement &amp; Leadership Model United Nations, a fully online MUN taking place on <b>26–27 December 2026</b> with six committees. Delegate registrations open on <b>9 October</b> at a fee of <b>₹200</b>."
   ]
 
 ];
@@ -1824,10 +2403,15 @@ function say(t,c){
 
   rm.appendChild(d);
 
-  rm.scrollTop=rm.scrollHeight;
+  rm.scrollTop=
+    rm.scrollHeight;
 
 }
 
+
+/* =========================================================
+   REX OPEN
+========================================================= */
 
 $("rl").onclick=()=>{
 
@@ -1840,6 +2424,10 @@ $("rl").onclick=()=>{
 };
 
 
+/* =========================================================
+   REX CLOSE
+========================================================= */
+
 $("rc").onclick=()=>{
 
   $("rw").classList.remove("open");
@@ -1849,37 +2437,52 @@ $("rc").onclick=()=>{
 };
 
 
+/* =========================================================
+   REX CHAT
+========================================================= */
+
 $("rf").onsubmit=e=>{
 
   e.preventDefault();
 
-  const q=$("ri").value.trim();
+  const q=
+    $("ri").value.trim();
 
   if(!q) return;
 
-  const esc=document.createElement("span");
+
+  const esc=
+    document.createElement("span");
 
   esc.textContent=q;
+
 
   say(
     esc.innerHTML,
     "u"
   );
 
+
   $("ri").value="";
+
+
+  const lower=
+    q.toLowerCase();
+
 
   const hit=
     KB.find(
-      k=>k[0].test(
-        q.toLowerCase()
-      )
+      k=>k[0].test(lower)
     );
+
 
   setTimeout(
     ()=>say(
+
       hit
       ? hit[1]
-      : "I can help with <b>RELMUN</b>, dates, committees, registration, the Core, Secretariat, certificates and contact details."
+      : "I can help with <b>RELMUN</b>, the conference dates, all six committees, committee agendas, Executive Boards, background guides, registration, the ₹200 fee, the Core, Secretariat, certificates and contact details."
+
     ),
     250
   );
@@ -1887,8 +2490,12 @@ $("rf").onsubmit=e=>{
 };
 
 
+/* =========================================================
+   REX GREETING
+========================================================= */
+
 say(
-  "Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees, registration, the Core, Secretariat or anything about the conference."
+  "Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask me about the conference, committees, registration, the Core, Secretariat, Executive Board, agendas, background guides or contact details."
 );
 
 </script>
