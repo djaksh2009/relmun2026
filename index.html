@@ -258,11 +258,15 @@ p.lead{
 ========================================= */
 
 .team-heading{
-  margin-bottom:.5rem;
+  margin-bottom:1.4rem;
+}
+
+.team-group{
+  width:min(100%,1000px);
 }
 
 .team-section-label{
-  margin-top:1.8rem;
+  margin-top:1rem;
   color:var(--amber);
   font-size:.72rem;
   font-weight:800;
@@ -276,10 +280,15 @@ p.lead{
   margin-top:.9rem;
 }
 
+.team-grid.secretariat{
+  grid-template-columns:repeat(2,minmax(180px,300px));
+}
+
 .team-person{
   border:1px solid var(--line);
-  padding:1rem;
+  padding:1.15rem;
   background:rgba(7,13,36,.55);
+  min-height:95px;
   transition:
     transform .35s ease,
     border-color .35s ease,
@@ -295,7 +304,7 @@ p.lead{
 .team-person b{
   display:block;
   font-size:1rem;
-  margin-bottom:.3rem;
+  margin-bottom:.35rem;
 }
 
 .team-person span{
@@ -304,9 +313,20 @@ p.lead{
   line-height:1.35;
 }
 
+.team-divider{
+  width:min(100%,1000px);
+  height:1px;
+  background:rgba(91,156,240,.28);
+  margin:1.35rem 0 .3rem;
+}
+
 /* =========================================
    REGISTRATION
 ========================================= */
+
+.registration-scene{
+  justify-content:center;
+}
 
 .cd{
   display:flex;
@@ -352,34 +372,53 @@ input:focus-visible{
    CONTACT
 ========================================= */
 
-#s6{
+.contact-scene{
   justify-content:center;
 }
 
-.contact-heading{
+.contact-wrap{
+  width:min(100%,1050px);
+}
+
+.contact-kicker{
+  color:var(--amber);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.2em;
+  margin-bottom:.8rem;
+}
+
+.contact-title{
   max-width:12ch;
 }
 
-.contact-team-grid{
+.contact-note{
+  color:var(--dim);
+  max-width:620px;
+  margin-top:1rem;
+  line-height:1.55;
+  font-size:1rem;
+}
+
+.contact-people{
   display:grid;
-  grid-template-columns:repeat(2,minmax(250px,1fr));
+  grid-template-columns:repeat(4,1fr);
   gap:1rem;
-  max-width:900px;
   margin-top:2rem;
 }
 
 .contact-person{
+  display:block;
+  text-decoration:none;
+  color:var(--paper);
   border:1px solid var(--line);
   background:rgba(7,13,36,.55);
-  padding:1.2rem 1.3rem;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1.2rem;
+  padding:1.15rem;
+  min-height:120px;
   transition:
-    transform .35s ease,
-    border-color .35s ease,
-    background .35s ease;
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease;
 }
 
 .contact-person:hover{
@@ -395,67 +434,63 @@ input:focus-visible{
 
 .contact-person span{
   display:block;
-  margin-top:.25rem;
+  margin-top:.35rem;
   color:var(--dim);
   font-size:.78rem;
 }
 
-.contact-phone{
-  border:1px solid var(--blue);
-  background:transparent;
+.contact-person small{
+  display:block;
+  margin-top:1rem;
   color:var(--blue);
-  padding:.65rem .8rem;
-  cursor:pointer;
-  white-space:nowrap;
-  font:500 .8rem "Bricolage Grotesque",system-ui,sans-serif;
-  transition:.3s ease;
+  font-size:.78rem;
+  font-weight:700;
 }
 
-.contact-phone:hover{
-  border-color:var(--amber);
-  color:var(--amber);
-  transform:translateY(-2px);
-}
-
-.official-contact{
+.contact-main-links{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:1rem;
-  max-width:900px;
-  margin-top:1.2rem;
+  margin-top:1rem;
+  max-width:720px;
 }
 
-.official-contact a{
+.contact-main-link{
   display:flex;
   flex-direction:column;
-  gap:.45rem;
-  padding:1.2rem 1.3rem;
+  gap:.35rem;
+  padding:1.15rem;
   border:1px solid var(--line);
   background:rgba(7,13,36,.55);
   color:var(--paper);
   text-decoration:none;
   transition:
-    transform .35s ease,
-    border-color .35s ease,
-    background .35s ease;
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease;
 }
 
-.official-contact a:hover{
+.contact-main-link:hover{
   transform:translateY(-5px);
   border-color:var(--amber);
   background:rgba(15,27,59,.8);
 }
 
-.official-contact span{
+.contact-main-link span{
   color:var(--amber);
   font-size:.68rem;
   font-weight:800;
   letter-spacing:.16em;
 }
 
-.official-contact b{
-  font-size:.95rem;
+.contact-main-link b{
+  font-size:.9rem;
   word-break:break-word;
+}
+
+.contact-main-link small{
+  color:var(--dim);
+  margin-top:.2rem;
 }
 
 /* =========================================
@@ -520,7 +555,7 @@ input:focus-visible{
   border:0;
   border-radius:99px;
   padding:.8rem 1.3rem;
-  font:800 1rem "Bricolage Grotesque",system-ui,sans-serif;
+  font:800 1rem inherit;
   cursor:pointer;
 }
 
@@ -714,26 +749,6 @@ input:focus-visible{
   font-size:1rem;
 }
 
-.committee-back{
-  display:inline-block;
-  margin-top:3rem;
-  padding:.9rem 1.5rem;
-  border:1px solid var(--blue);
-  color:var(--paper);
-  text-decoration:none;
-  border-radius:99px;
-  transition:.3s ease;
-}
-
-.committee-back:hover{
-  background:var(--blue);
-  color:var(--ink);
-}
-
-/* =========================================
-   COMMITTEE CONTACT
-========================================= */
-
 .contact-strip{
   margin-top:3rem;
   padding:1.4rem;
@@ -742,7 +757,7 @@ input:focus-visible{
   background:rgba(7,13,36,.5);
 }
 
-.contact-strip > strong{
+.contact-strip>strong{
   display:block;
   color:var(--amber);
   font-size:.75rem;
@@ -766,10 +781,7 @@ input:focus-visible{
   background:rgba(7,13,36,.45);
   color:var(--paper);
   text-decoration:none;
-  transition:
-    transform .35s ease,
-    border-color .35s ease,
-    background .35s ease;
+  transition:.35s ease;
 }
 
 .contact-link:hover{
@@ -795,8 +807,24 @@ input:focus-visible{
   margin-top:.3rem;
 }
 
+.committee-back{
+  display:inline-block;
+  margin-top:3rem;
+  padding:.9rem 1.5rem;
+  border:1px solid var(--blue);
+  color:var(--paper);
+  text-decoration:none;
+  border-radius:99px;
+  transition:.3s ease;
+}
+
+.committee-back:hover{
+  background:var(--blue);
+  color:var(--ink);
+}
+
 /* =========================================
-   CONTACT CHOICE MODAL
+   PHONE CHOICE
 ========================================= */
 
 .contact-choice{
@@ -890,6 +918,14 @@ input:focus-visible{
     grid-template-columns:repeat(2,minmax(140px,1fr));
   }
 
+  .team-grid.secretariat{
+    grid-template-columns:repeat(2,minmax(140px,1fr));
+  }
+
+  .contact-people{
+    grid-template-columns:repeat(2,1fr);
+  }
+
   .committee-info{
     grid-template-columns:1fr 1fr;
   }
@@ -907,68 +943,84 @@ input:focus-visible{
 
   #s4{
     justify-content:flex-start;
-    padding-top:14vh;
-    padding-bottom:12vh;
+    padding-top:11vh;
+    padding-bottom:8vh;
     overflow:visible;
   }
 
   .team-heading{
     font-size:clamp(2.2rem,10vw,4rem);
-    margin-bottom:1.5rem;
+    margin-bottom:1rem;
   }
 
   .team-section-label{
-    margin-top:1.8rem;
-    margin-bottom:.8rem;
-    font-size:.7rem;
+    margin-top:1.2rem;
+    margin-bottom:.7rem;
+    font-size:.68rem;
   }
 
-  .team-grid{
+  .team-grid,
+  .team-grid.secretariat{
     grid-template-columns:1fr;
-    gap:.8rem;
-    margin-top:0;
+    gap:.7rem;
   }
 
   .team-person{
-    padding:1.15rem;
-    min-height:78px;
+    padding:1rem;
+    min-height:75px;
   }
 
-  .team-person b{
-    font-size:1rem;
+  .team-divider{
+    margin:1.15rem 0 .1rem;
   }
 
-  .team-person span{
-    font-size:.78rem;
+  #s5{
+    padding-top:10vh;
+    padding-bottom:10vh;
+  }
+
+  .cd{
+    gap:.8rem;
+    flex-wrap:wrap;
+  }
+
+  .cd div{
+    font-size:clamp(2rem,12vw,4rem);
   }
 
   #s6{
     justify-content:flex-start;
-    padding-top:14vh;
-    padding-bottom:12vh;
+    padding-top:9vh;
+    padding-bottom:8vh;
     overflow:visible;
   }
 
-  .contact-heading{
+  .contact-title{
     font-size:clamp(2.2rem,10vw,4rem);
   }
 
-  .contact-team-grid{
+  .contact-note{
+    font-size:.9rem;
+  }
+
+  .contact-people{
     grid-template-columns:1fr;
-    gap:.8rem;
+    gap:.65rem;
+    margin-top:1.4rem;
   }
 
   .contact-person{
-    padding:1rem;
+    min-height:0;
+    padding:.9rem;
   }
 
-  .contact-phone{
-    font-size:.72rem;
-    padding:.6rem .65rem;
+  .contact-person small{
+    margin-top:.6rem;
   }
 
-  .official-contact{
+  .contact-main-links{
     grid-template-columns:1fr;
+    margin-top:.7rem;
   }
 
   .committee-info{
@@ -984,15 +1036,6 @@ input:focus-visible{
     padding-left:6vw;
     padding-right:6vw;
     padding-top:5rem;
-  }
-
-  .cd{
-    gap:1rem;
-    flex-wrap:wrap;
-  }
-
-  .cd div{
-    font-size:clamp(2rem,12vw,4rem);
   }
 
   .contact-links{
@@ -1035,242 +1078,178 @@ input:focus-visible{
 
 <main class="stage" id="stage">
 
-  <div class="brand">RELMUN</div>
+<div class="brand">RELMUN</div>
 
-  <div class="globe" id="globe"></div>
+<div class="globe" id="globe"></div>
 
-  <div class="hud">
-    <span id="cur">1</span>
+<div class="hud">
+  <span id="cur">1</span>
+  <div class="bar">
+    <div id="fill"></div>
+  </div>
+  <span>7</span>
+</div>
 
-    <div class="bar">
-      <div id="fill"></div>
-    </div>
+<!-- =========================================
+     01 — HERO
+========================================= -->
 
-    <span>7</span>
+<section class="scene on" id="s0">
+
+  <h1 id="title">
+    <span>REL</span><span>MUN</span><br>
+    <span class="o">'26</span>
+  </h1>
+
+  <p class="lead">
+    A fully online Model United Nations conference.
+    26–27 December 2026.
+  </p>
+
+  <div class="hint">
+    Scroll to enter
   </div>
 
+</section>
 
-  <!-- ===============================
-       01 — HERO
-  ================================= -->
+<!-- =========================================
+     02 — ABOUT
+========================================= -->
 
-  <section class="scene on" id="s0">
+<section class="scene" id="s1">
 
-    <h1 id="title">
-      <span>REL</span><span>MUN</span><br>
-      <span class="o">'26</span>
-    </h1>
+  <div class="words" id="words">
+    <span>Regional</span>
+    <span><b>Engagement</b></span>
+    <span>&amp;</span>
+    <span><b>Leadership</b></span>
+    <span>Model</span>
+    <span>United</span>
+    <span>Nations</span>
+  </div>
 
-    <p class="lead">
-      A fully online Model United Nations conference.
-      26–27 December 2026.
-    </p>
+  <p class="lead">
+    RELMUN is built around diplomacy, debate,
+    negotiation, engagement and leadership.
+  </p>
 
-    <div class="hint">
-      Scroll to enter
-    </div>
+</section>
 
-  </section>
+<!-- =========================================
+     03 — COMMITTEES
+========================================= -->
 
+<section class="scene" id="s2">
 
-  <!-- ===============================
-       02 — ABOUT
-  ================================= -->
+  <h2>
+    Six committees.<br>
+    Six rooms to argue in.
+  </h2>
 
-  <section class="scene" id="s1">
+  <div class="track" id="track">
 
-    <div class="words" id="words">
-
-      <span>Regional</span>
-      <span><b>Engagement</b></span>
-      <span>&amp;</span>
-      <span><b>Leadership</b></span>
-      <span>Model</span>
-      <span>United</span>
-      <span>Nations</span>
-
-    </div>
-
-    <p class="lead">
-      RELMUN is built around diplomacy, debate,
-      negotiation, engagement and leadership.
-    </p>
-
-  </section>
-
-
-  <!-- ===============================
-       03 — COMMITTEES
-  ================================= -->
-
-  <section class="scene" id="s2">
-
-    <h2>
-      Six committees.<br>
-      Six rooms to argue in.
-    </h2>
-
-    <div class="track" id="track">
-
-      <div class="card committee-card" data-committee="UNSC">
-
-        <strong>UNSC</strong>
-
-        <div>
-          <em>United Nations Security Council</em><br>
-
-          <small>
-            Global peace and security.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
-        </div>
-
-      </div>
-
-
-      <div class="card committee-card" data-committee="UNHRC">
-
-        <strong>UNHRC</strong>
-
-        <div>
-          <em>United Nations Human Rights Council</em><br>
-
-          <small>
-            Rights, protections and accountability.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
-        </div>
-
-      </div>
-
-
-      <div class="card committee-card" data-committee="UNODC">
-
-        <strong>UNODC</strong>
-
-        <div>
-          <em>Office on Drugs and Crime</em><br>
-
-          <small>
-            Trafficking, crime and justice.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
-        </div>
-
-      </div>
-
-
-      <div class="card committee-card" data-committee="AIPPM">
-
-        <strong>AIPPM</strong>
-
-        <div>
-          <em>All India Political Parties Meet</em><br>
-
-          <small>
-            Indian politics, party against party.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
-        </div>
-
-      </div>
-
-
-      <div class="card committee-card" data-committee="UN Women">
-
-        <strong>UN Women</strong>
-
-        <div>
-          <em>Gender equality</em><br>
-
-          <small>
-            Advancing rights and opportunity for women.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
-        </div>
-
-      </div>
-
-
-      <div class="card committee-card" data-committee="IPLA">
-
-        <strong>IPLA</strong>
-
-        <div>
-          <em>IPL Auction</em><br>
-
-          <small>
-            Bid, build a squad, outsmart the room.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ===============================
-       04 — CONFERENCE
-  ================================= -->
-
-  <section class="scene" id="s3">
-
-    <div class="big">
-      26–27<small>Dec 2026</small>
-    </div>
-
-    <div class="row">
-
+    <div class="card committee-card" data-committee="UNSC">
+      <strong>UNSC</strong>
       <div>
-        <b>Fully online</b>
-        <span>Attend from anywhere</span>
+        <em>United Nations Security Council</em><br>
+        <small>Global peace and security.</small>
+        <span class="open-label">OPEN COMMITTEE ↗</span>
       </div>
-
-      <div>
-        <b>6 committees</b>
-        <span>One conference</span>
-      </div>
-
-      <div>
-        <b>Certificates</b>
-        <span>For all participants</span>
-      </div>
-
     </div>
 
-  </section>
+    <div class="card committee-card" data-committee="UNHRC">
+      <strong>UNHRC</strong>
+      <div>
+        <em>United Nations Human Rights Council</em><br>
+        <small>Rights, protections and accountability.</small>
+        <span class="open-label">OPEN COMMITTEE ↗</span>
+      </div>
+    </div>
 
+    <div class="card committee-card" data-committee="UNODC">
+      <strong>UNODC</strong>
+      <div>
+        <em>Office on Drugs and Crime</em><br>
+        <small>Trafficking, crime and justice.</small>
+        <span class="open-label">OPEN COMMITTEE ↗</span>
+      </div>
+    </div>
 
-  <!-- ===============================
-       05 — TEAM
-  ================================= -->
+    <div class="card committee-card" data-committee="AIPPM">
+      <strong>AIPPM</strong>
+      <div>
+        <em>All India Political Parties Meet</em><br>
+        <small>Indian politics, party against party.</small>
+        <span class="open-label">OPEN COMMITTEE ↗</span>
+      </div>
+    </div>
 
-  <section class="scene" id="s4">
+    <div class="card committee-card" data-committee="UN Women">
+      <strong>UN Women</strong>
+      <div>
+        <em>Gender equality</em><br>
+        <small>Advancing rights and opportunity for women.</small>
+        <span class="open-label">OPEN COMMITTEE ↗</span>
+      </div>
+    </div>
 
-    <h2 class="team-heading">
-      The people running it.
-    </h2>
+    <div class="card committee-card" data-committee="IPLA">
+      <strong>IPLA</strong>
+      <div>
+        <em>IPL Auction</em><br>
+        <small>Bid, build a squad, outsmart the room.</small>
+        <span class="open-label">OPEN COMMITTEE ↗</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     04 — CONFERENCE
+========================================= -->
+
+<section class="scene" id="s3">
+
+  <div class="big">
+    26–27<small>Dec 2026</small>
+  </div>
+
+  <div class="row">
+
+    <div>
+      <b>Fully online</b>
+      <span>Attend from anywhere</span>
+    </div>
+
+    <div>
+      <b>6 committees</b>
+      <span>One conference</span>
+    </div>
+
+    <div>
+      <b>Certificates</b>
+      <span>For all participants</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     05 — TEAM
+========================================= -->
+
+<section class="scene" id="s4">
+
+  <h2 class="team-heading">
+    The people running it.
+  </h2>
+
+  <!-- CORE -->
+
+  <div class="team-group">
 
     <div class="team-section-label">
       CORE
@@ -1300,199 +1279,191 @@ input:focus-visible{
 
     </div>
 
+  </div>
+
+  <div class="team-divider"></div>
+
+  <!-- SECRETARIAT -->
+
+  <div class="team-group">
 
     <div class="team-section-label">
       SECRETARIAT
     </div>
 
-    <div class="team-grid">
+    <div class="team-grid secretariat">
 
       <div class="team-person">
         <b>Abimayur R</b>
-        <span>
-          Head of Administration &amp; Outreach
-        </span>
+        <span>Head of Administration &amp; Outreach</span>
       </div>
 
       <div class="team-person">
         <b>Madhav Bhardwaj</b>
-        <span>
-          USG, Delegate Affairs
-        </span>
+        <span>USG, Delegate Affairs</span>
       </div>
 
     </div>
 
-  </section>
+  </div>
 
+</section>
 
-  <!-- ===============================
-       06 — REGISTRATION
-  ================================= -->
+<!-- =========================================
+     06 — REGISTRATION
+========================================= -->
 
-  <section class="scene" id="s5">
+<section class="scene registration-scene" id="s5">
 
-    <h2 id="regH">
-      Registrations open 9 October.
-    </h2>
+  <h2 id="regH">
+    Registrations open 9 October.
+  </h2>
 
-    <p class="lead" id="regP">
-      Delegate fee: ₹200 per delegate.
-    </p>
+  <p class="lead" id="regP">
+    Delegate fee: ₹200 per delegate.
+  </p>
 
-    <div class="cd" id="cd">
+  <div class="cd" id="cd">
 
-      <div>
-        <span id="d">00</span>
-        <small>days</small>
-      </div>
-
-      <div>
-        <span id="h">00</span>
-        <small>hours</small>
-      </div>
-
-      <div>
-        <span id="m">00</span>
-        <small>minutes</small>
-      </div>
-
-      <div>
-        <span id="s">00</span>
-        <small>seconds</small>
-      </div>
-
+    <div>
+      <span id="d">00</span>
+      <small>days</small>
     </div>
 
     <div>
+      <span id="h">00</span>
+      <small>hours</small>
+    </div>
+
+    <div>
+      <span id="m">00</span>
+      <small>minutes</small>
+    </div>
+
+    <div>
+      <span id="s">00</span>
+      <small>seconds</small>
+    </div>
+
+  </div>
+
+  <div>
+
+    <a
+      class="cta"
+      id="cta"
+      href="mailto:relmun.official@gmail.com?subject=RELMUN%20'26%20Delegate%20Registration"
+    >
+      Email us to register
+    </a>
+
+  </div>
+
+  <p class="sub">
+    relmun.official@gmail.com ·
+    @relmun.official on Instagram
+  </p>
+
+</section>
+
+<!-- =========================================
+     07 — CONTACT
+========================================= -->
+
+<section class="scene contact-scene" id="s6">
+
+  <div class="contact-wrap">
+
+    <div class="contact-kicker">
+      CONTACT US FOR QUERIES
+    </div>
+
+    <h2 class="contact-title">
+      Need to reach the team?
+    </h2>
+
+    <p class="contact-note">
+      For registration, delegate queries and conference-related
+      enquiries, contact one of the Core team members below.
+    </p>
+
+    <div class="contact-people">
 
       <a
-        class="cta"
-        id="cta"
-        href="mailto:relmun.official@gmail.com?subject=RELMUN%20'26%20Delegate%20Registration"
+        class="contact-person phone-link"
+        href="#"
+        data-phone="+919843451257"
+        data-display="+91 98434 51257"
       >
-        Email us to register
+        <b>Akshith Kabilan</b>
+        <span>Secretary-General</span>
+        <small>+91 98434 51257 ↗</small>
+      </a>
+
+      <a
+        class="contact-person phone-link"
+        href="#"
+        data-phone="+919176776643"
+        data-display="+91 91767 76643"
+      >
+        <b>S. Shreyaas</b>
+        <span>Deputy Secretary-General</span>
+        <small>+91 91767 76643 ↗</small>
+      </a>
+
+      <a
+        class="contact-person phone-link"
+        href="#"
+        data-phone="+918884804856"
+        data-display="+91 88848 04856"
+      >
+        <b>Laasya Vikram</b>
+        <span>Director-General</span>
+        <small>+91 88848 04856 ↗</small>
+      </a>
+
+      <a
+        class="contact-person phone-link"
+        href="#"
+        data-phone="+917388291118"
+        data-display="+91 73882 91118"
+      >
+        <b>Aashi Kushwaha</b>
+        <span>Chief Advisor</span>
+        <small>+91 73882 91118 ↗</small>
       </a>
 
     </div>
 
-  </section>
-
-
-  <!-- ===============================
-       07 — CONTACT
-  ================================= -->
-
-  <section class="scene" id="s6">
-
-    <h2 class="contact-heading">
-      Contact us for queries.
-    </h2>
-
-    <p class="lead">
-      Reach out to the RELMUN '26 Core team for official enquiries.
-    </p>
-
-    <div class="contact-team-grid">
-
-      <div class="contact-person">
-
-        <div>
-          <b>Akshith Kabilan</b>
-          <span>Secretary-General</span>
-        </div>
-
-        <button
-          class="contact-phone"
-          data-phone="+919843451257"
-          data-display="+91 98434 51257"
-        >
-          +91 98434 51257
-        </button>
-
-      </div>
-
-
-      <div class="contact-person">
-
-        <div>
-          <b>S. Shreyaas</b>
-          <span>Deputy Secretary-General</span>
-        </div>
-
-        <button
-          class="contact-phone"
-          data-phone="+919176776643"
-          data-display="+91 91767 76643"
-        >
-          +91 91767 76643
-        </button>
-
-      </div>
-
-
-      <div class="contact-person">
-
-        <div>
-          <b>Laasya Vikram</b>
-          <span>Director-General</span>
-        </div>
-
-        <button
-          class="contact-phone"
-          data-phone="+918884804856"
-          data-display="+91 88848 04856"
-        >
-          +91 88848 04856
-        </button>
-
-      </div>
-
-
-      <div class="contact-person">
-
-        <div>
-          <b>Aashi Kushwaha</b>
-          <span>Chief Advisor</span>
-        </div>
-
-        <button
-          class="contact-phone"
-          data-phone="+917388291118"
-          data-display="+91 73882 91118"
-        >
-          +91 73882 91118
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="official-contact">
+    <div class="contact-main-links">
 
       <a
+        class="contact-main-link"
+        href="mailto:relmun.official@gmail.com"
+      >
+        <span>EMAIL</span>
+        <b>relmun.official@gmail.com</b>
+        <small>↗ Open email</small>
+      </a>
+
+      <a
+        class="contact-main-link"
         href="https://instagram.com/relmun.official"
         target="_blank"
         rel="noopener noreferrer"
       >
         <span>INSTAGRAM</span>
-        <b>@relmun.official ↗</b>
-      </a>
-
-      <a href="mailto:relmun.official@gmail.com">
-
-        <span>EMAIL</span>
-        <b>relmun.official@gmail.com ↗</b>
-
+        <b>@relmun.official</b>
+        <small>↗ Open Instagram</small>
       </a>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 </main>
-
 
 <!-- =========================================
      COMMITTEE DETAIL PAGE
@@ -1518,17 +1489,11 @@ input:focus-visible{
       UNSC
     </div>
 
-    <h1
-      class="committee-title"
-      id="committeeTitle"
-    >
+    <h1 class="committee-title" id="committeeTitle">
       United Nations Security Council
     </h1>
 
-    <p
-      class="committee-description"
-      id="committeeDescription"
-    >
+    <p class="committee-description" id="committeeDescription">
       Global peace and security.
     </p>
 
@@ -1553,9 +1518,7 @@ input:focus-visible{
 
     <div class="contact-strip">
 
-      <strong>
-        SECRETARIAT CONTACT
-      </strong>
+      <strong>SECRETARIAT CONTACT</strong>
 
       <div class="contact-links">
 
@@ -1583,11 +1546,7 @@ input:focus-visible{
 
     </div>
 
-    <a
-      href="#"
-      class="committee-back"
-      id="committeeBack"
-    >
+    <a href="#" class="committee-back" id="committeeBack">
       ← BACK TO RELMUN
     </a>
 
@@ -1595,15 +1554,11 @@ input:focus-visible{
 
 </section>
 
-
 <!-- =========================================
      PHONE / WHATSAPP CHOICE
 ========================================= -->
 
-<div
-  id="contactChoice"
-  class="contact-choice"
->
+<div id="contactChoice" class="contact-choice">
 
   <div class="contact-choice-box">
 
@@ -1629,10 +1584,7 @@ input:focus-visible{
 
     <div class="contact-choice-buttons">
 
-      <a
-        id="callChoice"
-        href="#"
-      >
+      <a id="callChoice" href="#">
         ☎ CALL
       </a>
 
@@ -1651,7 +1603,6 @@ input:focus-visible{
 
 </div>
 
-
 <!-- =========================================
      REX
 ========================================= -->
@@ -1660,10 +1611,7 @@ input:focus-visible{
   Ask REX
 </button>
 
-<aside
-  id="rw"
-  aria-label="REX assistant"
->
+<aside id="rw" aria-label="REX assistant">
 
   <header>
 
@@ -1671,19 +1619,13 @@ input:focus-visible{
       REX · RELMUN assistant
     </span>
 
-    <button
-      id="rc"
-      aria-label="Close"
-    >
+    <button id="rc" aria-label="Close">
       ×
     </button>
 
   </header>
 
-  <div
-    id="rm"
-    aria-live="polite"
-  ></div>
+  <div id="rm" aria-live="polite"></div>
 
   <form id="rf">
 
@@ -1700,7 +1642,6 @@ input:focus-visible{
   </form>
 
 </aside>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -1759,8 +1700,7 @@ const target =
 
 function tick(){
 
-  const t =
-    target - Date.now();
+  const t = target - Date.now();
 
   if(t<=0){
 
@@ -1794,10 +1734,7 @@ function tick(){
 
 tick();
 
-setInterval(
-  tick,
-  1000
-);
+setInterval(tick,1000);
 
 
 /* =========================================
@@ -1806,9 +1743,7 @@ setInterval(
 
 if(!reduce){
 
-  gsap.registerPlugin(
-    ScrollTrigger
-  );
+  gsap.registerPlugin(ScrollTrigger);
 
   const letters=[];
 
@@ -1816,21 +1751,17 @@ if(!reduce){
     .querySelectorAll("#title span")
     .forEach(sp=>{
 
-      const txt =
-        sp.textContent;
+      const txt=sp.textContent;
 
       sp.textContent="";
 
       [...txt].forEach(c=>{
 
-        const l =
-          document.createElement("span");
+        const l=document.createElement("span");
 
         l.textContent=c;
 
-        if(
-          sp.classList.contains("o")
-        ){
+        if(sp.classList.contains("o")){
           l.className="o";
         }
 
@@ -1842,27 +1773,21 @@ if(!reduce){
 
     });
 
-  gsap.from(
-    letters,
-    {
-      yPercent:120,
-      rotateX:-90,
-      opacity:0,
-      stagger:.06,
-      duration:1.2,
-      ease:"power4.out"
-    }
-  );
+  gsap.from(letters,{
+    yPercent:120,
+    rotateX:-90,
+    opacity:0,
+    stagger:.06,
+    duration:1.2,
+    ease:"power4.out"
+  });
 
-  gsap.from(
-    "#s0 .lead",
-    {
-      opacity:0,
-      y:20,
-      delay:.9,
-      duration:1
-    }
-  );
+  gsap.from("#s0 .lead",{
+    opacity:0,
+    y:20,
+    delay:.9,
+    duration:1
+  });
 
   const sc=[
     ...document.querySelectorAll(".scene")
@@ -1881,7 +1806,7 @@ if(!reduce){
 
         start:"top top",
 
-        end:"+=1650%",
+        end:"+=1750%",
 
         pin:true,
 
@@ -1894,9 +1819,7 @@ if(!reduce){
           const i =
             Math.min(
               6,
-              Math.floor(
-                s.progress*7
-              )
+              Math.floor(s.progress*7)
             );
 
           $("cur").textContent =
@@ -1910,6 +1833,7 @@ if(!reduce){
       }
 
     });
+
 
   const show=(el,t)=>{
 
@@ -1939,6 +1863,7 @@ if(!reduce){
 
   };
 
+
   const hide=(el,t)=>{
 
     tl.to(
@@ -1963,14 +1888,14 @@ if(!reduce){
   };
 
 
-  /* GLOBE MOTION */
+  /* GLOBE */
 
   tl.to(
     g,
     {
       rotationY:900,
       rotationX:25,
-      duration:19
+      duration:22
     },
     0
   );
@@ -1978,10 +1903,7 @@ if(!reduce){
 
   /* HERO → ABOUT */
 
-  hide(
-    sc[0],
-    1
-  );
+  hide(sc[0],1);
 
   tl.to(
     g,
@@ -2001,10 +1923,7 @@ if(!reduce){
     1
   );
 
-  show(
-    sc[1],
-    2
-  );
+  show(sc[1],2);
 
   tl.from(
     "#words span",
@@ -2017,10 +1936,7 @@ if(!reduce){
     2.3
   );
 
-  hide(
-    sc[1],
-    4.6
-  );
+  hide(sc[1],4.6);
 
 
   /* ABOUT → COMMITTEES */
@@ -2044,13 +1960,9 @@ if(!reduce){
     4.6
   );
 
-  show(
-    sc[2],
-    5.4
-  );
+  show(sc[2],5.4);
 
-  const track =
-    $("track");
+  const track=$("track");
 
   tl.to(
     track,
@@ -2065,10 +1977,7 @@ if(!reduce){
     6.2
   );
 
-  hide(
-    sc[2],
-    9.8
-  );
+  hide(sc[2],9.8);
 
 
   /* COMMITTEES → CONFERENCE */
@@ -2093,15 +2002,9 @@ if(!reduce){
     9.8
   );
 
-  show(
-    sc[3],
-    10.6
-  );
+  show(sc[3],10.6);
 
-  hide(
-    sc[3],
-    12.2
-  );
+  hide(sc[3],12.5);
 
 
   /* CONFERENCE → TEAM */
@@ -2113,7 +2016,7 @@ if(!reduce){
       y:0,
       duration:1.2
     },
-    12.2
+    12.5
   );
 
   tl.to(
@@ -2122,16 +2025,13 @@ if(!reduce){
       backgroundColor:"#0a1230",
       duration:1
     },
-    12.2
+    12.5
   );
 
-  show(
-    sc[4],
-    13
-  );
+  show(sc[4],13.3);
 
 
-  /* TEAM EFFECTS */
+  /* TEAM ANIMATION */
 
   tl.from(
     "#s4 .team-heading",
@@ -2141,7 +2041,7 @@ if(!reduce){
       filter:"blur(10px)",
       duration:.5
     },
-    13.1
+    13.4
   );
 
   tl.from(
@@ -2149,10 +2049,10 @@ if(!reduce){
     {
       opacity:0,
       x:-40,
-      stagger:.35,
+      stagger:.4,
       duration:.5
     },
-    13.2
+    13.5
   );
 
   tl.from(
@@ -2164,16 +2064,13 @@ if(!reduce){
       stagger:.15,
       duration:.45
     },
-    13.3
-  );
-
-  hide(
-    sc[4],
-    17.8
+    13.6
   );
 
 
   /* TEAM → REGISTRATION */
+
+  hide(sc[4],18.2);
 
   tl.to(
     g,
@@ -2181,7 +2078,7 @@ if(!reduce){
       scale:1.5,
       duration:1.2
     },
-    17.8
+    18.2
   );
 
   tl.to(
@@ -2190,111 +2087,130 @@ if(!reduce){
       backgroundColor:"#0b1a4d",
       duration:1
     },
-    17.8
+    18.2
   );
 
-  show(
-    sc[5],
-    18.6
-  );
+  show(sc[5],19);
+
 
   tl.to(
     {},
     {
-      duration:2.4
+      duration:2.8
     },
-    18.6
+    19
   );
 
 
   /* REGISTRATION → CONTACT */
 
-  show(
-    sc[6],
-    21.4
+  hide(sc[5],21.8);
+
+  tl.to(
+    g,
+    {
+      scale:1.05,
+      x:0,
+      y:0,
+      duration:1.1
+    },
+    21.8
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#070d24",
+      duration:1
+    },
+    21.8
+  );
+
+  show(sc[6],22.6);
+
+
+  /* CONTACT ANIMATION */
+
+  tl.from(
+    "#s6 .contact-kicker",
+    {
+      opacity:0,
+      x:-30,
+      duration:.4
+    },
+    22.7
   );
 
   tl.from(
-    "#s6 .contact-heading",
+    "#s6 .contact-title",
     {
       opacity:0,
-      y:35,
+      y:30,
       filter:"blur(10px)",
       duration:.5
     },
-    21.5
+    22.75
   );
 
   tl.from(
-    "#s6 .contact-team-grid .contact-person",
+    "#s6 .contact-note",
     {
       opacity:0,
-      y:40,
-      rotateX:-20,
-      stagger:.12,
-      duration:.45
-    },
-    21.6
-  );
-
-  tl.from(
-    "#s6 .official-contact a",
-    {
-      opacity:0,
-      y:25,
-      stagger:.15,
+      y:20,
       duration:.4
     },
-    22.2
+    22.9
+  );
+
+  tl.from(
+    "#s6 .contact-person",
+    {
+      opacity:0,
+      y:30,
+      stagger:.12,
+      duration:.4
+    },
+    23
+  );
+
+  tl.from(
+    "#s6 .contact-main-link",
+    {
+      opacity:0,
+      y:20,
+      stagger:.12,
+      duration:.4
+    },
+    23.5
   );
 
 
   /* MAGNETIC CTA */
 
-  const c =
-    $("cta");
+  const c=$("cta");
 
-  c.addEventListener(
-    "mousemove",
-    e=>{
+  c.addEventListener("mousemove",e=>{
 
-      const r =
-        c.getBoundingClientRect();
+    const r=c.getBoundingClientRect();
 
-      gsap.to(
-        c,
-        {
-          x:
-            (e.clientX-r.left-r.width/2)
-            *.25,
+    gsap.to(c,{
+      x:(e.clientX-r.left-r.width/2)*.25,
+      y:(e.clientY-r.top-r.height/2)*.25,
+      duration:.3
+    });
 
-          y:
-            (e.clientY-r.top-r.height/2)
-            *.25,
+  });
 
-          duration:.3
-        }
-      );
+  c.addEventListener("mouseleave",()=>{
 
-    }
-  );
+    gsap.to(c,{
+      x:0,
+      y:0,
+      duration:.7,
+      ease:"elastic.out(1,.4)"
+    });
 
-  c.addEventListener(
-    "mouseleave",
-    ()=>{
-
-      gsap.to(
-        c,
-        {
-          x:0,
-          y:0,
-          duration:.7,
-          ease:"elastic.out(1,.4)"
-        }
-      );
-
-    }
-  );
+  });
 
   addEventListener(
     "load",
@@ -2314,51 +2230,33 @@ if(!reduce){
 const committees={
 
   "UNSC":{
-    title:
-      "United Nations Security Council",
-
-    description:
-      "Global peace and security."
+    title:"United Nations Security Council",
+    description:"Global peace and security."
   },
 
   "UNHRC":{
-    title:
-      "United Nations Human Rights Council",
-
-    description:
-      "Rights, protections and accountability."
+    title:"United Nations Human Rights Council",
+    description:"Rights, protections and accountability."
   },
 
   "UNODC":{
-    title:
-      "United Nations Office on Drugs and Crime",
-
-    description:
-      "Trafficking, crime and justice."
+    title:"United Nations Office on Drugs and Crime",
+    description:"Trafficking, crime and justice."
   },
 
   "AIPPM":{
-    title:
-      "All India Political Parties Meet",
-
-    description:
-      "Indian politics, party against party."
+    title:"All India Political Parties Meet",
+    description:"Indian politics, party against party."
   },
 
   "UN Women":{
-    title:
-      "UN Women",
-
-    description:
-      "Gender equality and advancing rights and opportunity for women."
+    title:"UN Women",
+    description:"Gender equality and advancing rights and opportunity for women."
   },
 
   "IPLA":{
-    title:
-      "IPL Auction",
-
-    description:
-      "Bid, build a squad, and outsmart the room."
+    title:"IPL Auction",
+    description:"Bid, build a squad, and outsmart the room."
   }
 
 };
@@ -2368,39 +2266,27 @@ const committees={
    COMMITTEE PAGE
 ========================================= */
 
-const committeePage =
-  $("committeePage");
+const committeePage=$("committeePage");
 
 function openCommittee(code){
 
-  const data =
-    committees[code];
+  const data=committees[code];
 
-  if(!data) return;
+  if(!data)return;
 
-  $("committeeCode").textContent =
-    code;
+  $("committeeCode").textContent=code;
+  $("committeeTitle").textContent=data.title;
+  $("committeeDescription").textContent=data.description;
 
-  $("committeeTitle").textContent =
-    data.title;
+  committeePage.classList.add("open");
 
-  $("committeeDescription").textContent =
-    data.description;
-
-  committeePage.classList.add(
-    "open"
-  );
-
-  document.body.style.overflow =
-    "hidden";
+  document.body.style.overflow="hidden";
 
   if(!reduce){
 
     gsap.fromTo(
       committeePage,
-      {
-        opacity:0
-      },
+      {opacity:0},
       {
         opacity:1,
         duration:.45,
@@ -2442,25 +2328,19 @@ function closeCommittee(){
         opacity:0,
         duration:.3,
         ease:"power2.in",
-
         onComplete:()=>{
 
-          committeePage.classList.remove(
-            "open"
-          );
+          committeePage.classList.remove("open");
 
           document.body.style.overflow="";
 
         }
-
       }
     );
 
   }else{
 
-    committeePage.classList.remove(
-      "open"
-    );
+    committeePage.classList.remove("open");
 
     document.body.style.overflow="";
 
@@ -2475,11 +2355,9 @@ document
     card.addEventListener(
       "click",
       ()=>{
-
         openCommittee(
           card.dataset.committee
         );
-
       }
     );
 
@@ -2495,11 +2373,8 @@ $("committeeBack")
   .addEventListener(
     "click",
     e=>{
-
       e.preventDefault();
-
       closeCommittee();
-
     }
   );
 
@@ -2509,13 +2384,9 @@ document.addEventListener(
 
     if(
       e.key==="Escape" &&
-      committeePage.classList.contains(
-        "open"
-      )
+      committeePage.classList.contains("open")
     ){
-
       closeCommittee();
-
     }
 
   }
@@ -2523,7 +2394,7 @@ document.addEventListener(
 
 
 /* =========================================
-   REX KNOWLEDGE BASE
+   REX
 ========================================= */
 
 const KB=[
@@ -2535,7 +2406,7 @@ const KB=[
 
   [
     /committee|council|unsc|unhrc|unodc|aippm|women|ipla/,
-    "<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM (All India Political Parties Meet), UN Women and IPLA (IPL Auction). Click any committee card on the main page to open its detailed view."
+    "<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA."
   ],
 
   [
@@ -2580,12 +2451,7 @@ const KB=[
 
   [
     /team|organi|core|secretariat/,
-    "<b>Core:</b> Akshith Kabilan (Secretary-General), S. Shreyaas (Deputy Secretary-General), Laasya Vikram (Director-General), Aashi Kushwaha (Chief Advisor).<br><br><b>Secretariat:</b> Abimayur R (Head of Administration &amp; Outreach), Madhav Bhardwaj (USG, Delegate Affairs)."
-  ],
-
-  [
-    /\beb\b|executive|chair/,
-    "The Executive Board guides debate and procedure. The lineup is being finalised."
+    "<b>Core:</b> Akshith Kabilan, S. Shreyaas, Laasya Vikram and Aashi Kushwaha.<br><br><b>Secretariat:</b> Abimayur R and Madhav Bhardwaj."
   ],
 
   [
@@ -2615,36 +2481,27 @@ const KB=[
 
 ];
 
-
-const rm =
-  $("rm");
+const rm=$("rm");
 
 function say(t,c){
 
-  const d =
-    document.createElement("div");
+  const d=document.createElement("div");
 
-  d.className =
-    c || "";
+  d.className=c||"";
 
-  d.innerHTML =
-    t;
+  d.innerHTML=t;
 
   rm.appendChild(d);
 
-  rm.scrollTop =
-    rm.scrollHeight;
+  rm.scrollTop=rm.scrollHeight;
 
 }
 
 $("rl").onclick=()=>{
 
-  $("rw").classList.add(
-    "open"
-  );
+  $("rw").classList.add("open");
 
-  $("rl").style.display =
-    "none";
+  $("rl").style.display="none";
 
   $("ri").focus();
 
@@ -2652,12 +2509,9 @@ $("rl").onclick=()=>{
 
 $("rc").onclick=()=>{
 
-  $("rw").classList.remove(
-    "open"
-  );
+  $("rw").classList.remove("open");
 
-  $("rl").style.display =
-    "block";
+  $("rl").style.display="block";
 
 };
 
@@ -2665,39 +2519,27 @@ $("rf").onsubmit=e=>{
 
   e.preventDefault();
 
-  const q =
-    $("ri").value.trim();
+  const q=$("ri").value.trim();
 
-  if(!q) return;
+  if(!q)return;
 
-  const esc =
-    document.createElement("span");
+  const esc=document.createElement("span");
 
-  esc.textContent =
-    q;
+  esc.textContent=q;
 
-  say(
-    esc.innerHTML,
-    "u"
-  );
+  say(esc.innerHTML,"u");
 
   $("ri").value="";
 
-  const hit =
-    KB.find(
-      k =>
-        k[0].test(
-          q.toLowerCase()
-        )
-    );
+  const hit=KB.find(
+    k=>k[0].test(q.toLowerCase())
+  );
 
   setTimeout(
     ()=>say(
-
       hit
         ? hit[1]
         : "I can help with <b>RELMUN</b>, dates, committees, registration, the Core, Secretariat, certificates and contact details."
-
     ),
     250
   );
@@ -2710,50 +2552,38 @@ say(
 
 
 /* =========================================
-   CONTACT → CALL / WHATSAPP
+   PHONE → CALL / WHATSAPP
 ========================================= */
 
-const contactChoice =
-  $("contactChoice");
-
-const contactChoiceNumber =
-  $("contactChoiceNumber");
-
-const callChoice =
-  $("callChoice");
-
-const whatsappChoice =
-  $("whatsappChoice");
+const contactChoice=$("contactChoice");
+const contactChoiceNumber=$("contactChoiceNumber");
+const callChoice=$("callChoice");
+const whatsappChoice=$("whatsappChoice");
 
 document
-  .querySelectorAll(".contact-phone")
-  .forEach(button=>{
+  .querySelectorAll(".phone-link")
+  .forEach(link=>{
 
-    button.addEventListener(
+    link.addEventListener(
       "click",
-      ()=>{
+      e=>{
 
-        const phone =
-          button.dataset.phone;
+        e.preventDefault();
 
-        const display =
-          button.dataset.display;
+        const phone=link.dataset.phone;
+        const display=link.dataset.display;
 
-        contactChoiceNumber.textContent =
-          display;
+        contactChoiceNumber.textContent=display;
 
-        callChoice.href =
-          `tel:${phone}`;
+        callChoice.href=`tel:${phone}`;
 
-        const whatsappNumber =
+        const whatsappNumber=
           phone.replace(/\D/g,"");
 
-        whatsappChoice.href =
+        whatsappChoice.href=
           `https://wa.me/${whatsappNumber}`;
 
-        contactChoice.classList.add(
-          "open"
-        );
+        contactChoice.classList.add("open");
 
       }
     );
@@ -2764,11 +2594,7 @@ $("contactChoiceClose")
   .addEventListener(
     "click",
     ()=>{
-
-      contactChoice.classList.remove(
-        "open"
-      );
-
+      contactChoice.classList.remove("open");
     }
   );
 
@@ -2776,14 +2602,8 @@ contactChoice.addEventListener(
   "click",
   e=>{
 
-    if(
-      e.target === contactChoice
-    ){
-
-      contactChoice.classList.remove(
-        "open"
-      );
-
+    if(e.target===contactChoice){
+      contactChoice.classList.remove("open");
     }
 
   }
@@ -2795,15 +2615,9 @@ document.addEventListener(
 
     if(
       e.key==="Escape" &&
-      contactChoice.classList.contains(
-        "open"
-      )
+      contactChoice.classList.contains("open")
     ){
-
-      contactChoice.classList.remove(
-        "open"
-      );
-
+      contactChoice.classList.remove("open");
     }
 
   }
