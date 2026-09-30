@@ -253,10 +253,6 @@ p.lead{
   font-weight:500;
 }
 
-/* =========================================
-   TEAM
-========================================= */
-
 .team-heading{
   margin-bottom:.5rem;
 }
@@ -303,79 +299,6 @@ p.lead{
   font-size:.78rem;
   line-height:1.35;
 }
-
-/* =========================================
-   CONTACT US
-========================================= */
-
-.team-contact{
-  margin-top:2.4rem;
-  padding:1.4rem;
-  border:1px solid var(--line);
-  background:rgba(7,13,36,.5);
-  max-width:1050px;
-}
-
-.team-contact-title{
-  color:var(--amber);
-  font-size:.72rem;
-  font-weight:800;
-  letter-spacing:.18em;
-  margin-bottom:.35rem;
-}
-
-.team-contact-subtitle{
-  color:var(--dim);
-  font-size:.82rem;
-  margin-bottom:1rem;
-}
-
-.team-contact-grid{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:.7rem;
-}
-
-.team-contact-item{
-  display:flex;
-  flex-direction:column;
-  gap:.25rem;
-  padding:.9rem;
-  border:1px solid var(--line);
-  background:rgba(7,13,36,.4);
-}
-
-.team-contact-item b{
-  font-size:.85rem;
-}
-
-.team-contact-item span{
-  color:var(--dim);
-  font-size:.7rem;
-}
-
-.contact-number{
-  display:inline-block;
-  margin-top:.3rem;
-  color:var(--blue);
-  font-size:.78rem;
-  text-decoration:none;
-  cursor:pointer;
-}
-
-.contact-number:hover{
-  color:var(--amber);
-}
-
-.contact-number.empty{
-  color:rgba(234,240,251,.3);
-  cursor:default;
-  pointer-events:none;
-}
-
-/* =========================================
-   COUNTDOWN
-========================================= */
 
 .cd{
   display:flex;
@@ -459,6 +382,120 @@ input:focus-visible{
   letter-spacing:.18em;
   font-size:.95rem;
   z-index:5;
+}
+
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+.contact-heading{
+  margin-bottom:.7rem;
+}
+
+.contact-intro{
+  margin-top:.4rem;
+  max-width:600px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(200px,1fr));
+  gap:1rem;
+  margin-top:2rem;
+  max-width:1000px;
+}
+
+.contact-person{
+  border:1px solid var(--line);
+  background:rgba(7,13,36,.58);
+  padding:1.25rem;
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease;
+}
+
+.contact-person:hover{
+  transform:translateY(-5px);
+  border-color:var(--amber);
+  background:rgba(15,27,59,.82);
+}
+
+.contact-person b{
+  display:block;
+  font-size:1.05rem;
+  margin-bottom:.25rem;
+}
+
+.contact-person > span{
+  display:block;
+  color:var(--dim);
+  font-size:.78rem;
+  margin-bottom:1rem;
+}
+
+.contact-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+}
+
+.contact-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.65rem .9rem;
+  border:1px solid var(--line);
+  color:var(--paper);
+  text-decoration:none;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  transition:.25s ease;
+}
+
+.contact-action:hover{
+  border-color:var(--amber);
+  color:var(--amber);
+  transform:translateY(-2px);
+}
+
+.contact-action.phone{
+  cursor:pointer;
+  background:none;
+  font-family:inherit;
+}
+
+.contact-action.disabled{
+  opacity:.38;
+  cursor:default;
+  pointer-events:none;
+}
+
+.contact-main-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.8rem;
+  margin-top:1.5rem;
+}
+
+.contact-main-link{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.9rem 1.25rem;
+  border:1px solid var(--blue);
+  color:var(--paper);
+  text-decoration:none;
+  font-weight:800;
+  font-size:.8rem;
+  transition:.3s ease;
+}
+
+.contact-main-link:hover{
+  background:var(--blue);
+  color:var(--ink);
+  transform:translateY(-3px);
 }
 
 /* =========================================
@@ -686,10 +723,6 @@ input:focus-visible{
   color:var(--ink);
 }
 
-/* =========================================
-   COMMITTEE CONTACT
-========================================= */
-
 .contact-strip{
   margin-top:3rem;
   padding:1.4rem;
@@ -840,17 +873,17 @@ input:focus-visible{
    RESPONSIVE
 ========================================= */
 
-@media(max-width:1100px){
-
-  .team-contact-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
+@media(max-width:900px){
 
   .team-grid{
     grid-template-columns:repeat(2,minmax(140px,1fr));
   }
 
   .committee-info{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .contact-grid{
     grid-template-columns:1fr 1fr;
   }
 }
@@ -865,44 +898,35 @@ input:focus-visible{
     height:44vh;
   }
 
-  /*
-    MOBILE TEAM FIX
-    Gives the team enough vertical space instead
-    of forcing the cards into a tiny viewport.
-  */
-
   #s4{
     justify-content:flex-start;
-    padding-top:10vh;
-    padding-bottom:8vh;
-    overflow-y:auto;
-    overflow-x:hidden;
-    -webkit-overflow-scrolling:touch;
+    padding-top:14vh;
+    padding-bottom:12vh;
+    overflow:visible;
   }
 
   .team-heading{
     font-size:clamp(2.2rem,10vw,4rem);
-    margin-bottom:1rem;
-    flex-shrink:0;
+    margin-bottom:1.5rem;
   }
 
   .team-section-label{
-    margin-top:1.4rem;
-    margin-bottom:.7rem;
+    margin-top:1.8rem;
+    margin-bottom:.8rem;
     font-size:.7rem;
-    flex-shrink:0;
   }
 
   .team-grid{
     grid-template-columns:1fr;
-    gap:.7rem;
+    gap:.8rem;
     margin-top:0;
-    flex-shrink:0;
+    max-height:none;
+    overflow:visible;
   }
 
   .team-person{
-    padding:1rem;
-    min-height:70px;
+    padding:1.15rem;
+    min-height:78px;
   }
 
   .team-person b{
@@ -913,19 +937,33 @@ input:focus-visible{
     font-size:.78rem;
   }
 
-  .team-contact{
-    margin-top:1.8rem;
-    margin-bottom:3rem;
-    flex-shrink:0;
+  #s6{
+    justify-content:flex-start;
+    padding-top:13vh;
+    padding-bottom:10vh;
+    overflow:visible;
   }
 
-  .team-contact-grid{
+  .contact-heading{
+    font-size:clamp(2.3rem,10vw,4rem);
+  }
+
+  .contact-grid{
     grid-template-columns:1fr;
-    gap:.6rem;
+    gap:.8rem;
+    margin-top:1.5rem;
   }
 
-  .team-contact-item{
-    padding:.85rem;
+  .contact-person{
+    padding:1rem;
+  }
+
+  .contact-main-links{
+    flex-direction:column;
+  }
+
+  .contact-main-link{
+    width:100%;
   }
 
   .committee-info{
@@ -996,12 +1034,13 @@ input:focus-visible{
 
   <div class="globe" id="globe"></div>
 
+  <!-- 7 SECTIONS NOW -->
   <div class="hud">
     <span id="cur">1</span>
     <div class="bar">
       <div id="fill"></div>
     </div>
-    <span>6</span>
+    <span>7</span>
   </div>
 
 
@@ -1035,7 +1074,6 @@ input:focus-visible{
   <section class="scene" id="s1">
 
     <div class="words" id="words">
-
       <span>Regional</span>
       <span><b>Engagement</b></span>
       <span>&amp;</span>
@@ -1043,7 +1081,6 @@ input:focus-visible{
       <span>Model</span>
       <span>United</span>
       <span>Nations</span>
-
     </div>
 
     <p class="lead">
@@ -1068,116 +1105,57 @@ input:focus-visible{
     <div class="track" id="track">
 
       <div class="card committee-card" data-committee="UNSC">
-
         <strong>UNSC</strong>
-
         <div>
           <em>United Nations Security Council</em><br>
-
-          <small>
-            Global peace and security.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
+          <small>Global peace and security.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
         </div>
-
       </div>
-
 
       <div class="card committee-card" data-committee="UNHRC">
-
         <strong>UNHRC</strong>
-
         <div>
           <em>United Nations Human Rights Council</em><br>
-
-          <small>
-            Rights, protections and accountability.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
+          <small>Rights, protections and accountability.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
         </div>
-
       </div>
-
 
       <div class="card committee-card" data-committee="UNODC">
-
         <strong>UNODC</strong>
-
         <div>
           <em>Office on Drugs and Crime</em><br>
-
-          <small>
-            Trafficking, crime and justice.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
+          <small>Trafficking, crime and justice.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
         </div>
-
       </div>
-
 
       <div class="card committee-card" data-committee="AIPPM">
-
         <strong>AIPPM</strong>
-
         <div>
           <em>All India Political Parties Meet</em><br>
-
-          <small>
-            Indian politics, party against party.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
+          <small>Indian politics, party against party.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
         </div>
-
       </div>
-
 
       <div class="card committee-card" data-committee="UN Women">
-
         <strong>UN Women</strong>
-
         <div>
           <em>Gender equality</em><br>
-
-          <small>
-            Advancing rights and opportunity for women.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
+          <small>Advancing rights and opportunity for women.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
         </div>
-
       </div>
 
-
       <div class="card committee-card" data-committee="IPLA">
-
         <strong>IPLA</strong>
-
         <div>
           <em>IPL Auction</em><br>
-
-          <small>
-            Bid, build a squad, outsmart the room.
-          </small>
-
-          <span class="open-label">
-            OPEN COMMITTEE ↗
-          </span>
+          <small>Bid, build a squad, outsmart the room.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
         </div>
-
       </div>
 
     </div>
@@ -1227,9 +1205,6 @@ input:focus-visible{
       The people running it.
     </h2>
 
-
-    <!-- CORE -->
-
     <div class="team-section-label">
       CORE
     </div>
@@ -1241,18 +1216,15 @@ input:focus-visible{
         <span>Secretary-General</span>
       </div>
 
-
       <div class="team-person">
         <b>S. Shreyaas</b>
         <span>Deputy Secretary-General</span>
       </div>
 
-
       <div class="team-person">
         <b>Laasya Vikram</b>
         <span>Director-General</span>
       </div>
-
 
       <div class="team-person">
         <b>Aashi Kushwaha</b>
@@ -1260,9 +1232,6 @@ input:focus-visible{
       </div>
 
     </div>
-
-
-    <!-- SECRETARIAT -->
 
     <div class="team-section-label">
       SECRETARIAT
@@ -1275,172 +1244,9 @@ input:focus-visible{
         <span>Head of Administration &amp; Outreach</span>
       </div>
 
-
       <div class="team-person">
         <b>Madhav Bhardwaj</b>
         <span>USG, Delegate Affairs</span>
-      </div>
-
-    </div>
-
-
-    <!-- ===============================
-         CONTACT US
-    ================================ -->
-
-    <div class="team-contact">
-
-      <div class="team-contact-title">
-        CONTACT US FOR QUERIES
-      </div>
-
-      <div class="team-contact-subtitle">
-        Reach out to the RELMUN team for official enquiries.
-      </div>
-
-      <div class="team-contact-grid">
-
-        <!-- AKSHITH -->
-
-        <div class="team-contact-item">
-
-          <b>Akshith Kabilan</b>
-
-          <span>Secretary-General</span>
-
-          <a
-            class="contact-number"
-            href="#"
-            data-phone="+919843451257"
-          >
-            +91 98434 51257
-          </a>
-
-        </div>
-
-
-        <!-- SHREYAAS -->
-
-        <div class="team-contact-item">
-
-          <b>S. Shreyaas</b>
-
-          <span>Deputy Secretary-General</span>
-
-          <a
-            class="contact-number"
-            href="#"
-            data-phone="+919176776643"
-          >
-            +91 91767 76643
-          </a>
-
-        </div>
-
-
-        <!-- LAASYA -->
-
-        <div class="team-contact-item">
-
-          <b>Laasya Vikram</b>
-
-          <span>Director-General</span>
-
-          <a
-            class="contact-number"
-            href="#"
-            data-phone="+918884804856"
-          >
-            +91 88848 04856
-          </a>
-
-        </div>
-
-
-        <!-- AASHI -->
-
-        <div class="team-contact-item">
-
-          <b>Aashi Kushwaha</b>
-
-          <span>Chief Advisor</span>
-
-          <a
-            class="contact-number"
-            href="#"
-            data-phone="+917388291118"
-          >
-            +91 73882 91118
-          </a>
-
-        </div>
-
-
-        <!-- ABIMAYUR — NO NUMBER -->
-
-        <div class="team-contact-item">
-
-          <b>Abimayur R</b>
-
-          <span>Head of Administration &amp; Outreach</span>
-
-          <span class="contact-number empty">
-            Contact number unavailable
-          </span>
-
-        </div>
-
-
-        <!-- MADHAV — NO NUMBER -->
-
-        <div class="team-contact-item">
-
-          <b>Madhav Bhardwaj</b>
-
-          <span>USG, Delegate Affairs</span>
-
-          <span class="contact-number empty">
-            Contact number unavailable
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- EMAIL + INSTAGRAM -->
-
-      <div class="contact-links">
-
-        <a
-          href="mailto:relmun.official@gmail.com?subject=RELMUN%20'26%20Enquiry"
-          class="contact-link"
-        >
-
-          <span>EMAIL</span>
-
-          <b>relmun.official@gmail.com</b>
-
-          <small>↗ Open email</small>
-
-        </a>
-
-
-        <a
-          href="https://instagram.com/relmun.official"
-          class="contact-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <span>INSTAGRAM</span>
-
-          <b>@relmun.official</b>
-
-          <small>↗ Open Instagram</small>
-
-        </a>
-
       </div>
 
     </div>
@@ -1487,7 +1293,6 @@ input:focus-visible{
     </div>
 
     <div>
-
       <a
         class="cta"
         id="cta"
@@ -1495,13 +1300,248 @@ input:focus-visible{
       >
         Email us to register
       </a>
-
     </div>
 
     <p class="sub">
       relmun.official@gmail.com ·
       @relmun.official on Instagram
     </p>
+
+  </section>
+
+
+  <!-- ===============================
+       07 — CONTACT US
+       COMPLETELY SEPARATE SECTION
+  ================================ -->
+
+  <section class="scene" id="s6">
+
+    <h2 class="contact-heading">
+      Contact us.
+    </h2>
+
+    <p class="lead contact-intro">
+      Have a question about RELMUN '26?
+      Reach out to the organising team.
+    </p>
+
+
+    <div class="contact-grid">
+
+      <!-- AKSHITH -->
+      <div class="contact-person">
+
+        <b>Akshith Kabilan</b>
+
+        <span>
+          Secretary-General
+        </span>
+
+        <div class="contact-actions">
+
+          <button
+            class="contact-action phone"
+            data-phone="+919843451257"
+            data-name="Akshith Kabilan"
+          >
+            ☎ +91 98434 51257
+          </button>
+
+          <a
+            class="contact-action"
+            href="https://instagram.com/relmun.official"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            INSTAGRAM ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- SHREYAAS -->
+      <div class="contact-person">
+
+        <b>S. Shreyaas</b>
+
+        <span>
+          Deputy Secretary-General
+        </span>
+
+        <div class="contact-actions">
+
+          <button
+            class="contact-action phone"
+            data-phone="+919176776643"
+            data-name="S. Shreyaas"
+          >
+            ☎ +91 91767 76643
+          </button>
+
+          <a
+            class="contact-action"
+            href="https://instagram.com/relmun.official"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            INSTAGRAM ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- LAASYA -->
+      <div class="contact-person">
+
+        <b>Laasya Vikram</b>
+
+        <span>
+          Director-General
+        </span>
+
+        <div class="contact-actions">
+
+          <button
+            class="contact-action phone"
+            data-phone="+918884804856"
+            data-name="Laasya Vikram"
+          >
+            ☎ +91 88848 04856
+          </button>
+
+          <a
+            class="contact-action"
+            href="https://instagram.com/relmun.official"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            INSTAGRAM ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- AASHI -->
+      <div class="contact-person">
+
+        <b>Aashi Kushwaha</b>
+
+        <span>
+          Chief Advisor
+        </span>
+
+        <div class="contact-actions">
+
+          <button
+            class="contact-action phone"
+            data-phone="+917388291118"
+            data-name="Aashi Kushwaha"
+          >
+            ☎ +91 73882 91118
+          </button>
+
+          <a
+            class="contact-action"
+            href="https://instagram.com/relmun.official"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            INSTAGRAM ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- ABIMAYUR -->
+      <div class="contact-person">
+
+        <b>Abimayur R</b>
+
+        <span>
+          Head of Administration &amp; Outreach
+        </span>
+
+        <div class="contact-actions">
+
+          <span class="contact-action disabled">
+            PHONE — NOT PROVIDED
+          </span>
+
+          <a
+            class="contact-action"
+            href="https://instagram.com/relmun.official"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            INSTAGRAM ↗
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- MADHAV -->
+      <div class="contact-person">
+
+        <b>Madhav Bhardwaj</b>
+
+        <span>
+          USG, Delegate Affairs
+        </span>
+
+        <div class="contact-actions">
+
+          <span class="contact-action disabled">
+            PHONE — NOT PROVIDED
+          </span>
+
+          <a
+            class="contact-action"
+            href="https://instagram.com/relmun.official"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            INSTAGRAM ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- OFFICIAL CONTACTS -->
+
+    <div class="contact-main-links">
+
+      <a
+        class="contact-main-link"
+        href="mailto:relmun.official@gmail.com"
+      >
+        ✉ EMAIL US
+      </a>
+
+      <a
+        class="contact-main-link"
+        href="https://instagram.com/relmun.official"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ◎ INSTAGRAM
+      </a>
+
+    </div>
 
   </section>
 
@@ -1546,7 +1586,6 @@ input:focus-visible{
       Global peace and security.
     </p>
 
-
     <div class="committee-info">
 
       <div class="committee-info-box">
@@ -1566,7 +1605,6 @@ input:focus-visible{
 
     </div>
 
-
     <div class="contact-strip">
 
       <strong>
@@ -1579,19 +1617,10 @@ input:focus-visible{
           href="mailto:relmun.official@gmail.com"
           class="contact-link"
         >
-
           <span>EMAIL</span>
-
-          <b>
-            relmun.official@gmail.com
-          </b>
-
-          <small>
-            ↗ Open email
-          </small>
-
+          <b>relmun.official@gmail.com</b>
+          <small>↗ Open email</small>
         </a>
-
 
         <a
           href="https://instagram.com/relmun.official"
@@ -1599,23 +1628,14 @@ input:focus-visible{
           target="_blank"
           rel="noopener noreferrer"
         >
-
           <span>INSTAGRAM</span>
-
-          <b>
-            @relmun.official
-          </b>
-
-          <small>
-            ↗ Open Instagram
-          </small>
-
+          <b>@relmun.official</b>
+          <small>↗ Open Instagram</small>
         </a>
 
       </div>
 
     </div>
-
 
     <a
       href="#"
@@ -1653,6 +1673,10 @@ input:focus-visible{
       CONTACT
     </div>
 
+    <h3 id="contactChoiceName">
+      Akshith Kabilan
+    </h3>
+
     <h3 id="contactChoiceNumber">
       +91 98434 51257
     </h3>
@@ -1663,10 +1687,7 @@ input:focus-visible{
 
     <div class="contact-choice-buttons">
 
-      <a
-        id="callChoice"
-        href="#"
-      >
+      <a id="callChoice" href="#">
         ☎ CALL
       </a>
 
@@ -1694,7 +1715,6 @@ input:focus-visible{
   Ask REX
 </button>
 
-
 <aside
   id="rw"
   aria-label="REX assistant"
@@ -1715,12 +1735,10 @@ input:focus-visible{
 
   </header>
 
-
   <div
     id="rm"
     aria-live="polite"
   ></div>
-
 
   <form id="rf">
 
@@ -1741,7 +1759,6 @@ input:focus-visible{
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 
 <script>
 
@@ -1795,7 +1812,6 @@ const target =
     "2026-10-09T00:00:00+05:30"
   ).getTime();
 
-
 function tick(){
 
   const t =
@@ -1833,21 +1849,17 @@ function tick(){
 
 tick();
 
-setInterval(
-  tick,
-  1000
-);
+setInterval(tick,1000);
 
 
 /* =========================================
    MAIN GSAP EXPERIENCE
+   NOW 7 SECTIONS
 ========================================= */
 
 if(!reduce){
 
-  gsap.registerPlugin(
-    ScrollTrigger
-  );
+  gsap.registerPlugin(ScrollTrigger);
 
   const letters=[];
 
@@ -1874,13 +1886,11 @@ if(!reduce){
         }
 
         sp.appendChild(l);
-
         letters.push(l);
 
       });
 
     });
-
 
   gsap.from(
     letters,
@@ -1894,7 +1904,6 @@ if(!reduce){
     }
   );
 
-
   gsap.from(
     "#s0 .lead",
     {
@@ -1905,11 +1914,9 @@ if(!reduce){
     }
   );
 
-
   const sc=[
     ...document.querySelectorAll(".scene")
   ];
-
 
   const tl =
     gsap.timeline({
@@ -1924,13 +1931,8 @@ if(!reduce){
 
         start:"top top",
 
-        /*
-          Extra mobile breathing room.
-          This prevents the team section from
-          disappearing too quickly.
-        */
-
-        end:"+=1650%",
+        /* EXTRA SPACE FOR CONTACT SECTION */
+        end:"+=1750%",
 
         pin:true,
 
@@ -1942,9 +1944,9 @@ if(!reduce){
 
           const i =
             Math.min(
-              5,
+              6,
               Math.floor(
-                s.progress*6
+                s.progress*7
               )
             );
 
@@ -2014,24 +2016,14 @@ if(!reduce){
   };
 
 
-  /* GLOBE MOTION */
+  /* GLOBE */
 
   tl.to(
     g,
     {
       rotationY:900,
       rotationX:25,
-      duration:16
-    },
-    0
-  );
-
-
-  tl.to(
-    g,
-    {
-      scale:1,
-      duration:.1
+      duration:21
     },
     0
   );
@@ -2039,11 +2031,7 @@ if(!reduce){
 
   /* HERO → ABOUT */
 
-  hide(
-    sc[0],
-    1
-  );
-
+  hide(sc[0],1);
 
   tl.to(
     g,
@@ -2054,7 +2042,6 @@ if(!reduce){
     1
   );
 
-
   tl.to(
     "#stage",
     {
@@ -2064,12 +2051,7 @@ if(!reduce){
     1
   );
 
-
-  show(
-    sc[1],
-    2
-  );
-
+  show(sc[1],2);
 
   tl.from(
     "#words span",
@@ -2082,11 +2064,7 @@ if(!reduce){
     2.3
   );
 
-
-  hide(
-    sc[1],
-    4.6
-  );
+  hide(sc[1],4.6);
 
 
   /* ABOUT → COMMITTEES */
@@ -2101,7 +2079,6 @@ if(!reduce){
     4.6
   );
 
-
   tl.to(
     "#stage",
     {
@@ -2111,16 +2088,9 @@ if(!reduce){
     4.6
   );
 
+  show(sc[2],5.4);
 
-  show(
-    sc[2],
-    5.4
-  );
-
-
-  const track =
-    $("track");
-
+  const track=$("track");
 
   tl.to(
     track,
@@ -2135,11 +2105,7 @@ if(!reduce){
     6.2
   );
 
-
-  hide(
-    sc[2],
-    9.8
-  );
+  hide(sc[2],9.8);
 
 
   /* COMMITTEES → CONFERENCE */
@@ -2155,7 +2121,6 @@ if(!reduce){
     9.8
   );
 
-
   tl.to(
     "#stage",
     {
@@ -2165,17 +2130,9 @@ if(!reduce){
     9.8
   );
 
+  show(sc[3],10.6);
 
-  show(
-    sc[3],
-    10.6
-  );
-
-
-  hide(
-    sc[3],
-    12.2
-  );
+  hide(sc[3],12.2);
 
 
   /* CONFERENCE → TEAM */
@@ -2190,7 +2147,6 @@ if(!reduce){
     12.2
   );
 
-
   tl.to(
     "#stage",
     {
@@ -2200,16 +2156,10 @@ if(!reduce){
     12.2
   );
 
-
-  show(
-    sc[4],
-    13
-  );
+  show(sc[4],13);
 
 
-  /* =========================================
-     TEAM EFFECTS
-  ========================================= */
+  /* TEAM EFFECTS */
 
   tl.from(
     "#s4 .team-heading",
@@ -2222,7 +2172,6 @@ if(!reduce){
     13.1
   );
 
-
   tl.from(
     "#s4 .team-section-label",
     {
@@ -2233,7 +2182,6 @@ if(!reduce){
     },
     13.2
   );
-
 
   tl.from(
     "#s4 .team-person",
@@ -2247,28 +2195,7 @@ if(!reduce){
     13.3
   );
 
-
-  /*
-    TEAM STAYS LONGER
-    This is especially important on mobile.
-  */
-
-  tl.from(
-    "#s4 .team-contact",
-    {
-      opacity:0,
-      y:35,
-      filter:"blur(10px)",
-      duration:.6
-    },
-    15.3
-  );
-
-
-  hide(
-    sc[4],
-    21
-  );
+  hide(sc[4],17.8);
 
 
   /* TEAM → REGISTRATION */
@@ -2279,9 +2206,8 @@ if(!reduce){
       scale:1.5,
       duration:1.2
     },
-    21
+    17.8
   );
-
 
   tl.to(
     "#stage",
@@ -2289,32 +2215,98 @@ if(!reduce){
       backgroundColor:"#0b1a4d",
       duration:1
     },
-    21
+    17.8
   );
 
-
-  show(
-    sc[5],
-    21.8
-  );
-
+  show(sc[5],18.6);
 
   tl.to(
     {},
     {
       duration:2.4
     },
-    21.8
+    18.6
   );
+
+  hide(sc[5],21);
 
 
   /* =========================================
-     MAGNETIC CTA
+     REGISTRATION → CONTACT
   ========================================= */
 
-  const c =
-    $("cta");
+  tl.to(
+    g,
+    {
+      scale:1.1,
+      rotationX:0,
+      duration:1.2
+    },
+    21
+  );
 
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#070d24",
+      duration:1
+    },
+    21
+  );
+
+  show(sc[6],21.8);
+
+
+  /* CONTACT ANIMATION */
+
+  tl.from(
+    "#s6 .contact-heading",
+    {
+      opacity:0,
+      y:40,
+      filter:"blur(10px)",
+      duration:.6
+    },
+    21.9
+  );
+
+  tl.from(
+    "#s6 .contact-intro",
+    {
+      opacity:0,
+      y:25,
+      duration:.5
+    },
+    22.05
+  );
+
+  tl.from(
+    "#s6 .contact-person",
+    {
+      opacity:0,
+      y:40,
+      rotateX:-15,
+      stagger:.12,
+      duration:.5
+    },
+    22.2
+  );
+
+  tl.from(
+    "#s6 .contact-main-link",
+    {
+      opacity:0,
+      y:25,
+      stagger:.15,
+      duration:.45
+    },
+    22.8
+  );
+
+
+  /* MAGNETIC CTA */
+
+  const c=$("cta");
 
   c.addEventListener(
     "mousemove",
@@ -2327,12 +2319,10 @@ if(!reduce){
         c,
         {
           x:
-            (e.clientX-r.left-r.width/2)
-            *.25,
+            (e.clientX-r.left-r.width/2)*.25,
 
           y:
-            (e.clientY-r.top-r.height/2)
-            *.25,
+            (e.clientY-r.top-r.height/2)*.25,
 
           duration:.3
         }
@@ -2340,7 +2330,6 @@ if(!reduce){
 
     }
   );
-
 
   c.addEventListener(
     "mouseleave",
@@ -2378,51 +2367,33 @@ if(!reduce){
 const committees={
 
   "UNSC":{
-    title:
-      "United Nations Security Council",
-
-    description:
-      "Global peace and security."
+    title:"United Nations Security Council",
+    description:"Global peace and security."
   },
 
   "UNHRC":{
-    title:
-      "United Nations Human Rights Council",
-
-    description:
-      "Rights, protections and accountability."
+    title:"United Nations Human Rights Council",
+    description:"Rights, protections and accountability."
   },
 
   "UNODC":{
-    title:
-      "United Nations Office on Drugs and Crime",
-
-    description:
-      "Trafficking, crime and justice."
+    title:"United Nations Office on Drugs and Crime",
+    description:"Trafficking, crime and justice."
   },
 
   "AIPPM":{
-    title:
-      "All India Political Parties Meet",
-
-    description:
-      "Indian politics, party against party."
+    title:"All India Political Parties Meet",
+    description:"Indian politics, party against party."
   },
 
   "UN Women":{
-    title:
-      "UN Women",
-
-    description:
-      "Gender equality and advancing rights and opportunity for women."
+    title:"UN Women",
+    description:"Gender equality and advancing rights and opportunity for women."
   },
 
   "IPLA":{
-    title:
-      "IPL Auction",
-
-    description:
-      "Bid, build a squad, and outsmart the room."
+    title:"IPL Auction",
+    description:"Bid, build a squad, and outsmart the room."
   }
 
 };
@@ -2435,7 +2406,6 @@ const committees={
 const committeePage =
   $("committeePage");
 
-
 function openCommittee(code){
 
   const data =
@@ -2443,29 +2413,19 @@ function openCommittee(code){
 
   if(!data) return;
 
-  $("committeeCode").textContent =
-    code;
+  $("committeeCode").textContent=code;
+  $("committeeTitle").textContent=data.title;
+  $("committeeDescription").textContent=data.description;
 
-  $("committeeTitle").textContent =
-    data.title;
+  committeePage.classList.add("open");
 
-  $("committeeDescription").textContent =
-    data.description;
-
-  committeePage.classList.add(
-    "open"
-  );
-
-  document.body.style.overflow =
-    "hidden";
+  document.body.style.overflow="hidden";
 
   if(!reduce){
 
     gsap.fromTo(
       committeePage,
-      {
-        opacity:0
-      },
+      {opacity:0},
       {
         opacity:1,
         duration:.45,
@@ -2497,7 +2457,6 @@ function openCommittee(code){
 
 }
 
-
 function closeCommittee(){
 
   if(!reduce){
@@ -2511,10 +2470,7 @@ function closeCommittee(){
 
         onComplete:()=>{
 
-          committeePage.classList.remove(
-            "open"
-          );
-
+          committeePage.classList.remove("open");
           document.body.style.overflow="";
 
         }
@@ -2524,16 +2480,12 @@ function closeCommittee(){
 
   }else{
 
-    committeePage.classList.remove(
-      "open"
-    );
-
+    committeePage.classList.remove("open");
     document.body.style.overflow="";
 
   }
 
 }
-
 
 document
   .querySelectorAll(".committee-card")
@@ -2552,13 +2504,11 @@ document
 
   });
 
-
 $("committeeClose")
   .addEventListener(
     "click",
     closeCommittee
   );
-
 
 $("committeeBack")
   .addEventListener(
@@ -2566,12 +2516,10 @@ $("committeeBack")
     e=>{
 
       e.preventDefault();
-
       closeCommittee();
 
     }
   );
-
 
 document.addEventListener(
   "keydown",
@@ -2579,9 +2527,7 @@ document.addEventListener(
 
     if(
       e.key==="Escape" &&
-      committeePage.classList.contains(
-        "open"
-      )
+      committeePage.classList.contains("open")
     ){
 
       closeCommittee();
@@ -2654,7 +2600,7 @@ const KB=[
   ],
 
   [
-    /\beb\b|executive|chair/,
+    /eb|executive|chair/,
     "The Executive Board guides debate and procedure. The lineup is being finalised."
   ],
 
@@ -2685,70 +2631,46 @@ const KB=[
 
 ];
 
-
-const rm =
-  $("rm");
-
+const rm=$("rm");
 
 function say(t,c){
 
-  const d =
-    document.createElement("div");
+  const d=document.createElement("div");
 
-  d.className =
-    c || "";
-
-  d.innerHTML =
-    t;
+  d.className=c||"";
+  d.innerHTML=t;
 
   rm.appendChild(d);
-
-  rm.scrollTop =
-    rm.scrollHeight;
+  rm.scrollTop=rm.scrollHeight;
 
 }
 
-
 $("rl").onclick=()=>{
 
-  $("rw").classList.add(
-    "open"
-  );
-
-  $("rl").style.display =
-    "none";
-
+  $("rw").classList.add("open");
+  $("rl").style.display="none";
   $("ri").focus();
 
 };
 
-
 $("rc").onclick=()=>{
 
-  $("rw").classList.remove(
-    "open"
-  );
-
-  $("rl").style.display =
-    "block";
+  $("rw").classList.remove("open");
+  $("rl").style.display="block";
 
 };
-
 
 $("rf").onsubmit=e=>{
 
   e.preventDefault();
 
-  const q =
-    $("ri").value.trim();
+  const q=$("ri").value.trim();
 
   if(!q) return;
 
-  const esc =
-    document.createElement("span");
+  const esc=document.createElement("span");
 
-  esc.textContent =
-    q;
+  esc.textContent=q;
 
   say(
     esc.innerHTML,
@@ -2778,18 +2700,20 @@ $("rf").onsubmit=e=>{
 
 };
 
-
 say(
   "Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees, registration, the Core, Secretariat or anything about the conference."
 );
 
 
 /* =========================================
-   PHONE → CALL / WHATSAPP
+   CONTACT → CALL / WHATSAPP
 ========================================= */
 
 const contactChoice =
   $("contactChoice");
+
+const contactChoiceName =
+  $("contactChoiceName");
 
 const contactChoiceNumber =
   $("contactChoiceNumber");
@@ -2802,20 +2726,26 @@ const whatsappChoice =
 
 
 document
-  .querySelectorAll(".contact-number:not(.empty)")
-  .forEach(link=>{
+  .querySelectorAll(".contact-action.phone")
+  .forEach(button=>{
 
-    link.addEventListener(
+    button.addEventListener(
       "click",
-      e=>{
-
-        e.preventDefault();
+      ()=>{
 
         const phone =
-          link.dataset.phone;
+          button.dataset.phone;
+
+        const name =
+          button.dataset.name;
+
+        contactChoiceName.textContent =
+          name;
 
         contactChoiceNumber.textContent =
-          link.textContent.trim();
+          button.textContent
+            .replace("☎","")
+            .trim();
 
         callChoice.href =
           `tel:${phone}`;
@@ -2826,9 +2756,7 @@ document
         whatsappChoice.href =
           `https://wa.me/${whatsappNumber}`;
 
-        contactChoice.classList.add(
-          "open"
-        );
+        contactChoice.classList.add("open");
 
       }
     );
@@ -2841,9 +2769,7 @@ $("contactChoiceClose")
     "click",
     ()=>{
 
-      contactChoice.classList.remove(
-        "open"
-      );
+      contactChoice.classList.remove("open");
 
     }
   );
@@ -2853,13 +2779,9 @@ contactChoice.addEventListener(
   "click",
   e=>{
 
-    if(
-      e.target === contactChoice
-    ){
+    if(e.target===contactChoice){
 
-      contactChoice.classList.remove(
-        "open"
-      );
+      contactChoice.classList.remove("open");
 
     }
 
@@ -2873,14 +2795,10 @@ document.addEventListener(
 
     if(
       e.key==="Escape" &&
-      contactChoice.classList.contains(
-        "open"
-      )
+      contactChoice.classList.contains("open")
     ){
 
-      contactChoice.classList.remove(
-        "open"
-      );
+      contactChoice.classList.remove("open");
 
     }
 
