@@ -24,12 +24,11 @@
 <!-- Lucide -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-
-/* =========================================================
-   RELMUN '26 — CINEMATIC MASTER
-========================================================= */
-
 :root{
   --black:#080808;
   --black2:#0d0d0d;
@@ -40,7 +39,6 @@
   --blue2:#315aff;
   --gold:#c79a2b;
   --line:rgba(241,236,224,.12);
-
   --ease:cubic-bezier(.16,1,.3,1);
 }
 
@@ -58,7 +56,7 @@ html{
 body{
   background:var(--black);
   color:var(--ivory);
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-family:"Space Grotesk",Arial,sans-serif;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
@@ -77,9 +75,7 @@ button{
   color:white;
 }
 
-/* =========================================================
-   CANVAS
-========================================================= */
+/* CANVAS */
 
 #space{
   position:fixed;
@@ -94,9 +90,7 @@ button{
   opacity:.72;
 }
 
-/* =========================================================
-   GRAIN
-========================================================= */
+/* GRAIN */
 
 .grain{
   position:fixed;
@@ -108,9 +102,7 @@ button{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* =========================================================
-   CURSOR
-========================================================= */
+/* CURSOR */
 
 .cursor-dot{
   position:fixed;
@@ -153,9 +145,7 @@ button{
   }
 }
 
-/* =========================================================
-   NAV
-========================================================= */
+/* NAV */
 
 .site-nav{
   position:fixed;
@@ -195,6 +185,11 @@ button{
   color:var(--blue);
 }
 
+.nav-register{
+  border:1px solid var(--line);
+  padding:12px 16px;
+}
+
 .menu{
   display:none;
   border:1px solid var(--line);
@@ -204,9 +199,7 @@ button{
   height:42px;
 }
 
-/* =========================================================
-   PROGRESS
-========================================================= */
+/* PROGRESS */
 
 .progress{
   position:fixed;
@@ -242,9 +235,7 @@ button{
   letter-spacing:.1em;
 }
 
-/* =========================================================
-   GLOBAL
-========================================================= */
+/* GLOBAL */
 
 .scene{
   position:relative;
@@ -275,9 +266,7 @@ button{
   color:var(--blue);
 }
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero{
   height:100svh;
@@ -345,12 +334,10 @@ button{
   font-size:13px;
 }
 
-/* =========================================================
-   ABOUT
-========================================================= */
+/* ABOUT */
 
 .scene-intro{
-  height:170vh;
+  height:125vh;
 }
 
 .scene-intro .sticky{
@@ -373,12 +360,10 @@ button{
   font-size:15px;
 }
 
-/* =========================================================
-   CONFERENCE
-========================================================= */
+/* CONFERENCE */
 
 .conference{
-  height:200vh;
+  height:145vh;
 }
 
 .conference-sticky{
@@ -427,9 +412,7 @@ button{
   line-height:1.8;
 }
 
-/* =========================================================
-   COMMITTEES
-========================================================= */
+/* COMMITTEES */
 
 .committees{
   padding:15vh 0;
@@ -502,12 +485,10 @@ button{
   line-height:1.7;
 }
 
-/* =========================================================
-   EXPERIENCE
-========================================================= */
+/* EXPERIENCE */
 
 .experience{
-  height:170vh;
+  height:135vh;
 }
 
 .experience-sticky{
@@ -550,9 +531,7 @@ button{
   opacity:.7;
 }
 
-/* =========================================================
-   TEAM
-========================================================= */
+/* TEAM */
 
 .team{
   padding:15vh 0;
@@ -563,32 +542,38 @@ button{
 }
 
 .team-group{
-  margin-top:110px;
+  margin-bottom:110px;
 }
 
-.team-group:first-of-type{
-  margin-top:0;
+.team-group:last-child{
+  margin-bottom:0;
 }
 
 .team-group-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
   margin-bottom:35px;
 }
 
-.team-group-heading .eyebrow{
-  display:block;
-  margin-bottom:18px;
+.team-group-heading h3{
+  font-size:clamp(35px,5vw,70px);
+  line-height:.8;
+  letter-spacing:-.07em;
 }
 
-.team-group-heading h3{
-  font-size:clamp(38px,5vw,72px);
-  line-height:.82;
-  letter-spacing:-.07em;
-  font-weight:800;
+.team-group-heading p{
+  max-width:390px;
+  color:var(--muted);
+  font-family:monospace;
+  font-size:8px;
+  line-height:1.7;
+  text-align:right;
 }
 
 .team-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:1px;
   background:var(--line);
 }
@@ -599,12 +584,29 @@ button{
   background:var(--black);
   position:relative;
   overflow:hidden;
-  transform-style:preserve-3d;
   transition:background .5s ease;
 }
 
 .person:hover{
   background:#0b0f1f;
+}
+
+.person::after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  left:var(--mx,50%);
+  top:var(--my,50%);
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(24,70,255,.16),transparent 70%);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .4s ease;
+}
+
+.person:hover::after{
+  opacity:1;
 }
 
 .person .initials{
@@ -617,6 +619,8 @@ button{
   color:var(--blue);
   font-size:20px;
   font-weight:800;
+  position:relative;
+  z-index:2;
 }
 
 .person small{
@@ -627,6 +631,7 @@ button{
   font-family:monospace;
   font-size:7px;
   letter-spacing:.12em;
+  z-index:2;
 }
 
 .person h3{
@@ -635,11 +640,10 @@ button{
   left:28px;
   font-size:22px;
   letter-spacing:-.04em;
+  z-index:2;
 }
 
-/* =========================================================
-   EXECUTIVE BOARD
-========================================================= */
+/* EXECUTIVE BOARD */
 
 .eb{
   padding:15vh 0;
@@ -657,8 +661,31 @@ button{
   min-height:270px;
   padding:30px;
   background:var(--black);
-  transform-style:preserve-3d;
   transition:.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.eb-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(
+    circle at var(--mx,50%) var(--my,50%),
+    rgba(24,70,255,.16),
+    transparent 45%
+  );
+  opacity:0;
+  transition:.4s ease;
+}
+
+.eb-card:hover::before{
+  opacity:1;
+}
+
+.eb-card > *{
+  position:relative;
+  z-index:2;
 }
 
 .eb-card:hover{
@@ -684,12 +711,10 @@ button{
   line-height:1.8;
 }
 
-/* =========================================================
-   REGISTRATION
-========================================================= */
+/* REGISTRATION */
 
 .registration{
-  height:180vh;
+  height:150vh;
 }
 
 .registration-sticky{
@@ -806,9 +831,7 @@ button{
   transform:translateY(-4px);
 }
 
-/* =========================================================
-   FINAL
-========================================================= */
+/* FINAL */
 
 .final{
   height:100vh;
@@ -844,9 +867,7 @@ button{
   transform:translateY(-5px);
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 footer{
   min-height:220px;
@@ -874,9 +895,7 @@ footer span{
   text-align:right;
 }
 
-/* =========================================================
-   REX
-========================================================= */
+/* REX */
 
 #rex-launcher{
   position:fixed;
@@ -1017,9 +1036,7 @@ footer span{
   color:white;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media(max-width:800px){
 
@@ -1077,16 +1094,20 @@ footer span{
     min-width:0;
   }
 
-  .committee-grid{
-    grid-template-columns:1fr;
-  }
-
-  .team-grid{
-    grid-template-columns:1fr;
-  }
-
+  .committee-grid,
+  .team-grid,
   .eb-grid{
     grid-template-columns:1fr;
+  }
+
+  .team-group-heading{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+  .team-group-heading p{
+    text-align:left;
   }
 
   .experience{
@@ -1127,7 +1148,6 @@ footer span{
 }
 
 @media(prefers-reduced-motion:reduce){
-
   *,
   *::before,
   *::after{
@@ -1135,9 +1155,28 @@ footer span{
     transition:none!important;
     scroll-behavior:auto!important;
   }
-
 }
 
+.team-group,
+.eb-card,
+.committee,
+.conf-card{
+  will-change:transform,opacity;
+}
+
+.team-group-heading h3{
+  color:var(--ivory);
+}
+
+.team-group-heading h3::after{
+  content:"";
+  display:inline-block;
+  width:28px;
+  height:2px;
+  margin-left:12px;
+  vertical-align:middle;
+  background:var(--blue);
+}
 </style>
 </head>
 
@@ -1149,12 +1188,7 @@ footer span{
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 
-<!-- ========================================================
-     NAVIGATION
-========================================================= -->
-
 <header class="site-nav">
-
   <div class="nav-inner">
 
     <a href="#home">
@@ -1175,28 +1209,17 @@ footer span{
     </button>
 
   </div>
-
 </header>
-
-<!-- ========================================================
-     PROGRESS
-========================================================= -->
 
 <div class="progress">
   <span id="progressCurrent">01</span>
-
   <div class="progress-line">
     <div class="progress-fill" id="progressFill"></div>
   </div>
-
   <span>09</span>
 </div>
 
 <main>
-
-<!-- ========================================================
-     HERO
-========================================================= -->
 
 <section class="scene hero" id="home">
 
@@ -1229,10 +1252,6 @@ footer span{
 
 </section>
 
-<!-- ========================================================
-     ABOUT
-========================================================= -->
-
 <section class="scene scene-intro" id="about">
 
   <div class="sticky">
@@ -1260,10 +1279,6 @@ footer span{
 
 </section>
 
-<!-- ========================================================
-     CONFERENCE
-========================================================= -->
-
 <section class="scene conference" id="conference">
 
   <div class="conference-sticky">
@@ -1276,12 +1291,7 @@ footer span{
 
         <article class="conf-card">
           <small>01</small>
-
-          <h3>
-            26–27<br>
-            DECEMBER
-          </h3>
-
+          <h3>26–27<br>DECEMBER</h3>
           <p>
             TWO DAYS OF COMMITTEE SESSIONS,
             DEBATE AND ENGAGEMENT.
@@ -1290,12 +1300,7 @@ footer span{
 
         <article class="conf-card">
           <small>02</small>
-
-          <h3>
-            FULLY<br>
-            ONLINE
-          </h3>
-
+          <h3>FULLY<br>ONLINE</h3>
           <p>
             THE CONFERENCE IS CONDUCTED
             ENTIRELY ONLINE.
@@ -1304,12 +1309,7 @@ footer span{
 
         <article class="conf-card">
           <small>03</small>
-
-          <h3>
-            FREE<br>
-            ENTRY
-          </h3>
-
+          <h3>FREE<br>ENTRY</h3>
           <p>
             CONFERENCE AND DELEGATE
             REGISTRATION ARE FREE.
@@ -1318,12 +1318,7 @@ footer span{
 
         <article class="conf-card">
           <small>04</small>
-
-          <h3>
-            CERTIFI-<br>
-            CATES
-          </h3>
-
+          <h3>CERTIFI-<br>CATES</h3>
           <p>
             CERTIFICATES ARE PROVIDED
             TO PARTICIPANTS.
@@ -1338,10 +1333,6 @@ footer span{
 
 </section>
 
-<!-- ========================================================
-     COMMITTEES
-========================================================= -->
-
 <section class="scene committees" id="committees">
 
   <div class="scene-inner">
@@ -1349,7 +1340,6 @@ footer span{
     <div class="eyebrow">03 / COMMITTEES</div>
 
     <div class="committee-heading">
-
       <h2 class="massive">
         SIX<br>
         <span class="blue">ARENAS.</span>
@@ -1359,129 +1349,74 @@ footer span{
         Choose your committee. Step into a role.
         Negotiate, debate and engage.
       </p>
-
     </div>
 
     <div class="committee-grid">
 
       <a class="committee tilt" href="committee.html?committee=unsc">
-
         <div class="committee-content">
-
           <span class="committee-number">01 / UNSC</span>
-
-          <h3>
-            SECURITY<br>
-            COUNCIL.
-          </h3>
-
+          <h3>SECURITY<br>COUNCIL.</h3>
           <p>
             International peace and security,
             diplomacy and high-level decision-making.
           </p>
-
         </div>
-
       </a>
 
       <a class="committee tilt" href="committee.html?committee=unhrc">
-
         <div class="committee-content">
-
           <span class="committee-number">02 / UNHRC</span>
-
-          <h3>
-            HUMAN<br>
-            RIGHTS.
-          </h3>
-
+          <h3>HUMAN<br>RIGHTS.</h3>
           <p>
             International human rights, cooperation
             and policy-focused multilateral debate.
           </p>
-
         </div>
-
       </a>
 
       <a class="committee tilt" href="committee.html?committee=unodc">
-
         <div class="committee-content">
-
           <span class="committee-number">03 / UNODC</span>
-
-          <h3>
-            DRUGS<br>
-            & CRIME.
-          </h3>
-
+          <h3>DRUGS<br>& CRIME.</h3>
           <p>
             International cooperation against drugs,
             organised crime and related challenges.
           </p>
-
         </div>
-
       </a>
 
       <a class="committee tilt" href="committee.html?committee=aippm">
-
         <div class="committee-content">
-
           <span class="committee-number">04 / AIPPM</span>
-
-          <h3>
-            POLITICAL<br>
-            PARTIES.
-          </h3>
-
+          <h3>POLITICAL<br>PARTIES.</h3>
           <p>
             Political negotiation, parliamentary debate
             and national policy deliberation.
           </p>
-
         </div>
-
       </a>
 
       <a class="committee tilt" href="committee.html?committee=ipla">
-
         <div class="committee-content">
-
           <span class="committee-number">05 / IPLA</span>
-
-          <h3>
-            IPL<br>
-            AUCTION.
-          </h3>
-
+          <h3>IPL<br>AUCTION.</h3>
           <p>
             Strategic bidding, team management
             and high-pressure decision-making.
           </p>
-
         </div>
-
       </a>
 
       <a class="committee tilt" href="committee.html?committee=unw">
-
         <div class="committee-content">
-
           <span class="committee-number">06 / UN WOMEN</span>
-
-          <h3>
-            UN<br>
-            WOMEN.
-          </h3>
-
+          <h3>UN<br>WOMEN.</h3>
           <p>
             Advancing gender equality and empowerment
             through international cooperation.
           </p>
-
         </div>
-
       </a>
 
     </div>
@@ -1489,10 +1424,6 @@ footer span{
   </div>
 
 </section>
-
-<!-- ========================================================
-     EXPERIENCE
-========================================================= -->
 
 <section class="scene experience" id="experience">
 
@@ -1505,9 +1436,7 @@ footer span{
       <div class="experience-stage">
 
         <div class="exp-word exp-one">THINK.</div>
-
         <div class="exp-word exp-two">ENGAGE.</div>
-
         <div class="exp-word exp-three">LEAD.</div>
 
       </div>
@@ -1517,10 +1446,6 @@ footer span{
   </div>
 
 </section>
-
-<!-- ========================================================
-     TEAM
-========================================================= -->
 
 <section class="scene team" id="team">
 
@@ -1541,152 +1466,80 @@ footer span{
 
     </div>
 
-
-    <!-- ====================================================
-         CORE
-    ===================================================== -->
+    <!-- CORE -->
 
     <div class="team-group">
 
       <div class="team-group-heading">
+        <div>
+          <div class="eyebrow">05A / CORE</div>
+          <h3>CORE.</h3>
+        </div>
 
-        <span class="eyebrow">
-          05A / CORE
-        </span>
-
-        <h3>
-          CORE
-          <span class="blue">TEAM.</span>
-        </h3>
-
+        <p>
+          THE CORE LEADERSHIP TEAM RESPONSIBLE FOR
+          SHAPING AND DIRECTING RELMUN '26.
+        </p>
       </div>
 
-      <div class="team-grid core-grid">
+      <div class="team-grid">
 
         <article class="person tilt">
-
-          <div class="initials">
-            AK
-          </div>
-
-          <small>
-            SECRETARY-GENERAL
-          </small>
-
-          <h3>
-            AKSHITH KABILAN
-          </h3>
-
+          <div class="initials">AK</div>
+          <small>SECRETARY-GENERAL</small>
+          <h3>AKSHITH KABILAN</h3>
         </article>
 
-
         <article class="person tilt">
-
-          <div class="initials">
-            AK
-          </div>
-
-          <small>
-            CHIEF ADVISOR
-          </small>
-
-          <h3>
-            AASHI KUSHWAHA
-          </h3>
-
+          <div class="initials">AK</div>
+          <small>CHIEF ADVISOR</small>
+          <h3>AASHI KUSHWAHA</h3>
         </article>
 
-
         <article class="person tilt">
-
-          <div class="initials">
-            SS
-          </div>
-
-          <small>
-            DEPUTY SECRETARY-GENERAL
-          </small>
-
-          <h3>
-            S. SHREYAAS
-          </h3>
-
+          <div class="initials">SS</div>
+          <small>DEPUTY SECRETARY-GENERAL</small>
+          <h3>S. SHREYAAS</h3>
         </article>
 
-
         <article class="person tilt">
-
-          <div class="initials">
-            LV
-          </div>
-
-          <small>
-            DIRECTOR-GENERAL
-          </small>
-
-          <h3>
-            LAASYA VIKRAM
-          </h3>
-
+          <div class="initials">LV</div>
+          <small>DIRECTOR-GENERAL</small>
+          <h3>LAASYA VIKRAM</h3>
         </article>
 
       </div>
 
     </div>
 
-
-    <!-- ====================================================
-         SECRETARIAT
-    ===================================================== -->
+    <!-- SECRETARIAT -->
 
     <div class="team-group">
 
       <div class="team-group-heading">
+        <div>
+          <div class="eyebrow">05B / SECRETARIAT</div>
+          <h3>SECRETARIAT.</h3>
+        </div>
 
-        <span class="eyebrow">
-          05B / SECRETARIAT
-        </span>
-
-        <h3>
-          THE
-          <span class="blue">SECRETARIAT.</span>
-        </h3>
-
+        <p>
+          THE SECRETARIAT HANDLING DELEGATE AFFAIRS,
+          ADMINISTRATION AND OUTREACH.
+        </p>
       </div>
 
-      <div class="team-grid secretariat-grid">
+      <div class="team-grid">
 
         <article class="person tilt">
-
-          <div class="initials">
-            AR
-          </div>
-
-          <small>
-            HEAD OF ADMINISTRATION &amp; OUTREACH
-          </small>
-
-          <h3>
-            ABIMAYUR R
-          </h3>
-
+          <div class="initials">AR</div>
+          <small>HEAD OF ADMINISTRATION & OUTREACH</small>
+          <h3>ABIMAYUR R</h3>
         </article>
 
-
         <article class="person tilt">
-
-          <div class="initials">
-            MB
-          </div>
-
-          <small>
-            USG — DELEGATE AFFAIRS
-          </small>
-
-          <h3>
-            MADHAV BHARDWAJ
-          </h3>
-
+          <div class="initials">MB</div>
+          <small>USG — DELEGATE AFFAIRS</small>
+          <h3>MADHAV BHARDWAJ</h3>
         </article>
 
       </div>
@@ -1697,17 +1550,11 @@ footer span{
 
 </section>
 
-<!-- ========================================================
-     EXECUTIVE BOARD
-========================================================= -->
-
 <section class="scene eb" id="eb">
 
   <div class="scene-inner">
 
-    <div class="eyebrow">
-      06 / EXECUTIVE BOARD
-    </div>
+    <div class="eyebrow">06 / EXECUTIVE BOARD</div>
 
     <h2 class="massive" style="margin-top:40px">
       THE<br>
@@ -1721,83 +1568,217 @@ footer span{
 
     <div class="eb-grid">
 
-      <article class="eb-card">
+      <article class="eb-card tilt">
         <span>UNSC</span>
-
-        <h3>
-          CHAIR · TBA
-        </h3>
-
-        <p>
-          VICE CHAIR · TBA<br>
-          MODERATOR · TBA
-        </p>
+        <h3>CHAIR · TBA</h3>
+        <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
       </article>
 
-
-      <article class="eb-card">
+      <article class="eb-card tilt">
         <span>UNHRC</span>
-
-        <h3>
-          CHAIR · TBA
-        </h3>
-
-        <p>
-          VICE CHAIR · TBA<br>
-          MODERATOR · TBA
-        </p>
+        <h3>CHAIR · TBA</h3>
+        <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
       </article>
 
-
-      <article class="eb-card">
+      <article class="eb-card tilt">
         <span>UNODC</span>
-
-        <h3>
-          CHAIR · TBA
-        </h3>
-
-        <p>
-          VICE CHAIR · TBA<br>
-          MODERATOR · TBA
-        </p>
+        <h3>CHAIR · TBA</h3>
+        <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
       </article>
 
-
-      <article class="eb-card">
+      <article class="eb-card tilt">
         <span>AIPPM</span>
-
-        <h3>
-          CHAIR · TBA
-        </h3>
-
-        <p>
-          VICE CHAIR · TBA<br>
-          MODERATOR · TBA
-        </p>
+        <h3>CHAIR · TBA</h3>
+        <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
       </article>
 
-
-      <article class="eb-card">
+      <article class="eb-card tilt">
         <span>IPLA</span>
+        <h3>CHAIR · TBA</h3>
+        <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
+      </article>
 
-        <h3>
-          CHAIR · TBA
-        </h3>
+      <article class="eb-card tilt">
+        <span>UN WOMEN</span>
+        <h3>CHAIR · TBA</h3>
+        <p>VICE CHAIR · TBA<br>MODERATOR · TBA</p>
+      </article>
 
+    </div>
+
+  </div>
+
+</section>
+<!-- PART 2 — CONTINUED DIRECTLY AFTER PART 1 -->
+
+<!-- ========================================================
+     TEAM — CORE + SECRETARIAT
+========================================================= -->
+
+<section class="scene team" id="team">
+
+  <div class="scene-inner">
+
+    <div class="eyebrow">05 / ORGANISING COMMITTEE</div>
+
+    <div class="team-heading">
+      <h2 class="massive">
+        THE<br>
+        <span class="blue">TEAM.</span>
+      </h2>
+
+      <p style="margin-top:40px;color:var(--muted)">
+        The people building RELMUN '26 behind the scenes.
+      </p>
+    </div>
+
+    <!-- CORE -->
+    <div class="team-group">
+
+      <div class="team-group-heading">
+        <div>
+          <span class="eyebrow">01 / CORE</span>
+          <h3>CORE.</h3>
+        </div>
+
+        <span class="team-group-line"></span>
+      </div>
+
+      <div class="team-grid">
+
+        <article class="person tilt team-reveal">
+          <div class="initials">AK</div>
+          <small>SECRETARY-GENERAL</small>
+          <h3>AKSHITH KABILAN</h3>
+        </article>
+
+        <article class="person tilt team-reveal">
+          <div class="initials">SS</div>
+          <small>DEPUTY SECRETARY-GENERAL</small>
+          <h3>S. SHREYAAS</h3>
+        </article>
+
+        <article class="person tilt team-reveal">
+          <div class="initials">LV</div>
+          <small>DIRECTOR-GENERAL</small>
+          <h3>LAASYA VIKRAM</h3>
+        </article>
+
+        <article class="person tilt team-reveal">
+          <div class="initials">AR</div>
+          <small>HEAD OF ADMINISTRATION & OUTREACH</small>
+          <h3>ABIMAYUR R</h3>
+        </article>
+
+        <article class="person tilt team-reveal">
+          <div class="initials">AK</div>
+          <small>CHIEF ADVISOR</small>
+          <h3>AASHI KUSHWAHA</h3>
+        </article>
+
+      </div>
+
+    </div>
+
+    <!-- SECRETARIAT -->
+    <div class="team-group secretariat-group">
+
+      <div class="team-group-heading">
+        <div>
+          <span class="eyebrow">02 / SECRETARIAT</span>
+          <h3>SECRETARIAT.</h3>
+        </div>
+
+        <span class="team-group-line"></span>
+      </div>
+
+      <div class="team-grid secretariat-grid">
+
+        <article class="person tilt team-reveal">
+          <div class="initials">MB</div>
+          <small>USG — DELEGATE AFFAIRS</small>
+          <h3>MADHAV BHARDWAJ</h3>
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ========================================================
+     EXECUTIVE BOARD
+========================================================= -->
+
+<section class="scene eb" id="eb">
+
+  <div class="scene-inner">
+
+    <div class="eyebrow">06 / EXECUTIVE BOARD</div>
+
+    <h2 class="massive" style="margin-top:40px">
+      THE<br>
+      <span class="blue">CHAIRS.</span>
+    </h2>
+
+    <p class="eb-intro" style="max-width:600px;color:var(--muted);margin-top:40px;line-height:1.7">
+      The Executive Board responsible for guiding debate
+      and maintaining committee procedure.
+    </p>
+
+    <div class="eb-grid">
+
+      <article class="eb-card eb-reveal">
+        <span>UNSC</span>
+        <h3>CHAIR · TBA</h3>
         <p>
           VICE CHAIR · TBA<br>
           MODERATOR · TBA
         </p>
       </article>
 
+      <article class="eb-card eb-reveal">
+        <span>UNHRC</span>
+        <h3>CHAIR · TBA</h3>
+        <p>
+          VICE CHAIR · TBA<br>
+          MODERATOR · TBA
+        </p>
+      </article>
 
-      <article class="eb-card">
+      <article class="eb-card eb-reveal">
+        <span>UNODC</span>
+        <h3>CHAIR · TBA</h3>
+        <p>
+          VICE CHAIR · TBA<br>
+          MODERATOR · TBA
+        </p>
+      </article>
+
+      <article class="eb-card eb-reveal">
+        <span>AIPPM</span>
+        <h3>CHAIR · TBA</h3>
+        <p>
+          VICE CHAIR · TBA<br>
+          MODERATOR · TBA
+        </p>
+      </article>
+
+      <article class="eb-card eb-reveal">
+        <span>IPLA</span>
+        <h3>CHAIR · TBA</h3>
+        <p>
+          VICE CHAIR · TBA<br>
+          MODERATOR · TBA
+        </p>
+      </article>
+
+      <article class="eb-card eb-reveal">
         <span>UN WOMEN</span>
-
-        <h3>
-          CHAIR · TBA
-        </h3>
-
+        <h3>CHAIR · TBA</h3>
         <p>
           VICE CHAIR · TBA<br>
           MODERATOR · TBA
@@ -1810,8 +1791,9 @@ footer span{
 
 </section>
 
+
 <!-- ========================================================
-     REGISTRATION + COUNTDOWN
+     REGISTRATION
 ========================================================= -->
 
 <section class="scene registration" id="register">
@@ -1820,9 +1802,7 @@ footer span{
 
     <div class="scene-inner">
 
-      <div class="eyebrow">
-        07 / REGISTRATION
-      </div>
+      <div class="eyebrow">07 / REGISTRATION</div>
 
       <div class="registration-panel">
 
@@ -1836,10 +1816,8 @@ footer span{
         </h2>
 
         <p class="registration-description" id="registrationDescription">
-          Delegate registrations open on 1 October 2026.
+          Delegate registrations open on 9 October 2026.
         </p>
-
-        <!-- COUNTDOWN -->
 
         <div id="registrationCountdown">
 
@@ -1873,9 +1851,6 @@ footer span{
 
         </div>
 
-
-        <!-- REGISTRATION OPTIONS -->
-
         <div class="registration-options" id="registrationOptions">
 
           <div class="registration-open-label">
@@ -1892,7 +1867,6 @@ footer span{
               class="registration-option"
               href="https://champarena.co.in/e/relmun2026"
               target="_blank"
-              rel="noopener"
             >
               CHAMPARENA ↗
             </a>
@@ -1908,7 +1882,6 @@ footer span{
               class="registration-option"
               href="https://mymun.com/conferences/relmun-2026"
               target="_blank"
-              rel="noopener"
             >
               MYMUN ↗
             </a>
@@ -1917,7 +1890,6 @@ footer span{
               class="registration-option"
               href="https://gavelling.com/conferences/regional-engagement-leadership-model-united-nations-8ukcr"
               target="_blank"
-              rel="noopener"
             >
               GAVELLING ↗
             </a>
@@ -1926,7 +1898,6 @@ footer span{
               class="registration-option"
               href="https://forms.gle/fVu57FN1cZBb6Pdg7"
               target="_blank"
-              rel="noopener"
             >
               GOOGLE FORM ↗
             </a>
@@ -1943,6 +1914,7 @@ footer span{
 
 </section>
 
+
 <!-- ========================================================
      FINAL
 ========================================================= -->
@@ -1951,9 +1923,7 @@ footer span{
 
   <div class="final-inner">
 
-    <div class="eyebrow">
-      08 / QUESTIONS
-    </div>
+    <div class="eyebrow">08 / QUESTIONS</div>
 
     <h2>
       GOT<br>
@@ -1970,6 +1940,7 @@ footer span{
 
 </main>
 
+
 <!-- ========================================================
      FOOTER
 ========================================================= -->
@@ -1982,33 +1953,18 @@ footer span{
 
   <div>
     <strong>RELMUN '26</strong>
-
-    <span>
-      RELATIONS · ENGAGEMENT · LEADERSHIP
-    </span>
-
-    <span>
-      INSTAGRAM · @relmun.official
-    </span>
+    <span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+    <span>INSTAGRAM · @relmun.official</span>
   </div>
 
   <div class="footer-right">
-
-    <span>
-      26—27 DECEMBER 2026
-    </span>
-
-    <span>
-      ONLINE CONFERENCE
-    </span>
-
-    <span>
-      relmun.official@gmail.com
-    </span>
-
+    <span>26—27 DECEMBER 2026</span>
+    <span>ONLINE CONFERENCE</span>
+    <span>akshithkabilan@gmail.com</span>
   </div>
 
 </footer>
+
 
 <!-- ========================================================
      REX
@@ -2023,20 +1979,11 @@ footer span{
   <div class="rex-header">
 
     <div>
-
-      <span class="rex-label">
-        RELMUN '26
-      </span>
-
-      <strong>
-        REX
-      </strong>
-
+      <span class="rex-label">RELMUN '26</span>
+      <strong>REX</strong>
     </div>
 
-    <button class="rex-close" id="rexClose">
-      ×
-    </button>
+    <button class="rex-close" id="rexClose">×</button>
 
   </div>
 
@@ -2074,9 +2021,7 @@ footer span{
       autocomplete="off"
     >
 
-    <button>
-      ↗
-    </button>
+    <button>↗</button>
 
   </form>
 
@@ -2095,27 +2040,20 @@ lucide.createIcons();
 
 
 /* =========================================================
-   LENIS — INERTIAL SCROLL
+   LENIS
 ========================================================= */
 
 const lenis = new Lenis({
-  duration:1.15,
-  smoothWheel:true,
-  smoothTouch:false,
-  wheelMultiplier:.85,
-  touchMultiplier:1.2
+  duration: 1.05,
+  smoothWheel: true,
+  smoothTouch: false,
+  wheelMultiplier: 0.9,
+  touchMultiplier: 1.2
 });
 
-function raf(time){
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
+lenis.on("scroll", ScrollTrigger.update);
 
-requestAnimationFrame(raf);
-
-lenis.on("scroll",ScrollTrigger.update);
-
-gsap.ticker.add(time=>{
+gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
 
@@ -2126,362 +2064,162 @@ gsap.ticker.lagSmoothing(0);
    CUSTOM CURSOR
 ========================================================= */
 
-const dot=document.querySelector(".cursor-dot");
-const ring=document.querySelector(".cursor-ring");
+const dot = document.querySelector(".cursor-dot");
+const ring = document.querySelector(".cursor-ring");
 
-let mouseX=0;
-let mouseY=0;
-let ringX=0;
-let ringY=0;
+let mouseX = 0;
+let mouseY = 0;
+let ringX = 0;
+let ringY = 0;
 
-window.addEventListener("mousemove",e=>{
+window.addEventListener("mousemove", (e) => {
 
-  mouseX=e.clientX;
-  mouseY=e.clientY;
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 
-  gsap.to(dot,{
-    x:mouseX,
-    y:mouseY,
-    duration:.08,
-    overwrite:true
+  gsap.to(dot, {
+    x: mouseX,
+    y: mouseY,
+    duration: 0.08,
+    overwrite: true
   });
 
 });
 
-gsap.ticker.add(()=>{
+gsap.ticker.add(() => {
 
-  ringX+=(mouseX-ringX)*.16;
-  ringY+=(mouseY-ringY)*.16;
+  ringX += (mouseX - ringX) * 0.16;
+  ringY += (mouseY - ringY) * 0.16;
 
-  gsap.set(ring,{
-    x:ringX,
-    y:ringY
+  gsap.set(ring, {
+    x: ringX,
+    y: ringY
   });
 
 });
 
-document.querySelectorAll("a,button,.tilt").forEach(el=>{
-
-  el.addEventListener("mouseenter",()=>{
-    ring.classList.add("active");
-  });
-
-  el.addEventListener("mouseleave",()=>{
-    ring.classList.remove("active");
-  });
-
-});
-
-
-/* =========================================================
-   THREE.JS ATMOSPHERE
-========================================================= */
-
-const space=document.getElementById("space");
-
-const renderer=new THREE.WebGLRenderer({
-  alpha:true,
-  antialias:true
-});
-
-renderer.setPixelRatio(
-  Math.min(devicePixelRatio,2)
-);
-
-renderer.setSize(
-  innerWidth,
-  innerHeight
-);
-
-space.appendChild(renderer.domElement);
-
-const scene3D=new THREE.Scene();
-
-const camera=new THREE.PerspectiveCamera(
-  60,
-  innerWidth/innerHeight,
-  .1,
-  1000
-);
-
-camera.position.z=5;
-
-const geometry=new THREE.BufferGeometry();
-
-const count=1800;
-
-const positions=new Float32Array(count*3);
-
-for(let i=0;i<count*3;i+=3){
-
-  positions[i]=(Math.random()-.5)*18;
-  positions[i+1]=(Math.random()-.5)*12;
-  positions[i+2]=(Math.random()-.5)*12;
-
-}
-
-geometry.setAttribute(
-  "position",
-  new THREE.BufferAttribute(positions,3)
-);
-
-const material=new THREE.PointsMaterial({
-  color:0x315aff,
-  size:.018,
-  transparent:true,
-  opacity:.6
-});
-
-const particles=new THREE.Points(
-  geometry,
-  material
-);
-
-scene3D.add(particles);
-
-function renderThree(){
-
-  particles.rotation.y+=.00018;
-  particles.rotation.x+=.00004;
-
-  renderer.render(
-    scene3D,
-    camera
-  );
-
-  requestAnimationFrame(renderThree);
-
-}
-
-renderThree();
-
-window.addEventListener("resize",()=>{
-
-  camera.aspect=innerWidth/innerHeight;
-
-  camera.updateProjectionMatrix();
-
-  renderer.setSize(
-    innerWidth,
-    innerHeight
-  );
-
-});
-
-
-/* =========================================================
-   HERO TRANSFORMATION
-========================================================= */
-
-const heroTL=gsap.timeline({
-
-  scrollTrigger:{
-    trigger:".hero",
-    start:"top top",
-    end:"+=120%",
-    scrub:1.2,
-    pin:true
-  }
-
-});
-
-heroTL
-
-  .to(".hero-rel",{
-    x:"-18vw",
-    y:"-12vh",
-    scale:.72,
-    opacity:.2,
-    ease:"power4.inOut"
-  },0)
-
-  .to(".hero-mun",{
-    x:"18vw",
-    y:"12vh",
-    scale:.72,
-    opacity:.15,
-    ease:"power4.inOut"
-  },0)
-
-  .to(".hero-year",{
-    x:"-8vw",
-    scale:1.6,
-    opacity:0,
-    ease:"power4.inOut"
-  },0)
-
-  .to(".hero-meta",{
-    y:-100,
-    opacity:0
-  },0)
-
-  .to(".hero-caption",{
-    y:100,
-    opacity:0
-  },0);
-
-
-/* =========================================================
-   ABOUT TEXT
-========================================================= */
-
-gsap.from(".about-title",{
-
-  y:150,
-  opacity:0,
-  scale:.82,
-
-  scrollTrigger:{
-    trigger:"#about",
-    start:"top 70%",
-    end:"top 25%",
-    scrub:1
-  }
-
-});
-
-gsap.from(".about-description",{
-
-  y:80,
-  opacity:0,
-
-  scrollTrigger:{
-    trigger:"#about",
-    start:"top 55%",
-    end:"top 25%",
-    scrub:1
-  }
-
-});
-
-
-/* =========================================================
-   HORIZONTAL CONFERENCE
-========================================================= */
-
-if(innerWidth>800){
-
-  const track=document.querySelector(".conference-track");
-
-  gsap.to(track,{
-
-    x:()=>-(track.scrollWidth-innerWidth*.86),
-
-    ease:"none",
-
-    scrollTrigger:{
-      trigger:".conference",
-      start:"top top",
-      end:"bottom bottom",
-      scrub:1.1,
-      invalidateOnRefresh:true
-    }
-
-  });
-
-}
-
-
-/* =========================================================
-   CONFERENCE CARD DEPTH
-========================================================= */
-
-gsap.utils.toArray(".conf-card").forEach((card,i)=>{
-
-  gsap.from(card,{
-
-    y:70,
-    rotateY:i%2===0?-8:8,
-    opacity:0,
-
-    scrollTrigger:{
-      trigger:card,
-      start:"top 88%",
-      end:"top 55%",
-      scrub:.7
-    }
-
-  });
-
-});
-
-
-/* =========================================================
-   COMMITTEE REVEALS
-========================================================= */
-
-gsap.utils.toArray(".committee").forEach((card,i)=>{
-
-  gsap.from(card,{
-
-    y:80,
-    opacity:0,
-    rotateX:8,
-    scale:.95,
-
-    duration:.8,
-
-    ease:"power4.out",
-
-    scrollTrigger:{
-      trigger:card,
-      start:"top 88%",
-      toggleActions:"play none none reverse"
-    }
-
-  });
-
-});
-
-
-/* =========================================================
-   3D TILT
-========================================================= */
-
-document.querySelectorAll(".tilt").forEach(card=>{
-
-  card.addEventListener("mousemove",e=>{
-
-    const rect=card.getBoundingClientRect();
-
-    const x=e.clientX-rect.left;
-    const y=e.clientY-rect.top;
-
-    const px=x/rect.width-.5;
-    const py=y/rect.height-.5;
-
-    card.style.setProperty(
-      "--mx",
-      `${x}px`
-    );
-
-    card.style.setProperty(
-      "--my",
-      `${y}px`
-    );
-
-    gsap.to(card,{
-
-      rotateY:px*10,
-      rotateX:-py*10,
-      transformPerspective:1000,
-      duration:.35,
-      ease:"power3.out",
-      overwrite:true
-
+document
+  .querySelectorAll("a, button, .tilt")
+  .forEach((el) => {
+
+    el.addEventListener("mouseenter", () => {
+      ring.classList.add("active");
+    });
+
+    el.addEventListener("mouseleave", () => {
+      ring.classList.remove("active");
     });
 
   });
 
-  card.addEventListener("mouseleave",()=>{
 
-    gsap.to(card,{
+/* =========================================================
+   TEAM — GROUP REVEAL
+========================================================= */
 
-      rotateY:0,
-      rotateX:0,
-      duration:.7,
-      ease:"elastic.out(1,.5)"
+gsap.from(".team-group-heading", {
+  y: 70,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: ".team",
+    start: "top 65%",
+    toggleActions: "play none none reverse"
+  }
+});
 
+
+/* =========================================================
+   TEAM — CORE / SECRETARIAT CARDS
+========================================================= */
+
+gsap.utils.toArray(".team-reveal").forEach((card, i) => {
+
+  gsap.fromTo(
+    card,
+    {
+      y: 90,
+      opacity: 0,
+      scale: 0.94,
+      rotateX: 8
+    },
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      rotateX: 0,
+      duration: 1,
+      delay: i * 0.06,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 88%",
+        end: "top 62%",
+        scrub: 0.8
+      }
+    }
+  );
+
+});
+
+
+/* =========================================================
+   SECRETARIAT SEPARATION
+========================================================= */
+
+gsap.from(".secretariat-group", {
+
+  y: 100,
+  opacity: 0,
+
+  scrollTrigger: {
+    trigger: ".secretariat-group",
+    start: "top 85%",
+    end: "top 55%",
+    scrub: 0.8
+  }
+
+});
+
+
+/* =========================================================
+   TEAM CARD TILT
+========================================================= */
+
+document.querySelectorAll(".tilt").forEach((card) => {
+
+  card.addEventListener("mousemove", (e) => {
+
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const px = x / rect.width - 0.5;
+    const py = y / rect.height - 0.5;
+
+    card.style.setProperty("--mx", `${x}px`);
+    card.style.setProperty("--my", `${y}px`);
+
+    gsap.to(card, {
+      rotateY: px * 8,
+      rotateX: -py * 8,
+      transformPerspective: 1200,
+      duration: 0.35,
+      ease: "power3.out",
+      overwrite: true
+    });
+
+  });
+
+  card.addEventListener("mouseleave", () => {
+
+    gsap.to(card, {
+      rotateY: 0,
+      rotateX: 0,
+      duration: 0.7,
+      ease: "elastic.out(1, .5)"
     });
 
   });
@@ -2490,87 +2228,75 @@ document.querySelectorAll(".tilt").forEach(card=>{
 
 
 /* =========================================================
-   EXPERIENCE
+   EXECUTIVE BOARD — HEAVY REVEAL
 ========================================================= */
 
-const expTL=gsap.timeline({
-
-  scrollTrigger:{
-    trigger:".experience",
-    start:"top top",
-    end:"bottom bottom",
-    scrub:1.3
-  }
-
-});
-
-expTL
-
-  .from(".exp-one",{
-    x:-500,
-    opacity:0
-  },0)
-
-  .from(".exp-two",{
-    x:500,
-    opacity:0
-  },.15)
-
-  .from(".exp-three",{
-    y:300,
-    opacity:0,
-    scale:.5
-  },.3)
-
-  .to(".exp-one",{
-    x:300,
-    opacity:.15
-  },.55)
-
-  .to(".exp-two",{
-    x:-300,
-    opacity:.15
-  },.65);
-
-
-/* =========================================================
-   TEAM — MAIN HEADING
-========================================================= */
-
-gsap.from(".team-heading",{
-
-  y:70,
-  opacity:0,
-  duration:.9,
-  ease:"power4.out",
-
-  scrollTrigger:{
-    trigger:".team-heading",
-    start:"top 85%",
-    toggleActions:"play none none reverse"
-  }
-
-});
-
-
-/* =========================================================
-   TEAM — GROUP HEADINGS
-========================================================= */
-
-gsap.utils.toArray(".team-group-heading").forEach(heading=>{
-
-  gsap.from(heading,{
-
-    y:50,
-    opacity:0,
-    duration:.8,
-    ease:"power4.out",
-
-    scrollTrigger:{
-      trigger:heading,
-      start:"top 88%",
-      toggleActions:"play none none reverse"
+gsap.fromTo(
+  ".eb-card",
+  {
+    y: 100,
+    opacity: 0,
+    scale: 0.92,
+    rotateX: 10
+  },
+  {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    rotateX: 0,
+    stagger: 0.09,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".eb-grid",
+      start: "top 82%",
+      end: "top 42%",
+      scrub: 0.9
     }
+  }
+);
+
+
+/* =========================================================
+   EB HEADING
+========================================================= */
+
+gsap.from(".eb .massive", {
+  y: 100,
+  opacity: 0,
+  scale: 0.86,
+  duration: 1,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: ".eb",
+    start: "top 65%",
+    toggleActions: "play none none reverse"
+  }
+});
+
+
+/* =========================================================
+   EB CARD HOVER
+========================================================= */
+
+document.querySelectorAll(".eb-card").forEach((card) => {
+
+  card.addEventListener("mouseenter", () => {
+
+    gsap.to(card, {
+      y: -8,
+      duration: 0.45,
+      ease: "power3.out"
+    });
+
+  });
+
+  card.addEventListener("mouseleave", () => {
+
+    gsap.to(card, {
+      y: 0,
+      duration: 0.55,
+      ease: "power3.out"
+    });
 
   });
 
@@ -2578,232 +2304,140 @@ gsap.utils.toArray(".team-group-heading").forEach(heading=>{
 
 
 /* =========================================================
-   CORE — STAGGERED REVEAL
+   REGISTRATION PANEL
 ========================================================= */
 
-gsap.from(".core-grid .person",{
-
-  y:70,
-  opacity:0,
-  scale:.96,
-  rotateX:8,
-  transformOrigin:"center bottom",
-
-  stagger:.1,
-
-  duration:.9,
-
-  ease:"power4.out",
-
-  scrollTrigger:{
-    trigger:".core-grid",
-    start:"top 84%",
-    toggleActions:"play none none reverse"
+gsap.fromTo(
+  ".registration-panel",
+  {
+    y: 100,
+    scale: 0.94,
+    opacity: 0
+  },
+  {
+    y: 0,
+    scale: 1,
+    opacity: 1,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".registration",
+      start: "top 78%",
+      end: "top 35%",
+      scrub: 0.9
+    }
   }
-
-});
+);
 
 
 /* =========================================================
-   SECRETARIAT — STAGGERED REVEAL
+   COUNTDOWN — 9 OCTOBER 2026
 ========================================================= */
 
-gsap.from(".secretariat-grid .person",{
-
-  y:70,
-  opacity:0,
-  scale:.96,
-  rotateY:5,
-  transformOrigin:"center bottom",
-
-  stagger:.12,
-
-  duration:.9,
-
-  ease:"power4.out",
-
-  scrollTrigger:{
-    trigger:".secretariat-grid",
-    start:"top 84%",
-    toggleActions:"play none none reverse"
-  }
-
-});
-
-
-/* =========================================================
-   EXECUTIVE BOARD — CHAIRS
-========================================================= */
-
-gsap.from(".eb-card",{
-
-  y:80,
-  opacity:0,
-  scale:.94,
-  rotateX:8,
-  transformOrigin:"center bottom",
-
-  stagger:.09,
-
-  duration:.9,
-
-  ease:"power4.out",
-
-  scrollTrigger:{
-    trigger:".eb-grid",
-    start:"top 84%",
-    toggleActions:"play none none reverse"
-  }
-
-});
-
-
-/* =========================================================
-   REGISTRATION
-========================================================= */
-
-const regTL=gsap.timeline({
-
-  scrollTrigger:{
-    trigger:".registration",
-    start:"top top",
-    end:"bottom bottom",
-    scrub:1
-  }
-
-});
-
-regTL
-
-  .from(".registration-panel",{
-
-    scale:.88,
-    opacity:0,
-    rotateX:8
-
-  })
-
-  .from(".registration-panel h2",{
-
-    y:70,
-    opacity:0
-
-  },.1);
-
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-const target=new Date(
-  "October 1, 2026 00:00:00"
+const target = new Date(
+  "October 9, 2026 00:00:00"
 ).getTime();
 
-function updateCountdown(){
+function updateCountdown() {
 
-  const now=Date.now();
+  const now = Date.now();
+  const distance = target - now;
 
-  const distance=target-now;
-
-  if(distance<=0){
+  if (distance <= 0) {
 
     document.getElementById(
       "registrationCountdown"
-    ).style.display="none";
+    ).style.display = "none";
 
     document.getElementById(
       "registrationOptions"
-    ).style.display="block";
+    ).style.display = "block";
 
     document.getElementById(
       "registrationDescription"
-    ).textContent=
+    ).textContent =
       "Delegate registrations are now open.";
 
     return;
-
   }
 
-  const days=Math.floor(
-    distance/(1000*60*60*24)
+  const days = Math.floor(
+    distance / (1000 * 60 * 60 * 24)
   );
 
-  const hours=Math.floor(
-    (distance%(1000*60*60*24))/
-    (1000*60*60)
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) /
+    (1000 * 60 * 60)
   );
 
-  const minutes=Math.floor(
-    (distance%(1000*60*60))/
-    (1000*60)
+  const minutes = Math.floor(
+    (distance % (1000 * 60 * 60)) /
+    (1000 * 60)
   );
 
-  const seconds=Math.floor(
-    (distance%(1000*60))/1000
+  const seconds = Math.floor(
+    (distance % (1000 * 60)) /
+    1000
   );
 
   document.getElementById(
     "countdownDays"
-  ).textContent=
-    String(days).padStart(2,"0");
+  ).textContent =
+    String(days).padStart(2, "0");
 
   document.getElementById(
     "countdownHours"
-  ).textContent=
-    String(hours).padStart(2,"0");
+  ).textContent =
+    String(hours).padStart(2, "0");
 
   document.getElementById(
     "countdownMinutes"
-  ).textContent=
-    String(minutes).padStart(2,"0");
+  ).textContent =
+    String(minutes).padStart(2, "0");
 
   document.getElementById(
     "countdownSeconds"
-  ).textContent=
-    String(seconds).padStart(2,"0");
+  ).textContent =
+    String(seconds).padStart(2, "0");
 
 }
 
 updateCountdown();
 
-setInterval(
-  updateCountdown,
-  1000
-);
+setInterval(updateCountdown, 1000);
 
 
 /* =========================================================
    PROGRESS
 ========================================================= */
 
-const sections=
+const sections =
   gsap.utils.toArray(".scene");
 
-sections.forEach((section,index)=>{
+sections.forEach((section, index) => {
 
   ScrollTrigger.create({
 
-    trigger:section,
+    trigger: section,
 
-    start:"top center",
+    start: "top center",
 
-    end:"bottom center",
+    end: "bottom center",
 
-    onEnter:()=>{
+    onEnter: () => {
 
       document.getElementById(
         "progressCurrent"
-      ).textContent=
-        String(index+1).padStart(2,"0");
+      ).textContent =
+        String(index + 1).padStart(2, "0");
 
     },
 
-    onEnterBack:()=>{
+    onEnterBack: () => {
 
       document.getElementById(
         "progressCurrent"
-      ).textContent=
-        String(index+1).padStart(2,"0");
+      ).textContent =
+        String(index + 1).padStart(2, "0");
 
     }
 
@@ -2811,17 +2445,23 @@ sections.forEach((section,index)=>{
 
 });
 
-gsap.to("#progressFill",{
 
-  height:"100%",
+gsap.to("#progressFill", {
 
-  ease:"none",
+  height: "100%",
 
-  scrollTrigger:{
-    trigger:document.body,
-    start:"top top",
-    end:"bottom bottom",
-    scrub:.2
+  ease: "none",
+
+  scrollTrigger: {
+
+    trigger: document.body,
+
+    start: "top top",
+
+    end: "bottom bottom",
+
+    scrub: 0.2
+
   }
 
 });
@@ -2831,123 +2471,119 @@ gsap.to("#progressFill",{
    MAGNETIC CTA
 ========================================================= */
 
-document.querySelectorAll(
-  ".final-cta"
-).forEach(button=>{
+document
+  .querySelectorAll(".final-cta")
+  .forEach((button) => {
 
-  button.addEventListener("mousemove",e=>{
+    button.addEventListener("mousemove", (e) => {
 
-    const rect=
-      button.getBoundingClientRect();
+      const rect =
+        button.getBoundingClientRect();
 
-    const x=
-      e.clientX-
-      (rect.left+rect.width/2);
+      const x =
+        e.clientX -
+        (rect.left + rect.width / 2);
 
-    const y=
-      e.clientY-
-      (rect.top+rect.height/2);
+      const y =
+        e.clientY -
+        (rect.top + rect.height / 2);
 
-    gsap.to(button,{
+      gsap.to(button, {
 
-      x:x*.2,
-      y:y*.2,
+        x: x * 0.2,
+        y: y * 0.2,
 
-      duration:.35,
+        duration: 0.35,
+        ease: "power3.out"
 
-      ease:"power3.out"
+      });
+
+    });
+
+    button.addEventListener("mouseleave", () => {
+
+      gsap.to(button, {
+
+        x: 0,
+        y: 0,
+
+        duration: 0.7,
+        ease: "elastic.out(1, .4)"
+
+      });
 
     });
 
   });
-
-  button.addEventListener("mouseleave",()=>{
-
-    gsap.to(button,{
-
-      x:0,
-      y:0,
-
-      duration:.7,
-
-      ease:"elastic.out(1,.4)"
-
-    });
-
-  });
-
-});
 
 
 /* =========================================================
    REX
 ========================================================= */
 
-const rexLauncher=
+const rexLauncher =
   document.getElementById("rex-launcher");
 
-const rexWindow=
+const rexWindow =
   document.getElementById("rex-window");
 
-const rexClose=
+const rexClose =
   document.getElementById("rexClose");
 
-const rexMessages=
+const rexMessages =
   document.getElementById("rexMessages");
 
-const rexForm=
+const rexForm =
   document.getElementById("rexForm");
 
-const rexInput=
+const rexInput =
   document.getElementById("rexInput");
 
 
 function rexMessage(
   text,
-  type="rex"
-){
+  type = "rex"
+) {
 
-  const el=
+  const el =
     document.createElement("div");
 
-  el.className=
+  el.className =
     `rex-message ${type}`;
 
-  el.innerHTML=
+  el.innerHTML =
     `<div class="rex-message-content">
       ${text}
     </div>`;
 
   rexMessages.appendChild(el);
 
-  rexMessages.scrollTop=
+  rexMessages.scrollTop =
     rexMessages.scrollHeight;
 
 }
 
 
-function rexReply(q){
+function rexReply(q) {
 
-  const x=q.toLowerCase();
+  const x =
+    q.toLowerCase();
 
 
-  if(
-    x.includes("committee")
-  ){
+  if (x.includes("committee")) {
 
     return `
-      <strong>RELMUN '26 Committees</strong>
-      <br><br>
+      <strong>RELMUN '26 Committees</strong><br><br>
       UNSC · UNHRC · UNODC · AIPPM · IPLA · UN Women.
     `;
 
   }
 
 
-  if(
+  if (
     x.includes("date") ||
     x.includes("when")
-  ){
+  ) {
 
     return `
       RELMUN '26 takes place on
@@ -2958,37 +2594,32 @@ function rexReply(q){
   }
 
 
-  if(
+  if (
     x.includes("team") ||
     x.includes("organis")
-  ){
+  ) {
 
     return `
-      <strong>RELMUN '26 Organising Team</strong>
-      <br><br>
+      <strong>RELMUN '26 Organising Team</strong><br><br>
 
-      <strong>Core</strong><br>
+      <strong>CORE</strong><br>
       Akshith Kabilan — Secretary-General<br>
-      Aashi Kushwaha — Chief Advisor<br>
       S. Shreyaas — Deputy Secretary-General<br>
-      Laasya Vikram — Director-General<br><br>
+      Laasya Vikram — Director-General<br>
+      Aashi Kushwaha — Chief Advisor<br>
+      Abimayur R — Head of Administration & Outreach<br><br>
 
-      <strong>Secretariat</strong><br>
-      Abimayur R — Head of Administration & Outreach<br>
+      <strong>SECRETARIAT</strong><br>
       Madhav Bhardwaj — USG · Delegate Affairs
     `;
 
   }
 
 
-  if(
-    x.includes("munflow")
-  ){
+  if (x.includes("munflow")) {
 
     return `
-      <strong>MUNFLOW</strong>
-      <br><br>
-
+      <strong>MUNFLOW</strong><br><br>
       MUNFLOW is the Technology & Platform Partner
       for RELMUN '26.
     `;
@@ -2999,7 +2630,6 @@ function rexReply(q){
   return `
     I'm <strong>REX</strong>, the RELMUN '26 assistant.
     <br><br>
-
     Ask me about the conference, committees,
     team, dates, registration or MUNFLOW.
   `;
@@ -3009,11 +2639,11 @@ function rexReply(q){
 
 rexLauncher.addEventListener(
   "click",
-  ()=>{
+  () => {
 
     rexWindow.classList.add("open");
 
-    rexLauncher.style.display=
+    rexLauncher.style.display =
       "none";
 
     rexInput.focus();
@@ -3024,13 +2654,11 @@ rexLauncher.addEventListener(
 
 rexClose.addEventListener(
   "click",
-  ()=>{
+  () => {
 
-    rexWindow.classList.remove(
-      "open"
-    );
+    rexWindow.classList.remove("open");
 
-    rexLauncher.style.display=
+    rexLauncher.style.display =
       "block";
 
   }
@@ -3039,67 +2667,65 @@ rexClose.addEventListener(
 
 rexForm.addEventListener(
   "submit",
-  e=>{
+  (e) => {
 
     e.preventDefault();
 
-    const q=
+    const q =
       rexInput.value.trim();
 
-    if(!q)return;
+    if (!q) return;
 
-    rexMessage(
-      q,
-      "user"
-    );
+    rexMessage(q, "user");
 
-    rexInput.value="";
+    rexInput.value = "";
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
       rexMessage(
         rexReply(q)
       );
 
-    },250);
+    }, 250);
 
   }
 );
 
 
-document.querySelectorAll(
-  ".rex-suggestions button"
-).forEach(button=>{
+document
+  .querySelectorAll(
+    ".rex-suggestions button"
+  )
+  .forEach((button) => {
 
-  button.addEventListener(
-    "click",
-    ()=>{
+    button.addEventListener(
+      "click",
+      () => {
 
-      const q=
-        button.dataset.question;
-
-      rexMessage(
-        q,
-        "user"
-      );
-
-      setTimeout(()=>{
+        const q =
+          button.dataset.question;
 
         rexMessage(
-          rexReply(q)
+          q,
+          "user"
         );
 
-      },250);
+        setTimeout(() => {
 
-    }
-  );
+          rexMessage(
+            rexReply(q)
+          );
 
-});
+        }, 250);
+
+      }
+    );
+
+  });
 
 
 rexMessage(`
-  Hey! I'm <strong>REX</strong>,
-  the RELMUN '26 assistant. 👋
+  Hey! I'm <strong>REX</strong>, the RELMUN '26 assistant. 👋
   <br><br>
   Ask me anything about the conference,
   committees, team, registration or MUNFLOW.
@@ -3107,16 +2733,18 @@ rexMessage(`
 
 
 /* =========================================================
-   REFRESH
+   FINAL REFRESH
 ========================================================= */
 
 window.addEventListener(
   "load",
-  ()=>{
+  () => {
 
-    setTimeout(()=>{
+    setTimeout(() => {
+
       ScrollTrigger.refresh();
-    },300);
+
+    }, 300);
 
   }
 );
