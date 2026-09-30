@@ -3,40 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>RELMUN '26 — Relations · Engagement · Leadership</title>
-
-<meta
-  name="description"
-  content="RELMUN '26 — 26–27 December 2026. Fully online."
->
+<meta name="description" content="RELMUN '26 — 26–27 December 2026. Fully online.">
 
 <link rel="icon" href="relmun-logo.png" type="image/png">
 
-<!-- =========================================================
-     TAILWIND
-========================================================= -->
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- =========================================================
-     GSAP
-========================================================= -->
+<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
 
-<!-- =========================================================
-     LENIS
-========================================================= -->
+<!-- Lenis -->
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 
-<!-- =========================================================
-     THREE.JS
-========================================================= -->
+<!-- Three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-<!-- =========================================================
-     LUCIDE
-========================================================= -->
+<!-- Lucide -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
@@ -51,11 +36,8 @@
   --ivory:#f1ece0;
   --muted:rgba(241,236,224,.58);
   --faint:rgba(241,236,224,.18);
-
-  /* RELMUN BLUE */
   --blue:#1846ff;
   --blue2:#315aff;
-
   --gold:#c79a2b;
   --line:rgba(241,236,224,.12);
 
@@ -123,7 +105,6 @@ button{
   pointer-events:none;
   opacity:.035;
   mix-blend-mode:soft-light;
-
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -151,7 +132,6 @@ button{
   pointer-events:none;
   z-index:9998;
   transform:translate(-50%,-50%);
-
   transition:
     width .5s var(--ease),
     height .5s var(--ease),
@@ -234,7 +214,6 @@ button{
   top:50%;
   transform:translateY(-50%);
   z-index:400;
-
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -312,13 +291,10 @@ button{
   top:120px;
   left:7vw;
   right:7vw;
-
   display:flex;
   justify-content:space-between;
-
   border-bottom:1px solid var(--line);
   padding-bottom:18px;
-
   font-family:monospace;
   font-size:8px;
   letter-spacing:.15em;
@@ -332,12 +308,10 @@ button{
 
 .hero-word{
   display:block;
-
   font-size:clamp(100px,22vw,330px);
   line-height:.68;
   letter-spacing:-.1em;
   font-weight:800;
-
   will-change:transform;
 }
 
@@ -349,9 +323,7 @@ button{
   position:absolute;
   right:3vw;
   bottom:-5vw;
-
   color:var(--blue);
-
   font-size:clamp(60px,9vw,130px);
   letter-spacing:-.08em;
 }
@@ -361,7 +333,6 @@ button{
   bottom:45px;
   left:7vw;
   right:7vw;
-
   display:flex;
   justify-content:space-between;
   align-items:end;
@@ -379,14 +350,13 @@ button{
 ========================================================= */
 
 .scene-intro{
-  height:150vh;
+  height:170vh;
 }
 
 .scene-intro .sticky{
   height:100vh;
   position:sticky;
   top:0;
-
   display:flex;
   align-items:center;
 }
@@ -398,7 +368,6 @@ button{
 .intro-copy p{
   margin-top:40px;
   max-width:600px;
-
   color:var(--muted);
   line-height:1.8;
   font-size:15px;
@@ -409,15 +378,13 @@ button{
 ========================================================= */
 
 .conference{
-  height:140vh;
-  min-height:140vh;
+  height:200vh;
 }
 
 .conference-sticky{
   height:100vh;
   position:sticky;
   top:0;
-
   display:flex;
   align-items:center;
 }
@@ -432,21 +399,14 @@ button{
   width:30vw;
   min-width:330px;
   height:420px;
-
   padding:35px;
-
   border:1px solid var(--line);
   background:rgba(8,8,8,.72);
-
   backdrop-filter:blur(10px);
-
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-
   transform-style:preserve-3d;
-
-  will-change:transform,opacity;
 }
 
 .conf-card small{
@@ -472,11 +432,11 @@ button{
 ========================================================= */
 
 .committees{
-  padding:13vh 0;
+  padding:15vh 0;
 }
 
 .committee-heading{
-  margin-bottom:75px;
+  margin-bottom:100px;
 }
 
 .committee-grid{
@@ -489,14 +449,10 @@ button{
 .committee{
   min-height:430px;
   padding:35px;
-
   background:rgba(8,8,8,.9);
-
   position:relative;
   overflow:hidden;
-
   transform-style:preserve-3d;
-
   transition:border-color .4s ease;
 }
 
@@ -504,14 +460,12 @@ button{
   content:"";
   position:absolute;
   inset:0;
-
   background:
     radial-gradient(
       circle at var(--mx,50%) var(--my,50%),
       rgba(24,70,255,.22),
       transparent 35%
     );
-
   opacity:0;
   transition:.4s ease;
 }
@@ -523,9 +477,7 @@ button{
 .committee-content{
   position:relative;
   z-index:2;
-
   height:100%;
-
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -545,7 +497,6 @@ button{
 
 .committee p{
   max-width:330px;
-
   color:var(--muted);
   font-size:11px;
   line-height:1.7;
@@ -556,31 +507,27 @@ button{
 ========================================================= */
 
 .experience{
-  height:150vh;
+  height:170vh;
 }
 
 .experience-sticky{
   height:100vh;
   position:sticky;
   top:0;
-
   display:flex;
   align-items:center;
 }
 
 .experience-stage{
   position:relative;
-
   width:100%;
   height:70vh;
 }
 
 .exp-word{
   position:absolute;
-
   font-size:clamp(90px,15vw,220px);
   font-weight:800;
-
   letter-spacing:-.1em;
   line-height:.7;
 }
@@ -593,14 +540,12 @@ button{
 .exp-two{
   right:0;
   top:45%;
-
   color:var(--blue);
 }
 
 .exp-three{
   left:15%;
   bottom:0;
-
   color:var(--gold);
   opacity:.7;
 }
@@ -610,37 +555,40 @@ button{
 ========================================================= */
 
 .team{
-  padding:13vh 0;
+  padding:15vh 0;
 }
 
 .team-heading{
-  margin-bottom:75px;
+  margin-bottom:100px;
 }
 
-.team-section-label{
-  margin:60px 0 22px;
-  display:flex;
-  align-items:center;
-  gap:20px;
+.team-group{
+  margin-top:110px;
 }
 
-.team-section-label span{
-  font-family:monospace;
-  font-size:9px;
-  letter-spacing:.16em;
-  color:var(--gold);
+.team-group:first-of-type{
+  margin-top:0;
 }
 
-.team-section-label::after{
-  content:"";
-  height:1px;
-  flex:1;
-  background:var(--line);
+.team-group-heading{
+  margin-bottom:35px;
+}
+
+.team-group-heading .eyebrow{
+  display:block;
+  margin-bottom:18px;
+}
+
+.team-group-heading h3{
+  font-size:clamp(38px,5vw,72px);
+  line-height:.82;
+  letter-spacing:-.07em;
+  font-weight:800;
 }
 
 .team-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:1px;
   background:var(--line);
 }
@@ -648,12 +596,10 @@ button{
 .person{
   min-height:360px;
   padding:28px;
-
   background:var(--black);
-
   position:relative;
   overflow:hidden;
-
+  transform-style:preserve-3d;
   transition:background .5s ease;
 }
 
@@ -664,27 +610,20 @@ button{
 .person .initials{
   width:80px;
   height:80px;
-
   border:1px solid var(--line);
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   color:var(--blue);
-
   font-size:20px;
   font-weight:800;
 }
 
 .person small{
   position:absolute;
-
   bottom:65px;
   left:28px;
-
   color:var(--gold);
-
   font-family:monospace;
   font-size:7px;
   letter-spacing:.12em;
@@ -692,39 +631,33 @@ button{
 
 .person h3{
   position:absolute;
-
   bottom:28px;
   left:28px;
-
   font-size:22px;
   letter-spacing:-.04em;
 }
 
 /* =========================================================
-   EB
+   EXECUTIVE BOARD
 ========================================================= */
 
 .eb{
-  padding:13vh 0;
+  padding:15vh 0;
 }
 
 .eb-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-
   gap:1px;
-
   background:var(--line);
-
-  margin-top:75px;
+  margin-top:90px;
 }
 
 .eb-card{
   min-height:270px;
   padding:30px;
-
   background:var(--black);
-
+  transform-style:preserve-3d;
   transition:.4s ease;
 }
 
@@ -734,7 +667,6 @@ button{
 
 .eb-card span{
   color:var(--gold);
-
   font-family:monospace;
   font-size:8px;
 }
@@ -746,9 +678,7 @@ button{
 
 .eb-card p{
   margin-top:14px;
-
   color:var(--muted);
-
   font-family:monospace;
   font-size:8px;
   line-height:1.8;
@@ -759,16 +689,13 @@ button{
 ========================================================= */
 
 .registration{
-  height:135vh;
-  min-height:135vh;
+  height:180vh;
 }
 
 .registration-sticky{
   height:100vh;
-
   position:sticky;
   top:0;
-
   display:flex;
   align-items:center;
 }
@@ -776,11 +703,8 @@ button{
 .registration-panel{
   width:100%;
   min-height:650px;
-
   padding:70px;
-
   border:1px solid var(--line);
-
   background:
     radial-gradient(
       circle at 75% 50%,
@@ -788,26 +712,20 @@ button{
       transparent 40%
     ),
     rgba(13,13,13,.8);
-
   position:relative;
   overflow:hidden;
 }
 
 .registration-panel::after{
   content:"RELMUN";
-
   position:absolute;
   right:-5vw;
   bottom:-3vw;
-
   font-size:20vw;
   line-height:.6;
-
   font-weight:800;
   letter-spacing:-.1em;
-
   color:rgba(24,70,255,.035);
-
   pointer-events:none;
 }
 
@@ -817,20 +735,15 @@ button{
 
 .registration-description{
   max-width:500px;
-
   color:var(--muted);
-
   margin-top:30px;
-
   line-height:1.7;
 }
 
 .countdown-label{
   margin-top:55px;
-
   font-family:monospace;
   color:var(--gold);
-
   font-size:8px;
   letter-spacing:.15em;
 }
@@ -848,18 +761,14 @@ button{
 
 .countdown-unit strong{
   font-size:clamp(40px,6vw,80px);
-
   line-height:.8;
-
   letter-spacing:-.07em;
 }
 
 .countdown-unit span{
   margin-top:12px;
-
   font-family:monospace;
   font-size:7px;
-
   color:var(--muted);
 }
 
@@ -870,9 +779,7 @@ button{
 
 .registration-open-label{
   color:var(--gold);
-
   font-family:monospace;
-
   font-size:9px;
   letter-spacing:.14em;
 }
@@ -880,29 +787,22 @@ button{
 .registration-options-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-
   gap:1px;
-
   margin-top:20px;
-
   background:var(--line);
 }
 
 .registration-option{
   padding:22px;
-
   background:var(--black);
-
   font-family:monospace;
   font-size:8px;
   letter-spacing:.1em;
-
   transition:.4s var(--ease);
 }
 
 .registration-option:hover{
   background:var(--blue);
-
   transform:translateY(-4px);
 }
 
@@ -912,7 +812,6 @@ button{
 
 .final{
   height:100vh;
-
   display:flex;
   align-items:center;
 }
@@ -924,32 +823,24 @@ button{
 
 .final h2{
   font-size:clamp(80px,15vw,230px);
-
   line-height:.72;
-
   letter-spacing:-.1em;
 }
 
 .final-cta{
   margin-top:60px;
-
   display:inline-flex;
-
   padding:18px 25px;
-
   border:1px solid var(--line);
-
   font-family:monospace;
   font-size:8px;
   letter-spacing:.15em;
-
   transition:.4s var(--ease);
 }
 
 .final-cta:hover{
   background:var(--blue);
   border-color:var(--blue);
-
   transform:translateY(-5px);
 }
 
@@ -959,15 +850,10 @@ button{
 
 footer{
   min-height:220px;
-
   border-top:1px solid var(--line);
-
   padding:50px 7vw;
-
   display:grid;
-
   grid-template-columns:1fr 1fr 1fr;
-
   align-items:center;
 }
 
@@ -977,14 +863,10 @@ footer img{
 
 footer span{
   display:block;
-
   color:var(--muted);
-
   font-family:monospace;
-
   font-size:7px;
   letter-spacing:.1em;
-
   margin-top:8px;
 }
 
@@ -998,54 +880,35 @@ footer span{
 
 #rex-launcher{
   position:fixed;
-
   right:28px;
   bottom:28px;
-
   z-index:800;
-
   width:60px;
   height:60px;
-
   border-radius:50%;
-
   border:1px solid var(--line);
-
   background:rgba(8,8,8,.9);
-
   color:white;
-
   font-family:monospace;
   font-size:8px;
-
   cursor:pointer;
-
   box-shadow:0 0 40px rgba(24,70,255,.15);
 }
 
 #rex-window{
   position:fixed;
-
   right:28px;
   bottom:28px;
-
   width:min(390px,calc(100vw - 30px));
   height:560px;
-
   background:#0b0b0b;
-
   border:1px solid var(--line);
-
   z-index:900;
-
   display:flex;
   flex-direction:column;
-
   opacity:0;
   pointer-events:none;
-
   transform:translateY(30px) scale(.96);
-
   transition:.5s var(--ease);
 }
 
@@ -1057,10 +920,8 @@ footer span{
 
 .rex-header{
   padding:20px;
-
   display:flex;
   justify-content:space-between;
-
   border-bottom:1px solid var(--line);
 }
 
@@ -1071,38 +932,28 @@ footer span{
 
 .rex-label{
   font-family:monospace;
-
   font-size:7px;
-
   color:var(--gold);
 }
 
 .rex-close{
   border:0;
   background:none;
-
   color:white;
-
   font-size:25px;
-
   cursor:pointer;
 }
 
 .rex-status{
   padding:12px 20px;
-
   font-family:monospace;
-
   font-size:7px;
-
   color:var(--muted);
 }
 
 .rex-messages{
   flex:1;
-
   overflow-y:auto;
-
   padding:20px;
 }
 
@@ -1112,9 +963,7 @@ footer span{
 
 .rex-message-content{
   padding:13px;
-
   border:1px solid var(--line);
-
   font-size:11px;
   line-height:1.65;
 }
@@ -1125,65 +974,46 @@ footer span{
 
 .rex-message.user .rex-message-content{
   display:inline-block;
-
   background:var(--blue);
-
   border-color:var(--blue);
 }
 
 .rex-suggestions{
   padding:10px 20px;
-
   display:flex;
   gap:6px;
-
   overflow-x:auto;
 }
 
 .rex-suggestions button{
   white-space:nowrap;
-
   padding:8px 10px;
-
   border:1px solid var(--line);
-
   background:none;
-
   color:var(--muted);
-
   font-family:monospace;
-
   font-size:6px;
 }
 
 .rex-input{
   display:flex;
-
   border-top:1px solid var(--line);
 }
 
 .rex-input input{
   flex:1;
-
   background:none;
-
   border:0;
   outline:0;
-
   color:white;
-
   padding:18px;
-
   font-size:11px;
 }
 
 .rex-input button{
   width:55px;
-
   background:var(--blue);
-
   border:0;
-
   color:white;
 }
 
@@ -1208,7 +1038,6 @@ footer span{
   .hero-meta{
     left:7vw;
     right:7vw;
-
     flex-direction:column;
     gap:8px;
   }
@@ -1220,7 +1049,6 @@ footer span{
   .hero-caption{
     flex-direction:column;
     align-items:flex-start;
-
     gap:25px;
   }
 
@@ -1230,8 +1058,6 @@ footer span{
 
   .conference{
     height:auto;
-    min-height:auto;
-
     padding:120px 0;
   }
 
@@ -1242,9 +1068,7 @@ footer span{
 
   .conference-track{
     display:grid;
-
     grid-template-columns:1fr;
-
     width:100%;
   }
 
@@ -1253,8 +1077,14 @@ footer span{
     min-width:0;
   }
 
-  .committee-grid,
-  .team-grid,
+  .committee-grid{
+    grid-template-columns:1fr;
+  }
+
+  .team-grid{
+    grid-template-columns:1fr;
+  }
+
   .eb-grid{
     grid-template-columns:1fr;
   }
@@ -1265,8 +1095,6 @@ footer span{
 
   .registration{
     height:auto;
-    min-height:auto;
-
     padding:100px 0;
   }
 
@@ -1296,12 +1124,7 @@ footer span{
   .footer-right{
     text-align:left;
   }
-
 }
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1320,11 +1143,9 @@ footer span{
 
 <body>
 
-<!-- BACKGROUND -->
 <div id="space"></div>
 <div class="grain"></div>
 
-<!-- CURSOR -->
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 
@@ -1337,22 +1158,16 @@ footer span{
   <div class="nav-inner">
 
     <a href="#home">
-      <img
-        src="relmun-logo.png"
-        class="logo"
-        alt="RELMUN '26"
-      >
+      <img src="relmun-logo.png" class="logo" alt="RELMUN '26">
     </a>
 
     <nav class="nav-links">
-
       <a href="#about">ABOUT</a>
       <a href="#committees">COMMITTEES</a>
       <a href="#experience">EXPERIENCE</a>
       <a href="#team">TEAM</a>
       <a href="#eb">EB</a>
       <a href="#register">REGISTER</a>
-
     </nav>
 
     <button class="menu" id="menuButton">
@@ -1368,7 +1183,6 @@ footer span{
 ========================================================= -->
 
 <div class="progress">
-
   <span id="progressCurrent">01</span>
 
   <div class="progress-line">
@@ -1376,7 +1190,6 @@ footer span{
   </div>
 
   <span>09</span>
-
 </div>
 
 <main>
@@ -1388,30 +1201,16 @@ footer span{
 <section class="scene hero" id="home">
 
   <div class="hero-meta">
-
-    <span>
-      RELATIONS · ENGAGEMENT · LEADERSHIP
-    </span>
-
-    <span>
-      26–27 DECEMBER 2026 · ONLINE
-    </span>
-
+    <span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+    <span>26–27 DECEMBER 2026 · ONLINE</span>
   </div>
 
   <div class="scene-inner hero-title">
 
-    <span class="hero-word hero-rel">
-      REL
-    </span>
+    <span class="hero-word hero-rel">REL</span>
+    <span class="hero-word hero-mun">MUN</span>
 
-    <span class="hero-word hero-mun">
-      MUN
-    </span>
-
-    <span class="hero-year">
-      '26
-    </span>
+    <span class="hero-year">'26</span>
 
   </div>
 
@@ -1440,28 +1239,19 @@ footer span{
 
     <div class="scene-inner intro-copy">
 
-      <div class="eyebrow">
-        01 / ABOUT
-      </div>
+      <div class="eyebrow">01 / ABOUT</div>
 
       <h2 class="massive about-title">
-
         MORE THAN<br>
-
-        <span class="blue">
-          DEBATE.
-        </span>
-
+        <span class="blue">DEBATE.</span>
       </h2>
 
       <p class="about-description">
-
         RELMUN '26 is an online Model United Nations conference
         built around meaningful diplomacy, engagement and leadership.
         Two days. Six committees. One online conference designed to
         give delegates a structured space to debate, negotiate,
         collaborate and lead.
-
       </p>
 
     </div>
@@ -1480,14 +1270,11 @@ footer span{
 
     <div class="scene-inner">
 
-      <div class="eyebrow">
-        02 / CONFERENCE
-      </div>
+      <div class="eyebrow">02 / CONFERENCE</div>
 
       <div class="conference-track">
 
         <article class="conf-card">
-
           <small>01</small>
 
           <h3>
@@ -1499,11 +1286,9 @@ footer span{
             TWO DAYS OF COMMITTEE SESSIONS,
             DEBATE AND ENGAGEMENT.
           </p>
-
         </article>
 
         <article class="conf-card">
-
           <small>02</small>
 
           <h3>
@@ -1515,11 +1300,9 @@ footer span{
             THE CONFERENCE IS CONDUCTED
             ENTIRELY ONLINE.
           </p>
-
         </article>
 
         <article class="conf-card">
-
           <small>03</small>
 
           <h3>
@@ -1531,11 +1314,9 @@ footer span{
             CONFERENCE AND DELEGATE
             REGISTRATION ARE FREE.
           </p>
-
         </article>
 
         <article class="conf-card">
-
           <small>04</small>
 
           <h3>
@@ -1547,7 +1328,6 @@ footer span{
             CERTIFICATES ARE PROVIDED
             TO PARTICIPANTS.
           </p>
-
         </article>
 
       </div>
@@ -1566,32 +1346,17 @@ footer span{
 
   <div class="scene-inner">
 
-    <div class="eyebrow">
-      03 / COMMITTEES
-    </div>
+    <div class="eyebrow">03 / COMMITTEES</div>
 
     <div class="committee-heading">
 
       <h2 class="massive">
-
         SIX<br>
-
-        <span class="blue">
-          ARENAS.
-        </span>
-
+        <span class="blue">ARENAS.</span>
       </h2>
 
-      <p
-        style="
-          max-width:500px;
-          color:var(--muted);
-          margin-top:40px;
-          line-height:1.7
-        "
-      >
-        Choose your committee.
-        Step into a role.
+      <p style="max-width:500px;color:var(--muted);margin-top:40px;line-height:1.7">
+        Choose your committee. Step into a role.
         Negotiate, debate and engage.
       </p>
 
@@ -1599,16 +1364,11 @@ footer span{
 
     <div class="committee-grid">
 
-      <a
-        class="committee tilt"
-        href="committee.html?committee=unsc"
-      >
+      <a class="committee tilt" href="committee.html?committee=unsc">
 
         <div class="committee-content">
 
-          <span class="committee-number">
-            01 / UNSC
-          </span>
+          <span class="committee-number">01 / UNSC</span>
 
           <h3>
             SECURITY<br>
@@ -1624,16 +1384,11 @@ footer span{
 
       </a>
 
-      <a
-        class="committee tilt"
-        href="committee.html?committee=unhrc"
-      >
+      <a class="committee tilt" href="committee.html?committee=unhrc">
 
         <div class="committee-content">
 
-          <span class="committee-number">
-            02 / UNHRC
-          </span>
+          <span class="committee-number">02 / UNHRC</span>
 
           <h3>
             HUMAN<br>
@@ -1649,16 +1404,11 @@ footer span{
 
       </a>
 
-      <a
-        class="committee tilt"
-        href="committee.html?committee=unodc"
-      >
+      <a class="committee tilt" href="committee.html?committee=unodc">
 
         <div class="committee-content">
 
-          <span class="committee-number">
-            03 / UNODC
-          </span>
+          <span class="committee-number">03 / UNODC</span>
 
           <h3>
             DRUGS<br>
@@ -1674,16 +1424,11 @@ footer span{
 
       </a>
 
-      <a
-        class="committee tilt"
-        href="committee.html?committee=aippm"
-      >
+      <a class="committee tilt" href="committee.html?committee=aippm">
 
         <div class="committee-content">
 
-          <span class="committee-number">
-            04 / AIPPM
-          </span>
+          <span class="committee-number">04 / AIPPM</span>
 
           <h3>
             POLITICAL<br>
@@ -1699,16 +1444,11 @@ footer span{
 
       </a>
 
-      <a
-        class="committee tilt"
-        href="committee.html?committee=ipla"
-      >
+      <a class="committee tilt" href="committee.html?committee=ipla">
 
         <div class="committee-content">
 
-          <span class="committee-number">
-            05 / IPLA
-          </span>
+          <span class="committee-number">05 / IPLA</span>
 
           <h3>
             IPL<br>
@@ -1724,16 +1464,11 @@ footer span{
 
       </a>
 
-      <a
-        class="committee tilt"
-        href="committee.html?committee=unw"
-      >
+      <a class="committee tilt" href="committee.html?committee=unw">
 
         <div class="committee-content">
 
-          <span class="committee-number">
-            06 / UN WOMEN
-          </span>
+          <span class="committee-number">06 / UN WOMEN</span>
 
           <h3>
             UN<br>
@@ -1765,23 +1500,15 @@ footer span{
 
     <div class="scene-inner">
 
-      <div class="eyebrow">
-        04 / THE EXPERIENCE
-      </div>
+      <div class="eyebrow">04 / THE EXPERIENCE</div>
 
       <div class="experience-stage">
 
-        <div class="exp-word exp-one">
-          THINK.
-        </div>
+        <div class="exp-word exp-one">THINK.</div>
 
-        <div class="exp-word exp-two">
-          ENGAGE.
-        </div>
+        <div class="exp-word exp-two">ENGAGE.</div>
 
-        <div class="exp-word exp-three">
-          LEAD.
-        </div>
+        <div class="exp-word exp-three">LEAD.</div>
 
       </div>
 
@@ -1799,152 +1526,170 @@ footer span{
 
   <div class="scene-inner">
 
-    <div class="eyebrow">
-      05 / ORGANISING COMMITTEE
-    </div>
+    <div class="eyebrow">05 / ORGANISING COMMITTEE</div>
 
     <div class="team-heading">
 
       <h2 class="massive">
-
         THE<br>
-
-        <span class="blue">
-          TEAM.
-        </span>
-
+        <span class="blue">TEAM.</span>
       </h2>
 
-      <p
-        style="
-          margin-top:40px;
-          color:var(--muted)
-        "
-      >
+      <p style="margin-top:40px;color:var(--muted)">
         The people building RELMUN '26 behind the scenes.
       </p>
 
     </div>
 
-    <!-- CORE -->
 
-    <div class="team-section-label">
-      <span>
-        CORE
-      </span>
+    <!-- ====================================================
+         CORE
+    ===================================================== -->
+
+    <div class="team-group">
+
+      <div class="team-group-heading">
+
+        <span class="eyebrow">
+          05A / CORE
+        </span>
+
+        <h3>
+          CORE
+          <span class="blue">TEAM.</span>
+        </h3>
+
+      </div>
+
+      <div class="team-grid core-grid">
+
+        <article class="person tilt">
+
+          <div class="initials">
+            AK
+          </div>
+
+          <small>
+            SECRETARY-GENERAL
+          </small>
+
+          <h3>
+            AKSHITH KABILAN
+          </h3>
+
+        </article>
+
+
+        <article class="person tilt">
+
+          <div class="initials">
+            AK
+          </div>
+
+          <small>
+            CHIEF ADVISOR
+          </small>
+
+          <h3>
+            AASHI KUSHWAHA
+          </h3>
+
+        </article>
+
+
+        <article class="person tilt">
+
+          <div class="initials">
+            SS
+          </div>
+
+          <small>
+            DEPUTY SECRETARY-GENERAL
+          </small>
+
+          <h3>
+            S. SHREYAAS
+          </h3>
+
+        </article>
+
+
+        <article class="person tilt">
+
+          <div class="initials">
+            LV
+          </div>
+
+          <small>
+            DIRECTOR-GENERAL
+          </small>
+
+          <h3>
+            LAASYA VIKRAM
+          </h3>
+
+        </article>
+
+      </div>
+
     </div>
 
-    <div class="team-grid">
 
-      <article class="person tilt">
+    <!-- ====================================================
+         SECRETARIAT
+    ===================================================== -->
 
-        <div class="initials">
-          AK
-        </div>
+    <div class="team-group">
 
-        <small>
-          SECRETARY-GENERAL
-        </small>
+      <div class="team-group-heading">
 
-        <h3>
-          AKSHITH KABILAN
-        </h3>
-
-      </article>
-
-      <article class="person tilt">
-
-        <div class="initials">
-          SS
-        </div>
-
-        <small>
-          DEPUTY SECRETARY-GENERAL
-        </small>
+        <span class="eyebrow">
+          05B / SECRETARIAT
+        </span>
 
         <h3>
-          S. SHREYAAS
+          THE
+          <span class="blue">SECRETARIAT.</span>
         </h3>
 
-      </article>
+      </div>
 
-      <article class="person tilt">
+      <div class="team-grid secretariat-grid">
 
-        <div class="initials">
-          LV
-        </div>
+        <article class="person tilt">
 
-        <small>
-          DIRECTOR-GENERAL
-        </small>
+          <div class="initials">
+            AR
+          </div>
 
-        <h3>
-          LAASYA VIKRAM
-        </h3>
+          <small>
+            HEAD OF ADMINISTRATION &amp; OUTREACH
+          </small>
 
-      </article>
+          <h3>
+            ABIMAYUR R
+          </h3>
 
-      <article class="person tilt">
+        </article>
 
-        <div class="initials">
-          AR
-        </div>
 
-        <small>
-          HEAD OF ADMINISTRATION & OUTREACH
-        </small>
+        <article class="person tilt">
 
-        <h3>
-          ABIMAYUR R
-        </h3>
+          <div class="initials">
+            MB
+          </div>
 
-      </article>
+          <small>
+            USG — DELEGATE AFFAIRS
+          </small>
 
-    </div>
+          <h3>
+            MADHAV BHARDWAJ
+          </h3>
 
-    <!-- SECRETARIAT -->
+        </article>
 
-    <div class="team-section-label">
-
-      <span>
-        SECRETARIAT
-      </span>
-
-    </div>
-
-    <div class="team-grid">
-
-      <article class="person tilt">
-
-        <div class="initials">
-          AK
-        </div>
-
-        <small>
-          CHIEF ADVISOR
-        </small>
-
-        <h3>
-          AASHI KUSHWAHA
-        </h3>
-
-      </article>
-
-      <article class="person tilt">
-
-        <div class="initials">
-          MB
-        </div>
-
-        <small>
-          USG — DELEGATE AFFAIRS
-        </small>
-
-        <h3>
-          MADHAV BHARDWAJ
-        </h3>
-
-      </article>
+      </div>
 
     </div>
 
@@ -1964,27 +1709,12 @@ footer span{
       06 / EXECUTIVE BOARD
     </div>
 
-    <h2
-      class="massive"
-      style="margin-top:40px"
-    >
-
+    <h2 class="massive" style="margin-top:40px">
       THE<br>
-
-      <span class="blue">
-        CHAIRS.
-      </span>
-
+      <span class="blue">CHAIRS.</span>
     </h2>
 
-    <p
-      style="
-        max-width:600px;
-        color:var(--muted);
-        margin-top:40px;
-        line-height:1.7
-      "
-    >
+    <p style="max-width:600px;color:var(--muted);margin-top:40px;line-height:1.7">
       The Executive Board responsible for guiding debate
       and maintaining committee procedure.
     </p>
@@ -1992,10 +1722,7 @@ footer span{
     <div class="eb-grid">
 
       <article class="eb-card">
-
-        <span>
-          UNSC
-        </span>
+        <span>UNSC</span>
 
         <h3>
           CHAIR · TBA
@@ -2005,14 +1732,11 @@ footer span{
           VICE CHAIR · TBA<br>
           MODERATOR · TBA
         </p>
-
       </article>
 
-      <article class="eb-card">
 
-        <span>
-          UNHRC
-        </span>
+      <article class="eb-card">
+        <span>UNHRC</span>
 
         <h3>
           CHAIR · TBA
@@ -2022,14 +1746,11 @@ footer span{
           VICE CHAIR · TBA<br>
           MODERATOR · TBA
         </p>
-
       </article>
 
-      <article class="eb-card">
 
-        <span>
-          UNODC
-        </span>
+      <article class="eb-card">
+        <span>UNODC</span>
 
         <h3>
           CHAIR · TBA
@@ -2039,14 +1760,11 @@ footer span{
           VICE CHAIR · TBA<br>
           MODERATOR · TBA
         </p>
-
       </article>
 
-      <article class="eb-card">
 
-        <span>
-          AIPPM
-        </span>
+      <article class="eb-card">
+        <span>AIPPM</span>
 
         <h3>
           CHAIR · TBA
@@ -2056,14 +1774,11 @@ footer span{
           VICE CHAIR · TBA<br>
           MODERATOR · TBA
         </p>
-
       </article>
 
-      <article class="eb-card">
 
-        <span>
-          IPLA
-        </span>
+      <article class="eb-card">
+        <span>IPLA</span>
 
         <h3>
           CHAIR · TBA
@@ -2073,14 +1788,11 @@ footer span{
           VICE CHAIR · TBA<br>
           MODERATOR · TBA
         </p>
-
       </article>
 
-      <article class="eb-card">
 
-        <span>
-          UN WOMEN
-        </span>
+      <article class="eb-card">
+        <span>UN WOMEN</span>
 
         <h3>
           CHAIR · TBA
@@ -2090,7 +1802,6 @@ footer span{
           VICE CHAIR · TBA<br>
           MODERATOR · TBA
         </p>
-
       </article>
 
     </div>
@@ -2100,7 +1811,7 @@ footer span{
 </section>
 
 <!-- ========================================================
-     REGISTRATION
+     REGISTRATION + COUNTDOWN
 ========================================================= -->
 
 <section class="scene registration" id="register">
@@ -2120,19 +1831,11 @@ footer span{
         </span>
 
         <h2 class="massive">
-
           READY TO<br>
-
-          <span class="blue">
-            ENTER?
-          </span>
-
+          <span class="blue">ENTER?</span>
         </h2>
 
-        <p
-          class="registration-description"
-          id="registrationDescription"
-        >
+        <p class="registration-description" id="registrationDescription">
           Delegate registrations open on 1 October 2026.
         </p>
 
@@ -2147,63 +1850,33 @@ footer span{
           <div class="countdown">
 
             <div class="countdown-unit">
-
-              <strong id="countdownDays">
-                00
-              </strong>
-
-              <span>
-                DAYS
-              </span>
-
+              <strong id="countdownDays">00</strong>
+              <span>DAYS</span>
             </div>
 
             <div class="countdown-unit">
-
-              <strong id="countdownHours">
-                00
-              </strong>
-
-              <span>
-                HOURS
-              </span>
-
+              <strong id="countdownHours">00</strong>
+              <span>HOURS</span>
             </div>
 
             <div class="countdown-unit">
-
-              <strong id="countdownMinutes">
-                00
-              </strong>
-
-              <span>
-                MINUTES
-              </span>
-
+              <strong id="countdownMinutes">00</strong>
+              <span>MINUTES</span>
             </div>
 
             <div class="countdown-unit">
-
-              <strong id="countdownSeconds">
-                00
-              </strong>
-
-              <span>
-                SECONDS
-              </span>
-
+              <strong id="countdownSeconds">00</strong>
+              <span>SECONDS</span>
             </div>
 
           </div>
 
         </div>
 
+
         <!-- REGISTRATION OPTIONS -->
 
-        <div
-          class="registration-options"
-          id="registrationOptions"
-        >
+        <div class="registration-options" id="registrationOptions">
 
           <div class="registration-open-label">
             REGISTRATIONS ARE NOW OPEN
@@ -2283,19 +1956,11 @@ footer span{
     </div>
 
     <h2>
-
       GOT<br>
-
-      <span class="blue">
-        QUESTIONS?
-      </span>
-
+      <span class="blue">QUESTIONS?</span>
     </h2>
 
-    <a
-      class="final-cta"
-      href="faq.html"
-    >
+    <a class="final-cta" href="faq.html">
       EXPLORE THE FAQ →
     </a>
 
@@ -2312,19 +1977,11 @@ footer span{
 <footer>
 
   <div>
-
-    <img
-      src="relmun-logo.png"
-      alt="RELMUN '26"
-    >
-
+    <img src="relmun-logo.png" alt="RELMUN '26">
   </div>
 
   <div>
-
-    <strong>
-      RELMUN '26
-    </strong>
+    <strong>RELMUN '26</strong>
 
     <span>
       RELATIONS · ENGAGEMENT · LEADERSHIP
@@ -2333,7 +1990,6 @@ footer span{
     <span>
       INSTAGRAM · @relmun.official
     </span>
-
   </div>
 
   <div class="footer-right">
@@ -2378,10 +2034,7 @@ footer span{
 
     </div>
 
-    <button
-      class="rex-close"
-      id="rexClose"
-    >
+    <button class="rex-close" id="rexClose">
       ×
     </button>
 
@@ -2391,10 +2044,7 @@ footer span{
     ● REX · RELMUN ASSISTANT
   </div>
 
-  <div
-    class="rex-messages"
-    id="rexMessages"
-  ></div>
+  <div class="rex-messages" id="rexMessages"></div>
 
   <div class="rex-suggestions">
 
@@ -2416,10 +2066,7 @@ footer span{
 
   </div>
 
-  <form
-    class="rex-input"
-    id="rexForm"
-  >
+  <form class="rex-input" id="rexForm">
 
     <input
       id="rexInput"
@@ -2434,6 +2081,7 @@ footer span{
   </form>
 
 </div>
+
 
 <script>
 
@@ -2465,26 +2113,31 @@ function raf(time){
 
 requestAnimationFrame(raf);
 
-lenis.on("scroll", ScrollTrigger.update);
+lenis.on("scroll",ScrollTrigger.update);
+
+gsap.ticker.add(time=>{
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
 
 
 /* =========================================================
    CUSTOM CURSOR
 ========================================================= */
 
-const dot = document.querySelector(".cursor-dot");
-const ring = document.querySelector(".cursor-ring");
+const dot=document.querySelector(".cursor-dot");
+const ring=document.querySelector(".cursor-ring");
 
-let mouseX = 0;
-let mouseY = 0;
+let mouseX=0;
+let mouseY=0;
+let ringX=0;
+let ringY=0;
 
-let ringX = 0;
-let ringY = 0;
+window.addEventListener("mousemove",e=>{
 
-window.addEventListener("mousemove", e => {
-
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  mouseX=e.clientX;
+  mouseY=e.clientY;
 
   gsap.to(dot,{
     x:mouseX,
@@ -2495,10 +2148,10 @@ window.addEventListener("mousemove", e => {
 
 });
 
-gsap.ticker.add(() => {
+gsap.ticker.add(()=>{
 
-  ringX += (mouseX-ringX)*.16;
-  ringY += (mouseY-ringY)*.16;
+  ringX+=(mouseX-ringX)*.16;
+  ringY+=(mouseY-ringY)*.16;
 
   gsap.set(ring,{
     x:ringX,
@@ -2507,28 +2160,26 @@ gsap.ticker.add(() => {
 
 });
 
-document
-  .querySelectorAll("a,button,.tilt")
-  .forEach(el => {
+document.querySelectorAll("a,button,.tilt").forEach(el=>{
 
-    el.addEventListener("mouseenter", () => {
-      ring.classList.add("active");
-    });
-
-    el.addEventListener("mouseleave", () => {
-      ring.classList.remove("active");
-    });
-
+  el.addEventListener("mouseenter",()=>{
+    ring.classList.add("active");
   });
+
+  el.addEventListener("mouseleave",()=>{
+    ring.classList.remove("active");
+  });
+
+});
 
 
 /* =========================================================
    THREE.JS ATMOSPHERE
 ========================================================= */
 
-const space = document.getElementById("space");
+const space=document.getElementById("space");
 
-const renderer = new THREE.WebGLRenderer({
+const renderer=new THREE.WebGLRenderer({
   alpha:true,
   antialias:true
 });
@@ -2544,52 +2195,44 @@ renderer.setSize(
 
 space.appendChild(renderer.domElement);
 
-const scene3D = new THREE.Scene();
+const scene3D=new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(
+const camera=new THREE.PerspectiveCamera(
   60,
   innerWidth/innerHeight,
   .1,
   1000
 );
 
-camera.position.z = 5;
+camera.position.z=5;
 
-const geometry = new THREE.BufferGeometry();
+const geometry=new THREE.BufferGeometry();
 
-const count = 1800;
+const count=1800;
 
-const positions = new Float32Array(count*3);
+const positions=new Float32Array(count*3);
 
 for(let i=0;i<count*3;i+=3){
 
-  positions[i] =
-    (Math.random()-.5)*18;
-
-  positions[i+1] =
-    (Math.random()-.5)*12;
-
-  positions[i+2] =
-    (Math.random()-.5)*12;
+  positions[i]=(Math.random()-.5)*18;
+  positions[i+1]=(Math.random()-.5)*12;
+  positions[i+2]=(Math.random()-.5)*12;
 
 }
 
 geometry.setAttribute(
   "position",
-  new THREE.BufferAttribute(
-    positions,
-    3
-  )
+  new THREE.BufferAttribute(positions,3)
 );
 
-const material = new THREE.PointsMaterial({
+const material=new THREE.PointsMaterial({
   color:0x315aff,
   size:.018,
   transparent:true,
   opacity:.6
 });
 
-const particles = new THREE.Points(
+const particles=new THREE.Points(
   geometry,
   material
 );
@@ -2598,8 +2241,8 @@ scene3D.add(particles);
 
 function renderThree(){
 
-  particles.rotation.y += .00018;
-  particles.rotation.x += .00004;
+  particles.rotation.y+=.00018;
+  particles.rotation.x+=.00004;
 
   renderer.render(
     scene3D,
@@ -2612,10 +2255,9 @@ function renderThree(){
 
 renderThree();
 
-window.addEventListener("resize",() => {
+window.addEventListener("resize",()=>{
 
-  camera.aspect =
-    innerWidth/innerHeight;
+  camera.aspect=innerWidth/innerHeight;
 
   camera.updateProjectionMatrix();
 
@@ -2624,8 +2266,6 @@ window.addEventListener("resize",() => {
     innerHeight
   );
 
-  ScrollTrigger.refresh();
-
 });
 
 
@@ -2633,20 +2273,14 @@ window.addEventListener("resize",() => {
    HERO TRANSFORMATION
 ========================================================= */
 
-const heroTL = gsap.timeline({
+const heroTL=gsap.timeline({
 
   scrollTrigger:{
     trigger:".hero",
-
     start:"top top",
-
     end:"+=120%",
-
     scrub:1.2,
-
-    pin:true,
-
-    anticipatePin:1
+    pin:true
   }
 
 });
@@ -2691,79 +2325,56 @@ heroTL
    ABOUT TEXT
 ========================================================= */
 
-gsap.fromTo(
-  ".about-title",
-  {
-    y:100,
-    opacity:0,
-    scale:.88
-  },
-  {
-    y:0,
-    opacity:1,
-    scale:1,
+gsap.from(".about-title",{
 
-    ease:"power3.out",
+  y:150,
+  opacity:0,
+  scale:.82,
 
-    scrollTrigger:{
-      trigger:"#about",
-      start:"top 78%",
-      end:"top 35%",
-      scrub:.8
-    }
+  scrollTrigger:{
+    trigger:"#about",
+    start:"top 70%",
+    end:"top 25%",
+    scrub:1
   }
-);
 
-gsap.fromTo(
-  ".about-description",
-  {
-    y:45,
-    opacity:0
-  },
-  {
-    y:0,
-    opacity:1,
+});
 
-    ease:"power3.out",
+gsap.from(".about-description",{
 
-    scrollTrigger:{
-      trigger:"#about",
-      start:"top 65%",
-      end:"top 35%",
-      scrub:.8
-    }
+  y:80,
+  opacity:0,
+
+  scrollTrigger:{
+    trigger:"#about",
+    start:"top 55%",
+    end:"top 25%",
+    scrub:1
   }
-);
+
+});
 
 
 /* =========================================================
    HORIZONTAL CONFERENCE
 ========================================================= */
 
-if(innerWidth > 800){
+if(innerWidth>800){
 
-  const track =
-    document.querySelector(".conference-track");
+  const track=document.querySelector(".conference-track");
 
   gsap.to(track,{
 
-    x:() =>
-      -(track.scrollWidth - innerWidth*.86),
+    x:()=>-(track.scrollWidth-innerWidth*.86),
 
     ease:"none",
 
     scrollTrigger:{
-
       trigger:".conference",
-
       start:"top top",
-
       end:"bottom bottom",
-
-      scrub:.9,
-
+      scrub:1.1,
       invalidateOnRefresh:true
-
     }
 
   });
@@ -2772,174 +2383,123 @@ if(innerWidth > 800){
 
 
 /* =========================================================
-   CONFERENCE CARD REVEALS
-   FIXED — CARDS APPEAR MUCH EARLIER
+   CONFERENCE CARD DEPTH
 ========================================================= */
 
-gsap.utils
-  .toArray(".conf-card")
-  .forEach((card,i) => {
+gsap.utils.toArray(".conf-card").forEach((card,i)=>{
 
-    gsap.fromTo(
-      card,
+  gsap.from(card,{
 
-      {
-        y:45,
-        opacity:0,
-        rotateY:i%2===0 ? -4 : 4
-      },
+    y:70,
+    rotateY:i%2===0?-8:8,
+    opacity:0,
 
-      {
-        y:0,
-        opacity:1,
-        rotateY:0,
-
-        duration:.75,
-
-        ease:"power3.out",
-
-        scrollTrigger:{
-          trigger:card,
-
-          start:"top 90%",
-
-          toggleActions:
-            "play none none reverse"
-        }
-
-      }
-    );
+    scrollTrigger:{
+      trigger:card,
+      start:"top 88%",
+      end:"top 55%",
+      scrub:.7
+    }
 
   });
+
+});
 
 
 /* =========================================================
    COMMITTEE REVEALS
-   FIXED — NO LATE APPEARANCE
 ========================================================= */
 
-gsap.utils
-  .toArray(".committee")
-  .forEach(card => {
+gsap.utils.toArray(".committee").forEach((card,i)=>{
 
-    gsap.fromTo(
-      card,
+  gsap.from(card,{
 
-      {
-        y:40,
-        opacity:0,
-        scale:.97
-      },
+    y:80,
+    opacity:0,
+    rotateX:8,
+    scale:.95,
 
-      {
-        y:0,
-        opacity:1,
-        scale:1,
+    duration:.8,
 
-        duration:.7,
+    ease:"power4.out",
 
-        ease:"power3.out",
-
-        scrollTrigger:{
-          trigger:card,
-
-          start:"top 92%",
-
-          toggleActions:
-            "play none none reverse"
-        }
-
-      }
-    );
+    scrollTrigger:{
+      trigger:card,
+      start:"top 88%",
+      toggleActions:"play none none reverse"
+    }
 
   });
+
+});
 
 
 /* =========================================================
    3D TILT
 ========================================================= */
 
-document
-  .querySelectorAll(".tilt")
-  .forEach(card => {
+document.querySelectorAll(".tilt").forEach(card=>{
 
-    card.addEventListener("mousemove",e => {
+  card.addEventListener("mousemove",e=>{
 
-      const rect =
-        card.getBoundingClientRect();
+    const rect=card.getBoundingClientRect();
 
-      const x =
-        e.clientX-rect.left;
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
 
-      const y =
-        e.clientY-rect.top;
+    const px=x/rect.width-.5;
+    const py=y/rect.height-.5;
 
-      const px =
-        x/rect.width-.5;
+    card.style.setProperty(
+      "--mx",
+      `${x}px`
+    );
 
-      const py =
-        y/rect.height-.5;
+    card.style.setProperty(
+      "--my",
+      `${y}px`
+    );
 
-      card.style.setProperty(
-        "--mx",
-        `${x}px`
-      );
+    gsap.to(card,{
 
-      card.style.setProperty(
-        "--my",
-        `${y}px`
-      );
-
-      gsap.to(card,{
-
-        rotateY:px*10,
-
-        rotateX:-py*10,
-
-        transformPerspective:1000,
-
-        duration:.35,
-
-        ease:"power3.out",
-
-        overwrite:true
-
-      });
-
-    });
-
-    card.addEventListener("mouseleave",() => {
-
-      gsap.to(card,{
-
-        rotateY:0,
-        rotateX:0,
-
-        duration:.7,
-
-        ease:"elastic.out(1,.5)"
-
-      });
+      rotateY:px*10,
+      rotateX:-py*10,
+      transformPerspective:1000,
+      duration:.35,
+      ease:"power3.out",
+      overwrite:true
 
     });
 
   });
+
+  card.addEventListener("mouseleave",()=>{
+
+    gsap.to(card,{
+
+      rotateY:0,
+      rotateX:0,
+      duration:.7,
+      ease:"elastic.out(1,.5)"
+
+    });
+
+  });
+
+});
 
 
 /* =========================================================
    EXPERIENCE
 ========================================================= */
 
-const expTL = gsap.timeline({
+const expTL=gsap.timeline({
 
   scrollTrigger:{
     trigger:".experience",
-
     start:"top top",
-
     end:"bottom bottom",
-
-    scrub:1.1
+    scrub:1.3
   }
 
 });
@@ -2974,99 +2534,141 @@ expTL
 
 
 /* =========================================================
-   TEAM
-   FIXED — EACH CARD ENTERS WHEN VISIBLE
+   TEAM — MAIN HEADING
 ========================================================= */
 
-gsap.utils
-  .toArray(".person")
-  .forEach(person => {
+gsap.from(".team-heading",{
 
-    gsap.fromTo(
-      person,
+  y:70,
+  opacity:0,
+  duration:.9,
+  ease:"power4.out",
 
-      {
-        y:45,
-        opacity:0
-      },
+  scrollTrigger:{
+    trigger:".team-heading",
+    start:"top 85%",
+    toggleActions:"play none none reverse"
+  }
 
-      {
-        y:0,
-        opacity:1,
-
-        duration:.7,
-
-        ease:"power3.out",
-
-        scrollTrigger:{
-          trigger:person,
-
-          start:"top 90%",
-
-          toggleActions:
-            "play none none reverse"
-        }
-
-      }
-    );
-
-  });
+});
 
 
 /* =========================================================
-   EB
-   FIXED — CERTIFICATE/EB CARDS DON'T APPEAR LATE
+   TEAM — GROUP HEADINGS
 ========================================================= */
 
-gsap.utils
-  .toArray(".eb-card")
-  .forEach(card => {
+gsap.utils.toArray(".team-group-heading").forEach(heading=>{
 
-    gsap.fromTo(
-      card,
+  gsap.from(heading,{
 
-      {
-        y:40,
-        opacity:0
-      },
+    y:50,
+    opacity:0,
+    duration:.8,
+    ease:"power4.out",
 
-      {
-        y:0,
-        opacity:1,
-
-        duration:.7,
-
-        ease:"power3.out",
-
-        scrollTrigger:{
-          trigger:card,
-
-          start:"top 90%",
-
-          toggleActions:
-            "play none none reverse"
-        }
-
-      }
-    );
+    scrollTrigger:{
+      trigger:heading,
+      start:"top 88%",
+      toggleActions:"play none none reverse"
+    }
 
   });
+
+});
+
+
+/* =========================================================
+   CORE — STAGGERED REVEAL
+========================================================= */
+
+gsap.from(".core-grid .person",{
+
+  y:70,
+  opacity:0,
+  scale:.96,
+  rotateX:8,
+  transformOrigin:"center bottom",
+
+  stagger:.1,
+
+  duration:.9,
+
+  ease:"power4.out",
+
+  scrollTrigger:{
+    trigger:".core-grid",
+    start:"top 84%",
+    toggleActions:"play none none reverse"
+  }
+
+});
+
+
+/* =========================================================
+   SECRETARIAT — STAGGERED REVEAL
+========================================================= */
+
+gsap.from(".secretariat-grid .person",{
+
+  y:70,
+  opacity:0,
+  scale:.96,
+  rotateY:5,
+  transformOrigin:"center bottom",
+
+  stagger:.12,
+
+  duration:.9,
+
+  ease:"power4.out",
+
+  scrollTrigger:{
+    trigger:".secretariat-grid",
+    start:"top 84%",
+    toggleActions:"play none none reverse"
+  }
+
+});
+
+
+/* =========================================================
+   EXECUTIVE BOARD — CHAIRS
+========================================================= */
+
+gsap.from(".eb-card",{
+
+  y:80,
+  opacity:0,
+  scale:.94,
+  rotateX:8,
+  transformOrigin:"center bottom",
+
+  stagger:.09,
+
+  duration:.9,
+
+  ease:"power4.out",
+
+  scrollTrigger:{
+    trigger:".eb-grid",
+    start:"top 84%",
+    toggleActions:"play none none reverse"
+  }
+
+});
 
 
 /* =========================================================
    REGISTRATION
 ========================================================= */
 
-const regTL = gsap.timeline({
+const regTL=gsap.timeline({
 
   scrollTrigger:{
     trigger:".registration",
-
-    start:"top 80%",
-
-    end:"top 25%",
-
-    scrub:.8
+    start:"top top",
+    end:"bottom bottom",
+    scrub:1
   }
 
 });
@@ -3075,110 +2677,89 @@ regTL
 
   .from(".registration-panel",{
 
-    scale:.92,
-
+    scale:.88,
     opacity:0,
-
-    rotateX:5
+    rotateX:8
 
   })
 
-  .from(
-    ".registration-panel h2",
-    {
-      y:60,
-      opacity:0
-    },
-    .1
-  );
+  .from(".registration-panel h2",{
+
+    y:70,
+    opacity:0
+
+  },.1);
 
 
 /* =========================================================
    COUNTDOWN
 ========================================================= */
 
-const target =
-  new Date(
-    "October 1, 2026 00:00:00"
-  ).getTime();
+const target=new Date(
+  "October 1, 2026 00:00:00"
+).getTime();
 
 function updateCountdown(){
 
-  const now = Date.now();
+  const now=Date.now();
 
-  const distance =
-    target-now;
+  const distance=target-now;
 
-  if(distance <= 0){
+  if(distance<=0){
 
-    document
-      .getElementById(
-        "registrationCountdown"
-      )
-      .style.display = "none";
+    document.getElementById(
+      "registrationCountdown"
+    ).style.display="none";
 
-    document
-      .getElementById(
-        "registrationOptions"
-      )
-      .style.display = "block";
+    document.getElementById(
+      "registrationOptions"
+    ).style.display="block";
 
-    document
-      .getElementById(
-        "registrationDescription"
-      )
-      .textContent =
-        "Delegate registrations are now open.";
+    document.getElementById(
+      "registrationDescription"
+    ).textContent=
+      "Delegate registrations are now open.";
 
     return;
 
   }
 
-  const days =
-    Math.floor(
-      distance/
-      (1000*60*60*24)
-    );
+  const days=Math.floor(
+    distance/(1000*60*60*24)
+  );
 
-  const hours =
-    Math.floor(
-      (distance%
-        (1000*60*60*24))/
-      (1000*60*60)
-    );
+  const hours=Math.floor(
+    (distance%(1000*60*60*24))/
+    (1000*60*60)
+  );
 
-  const minutes =
-    Math.floor(
-      (distance%
-        (1000*60*60))/
-      (1000*60)
-    );
+  const minutes=Math.floor(
+    (distance%(1000*60*60))/
+    (1000*60)
+  );
 
-  const seconds =
-    Math.floor(
-      (distance%
-        (1000*60))/
-      1000
-    );
+  const seconds=Math.floor(
+    (distance%(1000*60))/1000
+  );
 
   document.getElementById(
     "countdownDays"
-  ).textContent =
+  ).textContent=
     String(days).padStart(2,"0");
 
   document.getElementById(
     "countdownHours"
-  ).textContent =
+  ).textContent=
     String(hours).padStart(2,"0");
 
   document.getElementById(
     "countdownMinutes"
-  ).textContent =
+  ).textContent=
     String(minutes).padStart(2,"0");
 
   document.getElementById(
     "countdownSeconds"
-  ).textContent =
+  ).textContent=
     String(seconds).padStart(2,"0");
 
 }
@@ -3195,160 +2776,130 @@ setInterval(
    PROGRESS
 ========================================================= */
 
-const sections =
+const sections=
   gsap.utils.toArray(".scene");
 
-sections.forEach(
-  (section,index) => {
+sections.forEach((section,index)=>{
 
-    ScrollTrigger.create({
+  ScrollTrigger.create({
 
-      trigger:section,
+    trigger:section,
 
-      start:"top center",
+    start:"top center",
 
-      end:"bottom center",
+    end:"bottom center",
 
-      onEnter:() => {
+    onEnter:()=>{
 
-        document.getElementById(
-          "progressCurrent"
-        ).textContent =
-          String(index+1).padStart(2,"0");
+      document.getElementById(
+        "progressCurrent"
+      ).textContent=
+        String(index+1).padStart(2,"0");
 
-      },
+    },
 
-      onEnterBack:() => {
+    onEnterBack:()=>{
 
-        document.getElementById(
-          "progressCurrent"
-        ).textContent =
-          String(index+1).padStart(2,"0");
-
-      }
-
-    });
-
-  }
-);
-
-gsap.to(
-  "#progressFill",
-  {
-
-    height:"100%",
-
-    ease:"none",
-
-    scrollTrigger:{
-
-      trigger:document.body,
-
-      start:"top top",
-
-      end:"bottom bottom",
-
-      scrub:.2
+      document.getElementById(
+        "progressCurrent"
+      ).textContent=
+        String(index+1).padStart(2,"0");
 
     }
 
+  });
+
+});
+
+gsap.to("#progressFill",{
+
+  height:"100%",
+
+  ease:"none",
+
+  scrollTrigger:{
+    trigger:document.body,
+    start:"top top",
+    end:"bottom bottom",
+    scrub:.2
   }
-);
+
+});
 
 
 /* =========================================================
-   MAGNETIC BUTTONS
+   MAGNETIC CTA
 ========================================================= */
 
-document
-  .querySelectorAll(
-    ".final-cta,.nav-register"
-  )
-  .forEach(button => {
+document.querySelectorAll(
+  ".final-cta"
+).forEach(button=>{
 
-    button.addEventListener(
-      "mousemove",
-      e => {
+  button.addEventListener("mousemove",e=>{
 
-        const rect =
-          button.getBoundingClientRect();
+    const rect=
+      button.getBoundingClientRect();
 
-        const x =
-          e.clientX -
-          (rect.left+rect.width/2);
+    const x=
+      e.clientX-
+      (rect.left+rect.width/2);
 
-        const y =
-          e.clientY -
-          (rect.top+rect.height/2);
+    const y=
+      e.clientY-
+      (rect.top+rect.height/2);
 
-        gsap.to(button,{
+    gsap.to(button,{
 
-          x:x*.2,
-          y:y*.2,
+      x:x*.2,
+      y:y*.2,
 
-          duration:.35,
+      duration:.35,
 
-          ease:"power3.out"
+      ease:"power3.out"
 
-        });
-
-      }
-    );
-
-    button.addEventListener(
-      "mouseleave",
-      () => {
-
-        gsap.to(button,{
-
-          x:0,
-          y:0,
-
-          duration:.7,
-
-          ease:"elastic.out(1,.4)"
-
-        });
-
-      }
-    );
+    });
 
   });
+
+  button.addEventListener("mouseleave",()=>{
+
+    gsap.to(button,{
+
+      x:0,
+      y:0,
+
+      duration:.7,
+
+      ease:"elastic.out(1,.4)"
+
+    });
+
+  });
+
+});
 
 
 /* =========================================================
    REX
 ========================================================= */
 
-const rexLauncher =
-  document.getElementById(
-    "rex-launcher"
-  );
+const rexLauncher=
+  document.getElementById("rex-launcher");
 
-const rexWindow =
-  document.getElementById(
-    "rex-window"
-  );
+const rexWindow=
+  document.getElementById("rex-window");
 
-const rexClose =
-  document.getElementById(
-    "rexClose"
-  );
+const rexClose=
+  document.getElementById("rexClose");
 
-const rexMessages =
-  document.getElementById(
-    "rexMessages"
-  );
+const rexMessages=
+  document.getElementById("rexMessages");
 
-const rexForm =
-  document.getElementById(
-    "rexForm"
-  );
+const rexForm=
+  document.getElementById("rexForm");
 
-const rexInput =
-  document.getElementById(
-    "rexInput"
-  );
+const rexInput=
+  document.getElementById("rexInput");
 
 
 function rexMessage(
@@ -3356,20 +2907,20 @@ function rexMessage(
   type="rex"
 ){
 
-  const el =
+  const el=
     document.createElement("div");
 
-  el.className =
+  el.className=
     `rex-message ${type}`;
 
-  el.innerHTML =
+  el.innerHTML=
     `<div class="rex-message-content">
       ${text}
     </div>`;
 
   rexMessages.appendChild(el);
 
-  rexMessages.scrollTop =
+  rexMessages.scrollTop=
     rexMessages.scrollHeight;
 
 }
@@ -3377,8 +2928,8 @@ function rexMessage(
 
 function rexReply(q){
 
-  const x =
-    q.toLowerCase();
+  const x=q.toLowerCase();
+
 
   if(
     x.includes("committee")
@@ -3418,14 +2969,12 @@ function rexReply(q){
 
       <strong>Core</strong><br>
       Akshith Kabilan — Secretary-General<br>
+      Aashi Kushwaha — Chief Advisor<br>
       S. Shreyaas — Deputy Secretary-General<br>
-      Laasya Vikram — Director-General<br>
-      Abimayur R — Head of Administration & Outreach
-
-      <br><br>
+      Laasya Vikram — Director-General<br><br>
 
       <strong>Secretariat</strong><br>
-      Aashi Kushwaha — Chief Advisor<br>
+      Abimayur R — Head of Administration & Outreach<br>
       Madhav Bhardwaj — USG · Delegate Affairs
     `;
 
@@ -3439,22 +2988,9 @@ function rexReply(q){
     return `
       <strong>MUNFLOW</strong>
       <br><br>
+
       MUNFLOW is the Technology & Platform Partner
       for RELMUN '26.
-    `;
-
-  }
-
-
-  if(
-    x.includes("register") ||
-    x.includes("registration")
-  ){
-
-    return `
-      Delegate registration for
-      <strong>RELMUN '26</strong>
-      opens on 1 October 2026.
     `;
 
   }
@@ -3463,6 +2999,7 @@ function rexReply(q){
   return `
     I'm <strong>REX</strong>, the RELMUN '26 assistant.
     <br><br>
+
     Ask me about the conference, committees,
     team, dates, registration or MUNFLOW.
   `;
@@ -3470,17 +3007,13 @@ function rexReply(q){
 }
 
 
-/* =========================================================
-   REX OPEN
-========================================================= */
-
 rexLauncher.addEventListener(
   "click",
-  () => {
+  ()=>{
 
     rexWindow.classList.add("open");
 
-    rexLauncher.style.display =
+    rexLauncher.style.display=
       "none";
 
     rexInput.focus();
@@ -3489,34 +3022,28 @@ rexLauncher.addEventListener(
 );
 
 
-/* =========================================================
-   REX CLOSE
-========================================================= */
-
 rexClose.addEventListener(
   "click",
-  () => {
+  ()=>{
 
-    rexWindow.classList.remove("open");
+    rexWindow.classList.remove(
+      "open"
+    );
 
-    rexLauncher.style.display =
+    rexLauncher.style.display=
       "block";
 
   }
 );
 
 
-/* =========================================================
-   REX FORM
-========================================================= */
-
 rexForm.addEventListener(
   "submit",
-  e => {
+  e=>{
 
     e.preventDefault();
 
-    const q =
+    const q=
       rexInput.value.trim();
 
     if(!q)return;
@@ -3526,68 +3053,53 @@ rexForm.addEventListener(
       "user"
     );
 
-    rexInput.value = "";
+    rexInput.value="";
 
-    setTimeout(
-      () => {
+    setTimeout(()=>{
 
-        rexMessage(
-          rexReply(q)
-        );
+      rexMessage(
+        rexReply(q)
+      );
 
-      },
-      250
-    );
+    },250);
 
   }
 );
 
 
-/* =========================================================
-   REX SUGGESTIONS
-========================================================= */
+document.querySelectorAll(
+  ".rex-suggestions button"
+).forEach(button=>{
 
-document
-  .querySelectorAll(
-    ".rex-suggestions button"
-  )
-  .forEach(button => {
+  button.addEventListener(
+    "click",
+    ()=>{
 
-    button.addEventListener(
-      "click",
-      () => {
+      const q=
+        button.dataset.question;
 
-        const q =
-          button.dataset.question;
+      rexMessage(
+        q,
+        "user"
+      );
+
+      setTimeout(()=>{
 
         rexMessage(
-          q,
-          "user"
+          rexReply(q)
         );
 
-        setTimeout(
-          () => {
+      },250);
 
-            rexMessage(
-              rexReply(q)
-            );
+    }
+  );
 
-          },
-          250
-        );
+});
 
-      }
-    );
-
-  });
-
-
-/* =========================================================
-   REX INITIAL MESSAGE
-========================================================= */
 
 rexMessage(`
-  Hey! I'm <strong>REX</strong>, the RELMUN '26 assistant. 👋
+  Hey! I'm <strong>REX</strong>,
+  the RELMUN '26 assistant. 👋
   <br><br>
   Ask me anything about the conference,
   committees, team, registration or MUNFLOW.
@@ -3600,14 +3112,11 @@ rexMessage(`
 
 window.addEventListener(
   "load",
-  () => {
+  ()=>{
 
-    setTimeout(
-      () => {
-        ScrollTrigger.refresh();
-      },
-      300
-    );
+    setTimeout(()=>{
+      ScrollTrigger.refresh();
+    },300);
 
   }
 );
