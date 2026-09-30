@@ -1,492 +1,1895 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RELMUN '26</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Committee — RELMUN '26</title>
-
-<link rel="icon" href="relmun-logo.png">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
-  --black:#080808;
-  --ivory:#f1ece0;
-  --muted:rgba(241,236,224,.58);
-  --line:rgba(241,236,224,.13);
-  --blue:#0e2999;
-  --gold:#c79a2b;
-  --ease:cubic-bezier(.16,1,.3,1);
-}
-
-*{
+  --ink:#070d24;
+  --paper:#eaf0fb;
+  --blue:#5b9cf0;
+  --amber:#ffb42e;
+  --dim:rgba(234,240,251,.62);
+  --line:rgba(91,156,240,.32);
   box-sizing:border-box;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{
+  box-sizing:inherit;
   margin:0;
-  padding:0;
 }
 
-html{
-  background:var(--black);
-}
-
-body{
-  background:var(--black);
-  color:var(--ivory);
-  font-family:"Helvetica Neue",Arial,sans-serif;
+html,body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
   overflow-x:hidden;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-.nav{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  padding:25px 5vw;
-  z-index:20;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  width:78px;
-}
-
-.back{
-  font:8px monospace;
-  letter-spacing:.15em;
-  opacity:.7;
-  transition:.3s;
-}
-
-.back:hover{
-  color:var(--blue);
-  opacity:1;
-}
-
-.page{
-  width:min(1400px,86vw);
-  margin:auto;
-}
-
-.hero{
+body{
   min-height:100vh;
+}
+
+button,input{
+  font-family:inherit;
+}
+
+.stage{
+  position:relative;
+  height:100vh;
+  height:100dvh;
+  overflow:hidden;
+  background:#070d24;
+  perspective:1200px;
+}
+
+.globe{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:min(92vmin,900px);
+  height:min(92vmin,900px);
+  margin:calc(min(92vmin,900px)/-2) 0 0 calc(min(92vmin,900px)/-2);
+  transform-style:preserve-3d;
+  opacity:.55;
+  pointer-events:none;
+}
+
+.globe i{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px solid rgba(91,156,240,.55);
+}
+
+.globe i.lat{
+  border-color:rgba(255,180,46,.28);
+}
+
+.scene{
+  position:absolute;
+  inset:0;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  position:relative;
+  padding:
+    env(safe-area-inset-top,0px)
+    7vw
+    env(safe-area-inset-bottom,0px);
+  visibility:hidden;
+  opacity:0;
+  z-index:2;
 }
 
-.eyebrow{
-  color:var(--gold);
-  font:8px monospace;
-  letter-spacing:.18em;
-}
-
-.number{
-  margin-top:35px;
-  color:var(--muted);
-  font:9px monospace;
+.scene.on{
+  visibility:visible;
+  opacity:1;
 }
 
 h1{
-  margin-top:20px;
-  font-size:clamp(75px,13vw,190px);
-  line-height:.76;
-  letter-spacing:-.085em;
-  font-weight:500;
+  font-weight:700;
+  font-size:clamp(3.2rem,17vw,15rem);
+  line-height:.86;
+  letter-spacing:-.055em;
 }
 
-h1 em{
-  color:var(--blue);
-  font-family:Georgia,serif;
-  font-weight:400;
+h1 span{
+  display:inline-block;
 }
 
-.hero-description{
-  max-width:650px;
-  margin-top:50px;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.8;
-}
-
-.hero-line{
-  position:absolute;
-  bottom:40px;
-  left:0;
-  right:0;
-  border-top:1px solid var(--line);
-  padding-top:15px;
-  display:flex;
-  justify-content:space-between;
-  font:8px monospace;
-  color:var(--muted);
-}
-
-.section{
-  padding:150px 0;
-  border-top:1px solid var(--line);
-}
-
-.section-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:100px;
+h1 .o{
+  color:transparent;
+  -webkit-text-stroke:2px var(--amber);
 }
 
 h2{
-  font-size:clamp(50px,7vw,100px);
-  line-height:.82;
-  letter-spacing:-.07em;
-  font-weight:500;
+  font-weight:700;
+  font-size:clamp(2rem,6.4vw,5.6rem);
+  line-height:.98;
+  letter-spacing:-.04em;
+  max-width:16ch;
 }
 
-h2 em{
+p.lead{
+  font-weight:300;
+  font-size:clamp(1rem,2vw,1.5rem);
+  color:var(--dim);
+  max-width:46ch;
+  margin-top:1.4rem;
+  line-height:1.5;
+}
+
+.words{
+  font-weight:500;
+  font-size:clamp(1.8rem,6.2vw,5.4rem);
+  line-height:1.05;
+  letter-spacing:-.04em;
+  max-width:15ch;
+}
+
+.words span{
+  display:inline-block;
+  margin-right:.25em;
+}
+
+.words b{
+  color:var(--amber);
+  font-weight:800;
+}
+
+.track{
+  display:flex;
+  gap:2.2vw;
+  width:max-content;
+  padding:0 7vw;
+  margin-top:2rem;
+}
+
+.card{
+  width:clamp(250px,38vw,440px);
+  height:clamp(260px,46vh,400px);
+  padding:1.6rem;
+  border:1px solid rgba(91,156,240,.5);
+  border-radius:6px;
+  background:rgba(7,13,36,.72);
+  backdrop-filter:blur(8px);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  transition:
+    border-color .35s ease,
+    background .35s ease,
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.card:hover{
+  border-color:var(--amber);
+  background:rgba(12,23,53,.88);
+  box-shadow:
+    0 0 0 1px rgba(255,180,46,.15),
+    0 20px 60px rgba(0,0,0,.3);
+}
+
+.card strong{
+  font-weight:800;
+  font-size:clamp(2.6rem,7vw,5.5rem);
+  letter-spacing:-.06em;
   color:var(--blue);
-  font-family:Georgia,serif;
-  font-weight:400;
 }
 
-.copy{
-  color:var(--muted);
-  line-height:1.9;
-  font-size:14px;
-}
-
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--line);
-  margin-top:80px;
-}
-
-.info{
-  min-height:220px;
-  padding:30px;
-  background:var(--black);
-  transition:.4s;
-}
-
-.info:hover{
-  background:#0a0d19;
-}
-
-.info small{
-  color:var(--gold);
-  font:8px monospace;
-}
-
-.info h3{
-  margin-top:75px;
-  font-size:22px;
+.card em{
+  font-style:normal;
   font-weight:500;
+  font-size:1.15rem;
 }
 
-.eb{
-  margin-top:80px;
-  padding:40px;
-  border:1px solid var(--line);
-  background:
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(14,41,153,.18),
-      transparent 40%
-    );
+.card small{
+  color:var(--dim);
+  font-size:.95rem;
+  line-height:1.45;
 }
 
-.eb-title{
-  color:var(--gold);
-  font:8px monospace;
-}
-
-.eb h3{
-  margin-top:25px;
-  font-size:32px;
-  font-weight:500;
-}
-
-.eb p{
-  margin-top:12px;
-  color:var(--muted);
-  font:9px/1.8 monospace;
-}
-
-.register{
+.card .open-label{
   display:inline-flex;
-  margin-top:60px;
-  padding:18px 25px;
+  margin-top:1rem;
+  color:var(--amber);
+  font-size:.75rem;
+  letter-spacing:.12em;
+  font-weight:800;
+}
+
+.big{
+  font-weight:800;
+  font-size:clamp(4rem,19vw,17rem);
+  line-height:.85;
+  letter-spacing:-.07em;
+}
+
+.big small{
+  font-size:.28em;
+  color:var(--amber);
+  letter-spacing:-.02em;
+  margin-left:.15em;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1.6rem 3rem;
+  margin-top:2rem;
+}
+
+.row div{
+  border-left:2px solid var(--amber);
+  padding-left:1rem;
+}
+
+.row b{
+  display:block;
+  font-weight:800;
+  font-size:1.5rem;
+  letter-spacing:-.02em;
+}
+
+.row span{
+  color:var(--dim);
+  font-size:.95rem;
+}
+
+.sub{
+  margin-top:1.6rem;
+  font-size:.9rem;
+  color:var(--blue);
+  font-weight:500;
+}
+
+.team-heading{
+  margin-bottom:.5rem;
+}
+
+.team-section-label{
+  margin-top:1.8rem;
+  color:var(--amber);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.18em;
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(150px,1fr));
+  gap:1rem;
+  margin-top:.9rem;
+}
+
+.team-person{
   border:1px solid var(--line);
-  font:8px monospace;
-  letter-spacing:.15em;
-  transition:.4s;
+  padding:1rem;
+  background:rgba(7,13,36,.55);
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
 }
 
-.register:hover{
+.team-person:hover{
+  transform:translateY(-7px);
+  border-color:var(--amber);
+  background:rgba(15,27,59,.8);
+}
+
+.team-person b{
+  display:block;
+  font-size:1rem;
+  margin-bottom:.3rem;
+}
+
+.team-person span{
+  color:var(--dim);
+  font-size:.78rem;
+  line-height:1.35;
+}
+
+.cd{
+  display:flex;
+  gap:clamp(.8rem,3vw,2.6rem);
+  margin-top:2rem;
+}
+
+.cd div{
+  font-weight:800;
+  font-size:clamp(2.6rem,10vw,8rem);
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+.cd small{
+  display:block;
+  font-weight:300;
+  font-size:.8rem;
+  color:var(--dim);
+  letter-spacing:0;
+}
+
+.cta{
+  display:inline-block;
+  margin-top:2rem;
+  padding:1rem 2rem;
+  background:var(--amber);
+  color:var(--ink);
+  font-weight:800;
+  font-size:1.1rem;
+  border-radius:99px;
+  text-decoration:none;
+}
+
+.cta:focus-visible,
+button:focus-visible,
+input:focus-visible{
+  outline:3px solid var(--blue);
+  outline-offset:3px;
+}
+
+.hud{
+  position:absolute;
+  right:max(1.2rem,3vw);
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.6rem;
+  font-size:.8rem;
+  color:var(--dim);
+}
+
+.bar{
+  width:2px;
+  height:22vh;
+  background:rgba(234,240,251,.18);
+}
+
+.bar div{
+  width:100%;
+  height:0;
+  background:var(--amber);
+}
+
+.hint{
+  position:absolute;
+  bottom:calc(1.6rem + env(safe-area-inset-bottom,0px));
+  left:7vw;
+  font-size:.85rem;
+  color:var(--dim);
+}
+
+.brand{
+  position:absolute;
+  top:calc(1.2rem + env(safe-area-inset-top,0px));
+  left:7vw;
+  font-weight:500;
+  letter-spacing:.18em;
+  font-size:.95rem;
+  z-index:5;
+}
+
+#rl{
+  position:fixed;
+  right:1rem;
+  bottom:calc(1rem + env(safe-area-inset-bottom,0px));
+  z-index:50;
   background:var(--blue);
-  border-color:var(--blue);
-  transform:translateY(-4px);
+  color:var(--ink);
+  border:0;
+  border-radius:99px;
+  padding:.8rem 1.3rem;
+  font:800 1rem inherit;
+  font-family:inherit;
+  cursor:pointer;
 }
 
-footer{
-  border-top:1px solid var(--line);
-  padding:60px 7vw;
+#rw{
+  position:fixed;
+  right:1rem;
+  bottom:calc(1rem + env(safe-area-inset-bottom,0px));
+  z-index:51;
+  width:min(380px,calc(100vw - 2rem));
+  height:min(500px,70vh);
+  background:#0d1735;
+  border:1px solid var(--blue);
+  border-radius:12px;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 25px 80px rgba(0,0,0,.4);
+}
+
+#rw.open{
+  display:flex;
+}
+
+#rw header{
+  padding:.8rem 1rem;
   display:flex;
   justify-content:space-between;
-  gap:30px;
+  font-weight:800;
+  border-bottom:1px solid rgba(91,156,240,.4);
 }
 
-footer img{
-  width:70px;
+#rw header button{
+  background:none;
+  border:0;
+  color:var(--paper);
+  font-size:1.2rem;
+  cursor:pointer;
 }
 
-footer span{
-  display:block;
-  color:var(--muted);
-  margin-top:8px;
-  font:7px monospace;
-}
-
-@media(max-width:800px){
-
-.section-grid{
-  grid-template-columns:1fr;
-  gap:50px;
-}
-
-.info-grid{
-  grid-template-columns:1fr;
-}
-
-.hero-description{
-  font-size:14px;
-}
-
-footer{
+#rm{
+  flex:1;
+  overflow:auto;
+  padding:1rem;
+  display:flex;
   flex-direction:column;
+  gap:.6rem;
+  font-size:.92rem;
+  line-height:1.45;
 }
 
+#rm div{
+  max-width:88%;
+  padding:.6rem .8rem;
+  border-radius:10px;
+  background:rgba(91,156,240,.16);
 }
 
+#rm div.u{
+  align-self:flex-end;
+  background:var(--amber);
+  color:var(--ink);
+}
+
+#rf{
+  display:flex;
+  border-top:1px solid rgba(91,156,240,.4);
+}
+
+#rf input{
+  flex:1;
+  padding:.9rem;
+  background:none;
+  border:0;
+  color:var(--paper);
+  font:inherit;
+}
+
+#rf button{
+  background:none;
+  border:0;
+  color:var(--amber);
+  font-weight:800;
+  padding:0 1rem;
+  cursor:pointer;
+}
+
+/* =========================================
+   COMMITTEE DETAIL OVERLAY
+========================================= */
+
+#committeePage{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:
+    radial-gradient(circle at 75% 20%,rgba(91,156,240,.13),transparent 35%),
+    #070d24;
+  display:none;
+  overflow-y:auto;
+  opacity:0;
+}
+
+#committeePage.open{
+  display:block;
+}
+
+.committee-inner{
+  min-height:100%;
+  padding:
+    max(2rem,env(safe-area-inset-top))
+    7vw
+    max(3rem,env(safe-area-inset-bottom));
+  position:relative;
+}
+
+.committee-close{
+  position:fixed;
+  top:1.5rem;
+  right:2rem;
+  z-index:10;
+  border:1px solid rgba(91,156,240,.5);
+  background:rgba(7,13,36,.7);
+  color:var(--paper);
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  font-size:1.5rem;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+}
+
+.committee-close:hover{
+  border-color:var(--amber);
+  color:var(--amber);
+}
+
+.committee-kicker{
+  color:var(--amber);
+  font-size:.75rem;
+  letter-spacing:.2em;
+  font-weight:800;
+  margin-bottom:1.2rem;
+}
+
+.committee-code{
+  font-size:clamp(4rem,14vw,12rem);
+  line-height:.8;
+  font-weight:800;
+  letter-spacing:-.07em;
+  color:var(--blue);
+}
+
+.committee-title{
+  margin-top:1.5rem;
+  font-size:clamp(1.8rem,5vw,4.5rem);
+  max-width:15ch;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+.committee-description{
+  margin-top:1.5rem;
+  max-width:650px;
+  color:var(--dim);
+  font-size:1.1rem;
+  line-height:1.7;
+}
+
+.committee-info{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(150px,1fr));
+  gap:1rem;
+  max-width:900px;
+  margin-top:3rem;
+}
+
+.committee-info-box{
+  border-top:1px solid var(--amber);
+  padding-top:1rem;
+}
+
+.committee-info-box small{
+  display:block;
+  color:var(--dim);
+  font-size:.7rem;
+  letter-spacing:.15em;
+  margin-bottom:.5rem;
+}
+
+.committee-info-box strong{
+  font-size:1rem;
+}
+
+.committee-back{
+  display:inline-block;
+  margin-top:3rem;
+  padding:.9rem 1.5rem;
+  border:1px solid var(--blue);
+  color:var(--paper);
+  text-decoration:none;
+  border-radius:99px;
+  transition:.3s ease;
+}
+
+.committee-back:hover{
+  background:var(--blue);
+  color:var(--ink);
+}
+
+/* =========================================
+   CONTACT DETAIL
+========================================= */
+
+.contact-strip{
+  margin-top:3rem;
+  padding:1.4rem;
+  border:1px solid var(--line);
+  max-width:900px;
+  background:rgba(7,13,36,.5);
+}
+
+.contact-strip strong{
+  display:block;
+  color:var(--amber);
+  font-size:.75rem;
+  letter-spacing:.16em;
+  margin-bottom:.7rem;
+}
+
+.contact-strip p{
+  color:var(--dim);
+  line-height:1.6;
+}
+
+.contact-strip a{
+  color:var(--paper);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:900px){
+  .team-grid{
+    grid-template-columns:repeat(2,minmax(140px,1fr));
+  }
+
+  .committee-info{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:640px){
+  .hud{
+    display:none;
+  }
+
+  .card{
+    height:44vh;
+  }
+
+  .team-grid{
+    grid-template-columns:1fr;
+    max-height:38vh;
+    overflow:auto;
+  }
+
+  .committee-info{
+    grid-template-columns:1fr;
+  }
+
+  .committee-close{
+    right:1rem;
+    top:1rem;
+  }
+
+  .committee-inner{
+    padding-left:6vw;
+    padding-right:6vw;
+    padding-top:5rem;
+  }
+
+  .cd{
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+
+  .cd div{
+    font-size:clamp(2rem,12vw,4rem);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .stage{
+    height:auto;
+    overflow:visible;
+  }
+
+  .scene{
+    position:relative;
+    min-height:100vh;
+    visibility:visible;
+    opacity:1;
+  }
+
+  .globe{
+    display:none;
+  }
+
+  .track{
+    flex-wrap:wrap;
+    width:auto;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<nav class="nav">
+<main class="stage" id="stage">
 
-<a href="index.html">
-<img src="relmun-logo.png" class="logo" alt="RELMUN '26">
-</a>
+  <div class="brand">RELMUN</div>
+  <div class="globe" id="globe"></div>
 
-<a href="index.html#committees" class="back">
-← BACK TO COMMITTEES
-</a>
+  <div class="hud">
+    <span id="cur">1</span>
+    <div class="bar"><div id="fill"></div></div>
+    <span>6</span>
+  </div>
 
-</nav>
+  <!-- ===============================
+       01 — HERO
+  ================================ -->
 
-<main>
+  <section class="scene on" id="s0">
 
-<section class="hero page">
+    <h1 id="title">
+      <span>REL</span><span>MUN</span><br>
+      <span class="o">'26</span>
+    </h1>
 
-<div class="eyebrow" id="eyebrow">
-RELMUN '26 · COMMITTEE
-</div>
+    <p class="lead">
+      A fully online Model United Nations conference.
+      26–27 December 2026.
+    </p>
 
-<div class="number" id="number">
-01 / UNSC
-</div>
+    <div class="hint">Scroll to enter</div>
 
-<h1 id="title">
-SECURITY<br>
-<em>COUNCIL.</em>
-</h1>
+  </section>
 
-<p class="hero-description" id="description"></p>
 
-<div class="hero-line">
-<span>RELMUN '26</span>
-<span>26—27 DECEMBER 2026 · ONLINE</span>
-</div>
+  <!-- ===============================
+       02 — ABOUT
+  ================================ -->
 
-</section>
+  <section class="scene" id="s1">
 
-<section class="section">
+    <div class="words" id="words">
+      <span>Regional</span>
+      <span><b>Engagement</b></span>
+      <span>&amp;</span>
+      <span><b>Leadership</b></span>
+      <span>Model</span>
+      <span>United</span>
+      <span>Nations</span>
+    </div>
 
-<div class="page">
+    <p class="lead">
+      RELMUN is built around diplomacy, debate,
+      negotiation, engagement and leadership.
+    </p>
 
-<div class="section-grid">
+  </section>
 
-<h2>
-THE<br>
-<em>COMMITTEE.</em>
-</h2>
 
-<div class="copy" id="details"></div>
+  <!-- ===============================
+       03 — COMMITTEES
+  ================================ -->
 
-</div>
+  <section class="scene" id="s2">
 
-<div class="info-grid">
+    <h2>
+      Six committees.<br>
+      Six rooms to argue in.
+    </h2>
 
-<div class="info">
-<small>FORMAT</small>
-<h3 id="format">ONLINE</h3>
-</div>
+    <div class="track" id="track">
 
-<div class="info">
-<small>AGENDA</small>
-<h3 id="agenda">TBA</h3>
-</div>
+      <div class="card committee-card" data-committee="UNSC">
+        <strong>UNSC</strong>
+        <div>
+          <em>United Nations Security Council</em><br>
+          <small>Global peace and security.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
 
-<div class="info">
-<small>REGISTRATION</small>
-<h3>₹200</h3>
-</div>
+      <div class="card committee-card" data-committee="UNHRC">
+        <strong>UNHRC</strong>
+        <div>
+          <em>United Nations Human Rights Council</em><br>
+          <small>Rights, protections and accountability.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
 
-</div>
+      <div class="card committee-card" data-committee="UNODC">
+        <strong>UNODC</strong>
+        <div>
+          <em>Office on Drugs and Crime</em><br>
+          <small>Trafficking, crime and justice.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
 
-<div class="eb">
+      <div class="card committee-card" data-committee="AIPPM">
+        <strong>AIPPM</strong>
+        <div>
+          <em>All India Political Parties Meet</em><br>
+          <small>Indian politics, party against party.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
 
-<div class="eb-title">
-EXECUTIVE BOARD
-</div>
+      <div class="card committee-card" data-committee="UN Women">
+        <strong>UN Women</strong>
+        <div>
+          <em>Gender equality</em><br>
+          <small>Advancing rights and opportunity for women.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
 
-<h3 id="chair">
-CHAIR · TBA
-</h3>
+      <div class="card committee-card" data-committee="IPLA">
+        <strong>IPLA</strong>
+        <div>
+          <em>IPL Auction</em><br>
+          <small>Bid, build a squad, outsmart the room.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
 
-<p id="vice">
-VICE CHAIR · TBA<br>
-MODERATOR · TBA
-</p>
+    </div>
 
-</div>
+  </section>
 
-<a href="register.html" class="register">
-REGISTER FOR RELMUN ↗
-</a>
 
-</div>
+  <!-- ===============================
+       04 — CONFERENCE
+  ================================ -->
 
-</section>
+  <section class="scene" id="s3">
+
+    <div class="big">
+      26–27<small>Dec 2026</small>
+    </div>
+
+    <div class="row">
+
+      <div>
+        <b>Fully online</b>
+        <span>Attend from anywhere</span>
+      </div>
+
+      <div>
+        <b>6 committees</b>
+        <span>One conference</span>
+      </div>
+
+      <div>
+        <b>Certificates</b>
+        <span>For all participants</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===============================
+       05 — TEAM
+  ================================ -->
+
+  <section class="scene" id="s4">
+
+    <h2 class="team-heading">
+      The people running it.
+    </h2>
+
+    <!-- CORE FIRST -->
+    <div class="team-section-label">
+      CORE
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-person">
+        <b>Akshith Kabilan</b>
+        <span>Secretary-General</span>
+      </div>
+
+      <div class="team-person">
+        <b>S. Shreyaas</b>
+        <span>Deputy Secretary-General</span>
+      </div>
+
+      <div class="team-person">
+        <b>Laasya Vikram</b>
+        <span>Director-General</span>
+      </div>
+
+      <div class="team-person">
+        <b>Aashi Kushwaha</b>
+        <span>Chief Advisor</span>
+      </div>
+
+    </div>
+
+    <!-- SECRETARIAT -->
+    <div class="team-section-label">
+      SECRETARIAT
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-person">
+        <b>Abimayur R</b>
+        <span>Head of Administration &amp; Outreach</span>
+      </div>
+
+      <div class="team-person">
+        <b>Madhav Bhardwaj</b>
+        <span>USG, Delegate Affairs</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===============================
+       06 — REGISTRATION
+  ================================ -->
+
+  <section class="scene" id="s5">
+
+    <h2 id="regH">
+      Registrations open 9 October.
+    </h2>
+
+    <p class="lead" id="regP">
+      Delegate fee: ₹200 per delegate.
+    </p>
+
+    <div class="cd" id="cd">
+
+      <div>
+        <span id="d">00</span>
+        <small>days</small>
+      </div>
+
+      <div>
+        <span id="h">00</span>
+        <small>hours</small>
+      </div>
+
+      <div>
+        <span id="m">00</span>
+        <small>minutes</small>
+      </div>
+
+      <div>
+        <span id="s">00</span>
+        <small>seconds</small>
+      </div>
+
+    </div>
+
+    <div>
+      <a
+        class="cta"
+        id="cta"
+        href="mailto:relmun.official@gmail.com?subject=RELMUN%20%2726%20Delegate%20Registration"
+      >
+        Email us to register
+      </a>
+    </div>
+
+    <p class="sub">
+      relmun.official@gmail.com · @relmun.official on Instagram
+    </p>
+
+  </section>
 
 </main>
 
-<footer>
 
-<div>
-<img src="relmun-logo.png" alt="RELMUN '26">
-</div>
+<!-- =========================================
+     COMMITTEE DETAIL PAGE
+========================================= -->
 
-<div>
-<strong>RELMUN '26</strong>
-<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
-<span>@relmun.official</span>
-</div>
+<section id="committeePage">
 
-<div>
-<span>26—27 DECEMBER 2026</span>
-<span>ONLINE CONFERENCE</span>
-</div>
+  <button
+    class="committee-close"
+    id="committeeClose"
+    aria-label="Close committee"
+  >
+    ×
+  </button>
 
-</footer>
+  <div class="committee-inner">
+
+    <div class="committee-kicker">
+      RELMUN '26 · COMMITTEE
+    </div>
+
+    <div class="committee-code" id="committeeCode">
+      UNSC
+    </div>
+
+    <h1 class="committee-title" id="committeeTitle">
+      United Nations Security Council
+    </h1>
+
+    <p class="committee-description" id="committeeDescription">
+      Global peace and security.
+    </p>
+
+    <div class="committee-info">
+
+      <div class="committee-info-box">
+        <small>FORMAT</small>
+        <strong>ONLINE</strong>
+      </div>
+
+      <div class="committee-info-box">
+        <small>CONFERENCE</small>
+        <strong>RELMUN '26</strong>
+      </div>
+
+      <div class="committee-info-box">
+        <small>DATES</small>
+        <strong>26–27 DEC 2026</strong>
+      </div>
+
+    </div>
+
+    <div class="contact-strip">
+
+      <strong>COMMITTEE / CONFERENCE CONTACT</strong>
+
+      <p>
+        For registration and official conference enquiries:
+        <br><br>
+        <a href="mailto:relmun.official@gmail.com">
+          relmun.official@gmail.com
+        </a>
+        <br>
+        Instagram: <b>@relmun.official</b>
+      </p>
+
+    </div>
+
+    <a href="#" class="committee-back" id="committeeBack">
+      ← BACK TO RELMUN
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     REX
+========================================= -->
+
+<button id="rl">
+  Ask REX
+</button>
+
+<aside id="rw" aria-label="REX assistant">
+
+  <header>
+    <span>REX · RELMUN assistant</span>
+    <button id="rc" aria-label="Close">×</button>
+  </header>
+
+  <div id="rm" aria-live="polite"></div>
+
+  <form id="rf">
+    <input
+      id="ri"
+      placeholder="Ask about RELMUN"
+      autocomplete="off"
+    >
+    <button>Send</button>
+  </form>
+
+</aside>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script>
 
+const $ = id => document.getElementById(id);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+
+/* =========================================
+   GLOBE
+========================================= */
+
+const g = $("globe");
+
+for(let i=0;i<8;i++){
+  const r=document.createElement("i");
+  r.style.transform=`rotateY(${i*22.5}deg)`;
+  g.appendChild(r);
+}
+
+[-.6,-.3,0,.3,.6].forEach(v=>{
+  const r=document.createElement("i");
+  r.className="lat";
+
+  const s=Math.sqrt(1-v*v);
+
+  r.style.transform=
+    `translateY(${v*50}%) rotateX(90deg) scale(${s})`;
+
+  g.appendChild(r);
+});
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+const target =
+  new Date("2026-10-09T00:00:00+05:30").getTime();
+
+function tick(){
+
+  const t=target-Date.now();
+
+  if(t<=0){
+
+    $("cd").style.display="none";
+    $("regH").textContent="Registrations are open.";
+    $("cta").textContent="Register now";
+
+    return;
+  }
+
+  const p=n=>String(n).padStart(2,"0");
+
+  $("d").textContent=
+    p(Math.floor(t/864e5));
+
+  $("h").textContent=
+    p(Math.floor(t%864e5/36e5));
+
+  $("m").textContent=
+    p(Math.floor(t%36e5/6e4));
+
+  $("s").textContent=
+    p(Math.floor(t%6e4/1e3));
+}
+
+tick();
+setInterval(tick,1000);
+
+
+/* =========================================
+   MAIN GSAP EXPERIENCE
+========================================= */
+
+if(!reduce){
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const letters=[];
+
+  document.querySelectorAll("#title span").forEach(sp=>{
+
+    const txt=sp.textContent;
+
+    sp.textContent="";
+
+    [...txt].forEach(c=>{
+
+      const l=document.createElement("span");
+
+      l.textContent=c;
+
+      if(sp.classList.contains("o"))
+        l.className="o";
+
+      sp.appendChild(l);
+
+      letters.push(l);
+
+    });
+
+  });
+
+  gsap.from(letters,{
+    yPercent:120,
+    rotateX:-90,
+    opacity:0,
+    stagger:.06,
+    duration:1.2,
+    ease:"power4.out"
+  });
+
+  gsap.from("#s0 .lead",{
+    opacity:0,
+    y:20,
+    delay:.9,
+    duration:1
+  });
+
+
+  const sc=[
+    ...document.querySelectorAll(".scene")
+  ];
+
+
+  const tl=gsap.timeline({
+
+    defaults:{
+      ease:"none"
+    },
+
+    scrollTrigger:{
+      trigger:"#stage",
+      start:"top top",
+      end:"+=1000%",
+      pin:true,
+      scrub:1,
+      anticipatePin:1,
+
+      onUpdate:s=>{
+
+        const i=
+          Math.min(
+            5,
+            Math.floor(s.progress*6)
+          );
+
+        $("cur").textContent=i+1;
+
+        $("fill").style.height=
+          s.progress*100+"%";
+
+      }
+    }
+
+  });
+
+
+  const show=(el,t)=>{
+
+    tl.set(
+      el,
+      {className:"scene on"},
+      t
+    )
+
+    .fromTo(
+      el,
+      {
+        opacity:0,
+        y:70,
+        filter:"blur(14px)"
+      },
+      {
+        opacity:1,
+        y:0,
+        filter:"blur(0px)",
+        duration:.7
+      },
+      t
+    );
+
+  };
+
+
+  const hide=(el,t)=>{
+
+    tl.to(
+      el,
+      {
+        opacity:0,
+        y:-70,
+        filter:"blur(14px)",
+        duration:.7
+      },
+      t
+    )
+
+    .set(
+      el,
+      {className:"scene"},
+      t+.7
+    );
+
+  };
+
+
+  tl.to(
+    g,
+    {
+      rotationY:900,
+      rotationX:25,
+      duration:16
+    },
+    0
+  );
+
+  tl.to(
+    g,
+    {
+      scale:1,
+      duration:.1
+    },
+    0
+  );
+
+
+  hide(sc[0],1);
+
+  tl.to(
+    g,
+    {
+      scale:1.7,
+      duration:1.2
+    },
+    1
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#0b1a4d",
+      duration:1
+    },
+    1
+  );
+
+
+  show(sc[1],2);
+
+  tl.from(
+    "#words span",
+    {
+      opacity:.08,
+      y:30,
+      stagger:.25,
+      duration:.5
+    },
+    2.3
+  );
+
+  hide(sc[1],4.6);
+
+
+  tl.to(
+    g,
+    {
+      scale:.9,
+      x:"-25vw",
+      duration:1.2
+    },
+    4.6
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#070d24",
+      duration:1
+    },
+    4.6
+  );
+
+
+  show(sc[2],5.4);
+
+  const track=$("track");
+
+  tl.to(
+    track,
+    {
+      x:()=>-(
+        track.scrollWidth-
+        innerWidth+
+        innerWidth*.07
+      ),
+      duration:3.4
+    },
+    6.2
+  );
+
+  hide(sc[2],9.8);
+
+
+  tl.to(
+    g,
+    {
+      scale:2.4,
+      x:0,
+      y:"18vh",
+      duration:1.2
+    },
+    9.8
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#2a1a05",
+      duration:1
+    },
+    9.8
+  );
+
+
+  show(sc[3],10.6);
+
+  hide(sc[3],12.2);
+
+
+  tl.to(
+    g,
+    {
+      scale:1.1,
+      y:0,
+      duration:1.2
+    },
+    12.2
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#0a1230",
+      duration:1
+    },
+    12.2
+  );
+
+
+  show(sc[4],13);
+
+  /*
+    TEAM EFFECTS
+  */
+
+  tl.from(
+    "#s4 .team-section-label",
+    {
+      opacity:0,
+      x:-40,
+      stagger:.2,
+      duration:.4
+    },
+    13.2
+  );
+
+  tl.from(
+    "#s4 .team-person",
+    {
+      opacity:0,
+      y:40,
+      rotateX:-20,
+      stagger:.15,
+      duration:.45
+    },
+    13.3
+  );
+
+  hide(sc[4],14.6);
+
+
+  tl.to(
+    g,
+    {
+      scale:1.5,
+      duration:1.2
+    },
+    14.6
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#0b1a4d",
+      duration:1
+    },
+    14.6
+  );
+
+
+  show(sc[5],15.4);
+
+  tl.to(
+    {},
+    {
+      duration:1.6
+    },
+    15.4
+  );
+
+
+  /* MAGNETIC CTA */
+
+  const c=$("cta");
+
+  c.addEventListener(
+    "mousemove",
+    e=>{
+
+      const r=c.getBoundingClientRect();
+
+      gsap.to(c,{
+        x:(e.clientX-r.left-r.width/2)*.25,
+        y:(e.clientY-r.top-r.height/2)*.25,
+        duration:.3
+      });
+
+    }
+  );
+
+  c.addEventListener(
+    "mouseleave",
+    ()=>{
+      gsap.to(c,{
+        x:0,
+        y:0,
+        duration:.7,
+        ease:"elastic.out(1,.4)"
+      });
+    }
+  );
+
+
+  addEventListener(
+    "load",
+    ()=>setTimeout(
+      ()=>ScrollTrigger.refresh(),
+      300
+    )
+  );
+
+}
+
+
+/* =========================================
+   COMMITTEE DATA
+========================================= */
+
 const committees={
 
-unsc:{
-number:"01 / UNSC",
-title:"SECURITY<br><em>COUNCIL.</em>",
-description:"The United Nations Security Council focuses on international peace and security, diplomacy, negotiation and high-level decision-making.",
-details:"The UNSC provides delegates with a high-pressure diplomatic environment centred on international peace and security. Delegates must negotiate, form positions and respond to developments while working within the procedures of the Council.",
-agenda:"TO BE ANNOUNCED"
-},
+  "UNSC":{
+    title:"United Nations Security Council",
+    description:"Global peace and security."
+  },
 
-unhrc:{
-number:"02 / UNHRC",
-title:"HUMAN<br><em>RIGHTS.</em>",
-description:"A committee centred on international human rights, cooperation and policy-focused multilateral debate.",
-details:"The UNHRC brings delegates together to discuss human-rights issues through diplomacy, negotiation and multilateral cooperation.",
-agenda:"TO BE ANNOUNCED"
-},
+  "UNHRC":{
+    title:"United Nations Human Rights Council",
+    description:"Rights, protections and accountability."
+  },
 
-unodc:{
-number:"03 / UNODC",
-title:"DRUGS<br><em>& CRIME.</em>",
-description:"An international forum addressing drugs, organised crime and related challenges through cooperation and policy.",
-details:"UNODC focuses on international cooperation against drugs, organised crime and related challenges. Delegates are expected to negotiate practical multilateral approaches.",
-agenda:"TO BE ANNOUNCED"
-},
+  "UNODC":{
+    title:"United Nations Office on Drugs and Crime",
+    description:"Trafficking, crime and justice."
+  },
 
-aippm:{
-number:"04 / AIPPM",
-title:"POLITICAL<br><em>PARTIES.</em>",
-description:"A parliamentary-style forum built around political negotiation, debate and national policy deliberation.",
-details:"AIPPM provides a political and parliamentary environment where delegates debate issues, negotiate positions and engage in policy-focused discussion.",
-agenda:"TO BE ANNOUNCED"
-},
+  "AIPPM":{
+    title:"All India Political Parties Meet",
+    description:"Indian politics, party against party."
+  },
 
-ipla:{
-number:"05 / IPLA",
-title:"IPL<br><em>AUCTION.</em>",
-description:"A strategic committee environment centred around bidding, team management and high-pressure decision-making.",
-details:"IPLA introduces a strategic format where participants must manage decisions, respond to changing circumstances and work within the committee's competitive structure.",
-agenda:"TO BE ANNOUNCED"
-},
+  "UN Women":{
+    title:"UN Women",
+    description:"Gender equality and advancing rights and opportunity for women."
+  },
 
-unw:{
-number:"06 / UN WOMEN",
-title:"UN<br><em>WOMEN.</em>",
-description:"A committee focused on gender equality, empowerment and international cooperation.",
-details:"UN Women provides a platform for discussion around gender equality and empowerment through diplomacy, international cooperation and policy-focused debate.",
-agenda:"TO BE ANNOUNCED"
-}
+  "IPLA":{
+    title:"IPL Auction",
+    description:"Bid, build a squad, and outsmart the room."
+  }
 
 };
 
-const params=new URLSearchParams(
-window.location.search
+
+/* =========================================
+   COMMITTEE PAGE OPEN/CLOSE
+========================================= */
+
+const committeePage=$("committeePage");
+
+function openCommittee(code){
+
+  const data=committees[code];
+
+  if(!data) return;
+
+  $("committeeCode").textContent=code;
+
+  $("committeeTitle").textContent=
+    data.title;
+
+  $("committeeDescription").textContent=
+    data.description;
+
+  committeePage.classList.add("open");
+
+  document.body.style.overflow="hidden";
+
+  if(!reduce){
+
+    gsap.fromTo(
+      committeePage,
+      {
+        opacity:0
+      },
+      {
+        opacity:1,
+        duration:.45,
+        ease:"power3.out"
+      }
+    );
+
+    gsap.fromTo(
+      ".committee-inner > *",
+      {
+        opacity:0,
+        y:35
+      },
+      {
+        opacity:1,
+        y:0,
+        stagger:.07,
+        duration:.5,
+        delay:.12,
+        ease:"power3.out"
+      }
+    );
+
+  }else{
+
+    committeePage.style.opacity="1";
+
+  }
+
+}
+
+
+function closeCommittee(){
+
+  if(!reduce){
+
+    gsap.to(
+      committeePage,
+      {
+        opacity:0,
+        duration:.3,
+        ease:"power2.in",
+        onComplete:()=>{
+          committeePage.classList.remove("open");
+          document.body.style.overflow="";
+        }
+      }
+    );
+
+  }else{
+
+    committeePage.classList.remove("open");
+    document.body.style.overflow="";
+
+  }
+
+}
+
+
+document.querySelectorAll(".committee-card")
+.forEach(card=>{
+
+  card.addEventListener(
+    "click",
+    ()=>{
+      openCommittee(
+        card.dataset.committee
+      );
+    }
+  );
+
+});
+
+
+$("committeeClose")
+.addEventListener(
+  "click",
+  closeCommittee
 );
 
-const key=params.get("committee")||"unsc";
 
-const data=committees[key]||committees.unsc;
+$("committeeBack")
+.addEventListener(
+  "click",
+  e=>{
+    e.preventDefault();
+    closeCommittee();
+  }
+);
 
-document.getElementById("number").textContent=data.number;
-document.getElementById("title").innerHTML=data.title;
-document.getElementById("description").textContent=data.description;
-document.getElementById("details").textContent=data.details;
-document.getElementById("agenda").textContent=data.agenda;
 
-gsap.from(".hero > *",{
-y:70,
-opacity:0,
-stagger:.1,
-duration:1.1,
-ease:"power4.out"
-});
+document.addEventListener(
+  "keydown",
+  e=>{
+    if(
+      e.key==="Escape" &&
+      committeePage.classList.contains("open")
+    ){
+      closeCommittee();
+    }
+  }
+);
 
-gsap.from(".info",{
-y:60,
-opacity:0,
-stagger:.1,
-scrollTrigger:{
-trigger:".info-grid",
-start:"top 80%"
+
+/* =========================================
+   REX
+========================================= */
+
+const KB=[
+
+  [
+    /thank/,
+    "You're welcome! Ask me anything else about <b>RELMUN '26</b>."
+  ],
+
+  [
+    /committee|council|unsc|unhrc|unodc|aippm|women|ipla/,
+    "<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM (All India Political Parties Meet), UN Women and IPLA (IPL Auction). Click any committee card on the main page to open its detailed view."
+  ],
+
+  [
+    /date|when/,
+    "RELMUN '26 runs on <b>26–27 December 2026</b>, fully online."
+  ],
+
+  [
+    /regist|fee|cost|price|how much/,
+    "Delegate registrations open on <b>9 October 2026</b>. The delegate fee is <b>₹200 per delegate</b>."
+  ],
+
+  [
+    /secretary|akshith/,
+    "The Secretary-General is <b>Akshith Kabilan</b>, part of the Core team."
+  ],
+
+  [
+    /aashi/,
+    "<b>Aashi Kushwaha</b> is the Chief Advisor and is part of the <b>Core</b> team."
+  ],
+
+  [
+    /abimayur/,
+    "<b>Abimayur R</b> is Head of Administration &amp; Outreach and is part of the <b>Secretariat</b>."
+  ],
+
+  [
+    /madhav/,
+    "<b>Madhav Bhardwaj</b> is USG, Delegate Affairs and is part of the <b>Secretariat</b>."
+  ],
+
+  [
+    /team|organi|core|secretariat/,
+    "<b>Core:</b> Akshith Kabilan (Secretary-General), S. Shreyaas (Deputy Secretary-General), Laasya Vikram (Director-General), Aashi Kushwaha (Chief Advisor).<br><br><b>Secretariat:</b> Abimayur R (Head of Administration &amp; Outreach), Madhav Bhardwaj (USG, Delegate Affairs)."
+  ],
+
+  [
+    /\beb\b|executive|chair/,
+    "The Executive Board guides debate and procedure. The lineup is being finalised."
+  ],
+
+  [
+    /certif/,
+    "Certificates are provided to RELMUN '26 participants."
+  ],
+
+  [
+    /online|offline|mode/,
+    "RELMUN '26 is a <b>fully online</b> conference."
+  ],
+
+  [
+    /munflow/,
+    "MUNFLOW is the Technology &amp; Platform Partner for RELMUN '26."
+  ],
+
+  [
+    /contact|email|instagram|reach/,
+    "For official enquiries, email <b>relmun.official@gmail.com</b> or contact <b>@relmun.official</b> on Instagram."
+  ],
+
+  [
+    /about|what is|relmun/,
+    "<b>RELMUN</b> is the Regional Engagement &amp; Leadership Model United Nations, a fully online MUN on 26–27 December 2026 with six committees."
+  ]
+
+];
+
+
+const rm=$("rm");
+
+
+function say(t,c){
+
+  const d=document.createElement("div");
+
+  d.className=c||"";
+
+  d.innerHTML=t;
+
+  rm.appendChild(d);
+
+  rm.scrollTop=rm.scrollHeight;
+
 }
-});
+
+
+$("rl").onclick=()=>{
+
+  $("rw").classList.add("open");
+
+  $("rl").style.display="none";
+
+  $("ri").focus();
+
+};
+
+
+$("rc").onclick=()=>{
+
+  $("rw").classList.remove("open");
+
+  $("rl").style.display="block";
+
+};
+
+
+$("rf").onsubmit=e=>{
+
+  e.preventDefault();
+
+  const q=$("ri").value.trim();
+
+  if(!q) return;
+
+  const esc=document.createElement("span");
+
+  esc.textContent=q;
+
+  say(
+    esc.innerHTML,
+    "u"
+  );
+
+  $("ri").value="";
+
+  const hit=
+    KB.find(
+      k=>k[0].test(
+        q.toLowerCase()
+      )
+    );
+
+  setTimeout(
+    ()=>say(
+      hit
+      ? hit[1]
+      : "I can help with <b>RELMUN</b>, dates, committees, registration, the Core, Secretariat, certificates and contact details."
+    ),
+    250
+  );
+
+};
+
+
+say(
+  "Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees, registration, the Core, Secretariat or anything about the conference."
+);
 
 </script>
 
