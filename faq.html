@@ -5,1020 +5,1108 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>FAQ — RELMUN '26</title>
-
 <link rel="icon" href="relmun-logo.png">
+
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 /* =========================================================
-   RELMUN FAQ — STANDALONE
-========================================================= */
+   RELMUN '26 — FAQ
+   ========================================================= */
 
 :root{
-  --black:#080808;
-  --black2:#0d0d0d;
-  --ivory:#f1ece0;
-  --muted:rgba(241,236,224,.58);
-  --faint:rgba(241,236,224,.18);
-  --blue:#1846ff;
-  --gold:#c79a2b;
-  --line:rgba(241,236,224,.12);
-  --ease:cubic-bezier(.16,1,.3,1);
+    --black:#080808;
+    --deep:#05060b;
+    --ivory:#F1ECE0;
+    --blue:#0e2999;
+    --gold:#C79A2B;
+    --muted:rgba(241,236,224,.58);
+    --line:rgba(241,236,224,.13);
 }
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  background:var(--black);
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:
-    radial-gradient(
-      circle at 80% 10%,
-      rgba(24,70,255,.08),
-      transparent 35%
-    ),
-    var(--black);
-
-  color:var(--ivory);
-
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
+    background:
+        radial-gradient(circle at 80% 15%,rgba(14,41,153,.16),transparent 28%),
+        radial-gradient(circle at 10% 70%,rgba(199,154,43,.06),transparent 25%),
+        var(--black);
+    color:var(--ivory);
+    font-family:"Manrope",sans-serif;
+    overflow-x:hidden;
 }
+
+/* subtle moving background */
 
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:999;
-  opacity:.025;
-
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    content:"";
+    position:fixed;
+    inset:-50%;
+    pointer-events:none;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 30% 30%,rgba(14,41,153,.09),transparent 20%),
+        radial-gradient(circle at 70% 65%,rgba(199,154,43,.045),transparent 20%);
+    animation:bgFloat 18s ease-in-out infinite alternate;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+@keyframes bgFloat{
+    from{transform:translate3d(-2%,0,0) scale(1);}
+    to{transform:translate3d(2%,2%,0) scale(1.05);}
 }
 
+/* grain */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9998;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
 
 /* =========================================================
-   NAVIGATION
-========================================================= */
+   NAVBAR
+   ========================================================= */
 
 header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:500;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:500;
+    padding:20px 3.5vw;
+    background:linear-gradient(
+        to bottom,
+        rgba(8,8,8,.92),
+        rgba(8,8,8,.55),
+        transparent
+    );
+    backdrop-filter:blur(8px);
 }
 
 .navbar{
-  width:100%;
-  padding:22px 4vw;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  background:linear-gradient(
-    to bottom,
-    rgba(8,8,8,.88),
-    rgba(8,8,8,.35),
-    transparent
-  );
-
-  backdrop-filter:blur(10px);
+    max-width:1500px;
+    margin:auto;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .nav-logo img{
-  width:76px;
-  display:block;
+    width:76px;
+    height:76px;
+    object-fit:contain;
+    transition:.5s ease;
+    filter:drop-shadow(0 0 12px rgba(14,41,153,.25));
+}
+
+.nav-logo:hover img{
+    transform:rotate(-4deg) scale(1.07);
+    filter:drop-shadow(0 0 25px rgba(14,41,153,.5));
 }
 
 .nav-links{
-  display:flex;
-  align-items:center;
-  gap:30px;
+    display:flex;
+    align-items:center;
+    gap:38px;
 }
 
 .nav-links a{
-  font-family:monospace;
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:.18em;
+    position:relative;
+    color:rgba(241,236,224,.65);
+    text-decoration:none;
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:2px;
+    transition:.35s ease;
+}
 
-  color:var(--ivory);
-  opacity:.58;
-
-  transition:
-    opacity .3s ease,
-    color .3s ease,
-    transform .3s ease;
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:1px;
+    background:var(--gold);
+    transition:.35s ease;
 }
 
 .nav-links a:hover{
-  opacity:1;
-  color:var(--blue);
-  transform:translateY(-2px);
+    color:var(--ivory);
 }
 
-.nav-register{
-  padding:11px 15px;
-  border:1px solid var(--line);
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-links .nav-register{
+    color:var(--ivory);
+    border:1px solid rgba(199,154,43,.5);
+    padding:12px 18px;
+}
+
+.nav-links .nav-register:hover{
+    background:var(--gold);
+    color:#080808;
+}
+
+.nav-links .nav-register::after{
+    display:none;
 }
 
 .nav-menu{
-  display:none;
-
-  width:42px;
-  height:42px;
-
-  background:rgba(8,8,8,.8);
-  border:1px solid var(--line);
-
-  cursor:pointer;
+    display:none;
 }
-
-.nav-menu span{
-  display:block;
-  width:17px;
-  height:1px;
-  margin:5px auto;
-  background:var(--ivory);
-}
-
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
 .detail-page{
-  min-height:100vh;
+    min-height:100vh;
 }
 
 .detail-hero{
-  min-height:75vh;
+    min-height:78vh;
+    padding:180px 7vw 100px;
+    display:grid;
+    grid-template-columns:1.4fr .6fr;
+    gap:8vw;
+    align-items:end;
+    position:relative;
+    overflow:hidden;
+}
 
-  width:min(1400px,86vw);
-  margin:0 auto;
+.detail-hero::before{
+    content:"FAQ";
+    position:absolute;
+    right:-4vw;
+    top:14%;
+    font-family:"Bebas Neue",sans-serif;
+    font-size:28vw;
+    line-height:.7;
+    color:rgba(14,41,153,.055);
+    pointer-events:none;
+    animation:heroWord 8s ease-in-out infinite alternate;
+}
 
-  padding-top:170px;
-  padding-bottom:100px;
-
-  display:grid;
-  grid-template-columns:1fr 360px;
-  gap:80px;
-
-  align-items:end;
-
-  border-bottom:1px solid var(--line);
+@keyframes heroWord{
+    from{transform:translateY(-10px);}
+    to{transform:translateY(20px);}
 }
 
 .detail-kicker{
-  display:block;
-
-  margin-bottom:30px;
-
-  color:var(--gold);
-
-  font-family:monospace;
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:.2em;
+    display:inline-block;
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:3px;
+    color:var(--gold);
+    margin-bottom:25px;
+    opacity:0;
+    animation:rise .9s .1s forwards;
 }
 
 .detail-hero h1{
-  font-size:clamp(75px,12vw,175px);
-  line-height:.76;
-
-  font-weight:800;
-  letter-spacing:-.09em;
-
-  color:var(--ivory);
+    position:relative;
+    z-index:2;
+    font-family:"Bebas Neue",sans-serif;
+    font-weight:400;
+    font-size:clamp(80px,12vw,190px);
+    line-height:.76;
+    letter-spacing:-2px;
+    opacity:0;
+    animation:rise 1s .2s forwards;
 }
 
 .detail-hero h1 em{
-  color:var(--blue);
-  font-style:normal;
+    display:block;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(241,236,224,.65);
+    font-family:"Cormorant Garamond",serif;
+    font-size:.72em;
+    font-weight:500;
+    letter-spacing:-3px;
+    transform:translateX(5vw);
 }
 
 .detail-hero p{
-  max-width:620px;
-
-  margin-top:45px;
-
-  color:var(--muted);
-
-  font-size:14px;
-  line-height:1.8;
+    max-width:650px;
+    margin-top:38px;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.8;
+    opacity:0;
+    animation:rise 1s .45s forwards;
 }
 
 .detail-side{
-  display:flex;
-  flex-direction:column;
-  gap:25px;
-
-  padding-bottom:5px;
+    position:relative;
+    z-index:3;
+    border-left:1px solid var(--line);
+    padding-left:30px;
+    opacity:0;
+    animation:sideIn 1s .5s forwards;
 }
 
 .detail-side div{
-  padding-bottom:20px;
-  border-bottom:1px solid var(--line);
-
-  display:flex;
-  flex-direction:column;
-  gap:9px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
 }
 
 .detail-side small{
-  color:var(--gold);
-
-  font-family:monospace;
-  font-size:8px;
-  letter-spacing:.16em;
+    display:block;
+    font-family:"DM Mono",monospace;
+    color:var(--muted);
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:9px;
 }
 
 .detail-side strong{
-  font-size:13px;
-  letter-spacing:.04em;
+    font-size:13px;
+    letter-spacing:1px;
 }
 
+@keyframes rise{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes sideIn{
+    from{
+        opacity:0;
+        transform:translateX(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
 
 /* =========================================================
-   FAQ CONTENT
-========================================================= */
+   CONTENT
+   ========================================================= */
 
 .detail-content{
-  width:min(1100px,86vw);
-  margin:0 auto;
-
-  padding:120px 0 150px;
+    width:min(1100px,86vw);
+    margin:0 auto;
+    padding:60px 0 130px;
 }
 
 .faq-list{
-  border-top:1px solid var(--line);
+    border-top:1px solid var(--line);
 }
 
 .faq-item{
-  border-bottom:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.faq-item.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .faq-question{
-  width:100%;
-
-  padding:30px 5px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  background:none;
-  border:0;
-
-  color:var(--ivory);
-
-  text-align:left;
-
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  font-size:clamp(17px,2vw,25px);
-  font-weight:700;
-
-  letter-spacing:-.03em;
-
-  cursor:pointer;
-
-  transition:
-    color .35s ease,
-    padding-left .35s var(--ease);
+    width:100%;
+    padding:30px 5px;
+    border:0;
+    outline:0;
+    background:none;
+    color:var(--ivory);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    text-align:left;
+    font-family:"Manrope",sans-serif;
+    font-weight:700;
+    font-size:clamp(16px,2vw,23px);
+    letter-spacing:-.4px;
+    transition:.35s ease;
 }
 
 .faq-question span{
-  width:35px;
-  height:35px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border:1px solid var(--line);
-
-  color:var(--gold);
-
-  font-family:monospace;
-  font-size:17px;
-
-  transition:
-    transform .5s var(--ease),
-    background .4s ease,
-    color .4s ease;
+    width:42px;
+    height:42px;
+    border:1px solid rgba(241,236,224,.25);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Cormorant Garamond",serif;
+    font-size:25px;
+    font-weight:400;
+    transition:.45s cubic-bezier(.2,.8,.2,1);
 }
 
 .faq-question:hover{
-  color:var(--blue);
-  padding-left:12px;
+    padding-left:14px;
+    color:#fff;
+}
+
+.faq-question:hover span{
+    border-color:var(--gold);
+    color:var(--gold);
+    transform:rotate(90deg);
 }
 
 .faq-item.open .faq-question{
-  color:var(--blue);
+    color:var(--gold);
 }
 
 .faq-item.open .faq-question span{
-  transform:rotate(180deg);
-  background:var(--blue);
-  border-color:var(--blue);
-  color:white;
+    transform:rotate(180deg);
+    border-color:var(--gold);
+    background:var(--gold);
+    color:#080808;
 }
 
 .faq-answer{
-  display:grid;
-  grid-template-rows:0fr;
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .6s cubic-bezier(.2,.8,.2,1);
+}
 
-  transition:
-    grid-template-rows .6s var(--ease);
+.faq-answer > div,
+.faq-answer p{
+    min-height:0;
 }
 
 .faq-answer p{
-  min-height:0;
-  overflow:hidden;
-
-  max-width:850px;
-
-  color:var(--muted);
-
-  font-size:14px;
-  line-height:1.9;
-
-  opacity:0;
-  transform:translateY(-12px);
-
-  transition:
-    opacity .4s ease,
-    transform .6s var(--ease);
+    overflow:hidden;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:15px;
+    max-width:850px;
+    padding:0 55px 0 5px;
+    opacity:0;
+    transform:translateY(-10px);
+    transition:.45s ease;
 }
 
 .faq-item.open .faq-answer{
-  grid-template-rows:1fr;
+    grid-template-rows:1fr;
 }
 
 .faq-item.open .faq-answer p{
-  padding:
-    0
-    60px
-    32px
-    5px;
-
-  opacity:1;
-  transform:translateY(0);
+    padding-bottom:32px;
+    opacity:1;
+    transform:translateY(0);
 }
-
 
 /* =========================================================
    CONTACT BUTTON
-========================================================= */
+   ========================================================= */
+
+.contact-wrap{
+    padding-top:70px;
+}
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-
-  padding:17px 24px;
-
-  border:1px solid var(--line);
-
-  font-family:monospace;
-  font-size:8px;
-  font-weight:700;
-
-  letter-spacing:.15em;
-
-  transition:
-    background .4s var(--ease),
-    border-color .4s var(--ease),
-    transform .4s var(--ease);
+    display:inline-flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    letter-spacing:2px;
+    transition:.4s ease;
 }
 
 .btn-gold{
-  color:var(--ivory);
+    color:#080808;
+    background:var(--gold);
+    padding:18px 25px;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn-gold::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--ivory);
+    transform:translateX(-105%);
+    transition:.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.btn-gold:hover::before{
+    transform:translateX(0);
 }
 
 .btn-gold:hover{
-  background:var(--gold);
-  border-color:var(--gold);
-  color:#080808;
-  transform:translateY(-4px);
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(199,154,43,.18);
 }
 
+.btn-gold{
+    z-index:1;
+}
+
+.btn-gold::after{
+    content:"";
+    position:absolute;
+    z-index:-1;
+}
+
+.contact-wrap .btn{
+    position:relative;
+}
 
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
 footer{
-  min-height:230px;
-
-  padding:55px 7vw;
-
-  border-top:1px solid var(--line);
-
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-
-  align-items:center;
+    border-top:1px solid var(--line);
+    min-height:220px;
+    padding:55px 7vw;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    align-items:center;
+    gap:40px;
 }
 
 .footer-logo img{
-  width:90px;
+    width:90px;
+    height:90px;
+    object-fit:contain;
 }
 
 .footer-middle{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
 }
 
 .footer-middle strong{
-  font-size:17px;
+    font-size:17px;
 }
 
 .footer-middle span,
 .footer-right span{
-  color:var(--muted);
-
-  font-family:monospace;
-  font-size:7px;
-
-  letter-spacing:.1em;
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    letter-spacing:1.8px;
+    color:var(--muted);
 }
 
 .footer-right{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:10px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    text-align:right;
 }
-
 
 /* =========================================================
-   REX
-========================================================= */
+   REX — WORKING FLOATING CHAT
+   ========================================================= */
 
-#relmun-chatbot{
-  position:fixed;
-  right:28px;
-  bottom:28px;
-  z-index:800;
+#rex{
+    position:fixed;
+    right:28px;
+    bottom:28px;
+    z-index:9000;
+    font-family:"Manrope",sans-serif;
 }
 
+.rex-button{
+    width:78px;
+    height:78px;
+    border-radius:50%;
+    border:1px solid rgba(199,154,43,.6);
+    background:
+        radial-gradient(circle at 35% 30%,rgba(14,41,153,.8),rgba(5,6,11,.98));
+    color:var(--ivory);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:
+        0 0 0 8px rgba(14,41,153,.05),
+        0 0 35px rgba(14,41,153,.22);
+    transition:.4s ease;
+    animation:rexPulse 3s ease-in-out infinite;
+}
+
+.rex-button:hover{
+    transform:scale(1.08);
+    border-color:var(--gold);
+    box-shadow:
+        0 0 0 10px rgba(199,154,43,.06),
+        0 0 45px rgba(199,154,43,.25);
+}
+
+.rex-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#244cff;
+    box-shadow:0 0 15px #244cff;
+    margin-right:8px;
+}
+
+.rex-name{
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+@keyframes rexPulse{
+    0%,100%{
+        box-shadow:
+            0 0 0 8px rgba(14,41,153,.05),
+            0 0 35px rgba(14,41,153,.22);
+    }
+    50%{
+        box-shadow:
+            0 0 0 13px rgba(14,41,153,.02),
+            0 0 50px rgba(14,41,153,.35);
+    }
+}
+
+.rex-window{
+    position:absolute;
+    right:0;
+    bottom:95px;
+    width:330px;
+    border:1px solid rgba(241,236,224,.16);
+    background:rgba(7,8,13,.96);
+    backdrop-filter:blur(20px);
+    box-shadow:0 25px 80px rgba(0,0,0,.5);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px) scale(.96);
+    transform-origin:bottom right;
+    transition:.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.rex-window.open{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+}
+
+.rex-head{
+    padding:18px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.rex-head strong{
+    font-size:13px;
+}
+
+.rex-head small{
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:1px;
+}
+
+.rex-close{
+    border:0;
+    background:none;
+    color:var(--muted);
+    font-size:20px;
+    cursor:pointer;
+}
+
+.rex-body{
+    padding:22px;
+}
+
+.rex-body p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+.rex-body b{
+    color:var(--ivory);
+}
+
+.rex-actions{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.rex-actions button{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.025);
+    color:var(--ivory);
+    padding:9px 11px;
+    font-size:9px;
+    font-family:"DM Mono",monospace;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.rex-actions button:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
 
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
 @media(max-width:800px){
 
-  .navbar{
-    padding:18px 6vw;
-  }
+    header{
+        padding:12px 5vw;
+    }
 
-  .nav-logo img{
-    width:65px;
-  }
+    .nav-links{
+        position:fixed;
+        inset:0;
+        background:rgba(5,5,7,.98);
+        flex-direction:column;
+        justify-content:center;
+        gap:28px;
+        opacity:0;
+        visibility:hidden;
+        transform:translateY(-20px);
+        transition:.4s ease;
+    }
 
-  .nav-menu{
-    display:block;
-  }
+    .nav-links.open{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
+    }
 
-  .nav-links{
-    position:absolute;
+    .nav-links a{
+        font-size:13px;
+    }
 
-    top:78px;
-    right:6vw;
+    .nav-menu{
+        display:flex;
+        width:42px;
+        height:42px;
+        border:1px solid var(--line);
+        background:none;
+        flex-direction:column;
+        justify-content:center;
+        gap:6px;
+        align-items:center;
+        cursor:pointer;
+        z-index:20;
+    }
 
-    width:220px;
+    .nav-menu span{
+        width:17px;
+        height:1px;
+        background:var(--ivory);
+    }
 
-    padding:20px;
+    .detail-hero{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding:150px 7vw 80px;
+        gap:60px;
+    }
 
-    flex-direction:column;
-    align-items:stretch;
-    gap:0;
+    .detail-hero h1{
+        font-size:23vw;
+    }
 
-    background:rgba(8,8,8,.96);
-    border:1px solid var(--line);
+    .detail-side{
+        padding-left:20px;
+    }
 
-    opacity:0;
-    pointer-events:none;
+    .detail-content{
+        width:86vw;
+        padding-top:20px;
+    }
 
-    transform:translateY(-10px);
+    .faq-question{
+        padding:25px 0;
+        font-size:16px;
+    }
 
-    transition:
-      opacity .35s ease,
-      transform .35s var(--ease);
-  }
+    .faq-question span{
+        width:35px;
+        height:35px;
+        min-width:35px;
+    }
 
-  .nav-links.open{
-    opacity:1;
-    pointer-events:auto;
-    transform:translateY(0);
-  }
+    .faq-answer p{
+        padding-right:10px;
+        font-size:14px;
+    }
 
-  .nav-links a{
-    padding:14px 5px;
-    border-bottom:1px solid var(--line);
-  }
+    footer{
+        grid-template-columns:1fr;
+        padding:45px 7vw;
+    }
 
-  .detail-hero{
-    min-height:auto;
+    .footer-right{
+        text-align:left;
+    }
 
-    padding-top:150px;
-    padding-bottom:70px;
+    #rex{
+        right:16px;
+        bottom:16px;
+    }
 
-    grid-template-columns:1fr;
-    gap:55px;
-  }
+    .rex-window{
+        width:min(330px,calc(100vw - 32px));
+    }
+}
 
-  .detail-hero h1{
-    font-size:19vw;
-  }
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
 
-  .detail-hero p{
-    margin-top:30px;
-  }
-
-  .detail-side{
-    gap:15px;
-  }
-
-  .detail-content{
-    padding:80px 0 100px;
-  }
-
-  .faq-question{
-    padding:24px 0;
-    font-size:17px;
-  }
-
-  .faq-question span{
-    flex-shrink:0;
-    margin-left:20px;
-  }
-
-  .faq-item.open .faq-answer p{
-    padding:
-      0
-      30px
-      28px
-      0;
-  }
-
-  footer{
-    grid-template-columns:1fr;
-    gap:40px;
-    padding:50px 7vw;
-  }
-
-  .footer-right{
-    align-items:flex-start;
-  }
-
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important;
+    }
 }
 
 </style>
 </head>
 
-
 <body>
 
+<!-- =======================================================
+     NAV
+======================================================= -->
 
 <header>
-
 <nav class="navbar">
 
 <a class="nav-logo" href="index.html">
-<img src="relmun-logo.png" alt="RELMUN '26">
+    <img src="relmun-logo.png" alt="RELMUN '26">
 </a>
 
 <button class="nav-menu" id="navMenu" aria-label="Open menu">
-<span></span>
-<span></span>
+    <span></span>
+    <span></span>
 </button>
 
 <div class="nav-links" id="navLinks">
-
-<a href="index.html#about">ABOUT</a>
-
-<a href="committees.html">
-COMMITTEES
-</a>
-
-<a href="index.html#team">
-TEAM
-</a>
-
-<a href="eb.html">
-EB
-</a>
-
-<a href="faq.html">
-FAQ
-</a>
-
-<a
-href="register.html"
-class="nav-register"
->
-REGISTER ↗
-</a>
-
+    <a href="index.html#about">ABOUT</a>
+    <a href="committees.html">COMMITTEES</a>
+    <a href="index.html#team">TEAM</a>
+    <a href="eb.html">EB</a>
+    <a href="faq.html">FAQ</a>
+    <a href="register.html" class="nav-register">REGISTER ↗</a>
 </div>
 
 </nav>
-
 </header>
 
 
+<!-- =======================================================
+     MAIN
+======================================================= -->
 
 <main class="detail-page">
 
-
 <section class="detail-hero">
 
-
 <div>
+    <span class="detail-kicker">RELMUN '26 · FAQ</span>
 
-<span class="detail-kicker">
-RELMUN '26 · FAQ
-</span>
+    <h1>
+        COMMON<br>
+        <em>QUESTIONS.</em>
+    </h1>
 
-
-<h1>
-COMMON<br>
-<em>QUESTIONS.</em>
-</h1>
-
-
-<p>
-Everything currently announced about RELMUN '26,
-registration and the conference.
-</p>
-
+    <p>
+        Everything currently announced about RELMUN '26,
+        registration and the conference.
+    </p>
 </div>
-
-
 
 <div class="detail-side">
 
+    <div>
+        <small>DATES</small>
+        <strong>26—27 DEC 2026</strong>
+    </div>
 
-<div>
+    <div>
+        <small>FORMAT</small>
+        <strong>ONLINE</strong>
+    </div>
 
-<small>
-DATES
-</small>
+    <div>
+        <small>REGISTRATION</small>
+        <strong>09 OCT 2026</strong>
+    </div>
 
-<strong>
-26—27 DEC 2026
-</strong>
-
-</div>
-
-
-<div>
-
-<small>
-FORMAT
-</small>
-
-<strong>
-ONLINE
-</strong>
-
-</div>
-
-
-<div>
-
-<small>
-REGISTRATION
-</small>
-
-<strong>
-09 OCT 2026
-</strong>
-
-</div>
-
+    <div>
+        <small>FEE</small>
+        <strong>₹200 / DELEGATE</strong>
+    </div>
 
 </div>
 
 </section>
 
 
-
 <section class="detail-content">
-
 
 <div class="faq-list">
 
-
 <div class="faq-item">
-
 <button class="faq-question">
-
-WHAT IS RELMUN?
-
-<span>+</span>
-
+    WHAT IS RELMUN?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-RELMUN stands for Regional Engagement & Leadership
-Model United Nations. It is an online MUN conference
-built around diplomacy, debate, engagement and leadership.
-</p>
-
+    <p>
+        RELMUN stands for Regional Engagement & Leadership
+        Model United Nations. It is an online MUN conference
+        built around diplomacy, debate, engagement and leadership.
+    </p>
 </div>
-
 </div>
-
 
 
 <div class="faq-item">
-
 <button class="faq-question">
-
-WHEN IS RELMUN 2026?
-
-<span>+</span>
-
+    WHEN IS RELMUN 2026?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-RELMUN '26 takes place on 26–27 December 2026.
-</p>
-
+    <p>
+        RELMUN '26 takes place on 26–27 December 2026.
+    </p>
 </div>
-
 </div>
-
 
 
 <div class="faq-item">
-
 <button class="faq-question">
-
-IS THE CONFERENCE ONLINE?
-
-<span>+</span>
-
+    IS THE CONFERENCE ONLINE?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-Yes. RELMUN '26 is an online Model United Nations
-conference.
-</p>
-
+    <p>
+        Yes. RELMUN '26 is an online Model United Nations conference.
+    </p>
 </div>
-
 </div>
-
 
 
 <div class="faq-item">
-
 <button class="faq-question">
-
-WHEN DO REGISTRATIONS OPEN?
-
-<span>+</span>
-
+    WHEN DO REGISTRATIONS OPEN?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-Delegate registrations open on 9 October 2026.
-</p>
-
+    <p>
+        Delegate registrations open on 9 October 2026.
+    </p>
 </div>
-
 </div>
-
 
 
 <div class="faq-item">
-
 <button class="faq-question">
-
-HOW MUCH IS REGISTRATION?
-
-<span>+</span>
-
+    HOW MUCH IS REGISTRATION?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-Delegate registration for RELMUN '26 is ₹200 per delegate.
-</p>
-
+    <p>
+        Delegate registration for RELMUN '26 is ₹200 per delegate.
+    </p>
 </div>
-
 </div>
-
 
 
 <div class="faq-item">
-
 <button class="faq-question">
-
-WHICH COMMITTEES ARE AVAILABLE?
-
-<span>+</span>
-
+    WHICH COMMITTEES ARE AVAILABLE?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-The six committees are UNSC, UNHRC, UNODC, AIPPM,
-UN Women and IPLA.
-</p>
-
+    <p>
+        The six committees are UNSC, UNHRC, UNODC, AIPPM,
+        UN Women and IPLA.
+    </p>
 </div>
-
 </div>
-
 
 
 <div class="faq-item">
-
 <button class="faq-question">
-
-HOW DO I REGISTER?
-
-<span>+</span>
-
+    HOW DO I REGISTER?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-From 9 October 2026, delegates can choose from
-the available official registration platforms listed
-on the RELMUN registration page.
-</p>
-
+    <p>
+        From 9 October 2026, delegates can choose from the
+        available official registration platforms listed on
+        the RELMUN registration page.
+    </p>
 </div>
-
 </div>
-
 
 
 <div class="faq-item">
-
 <button class="faq-question">
-
-WILL CERTIFICATES BE PROVIDED?
-
-<span>+</span>
-
+    WILL CERTIFICATES BE PROVIDED?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-Certificates are provided to participants.
-</p>
-
+    <p>
+        Certificates are provided to participants.
+    </p>
 </div>
-
 </div>
-
 
 
 <div class="faq-item">
-
 <button class="faq-question">
-
-HOW CAN I CONTACT THE TEAM?
-
-<span>+</span>
-
+    HOW CAN I CONTACT THE TEAM?
+    <span>+</span>
 </button>
-
-
 <div class="faq-answer">
-
-<p>
-Email the Secretariat at
-akshithkabilan@gmail.com
-or contact RELMUN through
-@relmun.official on Instagram.
-</p>
-
+    <p>
+        Email the Secretariat at
+        <b>akshithkabilan@gmail.com</b>
+        or contact RELMUN through
+        <b>@relmun.official</b> on Instagram.
+    </p>
+</div>
 </div>
 
 </div>
 
 
-</div>
-
-
-<br>
-<br>
-
-
-<a
-class="btn btn-gold"
-href="mailto:akshithkabilan@gmail.com"
->
-CONTACT THE SECRETARIAT ↗
+<div class="contact-wrap">
+<a class="btn btn-gold" href="mailto:akshithkabilan@gmail.com">
+    CONTACT THE SECRETARIAT ↗
 </a>
-
+</div>
 
 </section>
 
 </main>
 
 
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
-
 <div class="footer-logo">
-
-<img
-src="relmun-logo.png"
-alt="RELMUN '26"
->
-
+    <img src="relmun-logo.png" alt="RELMUN '26">
 </div>
-
 
 <div class="footer-middle">
-
-<strong>
-RELMUN '26
-</strong>
-
-<span>
-RELATIONS · ENGAGEMENT · LEADERSHIP
-</span>
-
+    <strong>RELMUN '26</strong>
+    <span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
 </div>
-
 
 <div class="footer-right">
-
-<span>
-26—27 DECEMBER 2026
-</span>
-
-<span>
-ONLINE CONFERENCE
-</span>
-
+    <span>26—27 DECEMBER 2026</span>
+    <span>ONLINE CONFERENCE</span>
 </div>
-
 
 </footer>
 
 
+<!-- =======================================================
+     REX
+======================================================= -->
 
-<div id="relmun-chatbot"></div>
+<div id="rex">
 
+<button class="rex-button" id="rexButton" aria-label="Open REX">
+    <span class="rex-dot"></span>
+    <span class="rex-name">REX</span>
+</button>
+
+<div class="rex-window" id="rexWindow">
+
+    <div class="rex-head">
+        <div>
+            <strong>REX</strong><br>
+            <small>RELMUN ASSISTANT</small>
+        </div>
+
+        <button class="rex-close" id="rexClose">×</button>
+    </div>
+
+    <div class="rex-body">
+
+        <p>
+            Hey! I'm <b>REX</b>, the RELMUN assistant.
+            What do you want to know?
+        </p>
+
+        <div class="rex-actions">
+
+            <button onclick="rexAnswer('RELMUN 2026 takes place on 26–27 December 2026.')">
+                DATES
+            </button>
+
+            <button onclick="rexAnswer('Delegate registrations open on 9 October 2026.')">
+                REGISTRATION
+            </button>
+
+            <button onclick="rexAnswer('Delegate registration is ₹200 per delegate.')">
+                FEE
+            </button>
+
+            <button onclick="rexAnswer('RELMUN has UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA.')">
+                COMMITTEES
+            </button>
+
+        </div>
+
+        <p id="rexResponse" style="margin-top:18px;"></p>
+
+    </div>
+
+</div>
+
+</div>
 
 
 <script>
@@ -1027,16 +1115,17 @@ ONLINE CONFERENCE
    MOBILE NAV
 ========================================================= */
 
-const navMenu =
-document.getElementById("navMenu");
-
-const navLinks =
-document.getElementById("navLinks");
+const navMenu = document.getElementById("navMenu");
+const navLinks = document.getElementById("navLinks");
 
 navMenu.addEventListener("click",()=>{
+    navLinks.classList.toggle("open");
+});
 
-navLinks.classList.toggle("open");
-
+navLinks.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("open");
+    });
 });
 
 
@@ -1044,103 +1133,83 @@ navLinks.classList.toggle("open");
    FAQ ACCORDION
 ========================================================= */
 
-document
-.querySelectorAll(".faq-question")
-.forEach(button=>{
+document.querySelectorAll(".faq-question").forEach(button=>{
 
-button.addEventListener("click",()=>{
+    button.addEventListener("click",()=>{
 
-const item =
-button.parentElement;
+        const item = button.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
 
-const wasOpen =
-item.classList.contains("open");
+        document.querySelectorAll(".faq-item").forEach(other=>{
+            other.classList.remove("open");
+        });
 
+        if(!isOpen){
+            item.classList.add("open");
+        }
 
-document
-.querySelectorAll(".faq-item")
-.forEach(other=>{
-
-other.classList.remove("open");
-
-const symbol =
-other.querySelector(".faq-question span");
-
-if(symbol){
-symbol.textContent="+";
-}
-
-});
-
-
-if(!wasOpen){
-
-item.classList.add("open");
-
-const symbol =
-button.querySelector("span");
-
-if(symbol){
-symbol.textContent="−";
-}
-
-}
-
-});
+    });
 
 });
 
 
 /* =========================================================
-   SIMPLE SCROLL REVEAL
+   SCROLL REVEALS
 ========================================================= */
 
-const observer =
-new IntersectionObserver(
-(entries)=>{
+const faqItems = document.querySelectorAll(".faq-item");
 
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-entry.target.style.transform="translateY(0)";
-
-}
-
-});
-
-},
-{
-threshold:.12
-}
+const observer = new IntersectionObserver(
+    entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+            }
+        });
+    },
+    {
+        threshold:.08,
+        rootMargin:"0px 0px -40px 0px"
+    }
 );
 
-
-document
-.querySelectorAll(".faq-item,.detail-side div,.btn")
-.forEach((element,index)=>{
-
-element.style.opacity="0";
-
-element.style.transform="translateY(25px)";
-
-element.style.transition=
-`opacity .8s cubic-bezier(.16,1,.3,1) ${index*.035}s,
- transform .8s cubic-bezier(.16,1,.3,1) ${index*.035}s`;
-
-observer.observe(element);
-
+faqItems.forEach((item,index)=>{
+    item.style.transitionDelay = `${Math.min(index * 0.06, .4)}s`;
+    observer.observe(item);
 });
 
 
 /* =========================================================
-   CHATBOT
+   REX
 ========================================================= */
 
-</script>
+const rexButton = document.getElementById("rexButton");
+const rexWindow = document.getElementById("rexWindow");
+const rexClose = document.getElementById("rexClose");
 
-<script src="chatbot.js"></script>
+rexButton.addEventListener("click",()=>{
+    rexWindow.classList.toggle("open");
+});
+
+rexClose.addEventListener("click",()=>{
+    rexWindow.classList.remove("open");
+});
+
+function rexAnswer(message){
+    document.getElementById("rexResponse").textContent = message;
+}
+
+document.addEventListener("click",(event)=>{
+
+    if(
+        !document.getElementById("rex").contains(event.target)
+    ){
+        rexWindow.classList.remove("open");
+    }
+
+});
+
+</script>
 
 </body>
 </html>
