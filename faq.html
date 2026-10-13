@@ -2,7 +2,1221 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content=<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>FAQ — RELMUN '26</title>
+<link rel="icon" href="relmun-logo.png">
+
+<!-- FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RELMUN '26 — FAQ
+   ========================================================= */
+
+:root{
+    --black:#080808;
+    --deep:#05060b;
+    --ivory:#F1ECE0;
+    --blue:#0e2999;
+    --gold:#C79A2B;
+    --muted:rgba(241,236,224,.58);
+    --line:rgba(241,236,224,.13);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 80% 15%,rgba(14,41,153,.16),transparent 28%),
+        radial-gradient(circle at 10% 70%,rgba(199,154,43,.06),transparent 25%),
+        var(--black);
+    color:var(--ivory);
+    font-family:"Manrope",sans-serif;
+    overflow-x:hidden;
+}
+
+/* subtle moving background */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-50%;
+    pointer-events:none;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 30% 30%,rgba(14,41,153,.09),transparent 20%),
+        radial-gradient(circle at 70% 65%,rgba(199,154,43,.045),transparent 20%);
+    animation:bgFloat 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgFloat{
+    from{transform:translate3d(-2%,0,0) scale(1);}
+    to{transform:translate3d(2%,2%,0) scale(1.05);}
+}
+
+/* grain */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9998;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:500;
+    padding:20px 3.5vw;
+    background:linear-gradient(
+        to bottom,
+        rgba(8,8,8,.92),
+        rgba(8,8,8,.55),
+        transparent
+    );
+    backdrop-filter:blur(8px);
+}
+
+.navbar{
+    max-width:1500px;
+    margin:auto;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.nav-logo img{
+    width:76px;
+    height:76px;
+    object-fit:contain;
+    transition:.5s ease;
+    filter:drop-shadow(0 0 12px rgba(14,41,153,.25));
+}
+
+.nav-logo:hover img{
+    transform:rotate(-4deg) scale(1.07);
+    filter:drop-shadow(0 0 25px rgba(14,41,153,.5));
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+}
+
+.nav-links a{
+    position:relative;
+    color:rgba(241,236,224,.65);
+    text-decoration:none;
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:2px;
+    transition:.35s ease;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:1px;
+    background:var(--gold);
+    transition:.35s ease;
+}
+
+.nav-links a:hover{
+    color:var(--ivory);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-links .nav-register{
+    color:var(--ivory);
+    border:1px solid rgba(199,154,43,.5);
+    padding:12px 18px;
+}
+
+.nav-links .nav-register:hover{
+    background:var(--gold);
+    color:#080808;
+}
+
+.nav-links .nav-register::after{
+    display:none;
+}
+
+.nav-menu{
+    display:none;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.detail-page{
+    min-height:100vh;
+}
+
+.detail-hero{
+    min-height:78vh;
+    padding:180px 7vw 100px;
+    display:grid;
+    grid-template-columns:1.4fr .6fr;
+    gap:8vw;
+    align-items:end;
+    position:relative;
+    overflow:hidden;
+}
+
+.detail-hero::before{
+    content:"FAQ";
+    position:absolute;
+    right:-4vw;
+    top:14%;
+    font-family:"Bebas Neue",sans-serif;
+    font-size:28vw;
+    line-height:.7;
+    color:rgba(14,41,153,.055);
+    pointer-events:none;
+    animation:heroWord 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroWord{
+    from{transform:translateY(-10px);}
+    to{transform:translateY(20px);}
+}
+
+.detail-kicker{
+    display:inline-block;
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:3px;
+    color:var(--gold);
+    margin-bottom:25px;
+    opacity:0;
+    animation:rise .9s .1s forwards;
+}
+
+.detail-hero h1{
+    position:relative;
+    z-index:2;
+    font-family:"Bebas Neue",sans-serif;
+    font-weight:400;
+    font-size:clamp(80px,12vw,190px);
+    line-height:.76;
+    letter-spacing:-2px;
+    opacity:0;
+    animation:rise 1s .2s forwards;
+}
+
+.detail-hero h1 em{
+    display:block;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(241,236,224,.65);
+    font-family:"Cormorant Garamond",serif;
+    font-size:.72em;
+    font-weight:500;
+    letter-spacing:-3px;
+    transform:translateX(5vw);
+}
+
+.detail-hero p{
+    max-width:650px;
+    margin-top:38px;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.8;
+    opacity:0;
+    animation:rise 1s .45s forwards;
+}
+
+.detail-side{
+    position:relative;
+    z-index:3;
+    border-left:1px solid var(--line);
+    padding-left:30px;
+    opacity:0;
+    animation:sideIn 1s .5s forwards;
+}
+
+.detail-side div{
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+}
+
+.detail-side small{
+    display:block;
+    font-family:"DM Mono",monospace;
+    color:var(--muted);
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:9px;
+}
+
+.detail-side strong{
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+@keyframes rise{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes sideIn{
+    from{
+        opacity:0;
+        transform:translateX(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.detail-content{
+    width:min(1100px,86vw);
+    margin:0 auto;
+    padding:60px 0 130px;
+}
+
+.faq-list{
+    border-top:1px solid var(--line);
+}
+
+.faq-item{
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.faq-item.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.faq-question{
+    width:100%;
+    padding:30px 5px;
+    border:0;
+    outline:0;
+    background:none;
+    color:var(--ivory);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    text-align:left;
+    font-family:"Manrope",sans-serif;
+    font-weight:700;
+    font-size:clamp(16px,2vw,23px);
+    letter-spacing:-.4px;
+    transition:.35s ease;
+}
+
+.faq-question span{
+    width:42px;
+    height:42px;
+    border:1px solid rgba(241,236,224,.25);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Cormorant Garamond",serif;
+    font-size:25px;
+    font-weight:400;
+    transition:.45s cubic-bezier(.2,.8,.2,1);
+}
+
+.faq-question:hover{
+    padding-left:14px;
+    color:#fff;
+}
+
+.faq-question:hover span{
+    border-color:var(--gold);
+    color:var(--gold);
+    transform:rotate(90deg);
+}
+
+.faq-item.open .faq-question{
+    color:var(--gold);
+}
+
+.faq-item.open .faq-question span{
+    transform:rotate(180deg);
+    border-color:var(--gold);
+    background:var(--gold);
+    color:#080808;
+}
+
+.faq-answer{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .6s cubic-bezier(.2,.8,.2,1);
+}
+
+.faq-answer > div,
+.faq-answer p{
+    min-height:0;
+}
+
+.faq-answer p{
+    overflow:hidden;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:15px;
+    max-width:850px;
+    padding:0 55px 0 5px;
+    opacity:0;
+    transform:translateY(-10px);
+    transition:.45s ease;
+}
+
+.faq-item.open .faq-answer{
+    grid-template-rows:1fr;
+}
+
+.faq-item.open .faq-answer p{
+    padding-bottom:32px;
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================================================
+   CONTACT BUTTON
+   ========================================================= */
+
+.contact-wrap{
+    padding-top:70px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    letter-spacing:2px;
+    transition:.4s ease;
+}
+
+.btn-gold{
+    color:#080808;
+    background:var(--gold);
+    padding:18px 25px;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn-gold::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--ivory);
+    transform:translateX(-105%);
+    transition:.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.btn-gold:hover::before{
+    transform:translateX(0);
+}
+
+.btn-gold:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(199,154,43,.18);
+}
+
+.btn-gold{
+    z-index:1;
+}
+
+.btn-gold::after{
+    content:"";
+    position:absolute;
+    z-index:-1;
+}
+
+.contact-wrap .btn{
+    position:relative;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+    border-top:1px solid var(--line);
+    min-height:220px;
+    padding:55px 7vw;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    align-items:center;
+    gap:40px;
+}
+
+.footer-logo img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+}
+
+.footer-middle{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-middle strong{
+    font-size:17px;
+}
+
+.footer-middle span,
+.footer-right span{
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    letter-spacing:1.8px;
+    color:var(--muted);
+}
+
+.footer-right{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    text-align:right;
+}
+
+/* =========================================================
+   REX — WORKING FLOATING CHAT
+   ========================================================= */
+
+#rex{
+    position:fixed;
+    right:28px;
+    bottom:28px;
+    z-index:9000;
+    font-family:"Manrope",sans-serif;
+}
+
+.rex-button{
+    width:78px;
+    height:78px;
+    border-radius:50%;
+    border:1px solid rgba(199,154,43,.6);
+    background:
+        radial-gradient(circle at 35% 30%,rgba(14,41,153,.8),rgba(5,6,11,.98));
+    color:var(--ivory);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:
+        0 0 0 8px rgba(14,41,153,.05),
+        0 0 35px rgba(14,41,153,.22);
+    transition:.4s ease;
+    animation:rexPulse 3s ease-in-out infinite;
+}
+
+.rex-button:hover{
+    transform:scale(1.08);
+    border-color:var(--gold);
+    box-shadow:
+        0 0 0 10px rgba(199,154,43,.06),
+        0 0 45px rgba(199,154,43,.25);
+}
+
+.rex-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#244cff;
+    box-shadow:0 0 15px #244cff;
+    margin-right:8px;
+}
+
+.rex-name{
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+@keyframes rexPulse{
+    0%,100%{
+        box-shadow:
+            0 0 0 8px rgba(14,41,153,.05),
+            0 0 35px rgba(14,41,153,.22);
+    }
+    50%{
+        box-shadow:
+            0 0 0 13px rgba(14,41,153,.02),
+            0 0 50px rgba(14,41,153,.35);
+    }
+}
+
+.rex-window{
+    position:absolute;
+    right:0;
+    bottom:95px;
+    width:330px;
+    border:1px solid rgba(241,236,224,.16);
+    background:rgba(7,8,13,.96);
+    backdrop-filter:blur(20px);
+    box-shadow:0 25px 80px rgba(0,0,0,.5);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px) scale(.96);
+    transform-origin:bottom right;
+    transition:.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.rex-window.open{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+}
+
+.rex-head{
+    padding:18px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.rex-head strong{
+    font-size:13px;
+}
+
+.rex-head small{
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:8px;
+    letter-spacing:1px;
+}
+
+.rex-close{
+    border:0;
+    background:none;
+    color:var(--muted);
+    font-size:20px;
+    cursor:pointer;
+}
+
+.rex-body{
+    padding:22px;
+}
+
+.rex-body p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+.rex-body b{
+    color:var(--ivory);
+}
+
+.rex-actions{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.rex-actions button{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.025);
+    color:var(--ivory);
+    padding:9px 11px;
+    font-size:9px;
+    font-family:"DM Mono",monospace;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.rex-actions button:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:800px){
+
+    header{
+        padding:12px 5vw;
+    }
+
+    .nav-links{
+        position:fixed;
+        inset:0;
+        background:rgba(5,5,7,.98);
+        flex-direction:column;
+        justify-content:center;
+        gap:28px;
+        opacity:0;
+        visibility:hidden;
+        transform:translateY(-20px);
+        transition:.4s ease;
+    }
+
+    .nav-links.open{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
+    }
+
+    .nav-links a{
+        font-size:13px;
+    }
+
+    .nav-menu{
+        display:flex;
+        width:42px;
+        height:42px;
+        border:1px solid var(--line);
+        background:none;
+        flex-direction:column;
+        justify-content:center;
+        gap:6px;
+        align-items:center;
+        cursor:pointer;
+        z-index:20;
+    }
+
+    .nav-menu span{
+        width:17px;
+        height:1px;
+        background:var(--ivory);
+    }
+
+    .detail-hero{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding:150px 7vw 80px;
+        gap:60px;
+    }
+
+    .detail-hero h1{
+        font-size:23vw;
+    }
+
+    .detail-side{
+        padding-left:20px;
+    }
+
+    .detail-content{
+        width:86vw;
+        padding-top:20px;
+    }
+
+    .faq-question{
+        padding:25px 0;
+        font-size:16px;
+    }
+
+    .faq-question span{
+        width:35px;
+        height:35px;
+        min-width:35px;
+    }
+
+    .faq-answer p{
+        padding-right:10px;
+        font-size:14px;
+    }
+
+    footer{
+        grid-template-columns:1fr;
+        padding:45px 7vw;
+    }
+
+    .footer-right{
+        text-align:left;
+    }
+
+    #rex{
+        right:16px;
+        bottom:16px;
+    }
+
+    .rex-window{
+        width:min(330px,calc(100vw - 32px));
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =======================================================
+     NAV
+======================================================= -->
+
+<header>
+<nav class="navbar">
+
+<a class="nav-logo" href="index.html">
+    <img src="relmun-logo.png" alt="RELMUN '26">
+</a>
+
+<button class="nav-menu" id="navMenu" aria-label="Open menu">
+    <span></span>
+    <span></span>
+</button>
+
+<div class="nav-links" id="navLinks">
+    <a href="index.html#about">ABOUT</a>
+    <a href="committees.html">COMMITTEES</a>
+    <a href="index.html#team">TEAM</a>
+    <a href="eb.html">EB</a>
+    <a href="faq.html">FAQ</a>
+    <a href="register.html" class="nav-register">REGISTER ↗</a>
+</div>
+
+</nav>
+</header>
+
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
+<main class="detail-page">
+
+<section class="detail-hero">
+
+<div>
+    <span class="detail-kicker">RELMUN '26 · FAQ</span>
+
+    <h1>
+        COMMON<br>
+        <em>QUESTIONS.</em>
+    </h1>
+
+    <p>
+        Everything currently announced about RELMUN '26,
+        registration and the conference.
+    </p>
+</div>
+
+<div class="detail-side">
+
+    <div>
+        <small>DATES</small>
+        <strong>26—27 DEC 2026</strong>
+    </div>
+
+    <div>
+        <small>FORMAT</small>
+        <strong>ONLINE</strong>
+    </div>
+
+    <div>
+        <small>REGISTRATION</small>
+        <strong>15 OCT 2026</strong>
+    </div>
+
+    <div>
+        <small>FEE</small>
+        <strong>FREE</strong>
+    </div>
+
+</div>
+
+</section>
+
+
+<section class="detail-content">
+
+<div class="faq-list">
+
+<div class="faq-item">
+<button class="faq-question">
+    WHAT IS RELMUN?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        RELMUN stands for Regional Engagement & Leadership
+        Model United Nations. It is an online MUN conference
+        built around diplomacy, debate, engagement and leadership.
+    </p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+    WHEN IS RELMUN 2026?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        RELMUN '26 takes place on 26–27 December 2026.
+    </p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+    IS THE CONFERENCE ONLINE?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        Yes. RELMUN '26 is an online Model United Nations conference.
+    </p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+    WHEN DO REGISTRATIONS OPEN?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        Delegate registrations open on 15 October 2026.
+    </p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+    HOW MUCH IS REGISTRATION?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        Registration for RELMUN '26 is completely FREE.
+    </p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+    WHICH COMMITTEES ARE AVAILABLE?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        The six committees are UNSC, UNHRC, UNODC, AIPPM,
+        UN Women and IPLA.
+    </p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+    HOW DO I REGISTER?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        From 15 October 2026, delegates can register for free through
+        MyMUN or the official Google Form linked on the RELMUN registration page.
+    </p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+    WILL CERTIFICATES BE PROVIDED?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        Certificates are provided to participants.
+    </p>
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+    HOW CAN I CONTACT THE TEAM?
+    <span>+</span>
+</button>
+<div class="faq-answer">
+    <p>
+        Email the Secretariat at
+        <b>relmun.official@gmail.com</b>
+        or contact RELMUN through
+        <b>@relmun.official</b> on Instagram.
+    </p>
+</div>
+</div>
+
+</div>
+
+
+<div class="contact-wrap">
+<a class="btn btn-gold" href="mailto:relmun.official@gmail.com">
+    CONTACT THE SECRETARIAT ↗
+</a>
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+<div class="footer-logo">
+    <img src="relmun-logo.png" alt="RELMUN '26">
+</div>
+
+<div class="footer-middle">
+    <strong>RELMUN '26</strong>
+    <span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+</div>
+
+<div class="footer-right">
+    <span>26—27 DECEMBER 2026</span>
+    <span>ONLINE CONFERENCE</span>
+</div>
+
+</footer>
+
+
+<!-- =======================================================
+     REX
+======================================================= -->
+
+<div id="rex">
+
+<button class="rex-button" id="rexButton" aria-label="Open REX">
+    <span class="rex-dot"></span>
+    <span class="rex-name">REX</span>
+</button>
+
+<div class="rex-window" id="rexWindow">
+
+    <div class="rex-head">
+        <div>
+            <strong>REX</strong><br>
+            <small>RELMUN ASSISTANT</small>
+        </div>
+
+        <button class="rex-close" id="rexClose">×</button>
+    </div>
+
+    <div class="rex-body">
+
+        <p>
+            Hey! I'm <b>REX</b>, the RELMUN assistant.
+            What do you want to know?
+        </p>
+
+        <div class="rex-actions">
+
+            <button onclick="rexAnswer('RELMUN 2026 takes place on 26–27 December 2026.')">
+                DATES
+            </button>
+
+            <button onclick="rexAnswer('Delegate registrations open on 15 October 2026.')">
+                REGISTRATION
+            </button>
+
+            <button onclick="rexAnswer('Delegate registration is Free for all delegates.')">
+                FEE
+            </button>
+
+            <button onclick="rexAnswer('RELMUN has UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA.')">
+                COMMITTEES
+            </button>
+
+        </div>
+
+        <p id="rexResponse" style="margin-top:18px;"></p>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+const navMenu = document.getElementById("navMenu");
+const navLinks = document.getElementById("navLinks");
+
+navMenu.addEventListener("click",()=>{
+    navLinks.classList.toggle("open");
+});
+
+navLinks.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("open");
+    });
+});
+
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+document.querySelectorAll(".faq-question").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        const item = button.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+
+        document.querySelectorAll(".faq-item").forEach(other=>{
+            other.classList.remove("open");
+        });
+
+        if(!isOpen){
+            item.classList.add("open");
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEALS
+========================================================= */
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+const observer = new IntersectionObserver(
+    entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+            }
+        });
+    },
+    {
+        threshold:.08,
+        rootMargin:"0px 0px -40px 0px"
+    }
+);
+
+faqItems.forEach((item,index)=>{
+    item.style.transitionDelay = `${Math.min(index * 0.06, .4)}s`;
+    observer.observe(item);
+});
+
+
+/* =========================================================
+   REX
+========================================================= */
+
+const rexButton = document.getElementById("rexButton");
+const rexWindow = document.getElementById("rexWindow");
+const rexClose = document.getElementById("rexClose");
+
+rexButton.addEventListener("click",()=>{
+    rexWindow.classList.toggle("open");
+});
+
+rexClose.addEventListener("click",()=>{
+    rexWindow.classList.remove("open");
+});
+
+function rexAnswer(message){
+    document.getElementById("rexResponse").textContent = message;
+}
+
+document.addEventListener("click",(event)=>{
+
+    if(
+        !document.getElementById("rex").contains(event.target)
+    ){
+        rexWindow.classList.remove("open");
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+"width=device-width,initial-scale=1">
 
 <title>FAQ — RELMUN '26</title>
 <link rel="icon" href="relmun-logo.png">
