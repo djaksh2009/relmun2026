@@ -1,6 +1,156 @@
 <!doctype html>
 <html lang="en">
+<head><!doctype html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register — RELMUN '26</title>
+<link rel="icon" href="relmun-logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+<a class="nav-logo" href="index.html"><img src="relmun-logo.png" alt="RELMUN '26"></a>
+
+<button class="nav-menu" id="navMenu" aria-label="Open navigation">
+<span></span><span></span>
+</button>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html#about">ABOUT</a>
+<a href="committees.html">COMMITTEES</a>
+<a href="index.html#team">TEAM</a>
+<a href="eb.html">EB</a>
+<a href="faq.html">FAQ</a>
+<a href="register.html" class="nav-register">REGISTER ↗</a>
+</div>
+</nav>
+</header>
+
+<main class="registration-page">
+
+<div class="registration-header">
+<span class="eyebrow">RELMUN '26 · DELEGATE REGISTRATION</span>
+<h1>JOIN<br><em>RELMUN.</em></h1>
+<p>
+Delegate registrations open on <strong>15 October 2026.</strong>
+Registration is completely free. Register through MyMUN or the official Google Form from 15 October 2026.
+</p>
+</div>
+
+<section class="registration-lock" id="registrationStatus">
+
+<span class="eyebrow">REGISTRATION WINDOW</span>
+
+<h2 id="statusTitle">REGISTRATIONS OPEN IN</h2>
+
+<p id="statusText">
+Delegate registration is currently closed.
+Registration opens on 15 October 2026.
+</p>
+
+<div class="lock-countdown" id="lockCountdown">
+00 : 00 : 00 : 00
+</div>
+
+<div class="registration-portals" id="portalGrid">
+
+<a class="registration-option locked" data-registration-link href="https://mymun.com/conferences/relmun-2026" target="_blank" rel="noopener">
+🔒 MYMUN
+</a>
+
+<a class="registration-option locked" data-registration-link href="https://forms.gle/AncgvgJnFyHaC3qM8" target="_blank" rel="noopener">
+🔒 GOOGLE FORMS
+</a>
+
+</div>
+</section>
+
+
+
+</main>
+
+<footer>
+<div class="footer-logo"><img src="relmun-logo.png" alt="RELMUN '26"></div>
+<div class="footer-middle">
+<strong>RELMUN '26</strong>
+<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+</div>
+<div class="footer-right">
+<span>26—27 DECEMBER 2026</span>
+<span>ONLINE CONFERENCE</span>
+<span>akshithkabilan@gmail.com</span>
+</div>
+</footer>
+
+<div id="relmun-chatbot"></div>
+
+<script>
+const OPEN_DATE=new Date("2026-10-15T00:00:00+05:30");
+
+const countdown=document.getElementById("lockCountdown");
+const statusTitle=document.getElementById("statusTitle");
+const statusText=document.getElementById("statusText");
+const portals=document.querySelectorAll("[data-registration-link]");
+
+function isOpen(){
+  return new Date()>=OPEN_DATE;
+}
+
+function updateRegistration(){
+  if(isOpen()){
+    statusTitle.textContent="REGISTRATIONS ARE OPEN";
+    statusText.textContent="Registration is FREE. Choose MyMUN or Google Forms below.";
+    countdown.style.display="none";
+
+    portals.forEach(link=>{
+      link.classList.remove("locked");
+      const text=link.textContent.trim().replace(/^🔒\s*/,"");
+      link.textContent=text+" ↗";
+    });
+  }else{
+    const diff=OPEN_DATE-new Date();
+    const days=Math.floor(diff/86400000);
+    const hours=Math.floor(diff%86400000/3600000);
+    const mins=Math.floor(diff%3600000/60000);
+    const secs=Math.floor(diff%60000/1000);
+
+    countdown.textContent=
+      String(days).padStart(2,"0")+" : "+
+      String(hours).padStart(2,"0")+" : "+
+      String(mins).padStart(2,"0")+" : "+
+      String(secs).padStart(2,"0");
+  }
+}
+
+portals.forEach(link=>{
+  link.addEventListener("click",e=>{
+    if(!isOpen()){
+      e.preventDefault();
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const menu=document.getElementById("navMenu");
+  const links=document.getElementById("navLinks");
+  menu?.addEventListener("click",()=>{
+    links.classList.toggle("open");
+  });
+});
+
+updateRegistration();
+setInterval(updateRegistration,1000);
+</script>
+
+<script src="chatbot.js"></script>
+</body>
+</html>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Register — RELMUN '26</title>
