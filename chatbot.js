@@ -1,1508 +1,1887 @@
-/* =========================================================
-   RELMUN '26 — REX
-   Official Conference Assistant
-   ========================================================= */
-/* =========================================================
-   RELMUN '26 — REX
-   Official Conference Assistant
-   ========================================================= */
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RELMUN '26</title>
 
-(() => {
-  "use strict";
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
-  const root = document.getElementById("relmun-chatbot");
+<style>
+:root{
+  --ink:#070d24;
+  --paper:#eaf0fb;
+  --blue:#5b9cf0;
+  --amber:#ffb42e;
+  --dim:rgba(234,240,251,.62);
+  --line:rgba(91,156,240,.32);
+  box-sizing:border-box;
+  color-scheme:dark;
+}
 
-  if (!root) {
-    console.warn("REX: #relmun-chatbot was not found.");
+*,*::before,*::after{
+  box-sizing:inherit;
+  margin:0;
+}
+
+html,body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  overflow-x:hidden;
+}
+
+body{
+  min-height:100vh;
+}
+
+button,input{
+  font-family:inherit;
+}
+
+.stage{
+  position:relative;
+  height:100vh;
+  height:100dvh;
+  overflow:hidden;
+  background:#070d24;
+  perspective:1200px;
+}
+
+.globe{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:min(92vmin,900px);
+  height:min(92vmin,900px);
+  margin:calc(min(92vmin,900px)/-2) 0 0 calc(min(92vmin,900px)/-2);
+  transform-style:preserve-3d;
+  opacity:.55;
+  pointer-events:none;
+}
+
+.globe i{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px solid rgba(91,156,240,.55);
+}
+
+.globe i.lat{
+  border-color:rgba(255,180,46,.28);
+}
+
+.scene{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:
+    env(safe-area-inset-top,0px)
+    7vw
+    env(safe-area-inset-bottom,0px);
+  visibility:hidden;
+  opacity:0;
+  z-index:2;
+}
+
+.scene.on{
+  visibility:visible;
+  opacity:1;
+}
+
+h1{
+  font-weight:700;
+  font-size:clamp(3.2rem,17vw,15rem);
+  line-height:.86;
+  letter-spacing:-.055em;
+}
+
+h1 span{
+  display:inline-block;
+}
+
+h1 .o{
+  color:transparent;
+  -webkit-text-stroke:2px var(--amber);
+}
+
+h2{
+  font-weight:700;
+  font-size:clamp(2rem,6.4vw,5.6rem);
+  line-height:.98;
+  letter-spacing:-.04em;
+  max-width:16ch;
+}
+
+p.lead{
+  font-weight:300;
+  font-size:clamp(1rem,2vw,1.5rem);
+  color:var(--dim);
+  max-width:46ch;
+  margin-top:1.4rem;
+  line-height:1.5;
+}
+
+.words{
+  font-weight:500;
+  font-size:clamp(1.8rem,6.2vw,5.4rem);
+  line-height:1.05;
+  letter-spacing:-.04em;
+  max-width:15ch;
+}
+
+.words span{
+  display:inline-block;
+  margin-right:.25em;
+}
+
+.words b{
+  color:var(--amber);
+  font-weight:800;
+}
+
+.track{
+  display:flex;
+  gap:2.2vw;
+  width:max-content;
+  padding:0 7vw;
+  margin-top:2rem;
+}
+
+.card{
+  width:clamp(250px,38vw,440px);
+  height:clamp(260px,46vh,400px);
+  padding:1.6rem;
+  border:1px solid rgba(91,156,240,.5);
+  border-radius:6px;
+  background:rgba(7,13,36,.72);
+  backdrop-filter:blur(8px);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  transition:
+    border-color .35s ease,
+    background .35s ease,
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.card:hover{
+  border-color:var(--amber);
+  background:rgba(12,23,53,.88);
+  box-shadow:
+    0 0 0 1px rgba(255,180,46,.15),
+    0 20px 60px rgba(0,0,0,.3);
+}
+
+.card strong{
+  font-weight:800;
+  font-size:clamp(2.6rem,7vw,5.5rem);
+  letter-spacing:-.06em;
+  color:var(--blue);
+}
+
+.card em{
+  font-style:normal;
+  font-weight:500;
+  font-size:1.15rem;
+}
+
+.card small{
+  color:var(--dim);
+  font-size:.95rem;
+  line-height:1.45;
+}
+
+.card .open-label{
+  display:inline-flex;
+  margin-top:1rem;
+  color:var(--amber);
+  font-size:.75rem;
+  letter-spacing:.12em;
+  font-weight:800;
+}
+
+.big{
+  font-weight:800;
+  font-size:clamp(4rem,19vw,17rem);
+  line-height:.85;
+  letter-spacing:-.07em;
+}
+
+.big small{
+  font-size:.28em;
+  color:var(--amber);
+  letter-spacing:-.02em;
+  margin-left:.15em;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1.6rem 3rem;
+  margin-top:2rem;
+}
+
+.row div{
+  border-left:2px solid var(--amber);
+  padding-left:1rem;
+}
+
+.row b{
+  display:block;
+  font-weight:800;
+  font-size:1.5rem;
+  letter-spacing:-.02em;
+}
+
+.row span{
+  color:var(--dim);
+  font-size:.95rem;
+}
+
+.sub{
+  margin-top:1.6rem;
+  font-size:.9rem;
+  color:var(--blue);
+  font-weight:500;
+}
+
+.team-heading{
+  margin-bottom:.5rem;
+}
+
+.team-section-label{
+  margin-top:1.8rem;
+  color:var(--amber);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.18em;
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(150px,1fr));
+  gap:1rem;
+  margin-top:.9rem;
+}
+
+.team-person{
+  border:1px solid var(--line);
+  padding:1rem;
+  background:rgba(7,13,36,.55);
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+.team-person:hover{
+  transform:translateY(-7px);
+  border-color:var(--amber);
+  background:rgba(15,27,59,.8);
+}
+
+.team-person b{
+  display:block;
+  font-size:1rem;
+  margin-bottom:.3rem;
+}
+
+.team-person span{
+  color:var(--dim);
+  font-size:.78rem;
+  line-height:1.35;
+}
+
+.cd{
+  display:flex;
+  gap:clamp(.8rem,3vw,2.6rem);
+  margin-top:2rem;
+}
+
+.cd div{
+  font-weight:800;
+  font-size:clamp(2.6rem,10vw,8rem);
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+.cd small{
+  display:block;
+  font-weight:300;
+  font-size:.8rem;
+  color:var(--dim);
+  letter-spacing:0;
+}
+
+.cta{
+  display:inline-block;
+  margin-top:2rem;
+  padding:1rem 2rem;
+  background:var(--amber);
+  color:var(--ink);
+  font-weight:800;
+  font-size:1.1rem;
+  border-radius:99px;
+  text-decoration:none;
+}
+
+.cta:focus-visible,
+button:focus-visible,
+input:focus-visible{
+  outline:3px solid var(--blue);
+  outline-offset:3px;
+}
+
+.hud{
+  position:absolute;
+  right:max(1.2rem,3vw);
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.6rem;
+  font-size:.8rem;
+  color:var(--dim);
+}
+
+.bar{
+  width:2px;
+  height:22vh;
+  background:rgba(234,240,251,.18);
+}
+
+.bar div{
+  width:100%;
+  height:0;
+  background:var(--amber);
+}
+
+.hint{
+  position:absolute;
+  bottom:calc(1.6rem + env(safe-area-inset-bottom,0px));
+  left:7vw;
+  font-size:.85rem;
+  color:var(--dim);
+}
+
+.brand{
+  position:absolute;
+  top:calc(1.2rem + env(safe-area-inset-top,0px));
+  left:7vw;
+  font-weight:500;
+  letter-spacing:.18em;
+  font-size:.95rem;
+  z-index:5;
+}
+
+#rl{
+  position:fixed;
+  right:1rem;
+  bottom:calc(1rem + env(safe-area-inset-bottom,0px));
+  z-index:50;
+  background:var(--blue);
+  color:var(--ink);
+  border:0;
+  border-radius:99px;
+  padding:.8rem 1.3rem;
+  font:800 1rem inherit;
+  font-family:inherit;
+  cursor:pointer;
+}
+
+#rw{
+  position:fixed;
+  right:1rem;
+  bottom:calc(1rem + env(safe-area-inset-bottom,0px));
+  z-index:51;
+  width:min(380px,calc(100vw - 2rem));
+  height:min(500px,70vh);
+  background:#0d1735;
+  border:1px solid var(--blue);
+  border-radius:12px;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 25px 80px rgba(0,0,0,.4);
+}
+
+#rw.open{
+  display:flex;
+}
+
+#rw header{
+  padding:.8rem 1rem;
+  display:flex;
+  justify-content:space-between;
+  font-weight:800;
+  border-bottom:1px solid rgba(91,156,240,.4);
+}
+
+#rw header button{
+  background:none;
+  border:0;
+  color:var(--paper);
+  font-size:1.2rem;
+  cursor:pointer;
+}
+
+#rm{
+  flex:1;
+  overflow:auto;
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  font-size:.92rem;
+  line-height:1.45;
+}
+
+#rm div{
+  max-width:88%;
+  padding:.6rem .8rem;
+  border-radius:10px;
+  background:rgba(91,156,240,.16);
+}
+
+#rm div.u{
+  align-self:flex-end;
+  background:var(--amber);
+  color:var(--ink);
+}
+
+#rf{
+  display:flex;
+  border-top:1px solid rgba(91,156,240,.4);
+}
+
+#rf input{
+  flex:1;
+  padding:.9rem;
+  background:none;
+  border:0;
+  color:var(--paper);
+  font:inherit;
+}
+
+#rf button{
+  background:none;
+  border:0;
+  color:var(--amber);
+  font-weight:800;
+  padding:0 1rem;
+  cursor:pointer;
+}
+
+/* =========================================
+   COMMITTEE DETAIL OVERLAY
+========================================= */
+
+#committeePage{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:
+    radial-gradient(circle at 75% 20%,rgba(91,156,240,.13),transparent 35%),
+    #070d24;
+  display:none;
+  overflow-y:auto;
+  opacity:0;
+}
+
+#committeePage.open{
+  display:block;
+}
+
+.committee-inner{
+  min-height:100%;
+  padding:
+    max(2rem,env(safe-area-inset-top))
+    7vw
+    max(3rem,env(safe-area-inset-bottom));
+  position:relative;
+}
+
+.committee-close{
+  position:fixed;
+  top:1.5rem;
+  right:2rem;
+  z-index:10;
+  border:1px solid rgba(91,156,240,.5);
+  background:rgba(7,13,36,.7);
+  color:var(--paper);
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  font-size:1.5rem;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+}
+
+.committee-close:hover{
+  border-color:var(--amber);
+  color:var(--amber);
+}
+
+.committee-kicker{
+  color:var(--amber);
+  font-size:.75rem;
+  letter-spacing:.2em;
+  font-weight:800;
+  margin-bottom:1.2rem;
+}
+
+.committee-code{
+  font-size:clamp(4rem,14vw,12rem);
+  line-height:.8;
+  font-weight:800;
+  letter-spacing:-.07em;
+  color:var(--blue);
+}
+
+.committee-title{
+  margin-top:1.5rem;
+  font-size:clamp(1.8rem,5vw,4.5rem);
+  max-width:15ch;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+.committee-description{
+  margin-top:1.5rem;
+  max-width:650px;
+  color:var(--dim);
+  font-size:1.1rem;
+  line-height:1.7;
+}
+
+.committee-info{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(150px,1fr));
+  gap:1rem;
+  max-width:900px;
+  margin-top:3rem;
+}
+
+.committee-info-box{
+  border-top:1px solid var(--amber);
+  padding-top:1rem;
+}
+
+.committee-info-box small{
+  display:block;
+  color:var(--dim);
+  font-size:.7rem;
+  letter-spacing:.15em;
+  margin-bottom:.5rem;
+}
+
+.committee-info-box strong{
+  font-size:1rem;
+}
+
+.committee-back{
+  display:inline-block;
+  margin-top:3rem;
+  padding:.9rem 1.5rem;
+  border:1px solid var(--blue);
+  color:var(--paper);
+  text-decoration:none;
+  border-radius:99px;
+  transition:.3s ease;
+}
+
+.committee-back:hover{
+  background:var(--blue);
+  color:var(--ink);
+}
+
+/* =========================================
+   CONTACT DETAIL
+========================================= */
+
+.contact-strip{
+  margin-top:3rem;
+  padding:1.4rem;
+  border:1px solid var(--line);
+  max-width:900px;
+  background:rgba(7,13,36,.5);
+}
+
+.contact-strip strong{
+  display:block;
+  color:var(--amber);
+  font-size:.75rem;
+  letter-spacing:.16em;
+  margin-bottom:.7rem;
+}
+
+.contact-strip p{
+  color:var(--dim);
+  line-height:1.6;
+}
+
+.contact-strip a{
+  color:var(--paper);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:900px){
+  .team-grid{
+    grid-template-columns:repeat(2,minmax(140px,1fr));
+  }
+
+  .committee-info{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:640px){
+  .hud{
+    display:none;
+  }
+
+  .card{
+    height:44vh;
+  }
+
+  .team-grid{
+    grid-template-columns:1fr;
+    max-height:38vh;
+    overflow:auto;
+  }
+
+  .committee-info{
+    grid-template-columns:1fr;
+  }
+
+  .committee-close{
+    right:1rem;
+    top:1rem;
+  }
+
+  .committee-inner{
+    padding-left:6vw;
+    padding-right:6vw;
+    padding-top:5rem;
+  }
+
+  .cd{
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+
+  .cd div{
+    font-size:clamp(2rem,12vw,4rem);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .stage{
+    height:auto;
+    overflow:visible;
+  }
+
+  .scene{
+    position:relative;
+    min-height:100vh;
+    visibility:visible;
+    opacity:1;
+  }
+
+  .globe{
+    display:none;
+  }
+
+  .track{
+    flex-wrap:wrap;
+    width:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="stage" id="stage">
+
+  <div class="brand">RELMUN</div>
+  <div class="globe" id="globe"></div>
+
+  <div class="hud">
+    <span id="cur">1</span>
+    <div class="bar"><div id="fill"></div></div>
+    <span>6</span>
+  </div>
+
+  <!-- ===============================
+       01 — HERO
+  ================================ -->
+
+  <section class="scene on" id="s0">
+
+    <h1 id="title">
+      <span>REL</span><span>MUN</span><br>
+      <span class="o">'26</span>
+    </h1>
+
+    <p class="lead">
+      A fully online Model United Nations conference.
+      26–27 December 2026.
+    </p>
+
+    <div class="hint">Scroll to enter</div>
+
+  </section>
+
+
+  <!-- ===============================
+       02 — ABOUT
+  ================================ -->
+
+  <section class="scene" id="s1">
+
+    <div class="words" id="words">
+      <span>Regional</span>
+      <span><b>Engagement</b></span>
+      <span>&amp;</span>
+      <span><b>Leadership</b></span>
+      <span>Model</span>
+      <span>United</span>
+      <span>Nations</span>
+    </div>
+
+    <p class="lead">
+      RELMUN is built around diplomacy, debate,
+      negotiation, engagement and leadership.
+    </p>
+
+  </section>
+
+
+  <!-- ===============================
+       03 — COMMITTEES
+  ================================ -->
+
+  <section class="scene" id="s2">
+
+    <h2>
+      Six committees.<br>
+      Six rooms to argue in.
+    </h2>
+
+    <div class="track" id="track">
+
+      <div class="card committee-card" data-committee="UNSC">
+        <strong>UNSC</strong>
+        <div>
+          <em>United Nations Security Council</em><br>
+          <small>Global peace and security.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
+
+      <div class="card committee-card" data-committee="UNHRC">
+        <strong>UNHRC</strong>
+        <div>
+          <em>United Nations Human Rights Council</em><br>
+          <small>Rights, protections and accountability.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
+
+      <div class="card committee-card" data-committee="UNODC">
+        <strong>UNODC</strong>
+        <div>
+          <em>Office on Drugs and Crime</em><br>
+          <small>Trafficking, crime and justice.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
+
+      <div class="card committee-card" data-committee="AIPPM">
+        <strong>AIPPM</strong>
+        <div>
+          <em>All India Political Parties Meet</em><br>
+          <small>Indian politics, party against party.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
+
+      <div class="card committee-card" data-committee="UN Women">
+        <strong>UN Women</strong>
+        <div>
+          <em>Gender equality</em><br>
+          <small>Advancing rights and opportunity for women.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
+
+      <div class="card committee-card" data-committee="IPLA">
+        <strong>IPLA</strong>
+        <div>
+          <em>IPL Auction</em><br>
+          <small>Bid, build a squad, outsmart the room.</small>
+          <span class="open-label">OPEN COMMITTEE ↗</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===============================
+       04 — CONFERENCE
+  ================================ -->
+
+  <section class="scene" id="s3">
+
+    <div class="big">
+      26–27<small>Dec 2026</small>
+    </div>
+
+    <div class="row">
+
+      <div>
+        <b>Fully online</b>
+        <span>Attend from anywhere</span>
+      </div>
+
+      <div>
+        <b>6 committees</b>
+        <span>One conference</span>
+      </div>
+
+      <div>
+        <b>Certificates</b>
+        <span>For all participants</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===============================
+       05 — TEAM
+  ================================ -->
+
+  <section class="scene" id="s4">
+
+    <h2 class="team-heading">
+      The people running it.
+    </h2>
+
+    <!-- CORE FIRST -->
+    <div class="team-section-label">
+      CORE
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-person">
+        <b>Akshith Kabilan</b>
+        <span>Secretary-General</span>
+      </div>
+
+      <div class="team-person">
+        <b>S. Shreyaas</b>
+        <span>Deputy Secretary-General</span>
+      </div>
+
+      <div class="team-person">
+        <b>Laasya Vikram</b>
+        <span>Director-General</span>
+      </div>
+
+      <div class="team-person">
+        <b>Aashi Kushwaha</b>
+        <span>Chief Advisor</span>
+      </div>
+
+    </div>
+
+    <!-- SECRETARIAT -->
+    <div class="team-section-label">
+      SECRETARIAT
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-person">
+        <b>Abimayur R</b>
+        <span>Head of Administration &amp; Outreach</span>
+      </div>
+
+      <div class="team-person">
+        <b>Madhav Bhardwaj</b>
+        <span>USG, Delegate Affairs</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===============================
+       06 — REGISTRATION
+  ================================ -->
+
+  <section class="scene" id="s5">
+
+    <h2 id="regH">
+      Registrations open 15 October.
+    </h2>
+
+    <p class="lead" id="regP">
+      Registration is FREE for all delegates.
+    </p>
+
+    <div class="cd" id="cd">
+
+      <div>
+        <span id="d">00</span>
+        <small>days</small>
+      </div>
+
+      <div>
+        <span id="h">00</span>
+        <small>hours</small>
+      </div>
+
+      <div>
+        <span id="m">00</span>
+        <small>minutes</small>
+      </div>
+
+      <div>
+        <span id="s">00</span>
+        <small>seconds</small>
+      </div>
+
+    </div>
+
+    <div>
+      <a class="cta" id="cta" href="register.html">
+        Choose Registration Method ↗
+      </a>
+    </div>
+
+    <p class="sub">
+      relmun.official@gmail.com · @relmun.official on Instagram
+    </p>
+
+  </section>
+
+</main>
+
+
+<!-- =========================================
+     COMMITTEE DETAIL PAGE
+========================================= -->
+
+<section id="committeePage">
+
+  <button
+    class="committee-close"
+    id="committeeClose"
+    aria-label="Close committee"
+  >
+    ×
+  </button>
+
+  <div class="committee-inner">
+
+    <div class="committee-kicker">
+      RELMUN '26 · COMMITTEE
+    </div>
+
+    <div class="committee-code" id="committeeCode">
+      UNSC
+    </div>
+
+    <h1 class="committee-title" id="committeeTitle">
+      United Nations Security Council
+    </h1>
+
+    <p class="committee-description" id="committeeDescription">
+      Global peace and security.
+    </p>
+
+    <div class="committee-info">
+
+      <div class="committee-info-box">
+        <small>FORMAT</small>
+        <strong>ONLINE</strong>
+      </div>
+
+      <div class="committee-info-box">
+        <small>CONFERENCE</small>
+        <strong>RELMUN '26</strong>
+      </div>
+
+      <div class="committee-info-box">
+        <small>DATES</small>
+        <strong>26–27 DEC 2026</strong>
+      </div>
+
+    </div>
+
+    <div class="contact-strip">
+
+      <strong>COMMITTEE / CONFERENCE CONTACT</strong>
+
+      <p>
+        For registration and official conference enquiries:
+        <br><br>
+        <a href="mailto:relmun.official@gmail.com">
+          relmun.official@gmail.com
+        </a>
+        <br>
+        Instagram: <b>@relmun.official</b>
+      </p>
+
+    </div>
+
+    <a href="#" class="committee-back" id="committeeBack">
+      ← BACK TO RELMUN
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     REX
+========================================= -->
+
+<button id="rl">
+  Ask REX
+</button>
+
+<aside id="rw" aria-label="REX assistant">
+
+  <header>
+    <span>REX · RELMUN assistant</span>
+    <button id="rc" aria-label="Close">×</button>
+  </header>
+
+  <div id="rm" aria-live="polite"></div>
+
+  <form id="rf">
+    <input
+      id="ri"
+      placeholder="Ask about RELMUN"
+      autocomplete="off"
+    >
+    <button>Send</button>
+  </form>
+
+</aside>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+
+const $ = id => document.getElementById(id);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+
+/* =========================================
+   GLOBE
+========================================= */
+
+const g = $("globe");
+
+for(let i=0;i<8;i++){
+  const r=document.createElement("i");
+  r.style.transform=`rotateY(${i*22.5}deg)`;
+  g.appendChild(r);
+}
+
+[-.6,-.3,0,.3,.6].forEach(v=>{
+  const r=document.createElement("i");
+  r.className="lat";
+
+  const s=Math.sqrt(1-v*v);
+
+  r.style.transform=
+    `translateY(${v*50}%) rotateX(90deg) scale(${s})`;
+
+  g.appendChild(r);
+});
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+const target =
+  new Date("2026-10-15T00:00:00+05:30").getTime();
+
+function tick(){
+
+  const t=target-Date.now();
+
+  if(t<=0){
+
+    $("cd").style.display="none";
+    $("regH").textContent="Registrations are open.";
+    $("cta").textContent="Register now";
+
     return;
   }
 
-  /* =========================================================
-     RELMUN KNOWLEDGE BASE
-     ========================================================= */
+  const p=n=>String(n).padStart(2,"0");
 
-  const RELMUN = {
-    name: "RELMUN '26",
+  $("d").textContent=
+    p(Math.floor(t/864e5));
 
-    fullName: "Regional Engagement & Leadership Model United Nations",
+  $("h").textContent=
+    p(Math.floor(t%864e5/36e5));
 
-    dates: "26–27 December 2026",
+  $("m").textContent=
+    p(Math.floor(t%36e5/6e4));
 
-    format: "Online",
+  $("s").textContent=
+    p(Math.floor(t%6e4/1e3));
+}
 
-    registrationDate: "15 October 2026",
+tick();
+setInterval(tick,1000);
 
-    registrationFee: "Free",
 
-    instagram: "@relmun.official",
+/* =========================================
+   MAIN GSAP EXPERIENCE
+========================================= */
 
-    email: "akshithkabilan@gmail.com",
+if(!reduce){
 
-    committees: [
-      {
-        short: "UNSC",
-        name: "United Nations Security Council"
-      },
-      {
-        short: "UNHRC",
-        name: "United Nations Human Rights Council"
-      },
-      {
-        short: "UNODC",
-        name: "United Nations Office on Drugs and Crime"
-      },
-      {
-        short: "AIPPM",
-        name: "All India Political Parties Meet"
-      },
-      {
-        short: "UN Women",
-        name: "United Nations Women"
-      },
-      {
-        short: "IPLA",
-        name: "International Parliamentary Law Assembly"
-      }
-    ],
+  gsap.registerPlugin(ScrollTrigger);
 
-    team: {
-      core: [
-        "Akshith Kabilan — Secretary-General",
-        "S. Shreyaas — Deputy Secretary-General",
-        "Laasya Vikram — Director-General",
-        "Aashi Kushwaha — Chief Advisor"
-      ],
+  const letters=[];
 
-      secretariat: [
-        "Abimayur R — Head of Administration & Outreach",
-        "Madhav Bhardwaj — USG, Delegate Affairs"
-      ]
-    }
-  };
+  document.querySelectorAll("#title span").forEach(sp=>{
 
+    const txt=sp.textContent;
 
-  /* =========================================================
-     STYLES
-     ========================================================= */
+    sp.textContent="";
 
-  const style = document.createElement("style");
+    [...txt].forEach(c=>{
 
-  style.textContent = `
-    #rex-widget {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 99999;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+      const l=document.createElement("span");
 
-    #rex-toggle {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      border: 1px solid rgba(241,236,224,.45);
-      background: #080808;
-      color: #f1ece0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 35px rgba(24,70,255,.16);
-      transition:
-        transform .3s ease,
-        border-color .3s ease,
-        box-shadow .3s ease;
-    }
+      l.textContent=c;
 
-    #rex-toggle:hover {
-      transform: scale(1.07);
-      border-color: #1846ff;
-      box-shadow: 0 0 40px rgba(24,70,255,.3);
-    }
+      if(sp.classList.contains("o"))
+        l.className="o";
 
-    #rex-dot {
-      width: 8px;
-      height: 8px;
-      background: #f1ece0;
-      border-radius: 50%;
-      box-shadow: 0 0 12px rgba(241,236,224,.7);
-    }
+      sp.appendChild(l);
 
-    #rex-window {
-      position: absolute;
-      right: 0;
-      bottom: 72px;
-      width: 365px;
-      max-width: calc(100vw - 30px);
-      height: 520px;
-      background:
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(24,70,255,.12),
-          transparent 35%
-        ),
-        #080808;
-      border: 1px solid rgba(241,236,224,.18);
-      overflow: hidden;
-      display: none;
-      flex-direction: column;
-      box-shadow:
-        0 25px 80px rgba(0,0,0,.55),
-        0 0 60px rgba(24,70,255,.08);
-      animation: rexIn .35s cubic-bezier(.2,.8,.2,1);
-    }
+      letters.push(l);
 
-    #rex-window.open {
-      display: flex;
-    }
-
-    @keyframes rexIn {
-      from {
-        opacity: 0;
-        transform: translateY(18px) scale(.96);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    #rex-header {
-      min-height: 68px;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(241,236,224,.12);
-      background: rgba(8,8,8,.92);
-    }
-
-    .rex-brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .rex-orb {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid rgba(24,70,255,.8);
-      position: relative;
-      box-shadow: 0 0 18px rgba(24,70,255,.22);
-    }
-
-    .rex-orb::after {
-      content: "";
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #1846ff;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      box-shadow: 0 0 12px #1846ff;
-    }
-
-    .rex-title {
-      color: #f1ece0;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: .18em;
-    }
-
-    .rex-subtitle {
-      color: rgba(241,236,224,.45);
-      font-size: 9px;
-      letter-spacing: .12em;
-      margin-top: 3px;
-    }
-
-    #rex-close {
-      border: 0;
-      background: transparent;
-      color: rgba(241,236,224,.65);
-      cursor: pointer;
-      font-size: 22px;
-      line-height: 1;
-    }
-
-    #rex-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(241,236,224,.25) transparent;
-    }
-
-    .rex-message {
-      max-width: 88%;
-      padding: 13px 15px;
-      font-size: 13px;
-      line-height: 1.65;
-      animation: messageIn .25s ease;
-      white-space: pre-line;
-    }
-
-    @keyframes messageIn {
-      from {
-        opacity: 0;
-        transform: translateY(7px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .rex-bot {
-      align-self: flex-start;
-      color: #f1ece0;
-      background: rgba(241,236,224,.045);
-      border: 1px solid rgba(241,236,224,.1);
-    }
-
-    .rex-user {
-      align-self: flex-end;
-      color: #fff;
-      background: #1846ff;
-    }
-
-    .rex-time {
-      display: block;
-      margin-top: 7px;
-      font-size: 8px;
-      letter-spacing: .1em;
-      opacity: .35;
-    }
-
-    #rex-suggestions {
-      padding: 0 15px 10px;
-      display: flex;
-      gap: 7px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    #rex-suggestions::-webkit-scrollbar {
-      display: none;
-    }
-
-    .rex-suggestion {
-      flex: 0 0 auto;
-      padding: 8px 11px;
-      border: 1px solid rgba(241,236,224,.16);
-      background: transparent;
-      color: rgba(241,236,224,.75);
-      font-size: 9px;
-      letter-spacing: .05em;
-      cursor: pointer;
-      transition: .2s ease;
-    }
-
-    .rex-suggestion:hover {
-      border-color: #1846ff;
-      color: #fff;
-    }
-
-    #rex-form {
-      display: flex;
-      border-top: 1px solid rgba(241,236,224,.12);
-      background: #080808;
-    }
-
-    #rex-input {
-      flex: 1;
-      min-width: 0;
-      padding: 17px 15px;
-      border: 0;
-      outline: none;
-      background: transparent;
-      color: #f1ece0;
-      font-size: 13px;
-      font-family: inherit;
-    }
-
-    #rex-input::placeholder {
-      color: rgba(241,236,224,.35);
-    }
-
-    #rex-send {
-      width: 58px;
-      border: 0;
-      border-left: 1px solid rgba(241,236,224,.1);
-      background: transparent;
-      color: #f1ece0;
-      cursor: pointer;
-      font-size: 16px;
-      transition: .2s ease;
-    }
-
-    #rex-send:hover {
-      background: #1846ff;
-    }
-
-    @media (max-width: 600px) {
-      #rex-widget {
-        right: 14px;
-        bottom: 14px;
-      }
-
-      #rex-window {
-        width: calc(100vw - 28px);
-        right: -1px;
-        height: min(600px, calc(100vh - 105px));
-      }
-    }
-  `;
-
-  document.head.appendChild(style);
-
-
-  /* =========================================================
-     BUILD UI
-     ========================================================= */
-
-  root.innerHTML = `
-    <div id="rex-widget">
-
-      <div id="rex-window">
-
-        <div id="rex-header">
-          <div class="rex-brand">
-            <div class="rex-orb"></div>
-            <div>
-              <div class="rex-title">REX</div>
-              <div class="rex-subtitle">RELMUN '26 ASSISTANT</div>
-            </div>
-          </div>
-
-          <button id="rex-close" aria-label="Close REX">×</button>
-        </div>
-
-        <div id="rex-messages"></div>
-
-        <div id="rex-suggestions">
-          <button class="rex-suggestion" data-question="Tell me about RELMUN">ABOUT RELMUN</button>
-          <button class="rex-suggestion" data-question="What committees are there?">COMMITTEES</button>
-          <button class="rex-suggestion" data-question="How much is registration?">REGISTRATION</button>
-          <button class="rex-suggestion" data-question="Who is on the team?">TEAM</button>
-        </div>
-
-        <form id="rex-form">
-          <input
-            id="rex-input"
-            type="text"
-            autocomplete="off"
-            placeholder="Ask REX anything..."
-          >
-          <button id="rex-send" type="submit">↗</button>
-        </form>
-
-      </div>
-
-      <button id="rex-toggle" aria-label="Open REX">
-        <span id="rex-dot"></span>
-      </button>
-
-    </div>
-  `;
-
-
-  /* =========================================================
-     ELEMENTS
-     ========================================================= */
-
-  const windowEl = document.getElementById("rex-window");
-  const toggle = document.getElementById("rex-toggle");
-  const close = document.getElementById("rex-close");
-  const messages = document.getElementById("rex-messages");
-  const form = document.getElementById("rex-form");
-  const input = document.getElementById("rex-input");
-
-
-  /* =========================================================
-     HELPERS
-     ========================================================= */
-
-  function addMessage(text, type = "bot") {
-    const message = document.createElement("div");
-
-    message.className =
-      `rex-message ${type === "user" ? "rex-user" : "rex-bot"}`;
-
-    message.textContent = text;
-
-    const time = document.createElement("span");
-    time.className = "rex-time";
-
-    const now = new Date();
-
-    time.textContent =
-      now.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit"
-      });
-
-    message.appendChild(time);
-
-    messages.appendChild(message);
-
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-
-  function normalize(text) {
-    return text
-      .toLowerCase()
-      .replace(/[’']/g, "")
-      .replace(/[^\w\s₹]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
-
-  /* =========================================================
-     REX RESPONSE ENGINE
-     ========================================================= */
-
-  function getResponse(raw) {
-
-    const q = normalize(raw);
-
-    /* ABOUT */
-
-    if (
-      q.includes("tell me about relmun") ||
-      q === "relmun" ||
-      q.includes("what is relmun") ||
-      q.includes("about relmun") ||
-      q.includes("what is this conference") ||
-      q.includes("what is the conference")
-    ) {
-      return `RELMUN '26 is an online Model United Nations conference focused on diplomacy, debate, engagement and leadership.
-
-📅 26–27 December 2026
-🌐 Online Conference
-💰 Registration is FREE
-📝 Registrations open 15 October 2026
-
-RELMUN features six committees: UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA.
-
-Follow @relmun.official for official announcements.`;
-    }
-
-
-    /* DATE */
-
-    if (
-      q.includes("when is relmun") ||
-      q.includes("relmun date") ||
-      q.includes("conference date") ||
-      q.includes("when does relmun")
-    ) {
-      return `RELMUN '26 takes place on 26–27 December 2026.
-
-The conference will be conducted online.`;
-    }
-
-
-    /* FORMAT */
-
-    if (
-      q.includes("online") ||
-      q.includes("offline") ||
-      q.includes("format")
-    ) {
-      return `RELMUN '26 is an online Model United Nations conference.
-
-📅 26–27 December 2026`;
-    }
-
-
-    /* REGISTRATION */
-
-    if (
-      q.includes("registration") ||
-      q.includes("register") ||
-      q.includes("fee") ||
-      q.includes("cost") ||
-      q.includes("price") ||
-      q.includes("free") ||
-      q.includes("200")
-    ) {
-      return `Delegate registrations for RELMUN '26 open on 15 October 2026.
-
-💰 Registration is completely FREE.
-
-Register for free through MyMUN or the official Google Form from 15 October 2026.`;
-    }
-
-
-    /* COMMITTEES */
-
-    if (
-      q.includes("committee") ||
-      q.includes("committees") ||
-      q.includes("council")
-    ) {
-      return `RELMUN '26 has six committees:
-
-1. UNSC — United Nations Security Council
-2. UNHRC — United Nations Human Rights Council
-3. UNODC — United Nations Office on Drugs and Crime
-4. AIPPM — All India Political Parties Meet
-5. UN Women
-6. IPLA — International Parliamentary Law Assembly`;
-    }
-
-
-    /* TEAM */
-
-    if (
-      q.includes("team") ||
-      q.includes("secretariat") ||
-      q.includes("core") ||
-      q.includes("organising") ||
-      q.includes("organizing")
-    ) {
-      return `The RELMUN '26 team is divided into the Core and Secretariat.
-
-CORE
-• Akshith Kabilan — Secretary-General
-• S. Shreyaas — Deputy Secretary-General
-• Laasya Vikram — Director-General
-• Aashi Kushwaha — Chief Advisor
-
-SECRETARIAT
-• Abimayur R — Head of Administration & Outreach
-• Madhav Bhardwaj — USG, Delegate Affairs`;
-    }
-
-
-    /* SECRETARY-GENERAL */
-
-    if (
-      q.includes("secretary general") ||
-      q.includes("sg") ||
-      q.includes("who runs relmun")
-    ) {
-      return `Akshith Kabilan is the Secretary-General of RELMUN '26.`;
-    }
-
-
-    /* CERTIFICATES */
-
-    if (
-      q.includes("certificate") ||
-      q.includes("certificates")
-    ) {
-      return `Yes. Certificates are provided to participants of RELMUN '26.`;
-    }
-
-
-    /* CONTACT */
-
-    if (
-      q.includes("contact") ||
-      q.includes("email") ||
-      q.includes("instagram") ||
-      q.includes("insta")
-    ) {
-      return `You can contact the RELMUN Secretariat at:
-
-📧 akshithkabilan@gmail.com
-📱 Instagram: @relmun.official`;
-    }
-
-
-    /* MUN */
-
-    if (
-      q.includes("mun") ||
-      q.includes("model united nations") ||
-      q.includes("delegate") ||
-      q.includes("mun flow")
-    ) {
-      return `RELMUN '26 is a Model United Nations conference where delegates participate in committee-based diplomatic debate.
-
-The six committees are UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA.
-
-Ask me about a specific committee or about registration if you want more information.`;
-    }
-
-
-    /* GREETINGS */
-
-    if (
-      q === "hi" ||
-      q === "hello" ||
-      q === "hey" ||
-      q === "hii" ||
-      q === "heyy"
-    ) {
-      return `Hey! I'm REX, the official RELMUN '26 assistant.
-
-Ask me anything about the conference, committees, registration, team, dates or MUN.`;
-    }
-
-
-    /* THANKS */
-
-    if (
-      q.includes("thank") ||
-      q === "thanks"
-    ) {
-      return `You're welcome! If you need anything else about RELMUN '26, just ask.`;
-    }
-
-
-    /* UNKNOWN */
-
-    return `I don't have an official answer for that yet.
-
-I can help with:
-
-• RELMUN '26
-• Conference dates
-• Registration is FREE
-• Committees
-• Core & Secretariat
-• Certificates
-• MUN procedures
-• Contact information
-
-Ask me something about RELMUN and I'll help.`;
-  }
-
-
-  /* =========================================================
-     WELCOME MESSAGE
-     ========================================================= */
-
-  addMessage(
-`I’m REX — the official AI assistant for RELMUN ’26.
-
-RELMUN ’26 is an online Model United Nations conference taking place on 26–27 December 2026.
-
-Ask me about the conference, committees, registration, team, dates, certificates or MUN.`,
-    "bot"
-  );
-
-
-  /* =========================================================
-     OPEN / CLOSE
-     ========================================================= */
-
-  toggle.addEventListener("click", () => {
-    windowEl.classList.toggle("open");
-
-    if (windowEl.classList.contains("open")) {
-      setTimeout(() => input.focus(), 150);
-    }
-  });
-
-  close.addEventListener("click", () => {
-    windowEl.classList.remove("open");
-  });
-
-
-  /* =========================================================
-     SEND MESSAGE
-     ========================================================= */
-
-  function sendMessage(text) {
-
-    text = text.trim();
-
-    if (!text) return;
-
-    addMessage(text, "user");
-
-    input.value = "";
-
-    setTimeout(() => {
-      const response = getResponse(text);
-      addMessage(response, "bot");
-    }, 300);
-  }
-
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    sendMessage(input.value);
-  });
-
-
-  /* =========================================================
-     SUGGESTION BUTTONS
-     ========================================================= */
-
-  document.querySelectorAll(".rex-suggestion").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      const question = button.dataset.question;
-
-      if (!question) return;
-
-      sendMessage(question);
     });
 
   });
 
-})();
+  gsap.from(letters,{
+    yPercent:120,
+    rotateX:-90,
+    opacity:0,
+    stagger:.06,
+    duration:1.2,
+    ease:"power4.out"
+  });
 
-(() => {
-  "use strict";
+  gsap.from("#s0 .lead",{
+    opacity:0,
+    y:20,
+    delay:.9,
+    duration:1
+  });
 
-  const root = document.getElementById("relmun-chatbot");
 
-  if (!root) {
-    console.warn("REX: #relmun-chatbot was not found.");
-    return;
-  }
+  const sc=[
+    ...document.querySelectorAll(".scene")
+  ];
 
-  /* =========================================================
-     RELMUN KNOWLEDGE BASE
-     ========================================================= */
 
-  const RELMUN = {
-    name: "RELMUN '26",
+  const tl=gsap.timeline({
 
-    fullName: "Regional Engagement & Leadership Model United Nations",
+    defaults:{
+      ease:"none"
+    },
 
-    dates: "26–27 December 2026",
+    scrollTrigger:{
+      trigger:"#stage",
+      start:"top top",
+      end:"+=1000%",
+      pin:true,
+      scrub:1,
+      anticipatePin:1,
 
-    format: "Online",
+      onUpdate:s=>{
 
-    registrationDate: "9 October 2026",
+        const i=
+          Math.min(
+            5,
+            Math.floor(s.progress*6)
+          );
 
-    registrationFee: "₹200 per delegate",
+        $("cur").textContent=i+1;
 
-    instagram: "@relmun.official",
+        $("fill").style.height=
+          s.progress*100+"%";
 
-    email: "akshithkabilan@gmail.com",
-
-    committees: [
-      {
-        short: "UNSC",
-        name: "United Nations Security Council"
-      },
-      {
-        short: "UNHRC",
-        name: "United Nations Human Rights Council"
-      },
-      {
-        short: "UNODC",
-        name: "United Nations Office on Drugs and Crime"
-      },
-      {
-        short: "AIPPM",
-        name: "All India Political Parties Meet"
-      },
-      {
-        short: "UN Women",
-        name: "United Nations Women"
-      },
-      {
-        short: "IPLA",
-        name: "International Parliamentary Law Assembly"
       }
-    ],
-
-    team: {
-      core: [
-        "Akshith Kabilan — Secretary-General",
-        "S. Shreyaas — Deputy Secretary-General",
-        "Laasya Vikram — Director-General",
-        "Aashi Kushwaha — Chief Advisor"
-      ],
-
-      secretariat: [
-        "Abimayur R — Head of Administration & Outreach",
-        "Madhav Bhardwaj — USG, Delegate Affairs"
-      ]
     }
+
+  });
+
+
+  const show=(el,t)=>{
+
+    tl.set(
+      el,
+      {className:"scene on"},
+      t
+    )
+
+    .fromTo(
+      el,
+      {
+        opacity:0,
+        y:70,
+        filter:"blur(14px)"
+      },
+      {
+        opacity:1,
+        y:0,
+        filter:"blur(0px)",
+        duration:.7
+      },
+      t
+    );
+
   };
 
 
-  /* =========================================================
-     STYLES
-     ========================================================= */
-
-  const style = document.createElement("style");
-
-  style.textContent = `
-    #rex-widget {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 99999;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    #rex-toggle {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      border: 1px solid rgba(241,236,224,.45);
-      background: #080808;
-      color: #f1ece0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 35px rgba(24,70,255,.16);
-      transition:
-        transform .3s ease,
-        border-color .3s ease,
-        box-shadow .3s ease;
-    }
-
-    #rex-toggle:hover {
-      transform: scale(1.07);
-      border-color: #1846ff;
-      box-shadow: 0 0 40px rgba(24,70,255,.3);
-    }
-
-    #rex-dot {
-      width: 8px;
-      height: 8px;
-      background: #f1ece0;
-      border-radius: 50%;
-      box-shadow: 0 0 12px rgba(241,236,224,.7);
-    }
-
-    #rex-window {
-      position: absolute;
-      right: 0;
-      bottom: 72px;
-      width: 365px;
-      max-width: calc(100vw - 30px);
-      height: 520px;
-      background:
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(24,70,255,.12),
-          transparent 35%
-        ),
-        #080808;
-      border: 1px solid rgba(241,236,224,.18);
-      overflow: hidden;
-      display: none;
-      flex-direction: column;
-      box-shadow:
-        0 25px 80px rgba(0,0,0,.55),
-        0 0 60px rgba(24,70,255,.08);
-      animation: rexIn .35s cubic-bezier(.2,.8,.2,1);
-    }
-
-    #rex-window.open {
-      display: flex;
-    }
-
-    @keyframes rexIn {
-      from {
-        opacity: 0;
-        transform: translateY(18px) scale(.96);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    #rex-header {
-      min-height: 68px;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(241,236,224,.12);
-      background: rgba(8,8,8,.92);
-    }
-
-    .rex-brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .rex-orb {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid rgba(24,70,255,.8);
-      position: relative;
-      box-shadow: 0 0 18px rgba(24,70,255,.22);
-    }
-
-    .rex-orb::after {
-      content: "";
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #1846ff;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      box-shadow: 0 0 12px #1846ff;
-    }
-
-    .rex-title {
-      color: #f1ece0;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: .18em;
-    }
-
-    .rex-subtitle {
-      color: rgba(241,236,224,.45);
-      font-size: 9px;
-      letter-spacing: .12em;
-      margin-top: 3px;
-    }
-
-    #rex-close {
-      border: 0;
-      background: transparent;
-      color: rgba(241,236,224,.65);
-      cursor: pointer;
-      font-size: 22px;
-      line-height: 1;
-    }
-
-    #rex-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(241,236,224,.25) transparent;
-    }
-
-    .rex-message {
-      max-width: 88%;
-      padding: 13px 15px;
-      font-size: 13px;
-      line-height: 1.65;
-      animation: messageIn .25s ease;
-      white-space: pre-line;
-    }
-
-    @keyframes messageIn {
-      from {
-        opacity: 0;
-        transform: translateY(7px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .rex-bot {
-      align-self: flex-start;
-      color: #f1ece0;
-      background: rgba(241,236,224,.045);
-      border: 1px solid rgba(241,236,224,.1);
-    }
-
-    .rex-user {
-      align-self: flex-end;
-      color: #fff;
-      background: #1846ff;
-    }
-
-    .rex-time {
-      display: block;
-      margin-top: 7px;
-      font-size: 8px;
-      letter-spacing: .1em;
-      opacity: .35;
-    }
-
-    #rex-suggestions {
-      padding: 0 15px 10px;
-      display: flex;
-      gap: 7px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    #rex-suggestions::-webkit-scrollbar {
-      display: none;
-    }
-
-    .rex-suggestion {
-      flex: 0 0 auto;
-      padding: 8px 11px;
-      border: 1px solid rgba(241,236,224,.16);
-      background: transparent;
-      color: rgba(241,236,224,.75);
-      font-size: 9px;
-      letter-spacing: .05em;
-      cursor: pointer;
-      transition: .2s ease;
-    }
-
-    .rex-suggestion:hover {
-      border-color: #1846ff;
-      color: #fff;
-    }
-
-    #rex-form {
-      display: flex;
-      border-top: 1px solid rgba(241,236,224,.12);
-      background: #080808;
-    }
-
-    #rex-input {
-      flex: 1;
-      min-width: 0;
-      padding: 17px 15px;
-      border: 0;
-      outline: none;
-      background: transparent;
-      color: #f1ece0;
-      font-size: 13px;
-      font-family: inherit;
-    }
-
-    #rex-input::placeholder {
-      color: rgba(241,236,224,.35);
-    }
-
-    #rex-send {
-      width: 58px;
-      border: 0;
-      border-left: 1px solid rgba(241,236,224,.1);
-      background: transparent;
-      color: #f1ece0;
-      cursor: pointer;
-      font-size: 16px;
-      transition: .2s ease;
-    }
-
-    #rex-send:hover {
-      background: #1846ff;
-    }
-
-    @media (max-width: 600px) {
-      #rex-widget {
-        right: 14px;
-        bottom: 14px;
-      }
-
-      #rex-window {
-        width: calc(100vw - 28px);
-        right: -1px;
-        height: min(600px, calc(100vh - 105px));
-      }
-    }
-  `;
-
-  document.head.appendChild(style);
-
-
-  /* =========================================================
-     BUILD UI
-     ========================================================= */
-
-  root.innerHTML = `
-    <div id="rex-widget">
-
-      <div id="rex-window">
-
-        <div id="rex-header">
-          <div class="rex-brand">
-            <div class="rex-orb"></div>
-            <div>
-              <div class="rex-title">REX</div>
-              <div class="rex-subtitle">RELMUN '26 ASSISTANT</div>
-            </div>
-          </div>
-
-          <button id="rex-close" aria-label="Close REX">×</button>
-        </div>
-
-        <div id="rex-messages"></div>
-
-        <div id="rex-suggestions">
-          <button class="rex-suggestion" data-question="Tell me about RELMUN">ABOUT RELMUN</button>
-          <button class="rex-suggestion" data-question="What committees are there?">COMMITTEES</button>
-          <button class="rex-suggestion" data-question="How much is registration?">REGISTRATION</button>
-          <button class="rex-suggestion" data-question="Who is on the team?">TEAM</button>
-        </div>
-
-        <form id="rex-form">
-          <input
-            id="rex-input"
-            type="text"
-            autocomplete="off"
-            placeholder="Ask REX anything..."
-          >
-          <button id="rex-send" type="submit">↗</button>
-        </form>
-
-      </div>
-
-      <button id="rex-toggle" aria-label="Open REX">
-        <span id="rex-dot"></span>
-      </button>
-
-    </div>
-  `;
-
-
-  /* =========================================================
-     ELEMENTS
-     ========================================================= */
-
-  const windowEl = document.getElementById("rex-window");
-  const toggle = document.getElementById("rex-toggle");
-  const close = document.getElementById("rex-close");
-  const messages = document.getElementById("rex-messages");
-  const form = document.getElementById("rex-form");
-  const input = document.getElementById("rex-input");
-
-
-  /* =========================================================
-     HELPERS
-     ========================================================= */
-
-  function addMessage(text, type = "bot") {
-    const message = document.createElement("div");
-
-    message.className =
-      `rex-message ${type === "user" ? "rex-user" : "rex-bot"}`;
-
-    message.textContent = text;
-
-    const time = document.createElement("span");
-    time.className = "rex-time";
-
-    const now = new Date();
-
-    time.textContent =
-      now.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit"
-      });
-
-    message.appendChild(time);
-
-    messages.appendChild(message);
-
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-
-  function normalize(text) {
-    return text
-      .toLowerCase()
-      .replace(/[’']/g, "")
-      .replace(/[^\w\s₹]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
-
-  /* =========================================================
-     REX RESPONSE ENGINE
-     ========================================================= */
-
-  function getResponse(raw) {
-
-    const q = normalize(raw);
-
-    /* ABOUT */
-
-    if (
-      q.includes("tell me about relmun") ||
-      q === "relmun" ||
-      q.includes("what is relmun") ||
-      q.includes("about relmun") ||
-      q.includes("what is this conference") ||
-      q.includes("what is the conference")
-    ) {
-      return `RELMUN '26 is an online Model United Nations conference focused on diplomacy, debate, engagement and leadership.
-
-📅 26–27 December 2026
-🌐 Online Conference
-💰 ₹200 per delegate
-📝 Registrations open 9 October 2026
-
-RELMUN features six committees: UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA.
-
-Follow @relmun.official for official announcements.`;
-    }
-
-
-    /* DATE */
-
-    if (
-      q.includes("when is relmun") ||
-      q.includes("relmun date") ||
-      q.includes("conference date") ||
-      q.includes("when does relmun")
-    ) {
-      return `RELMUN '26 takes place on 26–27 December 2026.
-
-The conference will be conducted online.`;
-    }
-
-
-    /* FORMAT */
-
-    if (
-      q.includes("online") ||
-      q.includes("offline") ||
-      q.includes("format")
-    ) {
-      return `RELMUN '26 is an online Model United Nations conference.
-
-📅 26–27 December 2026`;
-    }
-
-
-    /* REGISTRATION */
-
-    if (
-      q.includes("registration") ||
-      q.includes("register") ||
-      q.includes("fee") ||
-      q.includes("cost") ||
-      q.includes("price") ||
-      q.includes("₹200") ||
-      q.includes("200")
-    ) {
-      return `Delegate registrations for RELMUN '26 open on 9 October 2026.
-
-💰 Registration fee: ₹200 per delegate.
-
-The official registration platforms will be announced by the RELMUN team.`;
-    }
-
-
-    /* COMMITTEES */
-
-    if (
-      q.includes("committee") ||
-      q.includes("committees") ||
-      q.includes("council")
-    ) {
-      return `RELMUN '26 has six committees:
-
-1. UNSC — United Nations Security Council
-2. UNHRC — United Nations Human Rights Council
-3. UNODC — United Nations Office on Drugs and Crime
-4. AIPPM — All India Political Parties Meet
-5. UN Women
-6. IPLA — International Parliamentary Law Assembly`;
-    }
-
-
-    /* TEAM */
-
-    if (
-      q.includes("team") ||
-      q.includes("secretariat") ||
-      q.includes("core") ||
-      q.includes("organising") ||
-      q.includes("organizing")
-    ) {
-      return `The RELMUN '26 team is divided into the Core and Secretariat.
-
-CORE
-• Akshith Kabilan — Secretary-General
-• S. Shreyaas — Deputy Secretary-General
-• Laasya Vikram — Director-General
-• Aashi Kushwaha — Chief Advisor
-
-SECRETARIAT
-• Abimayur R — Head of Administration & Outreach
-• Madhav Bhardwaj — USG, Delegate Affairs`;
-    }
-
-
-    /* SECRETARY-GENERAL */
-
-    if (
-      q.includes("secretary general") ||
-      q.includes("sg") ||
-      q.includes("who runs relmun")
-    ) {
-      return `Akshith Kabilan is the Secretary-General of RELMUN '26.`;
-    }
-
-
-    /* CERTIFICATES */
-
-    if (
-      q.includes("certificate") ||
-      q.includes("certificates")
-    ) {
-      return `Yes. Certificates are provided to participants of RELMUN '26.`;
-    }
-
-
-    /* CONTACT */
-
-    if (
-      q.includes("contact") ||
-      q.includes("email") ||
-      q.includes("instagram") ||
-      q.includes("insta")
-    ) {
-      return `You can contact the RELMUN Secretariat at:
-
-📧 akshithkabilan@gmail.com
-📱 Instagram: @relmun.official`;
-    }
-
-
-    /* MUN */
-
-    if (
-      q.includes("mun") ||
-      q.includes("model united nations") ||
-      q.includes("delegate") ||
-      q.includes("mun flow")
-    ) {
-      return `RELMUN '26 is a Model United Nations conference where delegates participate in committee-based diplomatic debate.
-
-The six committees are UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA.
-
-Ask me about a specific committee or about registration if you want more information.`;
-    }
-
-
-    /* GREETINGS */
-
-    if (
-      q === "hi" ||
-      q === "hello" ||
-      q === "hey" ||
-      q === "hii" ||
-      q === "heyy"
-    ) {
-      return `Hey! I'm REX, the official RELMUN '26 assistant.
-
-Ask me anything about the conference, committees, registration, team, dates or MUN.`;
-    }
-
-
-    /* THANKS */
-
-    if (
-      q.includes("thank") ||
-      q === "thanks"
-    ) {
-      return `You're welcome! If you need anything else about RELMUN '26, just ask.`;
-    }
-
-
-    /* UNKNOWN */
-
-    return `I don't have an official answer for that yet.
-
-I can help with:
-
-• RELMUN '26
-• Conference dates
-• Registration & ₹200 fee
-• Committees
-• Core & Secretariat
-• Certificates
-• MUN procedures
-• Contact information
-
-Ask me something about RELMUN and I'll help.`;
-  }
-
-
-  /* =========================================================
-     WELCOME MESSAGE
-     ========================================================= */
-
-  addMessage(
-`I’m REX — the official AI assistant for RELMUN ’26.
-
-RELMUN ’26 is an online Model United Nations conference taking place on 26–27 December 2026.
-
-Ask me about the conference, committees, registration, team, dates, certificates or MUN.`,
-    "bot"
+  const hide=(el,t)=>{
+
+    tl.to(
+      el,
+      {
+        opacity:0,
+        y:-70,
+        filter:"blur(14px)",
+        duration:.7
+      },
+      t
+    )
+
+    .set(
+      el,
+      {className:"scene"},
+      t+.7
+    );
+
+  };
+
+
+  tl.to(
+    g,
+    {
+      rotationY:900,
+      rotationX:25,
+      duration:16
+    },
+    0
+  );
+
+  tl.to(
+    g,
+    {
+      scale:1,
+      duration:.1
+    },
+    0
   );
 
 
-  /* =========================================================
-     OPEN / CLOSE
-     ========================================================= */
+  hide(sc[0],1);
 
-  toggle.addEventListener("click", () => {
-    windowEl.classList.toggle("open");
+  tl.to(
+    g,
+    {
+      scale:1.7,
+      duration:1.2
+    },
+    1
+  );
 
-    if (windowEl.classList.contains("open")) {
-      setTimeout(() => input.focus(), 150);
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#0b1a4d",
+      duration:1
+    },
+    1
+  );
+
+
+  show(sc[1],2);
+
+  tl.from(
+    "#words span",
+    {
+      opacity:.08,
+      y:30,
+      stagger:.25,
+      duration:.5
+    },
+    2.3
+  );
+
+  hide(sc[1],4.6);
+
+
+  tl.to(
+    g,
+    {
+      scale:.9,
+      x:"-25vw",
+      duration:1.2
+    },
+    4.6
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#070d24",
+      duration:1
+    },
+    4.6
+  );
+
+
+  show(sc[2],5.4);
+
+  const track=$("track");
+
+  tl.to(
+    track,
+    {
+      x:()=>-(
+        track.scrollWidth-
+        innerWidth+
+        innerWidth*.07
+      ),
+      duration:3.4
+    },
+    6.2
+  );
+
+  hide(sc[2],9.8);
+
+
+  tl.to(
+    g,
+    {
+      scale:2.4,
+      x:0,
+      y:"18vh",
+      duration:1.2
+    },
+    9.8
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#2a1a05",
+      duration:1
+    },
+    9.8
+  );
+
+
+  show(sc[3],10.6);
+
+  hide(sc[3],12.2);
+
+
+  tl.to(
+    g,
+    {
+      scale:1.1,
+      y:0,
+      duration:1.2
+    },
+    12.2
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#0a1230",
+      duration:1
+    },
+    12.2
+  );
+
+
+  show(sc[4],13);
+
+  /*
+    TEAM EFFECTS
+  */
+
+  tl.from(
+    "#s4 .team-section-label",
+    {
+      opacity:0,
+      x:-40,
+      stagger:.2,
+      duration:.4
+    },
+    13.2
+  );
+
+  tl.from(
+    "#s4 .team-person",
+    {
+      opacity:0,
+      y:40,
+      rotateX:-20,
+      stagger:.15,
+      duration:.45
+    },
+    13.3
+  );
+
+  hide(sc[4],14.6);
+
+
+  tl.to(
+    g,
+    {
+      scale:1.5,
+      duration:1.2
+    },
+    14.6
+  );
+
+  tl.to(
+    "#stage",
+    {
+      backgroundColor:"#0b1a4d",
+      duration:1
+    },
+    14.6
+  );
+
+
+  show(sc[5],15.4);
+
+  tl.to(
+    {},
+    {
+      duration:1.6
+    },
+    15.4
+  );
+
+
+  /* MAGNETIC CTA */
+
+  const c=$("cta");
+
+  c.addEventListener(
+    "mousemove",
+    e=>{
+
+      const r=c.getBoundingClientRect();
+
+      gsap.to(c,{
+        x:(e.clientX-r.left-r.width/2)*.25,
+        y:(e.clientY-r.top-r.height/2)*.25,
+        duration:.3
+      });
+
     }
-  });
+  );
 
-  close.addEventListener("click", () => {
-    windowEl.classList.remove("open");
-  });
+  c.addEventListener(
+    "mouseleave",
+    ()=>{
+      gsap.to(c,{
+        x:0,
+        y:0,
+        duration:.7,
+        ease:"elastic.out(1,.4)"
+      });
+    }
+  );
 
 
-  /* =========================================================
-     SEND MESSAGE
-     ========================================================= */
+  addEventListener(
+    "load",
+    ()=>setTimeout(
+      ()=>ScrollTrigger.refresh(),
+      300
+    )
+  );
 
-  function sendMessage(text) {
+}
 
-    text = text.trim();
 
-    if (!text) return;
+/* =========================================
+   COMMITTEE DATA
+========================================= */
 
-    addMessage(text, "user");
+const committees={
 
-    input.value = "";
+  "UNSC":{
+    title:"United Nations Security Council",
+    description:"Global peace and security."
+  },
 
-    setTimeout(() => {
-      const response = getResponse(text);
-      addMessage(response, "bot");
-    }, 300);
+  "UNHRC":{
+    title:"United Nations Human Rights Council",
+    description:"Rights, protections and accountability."
+  },
+
+  "UNODC":{
+    title:"United Nations Office on Drugs and Crime",
+    description:"Trafficking, crime and justice."
+  },
+
+  "AIPPM":{
+    title:"All India Political Parties Meet",
+    description:"Indian politics, party against party."
+  },
+
+  "UN Women":{
+    title:"UN Women",
+    description:"Gender equality and advancing rights and opportunity for women."
+  },
+
+  "IPLA":{
+    title:"IPL Auction",
+    description:"Bid, build a squad, and outsmart the room."
   }
 
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    sendMessage(input.value);
-  });
+};
 
 
-  /* =========================================================
-     SUGGESTION BUTTONS
-     ========================================================= */
+/* =========================================
+   COMMITTEE PAGE OPEN/CLOSE
+========================================= */
 
-  document.querySelectorAll(".rex-suggestion").forEach(button => {
+const committeePage=$("committeePage");
 
-    button.addEventListener("click", () => {
+function openCommittee(code){
 
-      const question = button.dataset.question;
+  const data=committees[code];
 
-      if (!question) return;
+  if(!data) return;
 
-      sendMessage(question);
-    });
+  $("committeeCode").textContent=code;
 
-  });
+  $("committeeTitle").textContent=
+    data.title;
 
-})();
+  $("committeeDescription").textContent=
+    data.description;
+
+  committeePage.classList.add("open");
+
+  document.body.style.overflow="hidden";
+
+  if(!reduce){
+
+    gsap.fromTo(
+      committeePage,
+      {
+        opacity:0
+      },
+      {
+        opacity:1,
+        duration:.45,
+        ease:"power3.out"
+      }
+    );
+
+    gsap.fromTo(
+      ".committee-inner > *",
+      {
+        opacity:0,
+        y:35
+      },
+      {
+        opacity:1,
+        y:0,
+        stagger:.07,
+        duration:.5,
+        delay:.12,
+        ease:"power3.out"
+      }
+    );
+
+  }else{
+
+    committeePage.style.opacity="1";
+
+  }
+
+}
+
+
+function closeCommittee(){
+
+  if(!reduce){
+
+    gsap.to(
+      committeePage,
+      {
+        opacity:0,
+        duration:.3,
+        ease:"power2.in",
+        onComplete:()=>{
+          committeePage.classList.remove("open");
+          document.body.style.overflow="";
+        }
+      }
+    );
+
+  }else{
+
+    committeePage.classList.remove("open");
+    document.body.style.overflow="";
+
+  }
+
+}
+
+
+document.querySelectorAll(".committee-card")
+.forEach(card=>{
+
+  card.addEventListener(
+    "click",
+    ()=>{
+      openCommittee(
+        card.dataset.committee
+      );
+    }
+  );
+
+});
+
+
+$("committeeClose")
+.addEventListener(
+  "click",
+  closeCommittee
+);
+
+
+$("committeeBack")
+.addEventListener(
+  "click",
+  e=>{
+    e.preventDefault();
+    closeCommittee();
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  e=>{
+    if(
+      e.key==="Escape" &&
+      committeePage.classList.contains("open")
+    ){
+      closeCommittee();
+    }
+  }
+);
+
+
+/* =========================================
+   REX
+========================================= */
+
+const KB=[
+
+  [
+    /thank/,
+    "You're welcome! Ask me anything else about <b>RELMUN '26</b>."
+  ],
+
+  [
+    /committee|council|unsc|unhrc|unodc|aippm|women|ipla/,
+    "<b>Committees:</b> UNSC, UNHRC, UNODC, AIPPM (All India Political Parties Meet), UN Women and IPLA (IPL Auction). Click any committee card on the main page to open its detailed view."
+  ],
+
+  [
+    /date|when/,
+    "RELMUN '26 runs on <b>26–27 December 2026</b>, fully online."
+  ],
+
+  [
+    /regist|fee|cost|price|how much/,
+    "Delegate registrations open on <b>15 October 2026</b>. Registration is <b>FREE</b>."
+  ],
+
+  [
+    /secretary|akshith/,
+    "The Secretary-General is <b>Akshith Kabilan</b>, part of the Core team."
+  ],
+
+  [
+    /aashi/,
+    "<b>Aashi Kushwaha</b> is the Chief Advisor and is part of the <b>Core</b> team."
+  ],
+
+  [
+    /abimayur/,
+    "<b>Abimayur R</b> is Head of Administration &amp; Outreach and is part of the <b>Secretariat</b>."
+  ],
+
+  [
+    /madhav/,
+    "<b>Madhav Bhardwaj</b> is USG, Delegate Affairs and is part of the <b>Secretariat</b>."
+  ],
+
+  [
+    /team|organi|core|secretariat/,
+    "<b>Core:</b> Akshith Kabilan (Secretary-General), S. Shreyaas (Deputy Secretary-General), Laasya Vikram (Director-General), Aashi Kushwaha (Chief Advisor).<br><br><b>Secretariat:</b> Abimayur R (Head of Administration &amp; Outreach), Madhav Bhardwaj (USG, Delegate Affairs)."
+  ],
+
+  [
+    /\beb\b|executive|chair/,
+    "The Executive Board guides debate and procedure. The lineup is being finalised."
+  ],
+
+  [
+    /certif/,
+    "Certificates are provided to RELMUN '26 participants."
+  ],
+
+  [
+    /online|offline|mode/,
+    "RELMUN '26 is a <b>fully online</b> conference."
+  ],
+[
+    /contact|email|instagram|reach/,
+    "For official enquiries, email <b>relmun.official@gmail.com</b> or contact <b>@relmun.official</b> on Instagram."
+  ],
+
+  [
+    /about|what is|relmun/,
+    "<b>RELMUN</b> is the Regional Engagement &amp; Leadership Model United Nations, a fully online MUN on 26–27 December 2026 with six committees."
+  ]
+
+];
+
+
+const rm=$("rm");
+
+
+function say(t,c){
+
+  const d=document.createElement("div");
+
+  d.className=c||"";
+
+  d.innerHTML=t;
+
+  rm.appendChild(d);
+
+  rm.scrollTop=rm.scrollHeight;
+
+}
+
+
+$("rl").onclick=()=>{
+
+  $("rw").classList.add("open");
+
+  $("rl").style.display="none";
+
+  $("ri").focus();
+
+};
+
+
+$("rc").onclick=()=>{
+
+  $("rw").classList.remove("open");
+
+  $("rl").style.display="block";
+
+};
+
+
+$("rf").onsubmit=e=>{
+
+  e.preventDefault();
+
+  const q=$("ri").value.trim();
+
+  if(!q) return;
+
+  const esc=document.createElement("span");
+
+  esc.textContent=q;
+
+  say(
+    esc.innerHTML,
+    "u"
+  );
+
+  $("ri").value="";
+
+  const hit=
+    KB.find(
+      k=>k[0].test(
+        q.toLowerCase()
+      )
+    );
+
+  setTimeout(
+    ()=>say(
+      hit
+      ? hit[1]
+      : "I can help with <b>RELMUN</b>, dates, committees, registration, the Core, Secretariat, certificates and contact details."
+    ),
+    250
+  );
+
+};
+
+
+say(
+  "Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees, registration, the Core, Secretariat or anything about the conference."
+);
+
+</script>
+
+</body>
+</html>
