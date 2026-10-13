@@ -3,156 +3,486 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
+  <meta name="description" content="Register for RELMUN 2026, an online Model United Nations conference taking place on 26–27 December 2026. Delegate registration is free.">
+  <title>Delegate Registration — RELMUN 2026</title>
 
-  <title>Register — RELMUN 2026</title>
-
-  <link rel="icon" href="relmun-logo.png">
   <link rel="stylesheet" href="style.css">
 
   <style>
-    .registration-page {
-      min-height: 75vh;
-      padding: clamp(9rem, 16vh, 13rem) var(--pad) 6rem;
+    :root {
+      --reg-black: #080808;
+      --reg-ivory: #F1ECE0;
+      --reg-blue: #0e2999;
+      --reg-gold: #C79A2B;
+      --reg-muted: rgba(241, 236, 224, .58);
+      --reg-line: rgba(241, 236, 224, .14);
+      --reg-ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--reg-black);
+    }
+
+    body {
+      background: var(--reg-black);
+      color: var(--reg-ivory);
+      overflow-x: hidden;
+    }
+
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .reg-shell {
       position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      padding: clamp(8rem, 15vh, 12rem) clamp(1.25rem, 7vw, 7rem) 6rem;
       overflow: hidden;
     }
 
-    .registration-page::before {
+    .reg-shell::before {
       content: "";
       position: absolute;
-      width: 60vw;
-      height: 60vw;
-      max-width: 650px;
-      max-height: 650px;
-      right: -15%;
-      top: 8rem;
-      border: 1px solid rgba(199, 154, 43, .25);
+      z-index: -1;
+      top: 3%;
+      right: -15rem;
+      width: min(65vw, 750px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(199, 154, 43, .17);
       border-radius: 50%;
-      box-shadow: inset 0 0 0 8vw rgba(14, 41, 153, .12);
+      box-shadow:
+        0 0 0 65px rgba(199, 154, 43, .025),
+        0 0 0 130px rgba(14, 41, 153, .045);
+      pointer-events: none;
+      animation: orbit-arrive 1.5s var(--reg-ease) both;
+    }
+
+    .reg-shell::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 65%;
+      background: linear-gradient(
+        180deg,
+        rgba(14, 41, 153, .09),
+        transparent 85%
+      );
       pointer-events: none;
     }
 
-    .registration-header,
-    .registration-lock {
-      position: relative;
-      z-index: 1;
-      max-width: 1050px;
+    .reg-container {
+      width: 100%;
+      max-width: 1180px;
+      margin-inline: auto;
     }
 
-    .registration-header .eyebrow,
-    .registration-lock .eyebrow {
-      color: var(--au);
-      font-size: .72rem;
-      letter-spacing: .2em;
+    .reg-intro {
+      animation: reveal-up .9s var(--reg-ease) both;
+    }
+
+    .reg-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      color: var(--reg-gold);
+      font-size: .68rem;
+      letter-spacing: .22em;
+      font-weight: 600;
       text-transform: uppercase;
     }
 
-    .registration-header h1 {
-      font-size: clamp(4.5rem, 15vw, 12rem);
+    .reg-eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--reg-gold);
+    }
+
+    .reg-title {
+      margin: 2.1rem 0 1.7rem;
+      font-size: clamp(4rem, 11.5vw, 9.5rem);
       line-height: .82;
-      margin: 2rem 0;
+      letter-spacing: -.085em;
+      font-weight: 500;
     }
 
-    .registration-header h1 em {
-      color: var(--au);
+    .reg-title span {
+      display: block;
     }
 
-    .registration-header p {
-      max-width: 620px;
-      font-family: var(--serif);
-      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
-      line-height: 1.45;
-      margin-bottom: 4rem;
+    .reg-title .reg-title-accent {
+      color: var(--reg-gold);
+      font-family: var(--serif, Georgia, serif);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -.075em;
+      margin-top: .13em;
     }
 
-    .registration-lock {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 2rem 0 3rem;
+    .reg-description {
+      max-width: 570px;
+      color: var(--reg-muted);
+      font-family: var(--serif, Georgia, serif);
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      line-height: 1.7;
+      margin: 2.5rem 0 3rem;
     }
 
-    .registration-lock h2 {
-      font-size: clamp(2.5rem, 7vw, 5.5rem);
-      margin: 1.5rem 0;
-      line-height: .95;
+    .reg-description strong {
+      color: var(--reg-ivory);
+      font-weight: 500;
     }
 
-    .registration-lock > p {
-      color: var(--dim);
-      max-width: 600px;
-      margin-bottom: 2rem;
+    .reg-free {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      padding: .65rem .95rem;
+      border: 1px solid rgba(199, 154, 43, .38);
+      border-radius: 2px;
+      color: var(--reg-gold);
+      font-size: .67rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
     }
 
-    .lock-countdown {
+    .reg-free::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--reg-gold);
+    }
+
+    .reg-panel {
+      margin-top: clamp(4rem, 10vw, 8rem);
+      border-top: 1px solid var(--reg-line);
+      padding-top: 2rem;
+      animation: reveal-up 1s .12s var(--reg-ease) both;
+    }
+
+    .reg-panel-top {
       display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      align-items: baseline;
-      font-family: var(--serif);
-      font-size: clamp(2rem, 7vw, 5rem);
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .reg-panel-kicker {
+      color: var(--reg-muted);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .reg-panel h2 {
+      margin: 1rem 0 0;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .reg-panel h2 em {
+      color: var(--reg-gold);
+      font-family: var(--serif, Georgia, serif);
+      font-weight: 400;
+    }
+
+    .reg-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      flex-shrink: 0;
+      padding: .65rem .85rem;
+      border: 1px solid var(--reg-line);
+      color: var(--reg-muted);
+      font-size: .62rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .reg-status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--reg-gold);
+      border-radius: 50%;
+    }
+
+    .reg-status.is-open .reg-status-dot {
+      background: #79B88A;
+    }
+
+    .reg-countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--reg-line);
+      border-bottom: 1px solid var(--reg-line);
+      margin-bottom: 3rem;
+    }
+
+    .reg-time-unit {
+      padding: 1.5rem clamp(.5rem, 2.5vw, 2rem) 1.7rem;
+      border-right: 1px solid var(--reg-line);
+      min-width: 0;
+    }
+
+    .reg-time-unit:last-child {
+      border-right: 0;
+    }
+
+    .reg-time-number {
+      display: block;
+      font-family: var(--serif, Georgia, serif);
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      line-height: 1.1;
       font-variant-numeric: tabular-nums;
-      color: var(--iv);
-      margin: 1.5rem 0 2.5rem;
+      letter-spacing: -.04em;
+      transition: opacity .2s ease;
     }
 
-    .lock-countdown small {
-      font-family: var(--sans);
-      font-size: .65rem;
-      color: var(--dim);
-      letter-spacing: .12em;
-      margin-right: .8rem;
+    .reg-time-label {
+      display: block;
+      margin-top: .65rem;
+      color: var(--reg-muted);
+      font-size: .61rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
     }
 
-    .registration-portals {
+    .reg-portals-heading {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .reg-portals-heading h3 {
+      margin: 0;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .reg-portals-heading span {
+      color: var(--reg-muted);
+      font-size: .72rem;
+    }
+
+    .reg-portals {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .reg-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      padding: clamp(1.4rem, 3vw, 2.3rem);
+      border: 1px solid var(--reg-line);
+      background: rgba(241, 236, 224, .018);
+      color: var(--reg-ivory);
+      text-decoration: none;
+      transition:
+        border-color .4s var(--reg-ease),
+        background .4s var(--reg-ease),
+        transform .4s var(--reg-ease);
+    }
+
+    .reg-card:hover,
+    .reg-card:focus-visible {
+      border-color: rgba(199, 154, 43, .65);
+      background: rgba(199, 154, 43, .045);
+      transform: translateY(-4px);
+      outline: none;
+    }
+
+    .reg-card:focus-visible {
+      box-shadow: 0 0 0 2px var(--reg-gold);
+    }
+
+    .reg-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .reg-card-index {
+      color: var(--reg-gold);
+      font-size: .65rem;
+      letter-spacing: .15em;
+    }
+
+    .reg-card-arrow {
+      font-size: 1.3rem;
+      transition: transform .4s var(--reg-ease);
+    }
+
+    .reg-card:hover .reg-card-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    .reg-card h4 {
+      margin: auto 0 .7rem;
+      padding-top: 2.5rem;
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }
+
+    .reg-card p {
+      max-width: 340px;
+      margin: 0;
+      color: var(--reg-muted);
+      font-size: .83rem;
+      line-height: 1.7;
+    }
+
+    .reg-card.is-locked {
+      opacity: .58;
+    }
+
+    .reg-card.is-locked:hover {
+      transform: none;
+      border-color: var(--reg-line);
+      background: rgba(241, 236, 224, .018);
+    }
+
+    .reg-card.is-locked .reg-card-arrow {
+      display: none;
+    }
+
+    .reg-note {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      margin-top: 1.5rem;
+      color: var(--reg-muted);
+      font-size: .75rem;
+      line-height: 1.8;
+    }
+
+    .reg-note span {
+      color: var(--reg-gold);
+    }
+
+    .reg-bottom {
+      display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-top: 2rem;
+      margin-top: 5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--reg-line);
+      color: var(--reg-muted);
+      font-size: .65rem;
+      letter-spacing: .1em;
     }
 
-    .registration-option {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 210px;
-      padding: 1.2rem 1.6rem;
-      border: 1px solid var(--au);
-      color: var(--iv);
-      font-size: .75rem;
-      letter-spacing: .15em;
-      transition: background .25s, color .25s, opacity .25s;
+    .reg-bottom a {
+      color: var(--reg-ivory);
+      text-decoration: none;
+      transition: color .25s ease;
     }
 
-    .registration-option:not(.locked):hover {
-      background: var(--au);
-      color: var(--k);
+    .reg-bottom a:hover {
+      color: var(--reg-gold);
     }
 
-    .registration-option.locked {
-      opacity: .55;
-      cursor: not-allowed;
-      border-color: var(--line);
+    @keyframes reveal-up {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .registration-note {
-      color: var(--dim);
-      font-size: .75rem;
-      margin-top: 1.5rem;
+    @keyframes orbit-arrive {
+      from {
+        opacity: 0;
+        transform: translate(30px, 10px) scale(.97);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
     }
 
-    @media (max-width: 767px) {
-      .registration-header h1 {
-        font-size: clamp(4rem, 18vw, 7rem);
+    @media (max-width: 650px) {
+      .reg-shell {
+        padding-top: 8rem;
       }
 
-      .registration-portals {
+      .reg-shell::before {
+        width: 95vw;
+        right: -55vw;
+        top: 4rem;
+      }
+
+      .reg-title {
+        font-size: clamp(4rem, 17vw, 7rem);
+      }
+
+      .reg-panel-top {
         flex-direction: column;
+        gap: 1.25rem;
       }
 
-      .registration-option {
-        width: 100%;
+      .reg-countdown {
+        margin-bottom: 2.25rem;
+      }
+
+      .reg-time-unit {
+        padding: 1.15rem .4rem;
+      }
+
+      .reg-time-number {
+        font-size: clamp(1.65rem, 8vw, 2.7rem);
+      }
+
+      .reg-time-label {
+        font-size: .49rem;
+        letter-spacing: .08em;
+      }
+
+      .reg-portals {
+        grid-template-columns: 1fr;
+      }
+
+      .reg-card {
+        min-height: 185px;
+      }
+
+      .reg-bottom {
+        flex-direction: column;
+        gap: .8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -163,23 +493,14 @@
 <header>
   <nav class="nav" aria-label="Main navigation">
     <a href="index.html" aria-label="RELMUN home">
-      <img
-        src="relmun-logo.png"
-        alt="RELMUN 2026"
-        style="width:76px;max-height:52px;object-fit:contain"
-      >
+      <img src="relmun-logo.png" alt="RELMUN 2026"
+           style="width:76px;max-height:52px;object-fit:contain">
     </a>
 
-    <button
-      class="burger"
-      id="navMenu"
-      aria-label="Open navigation"
-      aria-expanded="false"
-      aria-controls="navLinks"
-      type="button"
-    >
-      <span></span>
-      <span></span>
+    <button class="burger" id="navMenu" type="button"
+            aria-label="Open navigation" aria-expanded="false"
+            aria-controls="navLinks">
+      <span></span><span></span>
     </button>
 
     <div class="links" id="navLinks">
@@ -193,219 +514,218 @@
   </nav>
 </header>
 
-<main class="registration-page">
+<main class="reg-shell">
+  <div class="reg-container">
 
-  <section class="registration-header">
-    <span class="eyebrow">
-      RELMUN '26 · DELEGATE REGISTRATION
-    </span>
+    <section class="reg-intro">
+      <div class="reg-eyebrow">RELMUN 2026 · DELEGATE REGISTRATION</div>
 
-    <h1>JOIN<br><em>RELMUN.</em></h1>
+      <h1 class="reg-title">
+        <span>YOUR VOICE.</span>
+        <span class="reg-title-accent">Your world.</span>
+      </h1>
 
-    <p>
-      Be part of Relations, Engagement &amp; Leadership MUN 2026.
-      Delegate registration is completely <strong>FREE.</strong>
-      Registrations open on <strong>15 October 2026.</strong>
-    </p>
-  </section>
+      <p class="reg-description">
+        Two days. A world of perspectives. One global conversation.
+        Join <strong>Relations, Engagement &amp; Leadership MUN 2026</strong>,
+        an online conference taking place on 26–27 December.
+      </p>
 
-  <section
-    class="registration-lock"
-    id="registrationStatus"
-    aria-live="polite"
-  >
-    <span class="eyebrow">REGISTRATION WINDOW</span>
+      <div class="reg-free">Delegate registration · Free</div>
+    </section>
 
-    <h2 id="statusTitle">REGISTRATIONS OPEN IN</h2>
+    <section class="reg-panel" aria-labelledby="registrationTitle">
+      <div class="reg-panel-top">
+        <div>
+          <div class="reg-panel-kicker">The next chapter starts here</div>
+          <h2 id="registrationTitle">
+            Make your<br><em>position count.</em>
+          </h2>
+        </div>
 
-    <p id="statusText">
-      Delegate registration opens on 15 October 2026.
-      Registration is free for everyone.
-    </p>
+        <div class="reg-status" id="regStatus">
+          <span class="reg-status-dot"></span>
+          <span id="regStatusText">Opening soon</span>
+        </div>
+      </div>
 
-    <div
-      class="lock-countdown"
-      id="lockCountdown"
-      aria-label="Time until registration opens"
-    >
-      <span>--</span>
-    </div>
+      <div class="reg-countdown" id="regCountdown"
+           aria-label="Time until registration opens">
+        <div class="reg-time-unit">
+          <span class="reg-time-number" id="regDays">--</span>
+          <span class="reg-time-label">Days</span>
+        </div>
+        <div class="reg-time-unit">
+          <span class="reg-time-number" id="regHours">--</span>
+          <span class="reg-time-label">Hours</span>
+        </div>
+        <div class="reg-time-unit">
+          <span class="reg-time-number" id="regMinutes">--</span>
+          <span class="reg-time-label">Minutes</span>
+        </div>
+        <div class="reg-time-unit">
+          <span class="reg-time-number" id="regSeconds">--</span>
+          <span class="reg-time-label">Seconds</span>
+        </div>
+      </div>
 
-    <div class="registration-portals">
+      <div class="reg-portals-heading">
+        <h3>Choose your registration platform</h3>
+        <span>Two ways to join</span>
+      </div>
 
-      <a
-        class="registration-option locked"
-        data-registration-link
-        href="https://mymun.com/conferences/relmun-2026"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-disabled="true"
-      >
-        <span data-button-label>MYMUN</span>
-        <span aria-hidden="true">&nbsp;↗</span>
-      </a>
+      <div class="reg-portals">
+        <a class="reg-card is-locked"
+           data-registration
+           href="https://mymun.com/conferences/relmun-2026"
+           target="_blank" rel="noopener noreferrer"
+           aria-disabled="true">
+          <div class="reg-card-top">
+            <span class="reg-card-index">01 / MYMUN</span>
+            <span class="reg-card-arrow" aria-hidden="true">↗</span>
+          </div>
+          <h4>Register via MyMUN</h4>
+          <p>Visit the official RELMUN 2026 conference listing.</p>
+        </a>
 
-      <a
-        class="registration-option locked"
-        data-registration-link
-        href="https://forms.gle/TWoYZ2fm4Vx6zmUG9"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-disabled="true"
-      >
-        <span data-button-label>GOOGLE FORMS</span>
-        <span aria-hidden="true">&nbsp;↗</span>
-      </a>
+        <a class="reg-card is-locked"
+           data-registration
+           href="https://forms.gle/TWoYZ2fm4Vx6zmUG9"
+           target="_blank" rel="noopener noreferrer"
+           aria-disabled="true">
+          <div class="reg-card-top">
+            <span class="reg-card-index">02 / GOOGLE FORMS</span>
+            <span class="reg-card-arrow" aria-hidden="true">↗</span>
+          </div>
+          <h4>Register via Google Forms</h4>
+          <p>Complete the delegate registration form online.</p>
+        </a>
+      </div>
 
-    </div>
+      <div class="reg-note" id="regNote" aria-live="polite">
+        <span>✳</span>
+        <span id="regNoteText">
+          Registration opens on 15 October 2026. There is no delegate registration fee.
+        </span>
+      </div>
+    </section>
 
-    <p class="registration-note">
-      No registration fee. Choose either registration platform
-      once the registration window opens.
-    </p>
-  </section>
+    <footer class="reg-bottom">
+      <span>RELMUN '26 · ONLINE CONFERENCE</span>
+      <span>26—27 DECEMBER 2026</span>
+      <a href="index.html">BACK TO HOME ↗</a>
+    </footer>
 
+  </div>
 </main>
-
-<footer class="foot">
-  <div>
-    <a href="index.html">
-      <img
-        src="relmun-logo.png"
-        alt="RELMUN 2026"
-        style="width:90px;max-height:65px;object-fit:contain;margin-bottom:1rem"
-      >
-    </a>
-    <strong>RELMUN '26</strong>
-    <span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
-  </div>
-
-  <div>
-    <span>26—27 DECEMBER 2026</span><br>
-    <span>ONLINE CONFERENCE</span>
-  </div>
-
-  <div>
-    <a href="mailto:akshithkabilan@gmail.com">
-      akshithkabilan@gmail.com
-    </a>
-  </div>
-</footer>
-
-<div id="relmun-chatbot"></div>
 
 <script>
 (() => {
   "use strict";
 
-  // India Standard Time: registration opens at midnight on 15 October.
+  // Registration opens at midnight IST on 15 October 2026.
   const OPEN_DATE = new Date("2026-10-15T00:00:00+05:30");
+  const now = () => Date.now();
 
-  const countdown = document.getElementById("lockCountdown");
-  const statusTitle = document.getElementById("statusTitle");
-  const statusText = document.getElementById("statusText");
-  const portals = document.querySelectorAll("[data-registration-link]");
+  const $ = id => document.getElementById(id);
 
-  let registrationOpen = null;
+  const daysEl = $("regDays");
+  const hoursEl = $("regHours");
+  const minutesEl = $("regMinutes");
+  const secondsEl = $("regSeconds");
+  const countdown = $("regCountdown");
+  const status = $("regStatus");
+  const statusText = $("regStatusText");
+  const noteText = $("regNoteText");
+  const registrationLinks = document.querySelectorAll("[data-registration]");
 
-  function updateRegistration() {
-    const now = Date.now();
-    const remaining = OPEN_DATE.getTime() - now;
-    const isOpen = remaining <= 0;
+  let isOpen = null;
+  let intervalId;
 
-    if (registrationOpen !== isOpen) {
-      registrationOpen = isOpen;
+  function updateCountdown() {
+    const remaining = OPEN_DATE.getTime() - now();
+    const open = remaining <= 0;
 
-      if (isOpen) {
-        statusTitle.textContent = "REGISTRATIONS ARE OPEN";
-        statusText.textContent =
-          "Registration is FREE. Choose MyMUN or Google Forms below.";
+    if (open !== isOpen) {
+      isOpen = open;
 
-        countdown.hidden = true;
+      status.classList.toggle("is-open", open);
+      statusText.textContent = open ? "Registration open" : "Opening soon";
 
-        portals.forEach(link => {
-          link.classList.remove("locked");
-          link.setAttribute("aria-disabled", "false");
-        });
-      } else {
-        statusTitle.textContent = "REGISTRATIONS OPEN IN";
-        statusText.textContent =
-          "Delegate registration opens on 15 October 2026. Registration is free.";
+      registrationLinks.forEach(link => {
+        link.classList.toggle("is-locked", !open);
+        link.setAttribute("aria-disabled", String(!open));
+      });
 
-        countdown.hidden = false;
+      countdown.hidden = open;
 
-        portals.forEach(link => {
-          link.classList.add("locked");
-          link.setAttribute("aria-disabled", "true");
-        });
-      }
+      noteText.textContent = open
+        ? "Registration is now open and completely free. Choose either platform above."
+        : "Registration opens on 15 October 2026. There is no delegate registration fee.";
     }
 
-    if (isOpen) return;
+    if (open) {
+      clearInterval(intervalId);
+      return;
+    }
 
-    const totalSeconds = Math.floor(remaining / 1000);
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
+    const total = Math.max(0, Math.floor(remaining / 1000));
+    const values = [
+      [daysEl, Math.floor(total / 86400)],
+      [hoursEl, Math.floor((total % 86400) / 3600)],
+      [minutesEl, Math.floor((total % 3600) / 60)],
+      [secondsEl, total % 60]
+    ];
 
-    countdown.replaceChildren();
+    values.forEach(([element, value]) => {
+      const next = String(value).padStart(2, "0");
 
-    [
-      [days, "DAYS"],
-      [hours, "HOURS"],
-      [minutes, "MINUTES"],
-      [seconds, "SECONDS"]
-    ].forEach(([value, label]) => {
-      const group = document.createElement("span");
-      group.textContent = String(value).padStart(2, "0");
-
-      const small = document.createElement("small");
-      small.textContent = label;
-
-      countdown.append(group, small);
+      if (element.textContent !== next) {
+        element.textContent = next;
+      }
     });
   }
 
-  portals.forEach(link => {
+  registrationLinks.forEach(link => {
     link.addEventListener("click", event => {
-      if (Date.now() < OPEN_DATE.getTime()) {
+      if (now() < OPEN_DATE.getTime()) {
         event.preventDefault();
-        statusText.textContent =
-          "Registration has not opened yet. Please return on 15 October 2026.";
+        noteText.textContent =
+          "Registration opens on 15 October 2026. Please return then to register.";
       }
     });
   });
 
-  const menu = document.getElementById("navMenu");
-  const links = document.getElementById("navLinks");
+  // Mobile navigation
+  const menu = $("navMenu");
+  const navLinks = $("navLinks");
 
-  menu.addEventListener("click", () => {
-    const isExpanded = menu.getAttribute("aria-expanded") === "true";
+  if (menu && navLinks) {
+    menu.addEventListener("click", () => {
+      const expanded = menu.getAttribute("aria-expanded") === "true";
 
-    menu.setAttribute("aria-expanded", String(!isExpanded));
-    menu.setAttribute(
-      "aria-label",
-      isExpanded ? "Open navigation" : "Close navigation"
-    );
+      menu.setAttribute("aria-expanded", String(!expanded));
+      menu.setAttribute(
+        "aria-label",
+        expanded ? "Open navigation" : "Close navigation"
+      );
 
-    links.classList.toggle("open", !isExpanded);
-  });
-
-  links.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      links.classList.remove("open");
-      menu.setAttribute("aria-expanded", "false");
-      menu.setAttribute("aria-label", "Open navigation");
+      navLinks.classList.toggle("open", !expanded);
     });
-  });
 
-  updateRegistration();
-  setInterval(updateRegistration, 1000);
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menu.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-label", "Open navigation");
+      });
+    });
+  }
+
+  updateCountdown();
+  intervalId = setInterval(updateCountdown, 1000);
 })();
 </script>
-
-<script src="chatbot.js"></script>
 
 </body>
 </html>
