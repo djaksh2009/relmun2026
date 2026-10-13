@@ -1,150 +1,411 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Register — RELMUN '26</title>
-<link rel="icon" href="relmun-logo.png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+
+  <title>Register — RELMUN 2026</title>
+
+  <link rel="icon" href="relmun-logo.png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .registration-page {
+      min-height: 75vh;
+      padding: clamp(9rem, 16vh, 13rem) var(--pad) 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .registration-page::before {
+      content: "";
+      position: absolute;
+      width: 60vw;
+      height: 60vw;
+      max-width: 650px;
+      max-height: 650px;
+      right: -15%;
+      top: 8rem;
+      border: 1px solid rgba(199, 154, 43, .25);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 8vw rgba(14, 41, 153, .12);
+      pointer-events: none;
+    }
+
+    .registration-header,
+    .registration-lock {
+      position: relative;
+      z-index: 1;
+      max-width: 1050px;
+    }
+
+    .registration-header .eyebrow,
+    .registration-lock .eyebrow {
+      color: var(--au);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .registration-header h1 {
+      font-size: clamp(4.5rem, 15vw, 12rem);
+      line-height: .82;
+      margin: 2rem 0;
+    }
+
+    .registration-header h1 em {
+      color: var(--au);
+    }
+
+    .registration-header p {
+      max-width: 620px;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+      line-height: 1.45;
+      margin-bottom: 4rem;
+    }
+
+    .registration-lock {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0 3rem;
+    }
+
+    .registration-lock h2 {
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      margin: 1.5rem 0;
+      line-height: .95;
+    }
+
+    .registration-lock > p {
+      color: var(--dim);
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .lock-countdown {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      align-items: baseline;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 7vw, 5rem);
+      font-variant-numeric: tabular-nums;
+      color: var(--iv);
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .lock-countdown small {
+      font-family: var(--sans);
+      font-size: .65rem;
+      color: var(--dim);
+      letter-spacing: .12em;
+      margin-right: .8rem;
+    }
+
+    .registration-portals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .registration-option {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 210px;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid var(--au);
+      color: var(--iv);
+      font-size: .75rem;
+      letter-spacing: .15em;
+      transition: background .25s, color .25s, opacity .25s;
+    }
+
+    .registration-option:not(.locked):hover {
+      background: var(--au);
+      color: var(--k);
+    }
+
+    .registration-option.locked {
+      opacity: .55;
+      cursor: not-allowed;
+      border-color: var(--line);
+    }
+
+    .registration-note {
+      color: var(--dim);
+      font-size: .75rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 767px) {
+      .registration-header h1 {
+        font-size: clamp(4rem, 18vw, 7rem);
+      }
+
+      .registration-portals {
+        flex-direction: column;
+      }
+
+      .registration-option {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<nav class="navbar">
-<a class="nav-logo" href="index.html"><img src="relmun-logo.png" alt="RELMUN '26"></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html" aria-label="RELMUN home">
+      <img
+        src="relmun-logo.png"
+        alt="RELMUN 2026"
+        style="width:76px;max-height:52px;object-fit:contain"
+      >
+    </a>
 
-<button class="nav-menu" id="navMenu" aria-label="Open navigation">
-<span></span><span></span>
-</button>
+    <button
+      class="burger"
+      id="navMenu"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="navLinks"
+      type="button"
+    >
+      <span></span>
+      <span></span>
+    </button>
 
-<div class="nav-links" id="navLinks">
-<a href="index.html#about">ABOUT</a>
-<a href="committees.html">COMMITTEES</a>
-<a href="index.html#team">TEAM</a>
-<a href="eb.html">EB</a>
-<a href="faq.html">FAQ</a>
-<a href="register.html" class="nav-register">REGISTER ↗</a>
-</div>
-</nav>
+    <div class="links" id="navLinks">
+      <a href="index.html#about">ABOUT</a>
+      <a href="committees.html">COMMITTEES</a>
+      <a href="index.html#team">TEAM</a>
+      <a href="eb.html">EB</a>
+      <a href="faq.html">FAQ</a>
+      <a href="register.html" class="reg">REGISTER ↗</a>
+    </div>
+  </nav>
 </header>
 
 <main class="registration-page">
 
-<div class="registration-header">
-<span class="eyebrow">RELMUN '26 · DELEGATE REGISTRATION</span>
-<h1>JOIN<br><em>RELMUN.</em></h1>
-<p>
-Delegate registrations open on <strong>15 October 2026.</strong>
-Registration is completely free. Register through MyMUN or the official Google Form from 15 October 2026.
-</p>
-</div>
+  <section class="registration-header">
+    <span class="eyebrow">
+      RELMUN '26 · DELEGATE REGISTRATION
+    </span>
 
-<section class="registration-lock" id="registrationStatus">
+    <h1>JOIN<br><em>RELMUN.</em></h1>
 
-<span class="eyebrow">REGISTRATION WINDOW</span>
+    <p>
+      Be part of Relations, Engagement &amp; Leadership MUN 2026.
+      Delegate registration is completely <strong>FREE.</strong>
+      Registrations open on <strong>15 October 2026.</strong>
+    </p>
+  </section>
 
-<h2 id="statusTitle">REGISTRATIONS OPEN IN</h2>
+  <section
+    class="registration-lock"
+    id="registrationStatus"
+    aria-live="polite"
+  >
+    <span class="eyebrow">REGISTRATION WINDOW</span>
 
-<p id="statusText">
-Delegate registration is currently closed.
-Registration opens on 15 October 2026.
-</p>
+    <h2 id="statusTitle">REGISTRATIONS OPEN IN</h2>
 
-<div class="lock-countdown" id="lockCountdown">
-00 : 00 : 00 : 00
-</div>
+    <p id="statusText">
+      Delegate registration opens on 15 October 2026.
+      Registration is free for everyone.
+    </p>
 
-<div class="registration-portals" id="portalGrid">
+    <div
+      class="lock-countdown"
+      id="lockCountdown"
+      aria-label="Time until registration opens"
+    >
+      <span>--</span>
+    </div>
 
-<a class="registration-option locked" data-registration-link href="https://mymun.com/conferences/relmun-2026" target="_blank" rel="noopener">
-🔒 MYMUN
-</a>
+    <div class="registration-portals">
 
-<a class="registration-option locked" data-registration-link href="https://forms.gle/TWoYZ2fm4Vx6zmUG9" target="_blank" rel="noopener">
-🔒 GOOGLE FORMS
-</a>
+      <a
+        class="registration-option locked"
+        data-registration-link
+        href="https://mymun.com/conferences/relmun-2026"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-disabled="true"
+      >
+        <span data-button-label>MYMUN</span>
+        <span aria-hidden="true">&nbsp;↗</span>
+      </a>
 
-</div>
-</section>
+      <a
+        class="registration-option locked"
+        data-registration-link
+        href="https://forms.gle/TWoYZ2fm4Vx6zmUG9"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-disabled="true"
+      >
+        <span data-button-label>GOOGLE FORMS</span>
+        <span aria-hidden="true">&nbsp;↗</span>
+      </a>
 
+    </div>
 
+    <p class="registration-note">
+      No registration fee. Choose either registration platform
+      once the registration window opens.
+    </p>
+  </section>
 
 </main>
 
-<footer>
-<div class="footer-logo"><img src="relmun-logo.png" alt="RELMUN '26"></div>
-<div class="footer-middle">
-<strong>RELMUN '26</strong>
-<span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
-</div>
-<div class="footer-right">
-<span>26—27 DECEMBER 2026</span>
-<span>ONLINE CONFERENCE</span>
-<span>akshithkabilan@gmail.com</span>
-</div>
+<footer class="foot">
+  <div>
+    <a href="index.html">
+      <img
+        src="relmun-logo.png"
+        alt="RELMUN 2026"
+        style="width:90px;max-height:65px;object-fit:contain;margin-bottom:1rem"
+      >
+    </a>
+    <strong>RELMUN '26</strong>
+    <span>RELATIONS · ENGAGEMENT · LEADERSHIP</span>
+  </div>
+
+  <div>
+    <span>26—27 DECEMBER 2026</span><br>
+    <span>ONLINE CONFERENCE</span>
+  </div>
+
+  <div>
+    <a href="mailto:akshithkabilan@gmail.com">
+      akshithkabilan@gmail.com
+    </a>
+  </div>
 </footer>
 
 <div id="relmun-chatbot"></div>
 
 <script>
-const OPEN_DATE=new Date("2026-10-15T00:00:00+05:30");
+(() => {
+  "use strict";
 
-const countdown=document.getElementById("lockCountdown");
-const statusTitle=document.getElementById("statusTitle");
-const statusText=document.getElementById("statusText");
-const portals=document.querySelectorAll("[data-registration-link]");
+  // India Standard Time: registration opens at midnight on 15 October.
+  const OPEN_DATE = new Date("2026-10-15T00:00:00+05:30");
 
-function isOpen(){
-  return new Date()>=OPEN_DATE;
-}
+  const countdown = document.getElementById("lockCountdown");
+  const statusTitle = document.getElementById("statusTitle");
+  const statusText = document.getElementById("statusText");
+  const portals = document.querySelectorAll("[data-registration-link]");
 
-function updateRegistration(){
-  if(isOpen()){
-    statusTitle.textContent="REGISTRATIONS ARE OPEN";
-    statusText.textContent="Registration is FREE. Choose MyMUN or Google Forms below.";
-    countdown.style.display="none";
+  let registrationOpen = null;
 
-    portals.forEach(link=>{
-      link.classList.remove("locked");
-      const text=link.textContent.trim().replace(/^🔒\s*/,"");
-      link.textContent=text+" ↗";
-    });
-  }else{
-    const diff=OPEN_DATE-new Date();
-    const days=Math.floor(diff/86400000);
-    const hours=Math.floor(diff%86400000/3600000);
-    const mins=Math.floor(diff%3600000/60000);
-    const secs=Math.floor(diff%60000/1000);
+  function updateRegistration() {
+    const now = Date.now();
+    const remaining = OPEN_DATE.getTime() - now;
+    const isOpen = remaining <= 0;
 
-    countdown.textContent=
-      String(days).padStart(2,"0")+" : "+
-      String(hours).padStart(2,"0")+" : "+
-      String(mins).padStart(2,"0")+" : "+
-      String(secs).padStart(2,"0");
-  }
-}
+    if (registrationOpen !== isOpen) {
+      registrationOpen = isOpen;
 
-portals.forEach(link=>{
-  link.addEventListener("click",e=>{
-    if(!isOpen()){
-      e.preventDefault();
+      if (isOpen) {
+        statusTitle.textContent = "REGISTRATIONS ARE OPEN";
+        statusText.textContent =
+          "Registration is FREE. Choose MyMUN or Google Forms below.";
+
+        countdown.hidden = true;
+
+        portals.forEach(link => {
+          link.classList.remove("locked");
+          link.setAttribute("aria-disabled", "false");
+        });
+      } else {
+        statusTitle.textContent = "REGISTRATIONS OPEN IN";
+        statusText.textContent =
+          "Delegate registration opens on 15 October 2026. Registration is free.";
+
+        countdown.hidden = false;
+
+        portals.forEach(link => {
+          link.classList.add("locked");
+          link.setAttribute("aria-disabled", "true");
+        });
+      }
     }
-  });
-});
 
-document.addEventListener("DOMContentLoaded",()=>{
-  const menu=document.getElementById("navMenu");
-  const links=document.getElementById("navLinks");
-  menu?.addEventListener("click",()=>{
-    links.classList.toggle("open");
-  });
-});
+    if (isOpen) return;
 
-updateRegistration();
-setInterval(updateRegistration,1000);
+    const totalSeconds = Math.floor(remaining / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    countdown.replaceChildren();
+
+    [
+      [days, "DAYS"],
+      [hours, "HOURS"],
+      [minutes, "MINUTES"],
+      [seconds, "SECONDS"]
+    ].forEach(([value, label]) => {
+      const group = document.createElement("span");
+      group.textContent = String(value).padStart(2, "0");
+
+      const small = document.createElement("small");
+      small.textContent = label;
+
+      countdown.append(group, small);
+    });
+  }
+
+  portals.forEach(link => {
+    link.addEventListener("click", event => {
+      if (Date.now() < OPEN_DATE.getTime()) {
+        event.preventDefault();
+        statusText.textContent =
+          "Registration has not opened yet. Please return on 15 October 2026.";
+      }
+    });
+  });
+
+  const menu = document.getElementById("navMenu");
+  const links = document.getElementById("navLinks");
+
+  menu.addEventListener("click", () => {
+    const isExpanded = menu.getAttribute("aria-expanded") === "true";
+
+    menu.setAttribute("aria-expanded", String(!isExpanded));
+    menu.setAttribute(
+      "aria-label",
+      isExpanded ? "Open navigation" : "Close navigation"
+    );
+
+    links.classList.toggle("open", !isExpanded);
+  });
+
+  links.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      links.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-label", "Open navigation");
+    });
+  });
+
+  updateRegistration();
+  setInterval(updateRegistration, 1000);
+})();
 </script>
 
 <script src="chatbot.js"></script>
+
 </body>
 </html>
