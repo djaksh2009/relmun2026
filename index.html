@@ -3,15 +3,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#070d24">
-  <meta name="robots" content="noindex, nofollow">
 
-  <title>Website Under Maintenance — RELMUN '26</title>
+  <title>RELMUN '26 — We'll Be Back Shortly</title>
+  <meta
+    name="description"
+    content="The RELMUN 2026 website is temporarily undergoing maintenance. Delegate registration is still available."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Serif+Display&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -19,330 +25,222 @@
       --paper: #eaf0fb;
       --blue: #5b9cf0;
       --amber: #ffb42e;
-      --dim: rgba(234, 240, 251, .62);
-      --line: rgba(91, 156, 240, .25);
-      --ease: cubic-bezier(.22, 1, .36, 1);
+      --dim: rgba(234, 240, 251, 0.62);
+      --line: rgba(91, 156, 240, 0.28);
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
-      padding: 0;
     }
 
     html {
       min-height: 100%;
       background: var(--ink);
-      color-scheme: dark;
     }
 
     body {
       min-height: 100vh;
-      min-height: 100svh;
+      min-height: 100dvh;
       background: var(--ink);
       color: var(--paper);
-      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
-    ::selection {
-      background: var(--amber);
-      color: var(--ink);
+    a {
+      color: inherit;
     }
 
     .page {
       position: relative;
-      isolation: isolate;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      min-height: 100svh;
+      min-height: 100dvh;
+      padding: 0 8%;
       overflow: hidden;
-    }
-
-    /* Background architecture */
-
-    .background-grid {
-      position: absolute;
-      z-index: -3;
-      inset: 0;
-      pointer-events: none;
-      opacity: .25;
-      background-image:
-        linear-gradient(rgba(91,156,240,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(91,156,240,.045) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: linear-gradient(
-        to bottom,
-        transparent,
-        black 20%,
-        black 80%,
-        transparent
-      );
-    }
-
-    .ambient {
-      position: absolute;
-      z-index: -2;
-      width: min(90vw, 900px);
-      aspect-ratio: 1;
-      left: 54%;
-      top: 46%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(
-        circle,
-        rgba(30, 74, 165, .22) 0%,
-        rgba(14, 41, 153, .10) 38%,
-        transparent 70%
-      );
-      pointer-events: none;
-    }
-
-    .globe {
-      position: absolute;
-      z-index: -1;
-      width: min(85vw, 760px);
-      aspect-ratio: 1;
-      top: 47%;
-      left: 72%;
-      transform: translate(-50%, -50%);
-      border: 1px solid rgba(91,156,240,.23);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: globe-arrive 1.5s var(--ease) both;
-    }
-
-    .globe::before,
-    .globe::after {
-      content: "";
-      position: absolute;
-      inset: 9%;
-      border: 1px solid rgba(255,180,46,.12);
-      border-radius: 50%;
-    }
-
-    .globe::after {
-      inset: 22%;
-      border-color: rgba(91,156,240,.16);
-    }
-
-    .globe-ring {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      border: 1px solid rgba(91,156,240,.12);
-      transform: rotateX(65deg) rotate(-20deg);
-    }
-
-    .globe-ring.second {
-      transform: rotateX(65deg) rotate(40deg);
     }
 
     /* Header */
 
     .header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 1.8rem clamp(1.25rem, 6vw, 6rem);
+      align-items: center;
+      gap: 24px;
+      padding: 30px 0;
       border-bottom: 1px solid var(--line);
-      animation: fade-in .8s var(--ease) both;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: .85rem;
-    }
-
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      flex-shrink: 0;
-      border: 1px solid rgba(255,180,46,.7);
-      color: var(--amber);
-      font-family: "DM Serif Display", Georgia, serif;
-      font-size: 1.5rem;
-      letter-spacing: -.08em;
+      text-decoration: none;
     }
 
     .brand-name {
-      font-size: .9rem;
+      font-size: 1.35rem;
+      line-height: 1;
       font-weight: 800;
-      letter-spacing: .17em;
+      letter-spacing: -0.055em;
     }
 
-    .brand-tagline {
-      margin-top: .35rem;
+    .brand-name span {
+      color: var(--blue);
+    }
+
+    .brand-caption {
+      margin-top: 8px;
+      font-size: 0.62rem;
+      letter-spacing: 0.13em;
       color: var(--dim);
-      font-size: .53rem;
-      letter-spacing: .12em;
     }
 
-    .header-status {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
+    .conference-date {
+      text-align: right;
+      font-size: 0.72rem;
+      letter-spacing: 0.09em;
       color: var(--dim);
-      font-size: .65rem;
-      letter-spacing: .13em;
-      text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    .status-dot {
-      position: relative;
-      width: 7px;
-      height: 7px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--amber);
-    }
-
-    .status-dot::after {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      border: 1px solid var(--amber);
-      border-radius: 50%;
-      animation: pulse 2.4s ease-out infinite;
-    }
-
-    /* Main */
+    /* Main content */
 
     .main {
-      width: 100%;
-      max-width: 1450px;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 0 auto;
-      padding: clamp(5rem, 12vh, 9rem) clamp(1.5rem, 9vw, 9rem);
+      align-items: flex-start;
+      padding: 90px 0 100px;
     }
 
     .eyebrow {
       display: flex;
       align-items: center;
-      gap: .8rem;
-      color: var(--amber);
-      font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: .22em;
-      animation: rise-in .9s .1s var(--ease) both;
+      gap: 11px;
+      margin-bottom: 32px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      color: var(--blue);
+      text-transform: uppercase;
     }
 
     .eyebrow::before {
       content: "";
-      display: block;
-      width: 27px;
+      width: 25px;
       height: 1px;
-      background: var(--amber);
+      background: var(--blue);
     }
 
     h1 {
-      margin-top: 2.5rem;
-      font-size: clamp(3.6rem, 10.4vw, 9.8rem);
-      line-height: .83;
-      font-weight: 800;
-      letter-spacing: -.075em;
-      animation: rise-in 1s .2s var(--ease) both;
+      max-width: 850px;
+      font-size: clamp(3.5rem, 9vw, 8.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+      font-weight: 700;
     }
 
-    h1 .line {
+    h1 span {
       display: block;
-    }
-
-    h1 .accent {
-      margin-top: .13em;
-      color: var(--amber);
-      font-family: "DM Serif Display", Georgia, serif;
+      margin-top: 8px;
+      color: var(--blue);
+      font-family: "DM Serif Display", serif;
       font-weight: 400;
       font-style: italic;
-      letter-spacing: -.065em;
+      letter-spacing: -0.045em;
     }
 
     .description {
-      max-width: 510px;
-      margin-top: 2.2rem;
+      max-width: 480px;
+      margin-top: 30px;
       color: var(--dim);
-      font-family: "DM Serif Display", Georgia, serif;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      line-height: 1.75;
-      animation: rise-in 1s .35s var(--ease) both;
-    }
-
-    .description strong {
-      color: var(--paper);
+      font-size: clamp(0.98rem, 1.5vw, 1.12rem);
+      line-height: 1.8;
       font-weight: 400;
     }
 
-    /* Status section */
+    /* Registration */
 
-    .status-block {
+    .actions {
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 1.2rem;
-      margin-top: 3rem;
-      animation: rise-in 1s .45s var(--ease) both;
+      align-items: center;
+      gap: 18px;
+      margin-top: 34px;
     }
 
-    .status-label {
+    .register-link {
       display: inline-flex;
       align-items: center;
-      gap: .8rem;
-      padding: .95rem 1.15rem;
-      border: 1px solid rgba(255,180,46,.4);
+      justify-content: center;
+      gap: 25px;
+      min-height: 51px;
+      padding: 0 20px;
+      border: 1px solid var(--blue);
       color: var(--paper);
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      background: transparent;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition:
+        background 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease;
     }
 
-    .status-copy {
+    .register-link .arrow {
+      color: var(--blue);
+      font-size: 1rem;
+      transition:
+        transform 180ms ease,
+        color 180ms ease;
+    }
+
+    .register-link:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--ink);
+    }
+
+    .register-link:hover .arrow {
+      color: var(--ink);
+      transform: translate(2px, -2px);
+    }
+
+    .register-link:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 5px;
+    }
+
+    .registration-note {
+      margin-top: 13px;
+      font-size: 0.75rem;
       color: var(--dim);
-      font-size: .75rem;
-      line-height: 1.8;
     }
 
-    /* Progress indicator */
+    /* Status */
 
-    .progress-section {
-      width: min(100%, 390px);
-      margin-top: 3rem;
-      animation: rise-in 1s .55s var(--ease) both;
-    }
-
-    .progress-heading {
+    .status {
       display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: .8rem;
+      align-items: center;
+      gap: 10px;
+      margin-top: 56px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      width: min(100%, 480px);
+      font-size: 0.75rem;
       color: var(--dim);
-      font-size: .59rem;
-      font-weight: 700;
-      letter-spacing: .13em;
-      text-transform: uppercase;
     }
 
-    .progress-track {
-      width: 100%;
-      height: 2px;
-      overflow: hidden;
-      background: rgba(91,156,240,.2);
-    }
-
-    .progress-bar {
-      width: 0;
-      height: 100%;
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      flex-shrink: 0;
+      border-radius: 50%;
       background: var(--amber);
-      animation: progress 2.2s 1s var(--ease) forwards;
     }
 
     /* Footer */
@@ -351,176 +249,103 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
-      padding: 1.6rem clamp(1.25rem, 6vw, 6rem);
+      gap: 20px;
+      padding: 22px 0;
       border-top: 1px solid var(--line);
-      animation: fade-in 1s .5s var(--ease) both;
-    }
-
-    .footer-block {
       color: var(--dim);
-      font-size: .59rem;
-      letter-spacing: .13em;
-      line-height: 1.9;
-    }
-
-    .footer-block strong {
-      display: block;
-      color: var(--paper);
-      font-weight: 700;
-    }
-
-    .footer-center {
-      text-align: center;
+      font-size: 0.66rem;
+      letter-spacing: 0.055em;
     }
 
     .footer-right {
       text-align: right;
-      color: var(--amber);
     }
 
-    /* Animation */
+    /* Responsive */
 
-    @keyframes fade-in {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes rise-in {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    @media (min-width: 1500px) {
+      .page {
+        padding-left: 12%;
+        padding-right: 12%;
       }
     }
 
-    @keyframes globe-arrive {
-      from {
-        opacity: 0;
-        transform: translate(-45%, -50%) scale(.96);
+    @media (max-width: 600px) {
+      .page {
+        padding-left: 7%;
+        padding-right: 7%;
       }
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
 
-    @keyframes pulse {
-      0% {
-        opacity: .8;
-        transform: scale(.8);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(2.5);
-      }
-    }
-
-    @keyframes progress {
-      to { width: 72%; }
-    }
-
-    /* Mobile */
-
-    @media (max-width: 650px) {
       .header {
-        padding: 1.25rem;
-      }
-
-      .brand-mark {
-        width: 36px;
-        height: 36px;
-        font-size: 1.25rem;
+        padding: 24px 0;
       }
 
       .brand-name {
-        font-size: .76rem;
+        font-size: 1.2rem;
       }
 
-      .brand-tagline {
-        font-size: .45rem;
-        letter-spacing: .075em;
+      .brand-caption {
+        max-width: 190px;
+        font-size: 0.54rem;
+        line-height: 1.7;
       }
 
-      .header-status {
-        max-width: 110px;
-        font-size: .53rem;
-        line-height: 1.6;
-        gap: .6rem;
+      .conference-date {
+        font-size: 0.61rem;
+        letter-spacing: 0.02em;
       }
 
       .main {
-        padding: 6.5rem 1.4rem;
+        padding: 85px 0 75px;
+      }
+
+      .eyebrow {
+        margin-bottom: 25px;
+        font-size: 0.62rem;
       }
 
       h1 {
-        font-size: clamp(3.25rem, 13.5vw, 6.2rem);
+        font-size: clamp(3.3rem, 14vw, 5.3rem);
       }
 
       .description {
-        font-size: 1.13rem;
+        margin-top: 24px;
+        font-size: 0.96rem;
+        line-height: 1.75;
       }
 
-      .globe {
-        width: 120vw;
-        left: 75%;
-        top: 40%;
+      .actions {
+        margin-top: 28px;
       }
 
-      .ambient {
-        width: 110vw;
-        top: 40%;
+      .register-link {
+        min-height: 49px;
+        padding: 0 16px;
       }
 
-      .status-block {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .progress-section {
-        margin-top: 2.5rem;
+      .status {
+        margin-top: 43px;
       }
 
       .footer {
         align-items: flex-start;
         flex-direction: column;
-        gap: .9rem;
-        padding: 1.4rem 1.25rem;
+        gap: 10px;
+        font-size: 0.6rem;
+        line-height: 1.7;
       }
 
-      .footer-center,
       .footer-right {
         text-align: left;
       }
     }
 
-    @media (max-width: 360px) {
-      h1 {
-        font-size: 3rem;
-      }
-
-      .brand-tagline {
-        letter-spacing: .035em;
-      }
-
-      .header-status {
-        max-width: 85px;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
-      }
-
-      .progress-bar {
-        width: 72%;
+        transition: none !important;
       }
     }
   </style>
@@ -529,86 +354,60 @@
 <body>
   <div class="page">
 
-    <div class="background-grid" aria-hidden="true"></div>
-    <div class="ambient" aria-hidden="true"></div>
-
-    <div class="globe" aria-hidden="true">
-      <div class="globe-ring"></div>
-      <div class="globe-ring second"></div>
-    </div>
-
     <header class="header">
-      <div class="brand">
-        <div class="brand-mark">R.</div>
-        <div>
-          <div class="brand-name">RELMUN '26</div>
-          <div class="brand-tagline">
-            RELATIONS · ENGAGEMENT · LEADERSHIP
-          </div>
+      <a class="brand" href="#" aria-label="RELMUN 2026 home">
+        <div class="brand-name">REL<span>MUN</span> '26</div>
+        <div class="brand-caption">
+          RELATIONS · ENGAGEMENT · LEADERSHIP
         </div>
-      </div>
+      </a>
 
-      <div class="header-status">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span>Temporary Maintenance</span>
+      <div class="conference-date">
+        26 — 27 DECEMBER 2026
       </div>
     </header>
 
     <main class="main">
-
       <div class="eyebrow">
-        A NEW EXPERIENCE IS IN THE WORKS
+        A QUICK NOTE FROM THE TEAM
       </div>
 
       <h1>
-        <span class="line">WEBSITE</span>
-        <span class="line accent">Under Maintenance.</span>
+        We’ll be back
+        <span>shortly.</span>
       </h1>
 
       <p class="description">
-        We're working behind the scenes to improve
-        <strong>RELMUN 2026.</strong>
-        Our website is temporarily unavailable while we prepare
-        an improved experience for our delegates.
+        We’re making a few changes to the RELMUN website.
+        We’ll be back online soon. Thank you for your patience.
       </p>
 
-      <div class="status-block">
-        <div class="status-label">
-          <span class="status-dot" aria-hidden="true"></span>
-          Website Updating
-        </div>
-
-        <p class="status-copy">
-          Thank you for your patience.<br>
-          We'll be back soon.
-        </p>
+      <div class="actions">
+        <a
+          class="register-link"
+          href="https://forms.gle/TWoYZ2fm4Vx6zmUG9"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Register for RELMUN ’26
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
 
-      <div class="progress-section" aria-label="Website update in progress">
-        <div class="progress-heading">
-          <span>Updating the experience</span>
-          <span>In progress</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-bar"></div>
-        </div>
-      </div>
+      <p class="registration-note">
+        Delegate registration · RELMUN 2026
+      </p>
 
+      <div class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Website temporarily unavailable</span>
+      </div>
     </main>
 
     <footer class="footer">
-      <div class="footer-block">
-        <strong>RELMUN '26</strong>
-        ONLINE MODEL UNITED NATIONS
-      </div>
-
-      <div class="footer-block footer-center">
-        26 — 27 DECEMBER 2026
-      </div>
-
-      <div class="footer-block footer-right">
-        A BETTER EXPERIENCE.<br>
-        COMING SOON.
+      <div>RELMUN 2026 · ONLINE CONFERENCE</div>
+      <div class="footer-right">
+        RELATIONS. ENGAGEMENT. LEADERSHIP.
       </div>
     </footer>
 
