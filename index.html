@@ -1,556 +1,698 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="theme-color" content="#080808">
-  <meta name="description" content="RELMUN '26 — Relations, Engagement & Leadership Model United Nations. Join us online on 26–27 December 2026.">
-
-  <title>RELMUN '26 | Relations · Engagement · Leadership</title>
-
-  <link rel="icon" type="image/png" href="relmun-logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RELMUN '26</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+--ink:#080808;
+--paper:#F1ECE0;
+--blue:#0E2999;
+--amber:#C79A2B;
+--dim:rgba(241,236,224,.62);
+--line:rgba(14,41,153,.42);
+box-sizing:border-box;
+color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html,body{background:var(--ink);color:var(--paper);font-family:"Bricolage Grotesque",system-ui,sans-serif;overflow-x:hidden}
+body{min-height:100vh}
+button,input{font-family:inherit}
+.stage{position:relative;height:100vh;height:100dvh;overflow:hidden;background:#070d24;perspective:1200px}
+.globe{position:absolute;left:50%;top:50%;width:min(92vmin,900px);height:min(92vmin,900px);margin:calc(min(92vmin,900px)/-2) 0 0 calc(min(92vmin,900px)/-2);transform-style:preserve-3d;opacity:.55;pointer-events:none}
+.globe i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(91,156,240,.55)}
+.globe i.lat{border-color:rgba(255,180,46,.28)}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:env(safe-area-inset-top,0px) 7vw env(safe-area-inset-bottom,0px);visibility:hidden;opacity:0;z-index:2}
+.scene.on{visibility:visible;opacity:1}
+h1{font-weight:700;font-size:clamp(3.2rem,17vw,15rem);line-height:.86;letter-spacing:-.055em}
+h1 span{display:inline-block}
+h1 .o{color:transparent;-webkit-text-stroke:2px var(--amber)}
+h2{font-weight:700;font-size:clamp(2rem,6.4vw,5.6rem);line-height:.98;letter-spacing:-.04em;max-width:16ch}
+p.lead{font-weight:300;font-size:clamp(1rem,2vw,1.5rem);color:var(--dim);max-width:46ch;margin-top:1.4rem;line-height:1.5}
+.words{font-weight:500;font-size:clamp(1.8rem,6.2vw,5.4rem);line-height:1.05;letter-spacing:-.04em;max-width:15ch}
+.words span{display:inline-block;margin-right:.25em}
+.words b{color:var(--amber);font-weight:800}
+.track{display:flex;gap:2.2vw;width:max-content;padding:0 7vw;margin-top:2rem}
+.card{width:clamp(250px,38vw,440px);height:clamp(260px,46vh,400px);padding:1.6rem;border:1px solid rgba(91,156,240,.5);border-radius:6px;background:rgba(7,13,36,.72);backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:border-color .35s ease,background .35s ease,transform .35s ease,box-shadow .35s ease}
+.card:hover{border-color:var(--amber);background:rgba(12,23,53,.88);box-shadow:0 0 0 1px rgba(255,180,46,.15),0 20px 60px rgba(0,0,0,.3);transform:translateY(-6px)}
+.card strong{font-weight:800;font-size:clamp(2.6rem,7vw,5.5rem);letter-spacing:-.06em;color:var(--blue)}
+.card em{font-style:normal;font-weight:500;font-size:1.15rem}
+.card small{color:var(--dim);font-size:.95rem;line-height:1.45}
+.card .open-label{display:inline-flex;margin-top:1rem;color:var(--amber);font-size:.75rem;letter-spacing:.12em;font-weight:800}
+.big{font-weight:800;font-size:clamp(4rem,19vw,17rem);line-height:.85;letter-spacing:-.07em}
+.big small{font-size:.28em;color:var(--amber);letter-spacing:-.02em;margin-left:.15em}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.6rem 3rem;margin-top:2rem}
+.row div{border-left:2px solid var(--amber);padding-left:1rem}
+.row b{display:block;font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
+.row span{color:var(--dim);font-size:.95rem}
+.sub{margin-top:1.6rem;font-size:.9rem;color:var(--blue);font-weight:500}
+.team-heading{margin-bottom:1.4rem}
+.team-group{width:min(100%,1000px)}
+.team-section-label{margin-top:1rem;color:var(--amber);font-size:.72rem;font-weight:800;letter-spacing:.18em}
+.team-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:1rem;margin-top:.9rem}
+.team-grid.secretariat{grid-template-columns:repeat(2,minmax(180px,300px))}
+.team-person{border:1px solid var(--line);padding:1.15rem;background:rgba(7,13,36,.55);min-height:95px;transition:transform .35s ease,border-color .35s ease,background .35s ease}
+.team-person:hover{transform:translateY(-7px);border-color:var(--amber);background:rgba(15,27,59,.8)}
+.team-person b{display:block;font-size:1rem;margin-bottom:.35rem}
+.team-person span{color:var(--dim);font-size:.78rem;line-height:1.35}
+.team-divider{width:min(100%,1000px);height:1px;background:linear-gradient(90deg,transparent,rgba(91,156,240,.65),transparent);margin:1.6rem 0 .5rem}
+.registration-scene{justify-content:center}
+.cd{display:flex;gap:clamp(.8rem,3vw,2.6rem);margin-top:2rem}
+.cd div{font-weight:800;font-size:clamp(2.6rem,10vw,8rem);line-height:1;letter-spacing:-.04em}
+.cd small{display:block;font-weight:300;font-size:.8rem;color:var(--dim);letter-spacing:0}
+.cta{display:inline-block;margin-top:2rem;padding:1rem 2rem;background:var(--amber);color:var(--ink);font-weight:800;font-size:1.1rem;border-radius:99px;text-decoration:none}
+.cta:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.contact-scene{justify-content:center}
+.contact-wrap{width:min(100%,1050px)}
+.contact-kicker{color:var(--amber);font-size:.72rem;font-weight:800;letter-spacing:.2em;margin-bottom:.8rem}
+.contact-title{max-width:12ch}
+.contact-note{color:var(--dim);max-width:620px;margin-top:1rem;line-height:1.55;font-size:1rem}
+.contact-people{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+.contact-person{display:block;text-decoration:none;color:var(--paper);border:1px solid var(--line);background:rgba(7,13,36,.55);padding:1.15rem;min-height:120px;transition:transform .3s ease,border-color .3s ease,background .3s ease}
+.contact-person:hover{transform:translateY(-5px);border-color:var(--amber);background:rgba(15,27,59,.8)}
+.contact-person b{display:block;font-size:1rem}
+.contact-person span{display:block;margin-top:.35rem;color:var(--dim);font-size:.78rem}
+.contact-person small{display:block;margin-top:1rem;color:var(--blue);font-size:.78rem;font-weight:700}
+.contact-main-links{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;max-width:720px}
+.contact-main-link{display:flex;flex-direction:column;gap:.35rem;padding:1.15rem;border:1px solid var(--line);background:rgba(7,13,36,.55);color:var(--paper);text-decoration:none;transition:transform .3s ease,border-color .3s ease,background .3s ease}
+.contact-main-link:hover{transform:translateY(-5px);border-color:var(--amber);background:rgba(15,27,59,.8)}
+.contact-main-link span{color:var(--amber);font-size:.68rem;font-weight:800;letter-spacing:.16em}
+.contact-main-link b{font-size:.9rem;word-break:break-word}
+.contact-main-link small{color:var(--dim);margin-top:.2rem}
+.hud{position:absolute;right:max(1.2rem,3vw);top:50%;transform:translateY(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:.6rem;font-size:.8rem;color:var(--dim)}
+.bar{width:2px;height:22vh;background:rgba(234,240,251,.18)}
+.bar div{width:100%;height:0;background:var(--amber)}
+.hint{position:absolute;bottom:calc(1.6rem + env(safe-area-inset-bottom,0px));left:7vw;font-size:.85rem;color:var(--dim)}
+.brand{position:absolute;top:calc(1.2rem + env(safe-area-inset-top,0px));left:7vw;font-weight:500;letter-spacing:.18em;font-size:.95rem;z-index:5}
+#rl{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:150;background:var(--blue);color:var(--ink);border:0;border-radius:99px;padding:.8rem 1.3rem;font:800 1rem inherit;cursor:pointer}
+#rw{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:151;width:min(380px,calc(100vw - 2rem));height:min(500px,70vh);background:#0d1735;border:1px solid var(--blue);border-radius:12px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.4)}
+#rw.open{display:flex}
+#rw header{padding:.8rem 1rem;display:flex;justify-content:space-between;font-weight:800;border-bottom:1px solid rgba(91,156,240,.4)}
+#rw header button{background:none;border:0;color:var(--paper);font-size:1.2rem;cursor:pointer}
+#rm{flex:1;overflow:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem;font-size:.92rem;line-height:1.45}
+#rm div{max-width:88%;padding:.6rem .8rem;border-radius:10px;background:rgba(91,156,240,.16)}
+#rm div.u{align-self:flex-end;background:var(--amber);color:var(--ink)}
+#rf{display:flex;border-top:1px solid rgba(91,156,240,.4)}
+#rf input{flex:1;padding:.9rem;background:none;border:0;color:var(--paper);font:inherit}
+#rf button{background:none;border:0;color:var(--amber);font-weight:800;padding:0 1rem;cursor:pointer}
+#committeePage{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 75% 20%,rgba(91,156,240,.13),transparent 35%),#070d24;display:none;overflow-y:auto;opacity:0}
+.contact-choice{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:1.5rem;background:rgba(3,7,20,.72);backdrop-filter:blur(12px)}
+.contact-choice.open{display:flex}
+.contact-choice-box{position:relative;width:min(420px,100%);padding:2rem;border:1px solid var(--blue);background:#0d1735;box-shadow:0 30px 100px rgba(0,0,0,.55)}
+.contact-choice-close{position:absolute;top:.8rem;right:.8rem;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--paper);font-size:1.3rem;cursor:pointer}
+.contact-choice-label{color:var(--amber);font-size:.7rem;font-weight:800;letter-spacing:.18em}
+.contact-choice-box h3{margin-top:.7rem;font-size:1.5rem}
+.contact-choice-box p{margin-top:.7rem;color:var(--dim);line-height:1.5}
+.contact-choice-buttons{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.5rem}
+.contact-choice-buttons a{padding:1rem;text-align:center;text-decoration:none;border:1px solid var(--blue);color:var(--paper);font-weight:800;font-size:.8rem;transition:.3s ease}
+.contact-choice-buttons a:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-3px)}
+@media(max-width:900px){
+.team-grid{grid-template-columns:repeat(2,minmax(140px,1fr))}
+.team-grid.secretariat{grid-template-columns:repeat(2,minmax(140px,1fr))}
+.contact-people{grid-template-columns:repeat(2,1fr)}
+.committee-info{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+.hud{display:none}
+.card{height:44vh}
+#s4{justify-content:flex-start;padding-top:11vh;padding-bottom:8vh;overflow:visible}
+.team-heading{font-size:clamp(2.2rem,10vw,4rem);margin-bottom:1rem}
+.team-section-label{margin-top:1.2rem;margin-bottom:.7rem;font-size:.68rem}
+.team-grid,.team-grid.secretariat{grid-template-columns:1fr;gap:.7rem}
+.team-person{padding:1rem;min-height:75px}
+.team-divider{margin:1.15rem 0 .1rem}
+#s5{padding-top:10vh;padding-bottom:10vh}
+.cd{gap:.8rem;flex-wrap:wrap}
+.cd div{font-size:clamp(2rem,12vw,4rem)}
+#s6{justify-content:flex-start;padding-top:9vh;padding-bottom:8vh;overflow:visible}
+.contact-title{font-size:clamp(2.2rem,10vw,4rem)}
+.contact-note{font-size:.9rem}
+.contact-people{grid-template-columns:1fr;gap:.65rem;margin-top:1.4rem}
+.contact-person{min-height:0;padding:.9rem}
+.contact-person small{margin-top:.6rem}
+.contact-main-links{grid-template-columns:1fr;margin-top:.7rem}
+.committee-info{grid-template-columns:1fr}
+.committee-close{right:1rem;top:1rem}
+.committee-inner{padding-left:6vw;padding-right:6vw;padding-top:5rem}
+.contact-links{grid-template-columns:1fr}
+.contact-choice-buttons{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+.stage{height:auto;overflow:visible}
+.scene{position:relative;min-height:100vh;visibility:visible;opacity:1}
+.globe{display:none}
+.track{flex-wrap:wrap;width:auto}
+}
+</style>
 </head>
-
 <body>
-
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- NAVIGATION -->
-  <header class="navbar">
-    <a class="brand" href="index.html" aria-label="RELMUN home">
-      <img src="relmun-logo.png" alt="RELMUN 2026">
-    </a>
-
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="nav-links">
-      <a href="#about">ABOUT</a>
-      <a href="committees.html">COMMITTEES</a>
-      <a href="#conference">CONFERENCE</a>
-      <a href="#team">SECRETARIAT</a>
-      <a href="#eb">EXECUTIVE BOARD</a>
-      <button class="nav-register js-register">REGISTER <span>↗</span></button>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- HERO -->
-    <section class="hero">
-
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
-      <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
-
-      <div class="hero-copy">
-
-        <div class="hero-kicker">
-          <span class="kicker-line"></span>
-          <p>RELATIONS <span>·</span> ENGAGEMENT <span>·</span> LEADERSHIP</p>
-        </div>
-
-        <h1 class="hero-title">
-          RELMUN<span class="hero-apostrophe">'</span><span class="hero-year">26</span>
-        </h1>
-
-        <div class="hero-description">
-          <span class="description-index">01 — 26</span>
-          <p>A new generation of<br><em>Model United Nations.</em></p>
-        </div>
-
-        <p class="hero-supporting">
-          Debate. Negotiate. Collaborate. Lead.
-        </p>
-
-        <div class="hero-meta">
-          <div class="hero-meta-item">
-            <small>DATES</small>
-            <strong>26–27 DECEMBER 2026</strong>
-          </div>
-
-          <div class="hero-meta-item">
-            <small>FORMAT</small>
-            <strong>ONLINE · GOOGLE MEET</strong>
-          </div>
-
-          <div class="hero-meta-item">
-            <small>TIMEZONE</small>
-            <strong>ALL TIMES IST</strong>
-          </div>
-        </div>
-
-        <div class="hero-actions">
-          <button class="btn btn-gold js-register">
-            REGISTER NOW <span>↗</span>
-          </button>
-
-          <a class="btn btn-outline" href="committees.html">
-            EXPLORE COMMITTEES <span>→</span>
-          </a>
-        </div>
-
-      </div>
-
-      <div class="hero-emblem" aria-hidden="true">
-        <div class="emblem-ring emblem-ring-outer"></div>
-        <div class="emblem-ring emblem-ring-inner"></div>
-        <div class="emblem-cross"></div>
-
-        <div class="emblem-centre">
-          <span class="emblem-star">✳</span>
-          <strong>REL</strong>
-          <strong>MUN</strong>
-          <small>TWENTY TWENTY SIX</small>
-        </div>
-
-        <span class="emblem-label emblem-label-top">RELATIONS</span>
-        <span class="emblem-label emblem-label-bottom">LEADERSHIP · 2026</span>
-      </div>
-
-      <div class="hero-bottomline">
-        <span>INTERNATIONAL DIALOGUE. REAL-WORLD PERSPECTIVES.</span>
-        <span>26 — 27 / 12 / 2026</span>
-      </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section about-section">
-
-      <div class="section-index">01 / ABOUT</div>
-
-      <div class="split-heading">
-        <h2>WHERE<br><em>DIPLOMACY</em><br>BEGINS.</h2>
-
-        <div>
-          <p class="large-copy">
-            RELMUN '26 is a two-day online Model United Nations conference
-            built around relations, engagement and leadership.
-          </p>
-
-          <p class="muted-copy">
-            Delegates will step into the role of representatives, research
-            complex issues, negotiate with fellow delegates and work towards
-            practical multilateral solutions.
-          </p>
-        </div>
-      </div>
-
-      <div class="principles">
-
-        <article>
-          <span>01</span>
-          <h3>RELATIONS</h3>
-          <p>Build alliances. Understand perspectives. Negotiate with purpose.</p>
-        </article>
-
-        <article>
-          <span>02</span>
-          <h3>ENGAGEMENT</h3>
-          <p>Enter the room prepared to speak, listen, question and contribute.</p>
-        </article>
-
-        <article>
-          <span>03</span>
-          <h3>LEADERSHIP</h3>
-          <p>Turn research and diplomacy into meaningful decisions.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- COMMITTEES -->
-    <section id="committees" class="section committees-preview">
-
-      <div class="section-index">02 / COMMITTEES</div>
-
-      <div class="heading-row">
-        <h2>CHOOSE YOUR<br><em>ARENA.</em></h2>
-        <p>Six committees. Different mandates. One conference.</p>
-      </div>
-
-      <div class="committee-grid">
-
-        <a class="committee-card" href="committee.html?committee=unsc">
-          <div class="card-top"><span>01 / UNSC</span><span>↗</span></div>
-          <div class="card-content">
-            <small>UNITED NATIONS</small>
-            <h3>SECURITY<br>COUNCIL</h3>
-            <p>International peace and security, diplomacy, negotiation and high-level decision-making.</p>
-          </div>
-          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
-        </a>
-
-        <a class="committee-card" href="committee.html?committee=unhrc">
-          <div class="card-top"><span>02 / UNHRC</span><span>↗</span></div>
-          <div class="card-content">
-            <small>UNITED NATIONS</small>
-            <h3>HUMAN RIGHTS<br>COUNCIL</h3>
-            <p>International human rights, cooperation and policy-focused multilateral debate.</p>
-          </div>
-          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
-        </a>
-
-        <a class="committee-card" href="committee.html?committee=unodc">
-          <div class="card-top"><span>03 / UNODC</span><span>↗</span></div>
-          <div class="card-content">
-            <small>UNITED NATIONS</small>
-            <h3>OFFICE ON<br>DRUGS AND CRIME</h3>
-            <p>International cooperation against drugs, organised crime and related challenges.</p>
-          </div>
-          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
-        </a>
-
-        <a class="committee-card" href="committee.html?committee=aippm">
-          <div class="card-top"><span>04 / AIPPM</span><span>↗</span></div>
-          <div class="card-content">
-            <small>INDIAN PARLIAMENT</small>
-            <h3>ALL INDIA<br>POLITICAL PARTIES<br>MEET</h3>
-            <p>Political negotiation, parliamentary debate and deliberation on matters of national importance.</p>
-          </div>
-          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
-        </a>
-
-        <a class="committee-card" href="committee.html?committee=unw">
-          <div class="card-top"><span>05 / UNW</span><span>↗</span></div>
-          <div class="card-content">
-            <small>UNITED NATIONS</small>
-            <h3>UN WOMEN</h3>
-            <p>Gender equality, women's empowerment and international action on issues affecting women and girls.</p>
-          </div>
-          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
-        </a>
-
-        <a class="committee-card" href="committee.html?committee=ipla">
-          <div class="card-top"><span>06 / IPLA</span><span>↗</span></div>
-          <div class="card-content">
-            <small>INDIAN PREMIER LEAGUE</small>
-            <h3>INDIAN PREMIER<br>LEAGUE AUCTION</h3>
-            <p>Strategic bidding, team management and high-pressure decision-making in the IPL auction room.</p>
-          </div>
-          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
-        </a>
-
-      </div>
-
-      <a class="text-link" href="committees.html">VIEW ALL SIX COMMITTEES →</a>
-    </section>
-
-    <!-- CONFERENCE -->
-    <section id="conference" class="section conference-section">
-
-      <div class="section-index">03 / CONFERENCE</div>
-
-      <div class="split-heading">
-        <h2>TWO DAYS.<br><em>ONE ROOM.</em><br>ENDLESS IDEAS.</h2>
-        <p class="large-copy">
-          Everything you need for a focused, competitive and engaging
-          MUN experience — online.
-        </p>
-      </div>
-
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <span>01</span>
-          <div>
-            <small>DAY ONE</small>
-            <h3>OPEN · DEBATE · NEGOTIATE</h3>
-            <p>Opening ceremony, committee sessions, moderated debate and bloc-building.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <span>02</span>
-          <div>
-            <small>DAY TWO</small>
-            <h3>DRAFT · VOTE · RECOGNISE</h3>
-            <p>Resolution drafting, final debate, voting and closing recognition.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="conference-stats">
-        <div><strong>26–27</strong><span>DECEMBER 2026</span></div>
-        <div><strong>ONLINE</strong><span>GOOGLE MEET</span></div>
-        <div><strong>IST</strong><span>ALL TIMES</span></div>
-      </div>
-
-    </section>
-
-    <!-- DELEGATE PREPARATION -->
-    <section id="delegates" class="section delegates-section">
-
-      <div class="section-index">04 / DELEGATES</div>
-
-      <div class="heading-row">
-        <h2>COME<br><em>PREPARED.</em></h2>
-        <p>Your committee experience starts before the first moderated caucus.</p>
-      </div>
-
-      <div class="prep-grid">
-
-        <article>
-          <span>01</span>
-          <h3>RESEARCH</h3>
-          <p>Understand your country's position, the committee mandate and the issue.</p>
-        </article>
-
-        <article>
-          <span>02</span>
-          <h3>PREPARE</h3>
-          <p>Read your background guide and prepare a clear opening statement.</p>
-        </article>
-
-        <article>
-          <span>03</span>
-          <h3>ENGAGE</h3>
-          <p>Listen, negotiate, form blocs and contribute constructively throughout committee.</p>
-        </article>
-
-      </div>
-
-      <div class="notice">
-        BACKGROUND GUIDES · <strong>COMING SOON</strong>
-      </div>
-
-    </section>
-
-    <!-- SECRETARIAT -->
-    <section id="team" class="section team-section">
-
-      <div class="section-index">05 / SECRETARIAT</div>
-
-      <div class="heading-row">
-        <h2>THE<br><em>SECRETARIAT.</em></h2>
-        <p>The people building RELMUN '26 behind the scenes.</p>
-      </div>
-
-      <div class="team-grid">
-
-        <article class="person-card featured">
-          <div class="person-number">01</div>
-          <div class="avatar">AK</div>
-          <small>SECRETARY-GENERAL</small>
-          <h3>AKSHITH KABILAN</h3>
-        </article>
-
-        <article class="person-card">
-          <div class="person-number">02</div>
-          <div class="avatar">AK</div>
-          <small>DEPUTY SECRETARY-GENERAL</small>
-          <h3>AKSHITH KABILAN</h3>
-        </article>
-
-        <article class="person-card">
-          <div class="person-number">03</div>
-          <div class="avatar">LV</div>
-          <small>DIRECTOR-GENERAL</small>
-          <h3>LAASYA VIKRAM</h3>
-        </article>
-
-        <article class="person-card">
-          <div class="person-number">04</div>
-          <div class="avatar">AR</div>
-          <small>HEAD OF ADMINISTRATION & OUTREACH · EDITOR-IN-CHIEF</small>
-          <h3>ABIMAYUR R</h3>
-        </article>
-
-      </div>
-
-      <p class="muted-copy team-note">
-        More Secretariat introductions will be announced through our official channels.
-      </p>
-
-    </section>
-
-    <!-- EXECUTIVE BOARD -->
-    <section id="eb" class="section eb-section">
-
-      <div class="section-index">06 / EXECUTIVE BOARD</div>
-
-      <div class="split-heading">
-        <h2>THE<br><em>CHAIRS.</em></h2>
-
-        <div>
-          <p class="large-copy">
-            Meet the Executive Board responsible for guiding debate
-            and maintaining committee procedure.
-          </p>
-          <p class="muted-copy">
-            Committee-specific EB profiles and allocations will be communicated to delegates.
-          </p>
-        </div>
-      </div>
-
-      <div class="eb-grid">
-
-        <article><span>UNSC</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
-        <article><span>UNHRC</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
-        <article><span>UNODC</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
-        <article><span>AIPPM</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
-        <article><span>UNW</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
-        <article><span>IPLA</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
-
-      </div>
-
-      <a class="text-link" href="eb.html">EXPLORE THE EXECUTIVE BOARD →</a>
-    </section>
-
-    <!-- REGISTRATION CTA -->
-    <section class="section final-cta">
-
-      <div class="cta-decoration" aria-hidden="true">✳</div>
-      <div class="section-index">07 / REGISTRATION</div>
-
-      <h2>YOUR SEAT<br><em>AWAITS.</em></h2>
-
-      <p>
-        Six committees. Two days. One opportunity to make your voice heard.
-      </p>
-
-      <button class="btn btn-gold big js-register">
-        REGISTER NOW <span>↗</span>
-      </button>
-
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
-
-      <div class="contact-inner">
-
-        <div>
-          <div class="section-index">08 / CONTACT</div>
-          <h2>LET'S<br><em>TALK.</em></h2>
-        </div>
-
-        <div class="contact-links">
-
-          <a href="mailto:relmun.official@gmail.com">
-            <small>GENERAL ENQUIRIES</small>
-            <strong>relmun.official@gmail.com</strong>
-          </a>
-
-          <a href="https://instagram.com/relmun.official" target="_blank" rel="noopener">
-            <small>INSTAGRAM</small>
-            <strong>@relmun.official</strong>
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="footer-logo">
-      <a href="index.html">
-        <img src="relmun-logo.png" alt="RELMUN 2026 logo">
-      </a>
-    </div>
-
-    <div class="footer-middle">
-      <strong>RELMUN '26</strong>
-      <span>Relations · Engagement · Leadership</span>
-    </div>
-
-    <div class="footer-right">
-      <span>26–27 DECEMBER 2026</span>
-      <span>© 2026 RELMUN</span>
-    </div>
-
-  </footer>
-
-  <!-- REGISTRATION MODAL -->
-  <div class="modal" id="registrationModal" aria-hidden="true">
-
-    <div class="modal-backdrop js-close-modal"></div>
-
-    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="registrationTitle">
-
-      <button class="modal-close js-close-modal" aria-label="Close">×</button>
-
-      <p class="eyebrow">DELEGATE REGISTRATION</p>
-
-      <h2 id="registrationTitle">CHOOSE YOUR<br><em>REGISTRATION.</em></h2>
-
-      <p>Select the registration route applicable to you.</p>
-
-      <div class="modal-options">
-
-        <a href="https://forms.gle/TWoYZ2fm4Vx6zmUG9" target="_blank" rel="noopener">
-          <span>01</span>
-          <strong>Indian Delegates</strong>
-          <small>₹50 REGISTRATION · GOOGLE FORMS ↗</small>
-        </a>
-
-        <a href="https://mymun.com/conferences/relmun-2026" target="_blank" rel="noopener">
-          <span>02</span>
-          <strong>International Delegates</strong>
-          <small>FREE REGISTRATION · MYMUN ↗</small>
-        </a>
-
-      </div>
-
-      <p class="modal-footnote">
-        Please ensure you select the correct registration route.
-      </p>
-
-    </div>
-  </div>
-
-  <!-- RELMUN ASSISTANT -->
-  <div class="chatbot" id="relmunChatbot">
-
-    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open RELMUN assistant" aria-expanded="false">
-      <span class="chatbot-icon">✳</span>
-      <span>RELMUN ASSISTANT</span>
-    </button>
-
-    <div class="chatbot-panel" id="chatbotPanel" aria-hidden="true">
-
-      <div class="chatbot-header">
-        <div>
-          <small>RELMUN '26</small>
-          <strong>ASSISTANT</strong>
-        </div>
-        <button id="chatbotClose" aria-label="Close assistant">×</button>
-      </div>
-
-      <div class="chatbot-messages" id="chatbotMessages"></div>
-
-      <div class="chatbot-suggestions" id="chatbotSuggestions">
-        <button data-question="When is RELMUN '26?">Conference dates</button>
-        <button data-question="How do I register?">How to register</button>
-        <button data-question="What committees are available?">Committees</button>
-        <button data-question="Is RELMUN free?">Registration fees</button>
-      </div>
-
-      <form class="chatbot-form" id="chatbotForm">
-        <input id="chatbotInput" type="text" placeholder="Ask about RELMUN…" autocomplete="off" aria-label="Ask about RELMUN">
-        <button type="submit" aria-label="Send">↗</button>
-      </form>
-
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-  <script src="chatbot.js"></script>
-
+<main class="stage" id="stage">
+<div class="brand">RELMUN</div>
+<div class="globe" id="globe"></div>
+<div class="hud">
+<span id="cur">1</span>
+<div class="bar"><div id="fill"></div></div>
+<span>7</span>
+</div>
+<section class="scene on" id="s0">
+<h1 id="title"><span>REL</span><span>MUN</span><br><span class="o">'26</span></h1>
+<p class="lead">A fully online Model United Nations conference. 26–27 December 2026.</p>
+<div class="hint">Scroll to enter</div>
+</section>
+<section class="scene" id="s1">
+<div class="words" id="words">
+<span>Regional</span><span><b>Engagement</b></span><span>&amp;</span><span><b>Leadership</b></span><span>Model</span><span>United</span><span>Nations</span>
+</div>
+<p class="lead">RELMUN is built around diplomacy, debate, negotiation, engagement and leadership.</p>
+</section>
+<section class="scene" id="s2">
+<h2>Six committees.<br>Six rooms to argue in.</h2>
+<div class="track" id="track">
+<div class="card committee-card" data-committee="UNSC">
+<strong>UNSC</strong>
+<div><em>United Nations Security Council</em><br><small>Global peace and security.</small><span class="open-label">OPEN COMMITTEE ↗</span></div>
+</div>
+<div class="card committee-card" data-committee="UNHRC">
+<strong>UNHRC</strong>
+<div><em>United Nations Human Rights Council</em><br><small>Rights, protections and accountability.</small><span class="open-label">OPEN COMMITTEE ↗</span></div>
+</div>
+<div class="card committee-card" data-committee="UNODC">
+<strong>UNODC</strong>
+<div><em>United Nations Office on Drugs and Crime</em><br><small>Trafficking, crime and justice.</small><span class="open-label">OPEN COMMITTEE ↗</span></div>
+</div>
+<div class="card committee-card" data-committee="AIPPM">
+<strong>AIPPM</strong>
+<div><em>All India Political Parties Meet</em><br><small>Indian politics and parliamentary debate.</small><span class="open-label">OPEN COMMITTEE ↗</span></div>
+</div>
+<div class="card committee-card" data-committee="UN Women">
+<strong>UN Women</strong>
+<div><em>UN Women</em><br><small>Conflict impact, protection and humanitarian access.</small><span class="open-label">OPEN COMMITTEE ↗</span></div>
+</div>
+<div class="card committee-card" data-committee="IPLA">
+<strong>IPLA</strong>
+<div><em>IPL Auction</em><br><small>Bid, build a squad, outsmart the room.</small><span class="open-label">OPEN COMMITTEE ↗</span></div>
+</div>
+</div>
+</section>
+<section class="scene" id="s3">
+<div class="big">26–27<small>Dec 2026</small></div>
+<div class="row">
+<div><b>Fully online</b><span>Attend from anywhere</span></div>
+<div><b>6 committees</b><span>One conference</span></div>
+<div><b>Certificates</b><span>For all participants</span></div>
+</div>
+</section>
+<section class="scene" id="s4">
+<h2 class="team-heading">The people running it.</h2>
+<div class="team-group">
+<div class="team-section-label">CORE</div>
+<div class="team-grid">
+<div class="team-person"><b>Akshith Kabilan</b><span>Deputy Secretary-General</span></div>
+<div class="team-person"><b>S. Shreyaas</b><span>Secretary-General</span></div>
+<div class="team-person"><b>Laasya Vikram</b><span>Director-General</span></div>
+<div class="team-person"><b>Aashi Kushwaha</b><span>Chief Advisor</span></div>
+</div>
+</div>
+<div class="team-divider"></div>
+<div class="team-group">
+<div class="team-section-label">SECRETARIAT</div>
+<div class="team-grid secretariat">
+<div class="team-person"><b>Abimayur R</b><span>Head of Administration &amp; Outreach</span></div>
+<div class="team-person"><b>Madhav Bhardwaj</b><span>USG, Delegate Affairs</span></div>
+</div>
+</div>
+</section>
+<section class="scene registration-scene" id="s5">
+<h2 id="regH">Registrations are open.</h2>
+<p class="lead" id="regP">Indian delegates: ₹50 &nbsp;·&nbsp; International delegates: FREE</p>
+<div class="cd" id="cd" style="display:none">
+<div><span id="d">00</span><small>days</small></div>
+<div><span id="h">00</span><small>hours</small></div>
+<div><span id="m">00</span><small>minutes</small></div>
+<div><span id="s">00</span><small>seconds</small></div>
+</div>
+<div>
+<a class="cta" id="cta" href="https://forms.gle/TWoYZ2fm4Vx6zmUG9" target="_blank" rel="noopener">Indian Delegate Registration — ₹50 ↗</a>
+<a class="cta" href="https://mymun.com/conferences/relmun-2026" target="_blank" rel="noopener" style="margin-left:.6rem;background:var(--paper);color:var(--ink)">International Registration — FREE ↗</a>
+</div>
+<p class="sub">relmun.official@gmail.com · @relmun.official on Instagram</p>
+</section>
+<section class="scene contact-scene" id="s6">
+<div class="contact-wrap">
+<div class="contact-kicker">CONTACT US FOR QUERIES</div>
+<h2 class="contact-title">Need to reach the team?</h2>
+<p class="contact-note">For registration, delegate queries and conference-related enquiries, contact one of the Core team members below.</p>
+<div class="contact-people">
+<a class="contact-person phone-link" href="#" data-phone="+919843451257" data-display="+91 98434 51257"><b>Akshith Kabilan</b><span>Deputy Secretary-General</span><small>+91 98434 51257 ↗</small></a>
+<a class="contact-person phone-link" href="#" data-phone="+919176776643" data-display="+91 91767 76643"><b>S. Shreyaas</b><span>Secretary-General</span><small>+91 91767 76643 ↗</small></a>
+<a class="contact-person phone-link" href="#" data-phone="+918884804856" data-display="+91 88848 04856"><b>Laasya Vikram</b><span>Director-General</span><small>+91 88848 04856 ↗</small></a>
+<a class="contact-person phone-link" href="#" data-phone="+917388291118" data-display="+91 73882 91118"><b>Aashi Kushwaha</b><span>Chief Advisor</span><small>+91 73882 91118 ↗</small></a>
+</div>
+<div class="contact-main-links">
+<a class="contact-main-link" href="mailto:relmun.official@gmail.com"><span>EMAIL</span><b>relmun.official@gmail.com</b><small>↗ Open email</small></a>
+<a class="contact-main-link" href="https://instagram.com/relmun.official" target="_blank" rel="noopener noreferrer">
+  <div class="contact-main-links">
+<a class="contact-main-link" href="mailto:relmun.official@gmail.com">
+<span>EMAIL</span>
+<b>relmun.official@gmail.com</b>
+<small>↗ Open email</small>
+</a>
+<a class="contact-main-link" href="https://instagram.com/relmun.official" target="_blank" rel="noopener noreferrer">
+<span>INSTAGRAM</span>
+<b>@relmun.official</b>
+<small>↗ Open Instagram</small>
+</a>
+</div>
+</div>
+</section>
+</main>
+
+<section id="committeePage">
+<button class="committee-close" id="committeeClose" aria-label="Close committee">×</button>
+<div class="committee-inner">
+<div class="committee-kicker">RELMUN '26 · COMMITTEE</div>
+<div class="committee-code" id="committeeCode">UNSC</div>
+<h1 class="committee-title" id="committeeTitle">United Nations Security Council</h1>
+<p class="committee-description" id="committeeDescription">Global peace and security.</p>
+<div class="agenda-block">
+<div class="agenda-label">AGENDA</div>
+<div class="agenda-text" id="committeeAgenda">The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan</div>
+<div class="freeze-date" id="committeeFreeze">Freeze Date: 5 September 1972</div>
+</div>
+<div class="committee-info">
+<div class="committee-info-box"><small>FORMAT</small><strong>ONLINE</strong></div>
+<div class="committee-info-box"><small>CONFERENCE</small><strong>RELMUN '26</strong></div>
+<div class="committee-info-box"><small>DATES</small><strong>26–27 DEC 2026</strong></div>
+</div>
+<div class="eb-section">
+<div class="eb-heading">EXECUTIVE BOARD</div>
+<div class="eb-card" id="committeeEB">
+<strong>Executive Board details coming soon.</strong>
+<span>The appointed Executive Board for this committee will be announced here.</span>
+</div>
+</div>
+<div class="documents-section">
+<div class="documents-heading">COMMITTEE DOCUMENTS</div>
+<div class="document-box">
+<strong>Documents coming soon.</strong><br>
+Background guides, committee documents and other resources will be published here.
+</div>
+</div>
+<a class="committee-register" href="mailto:relmun.official@gmail.com?subject=RELMUN%20'26%20Committee%20Registration">REGISTER FOR RELMUN ↗</a>
+<div class="contact-strip">
+<strong>SECRETARIAT CONTACT</strong>
+<div class="contact-links">
+<a href="mailto:relmun.official@gmail.com" class="contact-link">
+<span>EMAIL</span>
+<b>relmun.official@gmail.com</b>
+<small>↗ Open email</small>
+</a>
+<a href="https://instagram.com/relmun.official" class="contact-link" target="_blank" rel="noopener noreferrer">
+<span>INSTAGRAM</span>
+<b>@relmun.official</b>
+<small>↗ Open Instagram</small>
+</a>
+</div>
+</div>
+<a href="#" class="committee-back" id="committeeBack">← BACK TO RELMUN</a>
+</div>
+</section>
+
+<div id="contactChoice" class="contact-choice">
+<div class="contact-choice-box">
+<button class="contact-choice-close" id="contactChoiceClose" aria-label="Close">×</button>
+<div class="contact-choice-label">CONTACT</div>
+<h3 id="contactChoiceNumber">+91 98434 51257</h3>
+<p>Choose how you'd like to contact this person.</p>
+<div class="contact-choice-buttons">
+<a id="callChoice" href="#">☎ CALL</a>
+<a id="whatsappChoice" href="#" target="_blank" rel="noopener noreferrer">WHATSAPP ↗</a>
+</div>
+</div>
+</div>
+
+<button id="rl">Ask REX</button>
+<aside id="rw" aria-label="REX assistant">
+<header>
+<span>REX · RELMUN assistant</span>
+<button id="rc" aria-label="Close">×</button>
+</header>
+<div id="rm" aria-live="polite"></div>
+<form id="rf">
+<input id="ri" placeholder="Ask about RELMUN" autocomplete="off">
+<button>Send</button>
+</form>
+</aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const g = $("globe");
+for(let i=0;i<8;i++){
+const r=document.createElement("i");
+r.style.transform=`rotateY(${i*22.5}deg)`;
+g.appendChild(r);
+}
+for(let i=0;i<5;i++){
+const r=document.createElement("i");
+r.className="lat";
+r.style.transform=`rotateX(${(i-2)*22.5}deg)`;
+g.appendChild(r);
+}
+
+const committeeData={
+"UNSC":{
+title:"United Nations Security Council",
+description:"Global peace and security.",
+agenda:"The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan",
+freeze:"Freeze Date: 5 September 1972"
+},
+"UNHRC":{
+title:"United Nations Human Rights Council",
+description:"Rights, protections and accountability.",
+agenda:"Addressing Psychological Torture, Coercive Interrogation, and Inhumane Treatment in Detention Systems",
+freeze:""
+},
+"UNODC":{
+title:"United Nations Office on Drugs and Crime",
+description:"Transnational crime and digital threats.",
+agenda:"Combating the Rise of Transnational Organized Crime Enabled by Digital Technologies, with Special Emphasis on Online Scam Networks and Illicit Financial Flows",
+freeze:""
+},
+"AIPPM":{
+title:"All India Political Parties Meet",
+description:"Indian politics and parliamentary debate.",
+agenda:"Re-evaluating the Reservation System: Affirmative Action, Socio-Economic Criteria, and Creamy Layer Implementation",
+freeze:""
+},
+"UN Women":{
+title:"United Nations Entity for Gender Equality and the Empowerment of Women",
+description:"Conflict impact, protection and humanitarian access.",
+agenda:"Addressing the Impact of Armed Conflicts on Women and Ensuring Equitable Access to Humanitarian Aid",
+freeze:""
+},
+"IPLA":{
+title:"Indian Premier League Auction",
+description:"Bid, build a squad, outsmart the room.",
+agenda:"The Indian Premier League Auction",
+freeze:""
+}
+};
+
+const committeePage=$("committeePage");
+const committeeCards=document.querySelectorAll(".committee-card");
+
+function openCommittee(code){
+const data=committeeData[code];
+if(!data)return;
+$("committeeCode").textContent=code;
+$("committeeTitle").textContent=data.title;
+$("committeeDescription").textContent=data.description;
+$("committeeAgenda").textContent=data.agenda;
+$("committeeFreeze").textContent=data.freeze;
+$("committeeFreeze").style.display=data.freeze?"block":"none";
+committeePage.style.display="block";
+requestAnimationFrame(()=>committeePage.style.opacity="1");
+document.body.style.overflow="hidden";
+}
+
+function closeCommittee(){
+committeePage.style.opacity="0";
+setTimeout(()=>{
+committeePage.style.display="none";
+document.body.style.overflow="";
+},300);
+}
+
+committeeCards.forEach(card=>{
+card.addEventListener("click",()=>{
+openCommittee(card.dataset.committee);
+});
+});
+
+$("committeeClose").addEventListener("click",closeCommittee);
+$("committeeBack").addEventListener("click",e=>{
+e.preventDefault();
+closeCommittee();
+});
+
+document.addEventListener("keydown",e=>{
+if(e.key==="Escape"&&committeePage.style.display==="block"){
+closeCommittee();
+}
+});
+
+if(!reduce&&window.gsap&&window.ScrollTrigger){
+gsap.registerPlugin(ScrollTrigger);
+const scenes=gsap.utils.toArray(".scene");
+const stage=$("stage");
+
+gsap.set(scenes,{autoAlpha:0});
+gsap.set(scenes[0],{autoAlpha:1});
+
+const tl=gsap.timeline({
+scrollTrigger:{
+trigger:stage,
+start:"top top",
+end:"+=700%",
+pin:true,
+scrub:1,
+onUpdate:self=>{
+$("cur").textContent=Math.min(7,Math.floor(self.progress*7)+1);
+$("fill").style.height=(self.progress*100)+"%";
+}
+}
+});
+
+scenes.forEach((scene,i)=>{
+if(i===0)return;
+tl.to(scenes[i-1],{autoAlpha:0,duration:.5},(i-1)*1);
+tl.to(scene,{autoAlpha:1,duration:.5},(i-1)*1+.5);
+});
+
+const track=$("track");
+gsap.to(track,{
+x:()=>-(track.scrollWidth-window.innerWidth+window.innerWidth*.14),
+ease:"none",
+scrollTrigger:{
+trigger:"#s2",
+start:"top top",
+end:"+=1800",
+pin:true,
+scrub:1,
+invalidateOnRefresh:true
+}
+});
+
+}else{
+document.querySelectorAll(".scene").forEach(scene=>{
+scene.style.position="relative";
+scene.style.visibility="visible";
+scene.style.opacity="1";
+});
+}
+
+const targetDate=new Date("2026-12-26T00:00:00+05:30").getTime();
+
+function updateCountdown(){
+const now=Date.now();
+const distance=targetDate-now;
+if(distance<=0){
+$("cd").style.display="none";
+$("regH").textContent="RELMUN '26 is here.";
+$("regP").textContent="26–27 December 2026";
+return;
+}
+const days=Math.floor(distance/(1000*60*60*24));
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds=Math.floor((distance%(1000*60))/1000);
+$("d").textContent=String(days).padStart(2,"0");
+$("h").textContent=String(hours).padStart(2,"0");
+$("m").textContent=String(minutes).padStart(2,"0");
+$("s").textContent=String(seconds).padStart(2,"0");
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+const KB=[
+{
+test:q=>/\b(indian|india|domestic|indian delegate|indian registration|indian fee)\b/i.test(q),
+answer:"Indian delegate registration costs <b>₹50</b>. Register through the official Google Form: <a href='https://forms.gle/TWoYZ2fm4Vx6zmUG9' target='_blank' rel='noopener'>Indian Delegate Registration ↗</a>."
+},
+{
+test:q=>/\b(international|foreign|outside india|international delegate|international registration)\b/i.test(q),
+answer:"International delegate registration is <b>FREE</b>. Register through MyMUN: <a href='https://mymun.com/conferences/relmun-2026' target='_blank' rel='noopener'>International Registration ↗</a>."
+},
+{
+test:q=>/\b(register|registration|registrations|sign up|apply|application|how to join)\b/i.test(q),
+answer:"Registrations are open! <b>Indian delegates:</b> ₹50 through <a href='https://forms.gle/TWoYZ2fm4Vx6zmUG9' target='_blank' rel='noopener'>this Google Form ↗</a>. <b>International delegates:</b> FREE through <a href='https://mymun.com/conferences/relmun-2026' target='_blank' rel='noopener'>MyMUN ↗</a>."
+},
+{
+test:q=>/\b(fee|fees|price|cost|payment|pay|upi)\b/i.test(q),
+answer:"The Indian delegate registration fee is <b>₹50</b>. International delegate registration is <b>FREE</b>. Indian delegates can register through the Google Form; international delegates should use MyMUN."
+},
+{
+test:q=>/\b(date|dates|when|schedule|conference date|conference dates)\b/i.test(q),
+answer:"RELMUN '26 takes place on <b>26–27 December 2026</b>. The conference is fully online."
+},
+{
+test:q=>/\b(committee|committees|list of committees|which committees)\b/i.test(q),
+answer:"RELMUN '26 has six committees: <b>UNSC, UNHRC, UNODC, AIPPM, UN Women and IPLA</b>. You can select a committee on the website to view its agenda."
+},
+{
+test:q=>/\b(unsc|security council|black september)\b/i.test(q),
+answer:"<b>UNSC — United Nations Security Council</b><br>Agenda: The Black September Crisis: The Situation in the Hashemite Kingdom of Jordan.<br><b>Freeze Date:</b> 5 September 1972."
+},
+{
+test:q=>/\b(unhrc|human rights council|psychological torture|coercive interrogation)\b/i.test(q),
+answer:"<b>UNHRC — United Nations Human Rights Council</b><br>Agenda: Addressing Psychological Torture, Coercive Interrogation, and Inhumane Treatment in Detention Systems."
+},
+{
+test:q=>/\b(unodc|organized crime|organised crime|scam networks|illicit financial flows)\b/i.test(q),
+answer:"<b>UNODC — United Nations Office on Drugs and Crime</b><br>Agenda: Combating the Rise of Transnational Organized Crime Enabled by Digital Technologies, with Special Emphasis on Online Scam Networks and Illicit Financial Flows."
+},
+{
+test:q=>/\b(aippm|reservation system|creamy layer|affirmative action)\b/i.test(q),
+answer:"<b>AIPPM — All India Political Parties Meet</b><br>Agenda: Re-evaluating the Reservation System: Affirmative Action, Socio-Economic Criteria, and Creamy Layer Implementation."
+},
+{
+test:q=>/\b(un women|unwomen|women|armed conflict|humanitarian aid)\b/i.test(q),
+answer:"<b>UN Women</b><br>Agenda: Addressing the Impact of Armed Conflicts on Women and Ensuring Equitable Access to Humanitarian Aid."
+},
+{
+test:q=>/\b(ipla|ipl|ipl auction|auction)\b/i.test(q),
+answer:"<b>IPLA — Indian Premier League Auction</b><br>Agenda: The Indian Premier League Auction."
+},
+{
+test:q=>/\b(secretary.general|secretary general|sg|shreyaas)\b/i.test(q),
+answer:"<b>S. Shreyaas</b> is the Secretary-General of RELMUN '26."
+},
+{
+test:q=>/\b(deputy secretary|deputy sg|dsg|akshith)\b/i.test(q),
+answer:"<b>Akshith Kabilan</b> is the Deputy Secretary-General of RELMUN '26."
+},
+{
+test:q=>/\b(laasya|director.general|director general)\b/i.test(q),
+answer:"<b>Laasya Vikram</b> is the Director-General and is part of the <b>Core</b> team."
+},
+{
+test:q=>/\b(aashi|chief advisor)\b/i.test(q),
+answer:"<b>Aashi Kushwaha</b> is the Chief Advisor and is part of the <b>Core</b> team."
+},
+{
+test:q=>/\b(abimayur)\b/i.test(q),
+answer:"<b>Abimayur R</b> is Head of Administration &amp; Outreach and is part of the <b>Secretariat</b>."
+},
+{
+test:q=>/\b(madhav)\b/i.test(q),
+answer:"<b>Madhav Bhardwaj</b> is USG, Delegate Affairs and is part of the <b>Secretariat</b>."
+},
+{
+test:q=>/\b(team|organising team|organization|core|secretariat)\b/i.test(q),
+answer:"<b>Core:</b> S. Shreyaas (Secretary-General), Akshith Kabilan (Deputy Secretary-General), Laasya Vikram (Director-General) and Aashi Kushwaha (Chief Advisor).<br><br><b>Secretariat:</b> Abimayur R (Head of Administration &amp; Outreach and Editor-in-Chief) and Madhav Bhardwaj (USG, Delegate Affairs)."
+},
+{
+test:q=>/\b(online|offline|mode|virtual)\b/i.test(q),
+answer:"RELMUN '26 is a <b>fully online</b> conference."
+},
+{
+test:q=>/\b(certificate|certificates)\b/i.test(q),
+answer:"Certificates are provided to RELMUN '26 participants."
+},
+{
+test:q=>/\b(contact|email|instagram|reach|enquiry|enquiries)\b/i.test(q),
+answer:"For official enquiries, email <b>relmun.official@gmail.com</b> or visit <b>@relmun.official</b> on Instagram."
+},
+{
+test:q=>/\b(about|what is relmun|what's relmun|relmun)\b/i.test(q),
+answer:"<b>RELMUN</b> stands for Regional Engagement &amp; Leadership Model United Nations. It is a fully online MUN taking place on <b>26–27 December 2026</b> with six committees."
+},
+{
+test:q=>/\b(hi|hello|hey|yo|sup)\b/i.test(q),
+answer:"Hey! 👋 I'm <b>REX</b>, the RELMUN '26 assistant. Ask me about committees, agendas, registration, dates, the team or contact details."
+},
+{
+test:q=>/\b(thank|thanks|thx)\b/i.test(q),
+answer:"You're welcome! Ask me anything else about <b>RELMUN '26</b>."
+}
+];
+
+const rm=$("rm");
+
+function say(t,c){
+const d=document.createElement("div");
+d.className=c||"";
+d.innerHTML=t;
+rm.appendChild(d);
+rm.scrollTop=rm.scrollHeight;
+}
+
+$("rl").onclick=()=>{
+$("rw").classList.add("open");
+$("rl").style.display="none";
+$("ri").focus();
+};
+
+$("rc").onclick=()=>{
+$("rw").classList.remove("open");
+$("rl").style.display="block";
+};
+
+$("rf").onsubmit=e=>{
+e.preventDefault();
+const q=$("ri").value.trim();
+if(!q)return;
+const esc=document.createElement("span");
+esc.textContent=q;
+say(esc.innerHTML,"u");
+$("ri").value="";
+const hit=KB.find(item=>item.test(q));
+setTimeout(()=>say(
+hit?hit.answer:"I can help with <b>RELMUN</b>, registration, dates, committees, agendas, the Core, Secretariat, certificates and contact details."
+),250);
+};
+
+say("Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees, agendas, registration, the Core, Secretariat or anything about the conference.");
+
+const contactChoice=$("contactChoice");
+const contactChoiceNumber=$("contactChoiceNumber");
+const callChoice=$("callChoice");
+const whatsappChoice=$("whatsappChoice");
+
+document.querySelectorAll(".phone-link").forEach(link=>{
+link.addEventListener("click",e=>{
+e.preventDefault();
+const phone=link.dataset.phone;
+const display=link.dataset.display;
+contactChoiceNumber.textContent=display;
+callChoice.href=`tel:${phone}`;
+const whatsappNumber=phone.replace(/\D/g,"");
+whatsappChoice.href=`https://wa.me/${whatsappNumber}`;
+contactChoice.classList.add("open");
+});
+});
+
+$("contactChoiceClose").addEventListener("click",()=>{
+contactChoice.classList.remove("open");
+});
+
+contactChoice.addEventListener("click",e=>{
+if(e.target===contactChoice){
+contactChoice.classList.remove("open");
+}
+});
+
+document.addEventListener("keydown",e=>{
+if(e.key==="Escape"&&contactChoice.classList.contains("open")){
+contactChoice.classList.remove("open");
+}
+});
+</script>
 </body>
 </html>
