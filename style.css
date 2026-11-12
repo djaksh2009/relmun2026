@@ -1997,3 +1997,24 @@ input:focus-visible {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* NAVBAR SCROLL STATE */
+
+.navbar.scrolled {
+  background: rgba(8, 8, 8, .98);
+  border-bottom-color: rgba(199, 154, 43, .2);
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
