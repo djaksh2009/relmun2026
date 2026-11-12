@@ -1,770 +1,556 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#070d24">
 
-  <title>RELMUN '26 — Under Maintenance</title>
-  <meta name="description" content="RELMUN 2026 is making a few changes to its website. Delegate registration remains available.">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="RELMUN '26 — Relations, Engagement & Leadership Model United Nations. Join us online on 26–27 December 2026.">
 
+  <title>RELMUN '26 | Relations · Engagement · Leadership</title>
+
+  <link rel="icon" type="image/png" href="relmun-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --ink: #070d24;
-      --paper: #eaf0fb;
-      --blue: #5b9cf0;
-      --amber: #ffb42e;
-      --dim: rgba(234,240,251,.62);
-      --line: rgba(91,156,240,.32);
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-    }
-
-    html {
-      background: var(--ink);
-      color-scheme: dark;
-    }
-
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      overflow-x: hidden;
-      background: var(--ink);
-      color: var(--paper);
-      font-family: "Bricolage Grotesque", sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .page {
-      position: relative;
-      isolation: isolate;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      min-height: 100dvh;
-      padding: 0 7vw;
-      overflow: hidden;
-    }
-
-    /* ORIGINAL RELMUN-STYLE GRID */
-
-    .grid {
-      position: absolute;
-      inset: 0;
-      z-index: -3;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(91,156,240,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(91,156,240,.045) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: linear-gradient(
-        to bottom,
-        transparent,
-        black 18%,
-        black 80%,
-        transparent
-      );
-    }
-
-    .ambient {
-      position: absolute;
-      z-index: -2;
-      width: 620px;
-      height: 620px;
-      right: -180px;
-      top: 15%;
-      border-radius: 50%;
-      background: rgba(35,87,166,.09);
-      filter: blur(90px);
-      pointer-events: none;
-    }
-
-    /* HEADER */
-
-    .header {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 27px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      text-decoration: none;
-    }
-
-    .brand-name {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -.055em;
-    }
-
-    .brand-name span {
-      color: var(--blue);
-    }
-
-    .brand-caption {
-      margin-top: 7px;
-      color: var(--dim);
-      font-size: .61rem;
-      letter-spacing: .15em;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-    }
-
-    .conference-date {
-      color: var(--dim);
-      font-size: .72rem;
-      letter-spacing: .1em;
-      white-space: nowrap;
-    }
-
-    .header-index {
-      color: var(--amber);
-      font-size: .68rem;
-      letter-spacing: .12em;
-    }
-
-    /* MAIN SCENE */
-
-    .main {
-      position: relative;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      min-height: 600px;
-      padding: 62px 0 76px;
-    }
-
-    .content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 1000px;
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      margin-bottom: 30px;
-      color: var(--blue);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .19em;
-    }
-
-    .eyebrow-line {
-      width: 30px;
-      height: 1px;
-      background: var(--amber);
-    }
-
-    h1 {
-      font-size: clamp(4.4rem, 12.2vw, 11.5rem);
-      font-weight: 800;
-      line-height: .79;
-      letter-spacing: -.085em;
-      text-transform: uppercase;
-    }
-
-    h1 .line {
-      display: block;
-    }
-
-    h1 .second {
-      margin-top: .13em;
-      color: transparent;
-      -webkit-text-stroke: 1.5px var(--amber);
-      text-stroke: 1.5px var(--amber);
-    }
-
-    h1 .third {
-      margin-top: .13em;
-      color: var(--paper);
-    }
-
-    .headline-period {
-      color: var(--amber);
-    }
-
-    .description {
-      max-width: 440px;
-      margin-top: 35px;
-      color: var(--dim);
-      font-size: clamp(.98rem, 1.35vw, 1.12rem);
-      font-weight: 300;
-      line-height: 1.8;
-    }
-
-    /* REGISTRATION */
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .register-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 35px;
-      min-width: 235px;
-      padding: 16px 19px;
-      background: var(--amber);
-      color: var(--ink);
-      text-decoration: none;
-      font-size: .86rem;
-      font-weight: 800;
-      border: 1px solid var(--amber);
-      transition:
-        background .22s ease,
-        color .22s ease,
-        border-color .22s ease;
-    }
-
-    .register-link:hover {
-      background: transparent;
-      color: var(--amber);
-    }
-
-    .register-link .arrow {
-      font-size: 1.1rem;
-      transition: transform .22s ease;
-    }
-
-    .register-link:hover .arrow {
-      transform: translate(3px, -3px);
-    }
-
-    .register-link:focus-visible {
-      outline: 2px solid var(--paper);
-      outline-offset: 5px;
-    }
-
-    .register-note {
-      margin-top: 12px;
-      color: var(--dim);
-      font-size: .73rem;
-    }
-
-    .registration-options {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      width: min(100%, 760px);
-      margin-top: 34px;
-    }
-
-    .registration-card {
-      position: relative;
-      padding: 22px 22px 20px;
-      border: 1px solid var(--line);
-      background: rgba(7,13,36,.72);
-      backdrop-filter: blur(8px);
-    }
-
-    .registration-card::before {
-      content: "";
-      position: absolute;
-      top: -1px;
-      left: 22px;
-      width: 34px;
-      height: 2px;
-      background: var(--amber);
-    }
-
-    .registration-kicker {
-      color: var(--blue);
-      font-size: .62rem;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .registration-card h2 {
-      margin-top: 12px;
-      color: var(--paper);
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: -.04em;
-    }
-
-    .registration-price {
-      margin-top: 5px;
-      color: var(--amber);
-      font-family: "DM Serif Display", serif;
-      font-size: 1.8rem;
-    }
-
-    .registration-description {
-      min-height: 42px;
-      margin-top: 8px;
-      color: var(--dim);
-      font-size: .8rem;
-      line-height: 1.6;
-    }
-
-    .registration-card .register-link {
-      width: 100%;
-      min-width: 0;
-      margin-top: 18px;
-      font-size: .76rem;
-    }
-
-    .registration-card .register-link.secondary {
-      border-color: var(--blue);
-      background: transparent;
-      color: var(--paper);
-    }
-
-    .registration-card .register-link.secondary:hover {
-      border-color: var(--amber);
-      color: var(--amber);
-    }
-
-    .registration-footnote {
-      margin-top: 10px;
-      color: var(--dim);
-      font-size: .68rem;
-      line-height: 1.5;
-    }
-
-    /* ORBITAL GLOBE */
-
-    .globe-wrap {
-      position: absolute;
-      width: min(66vw, 790px);
-      aspect-ratio: 1;
-      top: 50%;
-      right: -17%;
-      z-index: -1;
-      transform: translateY(-50%);
-      pointer-events: none;
-      opacity: .58;
-    }
-
-    .globe {
-      position: absolute;
-      inset: 12%;
-      border: 1px solid rgba(91,156,240,.48);
-      border-radius: 50%;
-      background:
-        radial-gradient(
-          circle at 37% 35%,
-          rgba(91,156,240,.08),
-          transparent 60%
-        );
-      box-shadow:
-        inset 0 0 70px rgba(91,156,240,.045),
-        0 0 80px rgba(7,13,36,.2);
-    }
-
-    .globe::before,
-    .globe::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(91,156,240,.38);
-      border-radius: 50%;
-    }
-
-    .globe::before {
-      transform: scaleX(.38);
-    }
-
-    .globe::after {
-      transform: scaleY(.38);
-    }
-
-    .latitude {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      height: 1px;
-      background: rgba(255,180,46,.28);
-    }
-
-    .orbit {
-      position: absolute;
-      inset: 3% -7%;
-      border: 1px solid rgba(255,180,46,.48);
-      border-radius: 50%;
-      transform: rotate(-29deg);
-    }
-
-    .orbit.two {
-      inset: 20% -14%;
-      border-color: rgba(91,156,240,.5);
-      transform: rotate(48deg);
-    }
-
-    .orbit-dot {
-      position: absolute;
-      width: 7px;
-      height: 7px;
-      top: 18%;
-      left: 17%;
-      background: var(--amber);
-      border-radius: 50%;
-      box-shadow: 0 0 12px rgba(255,180,46,.3);
-    }
-
-    .globe-label {
-      position: absolute;
-      right: 4%;
-      bottom: 19%;
-      color: rgba(91,156,240,.8);
-      font-size: .65rem;
-      letter-spacing: .16em;
-      writing-mode: vertical-rl;
-    }
-
-    /* BOTTOM STATUS */
-
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-      color: var(--dim);
-      font-size: .75rem;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      flex: 0 0 7px;
-      border-radius: 50%;
-      background: var(--amber);
-    }
-
-    .status .separator {
-      margin: 0 7px;
-      color: var(--blue);
-    }
-
-    /* FOOTER */
-
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 22px 0;
-      border-top: 1px solid var(--line);
-      color: var(--dim);
-      font-size: .65rem;
-      letter-spacing: .08em;
-    }
-
-    .footer span:last-child {
-      text-align: right;
-    }
-
-    /* ENTRY MOTION */
-
-    @keyframes enter {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .eyebrow,
-    h1,
-    .description,
-    .registration-options,
-    .status {
-      animation: enter .65s ease both;
-    }
-
-    h1 { animation-delay: .07s; }
-    .description { animation-delay: .14s; }
-    .registration-options { animation-delay: .2s; }
-    .status { animation-delay: .26s; }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-      .page {
-        padding: 0 6%;
-      }
-
-      .header {
-        padding: 22px 0;
-      }
-
-      .brand-name {
-        font-size: 1.15rem;
-      }
-
-      .brand-caption {
-        max-width: 200px;
-        font-size: .51rem;
-        letter-spacing: .1em;
-      }
-
-      .header-right {
-        gap: 0;
-      }
-
-      .header-index {
-        display: none;
-      }
-
-      .conference-date {
-        font-size: .59rem;
-        letter-spacing: .03em;
-      }
-
-      .main {
-        min-height: 590px;
-        padding: 70px 0 65px;
-      }
-
-      .content {
-        width: 100%;
-      }
-
-      .eyebrow {
-        margin-bottom: 28px;
-        font-size: .62rem;
-      }
-
-      h1 {
-        font-size: clamp(3.6rem, 14vw, 6.2rem);
-        line-height: .84;
-      }
-
-      h1 .second {
-        -webkit-text-stroke-width: 1px;
-      }
-
-      .description {
-        max-width: 360px;
-        margin-top: 28px;
-        font-size: .96rem;
-      }
-
-      .globe-wrap {
-        width: 115vw;
-        right: -66%;
-        top: 43%;
-        opacity: .3;
-      }
-
-      .register-link {
-        min-width: 220px;
-      }
-
-      .registration-options {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin-top: 28px;
-      }
-
-      .registration-card {
-        padding: 19px;
-      }
-
-      .registration-description {
-        min-height: 0;
-      }
-
-      .status {
-        flex-wrap: wrap;
-        font-size: .69rem;
-      }
-
-      .footer {
-        flex-direction: column;
-        gap: 9px;
-        font-size: .59rem;
-        line-height: 1.6;
-      }
-
-      .footer span:last-child {
-        text-align: left;
-      }
-    }
-
-    @media (max-width: 380px) {
-      h1 {
-        font-size: 3.35rem;
-      }
-
-      .conference-date {
-        white-space: normal;
-        max-width: 95px;
-        line-height: 1.5;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="page">
-    <div class="grid" aria-hidden="true"></div>
-    <div class="ambient" aria-hidden="true"></div>
 
-    <header class="header">
-      <a class="brand" href="#" aria-label="RELMUN 2026">
-        <div class="brand-name">REL<span>MUN</span> '26</div>
-        <div class="brand-caption">
-          RELATIONS · ENGAGEMENT · LEADERSHIP
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <a class="brand" href="index.html" aria-label="RELMUN home">
+      <img src="relmun-logo.png" alt="RELMUN 2026">
+    </a>
+
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links">
+      <a href="#about">ABOUT</a>
+      <a href="committees.html">COMMITTEES</a>
+      <a href="#conference">CONFERENCE</a>
+      <a href="#team">SECRETARIAT</a>
+      <a href="#eb">EXECUTIVE BOARD</a>
+      <button class="nav-register js-register">REGISTER <span>↗</span></button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+
+        <div class="hero-kicker">
+          <span class="kicker-line"></span>
+          <p>RELATIONS <span>·</span> ENGAGEMENT <span>·</span> LEADERSHIP</p>
         </div>
-      </a>
 
-      <div class="header-right">
-        <div class="conference-date">26 — 27 DECEMBER 2026</div>
-        <div class="header-index">/ 01</div>
-      </div>
-    </header>
-
-    <main class="main">
-      <div class="globe-wrap" aria-hidden="true">
-        <div class="globe">
-          <div class="latitude"></div>
-        </div>
-        <div class="orbit"></div>
-        <div class="orbit two"></div>
-        <div class="orbit-dot"></div>
-        <div class="globe-label">RELMUN · 2026</div>
-      </div>
-
-      <section class="content" aria-labelledby="maintenance-title">
-        <div class="eyebrow">
-          A QUICK NOTE FROM THE TEAM
-        </div>
-
-        <h1 id="maintenance-title">
-          <span class="line">WE'RE</span>
-          <span class="line second">WORKING</span>
-          <span class="line third">ON IT<span class="headline-period">.</span></span>
+        <h1 class="hero-title">
+          RELMUN<span class="hero-apostrophe">'</span><span class="hero-year">26</span>
         </h1>
 
-        <p class="description">
-          We're making a few changes to the RELMUN website.
-          We'll be back shortly. In the meantime, delegate
-          registration is still available.
+        <div class="hero-description">
+          <span class="description-index">01 — 26</span>
+          <p>A new generation of<br><em>Model United Nations.</em></p>
+        </div>
+
+        <p class="hero-supporting">
+          Debate. Negotiate. Collaborate. Lead.
         </p>
 
-        <p class="register-note">
-          Choose the registration route that applies to you.
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <small>DATES</small>
+            <strong>26–27 DECEMBER 2026</strong>
+          </div>
+
+          <div class="hero-meta-item">
+            <small>FORMAT</small>
+            <strong>ONLINE · GOOGLE MEET</strong>
+          </div>
+
+          <div class="hero-meta-item">
+            <small>TIMEZONE</small>
+            <strong>ALL TIMES IST</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-gold js-register">
+            REGISTER NOW <span>↗</span>
+          </button>
+
+          <a class="btn btn-outline" href="committees.html">
+            EXPLORE COMMITTEES <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-emblem" aria-hidden="true">
+        <div class="emblem-ring emblem-ring-outer"></div>
+        <div class="emblem-ring emblem-ring-inner"></div>
+        <div class="emblem-cross"></div>
+
+        <div class="emblem-centre">
+          <span class="emblem-star">✳</span>
+          <strong>REL</strong>
+          <strong>MUN</strong>
+          <small>TWENTY TWENTY SIX</small>
+        </div>
+
+        <span class="emblem-label emblem-label-top">RELATIONS</span>
+        <span class="emblem-label emblem-label-bottom">LEADERSHIP · 2026</span>
+      </div>
+
+      <div class="hero-bottomline">
+        <span>INTERNATIONAL DIALOGUE. REAL-WORLD PERSPECTIVES.</span>
+        <span>26 — 27 / 12 / 2026</span>
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+
+      <div class="section-index">01 / ABOUT</div>
+
+      <div class="split-heading">
+        <h2>WHERE<br><em>DIPLOMACY</em><br>BEGINS.</h2>
+
+        <div>
+          <p class="large-copy">
+            RELMUN '26 is a two-day online Model United Nations conference
+            built around relations, engagement and leadership.
+          </p>
+
+          <p class="muted-copy">
+            Delegates will step into the role of representatives, research
+            complex issues, negotiate with fellow delegates and work towards
+            practical multilateral solutions.
+          </p>
+        </div>
+      </div>
+
+      <div class="principles">
+
+        <article>
+          <span>01</span>
+          <h3>RELATIONS</h3>
+          <p>Build alliances. Understand perspectives. Negotiate with purpose.</p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <h3>ENGAGEMENT</h3>
+          <p>Enter the room prepared to speak, listen, question and contribute.</p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h3>LEADERSHIP</h3>
+          <p>Turn research and diplomacy into meaningful decisions.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- COMMITTEES -->
+    <section id="committees" class="section committees-preview">
+
+      <div class="section-index">02 / COMMITTEES</div>
+
+      <div class="heading-row">
+        <h2>CHOOSE YOUR<br><em>ARENA.</em></h2>
+        <p>Six committees. Different mandates. One conference.</p>
+      </div>
+
+      <div class="committee-grid">
+
+        <a class="committee-card" href="committee.html?committee=unsc">
+          <div class="card-top"><span>01 / UNSC</span><span>↗</span></div>
+          <div class="card-content">
+            <small>UNITED NATIONS</small>
+            <h3>SECURITY<br>COUNCIL</h3>
+            <p>International peace and security, diplomacy, negotiation and high-level decision-making.</p>
+          </div>
+          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
+        </a>
+
+        <a class="committee-card" href="committee.html?committee=unhrc">
+          <div class="card-top"><span>02 / UNHRC</span><span>↗</span></div>
+          <div class="card-content">
+            <small>UNITED NATIONS</small>
+            <h3>HUMAN RIGHTS<br>COUNCIL</h3>
+            <p>International human rights, cooperation and policy-focused multilateral debate.</p>
+          </div>
+          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
+        </a>
+
+        <a class="committee-card" href="committee.html?committee=unodc">
+          <div class="card-top"><span>03 / UNODC</span><span>↗</span></div>
+          <div class="card-content">
+            <small>UNITED NATIONS</small>
+            <h3>OFFICE ON<br>DRUGS AND CRIME</h3>
+            <p>International cooperation against drugs, organised crime and related challenges.</p>
+          </div>
+          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
+        </a>
+
+        <a class="committee-card" href="committee.html?committee=aippm">
+          <div class="card-top"><span>04 / AIPPM</span><span>↗</span></div>
+          <div class="card-content">
+            <small>INDIAN PARLIAMENT</small>
+            <h3>ALL INDIA<br>POLITICAL PARTIES<br>MEET</h3>
+            <p>Political negotiation, parliamentary debate and deliberation on matters of national importance.</p>
+          </div>
+          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
+        </a>
+
+        <a class="committee-card" href="committee.html?committee=unw">
+          <div class="card-top"><span>05 / UNW</span><span>↗</span></div>
+          <div class="card-content">
+            <small>UNITED NATIONS</small>
+            <h3>UN WOMEN</h3>
+            <p>Gender equality, women's empowerment and international action on issues affecting women and girls.</p>
+          </div>
+          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
+        </a>
+
+        <a class="committee-card" href="committee.html?committee=ipla">
+          <div class="card-top"><span>06 / IPLA</span><span>↗</span></div>
+          <div class="card-content">
+            <small>INDIAN PREMIER LEAGUE</small>
+            <h3>INDIAN PREMIER<br>LEAGUE AUCTION</h3>
+            <p>Strategic bidding, team management and high-pressure decision-making in the IPL auction room.</p>
+          </div>
+          <div class="card-footer">VIEW COMMITTEE <span>↗</span></div>
+        </a>
+
+      </div>
+
+      <a class="text-link" href="committees.html">VIEW ALL SIX COMMITTEES →</a>
+    </section>
+
+    <!-- CONFERENCE -->
+    <section id="conference" class="section conference-section">
+
+      <div class="section-index">03 / CONFERENCE</div>
+
+      <div class="split-heading">
+        <h2>TWO DAYS.<br><em>ONE ROOM.</em><br>ENDLESS IDEAS.</h2>
+        <p class="large-copy">
+          Everything you need for a focused, competitive and engaging
+          MUN experience — online.
         </p>
+      </div>
 
-        <div class="registration-options" aria-label="Delegate registration options">
+      <div class="timeline">
 
-          <!-- INDIAN DELEGATES -->
-          <article class="registration-card">
-            <div class="registration-kicker">For delegates from India</div>
+        <div class="timeline-item">
+          <span>01</span>
+          <div>
+            <small>DAY ONE</small>
+            <h3>OPEN · DEBATE · NEGOTIATE</h3>
+            <p>Opening ceremony, committee sessions, moderated debate and bloc-building.</p>
+          </div>
+        </div>
 
-            <h2>Indian Delegates</h2>
+        <div class="timeline-item">
+          <span>02</span>
+          <div>
+            <small>DAY TWO</small>
+            <h3>DRAFT · VOTE · RECOGNISE</h3>
+            <p>Resolution drafting, final debate, voting and closing recognition.</p>
+          </div>
+        </div>
 
-            <div class="registration-price">
-              ₹50
-              <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: .72rem; color: var(--dim);">
-                / registration
-              </span>
-            </div>
+      </div>
 
-            <p class="registration-description">
-              Complete your registration through the official RELMUN Google Form.
-            </p>
+      <div class="conference-stats">
+        <div><strong>26–27</strong><span>DECEMBER 2026</span></div>
+        <div><strong>ONLINE</strong><span>GOOGLE MEET</span></div>
+        <div><strong>IST</strong><span>ALL TIMES</span></div>
+      </div>
 
-            <a
-              class="register-link"
-              href="https://forms.gle/TWoYZ2fm4Vx6zmUG9"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              OPEN GOOGLE FORM
-              <span class="arrow" aria-hidden="true">↗</span>
-            </a>
+    </section>
 
-            <p class="registration-footnote">
-              Opens the registration form in a new tab.
-            </p>
-          </article>
+    <!-- DELEGATE PREPARATION -->
+    <section id="delegates" class="section delegates-section">
 
-          <!-- INTERNATIONAL DELEGATES -->
-          <article class="registration-card">
-            <div class="registration-kicker">For delegates outside India</div>
+      <div class="section-index">04 / DELEGATES</div>
 
-            <h2>International Delegates</h2>
+      <div class="heading-row">
+        <h2>COME<br><em>PREPARED.</em></h2>
+        <p>Your committee experience starts before the first moderated caucus.</p>
+      </div>
 
-            <div class="registration-price">FREE</div>
+      <div class="prep-grid">
 
-            <p class="registration-description">
-              International delegate registration is handled through our MyMUN conference page.
-            </p>
+        <article>
+          <span>01</span>
+          <h3>RESEARCH</h3>
+          <p>Understand your country's position, the committee mandate and the issue.</p>
+        </article>
 
-            <a
-              class="register-link secondary"
-              href="https://mymun.com/conferences/relmun-2026"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              REGISTER ON MYMUN
-              <span class="arrow" aria-hidden="true">↗</span>
-            </a>
+        <article>
+          <span>02</span>
+          <h3>PREPARE</h3>
+          <p>Read your background guide and prepare a clear opening statement.</p>
+        </article>
 
-            <p class="registration-footnote">
-              Opens the RELMUN 2026 page on MyMUN in a new tab.
-            </p>
-          </article>
+        <article>
+          <span>03</span>
+          <h3>ENGAGE</h3>
+          <p>Listen, negotiate, form blocs and contribute constructively throughout committee.</p>
+        </article>
+
+      </div>
+
+      <div class="notice">
+        BACKGROUND GUIDES · <strong>COMING SOON</strong>
+      </div>
+
+    </section>
+
+    <!-- SECRETARIAT -->
+    <section id="team" class="section team-section">
+
+      <div class="section-index">05 / SECRETARIAT</div>
+
+      <div class="heading-row">
+        <h2>THE<br><em>SECRETARIAT.</em></h2>
+        <p>The people building RELMUN '26 behind the scenes.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <article class="person-card featured">
+          <div class="person-number">01</div>
+          <div class="avatar">AK</div>
+          <small>SECRETARY-GENERAL</small>
+          <h3>AKSHITH KABILAN</h3>
+        </article>
+
+        <article class="person-card">
+          <div class="person-number">02</div>
+          <div class="avatar">AK</div>
+          <small>DEPUTY SECRETARY-GENERAL</small>
+          <h3>AKSHITH KABILAN</h3>
+        </article>
+
+        <article class="person-card">
+          <div class="person-number">03</div>
+          <div class="avatar">LV</div>
+          <small>DIRECTOR-GENERAL</small>
+          <h3>LAASYA VIKRAM</h3>
+        </article>
+
+        <article class="person-card">
+          <div class="person-number">04</div>
+          <div class="avatar">AR</div>
+          <small>HEAD OF ADMINISTRATION & OUTREACH · EDITOR-IN-CHIEF</small>
+          <h3>ABIMAYUR R</h3>
+        </article>
+
+      </div>
+
+      <p class="muted-copy team-note">
+        More Secretariat introductions will be announced through our official channels.
+      </p>
+
+    </section>
+
+    <!-- EXECUTIVE BOARD -->
+    <section id="eb" class="section eb-section">
+
+      <div class="section-index">06 / EXECUTIVE BOARD</div>
+
+      <div class="split-heading">
+        <h2>THE<br><em>CHAIRS.</em></h2>
+
+        <div>
+          <p class="large-copy">
+            Meet the Executive Board responsible for guiding debate
+            and maintaining committee procedure.
+          </p>
+          <p class="muted-copy">
+            Committee-specific EB profiles and allocations will be communicated to delegates.
+          </p>
+        </div>
+      </div>
+
+      <div class="eb-grid">
+
+        <article><span>UNSC</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
+        <article><span>UNHRC</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
+        <article><span>UNODC</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
+        <article><span>AIPPM</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
+        <article><span>UNW</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
+        <article><span>IPLA</span><h3>EXECUTIVE BOARD</h3><p>CHAIRING TEAM · TO BE ANNOUNCED</p></article>
+
+      </div>
+
+      <a class="text-link" href="eb.html">EXPLORE THE EXECUTIVE BOARD →</a>
+    </section>
+
+    <!-- REGISTRATION CTA -->
+    <section class="section final-cta">
+
+      <div class="cta-decoration" aria-hidden="true">✳</div>
+      <div class="section-index">07 / REGISTRATION</div>
+
+      <h2>YOUR SEAT<br><em>AWAITS.</em></h2>
+
+      <p>
+        Six committees. Two days. One opportunity to make your voice heard.
+      </p>
+
+      <button class="btn btn-gold big js-register">
+        REGISTER NOW <span>↗</span>
+      </button>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+
+      <div class="contact-inner">
+
+        <div>
+          <div class="section-index">08 / CONTACT</div>
+          <h2>LET'S<br><em>TALK.</em></h2>
+        </div>
+
+        <div class="contact-links">
+
+          <a href="mailto:relmun.official@gmail.com">
+            <small>GENERAL ENQUIRIES</small>
+            <strong>relmun.official@gmail.com</strong>
+          </a>
+
+          <a href="https://instagram.com/relmun.official" target="_blank" rel="noopener">
+            <small>INSTAGRAM</small>
+            <strong>@relmun.official</strong>
+          </a>
 
         </div>
-      </section>
-    </main>
 
-    <div class="status">
-      <span class="status-dot" aria-hidden="true"></span>
-      <span>WEBSITE TEMPORARILY UNAVAILABLE</span>
-      <span class="separator">/</span>
-      <span>REGISTRATION REMAINS OPEN</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-logo">
+      <a href="index.html">
+        <img src="relmun-logo.png" alt="RELMUN 2026 logo">
+      </a>
     </div>
 
-    <footer class="footer">
-      <span>RELMUN 2026 · ONLINE CONFERENCE</span>
-      <span>RELATIONS. ENGAGEMENT. LEADERSHIP.</span>
-    </footer>
+    <div class="footer-middle">
+      <strong>RELMUN '26</strong>
+      <span>Relations · Engagement · Leadership</span>
+    </div>
+
+    <div class="footer-right">
+      <span>26–27 DECEMBER 2026</span>
+      <span>© 2026 RELMUN</span>
+    </div>
+
+  </footer>
+
+  <!-- REGISTRATION MODAL -->
+  <div class="modal" id="registrationModal" aria-hidden="true">
+
+    <div class="modal-backdrop js-close-modal"></div>
+
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="registrationTitle">
+
+      <button class="modal-close js-close-modal" aria-label="Close">×</button>
+
+      <p class="eyebrow">DELEGATE REGISTRATION</p>
+
+      <h2 id="registrationTitle">CHOOSE YOUR<br><em>REGISTRATION.</em></h2>
+
+      <p>Select the registration route applicable to you.</p>
+
+      <div class="modal-options">
+
+        <a href="https://forms.gle/TWoYZ2fm4Vx6zmUG9" target="_blank" rel="noopener">
+          <span>01</span>
+          <strong>Indian Delegates</strong>
+          <small>₹50 REGISTRATION · GOOGLE FORMS ↗</small>
+        </a>
+
+        <a href="https://mymun.com/conferences/relmun-2026" target="_blank" rel="noopener">
+          <span>02</span>
+          <strong>International Delegates</strong>
+          <small>FREE REGISTRATION · MYMUN ↗</small>
+        </a>
+
+      </div>
+
+      <p class="modal-footnote">
+        Please ensure you select the correct registration route.
+      </p>
+
+    </div>
   </div>
+
+  <!-- RELMUN ASSISTANT -->
+  <div class="chatbot" id="relmunChatbot">
+
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open RELMUN assistant" aria-expanded="false">
+      <span class="chatbot-icon">✳</span>
+      <span>RELMUN ASSISTANT</span>
+    </button>
+
+    <div class="chatbot-panel" id="chatbotPanel" aria-hidden="true">
+
+      <div class="chatbot-header">
+        <div>
+          <small>RELMUN '26</small>
+          <strong>ASSISTANT</strong>
+        </div>
+        <button id="chatbotClose" aria-label="Close assistant">×</button>
+      </div>
+
+      <div class="chatbot-messages" id="chatbotMessages"></div>
+
+      <div class="chatbot-suggestions" id="chatbotSuggestions">
+        <button data-question="When is RELMUN '26?">Conference dates</button>
+        <button data-question="How do I register?">How to register</button>
+        <button data-question="What committees are available?">Committees</button>
+        <button data-question="Is RELMUN free?">Registration fees</button>
+      </div>
+
+      <form class="chatbot-form" id="chatbotForm">
+        <input id="chatbotInput" type="text" placeholder="Ask about RELMUN…" autocomplete="off" aria-label="Ask about RELMUN">
+        <button type="submit" aria-label="Send">↗</button>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+
 </body>
 </html>
