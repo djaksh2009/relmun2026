@@ -803,6 +803,57 @@ background:var(--blue);
 color:var(--ink);
 }
 /* =========================================
+REGISTRATION TYPE POPUP
+========================================= */
+#registrationChoice{
+z-index:400;
+}
+.registration-options{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:.8rem;
+margin-top:1.5rem;
+}
+.registration-option{
+display:flex;
+flex-direction:column;
+gap:.55rem;
+padding:1.2rem;
+min-height:145px;
+justify-content:space-between;
+text-decoration:none;
+color:var(--paper);
+border:1px solid var(--blue);
+background:rgba(7,13,36,.65);
+transition:transform .3s ease,border-color .3s ease,background .3s ease;
+}
+.registration-option:hover{
+transform:translateY(-5px);
+border-color:var(--amber);
+background:rgba(15,27,59,.9);
+}
+.registration-option span{
+font-size:.68rem;
+font-weight:800;
+letter-spacing:.12em;
+line-height:1.4;
+}
+.registration-option strong{
+font-size:2rem;
+letter-spacing:-.04em;
+color:var(--amber);
+}
+.registration-option small{
+color:var(--dim);
+font-size:.75rem;
+}
+.committee-register{
+border:0;
+cursor:pointer;
+font-family:inherit;
+font-size:1rem;
+}
+/* =========================================
 PHONE CHOICE
 ========================================= */
 .contact-choice{
@@ -983,6 +1034,12 @@ grid-template-columns:1fr;
 }
 .contact-choice-buttons{
 grid-template-columns:1fr;
+}
+.registration-options{
+grid-template-columns:1fr;
+}
+.registration-option{
+min-height:125px;
 }
 }
 @media(prefers-reduced-motion:reduce){
@@ -1374,12 +1431,13 @@ Background guides, committee documents and other resources will be published her
 </div>
 </div>
 <!-- COMMITTEE REGISTRATION -->
-<a
+<button
 class="committee-register"
-href="mailto:relmun.official@gmail.com?subject=RELMUN%20'26%20Committee%20Registration"
+id="committeeRegister"
+type="button"
 >
 REGISTER FOR RELMUN ↗
-</a>
+</button>
 <!-- COMMITTEE CONTACT -->
 <div class="contact-strip">
 <strong>SECRETARIAT CONTACT</strong>
@@ -1409,6 +1467,29 @@ rel="noopener noreferrer"
 </a>
 </div>
 </section>
+<!-- =========================================
+REGISTRATION TYPE SELECTION
+========================================= -->
+<div id="registrationChoice" class="contact-choice" aria-label="Choose registration category">
+<div class="contact-choice-box">
+<button class="contact-choice-close" id="registrationChoiceClose" aria-label="Close">×</button>
+<div class="contact-choice-label">RELMUN '26 · REGISTRATION</div>
+<h3>How are you registering?</h3>
+<p>Select your delegate category to continue with the appropriate registration process.</p>
+<div class="registration-options">
+<a href="https://forms.gle/TWoYZ2fm4Vx6zmUG9" target="_blank" rel="noopener noreferrer" class="registration-option">
+<span>INDIAN DELEGATE</span>
+<strong>₹50</strong>
+<small>Continue to Google Forms ↗</small>
+</a>
+<a href="https://mymun.com/conferences/relmun-2026" target="_blank" rel="noopener noreferrer" class="registration-option">
+<span>INTERNATIONAL DELEGATE</span>
+<strong>FREE</strong>
+<small>Continue to MyMUN ↗</small>
+</a>
+</div>
+</div>
+</div>
 <!-- =========================================
 PHONE / WHATSAPP CHOICE
 ========================================= -->
@@ -1508,7 +1589,7 @@ $("cd").style.display="none";
 $("regH").textContent =
 "Registrations are open.";
 $("cta").textContent =
-"Indian Registration — ₹50 ↗";
+"Register now";
 return;
 }
 const p =
@@ -2295,6 +2376,20 @@ hit
 say(
 "Hey! I'm <b>REX</b>, the RELMUN '26 assistant. Ask about dates, committees, agendas, registration, the Core, Secretariat or anything about the conference."
 );
+/* =========================================
+COMMITTEE REGISTRATION TYPE SELECTION
+========================================= */
+const registrationChoice=$("registrationChoice");
+const openRegistrationChoice=()=>registrationChoice.classList.add("open");
+const closeRegistrationChoice=()=>registrationChoice.classList.remove("open");
+$("committeeRegister").addEventListener("click",openRegistrationChoice);
+$("registrationChoiceClose").addEventListener("click",closeRegistrationChoice);
+registrationChoice.addEventListener("click",e=>{
+if(e.target===registrationChoice)closeRegistrationChoice();
+});
+document.addEventListener("keydown",e=>{
+if(e.key==="Escape"&&registrationChoice.classList.contains("open"))closeRegistrationChoice();
+});
 /* =========================================
 PHONE → CALL / WHATSAPP
 ========================================= */
